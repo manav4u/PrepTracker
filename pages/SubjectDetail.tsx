@@ -366,7 +366,7 @@ const SubjectDetail: React.FC = () => {
                          </div>
                          <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">No Resources Found</p>
                          <Link to="/resources" className="text-[10px] text-[#E11D48] mt-2 font-mono hover:underline">
-                            Add to Vault ->
+                             Add to Vault -&gt;
                          </Link>
                     </div>
                 )}

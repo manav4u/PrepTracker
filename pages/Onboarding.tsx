@@ -330,12 +330,12 @@ const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                         <div className="bg-[#050505] border border-white/5 rounded-xl p-4 text-left h-24 overflow-hidden relative">
                             <div className="absolute top-0 left-0 w-full h-8 bg-gradient-to-b from-[#050505] to-transparent z-10 pointer-events-none"></div>
                             <div className="space-y-1.5 font-mono text-[9px] text-slate-500 opacity-70">
-                                <p>> MOUNT_VOLUMES: OK</p>
-                                <p>> CORE_SERVICES: STARTED</p>
-                                <p>> VERIFYING_INTEGRITY: PASSED</p>
-                                {processPercent > 20 && <p>> ENCRYPTION_KEYS: GENERATED</p>}
-                                {processPercent > 50 && <p className="text-[#E11D48]"> > SYNCING_MATRIX: {Math.round(processPercent)}%</p>}
-                                {processPercent > 80 && <p>> PRE_CACHING: DONE</p>}
+                                <p>&gt; MOUNT_VOLUMES: OK</p>
+                                <p>&gt; CORE_SERVICES: STARTED</p>
+                                <p>&gt; VERIFYING_INTEGRITY: PASSED</p>
+                                {processPercent > 20 && <p>&gt; ENCRYPTION_KEYS: GENERATED</p>}
+                                {processPercent > 50 && <p className="text-[#E11D48]"> &gt; SYNCING_MATRIX: {Math.round(processPercent)}%</p>}
+                                {processPercent > 80 && <p>&gt; PRE_CACHING: DONE</p>}
                                 <p className="animate-pulse">_</p>
                             </div>
                         </div>
