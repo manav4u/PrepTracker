@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PrepTracker | The Elite Academic Suite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+            },
+            borderRadius: {
+              '4xl': '2rem',
+              '5xl': '2.5rem',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root {
+        --sppu-maroon: #E11D48;
+        --bg-void: #030303;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-void);
+        background-image: 
+          radial-gradient(circle at 50% 0%, rgba(225, 29, 72, 0.05) 0%, transparent 50%),
+          linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        background-size: 100% 100%, 40px 40px, 40px 40px;
+        color: #f8fafc;
+        overflow-x: hidden;
+      }
+      ::selection {
+        background: #E11D48;
+        color: white;
+      }
+      .glass-panel {
+        background: rgba(10, 10, 10, 0.8);
+        backdrop-filter: blur(24px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      /* Hide arrows in number inputs */
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
