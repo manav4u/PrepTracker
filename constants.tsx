@@ -17,7 +17,7 @@ export const SUBJECTS: Subject[] = [
     code: 'BSC-101-BES',
     credits: 4,
     common: true,
-    examDate: '2026-01-14T10:00:00',
+    examDate: '2026-01-23T10:00:00',
     units: [
       { 
         id: 'm1-u1', unit_number: 1, title: 'Single Variable Calculus', 
@@ -76,7 +76,7 @@ export const SUBJECTS: Subject[] = [
     name: 'Engineering Physics',
     code: 'BSC-102-BES',
     credits: 4,
-    examDate: '2026-01-15T10:00:00',
+    examDate: '2026-01-24T10:00:00',
     units: [
       { 
         id: 'phy-u1', unit_number: 1, title: 'Fundamentals of Photonics', 
@@ -105,7 +105,7 @@ export const SUBJECTS: Subject[] = [
     name: 'Engineering Chemistry',
     code: 'BSC-103-BES',
     credits: 4,
-    examDate: '2026-01-16T10:00:00',
+    examDate: '2026-01-27T10:00:00',
     units: [
       { 
         id: 'chem-u1', unit_number: 1, title: 'Water Technology', 
@@ -259,7 +259,7 @@ export const SYSTEM_RESOURCES: ResourceItem[] = [
 
 export const EXAM_DATES: ExamDate[] = [
   // Keeping general milestones if needed, but Dashboard now favors specific subject exams
-  { name: 'End-Sem Starts', date: '2026-01-14T10:00:00' } 
+  { name: 'End-Sem Starts', date: '2026-01-17T10:00:00' }
 ];
 
 export const PYQ_YEARS = [
