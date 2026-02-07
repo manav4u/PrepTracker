@@ -61,6 +61,8 @@ const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
   const [processLog, setProcessLog] = useState("INITIALIZING...");
 
   const [choices, setChoices] = useState({
+    maths: 'm1',
+    programming: 'fpl',
     science: 'phy', // 'phy' or 'chem'
     circuit: 'elect', // 'elect' or 'elec'
     core: 'mech', // 'mech' or 'graph'
@@ -101,7 +103,7 @@ const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
         if (currentStep >= steps.length) {
             clearInterval(interval);
             setTimeout(() => {
-                const selectedIds = ['m1', 'fpl', choices.science, choices.circuit, choices.core];
+                const selectedIds = [choices.maths, choices.programming, choices.science, choices.circuit, choices.core];
                 const newProfile: Profile = {
                     name: name || 'Operator',
                     theme: 'dark',
@@ -242,17 +244,23 @@ const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                      </div>
 
                      <div className="space-y-8 mb-12">
-                        {/* Mandatory Block */}
-                        <div className="p-4 rounded-xl bg-white/5 border border-white/5 flex items-center justify-between opacity-60 grayscale">
-                            <div className="flex items-center gap-3">
-                                <Terminal size={16} />
-                                <span className="text-xs font-bold uppercase tracking-widest">Common Core</span>
-                            </div>
-                            <div className="flex gap-2 text-[10px] font-mono">
-                                <span className="px-2 py-1 bg-white/10 rounded">MATH-I</span>
-                                <span className="px-2 py-1 bg-white/10 rounded">FPL</span>
-                            </div>
-                        </div>
+                        {/* Mathematics Choice */}
+                        <BinaryChoice
+                            label="Mathematics Module"
+                            titleA="Engineering Maths-I" codeA="BSC-101"
+                            titleB="Engineering Maths-II" codeB="BSC-151"
+                            selected={choices.maths === 'm1' ? 'A' : 'B'}
+                            onSelect={(v: string) => setChoices({...choices, maths: v === 'A' ? 'm1' : 'm2'})}
+                        />
+
+                        {/* Programming Choice */}
+                        <BinaryChoice
+                            label="Programming Module"
+                            titleA="FPL (C Programming)" codeA="ESC-105"
+                            titleB="PPS (Python)" codeB="PCC-151"
+                            selected={choices.programming === 'fpl' ? 'A' : 'B'}
+                            onSelect={(v: string) => setChoices({...choices, programming: v === 'A' ? 'fpl' : 'pps'})}
+                        />
 
                         {/* Science Choice */}
                         <BinaryChoice 
