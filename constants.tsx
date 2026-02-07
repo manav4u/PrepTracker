@@ -16,7 +16,6 @@ export const SUBJECTS: Subject[] = [
     name: 'Engineering Mathematics-I',
     code: 'BSC-101-BES',
     credits: 4,
-    common: true,
     examDate: '2026-01-23T10:00:00',
     units: [
       { 
@@ -46,7 +45,6 @@ export const SUBJECTS: Subject[] = [
     name: 'Fundamentals of Programming Languages',
     code: 'ESC-105-COM',
     credits: 3,
-    common: true,
     examDate: '2026-01-22T10:00:00',
     units: [
       { 
@@ -242,6 +240,64 @@ export const SUBJECTS: Subject[] = [
       { 
         id: 'graph-u5', unit_number: 5, title: 'Isometric Projection', 
         topics: ['Isometric lines & planes', 'Isometric scale', 'Construction of Isometric views from Orthographic', 'Isometric Projection vs Isometric View'] 
+      },
+    ]
+  },
+  {
+    id: 'm2',
+    name: 'Engineering Mathematics-II',
+    code: 'BSC-151-BES',
+    credits: 4,
+    examDate: '2026-06-15T10:00:00',
+    units: [
+      {
+        id: 'm2-u1', unit_number: 1, title: 'First Order Ordinary Differential Equations',
+        topics: ['Exact Differential Equations', 'Equations reducible to exact equations', 'Linear Differential Equations', 'Equations reducible to Linear equations', 'Applications: Orthogonal Trajectories', "Newton's Law of Cooling", 'Electrical Circuits']
+      },
+      {
+        id: 'm2-u2', unit_number: 2, title: 'Linear Differential Equations with Constant Coefficients',
+        topics: ['LDE with constant coefficients', 'Homogeneous Linear Differential Equations', "Legendre's Linear Equations", 'Applications: L-C-R Circuits']
+      },
+      {
+        id: 'm2-u3', unit_number: 3, title: 'Fourier Series',
+        topics: ['Periodic functions', "Dirichlet's conditions", 'Fourier series', "Euler's formulae", 'Functions having points of discontinuity', 'Change of interval', 'Even and odd functions', 'Half range series', 'Harmonic analysis']
+      },
+      {
+        id: 'm2-u4', unit_number: 4, title: 'Vector Calculus',
+        topics: ['Vector differentiation', 'Gradient, Divergence and Curl', 'Directional derivative', 'Solenoidal and Irrotational vector fields', 'Vector Identities', 'Line, Surface and Volume Integral', "Green's, Gauss & Stokes' Theorem"]
+      },
+      {
+        id: 'm2-u5', unit_number: 5, title: 'Statistics and Probability',
+        topics: ['Measures of Central Tendency', 'Measures of Dispersion', 'Moments, Skewness and Kurtosis', 'Binomial, Poisson and Normal distributions']
+      },
+    ]
+  },
+  {
+    id: 'pps',
+    name: 'Programming and Problem Solving',
+    code: 'PCC-151-ITT',
+    credits: 3,
+    examDate: '2026-06-12T10:00:00',
+    units: [
+      {
+        id: 'pps-u1', unit_number: 1, title: 'Introduction to Computing and Programming',
+        topics: ['Digital Computer & Computing Environment', 'Computer Languages', 'Problem Solving', 'Programming Basics', 'Elements of Python']
+      },
+      {
+        id: 'pps-u2', unit_number: 2, title: 'Control Structures',
+        topics: ['Decision Making and Branching', 'Loop Control Structures']
+      },
+      {
+        id: 'pps-u3', unit_number: 3, title: 'Functions and Modules',
+        topics: ['Introduction to Functions', 'User Defined Functions', 'Parameters and Arguments', 'Recursion', 'Python Modules']
+      },
+      {
+        id: 'pps-u4', unit_number: 4, title: 'Strings and List',
+        topics: ['Strings: Introduction, Operations, Methods', 'Lists: Introduction, Operations, Methods']
+      },
+      {
+        id: 'pps-u5', unit_number: 5, title: 'Tuples, Sets and Dictionaries',
+        topics: ['Tuples: Introduction, Operations, Methods', 'Sets: Introduction, Operations, Methods', 'Dictionaries: Introduction, Operations, Methods']
       },
     ]
   }
