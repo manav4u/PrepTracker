@@ -90,10 +90,10 @@ const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
     
     // Simulate complex processing steps
     const steps = [
-        { pct: 10, log: "ENCRYPTING LOCAL IDENTITY..." },
-        { pct: 30, log: "ALLOCATING SUBJECT VECTORS..." },
-        { pct: 60, log: "SYNCING RESOURCE DATABASE..." },
-        { pct: 85, log: "OPTIMIZING UI THREADS..." },
+        { pct: 10, log: "SAVING PROFILE..." },
+        { pct: 30, log: "CONFIGURING SUBJECTS..." },
+        { pct: 60, log: "LOADING RESOURCES..." },
+        { pct: 85, log: "OPTIMIZING DASHBOARD..." },
         { pct: 100, log: "SYSTEM READY." }
     ];
 
@@ -196,7 +196,7 @@ const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[2px] bg-[#E11D48] blur-[8px]"></div>
 
                         <label className="flex items-center gap-2 text-[9px] font-mono text-[#E11D48] mb-6 uppercase tracking-[0.2em] font-bold">
-                           <ShieldCheck size={12} /> Establish Operator Alias
+                           <ShieldCheck size={12} /> Personal Identification
                         </label>
 
                         <div className="relative mb-8">
@@ -204,7 +204,7 @@ const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                                type="text"
                                value={name}
                                onChange={(e) => setName(e.target.value)}
-                               placeholder="ENTER DESIGNATION"
+                               placeholder="YOUR NAME"
                                className="w-full bg-transparent border-b border-white/10 py-3 text-2xl lg:text-3xl font-display font-bold text-center text-white focus:border-[#E11D48] focus:outline-none transition-all placeholder:text-white/5 uppercase tracking-wide"
                                autoFocus
                            />
@@ -214,8 +214,8 @@ const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                         <div className="text-center space-y-2">
                              <p className="text-xs text-white font-medium">What should we call you?</p>
                              <p className="text-[10px] text-slate-500 leading-relaxed font-mono">
-                                Enter your Real Name, Username, Gamertag, or Codename.<br/>
-                                <span className="opacity-50">This designation is local to your device.</span>
+                                Enter your Name or Username to personalize your dashboard.<br/>
+                                <span className="opacity-50">This information is saved locally on your device.</span>
                              </p>
                         </div>
                     </div>
@@ -227,7 +227,7 @@ const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                             disabled={name.length === 0}
                             className="group flex items-center gap-3 px-8 py-4 bg-white text-black rounded-xl text-xs font-bold uppercase tracking-[0.2em] disabled:opacity-30 disabled:cursor-not-allowed transition-all hover:bg-slate-200 hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.1)]"
                         >
-                            Confirm Identity <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                            Continue <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                         </button>
                     </div>
                 </div>
@@ -237,10 +237,10 @@ const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                 <div className="w-full animate-in fade-in zoom-in-95 duration-500 slide-in-from-right-8">
                      <div className="mb-10 text-center lg:text-left">
                         <span className="inline-block px-3 py-1 rounded-full border border-[#E11D48]/30 bg-[#E11D48]/10 text-[#E11D48] text-[10px] font-bold uppercase tracking-widest mb-4">
-                            System Configuration
+                            Setup Configuration
                         </span>
-                        <h2 className="text-4xl font-display font-bold mb-2">Select Your Loadout</h2>
-                        <p className="text-slate-500 text-sm">Configure your semester subject matrix.</p>
+                        <h2 className="text-4xl font-display font-bold mb-2">Select Your Subjects</h2>
+                        <p className="text-slate-500 text-sm">Choose the subjects you want to track this semester.</p>
                      </div>
 
                      <div className="space-y-8 mb-12">
@@ -295,7 +295,7 @@ const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                         className="w-full py-6 bg-[#E11D48] text-white font-bold uppercase tracking-[0.2em] rounded-xl hover:bg-[#be123c] transition-all shadow-[0_0_40px_-10px_#E11D48] hover:shadow-[0_0_60px_-10px_#E11D48] flex items-center justify-center gap-3 group"
                      >
                         <Zap size={18} className="fill-white" />
-                        Launch System
+                        Start PrepTracker
                      </button>
                 </div>
             )}

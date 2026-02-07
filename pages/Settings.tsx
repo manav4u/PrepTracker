@@ -48,7 +48,7 @@ const ConfirmModal = ({ isOpen, title, description, onConfirm, onCancel, isDange
                         onClick={onCancel}
                         className="flex-1 py-3 rounded-xl border border-white/10 text-xs font-bold uppercase tracking-widest text-slate-400 hover:bg-white/5 transition-colors"
                     >
-                        Cancel_Op
+                        Cancel
                     </button>
                     <button 
                         onClick={onConfirm}
@@ -93,7 +93,7 @@ const SettingsPage: React.FC<{ profile: Profile, setProfile: any }> = ({ profile
 
   const manualSave = () => {
       localStorage.setItem('sppu_profile', JSON.stringify(profile));
-      showToast("System State Synchronized", 'success');
+      showToast("Settings Saved", 'success');
   }
 
   // --- MODAL HANDLERS ---
@@ -109,11 +109,11 @@ const SettingsPage: React.FC<{ profile: Profile, setProfile: any }> = ({ profile
           const newProfile = { ...profile, setupComplete: false };
           setProfile(newProfile);
           localStorage.setItem('sppu_profile', JSON.stringify(newProfile));
-          showToast("System Reset Initiated", 'success');
+          showToast("Configuration Reset", 'success');
       } 
       else if (modalConfig.type === 'FORMAT') {
           // ACTIVATE LOCKOUT MODE
-          setIsBusy({ active: true, message: 'FORMATTING LOCAL DRIVE...' });
+          setIsBusy({ active: true, message: 'WIPING DATA...' });
           
           // Critical Operation: Hard Reset sequence
           setTimeout(() => {
@@ -169,7 +169,7 @@ const SettingsPage: React.FC<{ profile: Profile, setProfile: any }> = ({ profile
 
   const validateAndRestore = (content: string) => {
       // ACTIVATE LOCKOUT MODE
-      setIsBusy({ active: true, message: 'VERIFYING DATA INTEGRITY...' });
+      setIsBusy({ active: true, message: 'CHECKING BACKUP...' });
 
       setTimeout(() => {
         try {
@@ -204,7 +204,7 @@ const SettingsPage: React.FC<{ profile: Profile, setProfile: any }> = ({ profile
             }
 
             if (restored) {
-                setIsBusy({ active: true, message: 'REBOOTING SYSTEM...' });
+                setIsBusy({ active: true, message: 'RESTARTING APP...' });
                 setTimeout(() => window.location.reload(), 1000);
             } else {
                 setIsBusy({ active: false, message: '' });
@@ -302,7 +302,7 @@ const SettingsPage: React.FC<{ profile: Profile, setProfile: any }> = ({ profile
             <div>
                 <div className="flex items-center gap-2 text-[#E11D48] mb-2">
                     <Terminal size={16} />
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em]">Root_Access // Config</span>
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em]">User & System Settings</span>
                 </div>
                 <h1 className="text-5xl lg:text-7xl font-display font-bold text-white tracking-tighter leading-none">
                     System <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-500 to-slate-700">Settings</span>
@@ -332,7 +332,7 @@ const SettingsPage: React.FC<{ profile: Profile, setProfile: any }> = ({ profile
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                      <div className="space-y-6">
                         <div className="space-y-2">
-                            <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest block">Designation / Name</label>
+                            <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest block">Your Name</label>
                             <input 
                                 type="text" 
                                 value={profile.name}
@@ -341,7 +341,7 @@ const SettingsPage: React.FC<{ profile: Profile, setProfile: any }> = ({ profile
                             />
                         </div>
                         <div className="space-y-2">
-                            <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest block">Academic PRN (Local)</label>
+                            <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest block">Student ID / PRN</label>
                             <input 
                                 type="text" 
                                 value={profile.prn || ''}
