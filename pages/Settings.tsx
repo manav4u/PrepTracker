@@ -1,8 +1,9 @@
 
 import React, { useRef, useState, useEffect } from 'react';
-import { User, Save, RotateCcw, Trash2, ShieldCheck, Cpu, Power, CreditCard, Terminal, AlertTriangle, Upload, Download, Database, HardDrive, X, Check, AlertOctagon, FileJson, Loader2, ScanLine, Wifi } from 'lucide-react';
+import { User, Save, RotateCcw, Trash2, ShieldCheck, Cpu, Power, CreditCard, Terminal, AlertTriangle, Upload, Download, Database, HardDrive, X, Check, AlertOctagon, FileJson, Loader2, ScanLine, Wifi, LogOut, Cloud } from 'lucide-react';
 import { Profile } from '../types';
 import { SUBJECTS } from '../constants';
+import { supabase } from '../lib/supabase';
 
 // --- MICRO-COMPONENTS ---
 
@@ -70,6 +71,18 @@ const ConfirmModal = ({ isOpen, title, description, onConfirm, onCancel, isDange
 
 const SettingsPage: React.FC<{ profile: Profile, setProfile: any }> = ({ profile, setProfile }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [session, setSession] = useState<any>(null);
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+    });
+  }, []);
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    window.location.reload();
+  };
   const [dragActive, setDragActive] = useState(false);
   
   // State for Micro-interactions
@@ -308,11 +321,19 @@ const SettingsPage: React.FC<{ profile: Profile, setProfile: any }> = ({ profile
                     System <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-500 to-slate-700">Settings</span>
                 </h1>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
                  <div className="px-4 py-2 rounded border border-white/10 bg-white/5 flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_10px_#22c55e] animate-pulse"></div>
                     <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">System Operational</span>
                  </div>
+                 {session && (
+                    <button
+                        onClick={handleLogout}
+                        className="px-4 py-2 rounded border border-red-500/30 bg-red-500/5 text-red-500 hover:bg-red-500 hover:text-white transition-all text-[10px] font-bold uppercase tracking-widest flex items-center gap-2"
+                    >
+                        <LogOut size={12} /> Sign Out
+                    </button>
+                 )}
             </div>
         </header>
 
@@ -531,8 +552,8 @@ const SettingsPage: React.FC<{ profile: Profile, setProfile: any }> = ({ profile
         </div>
 
         <div className="mt-12 text-center">
-            <p className="text-[9px] font-mono text-slate-600 uppercase tracking-widest">
-                PrepTracker OS v2.4.0 • Offline Mode
+            <p className="text-[9px] font-mono text-slate-600 uppercase tracking-widest flex items-center justify-center gap-2">
+                PrepTracker OS v2.5.0 • <Cloud size={10} className="text-[#E11D48]" /> Cloud Active {session?.user?.email && `• ${session.user.email}`}
             </p>
         </div>
       </div>

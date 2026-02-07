@@ -141,41 +141,9 @@ const ProgressGraphCard = ({ data, labels }: { data: number[], labels: string[] 
     );
 }
 
-const Dashboard: React.FC<{ selectedIds: string[] }> = ({ selectedIds = [] }) => {
-  // Use state with regular updates to ensure real-time reflectiveness
-  const [userProgress, setUserProgress] = useState<UserProgress[]>([]);
-  const [profile, setProfile] = useState<Profile>({ name: 'Engineer', selectedSubjects: [], streak: 0, lastStudyDate: '' });
-  
+const Dashboard: React.FC<{ selectedIds: string[], userProgress: UserProgress[], profile: Profile }> = ({ selectedIds = [], userProgress = [], profile }) => {
   // Coming Soon Modal State
   const [comingSoon, setComingSoon] = useState<string | null>(null);
-
-  const loadData = () => {
-      try {
-          const savedProgress = localStorage.getItem('sppu_user_progress');
-          if (savedProgress) setUserProgress(JSON.parse(savedProgress));
-
-          const savedProfile = localStorage.getItem('sppu_profile');
-          if (savedProfile) setProfile(JSON.parse(savedProfile));
-      } catch (e) {
-          console.error("Data Load Error", e);
-      }
-  };
-
-  useEffect(() => {
-      loadData();
-      
-      // 1. Polling for same-tab updates
-      const interval = setInterval(loadData, 2000);
-      
-      // 2. Storage event for cross-tab updates
-      const handleStorageChange = () => loadData();
-      window.addEventListener('storage', handleStorageChange);
-
-      return () => {
-          clearInterval(interval);
-          window.removeEventListener('storage', handleStorageChange);
-      };
-  }, []);
 
   // Calculate Progress
   const getSubjectProgress = (subjectId: string) => {

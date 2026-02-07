@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Hexagon, Zap, Cpu, CircleDashed, CheckCircle2, ChevronRight, Terminal, ScanFace, ShieldCheck, Loader2, Lock, Database, HardDrive } from 'lucide-react';
 import { Profile } from '../types';
+import { supabase } from '../lib/supabase';
 
 interface OnboardingProps {
   onComplete: (profile: Profile) => void;
@@ -85,34 +86,52 @@ const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
     }
   }, [stage]);
 
-  const handleFinish = () => {
+  const handleFinish = async () => {
     setStage('processing');
     
     // Simulate complex processing steps
     const steps = [
-        { pct: 10, log: "SAVING PROFILE..." },
+        { pct: 10, log: "ESTABLISHING CLOUD LINK..." },
         { pct: 30, log: "CONFIGURING SUBJECTS..." },
-        { pct: 60, log: "LOADING RESOURCES..." },
+        { pct: 60, log: "SYNCING PREFERENCES..." },
         { pct: 85, log: "OPTIMIZING DASHBOARD..." },
         { pct: 100, log: "SYSTEM READY." }
     ];
 
     let currentStep = 0;
 
-    const interval = setInterval(() => {
+    const interval = setInterval(async () => {
         if (currentStep >= steps.length) {
             clearInterval(interval);
+
+            const selectedIds = [choices.maths, choices.programming, choices.science, choices.circuit, choices.core];
+            const newProfile: Profile = {
+                name: name || 'Operator',
+                theme: 'dark',
+                selectedSubjects: selectedIds,
+                setupComplete: true,
+                streak: 0,
+                lastStudyDate: new Date().toISOString()
+            };
+
+            // Save to Supabase
+            const { data: { user } } = await supabase.auth.getUser();
+            if (user) {
+                await supabase.from('profiles').upsert({
+                    id: user.id,
+                    name: newProfile.name,
+                    theme: newProfile.theme,
+                    selected_subjects: newProfile.selectedSubjects,
+                    setup_complete: newProfile.setupComplete,
+                    streak: newProfile.streak,
+                    last_study_date: newProfile.lastStudyDate
+                });
+            }
+
+            // Still save to localStorage as backup/offline cache
+            localStorage.setItem('sppu_profile', JSON.stringify(newProfile));
+
             setTimeout(() => {
-                const selectedIds = [choices.maths, choices.programming, choices.science, choices.circuit, choices.core];
-                const newProfile: Profile = {
-                    name: name || 'Operator',
-                    theme: 'dark',
-                    selectedSubjects: selectedIds,
-                    setupComplete: true,
-                    streak: 0,
-                    lastStudyDate: new Date().toISOString()
-                };
-                localStorage.setItem('sppu_profile', JSON.stringify(newProfile));
                 onComplete(newProfile);
             }, 800);
             return;
@@ -215,7 +234,7 @@ const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                              <p className="text-xs text-white font-medium">What should we call you?</p>
                              <p className="text-[10px] text-slate-500 leading-relaxed font-mono">
                                 Enter your Name or Username to personalize your dashboard.<br/>
-                                <span className="opacity-50">This information is saved locally on your device.</span>
+                                <span className="opacity-50">Your profile is synchronized with the Cloud Matrix.</span>
                              </p>
                         </div>
                     </div>
