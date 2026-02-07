@@ -24,6 +24,7 @@ import { SUBJECTS, SYSTEM_RESOURCES, getYouTubeID } from '../constants';
 import { UnitStatus, UserProgress, Profile, ResourceItem } from '../types';
 import ResourceViewerModal from '../components/ResourceViewerModal';
 import ComingSoonModal from '../components/ComingSoonModal';
+import { supabase } from '../lib/supabase';
 
 const SubjectDetail: React.FC = () => {
   const { id } = useParams();
@@ -36,10 +37,8 @@ const SubjectDetail: React.FC = () => {
   
   const chatEndRef = useRef<HTMLDivElement>(null);
 
-  const [userProgress, setUserProgress] = useState<UserProgress[]>(() => {
-    const saved = localStorage.getItem('sppu_user_progress');
-    return saved ? JSON.parse(saved) : [];
-  });
+  const [userProgress, setUserProgress] = useState<UserProgress[]>([]);
+  const [loading, setLoading] = useState(true);
 
   // Resource State
   const [subjectResources, setSubjectResources] = useState<ResourceItem[]>([]);
@@ -49,8 +48,31 @@ const SubjectDetail: React.FC = () => {
   const [comingSoon, setComingSoon] = useState<string | null>(null);
 
   useEffect(() => {
-    localStorage.setItem('sppu_user_progress', JSON.stringify(userProgress));
-  }, [userProgress]);
+    fetchProgress();
+  }, [id]);
+
+  const fetchProgress = async () => {
+    if (!id) return;
+    setLoading(true);
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return;
+
+    const { data, error } = await supabase
+      .from('subject_progress')
+      .select('*')
+      .eq('user_id', user.id)
+      .eq('subject_id', id);
+
+    if (data && !error) {
+      const mapped: UserProgress[] = data.map(p => ({
+        unitId: p.unit_id,
+        status: p.status as UnitStatus,
+        pyqsCompleted: p.pyqs_completed
+      }));
+      setUserProgress(mapped);
+    }
+    setLoading(false);
+  };
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -101,50 +123,84 @@ const SubjectDetail: React.FC = () => {
 
   const getProg = (uId: string) => userProgress.find(p => p.unitId === uId) || { unitId: uId, status: UnitStatus.NOT_STARTED, pyqsCompleted: [] };
 
-  const updateStatus = (uId: string, status: UnitStatus) => {
-    setUserProgress(prev => {
-      const idx = prev.findIndex(p => p.unitId === uId);
-      if (idx > -1) {
-        const next = [...prev];
-        next[idx] = { ...next[idx], status };
-        return next;
-      }
-      return [...prev, { unitId: uId, status, pyqsCompleted: [] }];
-    });
+  const updateStatus = async (uId: string, status: UnitStatus) => {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user || !id) return;
 
-    // Update Streak logic
-    const profileStr = localStorage.getItem('sppu_profile');
-    if (profileStr) {
-        const profile: Profile = JSON.parse(profileStr);
-        const today = new Date().toDateString();
-        const lastDate = profile.lastStudyDate ? new Date(profile.lastStudyDate).toDateString() : '';
-        
-        if (lastDate !== today) {
-            const newStreak = profile.streak + 1;
-            const newProfile = { ...profile, streak: newStreak, lastStudyDate: new Date().toISOString() };
-            localStorage.setItem('sppu_profile', JSON.stringify(newProfile));
+    const existing = userProgress.find(p => p.unitId === uId);
+
+    const { error } = await supabase
+      .from('subject_progress')
+      .upsert({
+        user_id: user.id,
+        subject_id: id,
+        unit_id: uId,
+        status,
+        pyqs_completed: existing?.pyqsCompleted || [],
+        updated_at: new Date().toISOString()
+      }, { onConflict: 'user_id,subject_id,unit_id' });
+
+    if (!error) {
+        setUserProgress(prev => {
+            const idx = prev.findIndex(p => p.unitId === uId);
+            if (idx > -1) {
+                const next = [...prev];
+                next[idx] = { ...next[idx], status };
+                return next;
+            }
+            return [...prev, { unitId: uId, status, pyqsCompleted: [] }];
+        });
+
+        // Update Streak logic
+        const { data: profileData } = await supabase.from('profiles').select('*').eq('id', user.id).single();
+        if (profileData) {
+            const today = new Date().toDateString();
+            const lastDate = profileData.last_study_date ? new Date(profileData.last_study_date).toDateString() : '';
+
+            if (lastDate !== today) {
+                const newStreak = (profileData.streak || 0) + 1;
+                await supabase.from('profiles').update({
+                    streak: newStreak,
+                    last_study_date: new Date().toISOString()
+                }).eq('id', user.id);
+            }
         }
     }
   };
 
-  const togglePyq = (uId: string, year: string) => {
-    setUserProgress(prev => {
-      const idx = prev.findIndex(p => p.unitId === uId);
-      if (idx > -1) {
-        const next = [...prev];
-        const currentPyqs = next[idx].pyqsCompleted || [];
-        const isCompleted = currentPyqs.includes(year);
-        
-        next[idx] = { 
-          ...next[idx], 
-          pyqsCompleted: isCompleted 
-            ? currentPyqs.filter(y => y !== year)
-            : [...currentPyqs, year]
-        };
-        return next;
-      }
-      return [...prev, { unitId: uId, status: UnitStatus.NOT_STARTED, pyqsCompleted: [year] }];
-    });
+  const togglePyq = async (uId: string, year: string) => {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user || !id) return;
+
+    const existing = userProgress.find(p => p.unitId === uId);
+    const currentPyqs = existing?.pyqsCompleted || [];
+    const isCompleted = currentPyqs.includes(year);
+    const nextPyqs = isCompleted
+        ? currentPyqs.filter(y => y !== year)
+        : [...currentPyqs, year];
+
+    const { error } = await supabase
+      .from('subject_progress')
+      .upsert({
+        user_id: user.id,
+        subject_id: id,
+        unit_id: uId,
+        status: existing?.status || UnitStatus.NOT_STARTED,
+        pyqs_completed: nextPyqs,
+        updated_at: new Date().toISOString()
+      }, { onConflict: 'user_id,subject_id,unit_id' });
+
+    if (!error) {
+        setUserProgress(prev => {
+            const idx = prev.findIndex(p => p.unitId === uId);
+            if (idx > -1) {
+                const next = [...prev];
+                next[idx] = { ...next[idx], pyqsCompleted: nextPyqs };
+                return next;
+            }
+            return [...prev, { unitId: uId, status: UnitStatus.NOT_STARTED, pyqsCompleted: nextPyqs }];
+        });
+    }
   };
 
   const handleChatSubmit = (e: React.FormEvent) => {

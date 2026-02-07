@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { supabase } from '../lib/supabase';
 import { 
   Plus, 
   Trash2, 
@@ -126,54 +127,124 @@ const CustomSelect = <T extends string>({
 
 const TodoList: React.FC = () => {
   // State
-  const [tasks, setTasks] = useState<Task[]>(() => {
-    try {
-      const saved = localStorage.getItem('sppu_tasks');
-      return saved ? JSON.parse(saved) : [];
-    } catch { return []; }
-  });
-
+  const [tasks, setTasks] = useState<Task[]>([]);
+  const [loading, setLoading] = useState(true);
   const [inputText, setInputText] = useState('');
   const [inputPriority, setInputPriority] = useState<Priority>('NORMAL');
   const [inputCategory, setInputCategory] = useState<Category>('GENERAL');
   const [inputDate, setInputDate] = useState('');
   const [filter, setFilter] = useState<'ALL' | 'ACTIVE' | 'COMPLETED'>('ALL');
 
-  // Persistence
+  // Load Tasks
   useEffect(() => {
-    localStorage.setItem('sppu_tasks', JSON.stringify(tasks));
-  }, [tasks]);
+    fetchTasks();
+  }, []);
+
+  const fetchTasks = async () => {
+    setLoading(true);
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return;
+
+    const { data, error } = await supabase
+      .from('tasks')
+      .select('*')
+      .eq('user_id', user.id)
+      .order('created_at', { ascending: false });
+
+    if (data && !error) {
+      const mappedTasks: Task[] = data.map(t => ({
+        id: t.id,
+        text: t.text,
+        completed: t.completed,
+        priority: t.priority as Priority,
+        category: t.category as Category,
+        dueDate: t.due_date,
+        createdAt: t.created_at
+      }));
+      setTasks(mappedTasks);
+
+      // Sync with localStorage as fallback
+      localStorage.setItem('sppu_tasks', JSON.stringify(mappedTasks));
+    }
+    setLoading(false);
+  };
 
   // Handlers
-  const addTask = (e: React.FormEvent) => {
+  const addTask = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!inputText.trim()) return;
 
-    const newTask: Task = {
-      id: `task_${Date.now()}`,
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return;
+
+    const newTaskData = {
+      user_id: user.id,
       text: inputText,
       completed: false,
       priority: inputPriority,
       category: inputCategory,
-      dueDate: inputDate,
-      createdAt: new Date().toISOString()
+      due_date: inputDate || null,
     };
 
-    setTasks(prev => [newTask, ...prev]);
-    setInputText('');
-    // Keep settings for rapid entry
+    const { data, error } = await supabase
+      .from('tasks')
+      .insert(newTaskData)
+      .select()
+      .single();
+
+    if (data && !error) {
+      const newTask: Task = {
+        id: data.id,
+        text: data.text,
+        completed: data.completed,
+        priority: data.priority as Priority,
+        category: data.category as Category,
+        dueDate: data.due_date,
+        createdAt: data.created_at
+      };
+      setTasks(prev => [newTask, ...prev]);
+      setInputText('');
+    }
   };
 
-  const toggleTask = (id: string) => {
-    setTasks(prev => prev.map(t => t.id === id ? { ...t, completed: !t.completed } : t));
+  const toggleTask = async (id: string) => {
+    const task = tasks.find(t => t.id === id);
+    if (!task) return;
+
+    const { error } = await supabase
+      .from('tasks')
+      .update({ completed: !task.completed })
+      .eq('id', id);
+
+    if (!error) {
+      setTasks(prev => prev.map(t => t.id === id ? { ...t, completed: !t.completed } : t));
+    }
   };
 
-  const deleteTask = (id: string) => {
-    setTasks(prev => prev.filter(t => t.id !== id));
+  const deleteTask = async (id: string) => {
+    const { error } = await supabase
+      .from('tasks')
+      .delete()
+      .eq('id', id);
+
+    if (!error) {
+      setTasks(prev => prev.filter(t => t.id !== id));
+    }
   };
 
-  const clearCompleted = () => {
-    setTasks(prev => prev.filter(t => !t.completed));
+  const clearCompleted = async () => {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return;
+
+    const { error } = await supabase
+      .from('tasks')
+      .delete()
+      .eq('user_id', user.id)
+      .eq('completed', true);
+
+    if (!error) {
+      setTasks(prev => prev.filter(t => !t.completed));
+    }
   };
 
   // Metrics
@@ -232,7 +303,7 @@ const TodoList: React.FC = () => {
             </div>
             <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden relative z-10">
                 <div 
-                    className="h-full bg-[#E11D48] shadow-[0_0_10px_#E11D48] transition-all duration-700 ease-out"
+                    className={`h-full bg-[#E11D48] shadow-[0_0_10px_#E11D48] transition-all duration-700 ease-out ${loading ? 'animate-pulse' : ''}`}
                     style={{ width: `${progress}%` }}
                 ></div>
             </div>
@@ -341,7 +412,12 @@ const TodoList: React.FC = () => {
 
             {/* List */}
             <div className="space-y-4">
-                {filteredTasks.length === 0 ? (
+                {loading ? (
+                    <div className="py-20 text-center">
+                        <Loader2 size={48} className="mx-auto text-[#E11D48] animate-spin mb-4" />
+                        <p className="text-slate-500 text-sm font-mono uppercase tracking-widest">Accessing Cloud Matrix...</p>
+                    </div>
+                ) : filteredTasks.length === 0 ? (
                     <div className="py-20 text-center border border-dashed border-white/10 rounded-3xl bg-white/[0.01]">
                         <CheckCircle2 size={48} className="mx-auto text-slate-700 mb-4" />
                         <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">No Active Tasks</p>
