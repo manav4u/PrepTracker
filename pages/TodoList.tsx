@@ -217,10 +217,10 @@ const TodoList: React.FC = () => {
         <div>
            <div className="flex items-center gap-2 text-[#E11D48] mb-2">
                 <CheckSquare size={16} />
-                <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em]">Module // Task_Matrix</span>
+                <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em]">Task Management</span>
             </div>
             <h1 className="text-5xl lg:text-7xl font-display font-bold text-white tracking-tighter leading-none">
-                Execution <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-500 to-slate-700">Stack</span>
+                Task <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-500 to-slate-700">List</span>
             </h1>
         </div>
         
@@ -248,14 +248,14 @@ const TodoList: React.FC = () => {
             <div className="bg-[#050505] border border-white/10 rounded-3xl p-6 lg:p-8 sticky top-8">
                 <div className="flex items-center gap-2 mb-6 text-white/50">
                     <LayoutList size={18} />
-                    <h3 className="text-xs font-bold uppercase tracking-widest">Inject Directive</h3>
+                    <h3 className="text-xs font-bold uppercase tracking-widest">Add New Task</h3>
                 </div>
 
                 <form onSubmit={addTask} className="space-y-5">
                     
                     {/* Text Input */}
                     <div className="space-y-2">
-                        <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Task Description</label>
+                        <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Task Title</label>
                         <input 
                             type="text" 
                             value={inputText}
@@ -302,7 +302,7 @@ const TodoList: React.FC = () => {
                         disabled={!inputText}
                         className="w-full py-4 bg-[#E11D48] hover:bg-[#be123c] disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold uppercase tracking-[0.2em] rounded-xl transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(225,29,72,0.2)] hover:shadow-[0_0_30px_rgba(225,29,72,0.4)]"
                     >
-                        <Plus size={16} /> Execute
+                        <Plus size={16} /> Add Task
                     </button>
                 </form>
             </div>
@@ -334,7 +334,7 @@ const TodoList: React.FC = () => {
                         onClick={clearCompleted}
                         className="px-4 py-2 text-[10px] font-bold text-red-500 hover:bg-red-500/10 border border-transparent hover:border-red-500/20 rounded-xl uppercase tracking-widest flex items-center gap-2 transition-all"
                     >
-                        <Trash2 size={12} /> Purge Completed
+                        <Trash2 size={12} /> Clear Completed
                     </button>
                 )}
             </div>
@@ -344,7 +344,7 @@ const TodoList: React.FC = () => {
                 {filteredTasks.length === 0 ? (
                     <div className="py-20 text-center border border-dashed border-white/10 rounded-3xl bg-white/[0.01]">
                         <CheckCircle2 size={48} className="mx-auto text-slate-700 mb-4" />
-                        <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">No Active Directives</p>
+                        <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">No Active Tasks</p>
                     </div>
                 ) : (
                     filteredTasks.map(task => {

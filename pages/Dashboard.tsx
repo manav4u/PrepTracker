@@ -67,7 +67,7 @@ const ProgressGraphCard = ({ data, labels }: { data: number[], labels: string[] 
     return (
         <div className="p-6 rounded-3xl bg-[#0a0a0a] border border-white/5 flex flex-col justify-between h-36 lg:h-40 relative overflow-hidden group hover:border-white/20 transition-all">
             <div className="flex justify-between items-start z-10">
-                <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-slate-500">Progress Vector</span>
+                <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-slate-500">Study Activity</span>
                 <div className="flex items-center gap-2">
                     <span className="relative flex h-1.5 w-1.5">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E11D48] opacity-75"></span>
@@ -274,13 +274,13 @@ const Dashboard: React.FC<{ selectedIds: string[] }> = ({ selectedIds = [] }) =>
                 </span>
             </div>
             <h1 className="text-5xl lg:text-6xl font-display font-bold text-white mb-2 leading-[0.9] tracking-tighter">
-              Academic <br/><span className="text-white/40">Velocity</span>
+              Study <br/><span className="text-white/40">Progress</span>
             </h1>
           </div>
           
           <div className="relative z-10 mt-8">
                <div className="flex justify-between items-end mb-4">
-                 <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Aggregate Progress</span>
+                 <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Overall Progress</span>
                  <span className="text-4xl font-display font-bold text-white tracking-tighter">{avgProgress}%</span>
                </div>
                <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
@@ -290,13 +290,13 @@ const Dashboard: React.FC<{ selectedIds: string[] }> = ({ selectedIds = [] }) =>
         </div>
 
         <div className="lg:col-span-2 grid grid-cols-2 gap-4 lg:gap-6">
-           <StatPill label="Mastery Index" value={totalMastered} sub={`/ ${totalUnits} Units`} gradient={true} icon={Sparkles} />
+           <StatPill label="Units Mastered" value={totalMastered} sub={`/ ${totalUnits} Units`} gradient={true} icon={Sparkles} />
            
            {/* Dynamic Graph Replacement for Forecast */}
            <ProgressGraphCard data={graphData} labels={graphLabels} />
            
-           <StatPill label="Next Event" value={`${daysToNextExam}d`} sub={nextExam ? nextExam.code : 'Standby'} icon={CalendarDays} />
-           <StatPill label="Consistency" value={validStreak} sub="Day Streak" icon={TrendingUp} active={validStreak > 2} />
+           <StatPill label="Days to Exam" value={`${daysToNextExam}d`} sub={nextExam ? nextExam.code : 'No Exams'} icon={CalendarDays} />
+           <StatPill label="Study Streak" value={validStreak} sub="Day Streak" icon={TrendingUp} active={validStreak > 2} />
         </div>
       </section>
 
@@ -360,17 +360,17 @@ const Dashboard: React.FC<{ selectedIds: string[] }> = ({ selectedIds = [] }) =>
         <div className="lg:col-span-2">
             <h3 className="text-lg font-display font-bold text-white mb-8 flex items-center gap-3 tracking-tight">
                <Sparkles size={18} className="text-[#E11D48]" /> 
-               Neural Support
+               AI Study Assistant
             </h3>
             <div className="relative overflow-hidden rounded-3xl bg-[#0a0a0a] border border-white/5 p-8 lg:p-12 group">
                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-b from-[#E11D48]/10 to-transparent blur-[120px] rounded-full translate-x-1/3 -translate-y-1/2"></div>
                
                <div className="relative z-10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-8">
                   <div className="max-w-lg">
-                     <h4 className="text-3xl font-display font-bold text-white mb-3 tracking-tight">Stuck on a concept?</h4>
+                     <h4 className="text-3xl font-display font-bold text-white mb-3 tracking-tight">Need help with a topic?</h4>
                      <p className="text-sm text-slate-400 leading-relaxed font-medium">
-                        Deploy the AI Tutor for instant, syllabus-aligned decomposition of complex topics. 
-                        Optimized for Engineering Physics and Mathematics I.
+                        Ask our AI Tutor for instant, syllabus-aligned explanations of complex topics.
+                        Optimized for Engineering Physics and Mathematics.
                      </p>
                   </div>
                   <button 

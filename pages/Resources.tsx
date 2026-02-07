@@ -215,7 +215,7 @@ const AddResourceModal = ({ isOpen, onClose, onAdd, userSubjects }: { isOpen: bo
                 
                 <div className="flex items-center gap-3 mb-8">
                     <LinkIcon size={20} className="text-[#E11D48]" />
-                    <h3 className="text-xl font-display font-bold text-white">Inject New Resource</h3>
+                    <h3 className="text-xl font-display font-bold text-white">Add New Resource</h3>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -264,7 +264,7 @@ const AddResourceModal = ({ isOpen, onClose, onAdd, userSubjects }: { isOpen: bo
                         disabled={!form.title || !form.url || !form.subject}
                         className="w-full py-4 bg-[#E11D48] hover:bg-[#be123c] disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold uppercase tracking-[0.2em] rounded-xl transition-all flex items-center justify-center gap-2 mt-4"
                     >
-                        <Plus size={16} /> Add to Vault
+                        <Plus size={16} /> Add to Library
                     </button>
                 </form>
             </div>
@@ -445,7 +445,7 @@ const Resources: React.FC = () => {
             <div className="space-y-4">
                 <div className="flex items-center gap-3 text-[#E11D48] mb-2">
                     <Database size={16} />
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em]">Secure Data Archive v9.0</span>
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em]">Resource Library v9.0</span>
                 </div>
                 <h1 className="text-6xl lg:text-8xl font-display font-bold text-white tracking-tighter leading-[0.85]">
                     The <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-500">Vault</span>
@@ -512,7 +512,7 @@ const Resources: React.FC = () => {
                     type="text" 
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="EXECUTE_SEARCH_QUERY..."
+                    placeholder="SEARCH_RESOURCES..."
                     className="w-full bg-transparent border-none py-4 text-sm font-mono text-white placeholder:text-slate-600 focus:outline-none uppercase tracking-wider"
                 />
                 <Command size={16} className="text-slate-600" />
@@ -547,7 +547,7 @@ const Resources: React.FC = () => {
              <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center text-slate-500 group-hover:text-[#E11D48] group-hover:bg-[#E11D48]/10 transition-all duration-500">
                  <Plus size={32} />
              </div>
-             <p className="text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-white transition-colors">Inject Resource</p>
+             <p className="text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-white transition-colors">Add Resource</p>
          </button>
 
          {filteredResources.map((item) => (

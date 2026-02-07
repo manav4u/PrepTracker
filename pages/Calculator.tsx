@@ -50,7 +50,7 @@ const CalculatorPage: React.FC<{ selectedIds: string[] }> = ({ selectedIds }) =>
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E11D48] opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E11D48]"></span>
                 </span>
-                <span className="text-[10px] font-mono font-bold uppercase tracking-[0.25em] text-[#E11D48]">Simulation Active</span>
+                <span className="text-[10px] font-mono font-bold uppercase tracking-[0.25em] text-[#E11D48]">Prediction Active</span>
             </div>
             <h1 className="text-5xl lg:text-7xl font-display font-bold tracking-tighter text-white leading-none">
             Forecaster
@@ -72,13 +72,13 @@ const CalculatorPage: React.FC<{ selectedIds: string[] }> = ({ selectedIds }) =>
             <div className="p-6 border-b border-white/10 flex justify-between items-center bg-white/[0.02]">
               <div className="flex items-center gap-2 text-white">
                  <Cpu size={16} />
-                 <h3 className="font-bold text-xs font-mono uppercase tracking-[0.2em]">Input Parameters</h3>
+                 <h3 className="font-bold text-xs font-mono uppercase tracking-[0.2em]">Enter Marks</h3>
               </div>
               <button 
                 onClick={() => setMarks({})} 
                 className="flex items-center gap-2 px-3 py-1.5 rounded bg-white/5 border border-white/5 text-[9px] font-bold text-slate-400 uppercase tracking-widest hover:bg-[#E11D48] hover:text-white hover:border-[#E11D48] transition-all"
               >
-                <RotateCcw size={10} /> Reset_Values
+                <RotateCcw size={10} /> Clear_All
               </button>
             </div>
 
@@ -155,7 +155,7 @@ const CalculatorPage: React.FC<{ selectedIds: string[] }> = ({ selectedIds }) =>
             <div className="relative z-10 w-full">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/5 mb-8">
                     <Activity size={12} className="text-[#E11D48]" />
-                    <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-300">Live Prediction</span>
+                    <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-300">Estimated Result</span>
                 </div>
 
                 <div className="mb-10 relative">
