@@ -20,3 +20,4 @@ A comprehensive student dashboard for tracking academic progress, tasks, and res
 -   **Authentication:** Google OAuth via Supabase.
 -   **Task Management:** Todo list with priority sorting.
 -   **Resources:** access to study materials.
+okay
