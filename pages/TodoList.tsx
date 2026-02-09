@@ -143,28 +143,37 @@ const TodoList: React.FC = () => {
   const fetchTasks = async () => {
     setLoading(true);
     const { data: { user } } = await supabase.auth.getUser();
-    if (!user) return;
+    if (!user) {
+        setLoading(false);
+        return;
+    }
 
-    const { data, error } = await supabase
-      .from('tasks')
-      .select('*')
-      .eq('user_id', user.id)
-      .order('created_at', { ascending: false });
+    try {
+        const { data, error } = await supabase
+        .from('tasks')
+        .select('*')
+        .eq('user_id', user.id)
+        .order('created_at', { ascending: false });
 
-    if (data && !error) {
-      const mappedTasks: Task[] = data.map(t => ({
-        id: t.id,
-        text: t.text,
-        completed: t.completed,
-        priority: t.priority as Priority,
-        category: t.category as Category,
-        dueDate: t.due_date,
-        createdAt: t.created_at
-      }));
-      setTasks(mappedTasks);
+        if (error) {
+            console.error('Error fetching tasks:', error);
+        } else if (data) {
+        const mappedTasks: Task[] = data.map(t => ({
+            id: t.id,
+            text: t.text,
+            completed: t.completed,
+            priority: t.priority as Priority,
+            category: t.category as Category,
+            dueDate: t.due_date,
+            createdAt: t.created_at
+        }));
+        setTasks(mappedTasks);
 
-      // Sync with localStorage as fallback
-      localStorage.setItem('sppu_tasks', JSON.stringify(mappedTasks));
+        // Sync with localStorage as fallback
+        localStorage.setItem('sppu_tasks', JSON.stringify(mappedTasks));
+        }
+    } catch (e) {
+        console.error("Critical error fetching tasks:", e);
     }
     setLoading(false);
   };
@@ -177,33 +186,43 @@ const TodoList: React.FC = () => {
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) return;
 
-    const newTaskData = {
-      user_id: user.id,
-      text: inputText,
-      completed: false,
-      priority: inputPriority,
-      category: inputCategory,
-      due_date: inputDate || null,
-    };
+    try {
+        const newTaskData = {
+        user_id: user.id,
+        text: inputText,
+        completed: false,
+        priority: inputPriority,
+        category: inputCategory,
+        due_date: inputDate || null,
+        };
 
-    const { data, error } = await supabase
-      .from('tasks')
-      .insert(newTaskData)
-      .select()
-      .single();
+        const { data, error } = await supabase
+        .from('tasks')
+        .insert(newTaskData)
+        .select()
+        .single();
 
-    if (data && !error) {
-      const newTask: Task = {
-        id: data.id,
-        text: data.text,
-        completed: data.completed,
-        priority: data.priority as Priority,
-        category: data.category as Category,
-        dueDate: data.due_date,
-        createdAt: data.created_at
-      };
-      setTasks(prev => [newTask, ...prev]);
-      setInputText('');
+        if (error) {
+            console.error("Error inserting task:", error);
+            // Fallback: Optimistic UI update or error toast
+            return;
+        }
+
+        if (data) {
+        const newTask: Task = {
+            id: data.id,
+            text: data.text,
+            completed: data.completed,
+            priority: data.priority as Priority,
+            category: data.category as Category,
+            dueDate: data.due_date,
+            createdAt: data.created_at
+        };
+        setTasks(prev => [newTask, ...prev]);
+        setInputText('');
+        }
+    } catch (e) {
+        console.error("Critical error adding task:", e);
     }
   };
 
@@ -211,24 +230,34 @@ const TodoList: React.FC = () => {
     const task = tasks.find(t => t.id === id);
     if (!task) return;
 
+    // Optimistic Update
+    setTasks(prev => prev.map(t => t.id === id ? { ...t, completed: !t.completed } : t));
+
     const { error } = await supabase
       .from('tasks')
       .update({ completed: !task.completed })
       .eq('id', id);
 
-    if (!error) {
-      setTasks(prev => prev.map(t => t.id === id ? { ...t, completed: !t.completed } : t));
+    if (error) {
+      console.error("Error toggling task:", error);
+      // Revert if error
+      setTasks(prev => prev.map(t => t.id === id ? { ...t, completed: task.completed } : t));
     }
   };
 
   const deleteTask = async (id: string) => {
+    // Optimistic Update
+    const oldTasks = [...tasks];
+    setTasks(prev => prev.filter(t => t.id !== id));
+
     const { error } = await supabase
       .from('tasks')
       .delete()
       .eq('id', id);
 
-    if (!error) {
-      setTasks(prev => prev.filter(t => t.id !== id));
+    if (error) {
+        console.error("Error deleting task:", error);
+        setTasks(oldTasks);
     }
   };
 
@@ -236,14 +265,19 @@ const TodoList: React.FC = () => {
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) return;
 
+    // Optimistic
+    const oldTasks = [...tasks];
+    setTasks(prev => prev.filter(t => !t.completed));
+
     const { error } = await supabase
       .from('tasks')
       .delete()
       .eq('user_id', user.id)
       .eq('completed', true);
 
-    if (!error) {
-      setTasks(prev => prev.filter(t => !t.completed));
+    if (error) {
+        console.error("Error clearing completed:", error);
+        setTasks(oldTasks);
     }
   };
 
@@ -261,7 +295,10 @@ const TodoList: React.FC = () => {
     // Sort: Critical Active First, then Normal, then Low, then Completed
     if (a.completed === b.completed) {
         const pMap = { CRITICAL: 3, NORMAL: 2, LOW: 1 };
-        return pMap[b.priority] - pMap[a.priority];
+        // Safety check for priority
+        const pA = pMap[a.priority] || 1;
+        const pB = pMap[b.priority] || 1;
+        return pB - pA;
     }
     return a.completed ? 1 : -1;
   });
@@ -424,8 +461,10 @@ const TodoList: React.FC = () => {
                     </div>
                 ) : (
                     filteredTasks.map(task => {
-                        const CategoryIcon = CATEGORY_CONFIG[task.category].icon;
-                        const isCritical = task.priority === 'CRITICAL';
+                        // Safety Checks for Configs
+                        const catConfig = CATEGORY_CONFIG[task.category] || CATEGORY_CONFIG['GENERAL'];
+                        const priConfig = PRIORITY_CONFIG[task.priority] || PRIORITY_CONFIG['NORMAL'];
+                        const CategoryIcon = catConfig.icon;
 
                         return (
                             <div 
@@ -433,7 +472,7 @@ const TodoList: React.FC = () => {
                                 className={`
                                     group relative bg-[#0a0a0a] border rounded-2xl p-5 transition-all duration-300 
                                     hover:translate-x-1 flex items-start gap-5
-                                    ${task.completed ? 'opacity-50 border-white/5' : `hover:border-white/20 ${PRIORITY_CONFIG[task.priority].border} ${PRIORITY_CONFIG[task.priority].glow}`}
+                                    ${task.completed ? 'opacity-50 border-white/5' : `hover:border-white/20 ${priConfig.border} ${priConfig.glow}`}
                                 `}
                             >
                                 {/* Checkbox Node */}
@@ -453,14 +492,14 @@ const TodoList: React.FC = () => {
                                 <div className="flex-1 min-w-0">
                                     <div className="flex flex-wrap items-center gap-2 mb-2">
                                         {/* Priority Badge */}
-                                        <span className={`text-[9px] font-bold border px-1.5 py-0.5 rounded uppercase tracking-wider ${PRIORITY_CONFIG[task.priority].color} border-current opacity-80`}>
-                                            {task.priority}
+                                        <span className={`text-[9px] font-bold border px-1.5 py-0.5 rounded uppercase tracking-wider ${priConfig.color} border-current opacity-80`}>
+                                            {task.priority || 'NORMAL'}
                                         </span>
                                         
                                         {/* Category Badge */}
-                                        <span className={`text-[9px] font-bold flex items-center gap-1 uppercase tracking-wider ${CATEGORY_CONFIG[task.category].color}`}>
+                                        <span className={`text-[9px] font-bold flex items-center gap-1 uppercase tracking-wider ${catConfig.color}`}>
                                             <CategoryIcon size={10} />
-                                            {CATEGORY_CONFIG[task.category].label}
+                                            {catConfig.label}
                                         </span>
 
                                         {/* Date Badge */}
