@@ -383,7 +383,6 @@ const Resources: React.FC = () => {
       const { error } = await supabase.from('resources').insert(newResource);
       if (error) {
           console.error("Error adding resource:", error);
-          alert(`Failed to add resource: ${error.message}`);
       }
       // Realtime subscription will handle the update
   };
