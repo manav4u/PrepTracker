@@ -80,43 +80,55 @@ const SubjectDetail: React.FC = () => {
 
   // Load Resources for this subject
   useEffect(() => {
-      if (!subject) return;
+      const fetchResources = async () => {
+          if (!subject) return;
 
-      // 1. Get System Resources
-      // Logic: Filter SYSTEM_RESOURCES where subject matches or code starts with subject
-      // The subject in SYSTEM_RESOURCES is the short code e.g., 'BSC-101'
-      // The subject.code is 'BSC-101-BES'
-      // We will check if subject.code starts with resource.subject
-      const relevantSystem = SYSTEM_RESOURCES.filter(r => 
-          subject.code.startsWith(r.subject) || r.subject === 'GLOBAL'
-      );
+          // 1. Get System Resources
+          // Logic: Filter SYSTEM_RESOURCES where subject matches or code starts with subject
+          // The subject in SYSTEM_RESOURCES is the short code e.g., 'BSC-101'
+          // The subject.code is 'BSC-101-BES'
+          // We will check if subject.code starts with resource.subject
+          const relevantSystem = SYSTEM_RESOURCES.filter(r =>
+              subject.code.startsWith(r.subject) || r.subject === 'GLOBAL'
+          );
 
-      // 2. Get Custom Resources from LocalStorage
-      let relevantCustom: ResourceItem[] = [];
-      try {
-          const savedCustomRaw = localStorage.getItem('sppu_custom_resources');
-          if (savedCustomRaw) {
-              const allCustom: ResourceItem[] = JSON.parse(savedCustomRaw);
-              relevantCustom = allCustom.filter(r => 
-                  subject.code.startsWith(r.subject) || r.subject === 'GLOBAL'
-              );
+          // 2. Get Custom Resources from Supabase
+          let relevantCustom: ResourceItem[] = [];
+          const { data: { user } } = await supabase.auth.getUser();
+          if (user) {
+             const { data } = await supabase.from('resources').select('*').eq('user_id', user.id);
+             if (data) {
+                 const allCustom: ResourceItem[] = data.map(r => ({
+                     id: r.id,
+                     type: r.type,
+                     title: r.title,
+                     author: r.author,
+                     downloads: r.downloads,
+                     subject: r.subject,
+                     category: r.category,
+                     url: r.url,
+                     isSystem: r.is_system
+                 }));
+                 relevantCustom = allCustom.filter(r =>
+                      subject.code.startsWith(r.subject) || r.subject === 'GLOBAL'
+                 );
+             }
           }
-      } catch (e) {
-          console.error("Error loading custom resources", e);
-      }
 
-      // 3. Filter out deleted system resources
-      let finalSystem = relevantSystem;
-      try {
-          const deletedIdsRaw = localStorage.getItem('sppu_deleted_system_ids');
-          if (deletedIdsRaw) {
-              const deletedIds: string[] = JSON.parse(deletedIdsRaw);
-              finalSystem = relevantSystem.filter(r => !deletedIds.includes(r.id));
-          }
-      } catch(e) {}
+          // 3. Filter out deleted system resources
+          let finalSystem = relevantSystem;
+          try {
+              const deletedIdsRaw = localStorage.getItem('sppu_deleted_system_ids');
+              if (deletedIdsRaw) {
+                  const deletedIds: string[] = JSON.parse(deletedIdsRaw);
+                  finalSystem = relevantSystem.filter(r => !deletedIds.includes(r.id));
+              }
+          } catch(e) {}
 
-      setSubjectResources([...finalSystem, ...relevantCustom]);
+          setSubjectResources([...finalSystem, ...relevantCustom]);
+      };
 
+      fetchResources();
   }, [subject]);
 
   if (!subject) return <div className="p-20 text-center text-white font-display">SUBJECT_NOT_FOUND</div>;

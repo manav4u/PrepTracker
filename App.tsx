@@ -248,6 +248,22 @@ export default function App() {
     return () => subscription.unsubscribe();
   }, []);
 
+  // Realtime Subscription for Global Progress
+  useEffect(() => {
+    if (!session) return;
+
+    const channel = supabase
+      .channel('public:subject_progress')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'subject_progress' }, () => {
+         loadData(session);
+      })
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [session]);
+
   // Effect to stop loading spinner once we have attempted data load
   useEffect(() => {
       if (session && (profile || userProgress.length >= 0)) {

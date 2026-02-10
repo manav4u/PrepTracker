@@ -36,10 +36,26 @@ create table public.subject_progress (
   unique(user_id, subject_id, unit_id)
 );
 
+-- Create resources table
+create table public.resources (
+  id uuid default gen_random_uuid() primary key,
+  user_id uuid references public.profiles(id) on delete cascade not null,
+  type text not null,
+  title text not null,
+  author text default 'YOU',
+  downloads text default '0',
+  subject text not null,
+  category text not null,
+  url text not null,
+  is_system boolean default false,
+  created_at timestamptz default now()
+);
+
 -- Set up Row Level Security (RLS)
 alter table public.profiles enable row level security;
 alter table public.tasks enable row level security;
 alter table public.subject_progress enable row level security;
+alter table public.resources enable row level security;
 
 -- Create policies
 create policy "Users can view own profile" on public.profiles for select using (auth.uid() = id);
@@ -55,6 +71,10 @@ create policy "Users can view own progress" on public.subject_progress for selec
 create policy "Users can insert own progress" on public.subject_progress for insert with check (auth.uid() = user_id);
 create policy "Users can update own progress" on public.subject_progress for update using (auth.uid() = user_id);
 
+create policy "Users can view own resources" on public.resources for select using (auth.uid() = user_id);
+create policy "Users can insert own resources" on public.resources for insert with check (auth.uid() = user_id);
+create policy "Users can delete own resources" on public.resources for delete using (auth.uid() = user_id);
+
 -- Create a function to handle new user signups
 create function public.handle_new_user()
 returns trigger as $$
@@ -69,3 +89,6 @@ $$ language plpgsql security definer;
 create trigger on_auth_user_created
   after insert on auth.users
   for each row execute procedure public.handle_new_user();
+
+-- Enable Realtime
+alter publication supabase_realtime add table public.tasks, public.subject_progress, public.resources;
