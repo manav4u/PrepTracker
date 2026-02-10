@@ -47,7 +47,10 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   }
 
   handleHardReset = () => {
-    localStorage.clear();
+    // Only clear session storage to avoid wiping local data backup if unnecessary
+    sessionStorage.clear();
+    // Potentially clear specific corrupt keys from local storage if known,
+    // but avoid full clear to preserve 'sppu_profile' etc. if they are valid.
     window.location.reload();
   };
 
@@ -64,13 +67,13 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
                 </div>
                 <h1 className="text-3xl font-display font-bold text-white mb-2">System Failure</h1>
                 <p className="text-slate-400 text-sm mb-8 leading-relaxed font-mono">
-                    The application encountered a non-recoverable data error. This usually happens due to corrupt local storage or an interrupted update.
+                    The application encountered a non-recoverable data error.
                 </p>
                 <button 
                     onClick={this.handleHardReset}
                     className="w-full py-4 bg-red-600 text-white font-bold uppercase tracking-[0.2em] rounded-xl hover:bg-red-700 transition-all shadow-[0_0_20px_rgba(220,38,38,0.4)] flex items-center justify-center gap-3"
                 >
-                    <RefreshCw size={18} /> Execute Hard Reset
+                    <RefreshCw size={18} /> Execute Reset
                 </button>
                 <p className="mt-6 text-[10px] text-slate-600 uppercase tracking-widest">Error Code: RENDER_PROCESS_TERMINATED</p>
             </div>
@@ -104,51 +107,40 @@ export default function App() {
   const [userProgress, setUserProgress] = useState<UserProgress[]>([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    // Check active sessions and subscribe to auth changes
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setLoading(false);
-    });
-
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session);
-    });
-
-    return () => subscription.unsubscribe();
-  }, []);
-
-  useEffect(() => {
-    if (session) {
-      // Load profile and progress from Supabase
-      const fetchData = async () => {
+  // Function to load data - abstracted to allow manual refresh
+  const loadData = async (currentSession: Session) => {
+    try {
         // 1. Fetch Profile
         const { data: profileData, error: profileError } = await supabase
           .from('profiles')
           .select('*')
-          .eq('id', session.user.id)
+          .eq('id', currentSession.user.id)
           .single();
 
+        let currentProfile: Profile | null = null;
+
         if (profileData && !profileError) {
-          setProfile({
-            name: profileData.name,
-            prn: profileData.prn,
-            theme: profileData.theme as 'light' | 'dark',
-            selectedSubjects: profileData.selected_subjects,
-            setupComplete: profileData.setup_complete,
-            group: profileData.group,
-            streak: profileData.streak,
-            lastStudyDate: profileData.last_study_date,
-          });
+          // Check validity of profile (must have subjects)
+          if (profileData.selected_subjects && profileData.selected_subjects.length > 0) {
+              currentProfile = {
+                name: profileData.name,
+                prn: profileData.prn,
+                theme: profileData.theme as 'light' | 'dark',
+                selectedSubjects: profileData.selected_subjects,
+                setupComplete: profileData.setup_complete,
+                group: profileData.group,
+                streak: profileData.streak,
+                lastStudyDate: profileData.last_study_date,
+              };
+              setProfile(currentProfile);
+          }
         }
 
         // 2. Fetch Progress
         const { data: progressData, error: progressError } = await supabase
           .from('subject_progress')
           .select('*')
-          .eq('user_id', session.user.id);
+          .eq('user_id', currentSession.user.id);
 
         if (progressData && !progressError) {
           setUserProgress(progressData.map(p => ({
@@ -158,61 +150,120 @@ export default function App() {
           })));
         }
 
-        // 3. Migration Logic: If cloud profile is empty but local exists, migrate
-        if (!profileData && !profileError) {
+        // 3. Migration Logic: If cloud profile is empty/invalid but local exists, migrate
+        if (!currentProfile) {
+           console.log("No valid cloud profile found. Checking local backup...");
            const localProfile = localStorage.getItem('sppu_profile');
+
            if (localProfile) {
-              const parsed = JSON.parse(localProfile);
-              await supabase.from('profiles').upsert({
-                 id: session.user.id,
-                 name: parsed.name,
-                 theme: parsed.theme,
-                 selected_subjects: parsed.selectedSubjects,
-                 setup_complete: parsed.setupComplete,
-                 streak: parsed.streak,
-                 last_study_date: parsed.lastStudyDate
-              });
-              // Refresh state
-              setProfile(parsed);
-           }
+              try {
+                  const parsed = JSON.parse(localProfile);
+                  // Ensure we have minimal valid data to migrate
+                  if (parsed.selectedSubjects && parsed.selectedSubjects.length > 0) {
+                      console.log("Migrating local profile to cloud...");
 
-           const localTasks = localStorage.getItem('sppu_tasks');
-           if (localTasks) {
-              const tasks = JSON.parse(localTasks);
-              for (const t of tasks) {
-                 await supabase.from('tasks').insert({
-                    user_id: session.user.id,
-                    text: t.text,
-                    completed: t.completed,
-                    priority: t.priority,
-                    category: t.category,
-                    due_date: t.dueDate,
-                    created_at: t.createdAt
-                 });
-              }
-           }
+                      const { error: upsertError } = await supabase.from('profiles').upsert({
+                        id: currentSession.user.id,
+                        name: parsed.name,
+                        theme: parsed.theme,
+                        selected_subjects: parsed.selectedSubjects,
+                        setup_complete: parsed.setupComplete,
+                        streak: parsed.streak,
+                        last_study_date: parsed.lastStudyDate
+                      });
 
-           const localProgress = localStorage.getItem('sppu_user_progress');
-           if (localProgress) {
-              const progress = JSON.parse(localProgress);
-              for (const p of progress) {
-                  const subjectId = p.unitId.split('-')[0];
-                  if (subjectId) {
-                      await supabase.from('subject_progress').upsert({
-                         user_id: session.user.id,
-                         subject_id: subjectId,
-                         unit_id: p.unitId,
-                         status: p.status,
-                         pyqs_completed: p.pyqsCompleted,
-                         updated_at: new Date().toISOString()
-                      }, { onConflict: 'user_id,subject_id,unit_id' });
+                      if (!upsertError) {
+                          setProfile(parsed);
+
+                          // Migrate Tasks
+                          const localTasks = localStorage.getItem('sppu_tasks');
+                          if (localTasks) {
+                              const tasks = JSON.parse(localTasks);
+                              for (const t of tasks) {
+                                await supabase.from('tasks').insert({
+                                    user_id: currentSession.user.id,
+                                    text: t.text,
+                                    completed: t.completed,
+                                    priority: t.priority,
+                                    category: t.category,
+                                    due_date: t.dueDate,
+                                    created_at: t.createdAt
+                                });
+                              }
+                          }
+
+                          // Migrate Progress
+                          const localProgress = localStorage.getItem('sppu_user_progress');
+                          if (localProgress) {
+                              const progress = JSON.parse(localProgress);
+                              for (const p of progress) {
+                                  const subjectId = p.unitId.split('-')[0];
+                                  if (subjectId) {
+                                      await supabase.from('subject_progress').upsert({
+                                        user_id: currentSession.user.id,
+                                        subject_id: subjectId,
+                                        unit_id: p.unitId,
+                                        status: p.status,
+                                        pyqs_completed: p.pyqsCompleted,
+                                        updated_at: new Date().toISOString()
+                                      }, { onConflict: 'user_id,subject_id,unit_id' });
+                                  }
+                              }
+                              // Update local state after migration
+                              setUserProgress(progress.map((p: any) => ({
+                                unitId: p.unitId,
+                                status: p.status as UnitStatus,
+                                pyqsCompleted: p.pyqsCompleted
+                              })));
+                          }
+                      } else {
+                          console.error("Migration failed:", upsertError);
+                      }
                   }
+              } catch (e) {
+                  console.error("Local data corruption during migration:", e);
               }
            }
         }
-      };
-      fetchData();
+    } catch (e) {
+        console.error("Critical error loading data:", e);
     }
+  };
+
+  useEffect(() => {
+    // Check active sessions and subscribe to auth changes
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+      if (session) loadData(session);
+      else setLoading(false);
+    });
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+      if (session) loadData(session);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  // Effect to stop loading spinner once we have attempted data load
+  useEffect(() => {
+      if (session && (profile || userProgress.length >= 0)) {
+          // Small delay to ensure smooth transition
+          const t = setTimeout(() => setLoading(false), 500);
+          return () => clearTimeout(t);
+      }
+  }, [profile, userProgress, session]);
+
+  // Handle Focus Refetch
+  useEffect(() => {
+      const handleFocus = () => {
+          if (session) loadData(session);
+      };
+      window.addEventListener('focus', handleFocus);
+      return () => window.removeEventListener('focus', handleFocus);
   }, [session]);
 
   const location = useLocation();
@@ -233,11 +284,14 @@ export default function App() {
     );
   }
 
-  // If we are not setup, show Onboarding (wrapped in ErrorBoundary handled by parent or just return directly)
-  if (!profile || !profile.setupComplete) {
+  // If we are not setup, show Onboarding
+  if (!profile || !profile.setupComplete || !profile.selectedSubjects || profile.selectedSubjects.length === 0) {
      return (
         <ErrorBoundary>
-            <Onboarding onComplete={setProfile} />
+            <Onboarding onComplete={(newProfile) => {
+                setProfile(newProfile); // Optimistic update
+                loadData(session); // Verify with cloud
+            }} />
         </ErrorBoundary>
      );
   }
