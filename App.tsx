@@ -12,7 +12,7 @@ import {
   AlertTriangle, 
   RefreshCw, 
   ListTodo,
-  Cloud
+  HardDrive
 } from 'lucide-react';
 import Dashboard from './pages/Dashboard';
 import SubjectDetail from './pages/SubjectDetail';
@@ -21,10 +21,8 @@ import CalculatorPage from './pages/Calculator';
 import SettingsPage from './pages/Settings';
 import Onboarding from './pages/Onboarding';
 import TodoList from './pages/TodoList';
-import Auth from './pages/Auth';
-import { Profile, UserProgress, UnitStatus } from './types';
-import { supabase } from './lib/supabase';
-import { Session } from '@supabase/supabase-js';
+import { UnitStatus } from './types';
+import { useData } from './context/DataContext';
 
 // --- ERROR BOUNDARY COMPONENT ---
 interface ErrorBoundaryProps {
@@ -102,212 +100,14 @@ const NavItem = ({ to, icon: Icon, active }: { to: string, icon: any, active: bo
 );
 
 export default function App() {
-  const [session, setSession] = useState<Session | null>(null);
-  const [profile, setProfile] = useState<Profile | null>(null);
-  const [userProgress, setUserProgress] = useState<UserProgress[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  // Function to load data - abstracted to allow manual refresh
-  const loadData = async (currentSession: Session) => {
-    try {
-        // 1. Fetch Profile
-        const { data: profileData, error: profileError } = await supabase
-          .from('profiles')
-          .select('*')
-          .eq('id', currentSession.user.id)
-          .single();
-
-        let currentProfile: Profile | null = null;
-
-        if (profileData && !profileError) {
-          // Check validity of profile (must have subjects)
-          if (profileData.selected_subjects && profileData.selected_subjects.length > 0) {
-              currentProfile = {
-                name: profileData.name,
-                prn: profileData.prn,
-                theme: profileData.theme as 'light' | 'dark',
-                selectedSubjects: profileData.selected_subjects,
-                setupComplete: profileData.setup_complete,
-                group: profileData.group,
-                streak: profileData.streak,
-                lastStudyDate: profileData.last_study_date,
-              };
-              setProfile(currentProfile);
-          }
-        }
-
-        // 2. Fetch Progress
-        const { data: progressData, error: progressError } = await supabase
-          .from('subject_progress')
-          .select('*')
-          .eq('user_id', currentSession.user.id);
-
-        if (progressData && !progressError) {
-          setUserProgress(progressData.map(p => ({
-            unitId: p.unit_id,
-            status: p.status as UnitStatus,
-            pyqsCompleted: p.pyqs_completed
-          })));
-        }
-
-        // 3. Migration Logic: If cloud profile is empty/invalid but local exists, migrate
-        if (!currentProfile) {
-           console.log("No valid cloud profile found. Checking local backup...");
-           const localProfile = localStorage.getItem('sppu_profile');
-
-           if (localProfile) {
-              try {
-                  const parsed = JSON.parse(localProfile);
-                  // Ensure we have minimal valid data to migrate
-                  if (parsed.selectedSubjects && parsed.selectedSubjects.length > 0) {
-                      console.log("Migrating local profile to cloud...");
-
-                      const { error: upsertError } = await supabase.from('profiles').upsert({
-                        id: currentSession.user.id,
-                        name: parsed.name,
-                        theme: parsed.theme,
-                        selected_subjects: parsed.selectedSubjects,
-                        setup_complete: parsed.setupComplete,
-                        streak: parsed.streak,
-                        last_study_date: parsed.lastStudyDate
-                      });
-
-                      if (!upsertError) {
-                          setProfile(parsed);
-
-                          // Migrate Tasks
-                          const localTasks = localStorage.getItem('sppu_tasks');
-                          if (localTasks) {
-                              const tasks = JSON.parse(localTasks);
-                              for (const t of tasks) {
-                                await supabase.from('tasks').insert({
-                                    user_id: currentSession.user.id,
-                                    text: t.text,
-                                    completed: t.completed,
-                                    priority: t.priority,
-                                    category: t.category,
-                                    due_date: t.dueDate,
-                                    created_at: t.createdAt
-                                });
-                              }
-                          }
-
-                          // Migrate Progress
-                          const localProgress = localStorage.getItem('sppu_user_progress');
-                          if (localProgress) {
-                              const progress = JSON.parse(localProgress);
-                              for (const p of progress) {
-                                  const subjectId = p.unitId.split('-')[0];
-                                  if (subjectId) {
-                                      await supabase.from('subject_progress').upsert({
-                                        user_id: currentSession.user.id,
-                                        subject_id: subjectId,
-                                        unit_id: p.unitId,
-                                        status: p.status,
-                                        pyqs_completed: p.pyqsCompleted,
-                                        updated_at: new Date().toISOString()
-                                      }, { onConflict: 'user_id,subject_id,unit_id' });
-                                  }
-                              }
-                              // Update local state after migration
-                              setUserProgress(progress.map((p: any) => ({
-                                unitId: p.unitId,
-                                status: p.status as UnitStatus,
-                                pyqsCompleted: p.pyqsCompleted
-                              })));
-                          }
-                      } else {
-                          console.error("Migration failed:", upsertError);
-                      }
-                  }
-              } catch (e) {
-                  console.error("Local data corruption during migration:", e);
-              }
-           }
-        }
-    } catch (e) {
-        console.error("Critical error loading data:", e);
-    }
-  };
-
-  useEffect(() => {
-    // Check active sessions and subscribe to auth changes
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      if (session) loadData(session);
-      else setLoading(false);
-    });
-
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session);
-      if (session) loadData(session);
-    });
-
-    return () => subscription.unsubscribe();
-  }, []);
-
-  // Realtime Subscription for Global Progress
-  useEffect(() => {
-    if (!session) return;
-
-    const channel = supabase
-      .channel('public:subject_progress')
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'subject_progress' }, () => {
-         loadData(session);
-      })
-      .subscribe();
-
-    return () => {
-      supabase.removeChannel(channel);
-    };
-  }, [session]);
-
-  // Effect to stop loading spinner once we have attempted data load
-  useEffect(() => {
-      if (session && (profile || userProgress.length >= 0)) {
-          // Small delay to ensure smooth transition
-          const t = setTimeout(() => setLoading(false), 500);
-          return () => clearTimeout(t);
-      }
-  }, [profile, userProgress, session]);
-
-  // Handle Focus Refetch
-  useEffect(() => {
-      const handleFocus = () => {
-          if (session) loadData(session);
-      };
-      window.addEventListener('focus', handleFocus);
-      return () => window.removeEventListener('focus', handleFocus);
-  }, [session]);
-
+  const { profile, setProfile } = useData();
   const location = useLocation();
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-[#030303] flex items-center justify-center">
-        <div className="w-12 h-12 border-4 border-white/10 border-t-[#E11D48] rounded-full animate-spin"></div>
-      </div>
-    );
-  }
-
-  if (!session) {
-    return (
-      <ErrorBoundary>
-        <Auth onSession={setSession} />
-      </ErrorBoundary>
-    );
-  }
-
   // If we are not setup, show Onboarding
-  if (!profile || !profile.setupComplete || !profile.selectedSubjects || profile.selectedSubjects.length === 0) {
+  if (!profile || !profile.setupComplete) {
      return (
         <ErrorBoundary>
-            <Onboarding onComplete={(newProfile) => {
-                setProfile(newProfile); // Optimistic update
-                loadData(session); // Verify with cloud
-            }} />
+            <Onboarding />
         </ErrorBoundary>
      );
   }
@@ -350,10 +150,10 @@ export default function App() {
             <div className="relative group">
                 <div className="absolute inset-0 bg-[#E11D48] rounded-full blur-md opacity-0 group-hover:opacity-20 transition-opacity"></div>
                 <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#E11D48] transition-all">
-                    <Cloud size={20} />
+                    <HardDrive size={20} />
                 </div>
                 <div className="absolute left-16 top-1/2 -translate-y-1/2 px-3 py-1 bg-white text-black text-[8px] font-bold uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl">
-                    Cloud Matrix Active
+                    Local Storage Active
                 </div>
             </div>
             <button className="w-12 h-12 rounded-full bg-gradient-to-br from-white/5 to-white/0 border border-white/5 flex items-center justify-center hover:border-white/20 transition-all text-white/50 hover:text-white group">
@@ -391,12 +191,12 @@ export default function App() {
 
             <div className="max-w-[1600px] mx-auto h-full">
             <Routes>
-                <Route path="/" element={<Dashboard selectedIds={profile.selectedSubjects || []} userProgress={userProgress} profile={profile} />} />
+                <Route path="/" element={<Dashboard />} />
                 <Route path="/subject/:id" element={<SubjectDetail />} />
                 <Route path="/resources" element={<Resources />} />
                 <Route path="/tasks" element={<TodoList />} />
-                <Route path="/calculator" element={<CalculatorPage selectedIds={profile.selectedSubjects || []} />} />
-                <Route path="/settings" element={<SettingsPage profile={profile} setProfile={setProfile} />} />
+                <Route path="/calculator" element={<CalculatorPage />} />
+                <Route path="/settings" element={<SettingsPage />} />
             </Routes>
             </div>
         </main>
