@@ -2,8 +2,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Search, Video, FileText, Download, FolderOpen, ArrowUpRight, Database, Command, Hash, Plus, X, Globe, Youtube, ExternalLink, Link as LinkIcon, AlertTriangle, Play, MonitorPlay, ChevronDown, Layers, Check, Trash2, CheckSquare, Square, MousePointer2 } from 'lucide-react';
 import { SUBJECTS, SYSTEM_RESOURCES, getYouTubeID } from '../constants';
-import { Profile, ResourceItem } from '../types';
+import { ResourceItem } from '../types';
 import ResourceViewerModal from '../components/ResourceViewerModal';
+import { useData } from '../context/DataContext';
 
 // --- TYPES ---
 // ResourceItem is now imported from ../types
@@ -275,6 +276,7 @@ const AddResourceModal = ({ isOpen, onClose, onAdd, userSubjects }: { isOpen: bo
 // --- MAIN PAGE ---
 
 const Resources: React.FC = () => {
+  const { profile } = useData();
   const [activeTab, setActiveTab] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   
@@ -316,22 +318,15 @@ const Resources: React.FC = () => {
       }
 
       // 2. Load Profile for Subject List
-      try {
-          const profileStr = localStorage.getItem('sppu_profile');
-          if (profileStr) {
-              const profile: Profile = JSON.parse(profileStr);
-              if (profile.selectedSubjects) {
-                  const opts: SelectOption[] = SUBJECTS
-                      .filter(s => profile.selectedSubjects.includes(s.id))
-                      .map(s => ({ label: s.name, value: s.code, sub: s.code }));
-                  
-                  // Add 'General' option if not present
-                  opts.push({ label: 'General / Other', value: 'GENERAL' });
-                  setUserSubjectOptions(opts);
-              }
-          }
-      } catch (e) {
-          console.error("Failed to load profile for subjects");
+      if (profile && profile.selectedSubjects) {
+          const opts: SelectOption[] = SUBJECTS
+              .filter(s => profile.selectedSubjects.includes(s.id))
+              .map(s => ({ label: s.name, value: s.code, sub: s.code }));
+
+          // Add 'General' option if not present
+          opts.push({ label: 'General / Other', value: 'GENERAL' });
+          setUserSubjectOptions(opts);
+      } else {
           setUserSubjectOptions([{ label: 'General', value: 'GENERAL' }]);
       }
   }, []);

@@ -65,3 +65,21 @@ export interface ResourceItem {
   url: string;
   isSystem?: boolean;
 }
+
+export type Priority = 'CRITICAL' | 'NORMAL' | 'LOW';
+export type TaskCategory = 'EXAM' | 'LAB' | 'SUBMISSION' | 'GENERAL';
+
+export interface Task {
+  id: string;
+  text: string;
+  completed: boolean;
+  priority: Priority;
+  category: TaskCategory;
+  dueDate: string; // ISO Date
+  createdAt: string;
+}
+
+export interface Mark {
+  inSem: number;
+  endSem: number;
+}

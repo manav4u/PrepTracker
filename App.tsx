@@ -12,7 +12,7 @@ import {
   AlertTriangle, 
   RefreshCw, 
   ListTodo,
-  Cloud
+  HardDrive
 } from 'lucide-react';
 import Dashboard from './pages/Dashboard';
 import SubjectDetail from './pages/SubjectDetail';
@@ -21,10 +21,8 @@ import CalculatorPage from './pages/Calculator';
 import SettingsPage from './pages/Settings';
 import Onboarding from './pages/Onboarding';
 import TodoList from './pages/TodoList';
-import Auth from './pages/Auth';
-import { Profile, UserProgress, UnitStatus } from './types';
-import { supabase } from './lib/supabase';
-import { Session } from '@supabase/supabase-js';
+import { UnitStatus } from './types';
+import { useData } from './context/DataContext';
 
 // --- ERROR BOUNDARY COMPONENT ---
 interface ErrorBoundaryProps {
@@ -99,145 +97,14 @@ const NavItem = ({ to, icon: Icon, active }: { to: string, icon: any, active: bo
 );
 
 export default function App() {
-  const [session, setSession] = useState<Session | null>(null);
-  const [profile, setProfile] = useState<Profile | null>(null);
-  const [userProgress, setUserProgress] = useState<UserProgress[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Check active sessions and subscribe to auth changes
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setLoading(false);
-    });
-
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session);
-    });
-
-    return () => subscription.unsubscribe();
-  }, []);
-
-  useEffect(() => {
-    if (session) {
-      // Load profile and progress from Supabase
-      const fetchData = async () => {
-        // 1. Fetch Profile
-        const { data: profileData, error: profileError } = await supabase
-          .from('profiles')
-          .select('*')
-          .eq('id', session.user.id)
-          .single();
-
-        if (profileData && !profileError) {
-          setProfile({
-            name: profileData.name,
-            prn: profileData.prn,
-            theme: profileData.theme as 'light' | 'dark',
-            selectedSubjects: profileData.selected_subjects,
-            setupComplete: profileData.setup_complete,
-            group: profileData.group,
-            streak: profileData.streak,
-            lastStudyDate: profileData.last_study_date,
-          });
-        }
-
-        // 2. Fetch Progress
-        const { data: progressData, error: progressError } = await supabase
-          .from('subject_progress')
-          .select('*')
-          .eq('user_id', session.user.id);
-
-        if (progressData && !progressError) {
-          setUserProgress(progressData.map(p => ({
-            unitId: p.unit_id,
-            status: p.status as UnitStatus,
-            pyqsCompleted: p.pyqs_completed
-          })));
-        }
-
-        // 3. Migration Logic: If cloud profile is empty but local exists, migrate
-        if (!profileData && !profileError) {
-           const localProfile = localStorage.getItem('sppu_profile');
-           if (localProfile) {
-              const parsed = JSON.parse(localProfile);
-              await supabase.from('profiles').upsert({
-                 id: session.user.id,
-                 name: parsed.name,
-                 theme: parsed.theme,
-                 selected_subjects: parsed.selectedSubjects,
-                 setup_complete: parsed.setupComplete,
-                 streak: parsed.streak,
-                 last_study_date: parsed.lastStudyDate
-              });
-              // Refresh state
-              setProfile(parsed);
-           }
-
-           const localTasks = localStorage.getItem('sppu_tasks');
-           if (localTasks) {
-              const tasks = JSON.parse(localTasks);
-              for (const t of tasks) {
-                 await supabase.from('tasks').insert({
-                    user_id: session.user.id,
-                    text: t.text,
-                    completed: t.completed,
-                    priority: t.priority,
-                    category: t.category,
-                    due_date: t.dueDate,
-                    created_at: t.createdAt
-                 });
-              }
-           }
-
-           const localProgress = localStorage.getItem('sppu_user_progress');
-           if (localProgress) {
-              const progress = JSON.parse(localProgress);
-              for (const p of progress) {
-                  const subjectId = p.unitId.split('-')[0];
-                  if (subjectId) {
-                      await supabase.from('subject_progress').upsert({
-                         user_id: session.user.id,
-                         subject_id: subjectId,
-                         unit_id: p.unitId,
-                         status: p.status,
-                         pyqs_completed: p.pyqsCompleted,
-                         updated_at: new Date().toISOString()
-                      }, { onConflict: 'user_id,subject_id,unit_id' });
-                  }
-              }
-           }
-        }
-      };
-      fetchData();
-    }
-  }, [session]);
-
+  const { profile, setProfile } = useData();
   const location = useLocation();
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-[#030303] flex items-center justify-center">
-        <div className="w-12 h-12 border-4 border-white/10 border-t-[#E11D48] rounded-full animate-spin"></div>
-      </div>
-    );
-  }
-
-  if (!session) {
-    return (
-      <ErrorBoundary>
-        <Auth onSession={setSession} />
-      </ErrorBoundary>
-    );
-  }
-
-  // If we are not setup, show Onboarding (wrapped in ErrorBoundary handled by parent or just return directly)
+  // If we are not setup, show Onboarding
   if (!profile || !profile.setupComplete) {
      return (
         <ErrorBoundary>
-            <Onboarding onComplete={setProfile} />
+            <Onboarding />
         </ErrorBoundary>
      );
   }
@@ -280,10 +147,10 @@ export default function App() {
             <div className="relative group">
                 <div className="absolute inset-0 bg-[#E11D48] rounded-full blur-md opacity-0 group-hover:opacity-20 transition-opacity"></div>
                 <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#E11D48] transition-all">
-                    <Cloud size={20} />
+                    <HardDrive size={20} />
                 </div>
                 <div className="absolute left-16 top-1/2 -translate-y-1/2 px-3 py-1 bg-white text-black text-[8px] font-bold uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl">
-                    Cloud Matrix Active
+                    Local Storage Active
                 </div>
             </div>
             <button className="w-12 h-12 rounded-full bg-gradient-to-br from-white/5 to-white/0 border border-white/5 flex items-center justify-center hover:border-white/20 transition-all text-white/50 hover:text-white group">
@@ -321,12 +188,12 @@ export default function App() {
 
             <div className="max-w-[1600px] mx-auto h-full">
             <Routes>
-                <Route path="/" element={<Dashboard selectedIds={profile.selectedSubjects || []} userProgress={userProgress} profile={profile} />} />
+                <Route path="/" element={<Dashboard />} />
                 <Route path="/subject/:id" element={<SubjectDetail />} />
                 <Route path="/resources" element={<Resources />} />
                 <Route path="/tasks" element={<TodoList />} />
-                <Route path="/calculator" element={<CalculatorPage selectedIds={profile.selectedSubjects || []} />} />
-                <Route path="/settings" element={<SettingsPage profile={profile} setProfile={setProfile} />} />
+                <Route path="/calculator" element={<CalculatorPage />} />
+                <Route path="/settings" element={<SettingsPage />} />
             </Routes>
             </div>
         </main>

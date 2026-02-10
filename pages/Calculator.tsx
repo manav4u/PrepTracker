@@ -1,17 +1,14 @@
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { SUBJECTS } from '../constants';
-import { RotateCcw, Activity, TrendingUp, Cpu, AlertCircle } from 'lucide-react';
+import { RotateCcw, Activity, Cpu, AlertCircle } from 'lucide-react';
+import { useData } from '../context/DataContext';
 
-const CalculatorPage: React.FC<{ selectedIds: string[] }> = ({ selectedIds }) => {
-  const [marks, setMarks] = useState<Record<string, { inSem: number, endSem: number }>>(() => {
-    const saved = localStorage.getItem('sppu_calculator_marks');
-    return saved ? JSON.parse(saved) : {};
-  });
+const CalculatorPage: React.FC = () => {
+  const { profile, marks, setMarks } = useData();
 
-  useEffect(() => {
-    localStorage.setItem('sppu_calculator_marks', JSON.stringify(marks));
-  }, [marks]);
+  if (!profile) return null;
+  const selectedIds = profile.selectedSubjects || [];
   
   const filteredSubjects = SUBJECTS.filter(s => selectedIds.includes(s.id));
 

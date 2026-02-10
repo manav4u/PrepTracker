@@ -1,12 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Hexagon, Zap, Cpu, CircleDashed, CheckCircle2, ChevronRight, Terminal, ScanFace, ShieldCheck, Loader2, Lock, Database, HardDrive } from 'lucide-react';
+import { ArrowRight, Hexagon, Zap, Cpu, CheckCircle2, ScanFace, ShieldCheck, HardDrive } from 'lucide-react';
 import { Profile } from '../types';
-import { supabase } from '../lib/supabase';
+import { useData } from '../context/DataContext';
 
-interface OnboardingProps {
-  onComplete: (profile: Profile) => void;
-}
+interface OnboardingProps {}
 
 // --- MICRO COMPONENTS ---
 
@@ -51,7 +49,8 @@ const BinaryChoice = ({ titleA, codeA, titleB, codeB, selected, onSelect, label 
   </div>
 );
 
-const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
+const Onboarding: React.FC<OnboardingProps> = () => {
+  const { setProfile } = useData();
   // Stages: 'boot' -> 'identity' -> 'matrix' -> 'processing'
   const [stage, setStage] = useState<'boot' | 'identity' | 'matrix' | 'processing'>('boot');
   const [bootProgress, setBootProgress] = useState(0);
@@ -66,7 +65,7 @@ const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
     programming: 'fpl',
     science: 'phy', // 'phy' or 'chem'
     circuit: 'elect', // 'elect' or 'elec'
-    core: 'mech', // 'mech' or 'graph'
+    core: 'mech' // 'mech' or 'graph'
   });
 
   // --- BOOT SEQUENCE LOGIC ---
@@ -86,21 +85,21 @@ const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
     }
   }, [stage]);
 
-  const handleFinish = async () => {
+  const handleFinish = () => {
     setStage('processing');
     
     // Simulate complex processing steps
     const steps = [
-        { pct: 10, log: "ESTABLISHING CLOUD LINK..." },
+        { pct: 10, log: "MOUNTING LOCAL DRIVE..." },
         { pct: 30, log: "CONFIGURING SUBJECTS..." },
-        { pct: 60, log: "SYNCING PREFERENCES..." },
+        { pct: 60, log: "SAVING PREFERENCES..." },
         { pct: 85, log: "OPTIMIZING DASHBOARD..." },
         { pct: 100, log: "SYSTEM READY." }
     ];
 
     let currentStep = 0;
 
-    const interval = setInterval(async () => {
+    const interval = setInterval(() => {
         if (currentStep >= steps.length) {
             clearInterval(interval);
 
@@ -114,25 +113,8 @@ const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                 lastStudyDate: new Date().toISOString()
             };
 
-            // Save to Supabase
-            const { data: { user } } = await supabase.auth.getUser();
-            if (user) {
-                await supabase.from('profiles').upsert({
-                    id: user.id,
-                    name: newProfile.name,
-                    theme: newProfile.theme,
-                    selected_subjects: newProfile.selectedSubjects,
-                    setup_complete: newProfile.setupComplete,
-                    streak: newProfile.streak,
-                    last_study_date: newProfile.lastStudyDate
-                });
-            }
-
-            // Still save to localStorage as backup/offline cache
-            localStorage.setItem('sppu_profile', JSON.stringify(newProfile));
-
             setTimeout(() => {
-                onComplete(newProfile);
+                setProfile(newProfile);
             }, 800);
             return;
         }
@@ -164,7 +146,7 @@ const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
             <div className="h-8 overflow-hidden">
                 <p className="font-mono text-[10px] text-slate-500 leading-relaxed opacity-70">
                     {bootProgress < 30 && "> MOUNTING VOLUMES..."}
-                    {bootProgress >= 30 && bootProgress < 60 && "> ESTABLISHING NEURAL LINK..."}
+                    {bootProgress >= 30 && bootProgress < 60 && "> ESTABLISHING LOCAL CACHE..."}
                     {bootProgress >= 60 && bootProgress < 90 && "> LOADING PREPTRACKER CORE..."}
                     {bootProgress >= 90 && "> READY."}
                 </p>
@@ -186,7 +168,7 @@ const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
         <header className="p-8 flex justify-between items-center opacity-50">
             <div className="flex items-center gap-2">
                 <div className={`w-2 h-2 bg-white rounded-full ${stage === 'processing' ? 'animate-ping' : 'animate-pulse'}`}></div>
-                <span className="font-mono text-[10px] uppercase tracking-widest">Setup Wizard v3.0</span>
+                <span className="font-mono text-[10px] uppercase tracking-widest">Setup Wizard v3.1 (Local)</span>
             </div>
             <Hexagon size={20} />
         </header>
@@ -205,8 +187,8 @@ const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                            <div className="absolute inset-0 border-t border-[#E11D48] rounded-full animate-spin"></div>
                            <div className="absolute inset-2 border-b border-white/20 rounded-full animate-[spin_3s_linear_infinite_reverse]"></div>
                         </div>
-                        <h1 className="text-3xl font-display font-bold text-white mb-2 tracking-tight">Identity Verification</h1>
-                        <p className="text-slate-500 font-mono text-[10px] uppercase tracking-[0.2em]">Secure Access Protocol v9.0</p>
+                        <h1 className="text-3xl font-display font-bold text-white mb-2 tracking-tight">Identity Configuration</h1>
+                        <p className="text-slate-500 font-mono text-[10px] uppercase tracking-[0.2em]">Secure Local Access v9.1</p>
                     </div>
 
                     {/* Input Container */}
@@ -234,7 +216,7 @@ const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                              <p className="text-xs text-white font-medium">What should we call you?</p>
                              <p className="text-[10px] text-slate-500 leading-relaxed font-mono">
                                 Enter your Name or Username to personalize your dashboard.<br/>
-                                <span className="opacity-50">Your profile is synchronized with the Cloud Matrix.</span>
+                                <span className="opacity-50">Data is stored securely on your local device.</span>
                              </p>
                         </div>
                     </div>
@@ -253,13 +235,13 @@ const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
             )}
 
             {stage === 'matrix' && (
-                <div className="w-full animate-in fade-in zoom-in-95 duration-500 slide-in-from-right-8">
+                <div className="w-full animate-in fade-in zoom-in-95 duration-500 slide-in-from-right-8 pb-10">
                      <div className="mb-10 text-center lg:text-left">
                         <span className="inline-block px-3 py-1 rounded-full border border-[#E11D48]/30 bg-[#E11D48]/10 text-[#E11D48] text-[10px] font-bold uppercase tracking-widest mb-4">
-                            Setup Configuration
+                            Syllabus Configuration (2024 Pattern)
                         </span>
                         <h2 className="text-4xl font-display font-bold mb-2">Select Your Subjects</h2>
-                        <p className="text-slate-500 text-sm">Choose the subjects you want to track this semester.</p>
+                        <p className="text-slate-500 text-sm">Customize your dashboard for the current semester.</p>
                      </div>
 
                      <div className="space-y-8 mb-12">
@@ -307,6 +289,7 @@ const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                             selected={choices.core === 'graph' ? 'A' : 'B'}
                             onSelect={(v: string) => setChoices({...choices, core: v === 'A' ? 'graph' : 'mech'})}
                         />
+
                      </div>
 
                      <button
@@ -357,11 +340,11 @@ const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                         <div className="bg-[#050505] border border-white/5 rounded-xl p-4 text-left h-24 overflow-hidden relative">
                             <div className="absolute top-0 left-0 w-full h-8 bg-gradient-to-b from-[#050505] to-transparent z-10 pointer-events-none"></div>
                             <div className="space-y-1.5 font-mono text-[9px] text-slate-500 opacity-70">
-                                <p>&gt; MOUNT_VOLUMES: OK</p>
+                                <p>&gt; MOUNT_LOCAL_DRIVE: OK</p>
                                 <p>&gt; CORE_SERVICES: STARTED</p>
                                 <p>&gt; VERIFYING_INTEGRITY: PASSED</p>
-                                {processPercent > 20 && <p>&gt; ENCRYPTION_KEYS: GENERATED</p>}
-                                {processPercent > 50 && <p className="text-[#E11D48]"> &gt; SYNCING_MATRIX: {Math.round(processPercent)}%</p>}
+                                {processPercent > 20 && <p>&gt; DATA_VECTORS: CALCULATED</p>}
+                                {processPercent > 50 && <p className="text-[#E11D48]"> &gt; WRITING_CONFIG: {Math.round(processPercent)}%</p>}
                                 {processPercent > 80 && <p>&gt; PRE_CACHING: DONE</p>}
                                 <p className="animate-pulse">_</p>
                             </div>

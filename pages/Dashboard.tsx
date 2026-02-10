@@ -3,8 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { SUBJECTS } from '../constants';
 import SubjectCard from '../components/SubjectCard';
-import { UnitStatus, UserProgress, Profile } from '../types';
+import { UnitStatus } from '../types';
 import { ChevronRight, Sparkles, CalendarDays, TrendingUp, Activity } from 'lucide-react';
+import { useData } from '../context/DataContext';
 import ComingSoonModal from '../components/ComingSoonModal';
 
 const SHORT_NAMES: Record<string, string> = {
@@ -141,9 +142,14 @@ const ProgressGraphCard = ({ data, labels }: { data: number[], labels: string[] 
     );
 }
 
-const Dashboard: React.FC<{ selectedIds: string[], userProgress: UserProgress[], profile: Profile }> = ({ selectedIds = [], userProgress = [], profile }) => {
+const Dashboard: React.FC = () => {
+  const { profile, userProgress } = useData();
   // Coming Soon Modal State
   const [comingSoon, setComingSoon] = useState<string | null>(null);
+
+  if (!profile) return null;
+
+  const selectedIds = profile.selectedSubjects || [];
 
   // Calculate Progress
   const getSubjectProgress = (subjectId: string) => {

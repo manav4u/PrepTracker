@@ -18,13 +18,14 @@ import {
   BookOpen,
   Link as LinkIcon,
   Search,
-  ArrowUpRight
+  ArrowUpRight,
+  HardDrive
 } from 'lucide-react';
 import { SUBJECTS, SYSTEM_RESOURCES, getYouTubeID } from '../constants';
-import { UnitStatus, UserProgress, Profile, ResourceItem } from '../types';
+import { UnitStatus, ResourceItem } from '../types';
+import { useData } from '../context/DataContext';
 import ResourceViewerModal from '../components/ResourceViewerModal';
 import ComingSoonModal from '../components/ComingSoonModal';
-import { supabase } from '../lib/supabase';
 
 const SubjectDetail: React.FC = () => {
   const { id } = useParams();
@@ -37,8 +38,7 @@ const SubjectDetail: React.FC = () => {
   
   const chatEndRef = useRef<HTMLDivElement>(null);
 
-  const [userProgress, setUserProgress] = useState<UserProgress[]>([]);
-  const [loading, setLoading] = useState(true);
+  const { userProgress, setUserProgress, profile, setProfile } = useData();
 
   // Resource State
   const [subjectResources, setSubjectResources] = useState<ResourceItem[]>([]);
@@ -47,32 +47,6 @@ const SubjectDetail: React.FC = () => {
   // Coming Soon State
   const [comingSoon, setComingSoon] = useState<string | null>(null);
 
-  useEffect(() => {
-    fetchProgress();
-  }, [id]);
-
-  const fetchProgress = async () => {
-    if (!id) return;
-    setLoading(true);
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user) return;
-
-    const { data, error } = await supabase
-      .from('subject_progress')
-      .select('*')
-      .eq('user_id', user.id)
-      .eq('subject_id', id);
-
-    if (data && !error) {
-      const mapped: UserProgress[] = data.map(p => ({
-        unitId: p.unit_id,
-        status: p.status as UnitStatus,
-        pyqsCompleted: p.pyqs_completed
-      }));
-      setUserProgress(mapped);
-    }
-    setLoading(false);
-  };
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -82,16 +56,10 @@ const SubjectDetail: React.FC = () => {
   useEffect(() => {
       if (!subject) return;
 
-      // 1. Get System Resources
-      // Logic: Filter SYSTEM_RESOURCES where subject matches or code starts with subject
-      // The subject in SYSTEM_RESOURCES is the short code e.g., 'BSC-101'
-      // The subject.code is 'BSC-101-BES'
-      // We will check if subject.code starts with resource.subject
       const relevantSystem = SYSTEM_RESOURCES.filter(r => 
           subject.code.startsWith(r.subject) || r.subject === 'GLOBAL'
       );
 
-      // 2. Get Custom Resources from LocalStorage
       let relevantCustom: ResourceItem[] = [];
       try {
           const savedCustomRaw = localStorage.getItem('sppu_custom_resources');
@@ -105,7 +73,6 @@ const SubjectDetail: React.FC = () => {
           console.error("Error loading custom resources", e);
       }
 
-      // 3. Filter out deleted system resources
       let finalSystem = relevantSystem;
       try {
           const deletedIdsRaw = localStorage.getItem('sppu_deleted_system_ids');
@@ -123,84 +90,49 @@ const SubjectDetail: React.FC = () => {
 
   const getProg = (uId: string) => userProgress.find(p => p.unitId === uId) || { unitId: uId, status: UnitStatus.NOT_STARTED, pyqsCompleted: [] };
 
-  const updateStatus = async (uId: string, status: UnitStatus) => {
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user || !id) return;
+  const updateStatus = (uId: string, status: UnitStatus) => {
+    const idx = userProgress.findIndex(p => p.unitId === uId);
+    let next: typeof userProgress = [];
+    if (idx > -1) {
+        next = [...userProgress];
+        next[idx] = { ...next[idx], status };
+    } else {
+        next = [...userProgress, { unitId: uId, status, pyqsCompleted: [] }];
+    }
+    setUserProgress(next);
 
-    const existing = userProgress.find(p => p.unitId === uId);
+    // Update Streak logic in profile
+    if (profile) {
+        const today = new Date().toDateString();
+        const lastDate = profile.lastStudyDate ? new Date(profile.lastStudyDate).toDateString() : '';
 
-    const { error } = await supabase
-      .from('subject_progress')
-      .upsert({
-        user_id: user.id,
-        subject_id: id,
-        unit_id: uId,
-        status,
-        pyqs_completed: existing?.pyqsCompleted || [],
-        updated_at: new Date().toISOString()
-      }, { onConflict: 'user_id,subject_id,unit_id' });
-
-    if (!error) {
-        setUserProgress(prev => {
-            const idx = prev.findIndex(p => p.unitId === uId);
-            if (idx > -1) {
-                const next = [...prev];
-                next[idx] = { ...next[idx], status };
-                return next;
-            }
-            return [...prev, { unitId: uId, status, pyqsCompleted: [] }];
-        });
-
-        // Update Streak logic
-        const { data: profileData } = await supabase.from('profiles').select('*').eq('id', user.id).single();
-        if (profileData) {
-            const today = new Date().toDateString();
-            const lastDate = profileData.last_study_date ? new Date(profileData.last_study_date).toDateString() : '';
-
-            if (lastDate !== today) {
-                const newStreak = (profileData.streak || 0) + 1;
-                await supabase.from('profiles').update({
-                    streak: newStreak,
-                    last_study_date: new Date().toISOString()
-                }).eq('id', user.id);
-            }
+        if (lastDate !== today) {
+            setProfile({
+                ...profile,
+                streak: (profile.streak || 0) + 1,
+                lastStudyDate: new Date().toISOString()
+            });
         }
     }
   };
 
-  const togglePyq = async (uId: string, year: string) => {
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user || !id) return;
-
-    const existing = userProgress.find(p => p.unitId === uId);
-    const currentPyqs = existing?.pyqsCompleted || [];
-    const isCompleted = currentPyqs.includes(year);
-    const nextPyqs = isCompleted
-        ? currentPyqs.filter(y => y !== year)
-        : [...currentPyqs, year];
-
-    const { error } = await supabase
-      .from('subject_progress')
-      .upsert({
-        user_id: user.id,
-        subject_id: id,
-        unit_id: uId,
-        status: existing?.status || UnitStatus.NOT_STARTED,
-        pyqs_completed: nextPyqs,
-        updated_at: new Date().toISOString()
-      }, { onConflict: 'user_id,subject_id,unit_id' });
-
-    if (!error) {
-        setUserProgress(prev => {
-            const idx = prev.findIndex(p => p.unitId === uId);
-            if (idx > -1) {
-                const next = [...prev];
-                next[idx] = { ...next[idx], pyqsCompleted: nextPyqs };
-                return next;
-            }
-            return [...prev, { unitId: uId, status: UnitStatus.NOT_STARTED, pyqsCompleted: nextPyqs }];
-        });
+  const togglePyq = (uId: string, year: string) => {
+    const idx = userProgress.findIndex(p => p.unitId === uId);
+    let next: typeof userProgress = [];
+    if (idx > -1) {
+        next = [...userProgress];
+        const currentPyqs = next[idx].pyqsCompleted || [];
+        const isCompleted = currentPyqs.includes(year);
+        next[idx] = {
+            ...next[idx],
+            pyqsCompleted: isCompleted
+                ? currentPyqs.filter(y => y !== year)
+                : [...currentPyqs, year]
+        };
+    } else {
+        next = [...userProgress, { unitId: uId, status: UnitStatus.NOT_STARTED, pyqsCompleted: [year] }];
     }
+    setUserProgress(next);
   };
 
   const handleChatSubmit = (e: React.FormEvent) => {
@@ -233,7 +165,7 @@ const SubjectDetail: React.FC = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E11D48] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E11D48]"></span>
               </span>
-              {subject.code} • {subject.credits} Credits
+              {subject.code} • {subject.credits} Credits • <HardDrive size={10} className="inline mr-1" /> Local
             </span>
             <h1 className="text-4xl lg:text-8xl font-display font-bold text-white leading-[0.9] tracking-tighter text-balance">
               {subject.name}
@@ -282,7 +214,6 @@ const SubjectDetail: React.FC = () => {
                         <h3 className={`text-2xl font-display font-bold mt-1 transition-colors tracking-tight ${isMastered ? 'text-[#E11D48]' : 'text-white'}`}>{unit.title}</h3>
                       </div>
                       
-                      {/* Redesigned Status Segmented Control */}
                       <div className="flex bg-white/5 p-1 rounded-xl">
                         {[
                             { status: UnitStatus.NOT_STARTED, icon: Circle, label: 'Start' },
