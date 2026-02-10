@@ -117,7 +117,7 @@ const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
             // Save to Supabase
             const { data: { user } } = await supabase.auth.getUser();
             if (user) {
-                await supabase.from('profiles').upsert({
+                const { error } = await supabase.from('profiles').upsert({
                     id: user.id,
                     name: newProfile.name,
                     theme: newProfile.theme,
@@ -126,6 +126,11 @@ const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                     streak: newProfile.streak,
                     last_study_date: newProfile.lastStudyDate
                 });
+
+                if (error) {
+                    console.error("Critical Profile Save Error:", error);
+                    alert(`Failed to save profile to cloud: ${error.message}. Continuing with local storage.`);
+                }
             }
 
             // Still save to localStorage as backup/offline cache

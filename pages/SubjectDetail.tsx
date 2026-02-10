@@ -152,7 +152,10 @@ const SubjectDetail: React.FC = () => {
         updated_at: new Date().toISOString()
       }, { onConflict: 'user_id,subject_id,unit_id' });
 
-    if (!error) {
+    if (error) {
+        console.error("Error updating unit status:", error);
+        alert(`Failed to update status: ${error.message}`);
+    } else {
         setUserProgress(prev => {
             const idx = prev.findIndex(p => p.unitId === uId);
             if (idx > -1) {
@@ -202,7 +205,10 @@ const SubjectDetail: React.FC = () => {
         updated_at: new Date().toISOString()
       }, { onConflict: 'user_id,subject_id,unit_id' });
 
-    if (!error) {
+    if (error) {
+        console.error("Error updating PYQ status:", error);
+        alert(`Failed to update PYQ: ${error.message}`);
+    } else {
         setUserProgress(prev => {
             const idx = prev.findIndex(p => p.unitId === uId);
             if (idx > -1) {
