@@ -216,7 +216,7 @@ const TodoList: React.FC = () => {
 
         if (error) {
             console.error("Error inserting task:", error);
-            // Fallback: Optimistic UI update or error toast
+            alert(`Failed to create task: ${error.message}`);
             return;
         }
 
