@@ -81,8 +81,11 @@ const SettingsPage: React.FC<{ profile: Profile, setProfile: any }> = ({ profile
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
+    // Clear session storage only, preserve local backup in case of accidental logout
+    sessionStorage.clear();
     window.location.reload();
   };
+
   const [dragActive, setDragActive] = useState(false);
   
   // State for Micro-interactions
@@ -98,15 +101,59 @@ const SettingsPage: React.FC<{ profile: Profile, setProfile: any }> = ({ profile
       setToast({ message: msg, type });
   };
 
-  const update = (f: string, v: any) => {
+  const update = async (f: string, v: any) => {
       const newProfile = { ...profile, [f]: v };
       setProfile(newProfile);
+
+      // Update Local Storage
       localStorage.setItem('sppu_profile', JSON.stringify(newProfile));
+
+      // Update Supabase
+      if (session?.user) {
+          try {
+              const { error } = await supabase
+                .from('profiles')
+                .update({ [f === 'selectedSubjects' ? 'selected_subjects' : f]: v })
+                .eq('id', session.user.id);
+
+              if (error) throw error;
+          } catch (e) {
+              console.error("Cloud sync failed:", e);
+              showToast("Cloud Sync Failed (Saved Locally)", 'error');
+          }
+      }
   };
 
-  const manualSave = () => {
+  const manualSave = async () => {
+      // Local Save
       localStorage.setItem('sppu_profile', JSON.stringify(profile));
-      showToast("Settings Saved", 'success');
+
+      // Cloud Save
+      if (session?.user) {
+          setIsBusy({ active: true, message: 'SYNCING TO CLOUD...' });
+          try {
+              const { error } = await supabase.from('profiles').upsert({
+                 id: session.user.id,
+                 name: profile.name,
+                 prn: profile.prn,
+                 theme: profile.theme,
+                 selected_subjects: profile.selectedSubjects,
+                 setup_complete: profile.setupComplete,
+                 streak: profile.streak,
+                 last_study_date: profile.lastStudyDate
+              });
+
+              if (error) throw error;
+              showToast("Cloud Synchronization Complete", 'success');
+          } catch (e) {
+              console.error(e);
+              showToast("Cloud Sync Failed", 'error');
+          } finally {
+              setIsBusy({ active: false, message: '' });
+          }
+      } else {
+          showToast("Settings Saved Locally", 'success');
+      }
   }
 
   // --- MODAL HANDLERS ---
@@ -129,8 +176,14 @@ const SettingsPage: React.FC<{ profile: Profile, setProfile: any }> = ({ profile
           setIsBusy({ active: true, message: 'WIPING DATA...' });
           
           // Critical Operation: Hard Reset sequence
-          setTimeout(() => {
+          setTimeout(async () => {
              localStorage.clear();
+             sessionStorage.clear();
+
+             if (session) {
+                 await supabase.auth.signOut();
+             }
+
              // Force reload to root to prevent hash router ghosts
              window.location.reload();
           }, 1500);

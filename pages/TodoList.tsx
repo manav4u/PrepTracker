@@ -18,7 +18,8 @@ import {
   FlaskConical,
   X,
   Check,
-  ChevronDown
+  ChevronDown,
+  Loader2
 } from 'lucide-react';
 
 // --- TYPES ---
