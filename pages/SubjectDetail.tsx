@@ -47,43 +47,43 @@ const SubjectDetail: React.FC = () => {
   // Coming Soon State
   const [comingSoon, setComingSoon] = useState<string | null>(null);
 
-
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [chatHistory, showChat]);
 
   // Load Resources for this subject
   useEffect(() => {
-      if (!subject) return;
+      const fetchResources = async () => {
+          if (!subject) return;
 
-      const relevantSystem = SYSTEM_RESOURCES.filter(r => 
-          subject.code.startsWith(r.subject) || r.subject === 'GLOBAL'
-      );
+          const relevantSystem = SYSTEM_RESOURCES.filter(r =>
+              subject.code.startsWith(r.subject) || r.subject === 'GLOBAL'
+          );
 
-      let relevantCustom: ResourceItem[] = [];
-      try {
-          const savedCustomRaw = localStorage.getItem('sppu_custom_resources');
-          if (savedCustomRaw) {
-              const allCustom: ResourceItem[] = JSON.parse(savedCustomRaw);
-              relevantCustom = allCustom.filter(r => 
-                  subject.code.startsWith(r.subject) || r.subject === 'GLOBAL'
-              );
-          }
-      } catch (e) {
-          console.error("Error loading custom resources", e);
-      }
+          let relevantCustom: ResourceItem[] = [];
+          try {
+              const savedCustomRaw = localStorage.getItem('sppu_custom_resources');
+              if (savedCustomRaw) {
+                  const allCustom: ResourceItem[] = JSON.parse(savedCustomRaw);
+                  relevantCustom = allCustom.filter(r =>
+                      subject.code.startsWith(r.subject) || r.subject === 'GLOBAL'
+                  );
+              }
+          } catch(e) {}
 
-      let finalSystem = relevantSystem;
-      try {
-          const deletedIdsRaw = localStorage.getItem('sppu_deleted_system_ids');
-          if (deletedIdsRaw) {
-              const deletedIds: string[] = JSON.parse(deletedIdsRaw);
-              finalSystem = relevantSystem.filter(r => !deletedIds.includes(r.id));
-          }
-      } catch(e) {}
+          let finalSystem = relevantSystem;
+          try {
+              const deletedIdsRaw = localStorage.getItem('sppu_deleted_system_ids');
+              if (deletedIdsRaw) {
+                  const deletedIds: string[] = JSON.parse(deletedIdsRaw);
+                  finalSystem = relevantSystem.filter(r => !deletedIds.includes(r.id));
+              }
+          } catch(e) {}
 
-      setSubjectResources([...finalSystem, ...relevantCustom]);
+          setSubjectResources([...finalSystem, ...relevantCustom]);
+      };
 
+      fetchResources();
   }, [subject]);
 
   if (!subject) return <div className="p-20 text-center text-white font-display">SUBJECT_NOT_FOUND</div>;
@@ -302,7 +302,7 @@ const SubjectDetail: React.FC = () => {
                 <h3 className="text-xl font-display font-bold text-white mb-2 tracking-tight">AI Assistant</h3>
                 <p className="text-sm text-slate-400 mb-8 font-medium leading-relaxed">Ask questions about {subject.name} and get instant answers sourced from approved textbooks.</p>
                 <button 
-                    onClick={() => setComingSoon('Neural Network')}
+                    onClick={() => setComingSoon('AI Study Assistant')}
                     className="w-full py-4 rounded-xl bg-white text-black font-bold uppercase text-[10px] tracking-[0.25em] hover:scale-[1.02] transition-transform shadow-lg shadow-white/10"
                 >
                     Open Neural Chat

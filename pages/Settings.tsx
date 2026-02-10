@@ -1,6 +1,6 @@
 
 import React, { useRef, useState, useEffect } from 'react';
-import { User, RotateCcw, Trash2, Terminal, AlertTriangle, Upload, Download, HardDrive, Check, AlertOctagon, Loader2, ScanLine } from 'lucide-react';
+import { User, RotateCcw, Trash2, Terminal, AlertTriangle, Upload, Download, HardDrive, Check, AlertOctagon, Loader2, ScanLine, Save } from 'lucide-react';
 import { SUBJECTS } from '../constants';
 import { useData } from '../context/DataContext';
 
@@ -71,6 +71,7 @@ const ConfirmModal = ({ isOpen, title, description, onConfirm, onCancel, isDange
 const SettingsPage: React.FC = () => {
   const { profile, setProfile, clearAllData, refreshData } = useData();
   const fileInputRef = useRef<HTMLInputElement>(null);
+
   const [dragActive, setDragActive] = useState(false);
 
   if (!profile) return null;
@@ -88,7 +89,7 @@ const SettingsPage: React.FC = () => {
       setToast({ message: msg, type });
   };
 
-  const update = (f: string, v: any) => {
+  const update = async (f: string, v: any) => {
       const newProfile = { ...profile, [f]: v };
       setProfile(newProfile);
   };
@@ -209,8 +210,6 @@ const SettingsPage: React.FC = () => {
                 setTimeout(() => {
                     setIsBusy({ active: false, message: '' });
                     showToast("Backup Restored", 'success');
-                    // We might not need a full reload if state is synced
-                    // but reload is safer for a full reset
                     window.location.reload();
                 }, 1000);
             } else {

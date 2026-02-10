@@ -1,15 +1,12 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Search, Video, FileText, Download, FolderOpen, ArrowUpRight, Database, Command, Hash, Plus, X, Globe, Youtube, ExternalLink, Link as LinkIcon, AlertTriangle, Play, MonitorPlay, ChevronDown, Layers, Check, Trash2, CheckSquare, Square, MousePointer2 } from 'lucide-react';
-import { SUBJECTS, SYSTEM_RESOURCES, getYouTubeID } from '../constants';
+import { SUBJECTS, getYouTubeID } from '../constants';
 import { ResourceItem } from '../types';
 import ResourceViewerModal from '../components/ResourceViewerModal';
 import { useData } from '../context/DataContext';
 
 // --- TYPES ---
-// ResourceItem is now imported from ../types
-// SYSTEM_RESOURCES is now imported from ../constants
-// getYouTubeID is now imported from ../constants
 
 interface SelectOption {
     label: string;
@@ -276,12 +273,10 @@ const AddResourceModal = ({ isOpen, onClose, onAdd, userSubjects }: { isOpen: bo
 // --- MAIN PAGE ---
 
 const Resources: React.FC = () => {
-  const { profile } = useData();
+  const { profile, resources, addResource, deleteResources } = useData();
   const [activeTab, setActiveTab] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   
-  // State for Resources
-  const [resources, setResources] = useState<ResourceItem[]>(SYSTEM_RESOURCES);
   // State for Dynamic Subjects
   const [userSubjectOptions, setUserSubjectOptions] = useState<SelectOption[]>([]);
 
@@ -296,28 +291,8 @@ const Resources: React.FC = () => {
   // New: Delete Confirmation Modal State
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
-  // Load User Resources & Profile on Mount
+  // Load User Subjects on Mount/Profile Change
   useEffect(() => {
-      // 1. Load Resources
-      try {
-          // Handle System Resources (Check exclusions)
-          const deletedSystemIdsRaw = localStorage.getItem('sppu_deleted_system_ids');
-          const deletedSystemIds: string[] = deletedSystemIdsRaw ? JSON.parse(deletedSystemIdsRaw) : [];
-          
-          const activeSystemResources = SYSTEM_RESOURCES.filter(r => !deletedSystemIds.includes(r.id));
-
-          // Handle Custom Resources
-          const savedCustom = localStorage.getItem('sppu_custom_resources');
-          const customResources = savedCustom ? JSON.parse(savedCustom) : [];
-          
-          setResources([...activeSystemResources, ...customResources]);
-      } catch (e) {
-          console.error("Failed to load resources", e);
-          // Fallback
-          setResources(SYSTEM_RESOURCES);
-      }
-
-      // 2. Load Profile for Subject List
       if (profile && profile.selectedSubjects) {
           const opts: SelectOption[] = SUBJECTS
               .filter(s => profile.selectedSubjects.includes(s.id))
@@ -329,12 +304,12 @@ const Resources: React.FC = () => {
       } else {
           setUserSubjectOptions([{ label: 'General', value: 'GENERAL' }]);
       }
-  }, []);
+  }, [profile]);
 
   const handleAddResource = (data: { title: string, url: string, category: string, subject: string }) => {
       const newResource: ResourceItem = {
-          id: `user_${Date.now()}`,
-          type: getYouTubeID(data.url) ? 'video' : 'link', // Auto-detect type if possible
+          id: `res_${Date.now()}`,
+          type: getYouTubeID(data.url) ? 'video' : 'link',
           title: data.title,
           author: 'YOU',
           downloads: '0',
@@ -343,13 +318,7 @@ const Resources: React.FC = () => {
           url: data.url,
           isSystem: false
       };
-
-      const updated = [...resources, newResource];
-      setResources(updated);
-      
-      // Persist only user resources
-      const userResources = updated.filter(r => !r.isSystem);
-      localStorage.setItem('sppu_custom_resources', JSON.stringify(userResources));
+      addResource(newResource);
   };
 
   const toggleSelection = (id: string) => {
@@ -370,39 +339,7 @@ const Resources: React.FC = () => {
 
   // Actual Delete Logic
   const executeDelete = () => {
-      // Identify resources to be deleted from the CURRENT resources state
-      const resourcesToDelete = resources.filter(r => selectedIds.has(r.id));
-      const systemResourcesToDelete = resourcesToDelete.filter(r => r.isSystem);
-      const customResourcesToDelete = resourcesToDelete.filter(r => !r.isSystem);
-
-      const systemIds = systemResourcesToDelete.map(r => r.id);
-      const customIds = customResourcesToDelete.map(r => r.id);
-
-      // 1. Update UI State immediately
-      setResources(prev => prev.filter(r => !selectedIds.has(r.id)));
-
-      // 2. Persist System Exclusions
-      if (systemIds.length > 0) {
-          try {
-              const currentExclusionsRaw = localStorage.getItem('sppu_deleted_system_ids');
-              const currentExclusions: string[] = currentExclusionsRaw ? JSON.parse(currentExclusionsRaw) : [];
-              const newExclusions = Array.from(new Set([...currentExclusions, ...systemIds]));
-              localStorage.setItem('sppu_deleted_system_ids', JSON.stringify(newExclusions));
-          } catch (e) { console.error("Failed to persist system deletions", e); }
-      }
-
-      // 3. Persist Custom Deletions
-      if (customIds.length > 0) {
-          try {
-              const currentCustomRaw = localStorage.getItem('sppu_custom_resources');
-              const currentCustom: ResourceItem[] = currentCustomRaw ? JSON.parse(currentCustomRaw) : [];
-              // Filter out any ID that is in our deletion list
-              const remainingCustom = currentCustom.filter(r => !customIds.includes(r.id));
-              localStorage.setItem('sppu_custom_resources', JSON.stringify(remainingCustom));
-          } catch(e) { console.error("Failed to persist custom deletions", e); }
-      }
-
-      // 4. Cleanup
+      deleteResources(Array.from(selectedIds));
       setSelectedIds(new Set());
       setIsSelectionMode(false);
       setIsDeleteModalOpen(false);

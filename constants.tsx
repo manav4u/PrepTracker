@@ -300,7 +300,7 @@ export const SUBJECTS: Subject[] = [
         topics: ['Tuples: Introduction, Operations, Methods', 'Sets: Introduction, Operations, Methods', 'Dictionaries: Introduction, Operations, Methods']
       },
     ]
-  },
+  }
 ];
 
 export const SYSTEM_RESOURCES: ResourceItem[] = [

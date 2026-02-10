@@ -45,7 +45,10 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   }
 
   handleHardReset = () => {
-    localStorage.clear();
+    // Only clear session storage to avoid wiping local data backup if unnecessary
+    sessionStorage.clear();
+    // Potentially clear specific corrupt keys from local storage if known,
+    // but avoid full clear to preserve 'sppu_profile' etc. if they are valid.
     window.location.reload();
   };
 
@@ -62,13 +65,13 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
                 </div>
                 <h1 className="text-3xl font-display font-bold text-white mb-2">System Failure</h1>
                 <p className="text-slate-400 text-sm mb-8 leading-relaxed font-mono">
-                    The application encountered a non-recoverable data error. This usually happens due to corrupt local storage or an interrupted update.
+                    The application encountered a non-recoverable data error.
                 </p>
                 <button 
                     onClick={this.handleHardReset}
                     className="w-full py-4 bg-red-600 text-white font-bold uppercase tracking-[0.2em] rounded-xl hover:bg-red-700 transition-all shadow-[0_0_20px_rgba(220,38,38,0.4)] flex items-center justify-center gap-3"
                 >
-                    <RefreshCw size={18} /> Execute Hard Reset
+                    <RefreshCw size={18} /> Execute Reset
                 </button>
                 <p className="mt-6 text-[10px] text-slate-600 uppercase tracking-widest">Error Code: RENDER_PROCESS_TERMINATED</p>
             </div>

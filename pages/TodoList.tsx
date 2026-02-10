@@ -124,7 +124,7 @@ const TodoList: React.FC = () => {
   const [filter, setFilter] = useState<'ALL' | 'ACTIVE' | 'COMPLETED'>('ALL');
 
   // Handlers
-  const addTask = (e: React.FormEvent) => {
+  const addTask = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!inputText.trim()) return;
 
@@ -168,7 +168,10 @@ const TodoList: React.FC = () => {
     // Sort: Critical Active First, then Normal, then Low, then Completed
     if (a.completed === b.completed) {
         const pMap = { CRITICAL: 3, NORMAL: 2, LOW: 1 };
-        return pMap[b.priority] - pMap[a.priority];
+        // Safety check for priority
+        const pA = pMap[a.priority] || 1;
+        const pB = pMap[b.priority] || 1;
+        return pB - pA;
     }
     return a.completed ? 1 : -1;
   });
@@ -331,8 +334,10 @@ const TodoList: React.FC = () => {
                     </div>
                 ) : (
                     filteredTasks.map(task => {
-                        const CategoryIcon = CATEGORY_CONFIG[task.category].icon;
-                        const isCritical = task.priority === 'CRITICAL';
+                        // Safety Checks for Configs
+                        const catConfig = CATEGORY_CONFIG[task.category] || CATEGORY_CONFIG['GENERAL'];
+                        const priConfig = PRIORITY_CONFIG[task.priority] || PRIORITY_CONFIG['NORMAL'];
+                        const CategoryIcon = catConfig.icon;
 
                         return (
                             <div 
@@ -340,7 +345,7 @@ const TodoList: React.FC = () => {
                                 className={`
                                     group relative bg-[#0a0a0a] border rounded-2xl p-5 transition-all duration-300 
                                     hover:translate-x-1 flex items-start gap-5
-                                    ${task.completed ? 'opacity-50 border-white/5' : `hover:border-white/20 ${PRIORITY_CONFIG[task.priority].border} ${PRIORITY_CONFIG[task.priority].glow}`}
+                                    ${task.completed ? 'opacity-50 border-white/5' : `hover:border-white/20 ${priConfig.border} ${priConfig.glow}`}
                                 `}
                             >
                                 {/* Checkbox Node */}
@@ -360,14 +365,14 @@ const TodoList: React.FC = () => {
                                 <div className="flex-1 min-w-0">
                                     <div className="flex flex-wrap items-center gap-2 mb-2">
                                         {/* Priority Badge */}
-                                        <span className={`text-[9px] font-bold border px-1.5 py-0.5 rounded uppercase tracking-wider ${PRIORITY_CONFIG[task.priority].color} border-current opacity-80`}>
-                                            {task.priority}
+                                        <span className={`text-[9px] font-bold border px-1.5 py-0.5 rounded uppercase tracking-wider ${priConfig.color} border-current opacity-80`}>
+                                            {task.priority || 'NORMAL'}
                                         </span>
                                         
                                         {/* Category Badge */}
-                                        <span className={`text-[9px] font-bold flex items-center gap-1 uppercase tracking-wider ${CATEGORY_CONFIG[task.category].color}`}>
+                                        <span className={`text-[9px] font-bold flex items-center gap-1 uppercase tracking-wider ${catConfig.color}`}>
                                             <CategoryIcon size={10} />
-                                            {CATEGORY_CONFIG[task.category].label}
+                                            {catConfig.label}
                                         </span>
 
                                         {/* Date Badge */}

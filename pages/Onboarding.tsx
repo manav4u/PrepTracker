@@ -85,7 +85,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
     }
   }, [stage]);
 
-  const handleFinish = () => {
+  const handleFinish = async () => {
     setStage('processing');
     
     // Simulate complex processing steps
@@ -99,7 +99,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
 
     let currentStep = 0;
 
-    const interval = setInterval(() => {
+    const interval = setInterval(async () => {
         if (currentStep >= steps.length) {
             clearInterval(interval);
 
