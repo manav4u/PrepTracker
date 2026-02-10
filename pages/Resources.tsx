@@ -1,15 +1,12 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Search, Video, FileText, Download, FolderOpen, ArrowUpRight, Database, Command, Hash, Plus, X, Globe, Youtube, ExternalLink, Link as LinkIcon, AlertTriangle, Play, MonitorPlay, ChevronDown, Layers, Check, Trash2, CheckSquare, Square, MousePointer2 } from 'lucide-react';
-import { SUBJECTS, SYSTEM_RESOURCES, getYouTubeID } from '../constants';
-import { Profile, ResourceItem } from '../types';
+import { SUBJECTS, getYouTubeID } from '../constants';
+import { ResourceItem } from '../types';
 import ResourceViewerModal from '../components/ResourceViewerModal';
-import { supabase } from '../lib/supabase';
+import { useData } from '../context/DataContext';
 
 // --- TYPES ---
-// ResourceItem is now imported from ../types
-// SYSTEM_RESOURCES is now imported from ../constants
-// getYouTubeID is now imported from ../constants
 
 interface SelectOption {
     label: string;
@@ -276,11 +273,10 @@ const AddResourceModal = ({ isOpen, onClose, onAdd, userSubjects }: { isOpen: bo
 // --- MAIN PAGE ---
 
 const Resources: React.FC = () => {
+  const { profile, resources, addResource, deleteResources } = useData();
   const [activeTab, setActiveTab] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   
-  // State for Resources
-  const [resources, setResources] = useState<ResourceItem[]>(SYSTEM_RESOURCES);
   // State for Dynamic Subjects
   const [userSubjectOptions, setUserSubjectOptions] = useState<SelectOption[]>([]);
 
@@ -295,81 +291,24 @@ const Resources: React.FC = () => {
   // New: Delete Confirmation Modal State
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
-  // Fetch Logic
-  const fetchResources = async () => {
-      // 1. System Resources (local filter)
-      const deletedSystemIdsRaw = localStorage.getItem('sppu_deleted_system_ids');
-      const deletedSystemIds: string[] = deletedSystemIdsRaw ? JSON.parse(deletedSystemIdsRaw) : [];
-      const activeSystemResources = SYSTEM_RESOURCES.filter(r => !deletedSystemIds.includes(r.id));
-
-      // 2. Fetch Custom Resources from Supabase
-      const { data: { user } } = await supabase.auth.getUser();
-      if (user) {
-          const { data, error } = await supabase.from('resources').select('*').eq('user_id', user.id);
-          if (data && !error) {
-             const mapped: ResourceItem[] = data.map(r => ({
-                 id: r.id,
-                 type: r.type as any,
-                 title: r.title,
-                 author: r.author || 'YOU',
-                 downloads: r.downloads || '0',
-                 subject: r.subject,
-                 category: r.category,
-                 url: r.url,
-                 isSystem: r.is_system
-             }));
-             setResources([...activeSystemResources, ...mapped]);
-          } else {
-             setResources(activeSystemResources);
-          }
-      } else {
-          setResources(activeSystemResources);
-      }
-  };
-
-  // Load User Resources & Profile on Mount
+  // Load User Subjects on Mount/Profile Change
   useEffect(() => {
-      fetchResources();
+      if (profile && profile.selectedSubjects) {
+          const opts: SelectOption[] = SUBJECTS
+              .filter(s => profile.selectedSubjects.includes(s.id))
+              .map(s => ({ label: s.name, value: s.code, sub: s.code }));
 
-      // Subscribe to Realtime
-      const channel = supabase
-      .channel('public:resources')
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'resources' }, () => {
-          fetchResources();
-      })
-      .subscribe();
-
-      // 2. Load Profile for Subject List
-      try {
-          const profileStr = localStorage.getItem('sppu_profile');
-          if (profileStr) {
-              const profile: Profile = JSON.parse(profileStr);
-              if (profile.selectedSubjects) {
-                  const opts: SelectOption[] = SUBJECTS
-                      .filter(s => profile.selectedSubjects.includes(s.id))
-                      .map(s => ({ label: s.name, value: s.code, sub: s.code }));
-                  
-                  // Add 'General' option if not present
-                  opts.push({ label: 'General / Other', value: 'GENERAL' });
-                  setUserSubjectOptions(opts);
-              }
-          }
-      } catch (e) {
-          console.error("Failed to load profile for subjects");
+          // Add 'General' option if not present
+          opts.push({ label: 'General / Other', value: 'GENERAL' });
+          setUserSubjectOptions(opts);
+      } else {
           setUserSubjectOptions([{ label: 'General', value: 'GENERAL' }]);
       }
+  }, [profile]);
 
-      return () => {
-          supabase.removeChannel(channel);
-      };
-  }, []);
-
-  const handleAddResource = async (data: { title: string, url: string, category: string, subject: string }) => {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (!user) return;
-
-      const newResource = {
-          user_id: user.id,
+  const handleAddResource = (data: { title: string, url: string, category: string, subject: string }) => {
+      const newResource: ResourceItem = {
+          id: `res_${Date.now()}`,
           type: getYouTubeID(data.url) ? 'video' : 'link',
           title: data.title,
           author: 'YOU',
@@ -377,15 +316,9 @@ const Resources: React.FC = () => {
           subject: data.subject,
           category: data.category,
           url: data.url,
-          is_system: false
+          isSystem: false
       };
-
-      const { error } = await supabase.from('resources').insert(newResource);
-      if (error) {
-          console.error("Error adding resource:", error);
-          alert(`Failed to add resource: ${error.message}`);
-      }
-      // Realtime subscription will handle the update
+      addResource(newResource);
   };
 
   const toggleSelection = (id: string) => {
@@ -405,39 +338,11 @@ const Resources: React.FC = () => {
   };
 
   // Actual Delete Logic
-  const executeDelete = async () => {
-      // Identify resources to be deleted from the CURRENT resources state
-      const resourcesToDelete = resources.filter(r => selectedIds.has(r.id));
-      const systemResourcesToDelete = resourcesToDelete.filter(r => r.isSystem);
-      const customResourcesToDelete = resourcesToDelete.filter(r => !r.isSystem);
-
-      const systemIds = systemResourcesToDelete.map(r => r.id);
-      const customIds = customResourcesToDelete.map(r => r.id);
-
-      // 1. Update UI State immediately
-      setResources(prev => prev.filter(r => !selectedIds.has(r.id)));
-
-      // 2. Persist System Exclusions
-      if (systemIds.length > 0) {
-          try {
-              const currentExclusionsRaw = localStorage.getItem('sppu_deleted_system_ids');
-              const currentExclusions: string[] = currentExclusionsRaw ? JSON.parse(currentExclusionsRaw) : [];
-              const newExclusions = Array.from(new Set([...currentExclusions, ...systemIds]));
-              localStorage.setItem('sppu_deleted_system_ids', JSON.stringify(newExclusions));
-          } catch (e) { console.error("Failed to persist system deletions", e); }
-      }
-
-      // 3. Persist Custom Deletions
-      if (customIds.length > 0) {
-           const { error } = await supabase.from('resources').delete().in('id', customIds);
-           if (error) console.error("Error deleting resources:", error);
-      }
-
-      // 4. Cleanup
+  const executeDelete = () => {
+      deleteResources(Array.from(selectedIds));
       setSelectedIds(new Set());
       setIsSelectionMode(false);
       setIsDeleteModalOpen(false);
-      fetchResources(); // Sync
   };
 
   const filteredResources = resources.filter(res => {
