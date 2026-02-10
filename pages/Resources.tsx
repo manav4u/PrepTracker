@@ -4,6 +4,7 @@ import { Search, Video, FileText, Download, FolderOpen, ArrowUpRight, Database, 
 import { SUBJECTS, SYSTEM_RESOURCES, getYouTubeID } from '../constants';
 import { Profile, ResourceItem } from '../types';
 import ResourceViewerModal from '../components/ResourceViewerModal';
+import { supabase } from '../lib/supabase';
 
 // --- TYPES ---
 // ResourceItem is now imported from ../types
@@ -294,26 +295,49 @@ const Resources: React.FC = () => {
   // New: Delete Confirmation Modal State
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
+  // Fetch Logic
+  const fetchResources = async () => {
+      // 1. System Resources (local filter)
+      const deletedSystemIdsRaw = localStorage.getItem('sppu_deleted_system_ids');
+      const deletedSystemIds: string[] = deletedSystemIdsRaw ? JSON.parse(deletedSystemIdsRaw) : [];
+      const activeSystemResources = SYSTEM_RESOURCES.filter(r => !deletedSystemIds.includes(r.id));
+
+      // 2. Fetch Custom Resources from Supabase
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+          const { data, error } = await supabase.from('resources').select('*').eq('user_id', user.id);
+          if (data && !error) {
+             const mapped: ResourceItem[] = data.map(r => ({
+                 id: r.id,
+                 type: r.type as any,
+                 title: r.title,
+                 author: r.author || 'YOU',
+                 downloads: r.downloads || '0',
+                 subject: r.subject,
+                 category: r.category,
+                 url: r.url,
+                 isSystem: r.is_system
+             }));
+             setResources([...activeSystemResources, ...mapped]);
+          } else {
+             setResources(activeSystemResources);
+          }
+      } else {
+          setResources(activeSystemResources);
+      }
+  };
+
   // Load User Resources & Profile on Mount
   useEffect(() => {
-      // 1. Load Resources
-      try {
-          // Handle System Resources (Check exclusions)
-          const deletedSystemIdsRaw = localStorage.getItem('sppu_deleted_system_ids');
-          const deletedSystemIds: string[] = deletedSystemIdsRaw ? JSON.parse(deletedSystemIdsRaw) : [];
-          
-          const activeSystemResources = SYSTEM_RESOURCES.filter(r => !deletedSystemIds.includes(r.id));
+      fetchResources();
 
-          // Handle Custom Resources
-          const savedCustom = localStorage.getItem('sppu_custom_resources');
-          const customResources = savedCustom ? JSON.parse(savedCustom) : [];
-          
-          setResources([...activeSystemResources, ...customResources]);
-      } catch (e) {
-          console.error("Failed to load resources", e);
-          // Fallback
-          setResources(SYSTEM_RESOURCES);
-      }
+      // Subscribe to Realtime
+      const channel = supabase
+      .channel('public:resources')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'resources' }, () => {
+          fetchResources();
+      })
+      .subscribe();
 
       // 2. Load Profile for Subject List
       try {
@@ -334,27 +358,33 @@ const Resources: React.FC = () => {
           console.error("Failed to load profile for subjects");
           setUserSubjectOptions([{ label: 'General', value: 'GENERAL' }]);
       }
+
+      return () => {
+          supabase.removeChannel(channel);
+      };
   }, []);
 
-  const handleAddResource = (data: { title: string, url: string, category: string, subject: string }) => {
-      const newResource: ResourceItem = {
-          id: `user_${Date.now()}`,
-          type: getYouTubeID(data.url) ? 'video' : 'link', // Auto-detect type if possible
+  const handleAddResource = async (data: { title: string, url: string, category: string, subject: string }) => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) return;
+
+      const newResource = {
+          user_id: user.id,
+          type: getYouTubeID(data.url) ? 'video' : 'link',
           title: data.title,
           author: 'YOU',
           downloads: '0',
           subject: data.subject,
           category: data.category,
           url: data.url,
-          isSystem: false
+          is_system: false
       };
 
-      const updated = [...resources, newResource];
-      setResources(updated);
-      
-      // Persist only user resources
-      const userResources = updated.filter(r => !r.isSystem);
-      localStorage.setItem('sppu_custom_resources', JSON.stringify(userResources));
+      const { error } = await supabase.from('resources').insert(newResource);
+      if (error) {
+          console.error("Error adding resource:", error);
+      }
+      // Realtime subscription will handle the update
   };
 
   const toggleSelection = (id: string) => {
@@ -374,7 +404,7 @@ const Resources: React.FC = () => {
   };
 
   // Actual Delete Logic
-  const executeDelete = () => {
+  const executeDelete = async () => {
       // Identify resources to be deleted from the CURRENT resources state
       const resourcesToDelete = resources.filter(r => selectedIds.has(r.id));
       const systemResourcesToDelete = resourcesToDelete.filter(r => r.isSystem);
@@ -398,19 +428,15 @@ const Resources: React.FC = () => {
 
       // 3. Persist Custom Deletions
       if (customIds.length > 0) {
-          try {
-              const currentCustomRaw = localStorage.getItem('sppu_custom_resources');
-              const currentCustom: ResourceItem[] = currentCustomRaw ? JSON.parse(currentCustomRaw) : [];
-              // Filter out any ID that is in our deletion list
-              const remainingCustom = currentCustom.filter(r => !customIds.includes(r.id));
-              localStorage.setItem('sppu_custom_resources', JSON.stringify(remainingCustom));
-          } catch(e) { console.error("Failed to persist custom deletions", e); }
+           const { error } = await supabase.from('resources').delete().in('id', customIds);
+           if (error) console.error("Error deleting resources:", error);
       }
 
       // 4. Cleanup
       setSelectedIds(new Set());
       setIsSelectionMode(false);
       setIsDeleteModalOpen(false);
+      fetchResources(); // Sync
   };
 
   const filteredResources = resources.filter(res => {

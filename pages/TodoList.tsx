@@ -139,6 +139,17 @@ const TodoList: React.FC = () => {
   // Load Tasks
   useEffect(() => {
     fetchTasks();
+
+    const channel = supabase
+      .channel('public:tasks')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'tasks' }, () => {
+          fetchTasks();
+      })
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
 
   const fetchTasks = async () => {
