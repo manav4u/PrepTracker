@@ -3,13 +3,16 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { SUBJECTS } from '../constants';
 import SubjectCard from '../components/SubjectCard';
-import { UnitStatus, UserProgress, Profile } from '../types';
+import { UnitStatus } from '../types';
 import { ChevronRight, Sparkles, CalendarDays, TrendingUp, Activity } from 'lucide-react';
+import { useData } from '../context/DataContext';
 import ComingSoonModal from '../components/ComingSoonModal';
 
 const SHORT_NAMES: Record<string, string> = {
   'm1': 'M1',
+  'm2': 'M2',
   'fpl': 'FPL',
+  'pps': 'PPS',
   'phy': 'PHY',
   'chem': 'CHEM',
   'elect': 'BXE',
@@ -141,9 +144,14 @@ const ProgressGraphCard = ({ data, labels }: { data: number[], labels: string[] 
     );
 }
 
-const Dashboard: React.FC<{ selectedIds: string[], userProgress: UserProgress[], profile: Profile }> = ({ selectedIds = [], userProgress = [], profile }) => {
+const Dashboard: React.FC = () => {
+  const { profile, userProgress } = useData();
   // Coming Soon Modal State
   const [comingSoon, setComingSoon] = useState<string | null>(null);
+
+  if (!profile) return null;
+
+  const selectedIds = profile.selectedSubjects || [];
 
   // Calculate Progress
   const getSubjectProgress = (subjectId: string) => {
@@ -164,9 +172,8 @@ const Dashboard: React.FC<{ selectedIds: string[], userProgress: UserProgress[],
     return { percentage: Math.round(score / subject.units.length), mastered };
   };
 
-  // Filter Active Subjects (Use passed prop for filtering, but ensure robust fallback)
-  const safeSelectedIds = Array.isArray(selectedIds) && selectedIds.length > 0 ? selectedIds : (profile.selectedSubjects || []);
-  const filtered = SUBJECTS.filter(s => safeSelectedIds.includes(s.id));
+  // Filter Active Subjects
+  const filtered = SUBJECTS.filter(s => selectedIds.includes(s.id));
   
   // Aggregate Metrics
   const avgProgress = filtered.length > 0 
@@ -327,7 +334,7 @@ const Dashboard: React.FC<{ selectedIds: string[], userProgress: UserProgress[],
         
         <div className="lg:col-span-2">
             <h3 className="text-lg font-display font-bold text-white mb-8 flex items-center gap-3 tracking-tight">
-               <Sparkles size={18} className="text-[#E11D48]" /> 
+               <span className="text-[#E11D48]"><Sparkles size={18} /></span>
                AI Study Assistant
             </h3>
             <div className="relative overflow-hidden rounded-3xl bg-[#0a0a0a] border border-white/5 p-8 lg:p-12 group">
@@ -342,7 +349,7 @@ const Dashboard: React.FC<{ selectedIds: string[], userProgress: UserProgress[],
                      </p>
                   </div>
                   <button 
-                    onClick={() => setComingSoon('Neural Network')}
+                    onClick={() => setComingSoon('AI Study Assistant')}
                     className="shrink-0 px-8 py-4 rounded-xl bg-white text-black font-bold uppercase text-[10px] tracking-[0.25em] hover:scale-105 transition-transform flex items-center gap-3 shadow-[0_0_40px_rgba(255,255,255,0.15)]"
                   >
                      <Sparkles size={14} />
