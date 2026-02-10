@@ -315,7 +315,7 @@ export const SYSTEM_RESOURCES: ResourceItem[] = [
 
 export const EXAM_DATES: ExamDate[] = [
   // Keeping general milestones if needed, but Dashboard now favors specific subject exams
-  { name: 'End-Sem Starts', date: '2026-01-17T10:00:00' }
+  { name: 'End-Sem Starts', date: '2026-06-05T10:00:00' }
 ];
 
 export const PYQ_YEARS = [
