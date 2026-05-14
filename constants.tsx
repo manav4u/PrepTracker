@@ -16,7 +16,7 @@ export const SUBJECTS: Subject[] = [
     name: 'Engineering Mathematics-I',
     code: 'BSC-101-BES',
     credits: 4,
-    examDate: '2026-01-23T10:00:00',
+    examDate: '2026-06-03T14:00:00',
     units: [
       { 
         id: 'm1-u1', unit_number: 1, title: 'Single Variable Calculus', 
@@ -45,7 +45,7 @@ export const SUBJECTS: Subject[] = [
     name: 'Fundamentals of Programming Languages',
     code: 'ESC-105-COM',
     credits: 3,
-    examDate: '2026-01-22T10:00:00',
+    examDate: '2026-06-19T14:00:00',
     units: [
       { 
         id: 'fpl-u1', unit_number: 1, title: 'Intro to Program Planning & C Programming', 
@@ -74,7 +74,7 @@ export const SUBJECTS: Subject[] = [
     name: 'Engineering Physics',
     code: 'BSC-102-BES',
     credits: 4,
-    examDate: '2026-01-24T10:00:00',
+    examDate: '2026-06-05T14:00:00',
     units: [
       { 
         id: 'phy-u1', unit_number: 1, title: 'Fundamentals of Photonics', 
@@ -103,7 +103,7 @@ export const SUBJECTS: Subject[] = [
     name: 'Engineering Chemistry',
     code: 'BSC-103-BES',
     credits: 4,
-    examDate: '2026-01-27T10:00:00',
+    examDate: '2026-06-08T14:00:00',
     units: [
       { 
         id: 'chem-u1', unit_number: 1, title: 'Water Technology', 
@@ -132,7 +132,7 @@ export const SUBJECTS: Subject[] = [
     name: 'Basic Electronics Engineering',
     code: 'ESC-101-ETC',
     credits: 3,
-    examDate: '2026-01-17T10:00:00',
+    examDate: '2026-06-10T14:00:00',
     units: [
       { 
         id: 'elect-u1', unit_number: 1, title: 'Diodes and Applications', 
@@ -161,7 +161,7 @@ export const SUBJECTS: Subject[] = [
     name: 'Basic Electrical Engineering',
     code: 'ESE-102-ELE',
     credits: 3,
-    examDate: '2026-01-19T10:00:00',
+    examDate: '2026-06-12T14:00:00',
     units: [
       { 
         id: 'elec-u1', unit_number: 1, title: 'Elementary Concepts and DC Circuits', 
@@ -190,7 +190,7 @@ export const SUBJECTS: Subject[] = [
     name: 'Engineering Mechanics',
     code: 'ESC-104-CVL',
     credits: 3,
-    examDate: '2026-01-21T10:00:00',
+    examDate: '2026-06-17T14:00:00',
     units: [
       { 
         id: 'mech-u1', unit_number: 1, title: 'Force systems and its resultants', 
@@ -219,7 +219,7 @@ export const SUBJECTS: Subject[] = [
     name: 'Engineering Graphics',
     code: 'ESC-103-MEC',
     credits: 3,
-    examDate: '2026-01-20T10:00:00',
+    examDate: '2026-06-15T14:00:00',
     units: [
       { 
         id: 'graph-u1', unit_number: 1, title: 'Fundamentals & Projection of Point/Line', 
@@ -248,7 +248,7 @@ export const SUBJECTS: Subject[] = [
     name: 'Engineering Mathematics-II',
     code: 'BSC-151-BES',
     credits: 4,
-    examDate: '2026-06-15T10:00:00',
+    examDate: '2026-06-22T14:00:00',
     units: [
       {
         id: 'm2-u1', unit_number: 1, title: 'First Order Ordinary Differential Equations',
@@ -277,7 +277,7 @@ export const SUBJECTS: Subject[] = [
     name: 'Programming and Problem Solving',
     code: 'PCC-151-ITT',
     credits: 3,
-    examDate: '2026-06-12T10:00:00',
+    examDate: '2026-06-24T14:00:00',
     units: [
       {
         id: 'pps-u1', unit_number: 1, title: 'Introduction to Computing and Programming',
@@ -315,7 +315,7 @@ export const SYSTEM_RESOURCES: ResourceItem[] = [
 
 export const EXAM_DATES: ExamDate[] = [
   // Keeping general milestones if needed, but Dashboard now favors specific subject exams
-  { name: 'End-Sem Starts', date: '2026-06-05T10:00:00' }
+  { name: 'End-Sem Starts', date: '2026-06-03T14:00:00' }
 ];
 
 export const PYQ_YEARS = [
