@@ -1,0 +1,13 @@
+# PrepTracker
+
+> PrepTracker is a free web app for SPPU 2024 Pattern engineering students. It tracks syllabus progress by subject and unit, keeps study resource links in one place, and manages tasks. Data is stored in the browser's local storage; there is no account.
+
+## App
+
+- [PrepTracker](https://manav4u.github.io/PrepTracker/): the dashboard with subjects and progress
+- [Resources](https://manav4u.github.io/PrepTracker/#/resources): saved study links
+- [Tasks](https://manav4u.github.io/PrepTracker/#/tasks): to-do list
+
+## Source
+
+- [GitHub repository](https://github.com/manav4u/PrepTracker): code and README
