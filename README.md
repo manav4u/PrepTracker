@@ -7,7 +7,7 @@
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-B73C92?style=for-the-badge&logo=vite&logoColor=white)
 
-> **Engineer Your Academic Success.** The definitive operating system for engineering students. Manage syllabus coverage, access curated resources, and track critical deadlines. Zero fluff. Pure efficiency.
+> An academic dashboard for syllabus progress, study resources, and tasks.
 
 ---
 
@@ -21,16 +21,16 @@
 
 ## 📖 Overview
 
-**PrepTracker** is a high-performance academic dashboard designed specifically for engineering students following the **SPPU 2024 Pattern**. It replaces scattered PDFs, messy notes, and generic to-do lists with a centralized command center.
+**PrepTracker** is an academic dashboard for the SPPU 2024 Pattern, with syllabus tracking, resource links, and tasks.
 
-Built with an **"Industrial Elite"** design philosophy, the interface prioritizes clarity, speed, and focus. Dark mode is standard, distractions are eliminated, and every pixel serves a purpose—helping you master your coursework efficiently.
+The interface uses a dark theme, subject views, and progress indicators.
 
 ### Why PrepTracker?
 
-*   **Precision Tracking:** Forget guessing your progress. We've digitized the entire SPPU syllabus into interactive modules. Mark units as "Pending," "In Progress," or "Mastered" and visualize your velocity.
-*   **Curated Resource Vault:** Instant access to high-quality notes, video lectures, and textbooks specific to your current semester subjects.
-*   **Privacy First:** Your data belongs to you. PrepTracker uses **Local Storage** exclusively. No cloud accounts, no tracking, no data mining.
-*   **Task Command:** A robust Todo system with priority sorting to manage assignments, lab work, and exam prep alongside your daily life.
+*   **Syllabus tracking:** Mark the included units as Pending, In Progress, or Mastered.
+*   **Resource links:** Browse the included notes, videos, and reference materials.
+*   **Browser storage:** Profile, progress, tasks, and custom resource links use `localStorage`. The site also loads Google Analytics and external fonts. Do not treat local storage as a no-tracking guarantee; clearing browser storage removes local data.
+*   **Tasks:** Track study tasks with priorities and due dates.
 
 ## ✨ Key Features
 
@@ -50,21 +50,21 @@ Built with an **"Industrial Elite"** design philosophy, the interface prioritize
 *   **Persistent State:** Tasks remain saved even if you close the browser.
 
 ### 4. **Industrial Elite UI**
-*   **Dark Mode Native:** Designed for late-night study sessions with zero eye strain.
-*   **Responsive:** Works seamlessly on desktop, tablet, and mobile.
-*   **Framer Motion:** Smooth, professional animations for a premium feel.
+*   **Dark Mode Native:** A dark theme for the application interface.
+*   **Responsive:** Responsive layouts for different screen sizes.
+*   **Framer Motion:** UI animations provided by Framer Motion.
 
 ## 🛠️ Tech Stack
 
-This project is built using modern web technologies to ensure speed, scalability, and maintainability.
+Dependency versions below match `package.json` at this documentation checkpoint.
 
-*   **Frontend Framework:** [React 18](https://reactjs.org/)
-*   **Language:** [TypeScript](https://www.typescriptlang.org/) for type safety and robust code.
-*   **Build Tool:** [Vite](https://vitejs.dev/) for lightning-fast development and optimized production builds.
+*   **Frontend Framework:** [React 19](https://reactjs.org/) (`^19.2.3`)
+*   **Language:** [TypeScript](https://www.typescriptlang.org/) for typed application code.
+*   **Build Tool:** [Vite](https://vitejs.dev/) for development and production builds.
 *   **Styling:** [Tailwind CSS](https://tailwindcss.com/) with a custom configuration for the "Industrial Elite" theme.
-*   **Animations:** [Framer Motion](https://www.framer.com/motion/) for fluid UI interactions.
-*   **Routing:** [React Router v6](https://reactrouter.com/) (HashRouter for GitHub Pages compatibility).
-*   **Icons:** [Lucide React](https://lucide.dev/) for clean, consistent iconography.
+*   **Animations:** [Framer Motion](https://www.framer.com/motion/) for UI animations.
+*   **Routing:** [React Router 7](https://reactrouter.com/) (`^7.11.0`) (HashRouter for GitHub Pages compatibility).
+*   **Icons:** [Lucide React](https://lucide.dev/) for icons.
 *   **State Management:** React Context API + Custom Hooks.
 *   **Persistence:** `localStorage` API for client-side data retention.
 
@@ -74,7 +74,7 @@ Follow these instructions to get a local copy of the project up and running.
 
 ### Prerequisites
 
-*   Node.js (v18 or higher)
+*   Node.js 20 (the version used by the deployment workflow)
 *   npm or yarn
 
 ### Installation
@@ -96,7 +96,7 @@ Follow these instructions to get a local copy of the project up and running.
     ```
 
 4.  **Open in browser:**
-    Navigate to `http://localhost:5173` (or the port shown in your terminal).
+    Navigate to `http://localhost:3000/PrepTracker/` (or the port shown in your terminal).
 
 ### Deployment
 
@@ -107,24 +107,32 @@ This project is configured for **GitHub Pages**.
     npm run build
     ```
 2.  The build artifacts will be in the `dist/` directory.
-3.  Deploy using `gh-pages` or manually upload the `dist` folder.
+3.  The existing `.github/workflows/deploy.yml` workflow builds pushes to `main` with `npm ci` and publishes `dist/` to GitHub Pages. Vite uses `/PrepTracker/` as its base path.
 
 ## 📂 Project Structure
 
 ```
 PrepTracker/
-├── public/              # Static assets (images, icons)
-├── src/
-│   ├── components/      # Reusable UI components
-│   ├── context/         # React Context (Data/State Management)
-│   ├── pages/           # Application views (Dashboard, Resources, etc.)
-│   ├── types.ts         # TypeScript definitions
-│   ├── constants.tsx    # Static data (Syllabus, Defaults)
-│   ├── App.tsx          # Main application component
-│   └── main.tsx         # Entry point
-├── tailwind.config.js   # Tailwind CSS configuration
-└── vite.config.ts       # Vite configuration
+├── .github/workflows/deploy.yml
+├── components/          # Reusable interface components
+├── context/             # Application data and browser storage
+├── pages/               # Dashboard, resources, tasks, and other views
+├── public/              # Static assets
+├── verification/        # Screenshot capture script and saved images
+├── App.tsx              # Application routes and shell
+├── index.tsx            # Entry point
+├── index.html
+├── index.css
+├── constants.tsx        # Included syllabus and default data
+├── types.ts
+├── package.json
+├── tailwind.config.js
+└── vite.config.ts
 ```
+
+## Verification limits
+
+`package.json` provides `dev`, `build`, and `preview` scripts. It does not currently define a test script. The `verification/` directory contains screenshot evidence and a capture script, not an automated application test suite. This documentation update does not claim a full feature, accessibility, or performance audit.
 
 ## 🤝 Contributing
 
