@@ -51,7 +51,7 @@ export const SUBJECTS: Subject[] = [
     units: [
       { 
         id: 'fpl-u1', unit_number: 1, hours: 6, title: 'Intro to Program Planning & C Programming', 
-        topics: ['Algorithms & Flowcharts', 'C Tokens, Keywords, Identifiers', 'Constants, Variables, Data types', 'Storage class and symbolic constants', 'Program compilation Process'] 
+        topics: ['Algorithms & Flowcharts', 'C Tokens, Keywords, Identifiers', 'Constants, Variables, Data types', 'Storage class and symbolic constants', 'Case study: C program compilation process'] 
       },
       { 
         id: 'fpl-u2', unit_number: 2, hours: 6, title: 'Operators and Expressions', 
@@ -63,11 +63,11 @@ export const SUBJECTS: Subject[] = [
       },
       { 
         id: 'fpl-u4', unit_number: 4, hours: 6, title: 'Arrays', 
-        topics: ['One Dimensional Arrays', 'Two-dimensional Arrays', 'Character Arrays and Strings', 'String handling Functions', 'Matrix multiplication'] 
+        topics: ['One Dimensional Arrays', 'Two-dimensional Arrays', 'Character Arrays and Strings', 'String handling Functions', 'Case study: Matrix multiplication'] 
       },
       { 
         id: 'fpl-u5', unit_number: 5, hours: 6, title: 'User Defined Functions', 
-        topics: ['Function definition & declaration', 'Call by value/reference', 'Recursion', 'Structures (Declaration, Initialization)', 'Tower of Hanoi'] 
+        topics: ['Function definition & declaration', 'Categories of functions by arguments and return values', 'Recursion', 'Structures (Declaration, Initialization)', 'Case study: Tower of Hanoi'] 
       },
     ]
   },
