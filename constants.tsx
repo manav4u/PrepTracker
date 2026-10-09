@@ -123,7 +123,7 @@ export const SUBJECTS: Subject[] = [
       },
       { 
         id: 'chem-u4', unit_number: 4, hours: 8, title: 'Energy Sources', 
-        topics: ['Calorific value (Bomb & Boy’s calorimeter)', 'Coal Analysis (Proximate & Ultimate)', 'Biodiesel & Power alcohol', 'Hydrogen fuel cells', 'Lithium Ion Battery'] 
+        topics: ['Calorific value (Bomb & Boy’s calorimeter)', 'Coal Analysis (Proximate & Ultimate)', 'Biodiesel & Power alcohol', 'Hydrogen gas as a future fuel', 'Lithium Ion Battery'] 
       },
       { 
         id: 'chem-u5', unit_number: 5, hours: 8, title: 'Corrosion and its Prevention', 
