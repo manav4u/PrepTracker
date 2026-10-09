@@ -10,7 +10,7 @@ export interface SubjectPageConfig {
   id: string; slug: string; title: string; metaDescription: string; ogTitle: string; ogDescription: string;
   lead: string; chips: string[];
   marks: { head: string; marks: number; credit?: number; span?: number }[];
-  prereq: string; outcomes: string[]; coUnits?: boolean; studyOrder: string;
+  prereq: string; order?: number[]; outcomes: string[]; coUnits?: boolean; studyOrder: string;
   textBooks: string[]; refBooks: string[];
   videos: { label: string; url: string }[]; videoNote: string;
   faq: [string, string][];
@@ -25,14 +25,47 @@ h1{font-size:clamp(28px,6vw,44px);line-height:1.15;margin:0 0 8px;color:#fff}h2{
 .card ul{margin:8px 0 0;padding-left:20px;color:#ccc}table{width:100%;border-collapse:collapse;font-size:15px}td,th{border-bottom:1px solid #222;padding:8px 6px;text-align:left}th{color:#888;font-weight:500}
 .cta{display:inline-block;background:#e11d48;color:#fff;text-decoration:none;font-weight:600;padding:12px 22px;border-radius:12px;margin-top:8px}
 details{border-bottom:1px solid #222;padding:10px 0}summary{cursor:pointer;color:#fff;font-weight:500}details p{margin:8px 0 0;color:#bbb}
+
+.viz{display:grid;gap:14px;grid-template-columns:1fr}@media(min-width:640px){.viz{grid-template-columns:200px 1fr;align-items:center}}
+.donut{width:180px;height:180px;margin:0 auto}.donut text{fill:#fff;font-weight:700}.donut .sub{fill:#888;font-weight:400}
+.legend{list-style:none;margin:0;padding:0}.legend li{display:grid;grid-template-columns:12px 1fr auto;gap:10px;align-items:center;padding:6px 0;font-size:14px;color:#ccc;border-bottom:1px solid #1c1c1c}
+.legend i{width:10px;height:10px;border-radius:3px;display:block}.legend b{color:#fff;font-weight:600}
+.bars{margin:8px 0}.bar{margin:12px 0}.bar .lab{display:flex;justify-content:space-between;gap:10px;font-size:14px;color:#ccc;margin-bottom:5px}.bar .lab b{color:#fff;font-weight:600;white-space:nowrap}
+.track{height:10px;border-radius:999px;background:#161616;border:1px solid #222;overflow:hidden}.fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#9f1239,#e11d48 60%,#fb7185)}
+.note{font-size:13px;color:#777;margin:6px 0 0}
+.flow{list-style:none;margin:12px 0;padding:0;position:relative}.flow li{position:relative;padding:0 0 18px 44px;color:#ccc;font-size:15px}.flow li:before{content:'';position:absolute;left:14px;top:30px;bottom:-4px;width:2px;background:linear-gradient(#e11d48,#3a1620)}.flow li:last-child:before{display:none}
+.flow .n{position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;background:#1a0a10;border:1px solid #e11d48;color:#fb7185;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}.flow b{color:#fff;display:block;font-weight:600}.flow small{color:#777}
 footer{margin-top:48px;font-size:13px;color:#777}ol.co{padding-left:0;list-style:none}ol.co li{margin:10px 0;padding-left:56px;position:relative;color:#ccc}ol.co b{position:absolute;left:0;color:#fb7185}`;
 
+
+
+const PALETTE = ['#e11d48', '#fb7185', '#be123c', '#fda4af', '#9f1239', '#f43f5e'];
+
+function Donut({ parts, total }: { parts: number[]; total: number }) {
+  const R = 70, C = 2 * Math.PI * R;
+  let acc = 0;
+  return (
+    <svg className="donut" viewBox="0 0 180 180" role="img" aria-label={'Hours per unit, ' + total + ' hours in total'}>
+      <circle cx="90" cy="90" r={R} fill="none" stroke="#161616" strokeWidth="20" />
+      {parts.map((h, i) => {
+        const len = (h / total) * C;
+        const el = <circle key={i} cx="90" cy="90" r={R} fill="none" stroke={PALETTE[i % PALETTE.length]} strokeWidth="20" strokeDasharray={(len - 2).toFixed(2) + ' ' + (C - len + 2).toFixed(2)} strokeDashoffset={(-acc).toFixed(2)} transform="rotate(-90 90 90)" />;
+        acc += len;
+        return el;
+      })}
+      <text x="90" y="92" textAnchor="middle" fontSize="30">{total}</text>
+      <text className="sub" x="90" y="112" textAnchor="middle" fontSize="12">hours</text>
+    </svg>
+  );
+}
 
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
 
 export function renderSubjectPage(c: SubjectPageConfig): string {
   const s = SUBJECTS.find(x => x.id === c.id)!;
   const PATH = '/syllabus/' + c.slug + '/';
+  const totalHours = s.units.reduce((a, u) => a + u.hours, 0);
+  const order = c.order ?? s.units.map((_, i) => i);
   const page = (
     <html lang="en">
       <head>
@@ -77,6 +110,21 @@ export function renderSubjectPage(c: SubjectPageConfig): string {
             </section>
           ))}
 
+          <h2>Where the hours go</h2>
+          <div className="viz">
+            <Donut parts={s.units.map(u => u.hours)} total={totalHours} />
+            <ul className="legend">{s.units.map((u, i) => <li key={u.id}><i style={{ background: PALETTE[i % PALETTE.length] }} /><span>Unit {ROMAN[i]}: {u.title}</span><b>{u.hours} h</b></li>)}</ul>
+          </div>
+
+          <h2>Effort by unit</h2>
+          <div className="bars">{s.units.map((u, i) => (
+            <div className="bar" key={u.id}>
+              <div className="lab"><span>Unit {ROMAN[i]}: {u.title}</span><b>{Math.round((u.hours / totalHours) * 100)}%</b></div>
+              <div className="track"><div className="fill" style={{ width: Math.round((u.hours / totalHours) * 100) + '%' }} /></div>
+            </div>
+          ))}</div>
+          <p className="note">Share of teaching hours per unit. The syllabus does not publish marks per unit, so this shows where the course time goes, not how the paper is weighted.</p>
+
           <h2>Marks and credits</h2>
           <table><thead><tr><th>Head</th><th>Marks</th><th>Credit</th></tr></thead><tbody>
             {c.marks.map(m => (
@@ -89,6 +137,9 @@ export function renderSubjectPage(c: SubjectPageConfig): string {
           <ol className="co">{c.outcomes.map((o, i) => <li key={i}><b>CO{i + 1}</b>{o}{c.coUnits && <><br /><small style={{ color: '#777' }}>Covers Unit {ROMAN[i]}</small></>}</li>)}</ol>
 
           <h2>A study order that follows the syllabus</h2>
+          <ol className="flow">{order.map((idx, k) => (
+            <li key={idx}><span className="n">{k + 1}</span><b>Unit {ROMAN[idx]}: {s.units[idx].title}</b><small>{s.units[idx].hours} hours</small></li>
+          ))}</ol>
           <p>{c.studyOrder}</p>
 
           <h2>Books</h2>

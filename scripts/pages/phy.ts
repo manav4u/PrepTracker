@@ -14,6 +14,7 @@ const config: SubjectPageConfig = {
     { head: 'Theory: End-Semester', marks: 70 },
     { head: 'Practical / term work', marks: 25, credit: 1 },
   ],
+  order: [0, 2, 1, 3, 4],
   prereq: 'The prerequisites listed in the syllabus are Bohr\u2019s atomic theory, properties of mechanical and electromagnetic waves, Huygens\u2019 principle and wavefront, interference and polarization of light, wave particle duality, intrinsic and extrinsic semiconductors, basics of magnetism, trigonometry and calculus. The course aims to teach the fundamentals of physics through hands-on experiments and extend them to engineering applications. The practical side is 2 hours a week, and any 8 experiments from a list of 12 are performed.',
   outcomes: [
     'Develop the understanding of the working principle of lasers and optical fibers and extend it to holography and fiber optic communication.',
