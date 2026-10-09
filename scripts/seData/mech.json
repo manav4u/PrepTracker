@@ -148,9 +148,9 @@
   "units": [
    {
     "roman": "I",
-    "title": "",
+    "title": "Crystal Structures, Materials Properties and Characterization Techniques",
     "hours": 8,
-    "text": "Techniques Crystal Structures: Introduction to crystal structure, Miller indices, Crystal imperfections, and Diffusion Mechanisms, introduction to Material Properties, Destructive Testing: Impact test, Cupping test, Non- Destructive Testing: Eddy current test, Sonic, Ultrasonic testing, X-ray Radiography testing (Principle and Applications only) Microscopic Techniques: Sample Preparation and etching procedure, optical microscopy, Electronic microscopy - only SEM, TEM and X-ray diffraction (Principle and Applications only) Macroscopy: Sulphur printing, flow line observation, spark test"
+    "text": "Crystal Structures: Introduction to crystal structure, Miller indices, Crystal imperfections, and Diffusion Mechanisms, introduction to Material Properties, Destructive Testing: Impact test, Cupping test, Non- Destructive Testing: Eddy current test, Sonic, Ultrasonic testing, X-ray Radiography testing (Principle and Applications only) Microscopic Techniques: Sample Preparation and etching procedure, optical microscopy, Electronic microscopy - only SEM, TEM and X-ray diffraction (Principle and Applications only) Macroscopy: Sulphur printing, flow line observation, spark test"
    },
    {
     "roman": "II",
@@ -221,9 +221,9 @@
    },
    {
     "roman": "III",
-    "title": "",
+    "title": "Numerical methods for solving algebraic and transcendental equations",
     "hours": 8,
-    "text": "equations Numerical Solution of Algebraic and Transcendental equations: Bisection, Secant, Regula-Falsi, Newton– Raphson and Successive Approximation Methods, Convergence and Stability. Numerical Solutions of System of linear equations: Gauss elimination with partial pivoting, LU Decomposition, Jacobi and Gauss-Seidel Methods."
+    "text": "Numerical Solution of Algebraic and Transcendental equations: Bisection, Secant, Regula-Falsi, Newton– Raphson and Successive Approximation Methods, Convergence and Stability. Numerical Solutions of System of linear equations: Gauss elimination with partial pivoting, LU Decomposition, Jacobi and Gauss-Seidel Methods."
    },
    {
     "roman": "IV",

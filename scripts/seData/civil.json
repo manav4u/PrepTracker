@@ -216,9 +216,9 @@
    },
    {
     "roman": "III",
-    "title": "Numerical Methods for solving Algebraic and Transcendental",
+    "title": "Numerical Methods for solving Algebraic and Transcendental Equations",
     "hours": 8,
-    "text": "Equations Numerical Solution of Algebraic and Transcendental equations: Bisection, Secant, Regula-Falsi, Newton–Raphson and Successive Approximation Methods, Convergence and Stability. Numerical Solutions of System of linear equations: Gauss elimination with partial pivoting, LU Decomposition, Jacobi and Gauss-Seidel Methods."
+    "text": "Numerical Solution of Algebraic and Transcendental equations: Bisection, Secant, Regula-Falsi, Newton–Raphson and Successive Approximation Methods, Convergence and Stability. Numerical Solutions of System of linear equations: Gauss elimination with partial pivoting, LU Decomposition, Jacobi and Gauss-Seidel Methods."
    },
    {
     "roman": "IV",
