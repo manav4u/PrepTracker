@@ -91,3 +91,13 @@
 - [Linear Integrated Circuits syllabus (PCC-203-INC)](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/linear-integrated-circuits/)
 - [Sensors and Transducers syllabus (PCC-201-INC)](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/sensors-and-transducers/)
 - [Signals and Systems syllabus (PCC-202-INC)](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/signals-and-systems/)
+
+## Second Year (SE) Mechanical Engineering, 2024 pattern
+- [SE Mechanical Engineering subjects](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/): theory courses with units, marks, outcomes and books from the official SPPU PDF
+- [Applied Thermodynamics syllabus (PCC-253-MEC)](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/applied-thermodynamics/)
+- [Engineering Materials & Metallurgy syllabus (PCC-203-MEC)](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/engineering-materials-and-metallurgy/)
+- [Engineering Mathematics-III syllabus (MDM-221-MEC)](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/engineering-mathematics-iii/)
+- [Engineering Thermodynamics syllabus (PCC-202-MEC)](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/engineering-thermodynamics/)
+- [Fluid Mechanics syllabus (PCC-251-MEC)](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/fluid-mechanics/)
+- [Manufacturing Processes-I syllabus (PCC-252-MEC)](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/manufacturing-processes-i/)
+- [Solid Mechanics syllabus (PCC-201-MEC)](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/solid-mechanics/)

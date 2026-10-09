@@ -457,4 +457,52 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/applied-thermodynamics/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/engineering-materials-and-metallurgy/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/engineering-mathematics-iii/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/engineering-thermodynamics/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/fluid-mechanics/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/manufacturing-processes-i/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/solid-mechanics/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

@@ -6,6 +6,7 @@ import elec from './seData/elec.json';
 import it from './seData/it.json';
 import civil from './seData/civil.json';
 import instr from './seData/instr.json';
+import mech from './seData/mech.json';
 
 // One entry per Second Year branch. Course data is checked against each branch's official SPPU 2024 pattern PDF.
 export const SE_BRANCHES: SeBranch[] = [
@@ -50,5 +51,11 @@ export const SE_BRANCHES: SeBranch[] = [
     pdf: 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE_Instrumentation%20and%20Control_2024%20Course_Updated_3rd%20July%202025_10072025.pdf',
     pdfLabel: 'SPPU SE Instrumentation and Control Engineering 2024 pattern syllabus',
     courses: instr as SeBranch['courses'],
+  },
+  {
+    slug: 'se-mechanical-engineering', branch: 'Mechanical Engineering', short: 'SE Mechanical', motif: 'mech', accent: '#e11d48',
+    pdf: 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/SE%20(2024)%20Revised%20Mechanical%20Engineering%20Syllabus_08062026.pdf',
+    pdfLabel: 'SPPU SE Mechanical Engineering 2024 pattern syllabus (revised June 2026, effective 2026-27)',
+    courses: mech as SeBranch['courses'],
   },
 ];
