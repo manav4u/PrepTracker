@@ -26,3 +26,14 @@
 - [Discrete Mathematics syllabus (PCC-252-COM)](https://preptracker.manavdev.site/syllabus/se-computer-engineering/discrete-mathematics/)
 - [Computer Organization and Microprocessor syllabus (PCC-253-COM)](https://preptracker.manavdev.site/syllabus/se-computer-engineering/computer-organization-and-microprocessor/)
 - [Internet of Things syllabus (MDM-271-COM)](https://preptracker.manavdev.site/syllabus/se-computer-engineering/internet-of-things/)
+
+## Second Year (SE) Computer Science and Engineering, 2024 pattern (revised June 2026)
+- [SE CSE subjects](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/): theory courses with units, marks, outcomes and books from the official SPPU PDF
+- [Data Structures syllabus (PCC-201-CSE)](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/data-structures/)
+- [Object Oriented programming and Computer Graphics syllabus (PCC-202-CSE)](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/object-oriented-programming-and-computer-graphics/)
+- [Operating Systems syllabus (PCC-203-CSE)](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/operating-systems/)
+- [Digital Electronics and Logic Design syllabus (MDM-221-CSE)](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/digital-electronics-and-logic-design/)
+- [Database Management Systems syllabus (PCC-251-CSE)](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/database-management-systems/)
+- [Discrete Mathematics syllabus (PCC-252-CSE)](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/discrete-mathematics/)
+- [Computer Organization and Microprocessor syllabus (PCC-253-CSE)](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/computer-organization-and-microprocessor/)
+- [Internet of Things syllabus (MDM-271-CSE)](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/internet-of-things/)
