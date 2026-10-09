@@ -175,7 +175,10 @@
    "Data Communication and Networking – Behrouz A. Forouzan, McGraw Hill Education, 5th Edition, ISBN: 978-1-25-906475-3.",
    "Computer Networking: A Top-Down Approach – James F. Kurose, Keith W. Ross, Pearson, 7th Edition, ISBN: 978-0-13-359414-0."
   ],
-  "refBooks": []
+  "refBooks": [
+   "TCP/IP Protocol Suite – Behrouz A. Forouzan, McGraw Hill Education, 4th Edition, ISBN: 978-0-07- 070652-1.",
+   "Computer Networks – Andrew S. Tanenbaum, David J. Wetherall, Pearson, 5th Edition, ISBN: 978-0- 13-212695-3. Computer Network – Mayank Dave, Cengage Learning, ISBN: 978-81-315-0986-9."
+  ]
  },
  {
   "code": "MDM-221-ITT",
