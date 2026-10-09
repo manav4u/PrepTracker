@@ -4,8 +4,8 @@
   "name": "Data Structures",
   "hours": 3,
   "credits": 3,
-  "cce": 30,
-  "ese": 70,
+  "cce": 40,
+  "ese": 60,
   "theory": [
    3,
    3
@@ -68,8 +68,8 @@
   "name": "Object Oriented programming and Computer Graphics",
   "hours": 3,
   "credits": 3,
-  "cce": 30,
-  "ese": 70,
+  "cce": 40,
+  "ese": 60,
   "theory": [
    3,
    3
@@ -135,8 +135,8 @@
   "name": "Operating Systems",
   "hours": 3,
   "credits": 3,
-  "cce": 30,
-  "ese": 70,
+  "cce": 40,
+  "ese": 60,
   "theory": [
    3,
    3
@@ -267,8 +267,8 @@
   "name": "Database Management Systems",
   "hours": 3,
   "credits": 3,
-  "cce": 30,
-  "ese": 70,
+  "cce": 40,
+  "ese": 60,
   "theory": [
    3,
    3
@@ -337,8 +337,8 @@
   "name": "Discrete Mathematics",
   "hours": 3,
   "credits": 3,
-  "cce": 30,
-  "ese": 70,
+  "cce": 40,
+  "ese": 60,
   "theory": [
    3,
    3
@@ -403,8 +403,8 @@
   "name": "Computer Organization and Microprocessor",
   "hours": 2,
   "credits": 2,
-  "cce": 30,
-  "ese": 70,
+  "cce": 40,
+  "ese": 60,
   "theory": [
    2,
    2
@@ -472,8 +472,8 @@
   "name": "Internet of Things",
   "hours": 2,
   "credits": 2,
-  "cce": 30,
-  "ese": 70,
+  "cce": 40,
+  "ese": 60,
   "theory": [
    2,
    2
