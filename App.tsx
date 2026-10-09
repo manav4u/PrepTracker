@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import Dashboard from './pages/Dashboard';
 import Directory from './pages/Directory';
+import AddToPlan from './pages/AddToPlan';
 import SubjectDetail from './pages/SubjectDetail';
 import Resources from './pages/Resources';
 import CalculatorPage from './pages/Calculator';
@@ -119,6 +120,7 @@ export default function App() {
     <ErrorBoundary>
         <Routes>
             {/* PUBLIC ROUTES */}
+            <Route path="/add/:id" element={<div className="min-h-screen p-6 lg:p-12 bg-[#030303] text-white"><AddToPlan /></div>} />
             <Route path="/directory" element={<div className="min-h-screen p-6 lg:p-12 bg-[#030303] text-white"><Directory /></div>} />
             <Route path="/landing" element={isSetupComplete ? <Navigate to="/" /> : <LandingPage />} />
             <Route path="/onboarding" element={isSetupComplete ? <Navigate to="/" /> : <Onboarding />} />

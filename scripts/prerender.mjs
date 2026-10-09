@@ -37,6 +37,14 @@ try {
       fs.writeFileSync(path.join(cd, 'index.html'), mod.renderSeCourse(b, c));
     }
   }
+  const catalog = JSON.parse(fs.readFileSync('catalog/courses.json','utf8'));
+  for(const c of catalog.courses){
+    const file=path.resolve('dist'+c.path+'index.html');
+    if(fs.existsSync(file)){
+      const link=c.trackerReady ? `<p><a class="cta" href="/#/add/${encodeURIComponent(c.id)}">Add to my plan</a></p>` : '<p>Reference only. Tracking metadata for this branch is not yet reviewed.</p>';
+      fs.writeFileSync(file,fs.readFileSync(file,'utf8').replace('</main>',link+'<p><a href="/#/directory">Browse all syllabus courses</a></p></main>'));
+    }
+  }
   console.log(`prerendered landing page (${html.length} bytes)`);
 } finally {
   fs.rmSync(outDir, { recursive: true, force: true });

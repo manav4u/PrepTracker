@@ -16,7 +16,7 @@ const SubjectCard: React.FC<SubjectCardProps> = ({ subject, progress, masteredCo
   const activeUnitTitle = subject.units[activeUnitIdx]?.title || 'Revision Phase';
 
   return (
-    <Link to={`/subject/${subject.id}`} className="group relative flex flex-col justify-between h-[280px] rounded-3xl bg-[#080808] border border-white/5 overflow-hidden hover:border-[#E11D48]/30 transition-all duration-500 hover:shadow-2xl hover:shadow-[#E11D48]/10">
+    <Link to={`/subject/${encodeURIComponent(subject.id)}`} className="group relative flex flex-col justify-between h-[280px] rounded-3xl bg-[#080808] border border-white/5 overflow-hidden hover:border-[#E11D48]/30 transition-all duration-500 hover:shadow-2xl hover:shadow-[#E11D48]/10">
       
       {/* Dynamic Gradient Glow - Restored */}
       <div className="absolute -top-24 -right-24 w-64 h-64 bg-[#E11D48] opacity-0 blur-[100px] rounded-full group-hover:opacity-25 group-hover:scale-125 transition-all duration-700 ease-in-out pointer-events-none"></div>

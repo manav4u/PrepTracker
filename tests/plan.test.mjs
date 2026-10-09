@@ -1,0 +1,3 @@
+import{test}from'node:test';import assert from'node:assert/strict';import{addCourse}from'../lib/plan.mjs';const c=[{id:'a',trackerReady:true,branchSlug:'it',semester:5,electiveGroup:'PEC I',name:'A'},{id:'b',trackerReady:true,branchSlug:'it',semester:5,electiveGroup:'PEC I',name:'B'},{id:'x',trackerReady:false}];
+test('add preserves existing FE IDs and duplicate does not change selection',()=>{assert.deepEqual(addCourse(['m1'],'a',c),['m1','a']);assert.deepEqual(addCourse(['m1','a'],'a',c),['m1','a']);});
+test('one choice per elective group and unsupported course rejected',()=>{assert.throws(()=>addCourse(['a'],'b',c));assert.throws(()=>addCourse([],'x',c));});
