@@ -1,0 +1,914 @@
+[
+ {
+  "code": "303141",
+  "name": "Industrial and Technology Management",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "",
+  "outcomes": [
+   "Differentiate between different types of business organizations and discuss the fundamentals of economics and management.",
+   "Explain the importance of technology management and quality management.",
+   "Explain the importance of IPR and role of Human Resource Management.",
+   "Understand the importance of Quality and its significance.",
+   "Describe the characteristics of marketing & its types and overview of financial Management.",
+   "Discuss the qualities of a good leader and road map to Entrepreneurship."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to Management and Economics",
+    "hours": 7,
+    "text": "A) Management: Meaning, scope, function, and importance of management. Difference between administration and management. B) Industrial Economics: Definition of economics, Demand and Supply concept, Demand Analysis. Types of Demand, Determinants of Demand, Law of demand and supply, Elasticity of demand and supply, Law of Diminishing Marginal utility, Demand forecasting: Meaning and methods. C) Business Organizations: Line organization, Staff organization and Functional Organization, (Project, Matrix, Committee Organization.) D) Business Ownership and its Types: Types of business ownership, Sole proprietorship, Partnership (Act 1934), LLP (Limited Liability Partnership) (Act 2008). One person company, Joint Stock Company: Public Limited and Private Limited, Public Sector Undertaking (PSU)."
+   },
+   {
+    "roman": "II",
+    "title": "Technology Management",
+    "hours": 5,
+    "text": "A) Technology Management: Definition of technology Management and its relation with society, development, application and its scope. B) Classification of Technology Management: Classification of technology management at various levelsits importance on National Economy, Ethics in technology management, Critical factors in technology management."
+   },
+   {
+    "roman": "III",
+    "title": "Intellectual Property Rights (IPR) & Human Resource Management",
+    "hours": 6,
+    "text": "(HRM) A) Introduction to Intellectual Property Rights (IPR): Meaning of IPR, Different forms of IPR, Patents, Criteria for securing Patents. Patent format and structure, Copy rights and trademark (Descriptive treatment only). B) Human Resource Management: Introduction, importance, scope, HR planning, Recruitment, selection, training and development, Performance management."
+   },
+   {
+    "roman": "IV",
+    "title": "Quality Management",
+    "hours": 6,
+    "text": "A) Quality Management: Definition of quality, continuous improvement, Types of quality, Quality of design, Seven QC Tools, Poka Yoke (Mistake Proofing), Quality circles, Kaizen. TQM, 5S (Case study of Toyota, descriptive treatment). Six-Sigma. Basic software used for inventory management and quality management like Zoho inventory, Oracal, Netsuite, Vyapar, Quick book commerce. B) Quality Management Standards (Introductory aspects only):- The ISO9001:2000 Quality Management System Standard-The ISO14001:2004, ISO26000, ISO 10004:2012, ISO 9001:2012 ISO 9001:2016, Environmental Management System Standard."
+   },
+   {
+    "roman": "V",
+    "title": "Marketing and Financial Management",
+    "hours": 6,
+    "text": "A) Marketing Management: Meaning of Market, Marketing strategy, motives, market characteristics and its types, Perfect Competition, Monopoly, Monopolistic completion and Oligopoly. New product development, Product life cycle, Marketing and selling, methods of selling, marketing planning. Market survey and market research, Online Marketing (Digital Marketing). B) Financial Management: Definition of financial management, cost Concept, Types of costs (Fixed, Variable, average, marginal, and total cost) and methods of costing price, capital. Debit, credit, Profit and loss statement, Balance sheet, Depreciation Analysis, causes and significance, methods of calculation of depreciation, Taxation system, and type of taxes."
+   },
+   {
+    "roman": "VI",
+    "title": "Motivational Theory and Entrepreneurship",
+    "hours": 6,
+    "text": "A) Motivation: Introduction to Motivation, theories of work motivation, Content Theories: Maslow’s Hierarchy of Needs, Herzberg’s Two factor theory, McClelland’s Three Needs Theory, McGregor’s Theory X and Theory Y. Process Theories: Adam’s Equity Theory, Vroom’s Expectancy Theory, Taylor’s Motivation Theory B) Leadership: Importance of Leadership, Types of Leadership: Autocratic, Democratic and Laissez- Faire Leadership, qualities of good Leader. Group dynamics: Types and interactions of groups, stages of group dynamics: Norming, Storming, Forming, Performing and Adjourning. C) Entrepreneurship: Importance and limitations of rational decision making, Decision making under certainty, uncertainty and risk. Incentives for small business development, Government policies and incentives, Case study on Small scale industries in India."
+   }
+  ],
+  "textBooks": [
+   "O. P. Khanna, industrial engineering and management, Dhanpat Rai and sons, New Delhi.",
+   "E. H. McGraw, S. J. Basic managerial skill for all.",
+   "Tarek Khalil, Management of Technology Tata McGraw Hill Publication Pvt. Ltd.",
+   "Prabuddha Ganguli Intellectual Property rights Tata McGraw Hill Publication Company",
+   "Management Accounting and financial management by M. Y.Khan and P.K. Jain, Tata Mcgraw Hill-Tata-ISBN."
+  ],
+  "refBooks": [
+   "C. B. Mamoria and V. S. P. Rao- Personnel Management , Himalaya Publishing House, 30th Edition 2014.",
+   "Harold Koonlz and OD’onnel–Management. Tata McGraw Hill Publication1980.",
+   "Philip Kotler-Marketing Management. Pearson Edition 2008.",
+   "Robert Heller, Managing Teams, Dorling Kindersley, London.",
+   "Kelly John M, Total Quality Management, InfoTech Standard, Delhi.",
+   "Joseph M. Juran, Juran’s Quality Handbook TATA McGraw-Hill.",
+   "Dale H. Bester field and Carol Bester field Total Quality Management Prentice Hall of India Pvt. Ltd.",
+   "Shiv Sahai Singh [Editor] The Law of Intellectual Property rights.",
+   "N. R. Subbaram, What Everyone Should Know About Patents, Pharma Book Syndicate, Hyderabad.",
+   "Principles and Practices of Management –Dr. P.C. Shejwalkar, Dr. Anjali Ghanekar, Deepak Bhivpathki.",
+   "Financial Management by I. M. Pandey, Vikas Publishing House Pvt. Ltd., Delhi Philip Kotler- Marketing Management."
+  ],
+  "links": []
+ },
+ {
+  "code": "303142",
+  "name": "Power Electronics",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "",
+  "outcomes": [
+   "Develop characteristics of different power electronic switching devices.",
+   "Reproduce working principle of power electronic converters for different types of loads.",
+   "Choose the appropriate converter for different applications."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Power Semi-Conductor Devices",
+    "hours": 6,
+    "text": "Construction, Static and dynamic Characteristics, specifications/rating of SCR , Triggering Circuits (R, R-C, UJT), Commutation Circuits (class C & D), Protection (over voltage, over current, and Thermal), Gate Turn Off (GTO) Thyristor (Construction, Working and Application), TRIAC- four mode operation, triggering of TRIAC using DIAC, Application-light dimmer."
+   },
+   {
+    "roman": "II",
+    "title": "Transistor based Devices and DC-DC converter",
+    "hours": 6,
+    "text": "Transistor based Devices: MOSFET & IGBT- Construction, working, Static and Dynamic Characteristics DC-DC converter: Principle of operation of chopper, classification on the basis of operating quadrants (A, B, C, D, E), Control techniques: CLC, TRC, PWM and FM Techniques. Analysis of Step-up Chopper and Numerical with RLE load. Buck Boost Chopper (Descriptive Treatment), Applications- Chargers for Battery operated vehicles."
+   },
+   {
+    "roman": "III",
+    "title": "Single Phase AC-DC Converter",
+    "hours": 6,
+    "text": "Single phase Converter: Fully controlled converter, Half controlled converter (Semiconverter)- Operation of all converters with R & RL load, derivation of Average and RMS output voltage, power factor, THD, TUF. Numerical based on output voltage and current calculations, Single phase dual converter (Descriptive treatment only), Application-Speed control of DC motor."
+   },
+   {
+    "roman": "IV",
+    "title": "Three Phase Converter and AC Voltage Regulator",
+    "hours": 6,
+    "text": "Three phase converters: Fully controlled converter, Half controlled converter (Semi converter)- Operation of all converters with R, RL load, derivation of Average and RMS output voltage. Numerical based on output voltage and current calculations. AC voltage regulator: Single phase AC Voltage regulator; operation with R and RL Load, derivation of Average and RMS output voltage. Concept of two stage AC voltage regulator (Descriptive treatment only)."
+   },
+   {
+    "roman": "V",
+    "title": "Single phase DC-AC Converter (Transistor based)",
+    "hours": 6,
+    "text": "Full bridge VSI, derivation of output voltage and current, Numerical, current source inverter with ideal switches and load commutated CSI, Voltage control techniques, Application- UPS."
+   },
+   {
+    "roman": "VI",
+    "title": "Three phase DC-AC Converter (Transistor based)",
+    "hours": 6,
+    "text": "Three phase VSI for 1200 and 1800 modes of operation and their comparison, PWM based VSI, voltage control and harmonic elimination techniques (Single Pulse Modulation, Multilevel Control), Multilevel Converter concept its classification (Neutral Point Clamped Converter, Flying Capacitor Converter, cascaded multilevel converter) and their comparison, Application- Speed control of 3 phase Induction motor."
+   }
+  ],
+  "textBooks": [
+   "M. H. Rashid - Power Electronics 2nd Edition, Pearson publication.",
+   "Ned Mohan, T.M. Undel and, W.P. Robbins - Power Electronics, 3rd Edition, John Wiley and Sons.",
+   "B.W. Williams: Power Electronics 2nd edition, John Wiley and sons.",
+   "Ashfaq Ahmed- Power Electronics for Technology, LPE Pearson Edition.",
+   "Dr. P.S. Bimbhra, Power Electronics, Third Edition, Khanna Publication.",
+   "K. Hari Babu, Power Electronics, Scitech Publication."
+  ],
+  "refBooks": [
+   "Vedam Subramanyam - Power Electronics , New Age International , New Delhi",
+   "Dubey, Donalda, Joshi, Sinha, Thyristorised Power controllers, Wiley Eastern New Delhi.",
+   "M. D. Singh and K. B. Khandchandani, Power Electronics, Tata McGraw Hill.",
+   "Jai P. Agrawal, Power Electronics systems theory and design LPE, Pearson Education, Asia.",
+   "L. Umanand, Power Electronics – Essentials and Applications Wiley Publication.",
+   "J. Michael Jacob – Power Electronics Principal and Applications.",
+   "M. H. Rashid - Power Electronics Handbook, Butterworth-Heinemann publication, 3 edition",
+   "V.R. Moorthi, Power Electronics Devices, circuits, and Industrial applications, Oxford University Press. Online Resources:",
+   "NPTEL Web course and video course on Power Electronics by Dr. B. G. Fernandis, IIT, Mumbai."
+  ],
+  "links": []
+ },
+ {
+  "code": "303143",
+  "name": "Electrical Machines-II",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "",
+  "outcomes": [
+   "Learn construction, working principle of three phase Synchronous Machines, Induction Motors, A.C. Series Motor and Special Purpose Motors.",
+   "Understand characteristics of three phase Synchronous Machines, Induction Motors, A.C. Series Motor and Special Purpose Motors.",
+   "Select the above machines in Power System, industrial, household & Military Engineering applications.",
+   "Testing of machines to evaluate the performance through experimentation."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Three phase Synchronous machines.",
+    "hours": 6,
+    "text": "Three phase Synchronous machines: Construction, rotating-field type and rotating-armature type, salient-pole and non-salient-pole type and their comparison. Excitation Methods. Three phase Synchronous generator (cylindrical rotor type): Principle of operation. Emf equation and winding factors (No derivation), rating of generator. Generator on no-load and on balanced load. Armature reaction and its effect under different load power factors. Voltage drop due to armature resistance, leakage flux and synchronous reactance. Per phase equivalent circuit and Phasor diagram. Power - power angle relation. Three phase Synchronous generator (salient pole type): Armature reaction as per Blondel’s two reaction theory for salient-pole machines, Direct-axis and quadrature-axis synchronous reactance’s and their determination by slip test. Phasor diagram of salient-pole generator and calculation of voltage regulation."
+   },
+   {
+    "roman": "II",
+    "title": "Voltage regulation of Three phase Synchronous generator",
+    "hours": 6,
+    "text": "Performance of open circuit and short circuit test on synchronous generator, determination of voltage regulation by emf, mmf, and Potier triangle methods. Determination of voltage regulation by direct loading. Short circuit ratio. Parallel operation of 3-phase alternators: Necessity, conditions, Load sharing between two alternators in parallel (Descriptive treatment only). Process of synchronizing alternator with infinite bus-bar by lamp method (one dark & two equally bright lamp method) and by the use of synchroscope, Synchronizing current, power and torque (no numerical)."
+   },
+   {
+    "roman": "III",
+    "title": "Three phase synchronous motor",
+    "hours": 6,
+    "text": "Principle of operation. Methods of starting. Equivalent circuit, significance of torque angle, Losses, efficiency and Power flow chart. Operation of 3-phase Synchronous motor with constant load and variable excitation (‘V’ curves and ‘inverted V’ curves). Phenomenon of hunting and its remedies. Applications of 3-phase synchronous motors. Comparison of 3 phase synchronous motor with 3-phase induction motor."
+   },
+   {
+    "roman": "IV",
+    "title": "3-ph induction motor, Induction generator and special purpose motors",
+    "hours": 6,
+    "text": "Speed control of three phase induction motor by various methods (Stator side and rotor side controls). Action of 3-phase induction motor as induction generator, applications of induction generator. Introduction to Energy Efficient three phase Induction Motor and Super Conducting Generator. Special Purpose Motors : Construction, principle of working, characteristics, ratings and applications of Brush less D.C. motors, Stepper motors (permanent magnet and variable reluctance type only), Permanent Magnet motor (A.C. & D.C.)."
+   },
+   {
+    "roman": "V",
+    "title": "A.C. series motor",
+    "hours": 6,
+    "text": "Operation of D.C. series motor on a.c. supply, nature of torque developed, problems associated with AC. operation and remedies. Compensated series motor: Compensating winding, conductively and inductively compensated motor. Approximate phasor diagram. Use of compoles for improving commutation. Ratings and applications of Compensated Series motors. Universal motors: Ratings, performance and applications, comparison of their performance on A.C. and D.C. supply."
+   },
+   {
+    "roman": "VI",
+    "title": "Single phase induction motor",
+    "hours": 6,
+    "text": "Construction of single phase induction motor, double field revolving theory. Equivalent circuit and torque-slip characteristics on the basis of double revolving field theory. Tests to determine the parameters of equivalent circuit and calculation of performance characteristics of motor. Methods of self-starting. Types of single phase induction motors: Split-phase motors (Resistor split-phase motor, Capacitor-start motor, Capacitor start and capacitor run motor and permanent capacitor motor). Comparison of 1-phase induction motor with 3-phase induction motor."
+   }
+  ],
+  "textBooks": [
+   "Nagrath and Kothari, Electrical Machines, 2nd Ed., Tata McGraw Hill.",
+   "S. K. Bhattacharya, Electrical Machines, Tata McGraw Hill.",
+   "A.S. Langsdorf, Theory of Alternating Current Machinery, Tata McGraw Hill",
+   "P. S. Bimbhra, Electric Machinery, Khanna Publications.",
+   "B.R. Gupta and Vandana Singhal -Fundamentals of Electric Machines, New Age International (P) Ltd.",
+   "B. L Theraja –Electrical Technology, Vol II , S. Chand publication.",
+   "V. K. Mehta and Rohit Mehta, Principles of Electrical Machines, S Chand Publication",
+   "Krishna Reddy –Electrical Machines Vol.II and III, SCITECH publications.",
+   "Ashfaq Husain, Electrical Machines, Dhanpat Rai and Co.",
+   "M V Deshpande, Electrical Machines, Prentice Hall of India"
+  ],
+  "refBooks": [
+   "M.G. Say, Performance and Design of A.C. Machines (3rd Ed.), ELBS",
+   "J B Gupta - Theory and performance of Electrical Machines, S K Kataria Publications",
+   "Samarjit Ghosh, Electrical Machines, Pearson Publication.",
+   "Bhag S Guru and Huseyin R Hiziroglu, Electrical Machinery and Transformer, 3rd Edition, Oxford University Press.",
+   "E G Janardanan, Special Electrical Machines, Prentice Hall of India.",
+   "Suvarnsingh Kalsi Application of high Temperature super conductors to electric power equipment (Rotating Machines) Wiley publication."
+  ],
+  "links": []
+ },
+ {
+  "code": "303144",
+  "name": "Electrical Installation, Design and Condition Based Maintenance",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "",
+  "outcomes": [
+   "Classify different types of distribution supply system and determine economics of distribution system. compare and classify various substations, bus-bars and Earthing systems.",
+   "Demonstrate the importance and necessity of maintenance.",
+   "Analyse and test different condition monitoring methods.",
+   "Carry out estimation and costing of internal wiring for residential and commercial installations.",
+   "Apply electrical safety procedures."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Economics of Distribution Systems:",
+    "hours": 6,
+    "text": "Classification of supply systems (State Only) (i) DC, 2-wire system, (ii) Single phase two wire ac system, (iii) Three phase three wire ac supply system, iv) Three phase four wire ac supply system. Comparison between overhead and underground systems (For above mentioned systems) on the basis of volume requirement for conductor. AC Distribution System: Types of primary and secondary distribution systems, calculation of voltage drops in ac distributors (Uniform and Non Uniform Loading) (Numerical). Economics of power transmission: Economic choice of conductor (Kelvin’s law) (Derivation and Numerical). Distribution Feeders: Design considerations of distribution feeders; radial and ring types of primary feeder’s voltage levels, energy losses in feeders."
+   },
+   {
+    "roman": "II",
+    "title": "Substation and Earthing",
+    "hours": 6,
+    "text": "Substation: Classification of substations, Various equipment used in substation with their specifications, Bus bar arrangements in the substation: Simple arrangements like single bus bar, sectionalized single bus bar, main and transfer bus bar system with relevant diagrams. Earthing: Necessity of Earthing, Types of Earthing system (Equipment and Neutral), and Maintenance Free Earthing system. Methods of testing earth resistance, Different electrode configurations (Plate and Pipe electrode), Tolerable step and touch voltages, Steps involved in design of substation Earthing grid as per IEEE standard 80-2013."
+   },
+   {
+    "roman": "III",
+    "title": "Maintenance and Condition Monitoring",
+    "hours": 8,
+    "text": "Importance and necessity of maintenance, different maintenance strategies like breakdown maintenance, planned/preventive maintenance and condition based maintenance. Planned and preventive maintenance of transformer, Induction motor and Alternators. Insulation stressing factors, Insulation deterioration, polarization index, dielectric absorption ratio. Concept of condition monitoring of electrical equipment. Advance tools and techniques of condition monitoring, Thermography. Failure modes of transformer, Condition monitoring of oil as per the IS/IEC standards, Filtration/reconditioning of insulating oil, Condition monitoring of transformer bushings, on load tap changer, dissolved gas analysis, degree of polymerization. Induction motor fault diagnostic methods – Vibration Signature Analysis, Motor Current Signature Analysis. Hot Line Maintenance - Meaning and advantages, special types of non-conducting Materials used for tools for hot line maintenance."
+   },
+   {
+    "roman": "IV",
+    "title": "Basics of Estimation and Costing",
+    "hours": 4,
+    "text": "Purpose of estimating and costing, qualities of good estimator, essential elements of estimating and costing, tender, guidelines for inviting tenders, quotation, price catalogue, labor rates, schedule of rates and estimating data (only theory),"
+   },
+   {
+    "roman": "V",
+    "title": "Installation and estimation of distribution system",
+    "hours": 6,
+    "text": "Introduction cable sizing, Estimation and conductor size calculations of internal wiring for Residential and Commercial (Numerical) installations and estimate for underground LT service lines."
+   },
+   {
+    "roman": "VI",
+    "title": "Testing and Electrical Safety",
+    "hours": 6,
+    "text": "Understanding CAT Ratings & Using CAT rated Instrument, Electrical Installation Testing Procedures- Insulation resistance test between installation and earth, Insulation resistance test between conductors (use of GUARD Terminal in IR test & Application) (methods used for IR Testing) Testing of polarity, Testing of earth continuity paths (Applications of PAT Tester “Portable Appliance Tester” in commercial like hotels, hospital & Industry also) and Earth resistance test (methods for earth testing 2-pole, 3-pole new methods clamp on type where we can performs test in Live) Contents of first aid box, treatment for cuts, burns and electrical shock. Procedures for first aid (e.g. removing casualty from contact with live wire and administering artificial respiration). Various statutory regulations (Electricity supply regulations, factory acts and Indian electricity rules of Central Electricity Authority (CEA), Classification of hazardous area. ( Introduction to OSHA )"
+   }
+  ],
+  "textBooks": [
+   "B. R. Gupta- Power System Analysis and Design, 3rd edition, Wheelers publication.",
+   "S. Rao, Testing Commissioning Operation and Maintenance of Electrical Equipment, Khanna publishers.",
+   "S. L. Uppal - Electrical Power - Khanna Publishers Delhi.",
+   "Hand book of condition monitoring by B. K. N. Rao, Elsevier Advance Tech., Oxford (UK).",
+   "S. K. Shastri – Preventive Maintenance of Electrical Apparatus – Katson Publication House.",
+   "B. V. S. Rao – Operation and Maintenance of Electrical Equipment – Asia Publication.",
+   "Hand book on Electrical Safety."
+  ],
+  "refBooks": [
+   "P.S. Pabla –Electric Power Distribution, 5th edition, Tata McGraw Hill.",
+   "S. L. Uppal, Electrical Wiring and Costing Estimation, Khanna Publishers, New Delhi.",
+   "Surjit Singh, Electrical wiring, Estimation and Costing, Dhanpat Rai and company, New Delhi.",
+   "Raina K.B. and Bhattacharya S.K., Electrical Design, Estimating and Costing, Tata McGraw Hill, New Delhi",
+   "B.D. Arora-Electrical Wiring, Estimation and Costing, - New Heights, New Delhi.",
+   "M.V. Deshpande, Elements of Power Station design and practice, Wheelers Publication.",
+   "S. Sivanagaraju and S. Satyanarayana, Electric Power Transmission and Distribution, Pearson Publication .",
+   "Power Equipment Maintenance and Testing (Power Engineering Book 32) by Paul Gill"
+  ],
+  "links": []
+ },
+ {
+  "code": "303145A",
+  "name": "Advanced Microcontroller and Embedded System",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "",
+  "outcomes": [
+   "Explain architecture of PIC 18F458 microcontroller, its instructions and the addressing modes.",
+   "Use Ports and timers for peripheral interfacing and delay generation.",
+   "Interface special and generate events using CCP module.",
+   "Effectively use interrupt structure in internal and External interrupt mode.",
+   "Effectively use ADC for parameter measurement and also understand LCD interfacing.",
+   "Use Serial Communication and various serial communication protocols."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "PIC Architecture and Embedded C",
+    "hours": 7,
+    "text": "Comparison of CISC and RISC Architectures, Data and Program memory organization, Program Counters, Stack pointer, Bank Select Register, Status register, Embedded C concepts, Header and source files and pre-processor directives, Data types, data structures, Control loops, functions, bit operations."
+   },
+   {
+    "roman": "II",
+    "title": "Port and Timer 0 Programming",
+    "hours": 5,
+    "text": "I/O Ports and related SFRs, I/O port programming in C. PIC 18 Timer 0 Programing in C. Delay programming (with and without Timer0). LED Interfacing and its programming."
+   },
+   {
+    "roman": "III",
+    "title": "CCP Module and its applications",
+    "hours": 6,
+    "text": "CCP module in PIC 18 microcontroller, Timers required for CCP Applications, Applications of CCP mode Generation of Square waveform using Compare mode of CCP module. Period measurement of unknown signal using Capture mode in CCP module, Speed control of DC motor using PWM mode of CCP module."
+   },
+   {
+    "roman": "IV",
+    "title": "Interrupt structure and its Programming",
+    "hours": 5,
+    "text": "Interrupt Programming, Programming of Timer0 interrupts, Programming of External interrupts INT0."
+   },
+   {
+    "roman": "V",
+    "title": "ADC structure and LCD interfacing",
+    "hours": 7,
+    "text": "PIC ADC, Programming of ADC using interrupts, Measurement of temperature and Power. Using PIC microcontroller. Interfacing of LCD (16x2) in 4 bit mode."
+   },
+   {
+    "roman": "VI",
+    "title": "Serial Communication and its protocols",
+    "hours": 6,
+    "text": "06 Serial Communication structure and its programming (Data transmit and Receive), Introduction to Communication protocols as SPI and MODE BUS"
+   }
+  ],
+  "textBooks": [
+   "PIC Microcontroller and Embedded Systems Using Assembly and C for PIC18 by Muhammad Ali Mazidi, Rolind D. McKinley, Danny Causey, Pearson Education.",
+   "Fundamentals of Microcontrollers and Applications in Embedded Systems with PIC by Ramesh Gaonkar, Thomson and Delmar learning, First Edition.",
+   "Programming And Customizing the PIC Microcontroller by Myke Predko, TATA McGraw-Hill.",
+   "PIC microcontroller: An introduction to software and Hardware interfacing by Han- Way-Huang Thomson Delmar Learning.",
+   "Microcontroller Theory and Applications with PIC18F, M. Rafiquzzaman, John Wiley and Sons"
+  ],
+  "refBooks": [
+   "PIC18F458 datasheet",
+   "MPLAB IDE user guides",
+   "MICROCHIP Technical Reference Manual of 18F4520 Embedded Design with PIC 18F452 Microcontroller by John B. Peatman, Prentice Hall"
+  ],
+  "links": []
+ },
+ {
+  "code": "303145B",
+  "name": "Digital Signal Processing",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "",
+  "outcomes": [
+   "Analyse discrete time signals and systems.",
+   "Construct frequency response of LTI system using Fourier Transform.",
+   "Design and realize IIR and FIR filters.",
+   "Apply concepts of DSP in applications of electrical engineering."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Discrete time signal and system",
+    "hours": 6,
+    "text": "Analog, Discrete-time and Digital signals, Basic sequences and sequence operations, Discrete time systems, Properties of D. T. Systems and Classification, Linear Time Invariant Systems, impulse response, linear convolution and its properties, properties of LTI systems: stability, causality, Periodic Sampling, Sampling Theorem, Frequency Domain representation of sampling, reconstruction of a band limited Signal, A to D Conversion Process: Sampling, quantization and encoding."
+   },
+   {
+    "roman": "II",
+    "title": "Z and Inverse Z transform",
+    "hours": 6,
+    "text": "Revision of Z-transform, Numerical of Z transform, Inverse Z transform using partial fraction and power series method, Linear constant coefficient difference equations, solution of difference equation, stability and causality using ROC of Z-transform."
+   },
+   {
+    "roman": "III",
+    "title": "Discrete Time Fourier Transform",
+    "hours": 6,
+    "text": "Representation of Sequences by Fourier Transform, Symmetry properties of D. T., F. T. theorems: Linearity, time shifting, frequency shifting, time reversal, differentiation, convolution theorem, Frequency response analysis of first and second order system, steady state and transient response."
+   },
+   {
+    "roman": "IV",
+    "title": "Discrete Fourier Transform",
+    "hours": 6,
+    "text": "Sampling in frequency domain, The Discrete Fourier Transform, Relation with z transform Properties of DFT: Linearity, circular shift, duality, symmetry, Circular Convolution, Linear Convolution using DFT, Effective computation of DFT and FFT, DIT FFT, DIF FFT."
+   },
+   {
+    "roman": "V",
+    "title": "Design of IIR filter",
+    "hours": 6,
+    "text": "Ideal frequency selective filters, Concept of filtering, specifications of filter, IIR filter design from continuous time filters: Characteristics of Butterworth and Chebyshev, impulse invariant and bilinear transformation techniques, Design examples (Butterworth low pass filter) , Basic structures for IIR Systems: direct form, cascade form"
+   },
+   {
+    "roman": "VI",
+    "title": "Design of FIR Filter and DSP Applications",
+    "hours": 6,
+    "text": "A) Specifications of properties of commonly used windows, Design Examples using rectangular and hanning windows. Basic Structures for FIR Systems: direct form. Comparison of IIR and FIR Filters. B) Applications: Measurement of magnitude and phase of voltage, current, power, frequency and power factor correction, harmonic Analysis and measurement, applications to machine control, DSP based protective relaying."
+   }
+  ],
+  "textBooks": [
+   "Proakis J., Manolakis D., “Digital signal processing”, 3rd Edition, Prentice Hall, ISBN 81- 203-0720-8.",
+   "P. Ramesh Babu, “Digital Signal Processing”, 4th Edition SciTech Publication.",
+   "Dr. S. D. Apte, “Digital Signal Processing”,2nd Edition Wiley India Pvt. Ltd ISBN: 97881- 265-2142-5",
+   "W. Rebizant, J. Szafran, A. Wiszniewski, “Digital Signal Processing in Power system Protection and Control”, Springer 2011 ISBN 978-0-85729-801-0"
+  ],
+  "refBooks": [
+   "Mitra S., “Digital Signal Processing: A Computer Based Approach”, Tata McGraw-Hill, 1998, ISBN 0-07-044705-5",
+   "A.V. Oppenheim, R. W. Schafer, J. R. Buck, “Discrete Time Signal Processing”, 2nd Edition Prentice Hall, ISBN 978-81-317-0492-9",
+   "Steven W. Smith, “Digital Signal Processing: A Practical Guide for Engineers and Scientists”,1st Edition Elsevier, ISBN: 9780750674447"
+  ],
+  "links": []
+ },
+ {
+  "code": "303148",
+  "name": "Power System-II",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "",
+  "outcomes": [
+   "Solve problems involving modelling, design and performance evaluation of HVDC and EHVAC power transmission lines.",
+   "Calculate per unit values and develop Y bus for solution power flow equations in power transmission networks",
+   "Calculate currents and voltages in a faulted power system under both symmetrical and asymmetrical faults, and relate fault currents to circuit breaker ratings."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Performance of Transmission Lines",
+    "hours": 6,
+    "text": "Evaluation of ABCD constants and equivalent circuit parameters of Long transmission line. Concept of complex power, power flow using generalized constants, surge impedance loading, Line efficiency, Regulation and compensation, basic concepts. Numerical based on: ABCD constants of Long transmission line, Power flow."
+   },
+   {
+    "roman": "II",
+    "title": "EHVAC Transmission",
+    "hours": 5,
+    "text": "Role of EHV-AC transmission, standard transmission voltages, average values of line parameters, power handling capacity and line losses, phenomenon of corona, disruptive critical voltages, visual critical voltages, corona loss, factors and conditions affecting corona loss, radio and television interference, reduction of interference, Numerical Based on Corona, Corona loss and power handling capacity."
+   },
+   {
+    "roman": "III",
+    "title": "Per Unit System and Load Flow Analysis",
+    "hours": 7,
+    "text": "Per unit system: Single line diagram, Impedance and reactance diagrams and their uses, per unit quantities, relationships, selection of base, change of base, reduction to common base, advantages and application of per unit system. Numerical based on network reduction by using per unit system. Load Flow Analysis: Network topology, driving point and transfer admittance, concept of Z-bus and formulation of Y-bus matrix using bus incidence matrix method, Numerical based on Y bus Matrix, powerflow equations generalization to n bus systems, classification of buses, Newton- Raphson method (polar method) Decoupled and Fast decoupled load flow (descriptive treatment only)."
+   },
+   {
+    "roman": "IV",
+    "title": "Symmetrical Fault Analysis",
+    "hours": 6,
+    "text": "3-phase short-circuit analysis of unloaded alternator, sub-transient, transient and steady state current and impedances, D.C. Offset, and effect of the instant of short-circuit on the waveforms, estimation of fault current without pre-fault current for simple power systems, selection of circuit-breakers and current limiting reactors and their location in power system (Descriptive treatment Only ) Numerical Based on symmetrical fault analysis."
+   },
+   {
+    "roman": "V",
+    "title": "Unsymmetrical Fault Analysis",
+    "hours": 7,
+    "text": "Symmetrical components, transformation matrices, sequence components, power in terms of symmetrical components, sequence impedance of transmission line and zero sequence networks of transformer, solution of unbalances by symmetrical components, L-L, L-G, and L-L-G fault analysis of unloaded alternator and simple power systems with and without fault impedance. Numerical based on symmetrical components and unsymmetrical fault calculation."
+   },
+   {
+    "roman": "VI",
+    "title": "HVDC Transmission",
+    "hours": 5,
+    "text": "Classification and components of HVDC system, advantages and limitations of HVDC transmission, comparison with HVAC system, introduction to HVDC control methods - constant current, constant ignition angle and constant extinction angle control, HVDC systems in India, recent trends in HVDC system."
+   }
+  ],
+  "textBooks": [
+   "I.J. Nagrath and D.P. Kothari – Modern Power System Analysis – Tata McGraw Hill, New Delhi.",
+   "B R Gupta , “Power System Analysis and Design”, S. Chand.",
+   "Ashfaq Hussain, “Electrical Power Systems”, CBS Publication 5th Edition.",
+   "J. B. Gupta. “A course in power systems” S.K. Kataria Publications.",
+   "P.S.R. Murthy, “Power System Analysis”, B.S. Publications"
+  ],
+  "refBooks": [
+   "H. Hadi Sadat: Power System Analysis, Tata McGraw-Hill New Delhi.",
+   "G. W. Stagg and El- Abiad – Computer Methods in Power System Analysis – Tata McGraw Hill, New Delhi.",
+   "M. E. El- Hawary, Electric Power Systems: Design and Analysis, IEEE Press, New York.",
+   "Rakash Das Begamudre, “Extra High voltage A.C. Transmission Engineering”, New age publication.",
+   "M. A. Pai, Computer Techniques in Power System Analysis, Tata McGraw Hill Publication.",
+   "Stevenson W.D. Elements of Power System Analysis (4th Ed.) Tata McGraw Hill, New Delhi.",
+   "K. R. Padiyar: HVDC Transmission Systems, New Age International Publishers Ltd, New Delhi.",
+   "Olle I. Elgard – Electric Energy Systems Theory – Tata McGraw Hill, New Delhi.",
+   "V. K. Chandana, Power Systems, Cyber tech Publications.",
+   "P. Kundur, Power System Stability And Control, McGraw Hill Online Resources:"
+  ],
+  "links": []
+ },
+ {
+  "code": "303149",
+  "name": "Computer Aided Design of Electrical Machines",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "",
+  "outcomes": [
+   "Summarize temperature rise, methods of cooling of transformer and consider IS 2026 in transformer design.",
+   "Design the overall dimensions of the transformer.",
+   "Analyze the performance parameters of transformer.",
+   "Design overall dimensions of three phase Induction motor",
+   "Analyze the performance parameters of three phase Induction motor.",
+   "Implement and develop computer aided design of transformer and induction motor."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Transformer Design: Part 1",
+    "hours": 6,
+    "text": "Modes of heat dissipation. Heating and cooling curves. Calculations of heating and cooling time constants. Methods of cooling of transformer. Types and constructional features of core and windings used in transformer. Transformer auxiliaries such as tap changer, pressure release valve, breather and conservator. Specifications of three phase transformers as per IS 2026 (Part I). Introduction to computer aided design"
+   },
+   {
+    "roman": "II",
+    "title": "Transformer Design: Part 2",
+    "hours": 6,
+    "text": "Output equation with usual notations, optimum design of transformer for minimum cost and loss. Design of core, estimation of overall dimensions of frame and windings of transformer. Design of tank with cooling tubes."
+   },
+   {
+    "roman": "III",
+    "title": "Performance parameters of Transformer",
+    "hours": 6,
+    "text": "Estimation of resistance and leakage reactance of transformer. Estimation of no-load current, losses, efficiency and regulation of transformer. Calculation of mechanical forces developed under short circuit conditions, measures to overcome this effect. Computer aided design of transformer, generalized flow chart for design of transformer."
+   },
+   {
+    "roman": "IV",
+    "title": "Three phase Induction Motor Design:Part1",
+    "hours": 6,
+    "text": "Specifications and constructional features. Types of ac windings. Specific electrical and magnetic loadings, ranges of specific loadings. Output equation with usual notations. Calculations for main dimensions, turns per phase and number of stator slots."
+   },
+   {
+    "roman": "V",
+    "title": "Three phase Induction Motor Design:Part2",
+    "hours": 6,
+    "text": "Suitable combinations of stator and rotor slots. Selection of length of air gap, factors affecting length of air gap. Design of rotor slots, size of bars and end rings for cage rotor. Conductor size, turns and area of rotor slots for wound rotor."
+   },
+   {
+    "roman": "VI",
+    "title": "Performance parameters of Three Phase Induction motor",
+    "hours": 6,
+    "text": "Leakage flux and leakage reactance: Slot, tooth top, zig - zag, overhang. Leakage reactance calculation for three phase machines. MMF Calculation for air gap, stator teeth, stator core, rotor teeth and rotor core, effect of saturation, effects of ducts on calculations of magnetizing current, calculations of no-load current. Calculations of losses and efficiency. Computer aided design of induction motor, generalized flow chart for design of induction motor."
+   }
+  ],
+  "textBooks": [
+   "M. G. Say–Theory and Performance and Design of A.C. Machines,3rd Edition, ELBS London.",
+   "A.K. Sawhney–A Course in Electrical Machine Design, -Dhanpat Rai and sons New Delhi",
+   "K. G. Upadhyay- Design of Electrical Machines, New age publication",
+   "R. K. Agarwal–Principles of Electrical Machine Design, S. K. Katariya and sons.",
+   "Indrajit Dasgupta –Design of Transformers–TMH"
+  ],
+  "refBooks": [
+   "K. L. Narang, A Text Book of Electrical Engineering Drawings, Reprint Edition, Satya Prakashan, New Delhi.",
+   "A Shanmuga sundaram,G. Gangadharan, R. Palani,-Electrical Machine Design Data Book,3rd Edition, 3rd Reprint 1988- Wiely Eastern Ltd.,- New Delhi",
+   "Vishnu Murti, “Computer Aided Design for Electrical Machines”, B. S. Publications.",
+   "Bharat Heavy Electricals Limited, Transformers - TMH."
+  ],
+  "links": []
+ },
+ {
+  "code": "303150",
+  "name": "Control System Engineering",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "",
+  "outcomes": [
+   "Construct mathematical model of Electrical and Mechanical system using differential equations and transfer function and develop analogy between Electrical and Mechanical systems.",
+   "Determine time response of systems for a given input and perform analysis of first and second order systems using time domain specifications.",
+   "Investigate closed loop stability of system in s-plane using Routh Hurwitz stability criteria and root locus.",
+   "Analyze the systems in frequency domain and investigate stability using Nyquist plot and Bode plot",
+   "Design PID controller for a given plant to meet desired time domain specifications."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Basics of Control System",
+    "hours": 7,
+    "text": "Basic concepts of control system, classification of control systems, types of control system: feedback, tracking, regulator system, feed forward system, transfer function, concept of pole and zero, modeling of Electrical and Mechanical systems (Only series linear and rotary motion) using differential equations and transfer function , analogy between electrical and mechanical systems, block diagram algebra, signal flow graph, Mason’s gain formula."
+   },
+   {
+    "roman": "II",
+    "title": "Time domain analysis",
+    "hours": 6,
+    "text": "Concept of transient and steady state response, standard test signals: step, ramp, parabolic and impulse signal, type and order of control system, time response of first and second order systems to unit impulse, unit step input, time domain specifications of second order systems, derivation of time domain specifications for second-order under-damped system for unit step input, steady state error and static error coefficients."
+   },
+   {
+    "roman": "III",
+    "title": "Stability analysis and Root Locus",
+    "hours": 5,
+    "text": "Concept of stability: BIBO, nature of system response for various locations of poles in S-plane. Routh’s-Hurwitz criterion. Root Locus: Angle and magnitude condition, Basic properties of root locus. Construction of root locus, Stability analysis using root locus."
+   },
+   {
+    "roman": "IV",
+    "title": "Frequency domain analysis-I",
+    "hours": 6,
+    "text": "Introduction, Frequency domain specifications, correlation between time and frequency domain specifications, polar Plot, Nyquist plot, stability analysis using Nyquist plot."
+   },
+   {
+    "roman": "V",
+    "title": "Frequency domain analysis-II",
+    "hours": 6,
+    "text": "05 Introduction to Bode plot, Asymptotic approximation: sketching of Bode plot, stability analysis using Bode plot."
+   },
+   {
+    "roman": "VI",
+    "title": "PID controllers and Control system components",
+    "hours": 6,
+    "text": "Basic concept of P, PI, PID controller, design specifications in time domain and frequency domain. design of PID controller by Root Locus, tuning of PID controllers using Ziegler-Nichol Methods Control System Components: Working principle and transfer function of Lag network, lead network, potentiometer, DC servo motors."
+   }
+  ],
+  "textBooks": [
+   "I.J. Nagrath, M. Gopal, “Control System Engineering”, New Age International Publishers, 6th edition, 2017.",
+   "Katsuhiko Ogata, “Modern control system engineering”, Prentice Hall, 2010.",
+   "Nise N. S. “Control Systems Engineering”, John Wiley & Sons, Incorporated, 2011",
+   "R. Anandanatrajan and P. Ramesh Babu, “Control Systems Engineering”, Scitech Publication,3rd edition, 2011",
+   "C. D. Johnson, “Process Control Instrumentation Technology, 8th edition, PHI Learning Pvt. Ltd., 2013"
+  ],
+  "refBooks": [
+   "B. C. Kuo, “Automatic Control System”, Wiley India, 8th Edition, 2003.",
+   "Richard C Dorf and Robert H Bishop, “Modern control system”, Pearson Education, 12th edition, 2011.",
+   "D. Roy Choudhary, \"Modern Control Engineering\", PHI Learning Pvt. Ltd., 2005.",
+   "B. Wayne Bequette, “Process Control: Modeling, Design and Simulation”, PHI, 2003."
+  ],
+  "links": []
+ },
+ {
+  "code": "303151A",
+  "name": "IoT and Its Applications in Electrical Engineering",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "",
+  "outcomes": [
+   "Build circuits for signal acquisition and conditioning",
+   "Experiment with sensors and actuators and choose the right sensor for application",
+   "Determine the performance of IoT based automated process",
+   "Design and develop IoT based applications"
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to IoT",
+    "hours": 6,
+    "text": "Fundamental components of IoT, Evolution of Connected Devices, Basic Architecture of IoT, ISO and IEC Standards, IoT categories, IoT gateways, challenges, Security concerns and hurdles, Overview of applications - home automation, agriculture, Industrial, health care, Smart Grid."
+   },
+   {
+    "roman": "II",
+    "title": "IoT Development platforms",
+    "hours": 6,
+    "text": "Basics of Microcontroller and Microprocessor, Introduction to Edge devices e.g. Arduino, Node MCU, Raspberry Pi. Comparative analysis of the Platforms."
+   },
+   {
+    "roman": "III",
+    "title": "Programming the hardware",
+    "hours": 6,
+    "text": "Introduction to Integrated Development Environment, Overview of different IDE’s, Example of programs using Arduino IDE, Basics of Python, Example of programs using Python."
+   },
+   {
+    "roman": "IV",
+    "title": "Sensing and Actuation",
+    "hours": 6,
+    "text": "Sensors, Types of sensors – Digital and Analog, characteristics, choosing right sensor for Application, Interfacing Sensor with Node MCU, Reading data from Sensors like LM35, DHT 11, Ultrasonic Sensor, IR Sensor, sound sensor, touch sensor, LDR, Potentiometer, Current and voltage Sensor, Connecting actuators - relay, stepper motor."
+   },
+   {
+    "roman": "V",
+    "title": "Communication Technologies and Cloud",
+    "hours": 6,
+    "text": "Introduction to communication Technologies like Wi-Fi, Bluetooth, RFID, Z‐Wave, Zigbee, 6LoWPAN, LORA, Wireless HART, MQTT, Introduction to cloud platforms."
+   },
+   {
+    "roman": "VI",
+    "title": "Development of IoT based Application",
+    "hours": 6,
+    "text": "Reading sensor data and sending it to cloud platform, Visualization and analysis of the data on cloud, actuation and control, case study – Home automation"
+   }
+  ],
+  "textBooks": [
+   "Daniel Minoli, “Building the Internet of Things with IPv6 and MIPv6: The Evolving World of M2M Communications”, ISBN: 978-1-118-47347-4, Willy Publications",
+   "Bernd Scholz-Reiter, Florian Michahelles, “Architecting the Internet of Things”, ISBN 978-3-642-19156-5 e-ISBN 978-3-642-19157-2, Springer",
+   "Parikshit N. Mahalle & Poonam N. Railkar, “Identity Management for Internet of Things”, River Publishers, ISBN: 978-87-93102-90-3 (Hard Copy), 978-87-93102-91-0 (e-book)."
+  ],
+  "refBooks": [
+   "Hakima Chaouchi, “ The Internet of Things Connecting Objects to the Web”, ISBN : 978- 1-84821-140-7, Willy Publications",
+   "Olivier Hersent, David Boswarthick, Omar Elloumi, The Internet of Things: Key Applications and Protocols, ISBN: 978-1-119-99435-0, 2nd Edition, Willy Publications.",
+   "Daniel Kellmereit, Daniel Obodovski, “The Silent Intelligence: The Internet of Things”. Publisher: Lightning Source Inc; 1st edition (15 April 2014). ISBN-10: 0989973700, ISBN- 13: 978-0989973700.",
+   "Fang Zhaho, Leonidas Guibas, “Wireless Sensor Network: An information processing approach”, Elsevier, ISBN: 978-81-8147-642-5.",
+   "Michael Margolis, Arduino Cookbook, 2nd Edition, O'Reilly Media, Inc, 2011.",
+   "Alex Bradbury & Ben Everard, Learning Python with Raspberry Pi, 1st Edition, John Wiley & Sons, Feb 2014.",
+   "Charles Bell, Beginning Sensor Networks with Arduino and Raspberry Pi, 1st Edition, Apress, 2014."
+  ],
+  "links": []
+ },
+ {
+  "code": "303151B",
+  "name": "Electric Mobility",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "",
+  "outcomes": [
+   "Analyze the concepts of Hybrid and Electric vehicles.",
+   "Describe the different types of energy storage systems",
+   "Comprehend the knowledge of the battery charging and management systems.",
+   "Classify the different mode of operation for hybrid vehicle.",
+   "Apply the different Charging standards used for electric vehicles.",
+   "Differentiate between Vehicle to home & Vehicle to grid concepts."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to Hybrid and Electric vehicles",
+    "hours": 6,
+    "text": "Need and importance of Electric Vehicle and Hybrid Electric Vehicles, Environmental importance of Hybrid and Electric vehicles. Hybrid Electric vehicles: Concept and architecture of HEV drive train (Series, parallel and series-parallel). Micro Hybrid, Mild Hybrid, Full Hybrid, Plug-in Hybrid, Electric vehicles: Components, configuration, performance, tractive effort, Advantages and challenges in EV."
+   },
+   {
+    "roman": "II",
+    "title": "Energy Storage Systems",
+    "hours": 6,
+    "text": "Introduction to Energy Storage Requirements in Hybrid and Electric Vehicles, Battery specifications, Battery based energy storage and its analysis, Classification of lithium-ion batteries, Aluminum Air and Aluminum ion battery. Fuel Cell based energy storage, Super Capacitor based energy storage, Hybridization of Ultra capacitor and Battery. Selection methodology for the energy storage."
+   },
+   {
+    "roman": "III",
+    "title": "Battery Charging and Management Systems",
+    "hours": 6,
+    "text": "introduction: Different Charging algorithms and Charging method, Cell Balancing methods. Battery Management System: Functions of BMS, Block diagram of BMS. SoC Estimation methods, Thermal Management of Battery."
+   },
+   {
+    "roman": "IV",
+    "title": "Hybrid Power Train and mode of operation",
+    "hours": 6,
+    "text": "Control Strategies and Design of the Major Components: Series and Parallel Hybrid Electric Drive Train. Energy Consumption in Braking, Braking Power and Energy on Front and Rear Wheels, Brake System of EVs and HEVs, Regenerative braking"
+   },
+   {
+    "roman": "V",
+    "title": "Drives and Charging Infrastructure",
+    "hours": 6,
+    "text": "Selection of drives for Electric vehicle: PMSM drive and BLDC drive, Sizing of motor, Charging Levels: 01,02 and 03, Charging Standards: CCS, CHAdeMO, SAE J1772, IEC 60309, Bharat DC 001, Bharat AC 001, Electric Vehicle Supply Equipment (EVSE)."
+   },
+   {
+    "roman": "VI",
+    "title": "Vehicle to Home, Vehicle to Vehicle and Vehicle to Grid",
+    "hours": 6,
+    "text": "Vehicle to Home: Introduction, applications, V2H with demand response, Case Study of V2H. Vehicle to Grid: Introduction of V2G, V2G infrastructure in the smart grid, Role of aggregator for V2G, Case study of V2G, Vehicle to Vehicle: Introduction of V2V, Concept & structure."
+   }
+  ],
+  "textBooks": [
+   "“Electrical Vehicle”, James Larminie and John Lowry, John Wiley & Sons, 2012.",
+   "“Electric and Hybrid-Electric Vehicles”, Ronald K. Jurgen, SAE International Publisher.",
+   "“Energy Systems for Electric and Hybrid Vehicles”, K T Chau, The institution of Engineering and Technology Publication",
+   "“Batteries for Electric Vehicles”, D.A.J Rand, R Woods & R M Dell ,Research studies press Ltd, New York, John Willey & Sons",
+   "Electric & Hybrid Vehicles-Design Fundamentals, CRC press"
+  ],
+  "refBooks": [
+   "“Modern Electrical Hybrid Electric and Fuel Cell Vehicles: Fundamental, Theory and design”, Mehrdad Ehsani, Yimin Gao and Ali Emadi. CRC Press, 2009.",
+   "“Vehicle-to-Grid: Linking Electric Vehicles to the Smart Grid”, Junwei Lu & Jahangir Hossain et al (eds), IET Digital Library.",
+   "“Automobile Electrical and Electronic systems”, Tom Denton, SAE International publications.",
+   "“Hybrid Electric Vehicles: Principles and Applications with Practical Perspectives”, C. Mi, M. A. Masrur and D. W. Gao, John Wiley & Sons, 2011.",
+   "The Electric Vehicle Conversion handbook –Mark Warner, HP Books, 2011. Online Resources:"
+  ],
+  "links": []
+ },
+ {
+  "code": "303151C",
+  "name": "Cybernetics Engineering",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "",
+  "outcomes": [
+   "Define cybernetics in terms of control and how is it used in controlling technical, biological, and other processes.",
+   "Understand various matrix operations.",
+   "Describe different types of control system configurations and their applications.",
+   "Carry out mathematical modeling and simulation of simple processes.",
+   "Appreciate the essential requirements for computers and computer equipment that are intended to operate in dedicated applications and industrial environments.",
+   "Know intelligent optimization techniques."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to Cybernetics",
+    "hours": 6,
+    "text": "History of Cybernetics, various definitions of cybernetics, Control or regulation in machines, Control or regulation in human affairs."
+   },
+   {
+    "roman": "II",
+    "title": "Linear system theory",
+    "hours": 6,
+    "text": "Vector Spaces, Bases, Coordinate Transformation, Invariant Subspaces, Inner product, Norms, Rank, Types of Matrices, Eigenvalues, Eigenvectors, Diagonalization, Matrix Factorization."
+   },
+   {
+    "roman": "III",
+    "title": "Control Engineering",
+    "hours": 6,
+    "text": "Introduction to control systems, basic terminologies, Linearization. Laplace transform and transfer functions, types of control systems, introduction of nonlinear control system, adaptive control system, optimal control system, multivariable control system and their examples and applications."
+   },
+   {
+    "roman": "IV",
+    "title": "Mathematical Modeling and Simulation",
+    "hours": 6,
+    "text": "Mathematical modeling of physical processes, Differential equations of physical systems, such as electrical, mechanical, fluid, linear approximation, solution of ordinary differential equations using ODE solvers."
+   },
+   {
+    "roman": "V",
+    "title": "Embedded computer systems",
+    "hours": 6,
+    "text": "Design of embedded computer systems. Computer architectures and system components for embedded and industrial applications. Microcontrollers and specialized microprocessors. Parallel and serial bus systems. Data communication in industrial environments. Analog/digital interfaces."
+   },
+   {
+    "roman": "VI",
+    "title": "Modern Optimization Methods",
+    "hours": 6,
+    "text": "Definition, applications, types of methods for optimization, Introduction to modern optimization techniques, Genetic algorithm, Simulated Annealing method, Particle Swarm Optimization, Ant Colony method."
+   }
+  ],
+  "textBooks": [
+   "Dan C. Marinescu, “Complex Systems and Clouds A Self-Organization and Self- Management Perspective”, Elsevier, United States, 2017",
+   "C-T Chen, “Linear System Theory and Design”, Oxford University Press, 1999",
+   "Richard C. Dorf, Robert H. Bishop, “Modern Control System”, Pearson Education Limited, 2011",
+   "Hassan K. Khalil, “Nonlinear Control”, Pearson Education Limited, 2011",
+   "Karl Johan Astrom, Bjorn Wittenmark, “Adaptive Control”, Dover Publications Inc., New York 2008",
+   "Y. S. Apte, “Linear Multivariable Control Systems”, McGraw-Hill, 1981",
+   "Nirmala Sharma, “Computer Architecture”, Laxmi Publication, 2009",
+   "Soliman Abdel- Hady Soliman, Abdel-Aal Hassan Mantawy, “Modern Optimization Techniques with Applications in Electric Power Systems” Springer"
+  ],
+  "refBooks": [],
+  "links": []
+ },
+ {
+  "code": "303151D",
+  "name": "Energy Management",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "",
+  "outcomes": [
+   "Describe BEE Energy policies, Energy ACT.",
+   "List and apply demand side management measures for managing utility systems.",
+   "Explore and use simple data analytic tools.",
+   "Use various energy measurement and audit instruments.",
+   "Evaluate economic feasibility of energy conservation projects.",
+   "Identify appropriate energy conservations methods for electric and thermal utilities."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Energy Scenario",
+    "hours": 6,
+    "text": "Classification of Energy resources, Commercial and noncommercial sources, primary and secondary sources, commercial energy production, final energy consumption. Energy needs of growing economy, short terms and long terms policies, energy sector reforms, energy security, importance of energy conservation, energy and environmental impacts, introduction to CDM, UNFCCC, Paris treety, emission check standard, salient features of Energy Conservation Act 2001 and Electricity Act 2003. Latest amendments in Electricity Act. Indian and Global energy scenario. Introduction to IE Rules. Study of Energy Conservation Building Code (ECBC)."
+   },
+   {
+    "roman": "II",
+    "title": "Energy Management",
+    "hours": 6,
+    "text": "Definition and Objective of Energy Management, Principles of Energy management, Energy Management Strategy, Energy Manager Skills, key elements in energy management, force field analysis, energy policy, format and statement of energy policy, Organization setup and energy management. Responsibilities and duties of energy manager under the latest Act. Energy Efficiency Programs. Energy monitoring systems."
+   },
+   {
+    "roman": "III",
+    "title": "Demand Management",
+    "hours": 6,
+    "text": "Supply side management (SSM), Generation system up gradation, constraints on SSM. Demand side management (DSM), advantages and barriers, implementation of DSM. Use of demand side management in agricultural, domestic and commercial consumers. Demand management through tariffs (TOD). Power factor penalties and incentives in tariff for demand control. Apparent energy tariffs. Role of renewable energy sources in energy management, direct use (solar thermal, solar air conditioning, biomass) and indirect use (solar, wind etc.) Introduction to ISO 50001- Energy Management."
+   },
+   {
+    "roman": "IV",
+    "title": "Energy Audit",
+    "hours": 6,
+    "text": "Definition, need of energy audits, types of audit, procedures to follow, data and information analysis, Introduction to Data Analytics, data quality processing, clustering techniques, pattern mining, regression and classification. Relevance of Data Analytics in Audit, energy audit instrumentation, energy consumption – production relationship, pie charts. Sankey diagram, Cusum technique, least square method and numerical based on it. Outcome of energy audit and energy saving potential, action plans for implementation of energy conservation options. Benchmarking energy performance of an industry. Energy Audit reporting format – Executive Summary , Detailing of report."
+   },
+   {
+    "roman": "V",
+    "title": "Financial Analysis",
+    "hours": 6,
+    "text": "Financial appraisals; criteria, simple payback period, return on investment, net present value method, time value of money, break even analysis, sensitivity analysis and numerical based on it, cost of energy, cost of generation Energy Audits case studies – Sugar Industry, Steel Industry, Paper and Pulp industry."
+   },
+   {
+    "roman": "VI",
+    "title": "Energy Conservation",
+    "hours": 6,
+    "text": "a) Motive power (motor and drive system). b) Illumination c) Heating systems ( boiler and steam systems) d) Ventilation( Fan, Blower and Compressors) and Air Conditioning systems e) Pumping System f) Cogeneration and waste heat recovery systems g) Utility industries ( T and D Sector) and Performance Assessments."
+   }
+  ],
+  "textBooks": [
+   "Guide books for National Certification Examination for Energy Managers/Energy Auditors Book 1, General Aspects ( available on line )",
+   "Guide books for National Certification Examination for Energy Managers/Energy Auditors Book 2 – Thermal Utilities ( available on line )",
+   "Guide books for National Certification Examination for Energy Managers/Energy Auditors Book 3- Electrical Utilities ( available on line )",
+   "Guide books for National Certification Examination for Energy Managers/Energy Auditors Book 4 ( available on line )"
+  ],
+  "refBooks": [
+   "Utilization of electrical energy by S.C. Tripathi, Tata McGraw Hill.",
+   "Energy Management by W.R. Murphy and Mackay, B.S. Publication.",
+   "Generation and utilization of Electrical Energy by B.R. Gupta, S. Chand Publication",
+   "Energy Auditing made simple by Balasubramanian, Bala Consultancy Services.",
+   "A General Introduction to Data Analytics by Andre Carvalho and Tomáš Horváth Wiley Inc First Edition 2019. Online Resources:"
+  ],
+  "links": []
+ }
+]
