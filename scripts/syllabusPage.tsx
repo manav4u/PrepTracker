@@ -26,13 +26,6 @@ h1{font-size:clamp(28px,6vw,44px);line-height:1.15;margin:0 0 8px;color:#fff}h2{
 .cta{display:inline-block;background:#e11d48;color:#fff;text-decoration:none;font-weight:600;padding:12px 22px;border-radius:12px;margin-top:8px}
 details{border-bottom:1px solid #222;padding:10px 0}summary{cursor:pointer;color:#fff;font-weight:500}details p{margin:8px 0 0;color:#bbb}
 
-.viz{display:grid;gap:14px;grid-template-columns:1fr}@media(min-width:640px){.viz{grid-template-columns:200px 1fr;align-items:center}}
-.donut{width:180px;height:180px;margin:0 auto}.donut text{fill:#fff;font-weight:700}.donut .sub{fill:#888;font-weight:400}
-.legend{list-style:none;margin:0;padding:0}.legend li{display:grid;grid-template-columns:12px 1fr auto;gap:10px;align-items:center;padding:6px 0;font-size:14px;color:#ccc;border-bottom:1px solid #1c1c1c}
-.legend i{width:10px;height:10px;border-radius:3px;display:block}.legend b{color:#fff;font-weight:600}
-.bars{margin:8px 0}.bar{margin:12px 0}.bar .lab{display:flex;justify-content:space-between;gap:10px;font-size:14px;color:#ccc;margin-bottom:5px}.bar .lab b{color:#fff;font-weight:600;white-space:nowrap}
-.track{height:10px;border-radius:999px;background:#161616;border:1px solid #222;overflow:hidden}.fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#9f1239,#e11d48 60%,#fb7185)}
-.note{font-size:13px;color:#777;margin:6px 0 0}
 .flow{list-style:none;margin:12px 0;padding:0;position:relative}.flow li{position:relative;padding:0 0 18px 44px;color:#ccc;font-size:15px}.flow li:before{content:'';position:absolute;left:14px;top:30px;bottom:-4px;width:2px;background:linear-gradient(#e11d48,#3a1620)}.flow li:last-child:before{display:none}
 .flow .n{position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;background:#1a0a10;border:1px solid #e11d48;color:#fb7185;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}.flow b{color:#fff;display:block;font-weight:600}.flow small{color:#777}
 
@@ -40,21 +33,6 @@ details{border-bottom:1px solid #222;padding:10px 0}summary{cursor:pointer;color
 .stat{padding:18px 6px 16px;text-align:left;border-left:1px solid #1c1c1c;padding-left:14px}.stat:first-child{border-left:0;padding-left:0}
 .stat b{display:block;font:800 clamp(44px,13vw,76px)/0.95 Georgia,'Times New Roman',serif;color:#fff;letter-spacing:-2px}.stat b i{font-style:normal;color:#e11d48}
 .stat span{display:block;margin-top:8px;font:500 11px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.14em;text-transform:uppercase;color:#888}
-.tree{position:relative;margin:18px 0 8px;padding:0;list-style:none}
-.node{position:relative;display:grid;grid-template-columns:64px 1fr;gap:14px;padding:0 0 34px}
-.node:last-child{padding-bottom:0}
-.node svg.rail{position:absolute;left:0;top:56px;width:64px;height:calc(100% - 56px);overflow:visible}
-.node:last-child svg.rail{display:none}
-.gem{width:64px;height:64px}.gem text{font:800 22px Georgia,serif;fill:#fff}.gem .lv{font:500 8px ui-monospace,Menlo,monospace;letter-spacing:.12em;fill:#fb7185}
-.quest{border:1px solid #2a1018;background:linear-gradient(160deg,#150a0e,#0e0e0e 60%);border-radius:6px 22px 6px 22px;padding:14px 16px 14px}
-.quest .tag{font:500 11px ui-monospace,Menlo,monospace;letter-spacing:.14em;text-transform:uppercase;color:#fb7185}
-.quest h3{margin:4px 0 10px;font-size:18px}
-.xp{display:flex;gap:3px;margin:0 0 6px}.xp u{flex:1;height:9px;border-radius:2px;background:#1b1b1b;transform:skewX(-18deg);text-decoration:none}.xp u.on{background:linear-gradient(#fb7185,#be123c);box-shadow:0 0 6px #e11d4855}
-.xpl{display:flex;justify-content:space-between;font:500 11px ui-monospace,Menlo,monospace;letter-spacing:.1em;color:#888;text-transform:uppercase}
-.xpl b{color:#fff;font-weight:600}
-@media(min-width:760px){.node{grid-template-columns:1fr 84px 1fr;gap:0}.node .quest{grid-column:1;grid-row:1;margin-right:18px}.node .gemwrap{grid-column:2;grid-row:1;display:flex;justify-content:center}.node:nth-child(even) .quest{grid-column:3;margin:0 0 0 18px}.node svg.rail{left:50%;margin-left:-32px}}
-.gemwrap{width:64px}@media(min-width:760px){.gemwrap{width:auto}}
-.treenote{font:500 11px/1.5 ui-monospace,Menlo,monospace;letter-spacing:.06em;color:#666;margin-top:14px}
 
 .upills{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 18px}.upills a{text-decoration:none;display:inline-flex;align-items:center;gap:6px;border:1px solid #2a2a2a;background:#111;border-radius:999px;padding:5px 12px;font-size:13px;color:#ccc}.upills a b{font-weight:600;color:#fff;letter-spacing:.04em;font-size:12px}.upills a small{color:#fb7185;font:500 11px ui-monospace,Menlo,monospace}
 .units{position:relative;padding-left:22px}.units:before{content:'';position:absolute;left:4px;top:18px;bottom:30px;width:1px;background:linear-gradient(#e11d48,#2a1018 40%,#2a1018)}
@@ -62,49 +40,29 @@ details{border-bottom:1px solid #222;padding:10px 0}summary{cursor:pointer;color
 .uh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.uh h3{margin:0;flex:1;min-width:60%}.uh .hrs{float:none}
 .up{letter-spacing:.06em;font-size:12px;border:1px solid #3a1620;background:#1a0a10;color:#fb7185;font-weight:600}
 .tp{margin:12px 0 0}.tp{gap:6px}.tp .chip{font-size:12px;padding:3px 10px;color:#bbb;background:#0d0d0d}.units{padding-left:20px}.unit{padding:14px 14px}
+.motif{display:block;width:100%;max-width:600px;height:48px;margin:-10px 0 22px}
 footer{margin-top:48px;font-size:13px;color:#777}ol.co{padding-left:0;list-style:none}ol.co li{margin:10px 0;padding-left:56px;position:relative;color:#ccc}ol.co b{position:absolute;left:0;color:#fb7185}`;
 
 
 
-const PALETTE = ['#e11d48', '#fb7185', '#be123c', '#fda4af', '#9f1239', '#f43f5e'];
-
-function Donut({ parts, total }: { parts: number[]; total: number }) {
-  const R = 70, C = 2 * Math.PI * R;
-  let acc = 0;
-  return (
-    <svg className="donut" viewBox="0 0 180 180" role="img" aria-label={'Hours per unit, ' + total + ' hours in total'}>
-      <circle cx="90" cy="90" r={R} fill="none" stroke="#161616" strokeWidth="20" />
-      {parts.map((h, i) => {
-        const len = (h / total) * C;
-        const el = <circle key={i} cx="90" cy="90" r={R} fill="none" stroke={PALETTE[i % PALETTE.length]} strokeWidth="20" strokeDasharray={(len - 2).toFixed(2) + ' ' + (C - len + 2).toFixed(2)} strokeDashoffset={(-acc).toFixed(2)} transform="rotate(-90 90 90)" />;
-        acc += len;
-        return el;
-      })}
-      <text x="90" y="92" textAnchor="middle" fontSize="30">{total}</text>
-      <text className="sub" x="90" y="112" textAnchor="middle" fontSize="12">hours</text>
-    </svg>
-  );
-}
-
-
-function Gem({ n }: { n: number }) {
-  return (
-    <svg className="gem" viewBox="0 0 64 64" role="img" aria-label={'Unit ' + n}>
-      <path d="M32 3 L57 17 L58 46 L32 61 L6 47 L7 17 Z" fill="#1a0a10" stroke="#e11d48" strokeWidth="2" strokeLinejoin="round" />
-      <path d="M32 9 L51 20 L52 43 L32 55 L12 43 L13 20 Z" fill="none" stroke="#fb7185" strokeOpacity=".35" strokeWidth="1" strokeDasharray="3 3" />
-      <text x="32" y="38" textAnchor="middle">{String(n).padStart(2, '0')}</text>
-      <text className="lv" x="32" y="19" textAnchor="middle">LV</text>
-    </svg>
-  );
-}
-function Rail({ flip }: { flip: boolean }) {
-  const d = flip ? 'M32 0 C 10 30, 54 50, 30 90 S 40 140, 32 160' : 'M32 0 C 54 30, 10 50, 34 90 S 24 140, 32 160';
-  return (
-    <svg className="rail" viewBox="0 0 64 160" preserveAspectRatio="none" aria-hidden="true">
-      <path d={d} fill="none" stroke="#3a1620" strokeWidth="5" strokeLinecap="round" />
-      <path d={d} fill="none" stroke="#e11d48" strokeWidth="2" strokeLinecap="round" strokeDasharray="2 9" />
-    </svg>
-  );
+const R = '#e11d48', D = '#6b2a3b';
+const hex = (x: number, y: number, r: number) => Array.from({ length: 6 }, (_, i) => { const t = Math.PI / 3 * i + Math.PI / 6; return (x + r * Math.cos(t)).toFixed(1) + ',' + (y + r * Math.sin(t)).toFixed(1); }).join(' ');
+const wave = (amp: number, len: number, ph = 0) => { let d = ''; for (let x = 0; x <= 600; x += 6) d += (x ? 'L' : 'M') + x + ' ' + (24 + amp * Math.sin(x / len * 2 * Math.PI + ph)).toFixed(1); return d; };
+const MOTIFS: Record<string, React.ReactNode> = {
+  m1: <><path d="M0 40 C150 40 200 6 300 24 S480 44 600 8" fill="none" stroke={D} strokeWidth="2" /><path d="M230 34 L370 14" stroke={R} strokeWidth="1.5" strokeDasharray="3 5" /><circle cx="300" cy="24" r="4" fill={R} /></>,
+  m2: <><path d="M0 42 C120 42 180 8 300 10 S480 40 600 40 L600 44 L0 44 Z" fill="#1a0a10" stroke={D} strokeWidth="2" /><path d="M150 44 V22 M210 44 V14 M270 44 V10 M330 44 V12 M390 44 V20" stroke={R} strokeWidth="1.5" /></>,
+  phy: <><path d={wave(14, 150)} fill="none" stroke={D} strokeWidth="2" /><path d={wave(14, 150, 0.9)} fill="none" stroke={R} strokeWidth="1.5" strokeDasharray="2 6" /></>,
+  chem: <>{[60, 120, 180, 240].map((x, i) => <polygon key={x} points={hex(x, i % 2 ? 30 : 18, 20)} fill="none" stroke={i === 1 ? R : D} strokeWidth="2" />)}<circle cx="120" cy="30" r="3" fill={R} /></>,
+  elect: <><path d="M0 24 H120 V10 H220 V38 H330 V24 H600" fill="none" stroke={D} strokeWidth="2" /><circle cx="120" cy="24" r="4" fill={R} /><circle cx="220" cy="38" r="4" fill={R} /><circle cx="330" cy="24" r="4" fill={R} /></>,
+  elec: <><path d={wave(14, 200)} fill="none" stroke={D} strokeWidth="2" /><path d={wave(14, 200, 2.09)} fill="none" stroke="#7f1d3a" strokeWidth="1.5" /><path d={wave(14, 200, 4.19)} fill="none" stroke={R} strokeWidth="1.5" /></>,
+  mech: <><path d="M10 40 L70 10 L130 40 L190 10 L250 40 L310 10 L370 40 Z M10 40 H370" fill="none" stroke={D} strokeWidth="2" strokeLinejoin="round" /><circle cx="10" cy="40" r="4" fill={R} /><circle cx="370" cy="40" r="4" fill={R} /></>,
+  fpl: <><rect x="4" y="12" width="64" height="24" rx="12" fill="none" stroke={D} strokeWidth="2" /><path d="M68 24 H110" stroke={R} strokeWidth="1.5" /><path d="M110 24 L142 6 L174 24 L142 42 Z" fill="none" stroke={R} strokeWidth="2" /><path d="M174 24 H216" stroke={D} strokeWidth="2" /><rect x="216" y="12" width="64" height="24" rx="4" fill="none" stroke={D} strokeWidth="2" /></>,
+  graph: <><path d="M10 4 V44 M4 38 H300" stroke={D} strokeWidth="2" /><rect x="60" y="10" width="70" height="28" fill="none" stroke={R} strokeWidth="1.5" /><path d="M60 10 V38 M130 10 V38 M60 24 H130" stroke={D} strokeWidth="1" strokeDasharray="3 4" /><rect x="170" y="14" width="70" height="24" fill="none" stroke={D} strokeWidth="2" /></>,
+  pps: <><path d="M10 24 H70 M120 24 H200" stroke={D} strokeWidth="2" /><circle cx="95" cy="24" r="16" fill="none" stroke={R} strokeWidth="2" strokeDasharray="60 40" /><path d="M200 24 l-8 -6 v12 z" fill={R} /><text x="220" y="30" fill="#3a1620" fontSize="20" fontFamily="monospace">{'{ }'}</text></>,
+};
+function Motif({ id }: { id: string }) {
+  const m = MOTIFS[id];
+  return m ? <svg className="motif" viewBox="0 0 600 48" preserveAspectRatio="xMinYMid meet" aria-hidden="true">{m}</svg> : null;
 }
 const SUP = ['\u00b9', '\u00b2', '\u00b3', '\u2074', '\u2075', '\u2076'];
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
@@ -155,6 +113,7 @@ export function renderSubjectPage(c: SubjectPageConfig): string {
             <div className="stat"><b>{String(s.credits).padStart(2, '0')}<i>.</i></b><span>credits</span></div>
           </div>
 
+          <Motif id={c.id} />
           <h2>Unit-wise syllabus</h2>
           <nav className="upills" aria-label="Jump to a unit">{s.units.map((u, i) => <a key={u.id} href={'#' + u.id}><b>UNIT {ROMAN[i]}</b><small>{u.hours} h</small></a>)}</nav>
           <div className="units">{s.units.map((u, i) => (
