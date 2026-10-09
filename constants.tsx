@@ -149,7 +149,7 @@ export const SUBJECTS: Subject[] = [
       },
       { 
         id: 'elect-u3', unit_number: 3, hours: 6, title: 'Logic Gates and Digital Circuits', 
-        topics: ['Number Systems (Binary, Hex, Octal)', 'Logic Gates (Universal Gates)', 'Half & Full Adders', 'Flip Flops (SR, JK, T, D)', 'Microprocessor vs Microcontroller'] 
+        topics: ['Number Systems (Binary, Hex, Octal)', 'Logic Gates (Universal Gates)', 'Half & Full Adders', 'Flip Flops (SR, JK, T, D)', 'Microprocessor and Microcontroller (block diagrams)'] 
       },
       { 
         id: 'elect-u4', unit_number: 4, hours: 6, title: 'Op-Amp and Electronic Instruments', 
