@@ -13,4 +13,5 @@ export function renderLanding(): string {
   );
 }
 
-export { renderM1Page, M1_PATH } from './syllabusPage';
+export { renderSubjectPage } from './syllabusPage';
+export { SUBJECT_PAGES } from './pages';
