@@ -1,0 +1,511 @@
+[
+ {
+  "code": "PCC-201-AID",
+  "name": "Data Structures",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "Programming and Problem Solving, Fundamentals of Programming Languages",
+  "outcomes": [
+   "Analyze the performance of searching and sorting techniques based on the Time and Space complexities of Algorithms",
+   "Apply different hashing techniques, including various collision resolution methods",
+   "Demonstrate the use of Linked lists to store and process structured data",
+   "Apply principles of Stack and Queue Data Structures to solve real time problems",
+   "Demonstrate the primitive operations of nonlinear data structure -Trees and graphs"
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Data Structures & Algorithms: Searching and Sorting",
+    "hours": 9,
+    "text": "Introduction of Data Structures & types. Complexity of algorithm: Space complexity, Time complexity, Asymptotic notation- Big-O, Theta and Omega, finding complexity using step count method, Analysis of programming constructs-Linear, Quadratic, Cubic, Logarithmic. Searching: Sequential Search, Binary Search. Sorting: Insertion sort, Bubble Sort, Merge sort, Selection Sort, Quick sort, Radix sort. Hash: Hash Table, Hash Function, Collision Resolution Techniques in Hashing-Chaining, Open Addressing-Linear, Quadratic Probing and Double Hashing. Hash table overflow open addressing and chaining. Case Study: Employee Records Database Optimization, finding employees based on salary or sorting them by department using Array"
+   },
+   {
+    "roman": "II",
+    "title": "Memory Allocation & Linked List Operations",
+    "hours": 9,
+    "text": "Introduction to Static and Dynamic Memory Allocation. Linked List: Introduction of Linked Lists, Realization of linked list using dynamic memory management, operations on Linked Lists, Linked List as ADT, Types of Linked List: singly linked, linear and Circular Linked Lists, Doubly Linked List, Doubly Circular Linked List, Primitive Operations on Linked List-Create, Traverse, Search, Insert, Delete, Sort, Concatenate. Polynomial Manipulations- Polynomial addition. Generalized Linked List (GLL) concept. Case Study : Growing employee database dynamically using LL."
+   },
+   {
+    "roman": "III",
+    "title": "Linear Data Structure :Stacks, Queues",
+    "hours": 9,
+    "text": "Stack: Introduction of stack, stack Abstract Data Type, Representation of Stacks Using Sequential Organization, stack operations, Applications of Stack- Expression Evaluation and Conversion. Recursion- concept. Queue: Introduction of Queue, Queue as Abstract Data Type, Representation of Queue using Sequential organization. Queue Operations. Circular Queue and its advantages, Deque-introduction, Priority Queue. Case study: Backtracking algorithmic strategy, Use of stack in backtracking. Case study: Job scheduling using priority queue."
+   },
+   {
+    "roman": "IV",
+    "title": "Non-linear Data Structure: Tree",
+    "hours": 9,
+    "text": "Tree: Introduction of tree, Representations, Traversals, Binary tree, Binary search tree, Threaded Binary search tree- concepts, threading, insertion and deletion of nodes, Optimal Binary Search Tree (OBST), Height Balanced Tree- AVL tree, Heap Tree Case study : Compare the complexity of BST and Linear search"
+   },
+   {
+    "roman": "V",
+    "title": "Non-linear Data Structure: Graph",
+    "hours": 9,
+    "text": "Graph: Introduction of graph, storage representation, Adjacency matrix, adjacency list, DFS, BFS, Minimum spanning Tree - Prims and Kruskal Algorithms, Dijkstra’s Single source shortest path, All pairs shortest paths- Flyod- Warshall Algorithm, Topological ordering. Case study: Analyzing social interactions and influence within a social network."
+   }
+  ],
+  "textBooks": [
+   "Ellis Horowitz, Sartaj Sahni, Susan Anderson-Freed, “Fundamentals of Data Structures in C”, Publisher - Universities Press, 2nd Edition , 2008, ISBN-13: 978-8173716058, ISBN-10: 8173716056.",
+   "Reema Thareja, “Data Structures Using C”, 2nd Edition, Oxford University Press, ISBN-13: 978-0-19-809930-7 ISBN-10: 0-19-809930-4"
+  ],
+  "refBooks": [
+   "Steven S. Skiena, “The Algorithm Design Manual”, Springer, 2ndedition, ISBN : 978-1-84800-069-8",
+   "Yashavant Kanetkar, “Let Us C”, 8th Edition, BPB Publications, ISBN: 9788183331777",
+   "Mark Allen Weiss, “Data Structures and Algorithm Analysis in C”, 2nd Edition, Pearson Education, ISBN: 978-8177583588",
+   "Aaron M. Tenenbaum, “Data Structures Using C”, 2nd Edition, Pearson Education, ISBN: 978813171148"
+  ],
+  "links": [
+   "https://nptel.ac.in/courses/106102064",
+   "https://nptel.ac.in/courses/106103069",
+   "https://nptel.ac.in/courses/106106133"
+  ]
+ },
+ {
+  "code": "PCC-202-AID",
+  "name": "Artificial Intelligence",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "Mathematics, Probability and Statistics, Programming and Problem Solving",
+  "outcomes": [
+   "Explain the fundamentals of AI and its various applications in real-world scenarios.",
+   "Build smart system using different informed search / uninformed search or heuristic approaches",
+   "Design AI systems using adversarial search algorithms and solve problems using constraint satisfaction techniques for structured environments.",
+   "Apply knowledge and reasoning algorithms for real-world problem-solving.",
+   "Represent complex problems with expressive yet carefully constrained language of representation"
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to AI",
+    "hours": 9,
+    "text": "Introduce to the fundamentals of AI, history, applications, and challenges. Definition and History of AI , Applications and Impact of AI in Various Domains , Types of AI: Narrow AI, General AI, and Super AI , Intelligent Agents, Agents and Environments, Concept of Rationality, Nature of Environments, Structure of Agents. AI in Problem Solving: State Space Representation , AI Ethics and Challenges Case studies : AI Applications with demonstration like sentiment analysis, Obstacle detection etc."
+   },
+   {
+    "roman": "II",
+    "title": "Problem-solving",
+    "hours": 9,
+    "text": "Solving Problems by Searching, Problem-Solving Agents, Example Problems, Search Algorithms, Uninformed Search Strategies, Informed (Heuristic) Search Strategies, Heuristic Functions, Search in Complex Environments, Local Search and Optimization Problems Case Studies : Siemens & GE – Leveraging AI, Big Data, and Robotics in Smart Manufacturing (4IR Context)"
+   },
+   {
+    "roman": "III",
+    "title": "Adversarial Search and Constraint Satisfaction",
+    "hours": 9,
+    "text": "Game Theory, Optimal Decisions in Games, Heuristic Alpha–Beta Tree Search, Monte Carlo Tree Search, Stochastic Games, Partially Observable Games, Limitations of Game Search Algorithms, Constraint Satisfaction Problems (CSP), Constraint Propagation: Inference in CSPs, Backtracking Search for CSPs. Case Studies : Google DeepMind – AI for Energy Efficiency in Data Centers and Game Playing (e.g., AlphaGo)"
+   },
+   {
+    "roman": "IV",
+    "title": "Knowledge and Reasoning",
+    "hours": 9,
+    "text": "Logical Agents, Knowledge-Based Agents, The Wumpus World problem, Propositional Logic: A Very Simple Logic, Propositional Theorem Proving, Effective Propositional Model Checking, Agents Based on Propositional Logic, First-Order Logic, Representation Revisited, Syntax and Semantics of First- Order Logic, Using First-Order Logic, Knowledge Engineering in First-Order Logic. Inference in First-Order Logic, Propositional vs. First-Order Inference, Unification and First-Order Inference, Forward Chaining, Backward Chaining, Resolution, Knowledge Representation Case Studies :BBC & Amazon Alexa – AI-Driven Interactive Media with Logic-Based Chatbots"
+   },
+   {
+    "roman": "V",
+    "title": "Planning and Emerging AI Topics",
+    "hours": 9,
+    "text": "Automated and Classical Planning, Hierarchical Planning, Planning under Uncertainty, Analysis of Planning Approaches, Limits of AI, Ethics of AI, Future of AI, AI Components ,Introduction of Generative AI (GPT, DALL·E), Explainable AI (XAI), Federated Learning, Edge AI Case Studies : OpenAI’s GPT-4 & ChatGPT – Impacts of Generative AI and Prompt Engineering"
+   }
+  ],
+  "textBooks": [
+   "Stuart Russell and Peter Norvig, “Artificial Intelligence: A Modern Approach”, Third edition, Pearson, 2003, ISBN :10:0136042597",
+   "Deepak Khemani, “A First Course in Artificial Intelligence”, McGraw Hill Education(India), 2013, ISBN :978-1-25-902998-1",
+   "Elaine Rich,Kevin Knight and Nair,“Artificial Intelligence”,TMH,ISBN-978-0-07-008770-5"
+  ],
+  "refBooks": [
+   "Nilsson Nils J , “Artificial Intelligence: A new Synthesis”, Morgan Kaufmann Publishers Inc. San Francisco, CA, ISBN:978-1-55-860467-4",
+   "Patrick Henry Winston, “Artificial Intelligence”, Addison-Wesley Publishing Company, ISBN: 0-201-53377-4 18",
+   "Andries P. Engelbrecht-Computational Intelligence: An Introduction, 2nd Edition-Wiley India- ISBN:978-0-470-51250-0",
+   "Dr. Lavika Goel, “Artificial Intelligence: Concepts and Applications”, Wiley publication, ISBN:97881265",
+   "Dr.Nilakshi Jain,“Artificial Intelligence,As per AICTE: Making a System Intelligent”,Wiley publication, ISBN: 9788126579945"
+  ],
+  "links": []
+ },
+ {
+  "code": "PCC-203-AID",
+  "name": "Operating System",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "Basic Understanding of Computer Systems, Fundamentals of Programming Languages",
+  "outcomes": [
+   "Use the concepts of virtualization and process management",
+   "Analyse various scheduling algorithms",
+   "Discuss various memory management techniques",
+   "Describe the working of concurrency and locking mechanism in operating systems",
+   "Elaborate I/O management concepts"
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to Operating System and Process",
+    "hours": 9,
+    "text": "Introduction to operating systems, Types of OS, real time OS, the Linux Operating Systems Process: process abstraction, system calls for process management, process creation: process states, data structures, process execution mechanisms process api, process control and users Case Study : Windows 11/Linux"
+   },
+   {
+    "roman": "II",
+    "title": "Scheduling",
+    "hours": 9,
+    "text": "Workload assumptions, scheduling metrics, response time, first in, first out (FIFO) shortest job first (SJF), shortest time-to-completion first (STCF), round robin, incorporating I/O, the multi-level feedback queue, the priority boost, attempt, better accounting, multiprocessor scheduling, synchronization, cache affinity, single-queue scheduling multi-queue scheduling, Linux multiprocessor schedulers. Case Study - Scheduling and Synchronization in xv6"
+   },
+   {
+    "roman": "III",
+    "title": "Address Spaces",
+    "hours": 9,
+    "text": "Early systems, multiprogramming and time sharing, the address space, virtualization of memory, memory api: types of memory, the malloc() call, the free() call, segmentation, fine-grained vs. coarsegrained segmentation, free-space management, paging, a memory trace, faster translations (TLBs), TLB basic algorithm, TLB issue: context switches, replacement policy, hybrid approach: paging and segments, beyond physical memory: mechanisms, swap space, the page fault, page fault control flow. Case Study - Linux/Windows Memory Management"
+   },
+   {
+    "roman": "IV",
+    "title": "Concurrency",
+    "hours": 9,
+    "text": "Concurrency, persistence, Shared data, uncontrolled scheduling, the wish for atomicity, thread api : need of threads, thread creation, thread completion Locks: the basic idea, pthread locks, building a lock, evaluating locks, controlling interrupts, failed attempt, just using Semaphores: definition, binary semaphores (locks), semaphores for ordering, the producer/consumer (bounded buffer) problem, reader-writer locks, dining philosophers’ problem, how to implement semaphores, common concurrency problems. Case Study : Thread programming Using Pthreads, POSIX"
+   },
+   {
+    "roman": "V",
+    "title": "I/O Management",
+    "hours": 9,
+    "text": "System architecture, A Canonical device, The Canonical protocol, CPU virtualization, Lowering CPU Overhead with Interrupts, More efficient data movement With DMA, Methods of device interaction, Fitting into the OS: The device driver, Case Study: A simple IDE disk driver, Hard disk drives, files and directories, The fast file system, file system implementation, disk failure modes, handling latent sector error, detecting corruption: the checksum, using checksums Case Study - I/O Management in Linux/Windows operating system"
+   }
+  ],
+  "textBooks": [
+   "Remzi H. Arpaci-Dusseau and Andrea C. Arpaci-Dusseau “Operating Systems: Three Easy Pieces",
+   "William Stallings, Operating System: Internals and Design Principles, Prentice Hall, ISBN-10: 0-13-380591-3, ISBN-13: 978-0-13-380591-8, 8th Edition"
+  ],
+  "refBooks": [
+   "Silberschatz, A, Galvin, P.B, and Gagne, G., “Operating System Principles”, Eight Edition, John Wiley & Sons, 2008.",
+   "Bach Maurice J. “The Design of the UNIX Operating System”, Second Edition Prentice Hall of India, 2001",
+   "Operating System Concepts, Abraham Silberschatz, Peter Baer Galvin and Greg Gagne, WILEY, ISBN 978-1-118-06333-0, 9th Edition E-Book",
+   "https://repository.dinus.ac.id/docs/ajar/Operating_System.pdf 21"
+  ],
+  "links": [
+   "https://onlinecourses.nptel.ac.in/noc20_cs04/preview"
+  ]
+ },
+ {
+  "code": "MDM-221-AID",
+  "name": "Digital Electronics and Logic Design",
+  "hours": 2,
+  "credits": 2,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "Basic Electronics Engineering",
+  "outcomes": [
+   "Simplify Boolean expressions using Karnaugh Maps (K-Maps) for efficient logic design.",
+   "Develop Strong understanding of the theoretical and Practical aspects of digital logic, codes and combinational circuits",
+   "Implement sequential circuits by applying knowledge of flip-flops, counters, and state machines",
+   "Interpret various processor architectures and their use in real-time AI applications.",
+   "Analyze and compare different AI-focused processors."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to Digital Systems",
+    "hours": 6,
+    "text": "Number systems: Binary, Decimal, Octal and Hexadecimal Number system, conversion of one number system to another, representation of signed number- sign magnitude representation, 1’s complement and 2’s complement form, addition and subtraction of two binary numbers, Fixed point representation of a numbers, standard representation for logic functions, Minimization of Boolean function using K-map (up to 4 variables), Minimization of SOP and POS using K-map. Case Study: Number systems use in networking and IP addressing, Digital locks"
+   },
+   {
+    "roman": "II",
+    "title": "Combinational Logic Design",
+    "hours": 6,
+    "text": "Classification of Codes : Weighted and Non-weighted Codes, Error Detecting and Correcting Codes ,Self-complementary codes, Reflective Codes ( Binary , BCD, Gray code and Excess-3 code) Code Conversion : Binary to Gray and Gray to Binary code conversion,BCD to Excess-3 Half- Adder, Full Adder, Half Subtractor, Full Subtractor, 4 Bit Parallel Adder, BCD adder,Multiplexers (MUX), Demultiplexers (DEMUX) , Implementation of SOP and POS using MUX, DMUX,Magnitude Comparator Case Study :BCD to 7-segment display Controller"
+   },
+   {
+    "roman": "III",
+    "title": "Sequential Circuits",
+    "hours": 6,
+    "text": "Flip-Flop: SR, JK, D,T, MSJK, Truth Tables and Excitation tables, Conversion of Flip-Flop ,Shift Registers, Bidirectional Shift Register, Universal Shift Register, Ring Counter ,Johnson Counter Counters: Asynchronous Counter, Synchronous Counter, BCD Counter, Modulus of the counter ( IC 7490), Presettable Counter, Synchronous sequential circuits : Moore Circuit, Mealy Circuit, State Diagram, State table, State Reduction ,State Assignment Case study: A Digital Combination Lock, Electronics Voting machine (EVM)"
+   },
+   {
+    "roman": "IV",
+    "title": "Microprocessor Fundamentals",
+    "hours": 6,
+    "text": "Evolution of Intel Microprocessors, Overview of microprocessor vs microcontroller. Intel x86 (Pentium): Architecture, registers, instruction types. ARM Cortex architecture: RISC principles, use in mobile AI. NVIDIA Jetson: GPU-based AI processing, use in robotics and edge AI. Simple assembly and C-code-based examples. Case study : Smart Object Counter with AI Edge Inference using NVIDIA Jetson and ESP32 Communication"
+   },
+   {
+    "roman": "V",
+    "title": "Emerging Processors for AI",
+    "hours": 6,
+    "text": "Introduction to AI-focused processors: CPU(Central Processing Unit), GPU(Graphics Processing Unit), TPU(Tensor Processing Unit), NPU(Neural Processing Unit), VPU(Vision Processing Unit). Comparison: Intel Core Ultra, Apple M3, NVIDIA RTX, Google TPU, AMD Ryzen AI, Qualcomm Hexagon. Concepts of Edge AI & Cloud AI processing. Heterogeneous computing (CPU+GPU+NPU). Benchmarks& Metrics: FLOPS, TOPS, latency, power efficiency Case study: Face Detection Door Lock – Choosing Between Jetson, ESP32, and ARM Cortex ; Voice- Controlled Fan: ESP32 vs Mobile NPU"
+   }
+  ],
+  "textBooks": [
+   "Modern Digital Electronics by R.P.Jain, 4th Edition, ISBN 978-0-07-06691-16 Tata McGraw Hill",
+   "Digital Logic and Computer Design by Moris Mano, Pearson , ISBN 978-93-325-4252-5",
+   "G.K.Kharate,” Digital Electronics”, Oxford Press,ISBN-10:0198061838",
+   "B.Ram , Computer Fundamentals Architecture and Organization , 3rd Edition ,New Age International Limited",
+   "Ramesh S. Gaonkar, “Microprocessor Architecture, Programming, and Applications with the 8085”, Penram International",
+   "Barry B. Brey, “The Intel Microprocessors (8th Edition or later)”, Pearson Education. 31",
+   "Andrew N. Sloss, Dominic Symes, Chris Wright, “ARM System Developer’s Guide: Designing and Optimizing System Software”, Elsevier Publisher •"
+  ],
+  "refBooks": [
+   "John Yarbrough, Digital Logic applications and Design, Cengage Learning, ISBN – 13: 978-81- 315-0058-3",
+   "D. Leach, Malvino, Saha, Digital Principles and Applications||, Tata McGraw Hill, ISBN – 13:978-0-07-014170-4",
+   "Anil Maini, Digital Electronics: Principles and Integrated Circuits||, Wiley India Ltd, ISBN:978-81-265-1466-3",
+   "Norman B & Bradley, Digital Logic Design Principles, Wiley India Ltd, ISBN:978-81-265-1258",
+   "Safwat Zaky, Computer Organization , 5th edition Tata McGraw Hill",
+   "William Stallings, Computer Organization & Architecture Designing for Performance, Pearson",
+   "Lyla B.Das, The X86 Microprocessors ( Architecture, Programming and Interfacing 8086 to Pentium) Pearson",
+   "Douglas Hall, Microprocessor and Interfacing ||, Mc Graw Hill Education •"
+  ],
+  "links": []
+ },
+ {
+  "code": "PCC-251-AID",
+  "name": "Database Management Systems",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "Discrete Mathematics, Data Structures and Algorithms",
+  "outcomes": [
+   "Design Database Management Systems using ER models.",
+   "Execute database queries using SQL and PL/SQL.",
+   "Normalize database designs using normal forms.",
+   "Apply transaction management concepts to real-time scenarios.",
+   "Use NoSQL databases for handling unstructured data."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Foundations of Data Management and ER Model",
+    "hours": 9,
+    "text": "Introduction, Purpose of DBMS, Database Applications, Data Models, DBMS Architecture, DBMS languages. Database Design and ER Model: Entities, Attributes, Relationships, Keys, Constraints, ER Diagrams, Design Process, Design Issues. Extended ER features, converting ER/EER diagrams to relational tables Case Study: Analyze and design a database using the ER model for a real-time application and convert it to relational tables."
+   },
+   {
+    "roman": "II",
+    "title": "Smart Data Querying with SQL & PL/SQL",
+    "hours": 9,
+    "text": "SQL: Data types, DDL, DML, DCL, and TCL commands (Create User, Grant, Revoke Queries) Tables: Create, Insert, Update, Delete, Alter, Drop, SELECT, Joins, Views (Create, Update, Drop), Aggregation functions, Set operations, SQL Operators, SQL Predicates, Nested queries.PL/SQL: Stored procedures, functions, triggers, assertions, roles, and privileges. Case Study : Implementation of Unit I case study using SQL and PL/SQL"
+   },
+   {
+    "roman": "III",
+    "title": "Relational DBMS and Intelligent Querry Processing",
+    "hours": 9,
+    "text": "Relational model concepts: Attributes, Domains, CODD’s Rules. Integrity constraints: Domain, Referential integrity, Enterprise constraints. Normalization: 1NF to BCNF, functional dependencies, decomposition. Introduction to Intelligent Query Processing (IQP): Definition and importance of IQP, Evolution of query processing techniques, Need for intelligent query optimization in modern databases. Case study: Normalize the relational database designed in Unit I"
+   },
+   {
+    "roman": "IV",
+    "title": "Transaction Management & Analytics",
+    "hours": 9,
+    "text": "Transactions: States, ACID properties, schedules. Serializability: Conflict and view serializability, cascaded aborts, recoverable and nonrecoverable schedules. Concurrency control: Lock-based and time-stamp-based mechanisms, deadlock handling. Recovery: Shadow-paging, log-based recovery, checkpoints, deferred and immediate modifications. Case study : Study transaction management in PostgreSQL"
+   },
+   {
+    "roman": "V",
+    "title": "NoSQL & Intelligent Data Processing",
+    "hours": 9,
+    "text": "Data types: Structured, unstructured, and semi-structured data. NoSQL databases: Types (Keyvalue, Document, Graph, Wide-column), BASE properties, ACID vs. BASE, RDBMS vs. NoSQL Introduction to emerging database technologies : Cloud Databases, Mobile Databases, SQLite Database, XML Databases, DynamoDB. MongoDB: CRUD operations, indexing, aggregation, MapReduce, replication, sharding. Graph DB: Introduction, Building Rich Graph Data Models with Neo4j, Querying Your Graph Cosmos DB: Introduction, Building Scalable NoSQL Data Models, Querying with SQL API Case study: Process unstructured social media data using NoSQL databases"
+   }
+  ],
+  "textBooks": [
+   "Silberschatz A., Korth H., Sudarshan S., \"Database System Concepts\", McGraw Hill Publishers, ISBN 0-07-120413-X, 6th edition",
+   "Connally T., Begg C., \"Database Systems\", 4th Edition, Pearson Education, 2002, ISBN 8178088614",
+   "“MongoDB: The Definitive Guide” by Kristina Chodorow, O Reilly Publications",
+   "Pramod J. Sadalage Martin Fowler,” NoSQLDistilled”,Addison Wesley, ISBN- 10:0321826620"
+  ],
+  "refBooks": [
+   "C J Date, “An Introduction to Database Systems”, Addison-Wesley, ISBN: 0201144719",
+   "S.K.Singh, “Database Systems: Concepts, Design and Application”, Pearson Education, ISBN 978-81-317-6092-5 49",
+   "Kristina Chodorow, Michael Dierolf, “MongoDB: The Definitive Guide”, O Reilly Publications, ISBN: 978-1-449-34468-9",
+   "Adam Fowler, “NoSQL For Dummies”, John Wiley & Sons, ISBN-1118905628",
+   "Kevin Roebuck, “Storing and Managing Big Data - NoSQL, HADOOP and More”, Emereopty Limited, ISBN: 1743045743, 9781743045749",
+   "Joy A. Kreibich, “Using SQLite”, O’REILLY, ISBN: 13:978-93-5110-934-1",
+   "Ivan Bayross, “SQL, PL/SQL the Programming Language of Oracle”, BPB Publications ISBN: 9788176569644, 9788176569644"
+  ],
+  "links": [
+   "https://onlinecourses.nptel.ac.in/noc22_cs91/preview"
+  ]
+ },
+ {
+  "code": "PCC-252-AID",
+  "name": "Data Science",
+  "hours": 2,
+  "credits": 2,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "Programming and Problem Solving, Artificial Intelligence",
+  "outcomes": [
+   "Discuss core concept of data science and its practical applications.",
+   "Apply mathematical tools like linear algebra, probability, and statistics to model datadriven problem solutions.",
+   "Analyze core machine learning algorithms and methodologies to address diverse problem sets.",
+   "Recommend effective data cleaning, transformation, and visualization techniques to extract meaningful insights from data.",
+   "Use automation tools for AI workflows to enhance the scalability and efficiency of AIdriven solutions."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Fundamentals of Data Science",
+    "hours": 6,
+    "text": "Basic Concepts of Data: Types of data: Structured, Semi-structured, Unstructured, Scales of measurement: Nominal, Ordinal, Interval, Ratio, Data formats: CSV, JSON, XML, SQL tables, Data quality dimensions: Accuracy, Completeness, Consistency, Timeliness, Difference Between Data, Information, Knowledge, wisdom. Definition of Data Science, The Data Science Process/Lifecycle (e.g., CRISP-DM, Team Data Science Process (TDSP), SEMMA Methodology), Applications of Data Science in various domains (e.g., Healthcare, Finance, Retail), Distinction between Data Science, Machine Learning, and Artificial Intelligence, Roles in Data Science (e.g., Data Analyst, Data Scientist, Machine Learning Engineer), Ethical and Privacy Issues in Data Science. Case Study: A telecom business wants to proactively identify customers who are likely to quit because of the high rate of customer turnover. The organization wants to predict loss of customers using data science techniques and take proactive steps to keep at-risk clients. Determine the steps that, as data scientists, we must adhere to in order to resolve this issue."
+   },
+   {
+    "roman": "II",
+    "title": "Applications of Mathematical Statistics",
+    "hours": 6,
+    "text": "Importance of mathematical statistics in Data Science, Role of mathematical statistics in building data models, mathematical statistics foundations needed for machine learning algorithms. Linear Algebra for Data Science: Vectors and Matrices, Vector operations (dot product, cross product) and its application in data science, Matrix operations (addition, multiplication, inverse, determinant), Eigenvalues and Eigenvectors and its uses in dimensionality reduction, Probability Concepts: Random variables and probability distributions, Bayes’ Theorem and conditional probability, Expected value and variance. Statistical Methods: Measures of central tendency (Mean, Median, Mode), Measures of dispersion (Variance, Standard Deviation) and its importance in data preprocessing ,Correlation and covariance and its importance in feature selection in modeling. Case Study : In a dataset, you have a feature matrix and output vector .Elaborate, How does matrix multiplication help in solving linear regression using the Normal Equation."
+   },
+   {
+    "roman": "III",
+    "title": "Programming for Data Science",
+    "hours": 6,
+    "text": "Machine Learning: Types (Supervised, unsupervised, Reinforcement), Supervised Algorithms (Linear Regression, Logistic Regression, Decision Trees, SVM). Metrics: Confusion Matrix, Accuracy, Precision-Recall, ROC-AUC, F1 Score, Mean Squared Error (MSE),R-squared. NumPy: Arrays, Mathematical Operations, Linear Algebra, Random Number Generation, Broadcasting. Pandas: Data Frames, Cleaning, Transformation, Filtering, Grouping, Import/Export, Missing Data Handling. Matplotlib: Basic & Advanced Plots, Customization, Subplots, Interactive Features. Seaborn: Distribution, Categorical, Relationship, Regression Plots, Multi-Plot Grids, Themes. Case study: Write a case study on E-commerce Data. Key Components of the Analytical Plan are: Problem statement and objectives, Data Collection and Preparation, Data Analysis and Model Development, Analysis Outcomes and Takeaways"
+   },
+   {
+    "roman": "IV",
+    "title": "Data Preprocessing and Visualization",
+    "hours": 6,
+    "text": "Data Preprocessing, Data Cleaning: Handling missing data, outliers. - Data Transformation Techniques: Feature Extraction and Selection (PCA), encoding. - Exploratory Data Analysis (EDA): Univariate, bivariate, multivariate analysis. Outliers: (Z-Score Method, Interquartile Range) Data Visualization: Overview of Data Visualization, Need of Data Visualization, Shapes of data, input for data visualization, Types of Data Visualization: Cognitive and perceptual, Practicing good ethics in Data Visualization, Principles of visual perception, Data Visualization Tool (Tableau, Power BI) Case study : 1. Case Study on Exploratory Data Analysis (EDA) and Visualizations 2. Create simple plot to visualize a distribution of variables using python"
+   },
+   {
+    "roman": "V",
+    "title": "Automating AI Workflows with Pandas",
+    "hours": 6,
+    "text": "ETL, ETL Challenges, ETL in Data Preprocessing for AutoML, AutoML: AutoML Workflow, AutoML Libraries: Auto-sklearn, H2O.ai, and TPOT, Benefits and Limitations of AutoML, AutoML vs Traditional Machine Learning, Pandas for data preprocessing for AutoML, data normalization and standardization for AutoML, Open-source Tools and Environments: Python, R, Jupyter, Git, VS Code and its roles in data science. Introduction to Big Data: Characteristics, Architecture and Ecosystem, Tools and Technologies, Applications and Challenges of Big Data in Data Science. AI-powered Data Cleaning: Using AI models to clean and structure raw data before analysis. Case study: A retail company wants to predict its future sales revenue based on various factors such as product pricing, marketing spends, seasonal trends, and customer demographics. The company aims to use regression and classification models to analyze historical sales data, identify trends, and make data-driven decisions to enhance profitability and optimize resource allocation. Justify how does the choice between regression and classification models affect sales predictions?"
+   }
+  ],
+  "textBooks": [
+   "Vijay Kotu, Bala Deshpande, “Data Science Concepts and Practice”, 2nd Edition, Morgan Kaufmann, ISBN 978-0-12-814761-0.",
+   "Suresh Kumar Mukhiya, Usman Ahmed, “Hands-On Exploratory Data Analysis with Python” 1st Edition, 2020, Packt Publish, ISBN 978-1-80323-110-5.",
+   "Dirk P. Kroese et.al.,“Data Science and Machine Learning: Mathematical and Statistical Methods”,1st Edition, CRC Press, ISBN 978-1-138-49253-0."
+  ],
+  "refBooks": [
+   "Davy Cielen, Arno D.B. Meysman, Mohamed Ali, ”Introducing Data Science: Big Data, Machine Learning, and More, Using Python Tools”, 1st Edition, Dreamtech Press, ISBN 978-1-63343-003-7.",
+   "Arockia Liborious, Rik Das, “Fun with Machine Learning”, 1st Edition, BPB Publications, ISBN 978-93-555-1785-2"
+  ],
+  "links": [
+   "https://onlinecourses.nptel.ac.in/noc22_cs32/preview"
+  ]
+ },
+ {
+  "code": "PCC-253-AID",
+  "name": "Probability and Statistics",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "Set theory fundamentals",
+  "outcomes": [
+   "Utilize key probability theorems to solve practical problems in decision-making and risk analysis.",
+   "Apply fundamentals of Statistics for Artificial Intelligence and Data Science",
+   "Apply statistical techniques to examine relationships between variables and make predictions.",
+   "Use the basic principles of random variables and random processes needed in applications to model and interpret real-world scenarios.",
+   "Use probability and statistical models to analyze data and support decision-making in fields like finance, engineering, healthcare, and machine learning."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to Probability and Set Theory",
+    "hours": 9,
+    "text": "Basics of set Theory: Introduction to sets and algebra of sets, Random Experiment, Sample Space, Events, Complementary Events, Union and Intersection of Two Events, Difference Events, Exhaustive Events, Mutually Exclusive Events, Equally Likely Events, Independent Events. Probability Theory: Mathematical & Statistical definition of Probability, Need of probability theory in Data science, Axiomatic definition of probability, Addition Theorem, Multiplication Theorem, Theorems of Probability, Conditional Probability, Inverse Probability, Joint Probability, Total Probability and Bayes Theorem. Case Study: Use of probability in real-life situations, like weather forecasting, sports betting, sales forecasting etc"
+   },
+   {
+    "roman": "II",
+    "title": "Introduction to Statistics",
+    "hours": 9,
+    "text": "Introduction to Statistics: Introduction, Origin and Development and scope of Statistics, Population and Sample, Sampling –Introduction, Types of Sampling, Purposive Sampling, Random Sampling, Simple Sampling, Stratified Sampling, Parameter and Statistic, Sampling Distribution Sampling With and Without Replacement, Population Parameters, Sample Statistics. Introduction, Arithmetic Mean, Simple and weighted mean for raw data, Discrete frequency distribution, Continuous frequency distribution, Properties of A.M.,Merits & Demerits of A.M. Median, Mode for raw data, Merits and demerits of Median and Mode. Case Study : Create measures of central tendency for a real-life example dataset, such as the payroll dataset or titanic dataset. Case study of sampling for any real-world problem like exit poll statistics"
+   },
+   {
+    "roman": "III",
+    "title": "Descriptive Statistics",
+    "hours": 9,
+    "text": "Measures of Dispersion, Skewness and Kurtosis: Dispersion, Characteristics for an Ideal Measure of Dispersion, Measures of Dispersion, Range, Quartile Deviation, Mean Deviation, Standard Deviation and Root Mean Square Deviation, Coefficient of Dispersion, Coefficient of Variation, Skewness, Kurtosis. Correlation and Regression : Bivariate Distribution, Scatter diagrams, Correlation, Karl Pearson’s coefficient of correlation, Rank correlation, Regression, Regression Coefficients, Lines of Regression. Case study: Create measures of dispersion for a real-life example dataset like students dataset, iris detection etc."
+   },
+   {
+    "roman": "IV",
+    "title": "Random Variables and Probability Distributions",
+    "hours": 9,
+    "text": "Random Variables and Distribution Functions: Random Variable, Distribution Function, Properties of Distribution Function, Discrete Random Variable, Probability Mass Function, Discrete Distribution Function, Continuous Random Variable, Probability Density Function, moment generating function, median and quantiles, Markov inequality, Chebyshev’s inequality. Theoretical Discrete Distributions: Binomial and multinomial distributions, Bernoulli Distribution, Mean Deviation about Mean of Binomial Distribution, Mode of Binomial Distribution, Additive Property of Binomial Distribution, Characteristic Function of Binomial Distribution, Cumulants of Binomial Distribution, Poisson distribution, Uniform distribution, Exponential distribution, Gaussian distribution, Log-normal distribution, Chi-square distribution. Case study : Use Binomial distribution for the problem of reducing errors by vendors who process credit-card applications for a large credit-card bank etc."
+   },
+   {
+    "roman": "V",
+    "title": "Inferential Statistics",
+    "hours": 9,
+    "text": "Hypothesis and Testing of Hypothesis: Introduction, Statistical Hypothesis (Simple and-Composite), Test of a Statistical Hypothesis, Null Hypothesis, Alternative Hypothesis, Critical Region, Two Types of Errors, level of Significance, Power of the Test. Steps in Solving Testing of Hypothesis Problem, Optimum Tests Under Different Situations, Most Powerful Test (MP Test), Uniformly Most Powerful Test, Likelihood Ratio Test, Properties of Likelihood Ratio Test. Neyman-Pearson Fundamental Lemma, Test for the Mean of a Normal Population, Test for the Equality of Means of Two Normal Populations, Test for the Variance of a Normal Population, Test for Equality of Variances of two Normal Populations, Non-parametric Methods, Advantages and Disadvantages of Non-parametric Methods. Case study: Study hypothesis testing for any examples like to determine whether the female proportion of the adult population is high or any similar example"
+   }
+  ],
+  "textBooks": [
+   "S. C. Gupta, V. K. Kapoor, “Fundamentals of Mathematical Statistics (A Modern Approach)”, Sultan Chand & Sons Educational Publishers, Tenth revised edition, ISBN: 81-7014-791-3",
+   "J. Medhi, “Statistical Methods: An Introductory Text”, Second Edition, New Age International Ltd, ISBN: 8122419577"
+  ],
+  "refBooks": [
+   "Glen Cowan, “ Statistical Data Analysis” , University Of Siegen, Clarendon Press, Oxford, 1998, ISBN: 0198501552",
+   "Probability, random variables and stochastic processes by A. Papoulis and S.U. Pillai, TMH",
+   "Ken Black, “Applied Business Statistics”, Wiley, 7th Edition, ISBN:788126537075",
+   "Probability, Statistics and Random Process by T Veerarajan, TMH.",
+   "Introduction to Probability Theory and Statistical Inference by H.J. Larson. E books Links: -",
+   "https://www.itl.nist.gov/div898/handbook/",
+   "https://web.stanford.edu/~hastie/ElemStatLearn/index.html"
+  ],
+  "links": [
+   "https://onlinecourses.nptel.ac.in/noc20_ma22/preview",
+   "https://onlinecourses.nptel.ac.in/noc21_ma74/preview",
+   "https://onlinecourses.nptel.ac.in/noc23_ma77/preview"
+  ]
+ },
+ {
+  "code": "MDM-271-AID",
+  "name": "Embedded Systems",
+  "hours": 2,
+  "credits": 2,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "Digital Electronics and Logic Design, Operating Systems",
+  "outcomes": [
+   "Apply knowledge of embedded systems, its characteristics, classifications, and real-world applications across various domains.",
+   "Make use of micro controllers and develop programming and interfacing skills using Arduino and Raspberry Pi.",
+   "Explain the working mechanisms of different sensors and actuators and their relevance in various applications.",
+   "Identify the fundamental architecture of ARM Processor.",
+   "Compare the working of real-time scheduling algorithms"
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to Embedded Systems",
+    "hours": 6,
+    "text": "Introduction to embedded system,application domain,Desirable Features and General Characteristics of Embedded Systems,Example of a Simple Embedded System,Figures of Merit for an Embedded System,Classification of MCUs: 4/8/16/32 Bits,History of Embedded Systems, classification of embedded system ,Current Trends,example of embedded system:-Mobile Phone,Automotive Electronics,Radio Frequency Identification (RFID),Robotics Case Study: Smart Traffic Light Control System Using Embedded Systems"
+   },
+   {
+    "roman": "II",
+    "title": "Microcontrollers in Embedded System",
+    "hours": 6,
+    "text": "History of Microcontrollers, Introduction to Arduino, Components of Arduino, History of Arduino, Installing Software, Structure of Programming, Overview of Variables, Infinite Loops, Compiling, Linking and Debugging. Raspberry Pi, About the Board, Linux on Raspberry Pi, Raspberry Pi Interfaces, Programming Raspberry Pi with Python. Controlling LED with Raspberry Pi, Interfacing an LED and Switch with Raspberry Pi, Interfacing a Light Sensor (LDR) with Raspberry Pi. Case Study : Home Automation System Using Arduino"
+   },
+   {
+    "roman": "III",
+    "title": "Sensors , ADCs and Actuators",
+    "hours": 6,
+    "text": "Basics of Sensors and Actuators, Active vs. passive sensors, Analog vs. digital sensors, Types of Sensors :Temperature Sensors,Light Sensors,Photojunction Devices,Proximity/Range Sensors,Humidity Sensors,pressure sensor,ultrasonic sensor,gas sensors,Analog to Digital Converters. Digital to Analog Converters,Types of Actuators ,Displays-LEDs, Liquid Crystal Displays (LCDs) ,seven segment display, stepper motor, Relay. Case study: Smart laboratory Monitoring System"
+   },
+   {
+    "roman": "IV",
+    "title": "ARM Processor",
+    "hours": 6,
+    "text": "Introduction, RISC design philosophy, ARM design philosophy, Embedded system hardware – AMBA bus protocol, ARM bus technology, Memory, Peripherals, Embedded system software – Initialization (BOOT)code, Operating System, Applications. ARM Processor Fundamentals, ARM core dataflow model, registers, current program status register,Pipeline, Exceptions, Interrupts and Vector Table, Core extensions. Case study : Smart Agriculture Monitoring System"
+   },
+   {
+    "roman": "V",
+    "title": "Real time operating systems",
+    "hours": 6,
+    "text": "Introduction,Real-time Tasks,Real-time Systems,Real-time Operating Systems, types of real time tasks,Realtime Scheduling Algorithms,Rate Monotonic Algorithm,The Earliest Deadline First Algorithm Task synchronisation, Device Drivers Case study: Installation of Real Time Operating System"
+   }
+  ],
+  "textBooks": [
+   "Andrew N Sloss, Dominic System and Chris Wright, “ARM System Developers Guide”, Elsevier, Morgan Kaufman publisher, 1st Edition, 2008",
+   "Lyla B Das “Embedded systems an integrated approach”,Pearson",
+   "Raj Kamal. “ Embedded systems” , Tata McGraw Hill,Fourth Edition",
+   "Simon Monk ,“Programming Ardino”,McGraw Hill,Second edition"
+  ],
+  "refBooks": [
+   "A.Ray, K.Bhurchandi, ”Advanced Microprocessors and peripherals: Arch, Programming & Interfacing”, Tata McGraw Hill,2004 ISBN 0-07-463841-6",
+   "Shibu K. V. “Introduction to embedded system” Tata McGraw Hill,Second Edition 68",
+   "Parag H. Dave, “ Embedded Systems- Concept,Design and Programming”, Pearson"
+  ],
+  "links": [
+   "https://onlinecourses.nptel.ac.in/noc25_cs30",
+   "https://onlinecourses.nptel.ac.in/noc25_cs41/",
+   "https://onlinecourses.nptel.ac.in/noc25_ee31"
+  ]
+ }
+]
