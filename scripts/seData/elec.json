@@ -245,7 +245,14 @@
    "Higher Engineering Mathematics by B.V. Ramana (Tata McGraw-Hill).",
    "Higher Engineering Mathematics by B. S. Grewal (Khanna Publication, Delhi)."
   ],
-  "refBooks": []
+  "refBooks": [
+   "Advanced Engineering Mathematics, 10e, by Erwin Kreyszig (Wiley India).",
+   "Advanced Engineering Mathematics, 2e, by M. D. Greenberg (Pearson Education).",
+   "Advanced Engineering Mathematics, 7e, by Peter V. O'Neil (Cengage Learning).",
+   "Differential Equations, 3e by S. L. Ross (Wiley India).",
+   "Numerical Methods for Engineers,7e by S. C. Chapra and R. P. Canale (McGraw-Hill Education)",
+   "Introduction to Probability and Statistics for Engineers and Scientists, 5e, by Sheldon M.Ross (Elsevier Academic Press). CO-PO Mapping CO/PO PO1 PO2 PO3 PO4 PO5 PO6 PO7 PO8 PO9 PO10 PO11 CO1 3 2 -- -- -- -- -- -- -- -- -- CO2 3 2 -- -- -- -- -- -- -- -- -- CO3 3 2 -- -- -- -- -- -- -- -- -- CO4 3 2 -- -- -- -- -- -- -- -- --"
+  ]
  },
  {
   "code": "PCC-251-ELE",
