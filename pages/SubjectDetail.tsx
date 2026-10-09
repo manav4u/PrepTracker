@@ -33,7 +33,7 @@ const SubjectDetail: React.FC = () => {
   const [showChat, setShowChat] = useState(false);
   const [chatInput, setChatInput] = useState('');
   const [chatHistory, setChatHistory] = useState<{role: 'user' | 'ai', text: string}[]>([
-    {role: 'ai', text: `Hello! I'm your AI Tutor for ${subject?.name || 'this subject'}. Ask me anything about Unit 1 or specific concepts.`}
+    {role: 'ai', text: `The AI tutor is not available yet.`}
   ]);
   
   const chatEndRef = useRef<HTMLDivElement>(null);
@@ -139,13 +139,8 @@ const SubjectDetail: React.FC = () => {
     e.preventDefault();
     if(!chatInput.trim()) return;
     setChatHistory(prev => [...prev, { role: 'user', text: chatInput }]);
-    const userQ = chatInput;
     setChatInput('');
-    setTimeout(() => {
-        let response = "That's a great question. Based on the syllabus, this concept is covered in Unit 2. It usually carries 6-8 marks in the End-Sem exam.";
-        if (userQ.toLowerCase().includes('syllabus')) response = "The syllabus covers 5-6 units depending on the subject. You can check the timeline on the left.";
-        setChatHistory(prev => [...prev, { role: 'ai', text: response }]);
-    }, 1000);
+    setChatHistory(prev => [...prev, { role: 'ai', text: 'The AI tutor is not available yet.' }]);
   };
 
   return (
