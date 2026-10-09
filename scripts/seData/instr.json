@@ -373,9 +373,9 @@
    },
    {
     "roman": "II",
-    "title": "Number system & Logic circuit minimization",
+    "title": "Number system & Logic circuit minimization techniques",
     "hours": 6,
-    "text": "techniques Number system: Introduction to number system and number system conversion. Boolean algebra, De-Morgan's Thermos, Minimization of combinational logic functions using SOP and PSO forms. Don’t care Conditions. K-Maps up to 4 variables and Quine-McCuskey techniques."
+    "text": "Number system: Introduction to number system and number system conversion. Boolean algebra, De-Morgan's Thermos, Minimization of combinational logic functions using SOP and PSO forms. Don’t care Conditions. K-Maps up to 4 variables and Quine-McCuskey techniques."
    },
    {
     "roman": "III",

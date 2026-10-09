@@ -35,9 +35,9 @@
    },
    {
     "roman": "IV",
-    "title": "Hashing, String processing",
+    "title": "Hashing, String processing Applications",
     "hours": 8,
-    "text": "Applications Hashing: Hash Functions, Collision Handling Techniques (Chaining, Open Addressing) String Processing: Naïve String Matching, Rabin-Karp Algorithm, Knuth-Morris-Pratt (KMP) Algorithm Applications of DSA: , Social Network Graph Analysis, and AI Search Algorithms"
+    "text": "Hashing: Hash Functions, Collision Handling Techniques (Chaining, Open Addressing) String Processing: Naïve String Matching, Rabin-Karp Algorithm, Knuth-Morris-Pratt (KMP) Algorithm Applications of DSA: , Social Network Graph Analysis, and AI Search Algorithms"
    },
    {
     "roman": "V",
@@ -79,9 +79,9 @@
   "units": [
    {
     "roman": "I",
-    "title": "Foundations of Object-",
+    "title": "Foundations of Object-Oriented Programming",
     "hours": 6,
-    "text": "Oriented Programming Introduction to OOP: Limitations of Procedural Programming, Need for Object-Oriented Programming, Fundamentals of Object-Oriented Programming: Objects, Classes, Data Members, Methods, Messages, Data Encapsulation, Data Abstraction and Information Hiding, Inheritance, Polymorphism, Static and Dynamic Binding, Message Passing. Class: Creating a Class, Visibility/Access Modifiers, Encapsulation."
+    "text": "Introduction to OOP: Limitations of Procedural Programming, Need for Object-Oriented Programming, Fundamentals of Object-Oriented Programming: Objects, Classes, Data Members, Methods, Messages, Data Encapsulation, Data Abstraction and Information Hiding, Inheritance, Polymorphism, Static and Dynamic Binding, Message Passing. Class: Creating a Class, Visibility/Access Modifiers, Encapsulation."
    },
    {
     "roman": "II",
@@ -97,15 +97,15 @@
    },
    {
     "roman": "IV",
-    "title": "Exception Handling and Generic",
+    "title": "Exception Handling and Generic Programming",
     "hours": 6,
-    "text": "Programming Exception Handling: Errors, Types of Errors, Exceptions and Their Types, Exception-Handling Fundamentals, Uncaught Exceptions, Using try and catch, Multiple catch Clauses, Nested try Statements, User- Defined Exceptions using throw. Generics: Introduction, Introduction to Language-Specific Collection Interfaces: List Interface and Set Interface, Collection Classes: ArrayList Class and LinkedList Class."
+    "text": "Exception Handling: Errors, Types of Errors, Exceptions and Their Types, Exception-Handling Fundamentals, Uncaught Exceptions, Using try and catch, Multiple catch Clauses, Nested try Statements, User- Defined Exceptions using throw. Generics: Introduction, Introduction to Language-Specific Collection Interfaces: List Interface and Set Interface, Collection Classes: ArrayList Class and LinkedList Class."
    },
    {
     "roman": "V",
     "title": "File Handling and Design Patterns",
     "hours": 6,
-    "text": "s File Handling: Introduction; Concepts of Streams, Stream Classes, Byte Stream Classes, Character Stream Classes, Using Streams and Other Useful I/O Classes, Using the File Class, Input/output Exceptions, Creation of Files, Reading/Writing Characters, Reading/Writing Bytes, Handling Primitive Data Types, Concatenating and Buffering Files, Random Access Files. Design Patterns: Introduction, Types of Design Patterns, Adapter, Singleton, Iterator."
+    "text": "File Handling: Introduction; Concepts of Streams, Stream Classes, Byte Stream Classes, Character Stream Classes, Using Streams and Other Useful I/O Classes, Using the File Class, Input/output Exceptions, Creation of Files, Reading/Writing Characters, Reading/Writing Bytes, Handling Primitive Data Types, Concatenating and Buffering Files, Random Access Files. Design Patterns: Introduction, Types of Design Patterns, Adapter, Singleton, Iterator."
    }
   ],
   "links": [
@@ -140,9 +140,9 @@
   "units": [
    {
     "roman": "I",
-    "title": "Introduction to Computer Networking",
+    "title": "Introduction to Computer Networking Fundamentals",
     "hours": 6,
-    "text": "Fundamentals Communication Systems: Overview of data transmission systems, including key elements like sender, receiver, medium, and protocols. Networks: Concept of interconnected devices for data exchange, categorized by scale (e.g., LAN, MAN, WAN) and structure. Topologies: Physical and logical arrangements of network nodes, such as star, ring, mesh, and hybrid. Protocols: Rules governing data exchange, ensuring reliable communication across networks. Network Architecture: Structured design using layered models for efficient data transfer. OSI Model: A seven-layer framework defining network functions, from physical to application layers. TCP/IP Suite: A practical set of protocols for internet communication, including IP, TCP, and application-layer protocols."
+    "text": "Communication Systems: Overview of data transmission systems, including key elements like sender, receiver, medium, and protocols. Networks: Concept of interconnected devices for data exchange, categorized by scale (e.g., LAN, MAN, WAN) and structure. Topologies: Physical and logical arrangements of network nodes, such as star, ring, mesh, and hybrid. Protocols: Rules governing data exchange, ensuring reliable communication across networks. Network Architecture: Structured design using layered models for efficient data transfer. OSI Model: A seven-layer framework defining network functions, from physical to application layers. TCP/IP Suite: A practical set of protocols for internet communication, including IP, TCP, and application-layer protocols."
    },
    {
     "roman": "II",
@@ -151,22 +151,22 @@
     "text": "Signals: Characteristics of analog and digital waveforms used in data transmission. Digital-to- Digital: Encoding digital data into digital signals. Analog-to-Digital: Converting analog signals to digital (e.g., PCM). Digital-to-Analog: Modulating digital data onto analog signals. Analog-to- Analog: Transforming analog signals (e.g., AM, FM). Transmission Modes: Communication directions, including simplex, half-duplex, and full-duplex. Modulation: Methods to encode data onto carrier signals (e.g., amplitude, frequency, phase modulation). Multiplexing: Strategies like Frequency Division Multiplexing (FDM) and Time Division Multiplexing (TDM) to share a medium. Transmission Media: Wired: Cables such as twisted pair, coaxial, and optical fiber. Wireless: Radio waves, microwaves, and infrared. Switching Techniques: Circuit Switching: Dedicated path for communication. Packet Switching: Data divided into packets for transmission. Datagram Approach: Connectionless packet delivery. Virtual Circuit: Connection-oriented packet routing."
    },
    {
-    "roman": "",
-    "title": "Data Link Layer and Multiple Access",
+    "roman": "III",
+    "title": "Data Link Layer and Multiple Access Protocols",
     "hours": 6,
-    "text": "III Protocols Basics of ALOHA protocols, Basics of CSMA/CD protocols, Ethernet LANS, Connecting LAN and back-bone networks- Repeaters, Hubs, Switches, Bridges, Router and Gateways Error Detection and Correction: Checksum, CRC, Data Link Control: Framing, Flow and Error Control, Noiseless Channels, Noisy channels, (Stop and Wait ARQ, Sliding Window Protocol, Go Back N, Selective Repeat) HDLC, Point-to-Point Protocol. Access Control: TDM, CSMA/CD, and Channelization (FDMA, TDMA, and CDMA)."
+    "text": "Basics of ALOHA protocols, Basics of CSMA/CD protocols, Ethernet LANS, Connecting LAN and back-bone networks- Repeaters, Hubs, Switches, Bridges, Router and Gateways Error Detection and Correction: Checksum, CRC, Data Link Control: Framing, Flow and Error Control, Noiseless Channels, Noisy channels, (Stop and Wait ARQ, Sliding Window Protocol, Go Back N, Selective Repeat) HDLC, Point-to-Point Protocol. Access Control: TDM, CSMA/CD, and Channelization (FDMA, TDMA, and CDMA)."
    },
    {
-    "roman": "",
+    "roman": "IV",
     "title": "Networks Layer",
     "hours": 6,
-    "text": "IV Logical Addressing: Internet protocols: Address Mapping and Error Reporting; Delivery, Forwarding, and Routing. Network Layer: Logical Addressing, IPv4 Addresses, IPv6 Addresses, Virtual-Circuit Networks: Frame Relay and ATM, Transport Layer: Process-Process Delivery: UDP, TCP."
+    "text": "Logical Addressing: Internet protocols: Address Mapping and Error Reporting; Delivery, Forwarding, and Routing. Network Layer: Logical Addressing, IPv4 Addresses, IPv6 Addresses, Virtual-Circuit Networks: Frame Relay and ATM, Transport Layer: Process-Process Delivery: UDP, TCP."
    },
    {
-    "roman": "",
+    "roman": "V",
     "title": "Overview of Networking Technologies",
     "hours": 6,
-    "text": "V OSI/TCP-IP Layer Protocols: Overview of DNS, Overview of WWW, URL, Email architecture, HTTP protocol Application layers: DNS, SMTP, POP, FTP, HTTP, Remote Logging, Electronic Mail, and File Transfer, Basics of WiFi (Fundamental concepts only), Transport Layer: Process-to-Process Delivery: UDP, TCP, and SCTP; Congestion Control and Quality of Service. Emerging Networking Technologies: Wireless Connectivity: Technologies like Wi-Fi (802.11 standards) and Bluetooth for short- range communication. Mobile networks: Evolution from 4G to 5G, enabling high-speed, low- latency communication. Cloud Networking: Fundamentals of cloud-based network architectures. Concepts of virtualization, software-defined networking (SDN), and network function virtualization (NFV) for scalable services. Internet of Things (IoT): Basics of IoT network frameworks and protocols (e.g., MQTT, CoAP). Applications of IoT in smart devices, home automation, and industrial systems."
+    "text": "OSI/TCP-IP Layer Protocols: Overview of DNS, Overview of WWW, URL, Email architecture, HTTP protocol Application layers: DNS, SMTP, POP, FTP, HTTP, Remote Logging, Electronic Mail, and File Transfer, Basics of WiFi (Fundamental concepts only), Transport Layer: Process-to-Process Delivery: UDP, TCP, and SCTP; Congestion Control and Quality of Service. Emerging Networking Technologies: Wireless Connectivity: Technologies like Wi-Fi (802.11 standards) and Bluetooth for short- range communication. Mobile networks: Evolution from 4G to 5G, enabling high-speed, low- latency communication. Cloud Networking: Fundamentals of cloud-based network architectures. Concepts of virtualization, software-defined networking (SDN), and network function virtualization (NFV) for scalable services. Internet of Things (IoT): Basics of IoT network frameworks and protocols (e.g., MQTT, CoAP). Applications of IoT in smart devices, home automation, and industrial systems."
    }
   ],
   "links": [],
@@ -210,9 +210,9 @@
    },
    {
     "roman": "III",
-    "title": "Flip Flops and their",
+    "title": "Flip Flops and their Applications",
     "hours": 6,
-    "text": "Applications Introduction to sequential circuits. Difference between combinational circuits and sequential circuits, memory element – latch. Flip- Flops: Design, truth table, excitation table of SR, JK, D, T flip flops. Study of flip flops with asynchronous and synchronous Preset & Clear, Master Slave configuration, conversion from one type to another type of flip flop. Study of flip flop ICs - 7473, 7474, 7476 Application of flip-flops – Bounce elimination switch, Counters- asynchronous, synchronous and modulo counters, Study of modulus n counter ICs- 7490 & their applications to implement mod counters"
+    "text": "Introduction to sequential circuits. Difference between combinational circuits and sequential circuits, memory element – latch. Flip- Flops: Design, truth table, excitation table of SR, JK, D, T flip flops. Study of flip flops with asynchronous and synchronous Preset & Clear, Master Slave configuration, conversion from one type to another type of flip flop. Study of flip flop ICs - 7473, 7474, 7476 Application of flip-flops – Bounce elimination switch, Counters- asynchronous, synchronous and modulo counters, Study of modulus n counter ICs- 7490 & their applications to implement mod counters"
    },
    {
     "roman": "IV",
@@ -261,33 +261,33 @@
   "units": [
    {
     "roman": "I",
-    "title": "Introduction to Database",
+    "title": "Introduction to Database Management System",
     "hours": 8,
-    "text": "Management System Basic concepts, Advantages of DBMS over file processing systems, Data abstraction and Data independence, Database languages, Components of a DBMS and Overall structure of DBMS, Multi-user DBMS architecture, Data Modeling: Basic concepts, entity, attributes, relationships, relations, constraints, keys, Data models. ER and EER diagrams: Components of ER model, Conventions, Converting ER diagrams into tables, EER Model components, converting EER diagram into tables. Exempla 1. Library Management System: Exemplar rs/Case · Students understand basic DBMS concepts Studies · They apply E-R model concepts to represent book and user data. · Sample Activity: Create an ER diagram and relational schema for the system. 2. Online Retail Store (e.g., Amazon): Case Study · Students analyze how DBMS supports operations like search, filters, and checkout."
+    "text": "Basic concepts, Advantages of DBMS over file processing systems, Data abstraction and Data independence, Database languages, Components of a DBMS and Overall structure of DBMS, Multi-user DBMS architecture, Data Modeling: Basic concepts, entity, attributes, relationships, relations, constraints, keys, Data models. ER and EER diagrams: Components of ER model, Conventions, Converting ER diagrams into tables, EER Model components, converting EER diagram into tables. Exempla 1. Library Management System: Exemplar rs/Case · Students understand basic DBMS concepts Studies · They apply E-R model concepts to represent book and user data. · Sample Activity: Create an ER diagram and relational schema for the system. 2. Online Retail Store (e.g., Amazon): Case Study · Students analyze how DBMS supports operations like search, filters, and checkout."
    },
    {
     "roman": "II",
-    "title": "Relational Model and Database",
+    "title": "Relational Model and Database Design",
     "hours": 8,
-    "text": "Design Relational Model: Relational Model Concepts (Domains, Attributes, Tuples, and Relations), Relational Model Constraints, Relational Database Schemas, Codd’s rules. Database design: Features of good relational database design, Purpose of Normalization, Data Redundancy and Data Anomalies, Functional Dependencies, Normal Forms (1NF, 2NF, 3NF, BCNF). Exemplar Student/Timetable/ Reservation any Data Management System s/Case Studies"
+    "text": "Relational Model: Relational Model Concepts (Domains, Attributes, Tuples, and Relations), Relational Model Constraints, Relational Database Schemas, Codd’s rules. Database design: Features of good relational database design, Purpose of Normalization, Data Redundancy and Data Anomalies, Functional Dependencies, Normal Forms (1NF, 2NF, 3NF, BCNF). Exemplar Student/Timetable/ Reservation any Data Management System s/Case Studies"
    },
    {
     "roman": "III",
-    "title": "Structured Query Language (SQL)",
+    "title": "Structured Query Language (SQL) & Procedural SQL (PL/SQL)",
     "hours": 8,
-    "text": "& Procedural SQL (PL/SQL) Introduction to SQL, Basic Data Types and SQL Syntax, Data Definition Language (DDL), Constraints, Data Manipulation Language (DML), Clauses with SELECT statement: WHERE, ORDER BY, Pattern Matching with LIKE, IN, BETWEEN, Aggregate functions with GROUP BY` and HAVING, Joins, Sub-queries, Set Operations, Views, Index. Introduction to PL/SQL: Overview of PL/SQL architecture, control structures, Cursors, PL/SQL Advanced Features: Procedures and Functions, Triggers."
+    "text": "Introduction to SQL, Basic Data Types and SQL Syntax, Data Definition Language (DDL), Constraints, Data Manipulation Language (DML), Clauses with SELECT statement: WHERE, ORDER BY, Pattern Matching with LIKE, IN, BETWEEN, Aggregate functions with GROUP BY` and HAVING, Joins, Sub-queries, Set Operations, Views, Index. Introduction to PL/SQL: Overview of PL/SQL architecture, control structures, Cursors, PL/SQL Advanced Features: Procedures and Functions, Triggers."
    },
    {
     "roman": "IV",
-    "title": "Transaction Management and",
+    "title": "Transaction Management and Concurrency Control",
     "hours": 8,
-    "text": "Concurrency Control Transaction Management: Introduction to Database Transaction, Transaction states, ACID Properties, Concept of Schedule: Serial and concurrent Schedule. Serializability: Conflict and View, Cascaded Schedules, Recoverable Schedules. Concurrency Control and Recovery Management: Need for Concurrency Control, Lock-based protocols, Time stamp based protocol, Validation-based protocol, Multiple Granularity, Deadlock. Recovery Techniques: Shadow-Paging, Log-based Recovery, Check Point."
+    "text": "Transaction Management: Introduction to Database Transaction, Transaction states, ACID Properties, Concept of Schedule: Serial and concurrent Schedule. Serializability: Conflict and View, Cascaded Schedules, Recoverable Schedules. Concurrency Control and Recovery Management: Need for Concurrency Control, Lock-based protocols, Time stamp based protocol, Validation-based protocol, Multiple Granularity, Deadlock. Recovery Techniques: Shadow-Paging, Log-based Recovery, Check Point."
    },
    {
     "roman": "V",
-    "title": "Emerging Trends in Database",
+    "title": "Emerging Trends in Database Technologies",
     "hours": 6,
-    "text": "Technologies Needs, Challenges with traditional databases, Need for scalability, flexibility, and speed. NoSQL Databases: Definition and types: Document, Key-Value, Column, Graph; Example using MongoDB. Cloud Databases: What is DBaaS (Database-as-a-Service), Examples: AWS/Google Firebase; Benefits: scalability, cost, easy setup. Introduction to Modern Database: Big Data and Hadoop: Basics of Big Data, Introduction to Hadoop and HDFS, Real-world examples (e.g., social media, online shopping), Simple explanation of how they store relationships. AI/ML with Databases: Basic idea of machine learning inside databases, Real-world applications: recommendations, fraud detection. Exemplar · Short quiz on types of NoSQL databases s/Case · Assignment: Compare SQL vs NoSQL Studies · Viva on real-life applications of modern databases · Mini-project idea: Student Attendance using NoSQL DB"
+    "text": "Needs, Challenges with traditional databases, Need for scalability, flexibility, and speed. NoSQL Databases: Definition and types: Document, Key-Value, Column, Graph; Example using MongoDB. Cloud Databases: What is DBaaS (Database-as-a-Service), Examples: AWS/Google Firebase; Benefits: scalability, cost, easy setup. Introduction to Modern Database: Big Data and Hadoop: Basics of Big Data, Introduction to Hadoop and HDFS, Real-world examples (e.g., social media, online shopping), Simple explanation of how they store relationships. AI/ML with Databases: Basic idea of machine learning inside databases, Real-world applications: recommendations, fraud detection. Exemplar · Short quiz on types of NoSQL databases s/Case · Assignment: Compare SQL vs NoSQL Studies · Viva on real-life applications of modern databases · Mini-project idea: Student Attendance using NoSQL DB"
    }
   ],
   "links": [],
@@ -325,33 +325,33 @@
   "units": [
    {
     "roman": "I",
-    "title": "Graphics Primitives and",
+    "title": "Graphics Primitives and OpenGL Basics",
     "hours": 6,
-    "text": "OpenGL Basics Introduction to Computer Graphics: Definition, significance, and applications, Display devices: CRT, LCD, LED; frame buffer, resolution, aspect ratio Graphics Primitives: Pixel, line, circle, polygon basics (types: convex, concave and complex) Introduction to OpenGL: Architecture, primitives, attributes, Simple modeling and rendering of 2D/3D objects"
+    "text": "Introduction to Computer Graphics: Definition, significance, and applications, Display devices: CRT, LCD, LED; frame buffer, resolution, aspect ratio Graphics Primitives: Pixel, line, circle, polygon basics (types: convex, concave and complex) Introduction to OpenGL: Architecture, primitives, attributes, Simple modeling and rendering of 2D/3D objects"
    },
    {
     "roman": "II",
-    "title": "Rasterization, Filling, and",
+    "title": "Rasterization, Filling, and Clipping Algorithms",
     "hours": 7,
-    "text": "Clipping Algorithms Scan Conversion Algorithms: Line drawing: DDA, Bresenham, Circle drawing: DDA, Bresenham, Midpoint Polygon Filling Algorithms: Flood fill, seed fill, scan fill 2D clipping: Cohen-Sutherland, Sutherland-Hodgman, Weiler-Atherton"
+    "text": "Scan Conversion Algorithms: Line drawing: DDA, Bresenham, Circle drawing: DDA, Bresenham, Midpoint Polygon Filling Algorithms: Flood fill, seed fill, scan fill 2D clipping: Cohen-Sutherland, Sutherland-Hodgman, Weiler-Atherton"
    },
    {
     "roman": "III",
-    "title": "2D, 3D Transformations and",
+    "title": "2D, 3D Transformations and Projections",
     "hours": 7,
-    "text": "Projections 2D Transformations: Homogeneous coordinates, translation, scaling, rotation, shear, Rotation about an arbitrary point 3D Transformations: Translation, scaling, rotation, shear, Rotation about an arbitrary axis Projections: Parallel (orthographic: isometric, dimetric, trimetric; oblique: cavalier, cabinet), Perspective (1, 2, and 3-point vanishing points)"
+    "text": "2D Transformations: Homogeneous coordinates, translation, scaling, rotation, shear, Rotation about an arbitrary point 3D Transformations: Translation, scaling, rotation, shear, Rotation about an arbitrary axis Projections: Parallel (orthographic: isometric, dimetric, trimetric; oblique: cavalier, cabinet), Perspective (1, 2, and 3-point vanishing points)"
    },
    {
     "roman": "IV",
-    "title": "Color, Shading, and Hidden",
+    "title": "Color, Shading, and Hidden Surfaces",
     "hours": 5,
-    "text": "Surfaces Color Models: Properties of light, CIE chromaticity diagram, RGB, HSV, CMY color models Illumination Models: Ambient, diffuse, specular reflection, Phong and Warn models, multiple light sources Hidden Surface Elimination: Algorithms: z-buffer, Painter’s, Warnock"
+    "text": "Color Models: Properties of light, CIE chromaticity diagram, RGB, HSV, CMY color models Illumination Models: Ambient, diffuse, specular reflection, Phong and Warn models, multiple light sources Hidden Surface Elimination: Algorithms: z-buffer, Painter’s, Warnock"
    },
    {
     "roman": "V",
-    "title": "Curves, Fractals, and Introduction",
+    "title": "Curves, Fractals, and Introduction to Animation",
     "hours": 5,
-    "text": "to Animation Curves: Introduction, interpolation, approximation, Blending functions, B-Spline, Bezier curves Fractals: Introduction, classification, Fractal generation: snowflake, Hilbert curve, Applications (e.g., coastline measurement) Introduction to Animation and Gaming: Basics of animation: keyframe, morphing, motion specification"
+    "text": "Curves: Introduction, interpolation, approximation, Blending functions, B-Spline, Bezier curves Fractals: Introduction, classification, Fractal generation: snowflake, Hilbert curve, Applications (e.g., coastline measurement) Introduction to Animation and Gaming: Basics of animation: keyframe, morphing, motion specification"
    }
   ],
   "links": [
