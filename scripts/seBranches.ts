@@ -12,7 +12,7 @@ import terai from './seData/terai.json';
 import temech from './seData/temech.json';
 import tecomp24 from './seData/tecomp24.json';
 import teit24 from './seData/teit24.json';
-import teel19 from './seData/teel19.json';
+import teel24 from './seData/teel24.json';
 import mech from './seData/mech.json';
 
 // One entry per Second Year branch. Course data is checked against each branch's official SPPU 2024 pattern PDF.
@@ -102,9 +102,9 @@ export const SE_BRANCHES: SeBranch[] = [
     courses: teit24 as SeBranch['courses'],
   },
   {
-    slug: 'te-electrical', branch: 'Electrical Engineering', short: 'TE Electrical', motif: 'elec', accent: '#e11d48', year: 'TE', pattern: '2019', ccLabel: 'ISE',
-    pdf: 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2021/Third%20Year%20Engineering%202019%20Pattern_16022022.rar',
-    pdfLabel: 'SPPU TE Electrical 2019 course syllabus (TE _Electrical_ Sullabus_2019 Course_28.07.2021, inside the official Third Year Engineering 2019 Pattern archive)',
-    courses: teel19 as SeBranch['courses'],
+    slug: 'te-electrical', branch: 'Electrical Engineering', short: 'TE Electrical', motif: 'elec', accent: '#e11d48', year: 'TE',
+    pdf: 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/TE_Electrical_Engg_2024_Pattern_Syllabus_17_july_2026_20072026.pdf',
+    pdfLabel: 'SPPU TE Electrical Engineering 2024 pattern syllabus (July 20, 2026, effective 2026-27)',
+    courses: teel24 as SeBranch['courses'],
   },
 ];
