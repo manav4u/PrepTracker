@@ -79,7 +79,7 @@ const YL = (b: SeBranch) => (b.year === 'TE' ? { s: 'TE', l: 'Third Year' } : { 
 const PT = (b: SeBranch) => b.pattern ?? '2024';
 const CC = (b: SeBranch) => b.ccLabel ?? 'CCE';
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
-const sectionCss = `.draft{border:1px solid #e11d48;background:#1a0a10;color:#fda4af;border-radius:12px;padding:12px 16px;margin:14px 0;font-size:14px}.crs{display:grid;gap:10px;margin:14px 0}.crs a{display:flex;justify-content:space-between;gap:12px;align-items:baseline;text-decoration:none;border:1px solid #222;background:#101010;border-radius:14px;padding:14px 16px;color:#fff}.crs a:hover{border-color:#e11d48}.crs small{color:#888;font:500 11px/1.3 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}.utext{margin:10px 0 0;color:#ccc;font-size:15px}.src li{margin:6px 0;word-break:break-word}`;
+const sectionCss = `main{overflow-wrap:anywhere}.draft{border:1px solid #e11d48;background:#1a0a10;color:#fda4af;border-radius:12px;padding:12px 16px;margin:14px 0;font-size:14px}.crs{display:grid;gap:10px;margin:14px 0}.crs a{display:flex;justify-content:space-between;gap:12px;align-items:baseline;text-decoration:none;border:1px solid #222;background:#101010;border-radius:14px;padding:14px 16px;color:#fff}.crs a:hover{border-color:#e11d48}.crs small{color:#888;font:500 11px/1.3 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}.utext{margin:10px 0 0;color:#ccc;font-size:15px}.src li{margin:6px 0;word-break:break-word}`;
 
 function Head({ title, desc, path }: { title: string; desc: string; path: string }) {
   return <>
