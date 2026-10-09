@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://manav4u.github.io/PrepTracker/sitemap.xml
+Sitemap: https://preptracker.manavdev.site/sitemap.xml
