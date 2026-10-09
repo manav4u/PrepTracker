@@ -1,0 +1,427 @@
+{
+  "se-computer-science-and-engineering:PCC-201-CSE": {
+    "semester": 3,
+    "type": "Core"
+  },
+  "se-computer-science-and-engineering:PCC-202-CSE": {
+    "semester": 3,
+    "type": "Core"
+  },
+  "se-computer-science-and-engineering:PCC-203-CSE": {
+    "semester": 3,
+    "type": "Core"
+  },
+  "se-computer-science-and-engineering:MDM-221-CSE": {
+    "semester": 3,
+    "type": "Minor"
+  },
+  "se-computer-science-and-engineering:PCC-251-CSE": {
+    "semester": 4,
+    "type": "Core"
+  },
+  "se-computer-science-and-engineering:PCC-252-CSE": {
+    "semester": 4,
+    "type": "Core"
+  },
+  "se-computer-science-and-engineering:PCC-253-CSE": {
+    "semester": 4,
+    "type": "Core"
+  },
+  "se-computer-science-and-engineering:MDM-271-CSE": {
+    "semester": 4,
+    "type": "Minor"
+  },
+  "se-artificial-intelligence-and-data-science:PCC-201-AID": {
+    "semester": 3,
+    "type": "Core"
+  },
+  "se-artificial-intelligence-and-data-science:PCC-202-AID": {
+    "semester": 3,
+    "type": "Core"
+  },
+  "se-artificial-intelligence-and-data-science:PCC-203-AID": {
+    "semester": 3,
+    "type": "Core"
+  },
+  "se-artificial-intelligence-and-data-science:MDM-221-AID": {
+    "semester": 3,
+    "type": "Minor"
+  },
+  "se-artificial-intelligence-and-data-science:PCC-251-AID": {
+    "semester": 4,
+    "type": "Core"
+  },
+  "se-artificial-intelligence-and-data-science:PCC-252-AID": {
+    "semester": 4,
+    "type": "Core"
+  },
+  "se-artificial-intelligence-and-data-science:PCC-253-AID": {
+    "semester": 4,
+    "type": "Core"
+  },
+  "se-artificial-intelligence-and-data-science:MDM-271-AID": {
+    "semester": 4,
+    "type": "Minor"
+  },
+  "se-electrical-engineering:PCC-201-ELE": {
+    "semester": 3,
+    "type": "Core"
+  },
+  "se-electrical-engineering:PCC-202-ELE": {
+    "semester": 3,
+    "type": "Core"
+  },
+  "se-electrical-engineering:PCC-203-ELE": {
+    "semester": 3,
+    "type": "Core"
+  },
+  "se-electrical-engineering:MDM-222-ELE": {
+    "semester": 3,
+    "type": "Minor"
+  },
+  "se-electrical-engineering:PCC-251-ELE": {
+    "semester": 4,
+    "type": "Core"
+  },
+  "se-electrical-engineering:PCC-252-ELE": {
+    "semester": 4,
+    "type": "Core"
+  },
+  "se-electrical-engineering:PCC-253-ELE": {
+    "semester": 4,
+    "type": "Core"
+  },
+  "se-electrical-engineering:MDM-272-ELE": {
+    "semester": 4,
+    "type": "Minor"
+  },
+  "se-information-technology:PCC-201-ITT": {
+    "semester": 3,
+    "type": "Core"
+  },
+  "se-information-technology:PCC-202-ITT": {
+    "semester": 3,
+    "type": "Core"
+  },
+  "se-information-technology:PCC-203-ITT": {
+    "semester": 3,
+    "type": "Core"
+  },
+  "se-information-technology:MDM-221-ITT": {
+    "semester": 3,
+    "type": "Minor"
+  },
+  "se-information-technology:PCC-251-ITT": {
+    "semester": 4,
+    "type": "Core"
+  },
+  "se-information-technology:PCC-252-ITT": {
+    "semester": 4,
+    "type": "Core"
+  },
+  "se-information-technology:MDM-271-ITT": {
+    "semester": 4,
+    "type": "Minor"
+  },
+  "se-civil-engineering:PCC-201-CVL": {
+    "semester": 3,
+    "type": "Core"
+  },
+  "se-civil-engineering:PCC-202-CVL": {
+    "semester": 3,
+    "type": "Core"
+  },
+  "se-civil-engineering:PCC-203-CVL": {
+    "semester": 3,
+    "type": "Core"
+  },
+  "se-civil-engineering:MDM-221-CVL": {
+    "semester": 3,
+    "type": "Minor"
+  },
+  "se-civil-engineering:PCC-251-CVL": {
+    "semester": 4,
+    "type": "Core"
+  },
+  "se-civil-engineering:PCC-252-CVL": {
+    "semester": 4,
+    "type": "Core"
+  },
+  "se-civil-engineering:PCC-253-CVL": {
+    "semester": 4,
+    "type": "Core"
+  },
+  "se-civil-engineering:MDM-271-CVL": {
+    "semester": 4,
+    "type": "Minor"
+  },
+  "se-instrumentation-and-control-engineering:PCC-201-INC": {
+    "semester": 3,
+    "type": "Core"
+  },
+  "se-instrumentation-and-control-engineering:PCC-202-INC": {
+    "semester": 3,
+    "type": "Core"
+  },
+  "se-instrumentation-and-control-engineering:PCC-203-INC": {
+    "semester": 3,
+    "type": "Core"
+  },
+  "se-instrumentation-and-control-engineering:MDM-221-INC": {
+    "semester": 3,
+    "type": "Minor"
+  },
+  "se-instrumentation-and-control-engineering:PCC-251-INC": {
+    "semester": 4,
+    "type": "Core"
+  },
+  "se-instrumentation-and-control-engineering:PCC-252-INC": {
+    "semester": 4,
+    "type": "Core"
+  },
+  "se-instrumentation-and-control-engineering:PCC-253-INC": {
+    "semester": 4,
+    "type": "Core"
+  },
+  "se-instrumentation-and-control-engineering:MDM-271-INC": {
+    "semester": 4,
+    "type": "Minor"
+  },
+  "se-mechanical-engineering:PCC-201-MEC": {
+    "semester": 3,
+    "type": "Core"
+  },
+  "se-mechanical-engineering:PCC-202-MEC": {
+    "semester": 3,
+    "type": "Core"
+  },
+  "se-mechanical-engineering:PCC-203-MEC": {
+    "semester": 3,
+    "type": "Core"
+  },
+  "se-mechanical-engineering:MDM-221-MEC": {
+    "semester": 3,
+    "type": "Minor"
+  },
+  "se-mechanical-engineering:PCC-251-MEC": {
+    "semester": 4,
+    "type": "Core"
+  },
+  "se-mechanical-engineering:PCC-252-MEC": {
+    "semester": 4,
+    "type": "Core"
+  },
+  "se-mechanical-engineering:PCC-253-MEC": {
+    "semester": 4,
+    "type": "Core"
+  },
+  "te-robotics-and-ai:PCC-301-RAI": {
+    "semester": 5,
+    "type": "Core"
+  },
+  "te-robotics-and-ai:PCC-302-RAI": {
+    "semester": 5,
+    "type": "Core"
+  },
+  "te-robotics-and-ai:PCC-303-RAI": {
+    "semester": 5,
+    "type": "Core"
+  },
+  "te-robotics-and-ai:PCC-304-RAI": {
+    "semester": 5,
+    "type": "Core"
+  },
+  "te-robotics-and-ai:PCC-305-RAI": {
+    "semester": 5,
+    "type": "Core"
+  },
+  "te-robotics-and-ai:PCC-351-RAI": {
+    "semester": 6,
+    "type": "Core"
+  },
+  "te-robotics-and-ai:PCC-352-RAI": {
+    "semester": 6,
+    "type": "Core"
+  },
+  "te-robotics-and-ai:PCC-353-RAI": {
+    "semester": 6,
+    "type": "Core"
+  },
+  "te-mechanical-engineering:PCC-301-MEC": {
+    "semester": 5,
+    "type": "Core"
+  },
+  "te-mechanical-engineering:PCC-302-MEC": {
+    "semester": 5,
+    "type": "Core"
+  },
+  "te-mechanical-engineering:PCC-303-MEC": {
+    "semester": 5,
+    "type": "Core"
+  },
+  "te-mechanical-engineering:PCC-304-MEC": {
+    "semester": 5,
+    "type": "Core"
+  },
+  "te-mechanical-engineering:PCC-305-MEC": {
+    "semester": 5,
+    "type": "Core"
+  },
+  "te-mechanical-engineering:PCC-351-MEC": {
+    "semester": 6,
+    "type": "Core"
+  },
+  "te-mechanical-engineering:PCC-352-MEC": {
+    "semester": 6,
+    "type": "Core"
+  },
+  "te-mechanical-engineering:PCC-353-MEC": {
+    "semester": 6,
+    "type": "Core"
+  },
+  "te-computer-engineering:PCC301COM": {
+    "semester": 5,
+    "type": "Core"
+  },
+  "te-computer-engineering:PCC302COM": {
+    "semester": 5,
+    "type": "Core"
+  },
+  "te-computer-engineering:PCC303COM": {
+    "semester": 5,
+    "type": "Core"
+  },
+  "te-computer-engineering:PEC321ACOM": {
+    "semester": 5,
+    "type": "Elective",
+    "group": "PEC I"
+  },
+  "te-computer-engineering:PEC321BCOM": {
+    "semester": 5,
+    "type": "Elective",
+    "group": "PEC I"
+  },
+  "te-computer-engineering:PEC321CCOM": {
+    "semester": 5,
+    "type": "Elective",
+    "group": "PEC I"
+  },
+  "te-computer-engineering:PEC321DCOM": {
+    "semester": 5,
+    "type": "Elective",
+    "group": "PEC I"
+  },
+  "te-computer-engineering:PCC351COM": {
+    "semester": 6,
+    "type": "Core"
+  },
+  "te-computer-engineering:PCC352COM": {
+    "semester": 6,
+    "type": "Core"
+  },
+  "te-computer-engineering:PEC361ACOM": {
+    "semester": 6,
+    "type": "Elective",
+    "group": "PEC II"
+  },
+  "te-computer-engineering:PEC361BCOM": {
+    "semester": 6,
+    "type": "Elective",
+    "group": "PEC II"
+  },
+  "te-computer-engineering:PEC361CCOM": {
+    "semester": 6,
+    "type": "Elective",
+    "group": "PEC II"
+  },
+  "te-computer-engineering:PEC361DCOM": {
+    "semester": 6,
+    "type": "Elective",
+    "group": "PEC II"
+  },
+  "te-computer-engineering:PEC362ACOM": {
+    "semester": 6,
+    "type": "Elective",
+    "group": "PEC III"
+  },
+  "te-computer-engineering:PEC362BCOM": {
+    "semester": 6,
+    "type": "Elective",
+    "group": "PEC III"
+  },
+  "te-computer-engineering:PEC362CCOM": {
+    "semester": 6,
+    "type": "Elective",
+    "group": "PEC III"
+  },
+  "te-computer-engineering:PEC362DCOM": {
+    "semester": 6,
+    "type": "Elective",
+    "group": "PEC III"
+  },
+  "te-electrical:PCC-301-ELE": {
+    "semester": 5,
+    "type": "Core"
+  },
+  "te-electrical:PCC-302-ELE": {
+    "semester": 5,
+    "type": "Core"
+  },
+  "te-electrical:PCC-303-ELE": {
+    "semester": 5,
+    "type": "Core"
+  },
+  "te-electrical:PEC-321A-ELE": {
+    "semester": 5,
+    "type": "Elective",
+    "group": "PEC I"
+  },
+  "te-electrical:PEC-321B-ELE": {
+    "semester": 5,
+    "type": "Elective",
+    "group": "PEC I"
+  },
+  "te-electrical:PEC-321C-ELE": {
+    "semester": 5,
+    "type": "Elective",
+    "group": "PEC I"
+  },
+  "te-electrical:PCC-351-ELE": {
+    "semester": 6,
+    "type": "Core"
+  },
+  "te-electrical:PCC-352-ELE": {
+    "semester": 6,
+    "type": "Core"
+  },
+  "te-electrical:PEC-361A-ELE": {
+    "semester": 6,
+    "type": "Elective",
+    "group": "PEC II"
+  },
+  "te-electrical:PEC-361B-ELE": {
+    "semester": 6,
+    "type": "Elective",
+    "group": "PEC II"
+  },
+  "te-electrical:PEC-361C-ELE": {
+    "semester": 6,
+    "type": "Elective",
+    "group": "PEC II"
+  },
+  "te-electrical:PEC-363A-ELE": {
+    "semester": 6,
+    "type": "Elective",
+    "group": "PEC III"
+  },
+  "te-electrical:PEC-363B-ELE": {
+    "semester": 6,
+    "type": "Elective",
+    "group": "PEC III"
+  },
+  "te-electrical:PEC-363C-ELE": {
+    "semester": 6,
+    "type": "Elective",
+    "group": "PEC III"
+  }
+}
