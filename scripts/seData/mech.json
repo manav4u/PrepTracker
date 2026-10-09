@@ -1,0 +1,461 @@
+[
+ {
+  "code": "PCC-201-MEC",
+  "name": "Solid Mechanics",
+  "hours": 3,
+  "cce": 40,
+  "ese": 60,
+  "credits": 3,
+  "prereq": "Engineering Mathematics, Engineering Mechanics, Engineering Physics",
+  "outcomes": [
+   "INVESTIGATE various types of stresses and strain developed on determinate and indeterminate members.",
+   "CALCULATE Shear force and bending moment for various types of transverse loading and support.",
+   "COMPUTE the bending stresses and shear stresses on a beam.",
+   "DETERMINE torsional shear stress in shaft and buckling on the column.",
+   "APPLY the concept of principal stresses and theories of failure to determine stresses on a 2-D element"
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Simple Stresses & Strains",
+    "hours": 8,
+    "text": "Simple Stress & Strain: Introduction to types of loads (Static, Dynamic & Impact Loading) and various types of stresses with applications, Hooke’s law, Poisson’s ratio, Modulus of Elasticity, Modulus of Rigidity, Bulk Modulus. Interrelation between elastic constants, Stress-strain diagram for ductile and brittle materials, factor of safety, Stresses and strains in determinate and indeterminate beam, homogeneous and composite bars under concentrated loads, self-weight (only theory part), Thermal stresses in plane and composite members."
+   },
+   {
+    "roman": "II",
+    "title": "Shear Force & Bending Moment Diagrams",
+    "hours": 7,
+    "text": "SFD & BMD: Introduction to SFD, BMD with application, SFD & BMD for statically determinate beam due to concentrated load, uniformly distributed load, uniformly varying load, couple and combined loading, Relationship between rate of loading, shear force and bending moment, Concept of zero shear force, Maximum bending moment, point of contra-flexure."
+   },
+   {
+    "roman": "III",
+    "title": "Bending & Shear Stresses",
+    "hours": 7,
+    "text": "Bending Stress on a Beam: Introduction to bending stress on a beam with application, Theory of Simple bending, assumptions in pure bending, derivation of flexural formula, Moment of inertia of common cross section (Circular, Hollow circular, Rectangular, I & T), Bending stress distribution along the same cross- section Shear Stress on a Beam: Introduction to transverse shear stress on a beam with application, shear stress distribution diagram along the Circular, Hollow circular, Rectangular, I & T cross-section"
+   },
+   {
+    "roman": "IV",
+    "title": "Torsion & Buckling",
+    "hours": 7,
+    "text": "Torsion of circular shafts: Introduction to torsion on a shaft with application, Basic torsion formulae and assumption in torsion theory, Torsion in stepped and composite shafts, Torque transmission on strength and rigidity basis, Torsional Resilience Buckling of columns: Introduction to buckling of column with its application, Different column conditions and critical, safe load determination by Euler’s theory. Limitations of Euler’s Theory."
+   },
+   {
+    "roman": "V",
+    "title": "Principal Stresses, Theories of Failure",
+    "hours": 7,
+    "text": "Principal Stresses: Introduction to principal stresses with application, Transformation of Plane Stress, Principal Stresses and planes (Analytical method and Mohr's Circle), Stresses due to combined Normal and Shear stresses Theories of Elastic failure: Introduction to theories of failure with application, Maximum principal stress theory, Maximum shear stress theory, Maximum distortion energy theory, Maximum principal strain theory (only theory part), Maximum strain energy theory (only theory part)."
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   "R. K. Bansal, “Strength of Materials”, Laxmi Publication",
+   "S. Ramamurtham, “Strength of material”, Dhanpat Rai Publication",
+   "S.S. Rattan, “Strength of Material”, Tata McGraw Hill Publication Co. Ltd.",
+   "S S Bhavikatti, “Strength of Material”, Vikas publishing house Pvt Ltd",
+   "Singer and Pytel, “Strength of materials”, Harper and row Publication",
+   "R. C. Hibbeler, “Mechanics of Materials”, Prentice Hall Publication",
+   "R. S. Khurmi, “Strength of Materials”, S. Chand Publication"
+  ],
+  "refBooks": [
+   "Egor. P. Popov, “Introduction to Mechanics of Solids”,Prentice Hall Publication",
+   "G. H. Ryder, “Strength of Materials”, Macmillan Publication",
+   "Beer and Johnston, “Strength of materials”, CBS Publication",
+   "James M. Gere, “Mechanics of Materials”, CL Engineering",
+   "Timoshenko and Young, “Strength of Materials”, CBS Publication, Singapore"
+  ]
+ },
+ {
+  "code": "PCC-202-MEC",
+  "name": "Engineering Thermodynamics",
+  "hours": 3,
+  "cce": 40,
+  "ese": 60,
+  "credits": 3,
+  "prereq": "Higher Secondary Science Courses, Engineering Physics, Engineering Mathematics–I and II",
+  "outcomes": [
+   "DESCRIBE the basics of thermodynamics with heat and work interactions.",
+   "APPLY the second law of thermodynamics to steady flow and non-flow processes.",
+   "APPLY the concept of entropy and availability for an open and closed system.",
+   "ANALYSE the performance of a vapour power cycle with working mediums a pure substance.",
+   "DEMONSTRATE the performance of steam generators."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Fundamentals and First Law of Thermodynamics",
+    "hours": 7,
+    "text": "Fundamentals of Thermodynamics: Introduction, Review of basic definitions, Zeroth law of Thermodynamics, Macro and Microscopic Approach, State Postulate, State, Path, Process and Cycles, Point function and Path function, Quasi-static process, Equilibrium, Thermocouples: Type, working principle and applications First Law of Thermodynamics: Concept of heat and work, Sign convention and its conversion. First law of thermodynamics, Joules experiments, (Field Assignment), Equivalence of heat and work. Application of first law to flow and non-flow Processes and Cycles. Steady flow energy equation (SFEE), Applications of SFEE to devices such as Nozzle, Turbine, Compressors, Boilers and Heat Exchangers; especially condensers and evaporators, PMM-I kind. (Numerical on SFEE)."
+   },
+   {
+    "roman": "II",
+    "title": "Ideal Gas Equations and Second Law of Thermodynamics",
+    "hours": 7,
+    "text": "Ideal Gas Equations: Ideal Gas definition, Gas Laws: Boyle’s law, Charle’s law, Avogadro’sLaw, (Field Assignment) Equation of State, Ideal Gas constant and Universal Gas constant, Ideal gas Processes-on P-v and T-s diagrams, Constant Pressure, Constant Volume, Isothermal, Adiabatic, Polytrophic, Throttling Processes (Open and Closed systems), Calculations of Heat transfer, Work done, Internal Energy (Numerical). Second Law of Thermodynamics: Limitations of first law of thermodynamics, Thermal reservoir, Heat Engine, Refrigerator and Heat pump: Schematic representation, Efficiency and Coefficient of Performance (COP), Kelvin-Planck & Clausius Statement of the Second law of Thermodynamics; PMM-II kind, Equivalence of the two statements (Numerical)."
+   },
+   {
+    "roman": "III",
+    "title": "Entropy and Availability",
+    "hours": 7,
+    "text": "Entropy: Clausius Inequality, Concept of Reversibility and Irreversibility, Entropy as a property, Principle of increase of Entropy, Entropy changes for an Open and Closed System, (Field Assignment) Change of Entropy for an ideal gas (Numerical). Availability: Available and Unavailable Energy, Concept of Availability, Availability of heat source at constant temperature and variable temperature, Availability of non-flow and steady-flow Systems(No Numerical Treatment)"
+   },
+   {
+    "roman": "IV",
+    "title": "Properties of Pure substances & Vapour Power Cycle",
+    "hours": 7,
+    "text": "Properties of Pure substances: Formation of steam, Phase changes, Properties of steam, Use of Steam Tables, Study of p-v, T-s and h-s plots (Mollier Chart) for steam, Dryness fraction and its determination using combined separating and throttling calorimeter, Change of properties, work transfer and heat transfer in Non-flow and Steady flow vapour processes. Vapour Power Cycle: Carnot cycle, Rankine cycle, Comparison of Carnot cycle and Rankine cycle, (Field Assignment)Introduction to Steam power Plant, Efficiency of Rankine Cycle, Effect of Varying operating parameters like Superheat, Boiler and Condenser Pressure on performance of Rankine cycle, Modified Rankine Cycle. (Numerical on Carnot cycle and Rankine cycle only)."
+   },
+   {
+    "roman": "V",
+    "title": "Steam Generators & Boiler Draught",
+    "hours": 7,
+    "text": "Steam Generators: Classification, Introduction to IBR Act, Non-IBR boilers, Fire tube and water tube boilers, Low pressure boilers - Cornish & Locomotive, High pressure boilers- Babcock &Wilcox, LaMont, Boiler mountings and accessories. Boiler Performance Calculations: Equivalent Evaporation, Boiler efficiency, Heat balance Sheet. (Numerical). Boiler Draught: Classification, Necessity of Draught, Natural draught, Determination of Height of chimney, Diameter of chimney, condition for maximum discharge, Forced draught, Induced draught, Balanced draught, Draught losses (Field Assignment). (No Numerical Treatment)"
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   "P. K. Nag, “Engineering Thermodynamics”, Tata McGraw Hill Publications.",
+   "R. K. Rajput, “Engineering Thermodynamics”, EVSS Thermo, Laxmi Publications.",
+   "P. L. Ballaney, “Thermal Engineering”, Khanna Publishers.",
+   "C.P. Arora, “Thermodynamics”, Tata McGraw Hill.",
+   "Domkundwar, Kothandaraman and Domkundwar, “Thermal Engineering”, Dhanpat Rai Publishers.",
+   "M. M. Rathore, “Thermal Engineering”, Tata McGraw-Hill"
+  ],
+  "refBooks": [
+   "Rayner Joel, “Basic Engineering Thermodynamics”, AWL-Addison Wesley",
+   "Cengel and Boles, “Thermodynamics an Engineering Approach”, McGraw-Hill",
+   "G.Van Wylen, R. Sonntag and C. Borgnakke, “Fundamentals of Classical Thermodynamics”, John Wiley & Sons",
+   "Holman J.P., “Thermodynamics”, McGraw Hill",
+   "M. Achuthan, “Engineering Thermodynamics”, PHI",
+   "Steam Tables/Data Book"
+  ]
+ },
+ {
+  "code": "PCC-203-MEC",
+  "name": "Engineering Materials & Metallurgy",
+  "hours": 3,
+  "cce": 40,
+  "ese": 60,
+  "credits": 3,
+  "prereq": "Higher Secondary Science courses, Engineering Physics, Engineering Chemistry",
+  "outcomes": [
+   "COMPARE crystal structures and ASSESS different lattice parameters.",
+   "CORRELATE crystal structures and imperfections in crystals with mechanical behavior of materials.",
+   "DIFFERENTIATE and DETERMINE mechanical properties using destructive and nondestructive testing of materials.",
+   "IDENTIFY & ESTIMATE different parameters of the system viz., phases, variables, component, grains, grain boundary, and degree of freedom. etc.",
+   "ANALYSE effect of alloying element & heat treatment on properties of ferrous & nonferrous alloy.",
+   "SELECT appropriate materials for various applications"
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "",
+    "hours": 8,
+    "text": "Techniques Crystal Structures: Introduction to crystal structure, Miller indices, Crystal imperfections, and Diffusion Mechanisms, introduction to Material Properties, Destructive Testing: Impact test, Cupping test, Non- Destructive Testing: Eddy current test, Sonic, Ultrasonic testing, X-ray Radiography testing (Principle and Applications only) Microscopic Techniques: Sample Preparation and etching procedure, optical microscopy, Electronic microscopy - only SEM, TEM and X-ray diffraction (Principle and Applications only) Macroscopy: Sulphur printing, flow line observation, spark test"
+   },
+   {
+    "roman": "II",
+    "title": "Phase Diagrams and Iron-Carbon Diagram",
+    "hours": 7,
+    "text": "Solid solutions: Introduction, Types, Humerothery rule for substitutional solid solutions Solidification: Nucleation, crystal growth, solidification of pure metals and alloys. Phase Diagrams: Cooling curves, types of phase diagrams, Gibbs phase rules Iron-Carbon Diagram: Iron-carbon equilibrium diagrams in detail with emphasis in the invariant reactions."
+   },
+   {
+    "roman": "III",
+    "title": "Heat Treatments",
+    "hours": 7,
+    "text": "Austenite transformation in steel: Time temperature transformation diagrams, continuous cooling transformation diagrams. Retained austenite and its effect, Steps in Heat Treatment and Cooling Medium, Heat Treatment Processes: Introduction, Annealing (Full annealing, Process annealing, Spheroidise annealing, isothermal annealing, stress relief annealing), Normalizing, Hardening, Tempering, Austempering, Martempering, Sub-Zero Treatment, Hardenability Surface Hardening: Classification, Flame hardening, Induction hardening, Carburizing, Nitriding, Carbonitriding"
+   },
+   {
+    "roman": "IV",
+    "title": "Ferrous Materials",
+    "hours": 7,
+    "text": "Carbon Steel: Classification, types & their composition, properties and Industrial application Alloy Steels: Classification of alloy steels &amp; Effect of alloying elements, examples of alloy steels, (Stainless steel, Tool steel) sensitization of stainless steel ,Designation of carbon steel and alloy steels as per IS, AISI, SAE Standards Cast Iron: Classification, types; their composition, properties and Industrial application of (White CI, Gray CI, SG CI, Malleable Cast and alloy Cast Iron) Microstructure and property relationship of various ferrous Materials"
+   },
+   {
+    "roman": "V",
+    "title": "Non-Ferrous Materials",
+    "hours": 7,
+    "text": "Classification of Non-Ferrous Metals: Study of Non-ferrous alloys with Designation, Composition, Microstructure. Mechanical & other properties for Industrial Applications: Copper and its Alloys (Gilding Metal, Cartridge Brass, Muntz Metal, Tin Bronze, Beryllium Bronze), Aluminium and its Alloy (LM5, Duralumin, Y-Alloy, Hinduminum), Nickel and its Alloys (Invar, Inconel), Titanium and its Alloys (Classification, lead based alloys, tin based alloys), Age Hardening. Microstructure and Property relationship of various Non-ferrous Materials. Recent Material used in Additive Manufacturing: Properties, Composition and Application only"
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   "Dr. V. D. Kodgire & S. V. Kodgire, “Material Science & Metallurgy For Engineers”, Everest Publication.",
+   "William D. Callister, “Materials Science and Engineering an Introduction”, Jr, John Wiley & Sons, Inc"
+  ],
+  "refBooks": [
+   "A. K. Bhargava, C.P. Sharma, “Mechanical Behaviour & Testing of Materials”, P H I Learning Private Ltd.",
+   "Raghvan V., “Material Science & Engineering”,Prentice Hall of India, New Delhi. 2003",
+   "Avner, S.H., “Introduction to Physical Metallurgy”, Tata McGraw-Hill, 1997.",
+   "Higgins R. A., “Engineering Metallurgy”, Viva books Pvt. Ltd.",
+   "George Ellwood Dieter, “Mechanical Metallurgy”, McGraw-Hill 1988",
+   "Smith, W.F, Hashemi, J., and Prakash, R., “Materials Science and Engineering in SI Units”, Tata McGraw Hill Education Pvt. Ltd"
+  ]
+ },
+ {
+  "code": "MDM-221-MEC",
+  "name": "Engineering Mathematics-III",
+  "hours": 3,
+  "cce": 40,
+  "ese": 60,
+  "credits": 3,
+  "prereq": "Differential & Integral calculus, Differential equations of first order & first degree, Fourier series, Collection, classification and representation of data and Vector algebra",
+  "outcomes": [
+   "SOLVE higher order linear differential equations and its applications to model and analyze mass spring systems.",
+   "APPLY Statistical methods like correlation, regression in analyzing and interpreting experimental data applicable to reliability engineering and probability theory in testing and quality control.",
+   "SOLVE Algebraic & Transcendental equations and System of linear equations using numerical techniques.",
+   "OBTAIN Interpolating polynomials, numerical differentiation and integration, numerical solutions of ordinary differential equations used in modern scientific computing applicable to Mechanical engineering.",
+   "PERFORM Vector differentiation & integration, ANALYZE the vector fields and APPLY to fluid flow problems."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Linear Differential Equations (LDE) and Applications",
+    "hours": 7,
+    "text": "LDE of nth order with constant coefficients, Complementary Function, Particular Integral, General method, Short methods, Method of variation of parameters, Cauchy’s and Legendre’s DE, Simultaneous DE. Modelling of Mass-spring systems, Free & Forced damped and undamped systems"
+   },
+   {
+    "roman": "II",
+    "title": "Statistics & Probability",
+    "hours": 8,
+    "text": "Introduction to Data Science, Measures of central tendency, Measures of dispersion, Coefficient of variation, Moments, Skewness and Kurtosis, Correlation: Karl Pearson’s correlation, Spearman’s rank correlation, Regression analysis and Reliability of regression estimates. Probability, Probability density function, and Central limit theorem, Probability distributions: Binomial, Poisson, Normal, and Test of hypothesis: Chi-square test and t- test"
+   },
+   {
+    "roman": "III",
+    "title": "",
+    "hours": 8,
+    "text": "equations Numerical Solution of Algebraic and Transcendental equations: Bisection, Secant, Regula-Falsi, Newton– Raphson and Successive Approximation Methods, Convergence and Stability. Numerical Solutions of System of linear equations: Gauss elimination with partial pivoting, LU Decomposition, Jacobi and Gauss-Seidel Methods."
+   },
+   {
+    "roman": "IV",
+    "title": "Numerical Interpolation and solution of ODE",
+    "hours": 8,
+    "text": "Interpolation: Finite Differences, Newton’s and Lagrange’s Interpolation formulae, Numerical Differentiation. Numerical Integration: Trapezoidal and Simpson’s rules, Bound of truncation error. Solution of Ordinary differential equations (ODE): Euler’s, Modified Euler’s, Runge-Kutta 4th order methods and Predictor-Corrector methods."
+   },
+   {
+    "roman": "V",
+    "title": "Vector Calculus",
+    "hours": 8,
+    "text": "Vector differentiation, Gradient, Divergence and Curl, Directional derivative, Solenoidal & Irrotational fields, Vector identities. Line, Surface and Volume integrals, Green’s Lemma, Gauss’s Divergence theorem and Stoke’s theorem."
+   }
+  ],
+  "links": [
+   "https://nptel.ac.in/courses/111105122/",
+   "https://nptel.ac.in/courses/111107098/",
+   "https://nptel.ac.in/courses/111107105/"
+  ],
+  "textBooks": [
+   "Higher Engineering Mathematics by B.V. Ramana (Tata McGraw-Hill).",
+   "Higher Engineering Mathematics by B. S. Grewal (Khanna Publication, Delhi)."
+  ],
+  "refBooks": [
+   "Advanced Engineering Mathematics, 10e, by Erwin Kreyszig (Wiley India).",
+   "Advanced Engineering Mathematics, 7e, by Peter V. O'Neil (Cengage Learning).",
+   "Differential Equations, 3e by S. L. Ross (Wiley India).",
+   "Introduction to Probability and Statistics for Engineers and Scientists, 5e, by Sheldon M. Ross (Elsevier Academic Press)",
+   "Steven C. Chapra, ‘Applied Numerical Methods with MATLAB for Engineers and Scientist’, (Tata Mc- Graw Hill Publishing Co. Ltd).",
+   "Jason Brownlee, ‘Statistical Methods for Machine Learning’, Machine learning Mastery."
+  ]
+ },
+ {
+  "code": "PCC-251-MEC",
+  "name": "Fluid Mechanics",
+  "hours": 3,
+  "cce": 40,
+  "ese": 60,
+  "credits": 3,
+  "prereq": "Engineering Mathematics - I, Engineering Mathematics - II, Engineering Mechanics, Engineering Physics",
+  "outcomes": [
+   "APPLY concepts of fluid properties and Hydrostatics to real world engineering systems.",
+   "EXPLORE the detailed analysis of kinematics and dynamics of fluid and exploit the conservation equations for the flow regimes of practical interest.",
+   "APPLY principles of fluid dynamics to laminar flow and ESTIMATE friction and minor losses in internal flows.",
+   "DETERMINE boundary layer formation over an external surface and Understand the concept of lift & drag.",
+   "CONSTRUCT mathematical correlation considering dimensionless parameters, also able to PREDICT the performance of prototype using model laws."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Fundamental Principles",
+    "hours": 8,
+    "text": "Properties of Fluid: Definition of fluid, concept of continuum, density, specific weight, specific gravity, viscosity, viscosity laws, types of fluid and rheology, vapor pressure surface tension, capillarity, compressibility. Laws of fluid statics: forces acting on fluid element, Pascal’s law, hydrostatics law. Pressure measurement: pressure scale, piezometer, barometer, manometer - simple, inclined, differential, micro manometer, inverted.(Field Assignment) Forces acting on surfaces immersed in fluid: total pressure and center of pressure on submerged plane surfaces, curved surface submerged in liquid. Buoyancy: flotation, stability of bodies.(Field Assignment)"
+   },
+   {
+    "roman": "II",
+    "title": "Fluid Kinematics & Dynamics",
+    "hours": 7,
+    "text": "Flow description methods, types of flows, velocity and acceleration fields, continuity equation in 1D & 3D flow, flow visualization (path line, stream line and streak line), stream tube, stream function and velocity potential function, flow net Various forces acting on fluid elements, Euler’s equation of motion along streamline, Bernoulli’s theorem and modified Bernoulli’s theorem, stagnation pressure, HGL, TEL (Field Assignment) Flow measurement: venturimeter, orifice meter, pitot tubes, Introduction to orifices, notches & weirs. ( Field Assignment)"
+   },
+   {
+    "roman": "III",
+    "title": "Internal Flow",
+    "hours": 7,
+    "text": "Laminar flow: Entrance region theory, velocity and shear Stress distribution for laminar flow through pipe, fixed parallel plates( Field Assignment) and Couette flow( Field Assignment), velocity profile of turbulent flow. Losses - major & minor losses (without expressions), hydro dynamically smooth and rough boundaries, Moody’s chart, compounding of pipes & equivalent pipe, siphons, transmission of power. ( Field Assignment)"
+   },
+   {
+    "roman": "IV",
+    "title": "External Flow",
+    "hours": 7,
+    "text": "Boundary layer formation over a flat plate, boundary layer thickness, displacement thickness, momentum thickness and energy thickness, boundary layer separation and methods to control separation, drag and lift concepts, types of drag, drag & lift coefficient, aerofoil, bluff body, streamline body"
+   },
+   {
+    "roman": "V",
+    "title": "Dimensional Analysis",
+    "hours": 7,
+    "text": "Dimensional Analysis: Introduction, system of dimensions, Dimensional homogeneity, Buckingham-Pi Theorem, repeating variables, dimensionless numbers and their physical significance Similitude & Model Testing: Model & prototype, similarity, scaling parameters, model laws, objectives, importance and application of model studies."
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   "Sukumar Pati, “Fluid Mechanics and Hydraulics Machines”, TATA McGraw Hill.",
+   "Munson, Young and Okiishi, “Fundamentals of Fluid Mechanics”, Wiley India",
+   "Potter Wiggert, “Fluid Mechanics”, Cengage Learning",
+   "Fox, Pichard, “Introduction to Fluid Mechanics”, McDonald- Wiley",
+   "Modi P. N. and Seth S. M, “Hydraulics and Fluid Mechanics”,Standard Book House.",
+   "Cengel & Cimbla, “Fluid Mechanics”,TATA McGraw-Hill",
+   "F. M. White, “Fluid Mechanics”, TATA McGraw-Hill",
+   "R. K. Bansal, ”Fluid Mechanics & Hydraulic Machines”, Laxmi Publication"
+  ],
+  "refBooks": [
+   "Kundu, Cohen, Dowling, “Fluid Mechanics”, Elsevier India",
+   "Chaim Gutfinger David Pnueli, “Fluid Mechanics” Cambridge University press.",
+   "Edward Shaughnessy, Ira Katz James Schaffer, “Introduction to Fluid Mechanics”, Oxford University Press"
+  ]
+ },
+ {
+  "code": "PCC-252-MEC",
+  "name": "Manufacturing Processes-I",
+  "hours": 3,
+  "cce": 40,
+  "ese": 60,
+  "credits": 3,
+  "prereq": "Manufacturing Practice Workshop, Material Science and Metallurgy, Engineering Physics",
+  "outcomes": [
+   "APPLY metal cutting mechanics and tool wear analysis to optimize machining processes.",
+   "DESIGN gating systems, risers, and ANALYZE casting defects for efficient metal casting processes.",
+   "COMPUTE forces, power, and deformation in rolling, forging, and sheet metal operations.",
+   "COMPARE welding techniques, interpret weld symbols, and EVALUATE defects for quality joining.",
+   "SELECT appropriate grinding and finishing processes based on surface finish requirements"
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Theory of metal cutting",
+    "hours": 8,
+    "text": "Basics of subtractive manufacturing, operations on Lathe, Milling. Basics of metal cutting mechanics, Chip formation and types of chips, Orthogonal and oblique cutting, Shear angle and Merchant’s theory, Cutting Forces and Power Estimation, Properties of cutting tool materials, Tool signature, Tool wear and tool life, Taylor’s tool life equation"
+   },
+   {
+    "roman": "II",
+    "title": "Metal Casting Technology",
+    "hours": 8,
+    "text": "Introduction to casting processes, Patterns: Pattern materials, types of pattern, allowances pattern design, molding sand, Properties of molding sands, Core making, melting practices and furnaces, Pouring and Gating system, Cleaning and Finishing of casting, Defects and remedies. Principle and equipment of Die casting, Centrifugal casting, Investment casting, Continuous casting. Numerical estimation to find mold filling time, Riser design and placement, Principles of cooling and solidification of casting, Directional and Progressive solidification, Estimation of solidification rate"
+   },
+   {
+    "roman": "III",
+    "title": "Metal Forming Technology",
+    "hours": 8,
+    "text": "Introduction to Metal Forming- Stress-Strain Analysis in Metal Forming, Bulk Deformation Processes, Defects in Metal Forming, Rolling: Types, defects, and applications, Rolling force estimation, Torque and power requirements for rolling mills Forging: Open-die, Closed-die, and Impression-die forging, Estimation of Forging Load using uniform deformation energy equation, Sheet Metal Working: Types of sheet metal operations, Press working equipment and terminology, design of simple progressive die: strip lay-out and percentage utilization, clearance analysis, centre of pressure, estimation of cutting forces and press capacity"
+   },
+   {
+    "roman": "IV",
+    "title": "Joining Technology",
+    "hours": 6,
+    "text": "Joining process classification, soldering, brazing, welding symbols, types of joint, Electrodes- types and purpose of electrodes, electrode coatings (flux), welding defects, testing and inspection of welds, Working principles, applications of welding processes: Arc welding: MIG, TIG, Resistance welding: Spot, Seam, Heat generation in resistance welding, Gas Welding: Types of flames, oxy-acetylene gas welding. Solid State Welding: Friction Welding, Modern Welding Processes: Laser welding plasma arc welding, submerged arc welding, projection welding, electron beam welding, ultrasonic welding"
+   },
+   {
+    "roman": "V",
+    "title": "Finishing and Fine finishing processes",
+    "hours": 6,
+    "text": "Grinding Process: Introduction, types of grinding machines, Grinding wheel: Introduction, types, shapes, designation and selection, grit, grade & structure of wheels, mounting, glazing, loading, dressing, truing, balancing, Surface Finish Measuring Instruments. Advanced Fine finishing processes: (Construction, working and process parameters) Introduction to Honing and Lapping, Magnetic abrasive finishing, Ultrasonic finishing, Abrasive flow machining."
+   }
+  ],
+  "links": [
+   "https://nptel.ac.in/courses/112103244",
+   "https://nptel.ac.in/courses/112103248",
+   "https://nptel.ac.in/courses/112103250",
+   "https://nptel.ac.in/courses/112103263",
+   "https://nptel.ac.in/courses/112103305",
+   "https://nptel.ac.in/courses/112103420",
+   "https://nptel.ac.in/courses/112103528",
+   "https://nptel.ac.in/courses/112104028",
+   "https://nptel.ac.in/courses/112104162",
+   "https://nptel.ac.in/courses/112104195",
+   "https://nptel.ac.in/courses/112104301",
+   "https://nptel.ac.in/courses/112105212",
+   "https://nptel.ac.in/courses/112107215",
+   "https://nptel.ac.in/courses/112107250"
+  ],
+  "textBooks": [
+   "A Text book of Manufacturing Technology, Metal Cutting and Machine Tools, P. N. Rao, Vol. 2nd edition, Tata McGraw Hill Publishing Co. Ltd, New Delhi, 2002",
+   "P. N. Rao, “Manufacturing Technology Vol. I & II” , Tata McGraw Hill Publishers",
+   "P. C. Sharma, “Production Engineering”, Khanna Publishers"
+  ],
+  "refBooks": [
+   "Theory of Metal Cutting, M. C. Shaw, 1st Edition, Oxford and I.B.H. publishing, 1994",
+   "Production Technology Manufacturing Systems Vol. - I & II, R. K. Jain, Khanna Publishers",
+   "Production Technology - HMT, Tata McGraw Hill publication"
+  ]
+ },
+ {
+  "code": "PCC-253-MEC",
+  "name": "Applied Thermodynamics",
+  "hours": 3,
+  "cce": 40,
+  "ese": 60,
+  "credits": 3,
+  "prereq": "Systems in Mechanical Engineering, Basics of Engineering Thermodynamics, Engineering Chemistry & Engineering Mathematics",
+  "outcomes": [
+   "ANALYZE the working principles of IC engines, the effects of fuel-air and actual cycles on engine performance, and the impact of cycle losses.",
+   "ASSESS the combustion characteristics in SI and CI engines, the influence of fuel properties on knocking, and the suitability of alternative fuels for improved efficiency and emissions.",
+   "EVALUATE engine performance by conducting tests, interpreting characteristic curves, and applying emission control strategies to meet regulatory standards.",
+   "INVESTIGATE the functions of ignition, cooling, and lubrication systems, along with advanced IC engine technologies such as EMS, AI-based diagnostics, and HCCI.",
+   "APPLY thermodynamic principles to solve problems on reciprocating and rotary compressors, including multi-stage compression and FAD."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Fundamentals of IC Engines & Fuel, Air and Actual Cycle Cycles",
+    "hours": 7,
+    "text": "Fundamentals of IC Engines: Heat Engine, Engine classification, Applications, I.C. Engine construction - components and materials, Engine nomenclature, Valve timing diagram, Intake and exhaust system. Fuel, Air and Actual Cycle: Air-standard cycles- Otto, Diesel & Dual Cycle (Derivation of Efficiencies & MEP), fuel air cycles, and actual cycles, Effects of variables on performance, various losses and Comparison of Air standard with Fuel and Actual cycle. (Numerical on Air-standard cycles)"
+   },
+   {
+    "roman": "II",
+    "title": "Combustion in IC Engines & Fuel Technology",
+    "hours": 7,
+    "text": "Combustion in IC Engines: Fuel injection system in SI & CI Engines Combustion in SI and CI engines and factors affecting efficiency, Knocking in SI and CI engines, Combustion Chambers used in SI & CI Engine. Fuel Technology: Biofuels, hydrogen, synthetic fuels, LPG, CNG, ethanol blends. Role of octane and cetane numbers, fuel additives."
+   },
+   {
+    "roman": "III",
+    "title": "Engine Performance & Testing, Emission Control Technologies",
+    "hours": 7,
+    "text": "Engine Testing Procedure and Engine parameters, Measurement of indicated power, Brake power, fuel consumption, Air Consumption, Measurement of friction power by Willan’s Line Method and Morse Test, calculation of mean effective pressure, various efficiencies, specific fuel consumption, heat balance sheet of IC Engines and performance Characteristic curves. (Numerical on Engine parameters & HBS). Role of supercharging and turbocharging in engine performance improvement. Emission Control Technologies: Pollutants from engines- CO, HC, NOx, PM, and their impact on air quality, Emission reduction strategies: Exhaust Gas Recirculation (EGR), Selective Catalytic Reduction (SCR), Diesel Particulate Filters (DPF), Three-Way Catalysts (TWC), BS-VI and Euro 6 emission standards"
+   },
+   {
+    "roman": "IV",
+    "title": "Engine Systems & Recent Trends in I.C Engine",
+    "hours": 7,
+    "text": "Ignition system: battery coil ignition system, magneto ignition system, Electronics Ignition (CDI- Capacitor Discharge Igniter, TCI-Transistor Controlled Igniter). Cooling system: Air Cooling, Liquid cooling. Lubrication system: Objectives of lubrication system, properties of lubricant, Methods of lubrication system, Recent Trends in IC Engine: Introduction to engine management systems (EMS) and ECU-controlled ignition, Advanced combustion technologies: HCCI (Homogeneous Charge Compression Ignition), AI- based predictive maintenance, fault diagnosis, and digital twins in IC engines.."
+   },
+   {
+    "roman": "V",
+    "title": "Positive Displacement Compressor",
+    "hours": 7,
+    "text": "Reciprocating Compressor: Applications of compressed air, single stage compressor (without clearance and with clearance volume), volumetric efficiency, isothermal efficiency, effect of clearance volume, free air delivery (FAD), actual indicator diagram for air compressor, Multi staging of compressor, optimum intermediate pressure, intercooler, after cooler, Capacity control of compressors. (Numerical). Rotary Compressors: Roots blower, Vane type, Screw compressor and Scroll compressor."
+   }
+  ],
+  "links": [
+   "https://nptel.ac.in/courses/107106088",
+   "https://nptel.ac.in/courses/112103262",
+   "https://onlinecourses.nptel.ac.in/noc25_me19/preview"
+  ],
+  "textBooks": [
+   "V. Ganesan, “Internal Combustion Engines”, Tata McGraw-Hill",
+   "M. L. Mathur and R.P. Sharma, “A course in Internal combustion engines”, Dhanpat Rai & Co.",
+   "H.N. Gupta, “Fundamentals of Internal Combustion Engines”, PHI Learning Pvt. Ltd."
+  ],
+  "refBooks": [
+   "Heywood, “Internal Combustion Engine Fundamentals”, Tata McGraw-Hill",
+   "Domkundwar & Domkundwar, “Internal Combustion Engine”, Dhanpat Rai & Co.",
+   "R. Yadav, “Internal Combustion Engine”, Central Book Depot, Ahmedabad.",
+   "S. Domkundwar, C.P. Kothandaraman, A. Domkundwar, “Thermal Engineering”,DhanpatRai & Co."
+  ]
+ }
+]
