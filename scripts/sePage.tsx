@@ -97,6 +97,7 @@ const DraftNote = ({ b }: { b: SeBranch }) => b.draft ? <p className="draft"><b>
 const PatternNote = ({ b }: { b: SeBranch }) => b.pattern && b.pattern !== '2024' ? <p className="draft"><b>{b.pattern} PATTERN.</b> This is the {b.pattern} pattern syllabus, the latest SPPU has published on its site for {YL(b).l} {b.branch}. A 2024 pattern syllabus for this year has not been published there yet, so confirm with your college which pattern applies to you.</p> : null;
 const Motif = ({ b }: { b: SeBranch }) => <svg className="motif" viewBox="0 0 600 48" preserveAspectRatio="xMinYMid meet" aria-hidden="true">{MOTIFS[b.motif](b.accent)}</svg>;
 const Foot = ({ b }: { b: SeBranch }) => <footer>
+  {b.slug === 'te-computer-engineering' && <p>Source note: Mobile Computing uses PEC321CCOM from the curriculum table; its detailed course heading prints PCC305CCOM. Robotics and Automation is a tutorial/practical course and is excluded from this theory-course list.</p>}
   <p>Source: <a href={b.pdf} rel="noopener">{b.pdfLabel} (official SPPU PDF)</a>. PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.</p>
   <p><a href={SITE + '/'}>PrepTracker home</a> · <a href={SITE + '/syllabus/' + b.slug + '/'}>{b.short} subjects</a> · <a href={SITE + '/syllabus/grading-system-sgpa/'}>Grading and SGPA</a></p>
 </footer>;

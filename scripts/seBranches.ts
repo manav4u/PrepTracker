@@ -10,7 +10,7 @@ import auto from './seData/auto.json';
 import cyber from './seData/cyber.json';
 import terai from './seData/terai.json';
 import temech from './seData/temech.json';
-import tecomp19 from './seData/tecomp19.json';
+import tecomp24 from './seData/tecomp24.json';
 import teit19 from './seData/teit19.json';
 import teel19 from './seData/teel19.json';
 import mech from './seData/mech.json';
@@ -90,10 +90,10 @@ export const SE_BRANCHES: SeBranch[] = [
     courses: temech as SeBranch['courses'],
   },
   {
-    slug: 'te-computer-engineering', branch: 'Computer Engineering', short: 'TE Computer', motif: 'computer', accent: '#e11d48', year: 'TE', pattern: '2019', ccLabel: 'Mid-Sem',
-    pdf: 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2021/Third%20Year%20Engineering%202019%20Pattern_16022022.rar',
-    pdfLabel: 'SPPU TE Computer Engineering 2019 course syllabus (TE_Computer_2019_Course_22.06.2021, inside the official Third Year Engineering 2019 Pattern archive)',
-    courses: tecomp19 as SeBranch['courses'],
+    slug: 'te-computer-engineering', branch: 'Computer Engineering', short: 'TE Computer', motif: 'computer', accent: '#e11d48', year: 'TE',
+    pdf: 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/TE%20-%20Computer%20Engineering%20-%202024%2022092026.pdf',
+    pdfLabel: 'SPPU TE Computer Engineering 2024 pattern syllabus (September 22, 2026, effective 2026-27)',
+    courses: tecomp24 as SeBranch['courses'],
   },
   {
     slug: 'te-information-technology', branch: 'Information Technology', short: 'TE IT', motif: 'it', accent: '#e11d48', year: 'TE', pattern: '2019', ccLabel: 'Mid-Sem',
