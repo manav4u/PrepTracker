@@ -1,0 +1,425 @@
+[
+ {
+  "code": "PCC-201-ITT",
+  "name": "Data Structures & Algorithms",
+  "hours": 3,
+  "cce": 30,
+  "ese": 70,
+  "credits": 3,
+  "prereq": "Fundamental knowledge of programming language and basics of algorithms",
+  "outcomes": [
+   "To Perform basic analysis of algorithms with respect to time and space complexity.",
+   "To apply appropriate data structures to implement stack and queue.",
+   "To design and specify the operations of a nonlinear-based abstract data type and implement them in a high-level programming language.",
+   "Design different hashing functions",
+   "To Solve real-life optimization problems using Divide and Conquer, Greedy, and Dynamic Programming strategies."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to Data Structures & Algorithms",
+    "hours": 7,
+    "text": "Introduction to Data Structures: Data, Data Object, Data types, Abstract Data Types (ADT), Data structures, Classification of Data Structure: primitive and non-primitive, Static and Dynamic, Persistent and Ephemeral data structures Introduction to Algorithms: Definition and Characteristics of an algorithm, Algorithm Specification, Introduction to algorithm design strategies Performance Analysis- Time and space complexity, Asymptotic notations, Best, Average and worst cases. Finding complexity using step count method, Analysis of programming Constructs-Linear, Quadratic, Cubic, Logarithmic Basic Searching Algorithms: Linear Search, Binary Search Basic Sorting Algorithm: Bubble Sort, Selection Sort, Insertion Sort"
+   },
+   {
+    "roman": "II",
+    "title": "Linear Data Structures",
+    "hours": 7,
+    "text": "Linked Lists: Singly LL, Doubly LL, Circular LL. Linked list as an ADT. Stack: Stack as an ADT, Arrays and Linked Lists implementation, Implicit vs explicit stack, Applications of stack: recursion, converting expressions from infix to postfix or prefix form, evaluating postfix or prefix form Queue: Queue as an ADT, Arrays and Linked Lists implementation, Types: Circular Queue, Double- ended Queue (Deque), Applications"
+   },
+   {
+    "roman": "III",
+    "title": "Non- Linear data Structures",
+    "hours": 9,
+    "text": "Tree-Definitions and Concepts, Representation of binary tree, Binary tree traversal (Inorder, postorder, preorder), Threaded binary tree, Binary search trees, Conversion of General Trees To Binary Trees, Applications Of Trees Some balanced tree mechanism, eg. AVL trees, 2-3 trees, Height Balanced, Weight Balance, Graph-Matrix Representation Of Graphs, Elementary Graph operations,(Breadth First Search, Depth First Search, Spanning Trees, Shortest path, Minimal spanning tree- Prims and Kruskals Algorithm ) Heap: Heap data structure, Min and Max Heap, Heap sort, applications of heap"
+   },
+   {
+    "roman": "IV",
+    "title": "Hashing, String processing",
+    "hours": 8,
+    "text": "Applications Hashing: Hash Functions, Collision Handling Techniques (Chaining, Open Addressing) String Processing: Naïve String Matching, Rabin-Karp Algorithm, Knuth-Morris-Pratt (KMP) Algorithm Applications of DSA: , Social Network Graph Analysis, and AI Search Algorithms"
+   },
+   {
+    "roman": "V",
+    "title": "Advanced Algorithms",
+    "hours": 7,
+    "text": "Divide and Conquer: Merge Sort, Quick Sort, Matrix Multiplication; Greedy Algorithms: Activity Selection, Fractional Knapsack, Huffman Coding; Dynamic Programming: 0/1 Knapsack, Longest Common Subsequence (LCS), Floyd-Warshall."
+   }
+  ],
+  "links": [
+   "https://onlinecourses.swayam2.ac.in/cec25_hs62/preview",
+   "https://onlinecourses.swayam2.ac.in/cec25_ma15/preview"
+  ],
+  "textBooks": [
+   "Michael T. Goodrich, Roberto Tamassia, and David M. Mount , “Data Structures and Algorithms in C++\"",
+   "R. Gilberg, B. Forouzan, “Data Structure: A Pseudo code approach with C++”, Cengage Learning."
+  ],
+  "refBooks": [
+   "Thomas H. Cormen, Charles E. Leiserson and Ronald L. Rivest, “Introduction to Algorithms”, 2nd Edition, The MIT Press, 2001, ISBN 0-262-03293-7.",
+   "Sartaj Sahni, “Data Structures, Algorithms and Applications in C++”, 2nd Edition, Universities Press.",
+   "Mark Allen Weiss, “Data Structures and Algorithm Analysis in C++” (2007), Second Edition, Pearson Education.",
+   "Goodrich, “Data Structures and Algorithms in C++”, Wiley. e-Books:"
+  ]
+ },
+ {
+  "code": "PCC-202-ITT",
+  "name": "Object Oriented Programming",
+  "hours": 3,
+  "cce": 30,
+  "ese": 70,
+  "credits": 3,
+  "prereq": "Programming and Problem Solving",
+  "outcomes": [
+   "Understand OOP concepts like classes, objects, inheritance, and polymorphism.",
+   "Use methods, constructors, and memory management.",
+   "Apply inheritance and polymorphism for code reuse.",
+   "Handle exceptions and use generics with collections.",
+   "Perform file handling and implement basic design patterns."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Foundations of Object-",
+    "hours": 6,
+    "text": "Oriented Programming Introduction to OOP: Limitations of Procedural Programming, Need for Object-Oriented Programming, Fundamentals of Object-Oriented Programming: Objects, Classes, Data Members, Methods, Messages, Data Encapsulation, Data Abstraction and Information Hiding, Inheritance, Polymorphism, Static and Dynamic Binding, Message Passing. Class: Creating a Class, Visibility/Access Modifiers, Encapsulation."
+   },
+   {
+    "roman": "II",
+    "title": "Methods and Constructors",
+    "hours": 6,
+    "text": "Methods: Adding a Method to a Class, Returning a Value, Adding a Method That Takes Parameters, The this Keyword, Method Overloading, Object Creation, Using Object as a Parameter, Returning Objects, Array of Objects. Memory Allocation: new, Static Data Members, Static Methods. Constructors: Introduction, Use of Constructors, Characteristics of Constructors, Types of Constructors, Constructor Overloading. Garbage Collection: Destructors and Finalizers. Represent a vector using class and include appropriate methods to"
+   },
+   {
+    "roman": "III",
+    "title": "Inheritance & Polymorphism",
+    "hours": 6,
+    "text": "Inheritance: Introduction, Need of Inheritance, Types of Inheritance, Benefits of Inheritance, Cost of Inheritance, Constructors in Derived Classes, Method Overriding, Abstract Classes and Interfaces. Polymorphism and Software Reuse: Introduction, Types of Polymorphism, Compile-Time and Run-Time Polymorphism, Mechanisms for Software Reuse, Efficiency and Polymorphism."
+   },
+   {
+    "roman": "IV",
+    "title": "Exception Handling and Generic",
+    "hours": 6,
+    "text": "Programming Exception Handling: Errors, Types of Errors, Exceptions and Their Types, Exception-Handling Fundamentals, Uncaught Exceptions, Using try and catch, Multiple catch Clauses, Nested try Statements, User- Defined Exceptions using throw. Generics: Introduction, Introduction to Language-Specific Collection Interfaces: List Interface and Set Interface, Collection Classes: ArrayList Class and LinkedList Class."
+   },
+   {
+    "roman": "V",
+    "title": "File Handling and Design Patterns",
+    "hours": 6,
+    "text": "s File Handling: Introduction; Concepts of Streams, Stream Classes, Byte Stream Classes, Character Stream Classes, Using Streams and Other Useful I/O Classes, Using the File Class, Input/output Exceptions, Creation of Files, Reading/Writing Characters, Reading/Writing Bytes, Handling Primitive Data Types, Concatenating and Buffering Files, Random Access Files. Design Patterns: Introduction, Types of Design Patterns, Adapter, Singleton, Iterator."
+   }
+  ],
+  "links": [
+   "https://swayam.gov.in/nd1_noc20_cs35"
+  ],
+  "textBooks": [
+   "Java: The Complete Reference by Herbert Schildt, McGraw-Hill",
+   "Object-Oriented Programming with Java by E. Balagurusamy, McGraw-Hill"
+  ],
+  "refBooks": [
+   "Head First Java by Kathy Sierra & Bert Bates, O'Reilly",
+   "Effective Java by Joshua Bloch, Addison-Wesley",
+   "Head First Design Patterns by Eric Freeman & Elisabeth Robson, O'Reilly e-Books:"
+  ]
+ },
+ {
+  "code": "PCC-203-ITT",
+  "name": "Basics of Computer Network",
+  "hours": 3,
+  "cce": 30,
+  "ese": 70,
+  "credits": 3,
+  "prereq": "Fundamentals of Communication Systems, Basic Electronics and Cabling",
+  "outcomes": [
+   "Student will able to learn about the principles of data communication and network components.",
+   "Student will able to learn about how computer networks are organized with the concept of layered approach",
+   "Student will able to learn about how signals are used to transfer data between nodes.",
+   "Student will able to learn about how packets in the Internet are delivered.",
+   "Student will able to learn about how routing protocols work",
+   "Student will able to learn about applications of OSI/TCP-IP Model"
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to Computer Networking",
+    "hours": 6,
+    "text": "Fundamentals Communication Systems: Overview of data transmission systems, including key elements like sender, receiver, medium, and protocols. Networks: Concept of interconnected devices for data exchange, categorized by scale (e.g., LAN, MAN, WAN) and structure. Topologies: Physical and logical arrangements of network nodes, such as star, ring, mesh, and hybrid. Protocols: Rules governing data exchange, ensuring reliable communication across networks. Network Architecture: Structured design using layered models for efficient data transfer. OSI Model: A seven-layer framework defining network functions, from physical to application layers. TCP/IP Suite: A practical set of protocols for internet communication, including IP, TCP, and application-layer protocols."
+   },
+   {
+    "roman": "II",
+    "title": "Data Communications",
+    "hours": 6,
+    "text": "Signals: Characteristics of analog and digital waveforms used in data transmission. Digital-to- Digital: Encoding digital data into digital signals. Analog-to-Digital: Converting analog signals to digital (e.g., PCM). Digital-to-Analog: Modulating digital data onto analog signals. Analog-to- Analog: Transforming analog signals (e.g., AM, FM). Transmission Modes: Communication directions, including simplex, half-duplex, and full-duplex. Modulation: Methods to encode data onto carrier signals (e.g., amplitude, frequency, phase modulation). Multiplexing: Strategies like Frequency Division Multiplexing (FDM) and Time Division Multiplexing (TDM) to share a medium. Transmission Media: Wired: Cables such as twisted pair, coaxial, and optical fiber. Wireless: Radio waves, microwaves, and infrared. Switching Techniques: Circuit Switching: Dedicated path for communication. Packet Switching: Data divided into packets for transmission. Datagram Approach: Connectionless packet delivery. Virtual Circuit: Connection-oriented packet routing."
+   },
+   {
+    "roman": "",
+    "title": "Data Link Layer and Multiple Access",
+    "hours": 6,
+    "text": "III Protocols Basics of ALOHA protocols, Basics of CSMA/CD protocols, Ethernet LANS, Connecting LAN and back-bone networks- Repeaters, Hubs, Switches, Bridges, Router and Gateways Error Detection and Correction: Checksum, CRC, Data Link Control: Framing, Flow and Error Control, Noiseless Channels, Noisy channels, (Stop and Wait ARQ, Sliding Window Protocol, Go Back N, Selective Repeat) HDLC, Point-to-Point Protocol. Access Control: TDM, CSMA/CD, and Channelization (FDMA, TDMA, and CDMA)."
+   },
+   {
+    "roman": "",
+    "title": "Networks Layer",
+    "hours": 6,
+    "text": "IV Logical Addressing: Internet protocols: Address Mapping and Error Reporting; Delivery, Forwarding, and Routing. Network Layer: Logical Addressing, IPv4 Addresses, IPv6 Addresses, Virtual-Circuit Networks: Frame Relay and ATM, Transport Layer: Process-Process Delivery: UDP, TCP."
+   },
+   {
+    "roman": "",
+    "title": "Overview of Networking Technologies",
+    "hours": 6,
+    "text": "V OSI/TCP-IP Layer Protocols: Overview of DNS, Overview of WWW, URL, Email architecture, HTTP protocol Application layers: DNS, SMTP, POP, FTP, HTTP, Remote Logging, Electronic Mail, and File Transfer, Basics of WiFi (Fundamental concepts only), Transport Layer: Process-to-Process Delivery: UDP, TCP, and SCTP; Congestion Control and Quality of Service. Emerging Networking Technologies: Wireless Connectivity: Technologies like Wi-Fi (802.11 standards) and Bluetooth for short- range communication. Mobile networks: Evolution from 4G to 5G, enabling high-speed, low- latency communication. Cloud Networking: Fundamentals of cloud-based network architectures. Concepts of virtualization, software-defined networking (SDN), and network function virtualization (NFV) for scalable services. Internet of Things (IoT): Basics of IoT network frameworks and protocols (e.g., MQTT, CoAP). Applications of IoT in smart devices, home automation, and industrial systems."
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   "Computer Networks and Internets – Douglas E. Comer, Pearson, 6th Edition, ISBN: 978-0-13-358793-",
+   "Data Communication and Networking – Behrouz A. Forouzan, McGraw Hill Education, 5th Edition, ISBN: 978-1-25-906475-3.",
+   "Computer Networking: A Top-Down Approach – James F. Kurose, Keith W. Ross, Pearson, 7th Edition, ISBN: 978-0-13-359414-0."
+  ],
+  "refBooks": []
+ },
+ {
+  "code": "MDM-221-ITT",
+  "name": "Digital Electronics and Logic Design",
+  "hours": 2,
+  "cce": 30,
+  "ese": 70,
+  "credits": 2,
+  "prereq": "Basics of Electronics Engineering",
+  "outcomes": [
+   "Perform Binary Arithmetic and Logical Operations and code conversions",
+   "Design and Implement Combinational Circuits.",
+   "Differentiate combinational and sequential circuits and use flip flops for various applications",
+   "Design and Implement Sequential Circuits.",
+   "Explain Organization and Architecture of Computer systems"
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction To Digital Electronics",
+    "hours": 6,
+    "text": "Digital Logic families: Digital IC Characteristics; TTL: Standard TTL characteristics, Operation of TTL NAND gate; CMOS: Standard CMOS characteristics, operation of CMOS NAND gate; Comparison of TTL & CMOS. Signed Binary number representation and Arithmetic: Sign Magnitude, 1’s complement & 2’s complement representation, unsigned Binary arithmetic (addition, subtraction, multiplication, and division), subtraction using 2’s complement; IEEE Standard 754 Floating point number representations. Codes: Binary , BCD, octal, hexadecimal, Excess-3 , Gray code & their conversions"
+   },
+   {
+    "roman": "II",
+    "title": "Combinational Logic Design",
+    "hours": 6,
+    "text": "Logic minimization: Representation of truth-table, SOP form, POS form, Simplification of logical functions, Minimization of SOP and POS forms, don’t care Conditions. Reduction techniques: K-Maps up to 4 variables CLC design using SSI chips – Code converters, Half- Adder, Full Adder, Half Subtractor, Full Subtractor, n bit Binary adder Introduction to MSI functions & chips - Multiplexers (IC 74151 and IC 74153), Decoder / Demultiplexer (IC 74138), Binary adder (IC 7483). Design using MSI chips: BCD adder using IC 7483, Implementation of logic functions using IC 74153, IC 74151 & 74138."
+   },
+   {
+    "roman": "III",
+    "title": "Flip Flops and their",
+    "hours": 6,
+    "text": "Applications Introduction to sequential circuits. Difference between combinational circuits and sequential circuits, memory element – latch. Flip- Flops: Design, truth table, excitation table of SR, JK, D, T flip flops. Study of flip flops with asynchronous and synchronous Preset & Clear, Master Slave configuration, conversion from one type to another type of flip flop. Study of flip flop ICs - 7473, 7474, 7476 Application of flip-flops – Bounce elimination switch, Counters- asynchronous, synchronous and modulo counters, Study of modulus n counter ICs- 7490 & their applications to implement mod counters"
+   },
+   {
+    "roman": "IV",
+    "title": "Introduction to Computer",
+    "hours": 6,
+    "text": "Architecture Sequential Logic Design Registers- Buffer register, shift register types - SISO, SIPO, PISO & PIPO, applications of shift registers - ring counter, twisted ring counter Basic design steps-State diagram, State table, State reduction, State assignment, Mealy and Moore machines representation Sequence generators using counters & sequence detector using Moore & Mealy model"
+   },
+   {
+    "roman": "V",
+    "title": "Introduction to Computer",
+    "hours": 6,
+    "text": "Architecture Computer organization & computer architecture, organization, functions & types of computer units- CPU(typical organization ,Functions , Types), Memory ( Types & their uses in computer ), IO( types & functions) & system bus( Address, data & control , Typical control lines, Multiple-Bus Hierarchies ); Von Neumann & Harvard architecture; Instruction cycle state diagram Von Neumann Machine: Structure of IAS computer, Registers: PC,MAR,MBR,IR,AC,MQ,IBR and their roles Control unit : Control signals & typical organization of hard wired & micro programmed Control Unit."
+   }
+  ],
+  "links": [
+   "https://onlinecourses.nptel.ac.in/noc24_ee17/preview",
+   "https://onlinecourses.nptel.ac.in/noc25_ee20/preview"
+  ],
+  "textBooks": [
+   "“Modern Digital Electronics”, R.P. Jain, Tata McGraw-Hill, Third Edition",
+   "“Computer organization and architecture, designing for performance” by William Stallings , Prentice Hall ,Eighth edition"
+  ],
+  "refBooks": [
+   "“Digital Design”, M Morris Mano, Prentice Hall, Third Edition",
+   "“Computer organization” , Hamacher and Zaky, Fifth Edition",
+   "“Computer Organization and Design: The Hardware Software Interface” D. Patterson, J. Hennessy, Fourth Edition, Morgan Kaufmann",
+   "“ Microprocessors and interfacing-programming and hardware” Douglas V. Hall and SSSP Rao, McGraw-Hill ,Third Edition e-Books"
+  ]
+ },
+ {
+  "code": "PCC-251-ITT",
+  "name": "Database Management System",
+  "hours": 3,
+  "cce": 30,
+  "ese": 70,
+  "credits": 3,
+  "prereq": "Data Structures & Algorithms",
+  "outcomes": [
+   "Explain the fundamental concepts, architecture, and functionalities of database management systems.",
+   "Analyze and design relational database (RDBMS) model to represent real-world database applications and demonstrate RDBMS principles.",
+   "Improve the database design through normalization.",
+   "Formulate database queries using SQL and PL/SQL for efficient data retrieval and manipulation.",
+   "Demonstrate ACID properties for transaction management and describe concurrency control protocols.",
+   "Explore and discuss recent trends in database technologies."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to Database",
+    "hours": 8,
+    "text": "Management System Basic concepts, Advantages of DBMS over file processing systems, Data abstraction and Data independence, Database languages, Components of a DBMS and Overall structure of DBMS, Multi-user DBMS architecture, Data Modeling: Basic concepts, entity, attributes, relationships, relations, constraints, keys, Data models. ER and EER diagrams: Components of ER model, Conventions, Converting ER diagrams into tables, EER Model components, converting EER diagram into tables. Exempla 1. Library Management System: Exemplar rs/Case · Students understand basic DBMS concepts Studies · They apply E-R model concepts to represent book and user data. · Sample Activity: Create an ER diagram and relational schema for the system. 2. Online Retail Store (e.g., Amazon): Case Study · Students analyze how DBMS supports operations like search, filters, and checkout."
+   },
+   {
+    "roman": "II",
+    "title": "Relational Model and Database",
+    "hours": 8,
+    "text": "Design Relational Model: Relational Model Concepts (Domains, Attributes, Tuples, and Relations), Relational Model Constraints, Relational Database Schemas, Codd’s rules. Database design: Features of good relational database design, Purpose of Normalization, Data Redundancy and Data Anomalies, Functional Dependencies, Normal Forms (1NF, 2NF, 3NF, BCNF). Exemplar Student/Timetable/ Reservation any Data Management System s/Case Studies"
+   },
+   {
+    "roman": "III",
+    "title": "Structured Query Language (SQL)",
+    "hours": 8,
+    "text": "& Procedural SQL (PL/SQL) Introduction to SQL, Basic Data Types and SQL Syntax, Data Definition Language (DDL), Constraints, Data Manipulation Language (DML), Clauses with SELECT statement: WHERE, ORDER BY, Pattern Matching with LIKE, IN, BETWEEN, Aggregate functions with GROUP BY` and HAVING, Joins, Sub-queries, Set Operations, Views, Index. Introduction to PL/SQL: Overview of PL/SQL architecture, control structures, Cursors, PL/SQL Advanced Features: Procedures and Functions, Triggers."
+   },
+   {
+    "roman": "IV",
+    "title": "Transaction Management and",
+    "hours": 8,
+    "text": "Concurrency Control Transaction Management: Introduction to Database Transaction, Transaction states, ACID Properties, Concept of Schedule: Serial and concurrent Schedule. Serializability: Conflict and View, Cascaded Schedules, Recoverable Schedules. Concurrency Control and Recovery Management: Need for Concurrency Control, Lock-based protocols, Time stamp based protocol, Validation-based protocol, Multiple Granularity, Deadlock. Recovery Techniques: Shadow-Paging, Log-based Recovery, Check Point."
+   },
+   {
+    "roman": "V",
+    "title": "Emerging Trends in Database",
+    "hours": 6,
+    "text": "Technologies Needs, Challenges with traditional databases, Need for scalability, flexibility, and speed. NoSQL Databases: Definition and types: Document, Key-Value, Column, Graph; Example using MongoDB. Cloud Databases: What is DBaaS (Database-as-a-Service), Examples: AWS/Google Firebase; Benefits: scalability, cost, easy setup. Introduction to Modern Database: Big Data and Hadoop: Basics of Big Data, Introduction to Hadoop and HDFS, Real-world examples (e.g., social media, online shopping), Simple explanation of how they store relationships. AI/ML with Databases: Basic idea of machine learning inside databases, Real-world applications: recommendations, fraud detection. Exemplar · Short quiz on types of NoSQL databases s/Case · Assignment: Compare SQL vs NoSQL Studies · Viva on real-life applications of modern databases · Mini-project idea: Student Attendance using NoSQL DB"
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   "Silberschatz A., Korth H., Sudarshan S, “Database System Concepts”, McGraw Hill Publication, Sixth Edition."
+  ],
+  "refBooks": [
+   "Elmasri R., Navathe S., “Fundamentals of Database Systems”, Pearson Education, Fourth Edition.",
+   "G. K. Gupta “Database Management Systems”, Tata McGraw Hill.",
+   "Date C., “An Introduction to Database Systems”, 8 th Edition, Pearson Education",
+   "Ramkrishna R., Gehrke J., “Database Management Systems”, 3rd edition, McGraw Hill.",
+   "Oracle PL/SQL Programming by Steven Feuerstein.",
+   "Reese G., Yarger R., King T., Williums H, “Managing and Using MySQL”, Shroff Publishers and Distributors Pvt. Ltd., 2nd Edition.",
+   "Sadalage, P. J., Fowler, M., “NoSQL Distilled: A Brief Guide to the Emerging World of Polyglot Persistence”, Addison-Wesley.",
+   "MongoDB. (a.n.d.). MongoDB Manual. Retrieved from MongoDB Official Documentation.",
+   "Mahmood, Z. (Ed.), “Cloud Computing: Concepts, Technology and Architecture”, Springer.",
+   "White, T., “Hadoop: The Definitive Guide”, 4th ed., O’Reilly Media."
+  ]
+ },
+ {
+  "code": "PCC-252-ITT",
+  "name": "Computer Graphics",
+  "hours": 3,
+  "cce": 30,
+  "ese": 70,
+  "credits": 3,
+  "prereq": "Basic Mathematics",
+  "outcomes": [
+   "Define fundamental concepts and identify hardware components in computer graphics.",
+   "Apply algorithms to draw and fill basic geometric shapes.",
+   "Apply mathematical transformations and projections techniques on graphical objects.",
+   "Implement techniques for polygon filling, clipping, and color modeling.",
+   "Develop interactive graphics and animations."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Graphics Primitives and",
+    "hours": 6,
+    "text": "OpenGL Basics Introduction to Computer Graphics: Definition, significance, and applications, Display devices: CRT, LCD, LED; frame buffer, resolution, aspect ratio Graphics Primitives: Pixel, line, circle, polygon basics (types: convex, concave and complex) Introduction to OpenGL: Architecture, primitives, attributes, Simple modeling and rendering of 2D/3D objects"
+   },
+   {
+    "roman": "II",
+    "title": "Rasterization, Filling, and",
+    "hours": 7,
+    "text": "Clipping Algorithms Scan Conversion Algorithms: Line drawing: DDA, Bresenham, Circle drawing: DDA, Bresenham, Midpoint Polygon Filling Algorithms: Flood fill, seed fill, scan fill 2D clipping: Cohen-Sutherland, Sutherland-Hodgman, Weiler-Atherton"
+   },
+   {
+    "roman": "III",
+    "title": "2D, 3D Transformations and",
+    "hours": 7,
+    "text": "Projections 2D Transformations: Homogeneous coordinates, translation, scaling, rotation, shear, Rotation about an arbitrary point 3D Transformations: Translation, scaling, rotation, shear, Rotation about an arbitrary axis Projections: Parallel (orthographic: isometric, dimetric, trimetric; oblique: cavalier, cabinet), Perspective (1, 2, and 3-point vanishing points)"
+   },
+   {
+    "roman": "IV",
+    "title": "Color, Shading, and Hidden",
+    "hours": 5,
+    "text": "Surfaces Color Models: Properties of light, CIE chromaticity diagram, RGB, HSV, CMY color models Illumination Models: Ambient, diffuse, specular reflection, Phong and Warn models, multiple light sources Hidden Surface Elimination: Algorithms: z-buffer, Painter’s, Warnock"
+   },
+   {
+    "roman": "V",
+    "title": "Curves, Fractals, and Introduction",
+    "hours": 5,
+    "text": "to Animation Curves: Introduction, interpolation, approximation, Blending functions, B-Spline, Bezier curves Fractals: Introduction, classification, Fractal generation: snowflake, Hilbert curve, Applications (e.g., coastline measurement) Introduction to Animation and Gaming: Basics of animation: keyframe, morphing, motion specification"
+   }
+  ],
+  "links": [
+   "https://nptel.ac.in/courses/106102065",
+   "https://nptel.ac.in/courses/106103224"
+  ],
+  "textBooks": [
+   "S. Harrington, “Computer Graphics”, 2nd Edition, McGraw-Hill Publications, 1987, ISBN 0 07– 100472 – 6. Donald D. Hearn and Baker, “Computer Graphics with OpenGL”, 4th Edition, ISBN-13:",
+   "D. Rogers, “Procedural Elements for Computer Graphics”, 2nd Edition, Tata McGraw-Hill Publication, 2001, ISBN 0 – 07 – 047371 – 4."
+  ],
+  "refBooks": [
+   "J. Foley, V. Dam, S. Feiner, J. Hughes, “Computer Graphics Principles and Practice”, 2nd Edition, Pearson Education, 2003, ISBN 81 – 7808 – 038 – 9. D. Rogers, J. Adams, “Mathematical Elements for Computer Graphics”, 2nd Edition, Tata McGraw Hill Publication, 2002, ISBN 0 – 07 – 048677 – 8. e-Books Introduction to Computer Graphics by David J. Eck (Open Textbook Library https://open.umn.edu/opentextbooks/textbooks/420 )"
+  ]
+ },
+ {
+  "code": "MDM-271-ITT",
+  "name": "Processor Architecture",
+  "hours": 2,
+  "cce": 30,
+  "ese": 70,
+  "credits": 2,
+  "prereq": "Logic Design & Computer Organization",
+  "outcomes": [
+   "Apprehend the fundamentals of PIC Microcontroller",
+   "Students will be able to analyze the difference between microprocessor and microcontroller-based systems.",
+   "Apply embedded C programming to configure and control I/O ports, and implement timer-based applications using polling and interrupt techniques on PIC18 microcontrollers.",
+   "Interface and program external devices with a PIC microcontroller to design functional embedded system solutions.",
+   "Analyze architectural details of ARM processor and apprehend the current trends in Processor Architecture"
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Fundamentals of PIC Microcontroller",
+    "hours": 8,
+    "text": "Introduction Of Microcontroller, Microprocessor Vs Microcontroller, What is PIC Microcontroller, Architecture, Core Components of Microcontroller, Types of PIC Microcontrollers, Development Tools, Programming Languages for PIC Microcontroller, Typical Applications of PIC Microcontroller."
+   },
+   {
+    "roman": "II",
+    "title": "PIC Microcontroller Architecture",
+    "hours": 8,
+    "text": "Introduction to microcontroller, Criteria for selection of microcontroller, Features and architecture, Comparison of PIC 18 series microcontrollers; Details of Pins, Pin Diagram PIC 18 internal Architecture: ALU, EEPROM, RAM, IO Ports, Timer, ADC, Serial port PIC18 microcontroller programming model, Bus architecture Registers of PIC18F, Interrupts of PIC18F Program memory and data memory organization"
+   },
+   {
+    "roman": "III",
+    "title": "PIC I/O Ports Timer, Counter",
+    "hours": 8,
+    "text": "I/O Port Programming in PIC18 Microcontroller (Structure and configuration of I/O Ports (PORTx, TRISx, LATx) , Bit-level I/O Control and Manipulation (Bitwise operations), Programming examples using Embedded C ), Timers and Counters in PIC18 Microcontroller (Timer/Counter modules (Timer0, Timer1, etc.) and associated Registers, Delay Generation using Timers, Timer Programming in Embedded C)"
+   },
+   {
+    "roman": "IV",
+    "title": "PIC Interfacing",
+    "hours": 8,
+    "text": "Interrupt: Interrupt Structure of PIC18F with SFR, PORTB change Interrupts, use of timers with interrupts CCP modes: Capture, Compare and PWM generation, DC Motor speed control with CCP, Block diagram of in-built ADC with Control registers, Sensor interfacing using ADC: All programs in embedded C. Interfacing of LED, Interfacing 16X2 LCD and Key board, 7-segment display interfacing, Interfacing Relay & Buzzer. Basics of Serial communication protocols: Study of RS232, I2C, SPI, UART, Serial communication programming using Embedded C."
+   },
+   {
+    "roman": "V",
+    "title": "Current Trends in Processor Architecture",
+    "hours": 8,
+    "text": "ARM & RISC: ARM and RISC design philosophy, Introduction to ARM processor & its versions, Features & advantages of ARM processor, Suitability of ARM processor in embedded applications, Programmers model. CPSR registers, Difference between PIC and ARM,Improving performance current techniques of processor architectures"
+   }
+  ],
+  "links": [
+   "https://onlinecourses.nptel.ac.in/noc22_ee12/preview"
+  ],
+  "textBooks": [
+   "Muhammad Ali Mazidi, Danny Causey, RolinMcKinlay, “PIC Microcontroller and Embedded Systems: Using Assembly and C for PIC18”, 4th Edition by, Pearson international edition"
+  ],
+  "refBooks": [
+   "Peatman, John B, “Design with PIC Microcontroller”, Pearson Education PTE",
+   "Ramesh Gaonkar, “Fundamentals of Microcontrollers and Applications in Embedded Systems (with the PIC18 Microcontroller Family)” Thomson/Delmar Learning; 1 edition (January 8, 2007), ISBN:978-1401879143",
+   "Microchip’s PIC18FXXX Data Sheet"
+  ]
+ }
+]

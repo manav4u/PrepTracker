@@ -39,6 +39,11 @@ MOTIFS.elec = R => <>
     <circle cx="6" cy="24" r="4" fill={R} /><circle cx="140" cy="24" r="4" fill="none" stroke={R} strokeWidth="1.5" />
     <path d="M160 24 q12 -18 24 0 t24 0 t24 0 t24 0" stroke={D} strokeWidth="1.5" fill="none" />
     <path d="M260 24 H600" stroke="#3a1620" strokeWidth="1.5" strokeDasharray="2 7" /></>;
+MOTIFS.it = R => <>
+    {[[14, 24], [60, 8], [60, 40], [110, 24]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r="4" fill={i === 0 ? R : 'none'} stroke={i === 0 ? R : D} strokeWidth="1.5" />)}
+    <path d="M18 22 L56 10 M18 26 L56 38 M64 10 L106 22 M64 38 L106 26 M64 10 L64 36" stroke={D} strokeWidth="1.2" fill="none" />
+    <rect x="130" y="19" width="10" height="10" rx="2" fill={R} /><rect x="146" y="19" width="10" height="10" rx="2" fill="none" stroke={D} strokeWidth="1.5" /><rect x="162" y="19" width="10" height="10" rx="2" fill="none" stroke={D} strokeWidth="1.5" />
+    <path d="M190 24 H600" stroke="#3a1620" strokeWidth="1.5" strokeDasharray="2 7" /></>;
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
 const sectionCss = `.crs{display:grid;gap:10px;margin:14px 0}.crs a{display:flex;justify-content:space-between;gap:12px;align-items:baseline;text-decoration:none;border:1px solid #222;background:#101010;border-radius:14px;padding:14px 16px;color:#fff}.crs a:hover{border-color:#e11d48}.crs small{color:#888;font:500 11px/1.3 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}.utext{margin:10px 0 0;color:#ccc;font-size:15px}.src li{margin:6px 0;word-break:break-word}`;
 
