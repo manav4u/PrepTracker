@@ -3,6 +3,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { User, RotateCcw, Trash2, Terminal, AlertTriangle, Upload, Download, HardDrive, Check, AlertOctagon, Loader2, ScanLine, Save } from 'lucide-react';
 import { SUBJECTS } from '../constants';
 import { useData } from '../context/DataContext';
+import { createBackup, parseBackup, readState, restoreBackup, rollbackRestore, KEYS as KEYS_FOR_RESET, ROLLBACK_KEY, MAX_BYTES } from '../lib/backup.mjs';
 
 // --- MICRO-COMPONENTS ---
 
@@ -27,11 +28,25 @@ const Toast = ({ message, type, onClose }: { message: string, type: 'success' | 
 };
 
 const ConfirmModal = ({ isOpen, title, description, onConfirm, onCancel, isDanger = false }: any) => {
+    const dialogRef = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+      if (!isOpen) return;
+      const previous = document.activeElement as HTMLElement | null;
+      const dialog = dialogRef.current;
+      const controls = () => Array.from(dialog?.querySelectorAll<HTMLButtonElement>('button') || []);
+      controls()[0]?.focus();
+      const key = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') { e.preventDefault(); onCancel(); }
+        if (e.key === 'Tab') { const buttons=controls();const first=buttons[0], last=buttons[buttons.length-1]; if(e.shiftKey && document.activeElement===first){e.preventDefault();last?.focus();} else if(!e.shiftKey && document.activeElement===last){e.preventDefault();first?.focus();} }
+      };
+      document.addEventListener('keydown', key);
+      return () => { document.removeEventListener('keydown', key); previous?.focus(); };
+    }, [isOpen]);
     if (!isOpen) return null;
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
-            <div className={`w-full max-w-md bg-[#050505] border rounded-3xl p-8 shadow-2xl scale-100 animate-in zoom-in-95 duration-200 ${
+            <div ref={dialogRef} role="dialog" aria-modal="true" aria-label={title} className={`max-h-[85vh] overflow-y-auto w-full max-w-md bg-[#050505] border rounded-3xl p-8 shadow-2xl scale-100 animate-in zoom-in-95 duration-200 ${
                 isDanger ? 'border-red-500/30' : 'border-white/10'
             }`}>
                 <div className="flex items-center gap-3 mb-6">
@@ -69,12 +84,14 @@ const ConfirmModal = ({ isOpen, title, description, onConfirm, onCancel, isDange
 // --- MAIN COMPONENT ---
 
 const SettingsPage: React.FC = () => {
-  const { profile, setProfile, clearAllData, refreshData } = useData();
+  const { profile, setProfile } = useData();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [dragActive, setDragActive] = useState(false);
+  const [pendingBackup, setPendingBackup] = useState<any>(null);
+  const [hasRollback] = useState(() => !!localStorage.getItem(ROLLBACK_KEY));
 
-  if (!profile) return null;
+
   
   // State for Micro-interactions
   const [toast, setToast] = useState<{ message: string, type: 'success' | 'error' } | null>(null);
@@ -114,7 +131,7 @@ const SettingsPage: React.FC = () => {
           
           // Critical Operation: Hard Reset sequence
           setTimeout(() => {
-             clearAllData();
+             [...Object.values(KEYS_FOR_RESET), ROLLBACK_KEY, 'sppu_user_progress'].forEach(key => localStorage.removeItem(key));
              // Force reload to root to prevent hash router ghosts
              window.location.reload();
           }, 1500);
@@ -125,29 +142,7 @@ const SettingsPage: React.FC = () => {
 
   const exportData = () => {
       try {
-          const rawProfile = localStorage.getItem('sppu_profile');
-          const rawProgress = localStorage.getItem('sppu_user_progress');
-          const rawMarks = localStorage.getItem('sppu_calculator_marks');
-          const rawResources = localStorage.getItem('sppu_custom_resources');
-          const rawTasks = localStorage.getItem('sppu_tasks');
-
-          const payload = {
-              profile: rawProfile ? JSON.parse(rawProfile) : null,
-              progress: rawProgress ? JSON.parse(rawProgress) : [],
-              marks: rawMarks ? JSON.parse(rawMarks) : {},
-              resources: rawResources ? JSON.parse(rawResources) : [],
-              tasks: rawTasks ? JSON.parse(rawTasks) : []
-          };
-
-          const backup = {
-              metadata: {
-                  version: "3.1.0",
-                  timestamp: new Date().toISOString(),
-                  type: "SPPU_PREPTRACKER_LOCAL_BACKUP",
-                  agent: navigator.userAgent
-              },
-              data: payload
-          };
+          const backup = createBackup(localStorage);
 
           const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
           const url = URL.createObjectURL(blob);
@@ -167,69 +162,25 @@ const SettingsPage: React.FC = () => {
   };
 
   const validateAndRestore = (content: string) => {
-      // ACTIVATE LOCKOUT MODE
-      setIsBusy({ active: true, message: 'CHECKING BACKUP...' });
-
-      setTimeout(() => {
-        try {
-            const parsed = JSON.parse(content);
-            let restored = false;
-
-            // Helper to check critical profile structure to prevent app crash
-            const isValidProfile = (p: any) => p && Array.isArray(p.selectedSubjects) && typeof p.name === 'string';
-
-            // STRATEGY 1: New Standard (Metadata wrapped)
-            if (parsed.metadata && parsed.data) {
-                const { profile: p, progress, marks, resources, tasks } = parsed.data;
-                if (isValidProfile(p)) {
-                    localStorage.setItem('sppu_profile', JSON.stringify(p));
-                    if (progress) localStorage.setItem('sppu_user_progress', JSON.stringify(progress));
-                    if (marks) localStorage.setItem('sppu_calculator_marks', JSON.stringify(marks));
-                    if (resources) localStorage.setItem('sppu_custom_resources', JSON.stringify(resources));
-                    if (tasks) localStorage.setItem('sppu_tasks', JSON.stringify(tasks));
-                    restored = true;
-                }
-            } 
-            // STRATEGY 2: Legacy/Raw Object
-            else if (parsed.profile) {
-                 const p = typeof parsed.profile === 'string' ? JSON.parse(parsed.profile) : parsed.profile;
-                 
-                 if (isValidProfile(p)) {
-                     localStorage.setItem('sppu_profile', JSON.stringify(p));
-                     if (parsed.progress) localStorage.setItem('sppu_user_progress', typeof parsed.progress === 'string' ? parsed.progress : JSON.stringify(parsed.progress));
-                     if (parsed.marks) localStorage.setItem('sppu_calculator_marks', typeof parsed.marks === 'string' ? parsed.marks : JSON.stringify(parsed.marks));
-                     if (parsed.resources) localStorage.setItem('sppu_custom_resources', typeof parsed.resources === 'string' ? parsed.resources : JSON.stringify(parsed.resources));
-                     if (parsed.tasks) localStorage.setItem('sppu_tasks', typeof parsed.tasks === 'string' ? parsed.tasks : JSON.stringify(parsed.tasks));
-                     restored = true;
-                 }
-            }
-
-            if (restored) {
-                setIsBusy({ active: true, message: 'RESTARTING APP...' });
-                refreshData();
-                setTimeout(() => {
-                    setIsBusy({ active: false, message: '' });
-                    showToast("Backup Restored", 'success');
-                    window.location.reload();
-                }, 1000);
-            } else {
-                setIsBusy({ active: false, message: '' });
-                showToast("Error: Invalid Backup Structure", 'error');
-            }
-        } catch (e) {
-            console.error(e);
-            setIsBusy({ active: false, message: '' });
-            showToast("Error: Corrupt File Data", 'error');
-        }
-      }, 1000);
+      try { setPendingBackup(parseBackup(content, readState(localStorage))); }
+      catch (e) { showToast(e instanceof Error ? e.message : 'Invalid backup', 'error'); }
+  };
+  const confirmRestore = () => {
+      try { restoreBackup(localStorage, pendingBackup.data); window.location.reload(); }
+      catch (e) { setPendingBackup(null); showToast(e instanceof Error ? e.message : 'Restore failed', 'error'); }
+  };
+  const readBackupFile = (file: File) => {
+      if (file.size > MAX_BYTES) { showToast('Backup exceeds the 5 MB limit.', 'error'); return; }
+      const reader = new FileReader();
+      reader.onerror = () => showToast('Could not read this file. Nothing changed.', 'error');
+      reader.onload = e => validateAndRestore(String(e.target?.result || ''));
+      reader.readAsText(file);
   };
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
       const file = e.target.files?.[0];
       if (!file) return;
-      const reader = new FileReader();
-      reader.onload = (ev) => validateAndRestore(ev.target?.result as string);
-      reader.readAsText(file);
+      readBackupFile(file);
       // Reset input
       if (fileInputRef.current) fileInputRef.current.value = '';
   };
@@ -251,14 +202,14 @@ const SettingsPage: React.FC = () => {
       if (e.dataTransfer.files && e.dataTransfer.files[0]) {
           const file = e.dataTransfer.files[0];
           if (file.type === "application/json" || file.name.endsWith('.json')) {
-              const reader = new FileReader();
-              reader.onload = (ev) => validateAndRestore(ev.target?.result as string);
-              reader.readAsText(file);
+              readBackupFile(file);
           } else {
               showToast("Invalid File Type. JSON Required.", 'error');
           }
       }
   };
+
+  if (!profile) return null;
 
   const selectedSubjectsList = SUBJECTS.filter(s => profile.selectedSubjects.includes(s.id));
 
@@ -298,6 +249,9 @@ const SettingsPage: React.FC = () => {
         isDanger={modalConfig.type === 'FORMAT'}
       />
 
+      <ConfirmModal isOpen={!!pendingBackup} title="Replace saved data?"
+        description={pendingBackup ? `${pendingBackup.data.profile?.name || 'No profile'}: ${pendingBackup.data.progress.length} unit records, ${pendingBackup.data.tasks.length} tasks, ${pendingBackup.data.resources.length} custom resources, ${pendingBackup.data.hiddenResourceIds.length} hidden resources, ${Object.keys(pendingBackup.data.marks).length} marks rows. This replaces saved data in this browser. A rollback snapshot is kept. ${pendingBackup.warnings.join(' ')}` : ''}
+        onConfirm={confirmRestore} onCancel={() => setPendingBackup(null)} isDanger />
       {/* Background Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none -z-10"></div>
 
@@ -435,11 +389,11 @@ const SettingsPage: React.FC = () => {
                            <Save size={16} /> Data Portability
                         </h3>
                         <p className="text-xs text-slate-500 font-mono leading-relaxed mb-6">
-                            Export your entire state to a local JSON file.
+                            Saved in this browser, not cloud-synced or app-encrypted. Export profile, unit progress, marks, tasks, custom resources and hidden resources. Keep the file private; clearing browser data can remove your saved work.
                         </p>
                         
                         <div className="space-y-4">
-                            <div 
+                            <button type="button" aria-label="Choose a backup JSON file"
                                 onDragEnter={handleDrag} 
                                 onDragLeave={handleDrag} 
                                 onDragOver={handleDrag} 
@@ -463,7 +417,7 @@ const SettingsPage: React.FC = () => {
                                         </p>
                                     </div>
                                 </div>
-                            </div>
+                            </button>
                             <input 
                               type="file" 
                               ref={fileInputRef} 
@@ -472,6 +426,7 @@ const SettingsPage: React.FC = () => {
                               accept=".json"
                             />
                             
+                            {hasRollback && <button onClick={() => { if(window.confirm('Restore the saved pre-import snapshot? Current data will become the next rollback snapshot.')) { try { rollbackRestore(localStorage); window.location.reload(); } catch(e) { showToast(e instanceof Error ? e.message : 'Rollback failed', 'error'); } } }} className="w-full py-3 border border-white/20 rounded-lg text-sm">Undo last restore</button>}
                             <button 
                               onClick={exportData}
                               className="w-full py-3 bg-white/5 border border-white/10 text-white font-bold uppercase text-[10px] tracking-[0.2em] rounded-lg hover:bg-white hover:text-black transition-all flex items-center justify-center gap-2"

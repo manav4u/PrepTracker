@@ -2,6 +2,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { Profile, UserProgress, Task, ResourceItem } from '../types';
 import { SYSTEM_RESOURCES } from '../constants';
+import { KEYS } from '../lib/backup.mjs';
 
 interface DataContextType {
   profile: Profile | null;
@@ -20,7 +21,7 @@ const DataContext = createContext<DataContextType | undefined>(undefined);
 export const DataProvider = ({ children }: { children: ReactNode }) => {
   const [profile, setProfileState] = useState<Profile | null>(() => {
     try {
-      const saved = localStorage.getItem('sppu_profile');
+      const saved = localStorage.getItem(KEYS.profile);
       return saved ? JSON.parse(saved) : null;
     } catch (e) {
       console.error("Failed to parse profile from local storage", e);
@@ -30,7 +31,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
 
   const [userProgress, setUserProgressState] = useState<UserProgress[]>(() => {
     try {
-      const saved = localStorage.getItem('sppu_progress');
+      const saved = localStorage.getItem(KEYS.progress);
       return saved ? JSON.parse(saved) : [];
     } catch (e) {
         console.error("Failed to parse progress from local storage", e);
@@ -40,7 +41,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
 
   const [tasks, setTasksState] = useState<Task[]>(() => {
     try {
-      const saved = localStorage.getItem('sppu_tasks');
+      const saved = localStorage.getItem(KEYS.tasks);
       return saved ? JSON.parse(saved) : [];
     } catch (e) {
         console.error("Failed to parse tasks from local storage", e);
@@ -50,7 +51,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
 
   const [customResources, setCustomResources] = useState<ResourceItem[]>(() => {
     try {
-      const saved = localStorage.getItem('sppu_custom_resources');
+      const saved = localStorage.getItem(KEYS.resources);
       return saved ? JSON.parse(saved) : [];
     } catch (e) {
         console.error("Failed to parse custom resources from local storage", e);
@@ -60,7 +61,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
 
   const [deletedResourceIds, setDeletedResourceIds] = useState<string[]>(() => {
     try {
-      const saved = localStorage.getItem('sppu_deleted_system_ids');
+      const saved = localStorage.getItem(KEYS.hiddenResourceIds);
       return saved ? JSON.parse(saved) : [];
     } catch (e) {
         console.error("Failed to parse deleted resource ids from local storage", e);
@@ -76,23 +77,23 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
 
   // Persistence Effects
   useEffect(() => {
-    if (profile) localStorage.setItem('sppu_profile', JSON.stringify(profile));
+    if (profile) localStorage.setItem(KEYS.profile, JSON.stringify(profile));
   }, [profile]);
 
   useEffect(() => {
-    localStorage.setItem('sppu_progress', JSON.stringify(userProgress));
+    localStorage.setItem(KEYS.progress, JSON.stringify(userProgress));
   }, [userProgress]);
 
   useEffect(() => {
-    localStorage.setItem('sppu_tasks', JSON.stringify(tasks));
+    localStorage.setItem(KEYS.tasks, JSON.stringify(tasks));
   }, [tasks]);
 
   useEffect(() => {
-    localStorage.setItem('sppu_custom_resources', JSON.stringify(customResources));
+    localStorage.setItem(KEYS.resources, JSON.stringify(customResources));
   }, [customResources]);
 
   useEffect(() => {
-    localStorage.setItem('sppu_deleted_system_ids', JSON.stringify(deletedResourceIds));
+    localStorage.setItem(KEYS.hiddenResourceIds, JSON.stringify(deletedResourceIds));
   }, [deletedResourceIds]);
 
 
