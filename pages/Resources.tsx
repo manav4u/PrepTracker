@@ -387,15 +387,15 @@ const Resources: React.FC = () => {
             {/* System Status Indicators */}
             <div className="flex gap-4 lg:gap-8">
                 <div className="text-right">
-                    <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mb-1">Encryption</p>
-                    <p className="text-xs font-bold text-white font-mono">AES-256</p>
+                    <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mb-1">Storage</p>
+                    <p className="text-xs font-bold text-white font-mono">This browser</p>
                 </div>
                 <div className="text-right">
-                    <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mb-1">Uptime</p>
-                    <p className="text-xs font-bold text-[#E11D48] font-mono">99.9%</p>
+                    <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mb-1">Cloud sync</p>
+                    <p className="text-xs font-bold text-[#E11D48] font-mono">Not enabled</p>
                 </div>
                 <div className="text-right">
-                    <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mb-1">Nodes</p>
+                    <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mb-1">Saved links</p>
                     <p className="text-xs font-bold text-white font-mono">{resources.length}</p>
                 </div>
             </div>

@@ -167,18 +167,8 @@ const SubjectDetail: React.FC = () => {
             </h1>
           </div>
           <div className="flex gap-4 w-full lg:w-auto shrink-0">
-            <button 
-              onClick={() => setComingSoon('Syllabus Database')}
-              className="flex-1 lg:flex-none px-8 py-4 rounded-xl border border-white/10 text-[10px] font-bold uppercase tracking-[0.2em] text-white hover:bg-white hover:text-black transition-all"
-            >
-              Syllabus PDF
-            </button>
-            <button 
-              onClick={() => setComingSoon('Assessment Engine')}
-              className="flex-1 lg:flex-none px-8 py-4 rounded-xl bg-[#E11D48] text-white text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-[#be123c] transition-all shadow-xl shadow-red-900/20"
-            >
-              Quick Test
-            </button>
+            <a href="http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/FE%202024%20Pattern%20Syllabus%20-%2016%20July%202024%20(1).pdf" target="_blank" rel="noopener noreferrer" className="flex-1 lg:flex-none px-6 py-4 rounded-xl border border-white/10 text-xs font-bold text-white hover:bg-white hover:text-black transition-all">Official syllabus PDF</a>
+            <span className="flex-1 lg:flex-none px-6 py-4 text-xs text-slate-400">Quick Test: planned</span>
           </div>
         </div>
       </div>
@@ -253,11 +243,11 @@ const SubjectDetail: React.FC = () => {
                        </div>
                     )}
 
-                    {/* Functional PYQ Tracker */}
+                    {/* Functional PYQ completion log */}
                     <div className="flex flex-col gap-3">
                        <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest flex items-center gap-2">
-                          <FileQuestion size={12} /> PYQ Tracker
-                       </span>
+                          <FileQuestion size={12} /> PYQ completion log
+                       </span><p className="text-xs text-slate-400 mb-3">Year buttons record your own practice only. No paper is attached; these years are not mapped to this syllabus pattern.</p>
                        <div className="grid grid-cols-3 gap-3">
                          {['2022', '2023', '2024'].map(year => {
                            const isSolved = completedPyqs.includes(year);
@@ -291,20 +281,10 @@ const SubjectDetail: React.FC = () => {
 
         {/* Sidebar */}
         <div className="lg:col-span-4 space-y-6">
-           <div className="p-8 rounded-3xl bg-gradient-to-br from-[#E11D48]/10 to-transparent border border-[#E11D48]/20 text-center relative overflow-hidden">
-              <div className="relative z-10">
-                <BrainCircuit size={32} className="mx-auto text-[#E11D48] mb-6" />
-                <h3 className="text-xl font-display font-bold text-white mb-2 tracking-tight">AI Assistant</h3>
-                <p className="text-sm text-slate-400 mb-8 font-medium leading-relaxed">Ask questions about {subject.name} and get instant answers sourced from approved textbooks.</p>
-                <button 
-                    onClick={() => setComingSoon('AI Study Assistant')}
-                    className="w-full py-4 rounded-xl bg-white text-black font-bold uppercase text-[10px] tracking-[0.25em] hover:scale-[1.02] transition-transform shadow-lg shadow-white/10"
-                >
-                    Open Neural Chat
-                </button>
-              </div>
+           <div className="p-6 rounded-3xl border border-white/10">
+             <h3 className="text-lg font-bold text-white mb-2">AI tutor: planned</h3>
+             <p className="text-sm text-slate-400">Not available in this release. Use the official syllabus and linked resources below.</p>
            </div>
-
            <div className="p-8 rounded-3xl bg-[#0a0a0a] border border-white/5 min-h-[300px]">
               <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-6 px-1 flex items-center justify-between">
                 Recommended Resources

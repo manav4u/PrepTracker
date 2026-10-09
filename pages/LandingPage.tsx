@@ -92,9 +92,9 @@ const LandingPage: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="max-w-2xl mx-auto text-lg md:text-xl text-slate-400 font-light mb-12 leading-relaxed"
           >
-            The definitive operating system for engineering students.
+            A local-first study tracker and sourced SPPU syllabus reference.
             Manage syllabus coverage, access curated resources, and track critical deadlines.
-            Zero fluff. Pure efficiency.
+            The interactive tracker currently supports First Year courses.
           </motion.p>
 
           <motion.div
@@ -107,7 +107,7 @@ const LandingPage: React.FC = () => {
               to="/onboarding"
               className="w-full sm:w-auto px-8 py-4 bg-[#E11D48] text-white font-bold rounded-lg hover:bg-[#be123c] transition-all flex items-center justify-center gap-2 group"
             >
-              Initialize System <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              Choose my subjects <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <a
               href="#syllabus"
@@ -133,11 +133,11 @@ const LandingPage: React.FC = () => {
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">Precision Syllabus Tracking.</h2>
             <p className="text-slate-400 text-lg leading-relaxed mb-8">
-              Forget scrolling through PDFs. We've digitized the entire SPPU 2024 syllabus into interactive modules.
-              Mark units as "Pending," "In Progress," or "Mastered" and visualize your completion rate in real-time.
+              Forget scrolling through PDFs. Browse sourced FE, SE and TE syllabus pages. The interactive dashboard currently tracks FE subjects.
+              Mark units as "Pending," "In Progress," or "Done" and visualize your completion rate in real-time.
             </p>
             <ul className="space-y-4">
-              {['Unit-wise Breakdown', 'Real-time Velocity Metrics', 'Revision Status Indicators'].map((item, i) => (
+              {['Unit-wise Breakdown', 'Saved Unit Progress', 'Self-reported Status'].map((item, i) => (
                 <li key={i} className="flex items-center gap-3 text-slate-300">
                   <div className="w-1.5 h-1.5 bg-[#E11D48] rounded-full"></div>
                   {item}
@@ -161,7 +161,7 @@ const LandingPage: React.FC = () => {
               </div>
               <div className="space-y-4">
                 {[
-                  { name: "Unit 1: Linear Algebra", status: "Mastered", color: "bg-green-500" },
+                  { name: "Unit 1: Linear Algebra", status: "Done", color: "bg-green-500" },
                   { name: "Unit 2: Calculus", status: "In Progress", color: "bg-yellow-500" },
                   { name: "Unit 3: Statistics", status: "Pending", color: "bg-slate-700" }
                 ].map((unit, i) => (
@@ -190,11 +190,12 @@ const LandingPage: React.FC = () => {
           >
             <div className="absolute inset-0 bg-blue-600 blur-[100px] opacity-10 rounded-full"></div>
             <div className="relative bg-[#0a0a0a] border border-white/10 rounded-xl p-6 shadow-2xl">
+               <p className="text-xs text-slate-400 mb-4">Example resource types, not a coverage guarantee</p>
                <div className="grid grid-cols-2 gap-4">
                   {[
-                    { icon: FileText, label: "PYQ Papers", count: "2019-2023" },
-                    { icon: BookOpen, label: "Notes", count: "All Units" },
-                    { icon: Code2, label: "Lab Manuals", count: "Verified" },
+                    { icon: FileText, label: "Official PDFs", count: "Source links" },
+                    { icon: BookOpen, label: "Your links", count: "Add resources" },
+                    { icon: Code2, label: "Lectures", count: "Selected FE" },
                     { icon: ExternalLink, label: "Reference", count: "Standard" }
                   ].map((item, i) => (
                     <div key={i} className="p-4 bg-white/5 border border-white/5 rounded-lg hover:border-white/20 transition-colors group">
@@ -219,11 +220,10 @@ const LandingPage: React.FC = () => {
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">The Resource Vault.</h2>
             <p className="text-slate-400 text-lg leading-relaxed mb-8">
-              Stop hunting for study materials in random WhatsApp groups. The Vault aggregates high-quality notes,
-              previous year question papers (PYQs), and decoded answers into one centralized repository.
+              Keep official documents, selected lecture links and your own resource URLs together. Paper and solution coverage is limited; empty categories do not contain hidden materials.
             </p>
             <ul className="space-y-4">
-              {['One-click Downloads', 'Subject-specific Sorting', 'Verified Content Only'].map((item, i) => (
+              {['Open source links', 'Subject filters', 'Add your own links'].map((item, i) => (
                 <li key={i} className="flex items-center gap-3 text-slate-300">
                   <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
                   {item}
@@ -306,9 +306,9 @@ const LandingPage: React.FC = () => {
          <div className="max-w-4xl mx-auto text-center relative z-10">
             <h2 className="text-5xl md:text-6xl font-bold text-white mb-8 tracking-tighter">Ready to Deploy?</h2>
             <p className="text-xl text-slate-400 mb-12 max-w-2xl mx-auto">
-               Join thousands of students optimizing their engineering journey.
+               Start with your subjects and keep a small record of your preparation.
                <br />
-               No account required. Data stays on your device.
+               No account required. Study data is saved in this browser; export a backup before clearing browser data.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
                 <Link
@@ -328,11 +328,7 @@ const LandingPage: React.FC = () => {
               <div className="w-5 h-5 bg-[#E11D48] rounded flex items-center justify-center text-white text-[10px] font-bold">PT</div>
               <span className="font-semibold text-slate-300">PrepTracker</span>
            </div>
-           <div className="flex gap-6">
-              <span className="hover:text-white cursor-pointer transition-colors">Privacy</span>
-              <span className="hover:text-white cursor-pointer transition-colors">Terms</span>
-              <span className="hover:text-white cursor-pointer transition-colors">Contact</span>
-           </div>
+           <p className="text-xs max-w-md">Study records stay in this browser. Resource providers have their own policies. PrepTracker is independent, not an SPPU service.</p>
            <div className="font-mono text-xs">
               © 2024 • Local-First Architecture
            </div>
