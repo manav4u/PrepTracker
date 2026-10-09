@@ -15,6 +15,7 @@ import {
   HardDrive
 } from 'lucide-react';
 import Dashboard from './pages/Dashboard';
+import Directory from './pages/Directory';
 import SubjectDetail from './pages/SubjectDetail';
 import Resources from './pages/Resources';
 import CalculatorPage from './pages/Calculator';
@@ -118,6 +119,7 @@ export default function App() {
     <ErrorBoundary>
         <Routes>
             {/* PUBLIC ROUTES */}
+            <Route path="/directory" element={<div className="min-h-screen p-6 lg:p-12 bg-[#030303] text-white"><Directory /></div>} />
             <Route path="/landing" element={isSetupComplete ? <Navigate to="/" /> : <LandingPage />} />
             <Route path="/onboarding" element={isSetupComplete ? <Navigate to="/" /> : <Onboarding />} />
 
@@ -138,6 +140,7 @@ export default function App() {
                         </div>
                         <span className="font-bold tracking-widest uppercase text-xs text-white">PrepTracker</span>
                         </div>
+                        <Link to="/directory" className="text-xs text-rose-400">Syllabus</Link>
                         <Link to="/settings" aria-label="Open settings" className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-white/10">
                         <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${profile.name}`} alt="User" />
                         </Link>
@@ -186,7 +189,7 @@ export default function App() {
                         <div className="flex items-center gap-4 text-sm font-medium text-white/40">
                             <span>{new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</span>
                             <span className="w-1 h-1 rounded-full bg-white/20"></span>
-                            <span className="text-[#E11D48]">Engineering Cycle</span>
+                            <Link to="/directory" className="text-[#E11D48]">Browse syllabus</Link>
                         </div>
 
                         <div className="flex items-center gap-4">
