@@ -48,3 +48,14 @@
 - [Data Science syllabus (PCC-252-AID)](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/data-science/)
 - [Probability and Statistics syllabus (PCC-253-AID)](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/probability-and-statistics/)
 - [Embedded Systems syllabus (MDM-271-AID)](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/embedded-systems/)
+
+## Second Year (SE) Electrical Engineering, 2024 pattern
+- [SE Electrical Engineering subjects](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/): theory courses with units, marks, outcomes and books from the official SPPU PDF
+- [Analog and Digital Electronics syllabus (PCC-202-ELE)](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/analog-and-digital-electronics/)
+- [Electrical Machines-I syllabus (PCC-251-ELE)](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/electrical-machines-i/)
+- [Electrical Measurements & Instrumentation syllabus (PCC-201-ELE)](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/electrical-measurements-and-instrumentation/)
+- [Engineering Mathematics-III syllabus (MDM-222-ELE)](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/engineering-mathematics-iii/)
+- [Fundamentals of Data science & Machine Learning syllabus (MDM-272-ELE)](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/fundamentals-of-data-science-and-machine-learning/)
+- [Network Analysis syllabus (PCC-253-ELE)](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/network-analysis/)
+- [Numerical Methods and Computer Programming syllabus (PCC-252-ELE)](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/numerical-methods-and-computer-programming/)
+- [Power System Engineering-I syllabus (PCC-203-ELE)](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/power-system-engineering-i/)

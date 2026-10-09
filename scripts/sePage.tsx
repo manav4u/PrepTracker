@@ -34,6 +34,11 @@ MOTIFS.aids = R => <>
     <path d="M24 10 L66 6 M24 10 L66 24 M24 24 L66 6 M24 24 L66 24 M24 24 L66 42 M24 38 L66 24 M24 38 L66 42" stroke={D} strokeWidth="1" fill="none" />
     <path d="M74 24 H110" stroke={R} strokeWidth="1.5" /><circle cx="120" cy="24" r="5" fill={R} />
     <path d="M140 24 H600" stroke="#3a1620" strokeWidth="1.5" strokeDasharray="2 7" /></>;
+MOTIFS.elec = R => <>
+    <path d="M6 24 H40 L48 8 L60 40 L72 8 L84 40 L92 24 H140" stroke={D} strokeWidth="1.5" fill="none" />
+    <circle cx="6" cy="24" r="4" fill={R} /><circle cx="140" cy="24" r="4" fill="none" stroke={R} strokeWidth="1.5" />
+    <path d="M160 24 q12 -18 24 0 t24 0 t24 0 t24 0" stroke={D} strokeWidth="1.5" fill="none" />
+    <path d="M260 24 H600" stroke="#3a1620" strokeWidth="1.5" strokeDasharray="2 7" /></>;
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
 const sectionCss = `.crs{display:grid;gap:10px;margin:14px 0}.crs a{display:flex;justify-content:space-between;gap:12px;align-items:baseline;text-decoration:none;border:1px solid #222;background:#101010;border-radius:14px;padding:14px 16px;color:#fff}.crs a:hover{border-color:#e11d48}.crs small{color:#888;font:500 11px/1.3 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}.utext{margin:10px 0 0;color:#ccc;font-size:15px}.src li{margin:6px 0;word-break:break-word}`;
 
@@ -58,12 +63,13 @@ const Foot = ({ b }: { b: SeBranch }) => <footer>
 export function renderSeCourse(b: SeBranch, c: SeCourse): string {
   const path = coursePath(b, c);
   const total = c.units.reduce((a, u) => a + u.hours, 0);
+  const consistent = total === c.hours * 15;
   const title = `${c.name} syllabus (${b.short}, SPPU 2024 pattern) - units, marks, books`;
-  const desc = `${c.name} (${c.code}) for SPPU ${b.branch} 2024 pattern: ${c.units.length} units, ${total} hours, ${c.credits} credits, CCE ${c.cce} and end-semester ${c.ese} marks, outcomes and books.`;
+  const desc = `${c.name} (${c.code}) for SPPU ${b.branch} 2024 pattern: ${c.units.length} units${consistent ? `, ${total} hours` : ''}, ${c.credits} credits, CCE ${c.cce} and end-semester ${c.ese} marks, outcomes and books.`;
   const faq: [string, string][] = [
-    [`How many units are in ${c.name}?`, `${c.name} (${c.code}) has ${c.units.length} units and ${total} hours of theory: ${c.units.map(u => `Unit ${u.roman} ${u.title} (${u.hours} h)`).join('; ')}.`],
+    [`How many units are in ${c.name}?`, `${c.name} (${c.code}) has ${c.units.length} units${consistent ? ` and ${total} hours of theory` : ''}: ${c.units.map(u => `Unit ${u.roman} ${u.title} (${u.hours} h)`).join('; ')}.`],
     [`What is the marks scheme for ${c.name}?`, `The official ${b.branch} 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for ${c.cce} marks and the end-semester exam for ${c.ese} marks, for ${c.credits} credits.`],
-    [`What should I know before ${c.name}?`, `Prerequisite listed in the syllabus: ${c.prereq}.`],
+    ...(c.prereq ? [[`What should I know before ${c.name}?`, `Prerequisite listed in the syllabus: ${c.prereq}.`] as [string, string]] : []),
   ];
   const page = (
     <html lang="en"><head>
@@ -79,8 +85,8 @@ export function renderSeCourse(b: SeBranch, c: SeCourse): string {
       <h1>{c.name} syllabus</h1>
       <p className="lead">{c.code} · Second Year {b.branch}, SPPU 2024 pattern. Every unit, the marks scheme, course outcomes and books, copied from the official syllabus PDF.</p>
       <div className="chips"><span className="chip">{c.code}</span><span className="chip">{c.hours} h/week theory</span><span className="chip">CCE {c.cce} + End-sem {c.ese}</span></div>
-      <div className="stats">
-        <div className="stat"><b>{total}</b><span>hours of theory</span></div>
+      <div className="stats" style={consistent ? undefined : { gridTemplateColumns: 'repeat(2,1fr)' }}>
+        {consistent && <div className="stat"><b>{total}</b><span>hours of theory</span></div>}
         <div className="stat"><b>{String(c.units.length).padStart(2, '0')}<i>.</i></b><span>units</span></div>
         <div className="stat"><b>{String(c.credits).padStart(2, '0')}<i>.</i></b><span>credits</span></div>
       </div>
@@ -96,7 +102,7 @@ export function renderSeCourse(b: SeBranch, c: SeCourse): string {
       <table><thead><tr><th>Head</th><th>Marks</th><th>Credit</th></tr></thead><tbody>
         <tr><td>CCE (continuous comprehensive evaluation)</td><td>{c.cce}</td><td rowSpan={2}>{c.credits}</td></tr>
         <tr><td>End-semester exam</td><td>{c.ese}</td></tr></tbody></table>
-      <p>Prerequisite: {c.prereq}.</p>
+      {c.prereq && <p>Prerequisite: {c.prereq}.</p>}
       <h2>Course outcomes</h2>
       <ol className="co">{c.outcomes.map((o, i) => <li key={i}><b>CO{i + 1}</b>{o}</li>)}</ol>
       <h2>Books</h2>

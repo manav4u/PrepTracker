@@ -1,0 +1,514 @@
+[
+ {
+  "code": "PCC-201-ELE",
+  "name": "Electrical Measurements & Instrumentation",
+  "hours": 3,
+  "cce": 30,
+  "ese": 70,
+  "credits": 3,
+  "prereq": "Fundamentals of Electrical and Electronics Engineering",
+  "outcomes": [
+   "Classify the measuring instruments along with extension of range of ammeter, voltmeter & wattmeter using CT and PT.",
+   "Measure the resistance, inductance and capacitance of a given electrical system.",
+   "Measure the active/reactive power of a given electrical three-phase and single-phase system using 1-Wattmeter & 2-wattmeters.",
+   "Analyze different measuring methods and transducers for electrical and physical quantity measurements.",
+   "Analyze the given electrical network by measuring voltage, current, frequency, power, energy using power quality analyser & DSO."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Measuring Instruments and Instrument Transformer",
+    "hours": 8,
+    "text": "Measuring Instruments: Classification of instruments: absolute and secondary instruments. Types of secondary instruments: indicating, integrating, and recording. Essentials in indicating instruments: deflecting, controlling and damping systems. Construction, working principle, torque equation, advantages and disadvantages of Permanent Magnet Moving Coil (PMMC) and Moving Iron (MI) instruments. Instrument Transformers: Construction, connection of CT & PT in the circuit, advantages and need of CT / PT for range extension of MI Instruments, effect of sudden open circuit on current transformer. Transformation ratio, Turns ratio, Nominal ratio, Burden."
+   },
+   {
+    "roman": "II",
+    "title": "Measurement of Resistance, Inductance and Capacitance",
+    "hours": 8,
+    "text": "Measurement of Resistance: Classification of resistances. Measurement of low resistance by Kelvin Double Bridge and Ammeter-voltmeter method. Measurement of medium resistance by Wheatstone bridge. Measurement of high resistance by loss of charge method and Megger. Measurement of Inductance and Capacitance: Sources and detectors for A.C. bridge, general equation for bridge balance, Maxwell’s Inductance Bridge, Maxwell’s Inductance – Capacitance Bridge, Schering Bridge. Numerical on DC and AC bridges."
+   },
+   {
+    "roman": "III",
+    "title": "Measurement of Power and Energy",
+    "hours": 8,
+    "text": "Measurement of Power: Construction, working principle, torque equation, errors and their compensation, advantages and disadvantages of dynamometer type single phase wattmeter, poly-phase wattmeter, Active & reactive power measurement in a three-phase system for balanced and unbalanced load using one, two and three wattmeter method. Measurement of Energy: Block diagram and operation of single phase and three phase static/digital energy meter. TOD meter. Concept of Net metering. Necessity of Calibration, Calibration of wattmeter & energy meter. Numerical on Calibration of wattmeter & energy meter"
+   },
+   {
+    "roman": "IV",
+    "title": "Transducers and Sensors",
+    "hours": 8,
+    "text": "Transducers: Introduction, classification, basic requirements for transducers selection, and its applications. Pressure Measurement: Introduction, Pressure measurement using electrical methods: resistive, inductive, capacitive. Pressure measurement by McLeod gauge and Pirani gauge. Level Measurement: Introduction and importance of level measurement. Methods of level measurement: resistive, inductive, capacitive, ultrasonic. Measurement of liquid level using float. Displacement Measurement: LVDT & RVDT: construction, working, specifications, advantages and disadvantages, applications. Sensors: Introduction to sensors, Temperature sensor, Hall effect sensor, Piezoelectric sensor"
+   },
+   {
+    "roman": "V",
+    "title": "Digital Instruments",
+    "hours": 8,
+    "text": "Advantages of digital meters over analog meters. Resolution & sensitivity of digital meters. Types of tools used in digital systems. Block diagram and operation of digital Voltmeter, Multimeter, Frequency meter, Power Quality Analyzer and Digital Storage Oscilloscope, Basics of Data Acquisition System (DAS)."
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   "A. K. Sawhney, “A Course in Electrical and Electronic Measurements & Instrumentation”, Dhanpat Rai & Co.",
+   "J. B. Gupta, “A Course in Electronics and Electrical Measurements and Instrumentation”, S. K. Kataria & Sons"
+  ],
+  "refBooks": [
+   "E. W. Golding & F. C. Widdies, “Electrical Measurements & Measuring Instruments”, Reem Publications.",
+   "Dr. Rajendra Prasad, “Electronic Measurements & Instrumentation”, Khanna Publishers.",
+   "Fundamentals of Electrical Measurements by C.T. Baldwin , Publisher- George G.Harrap & Co Ltd",
+   "Problems In Electrical Engineering by Smith S, parker, Asia Publications",
+   "Instrumentation: Devices and Systems by C. Rangan, G Sarma, V.S.V. Mani, McGraw Hill Education"
+  ]
+ },
+ {
+  "code": "PCC-202-ELE",
+  "name": "Analog and Digital Electronics",
+  "hours": 3,
+  "cce": 30,
+  "ese": 70,
+  "credits": 3,
+  "prereq": "Basic Electronics Engineering, Numbering system, Logic Gates and flip flops, Diode and BJT",
+  "outcomes": [
+   "Simplify complex logic expression by using Boolean algebra",
+   "Design logical, sequential and combinational digital circuit using K-Map.",
+   "Apply and analyze applications of OPAMP in open and closed loop conditions.",
+   "Understand different analog circuits e.g. filters, IC555 and voltage regulators",
+   "Design uncontrolled rectifier with given specifications"
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Design of combinational circuit",
+    "hours": 8,
+    "text": "Booleans algebra, Karnaugh map: structure for two, three and four Variables, SOP and POS form reduction of Boolean expressions by K-map. Design of combinational circuits using Boolean expression and K-map, encoder, decoder, half and full adder"
+   },
+   {
+    "roman": "II",
+    "title": "Design of Sequential circuit",
+    "hours": 8,
+    "text": "Introduction to sequential circuits. Design of synchronous (K-map) and asynchronous counters. Up down counters, N modulo counters, shift registers, ring and twisted ring counters"
+   },
+   {
+    "roman": "III",
+    "title": "Operational Amplifier Applications",
+    "hours": 8,
+    "text": "Open loop and close loop configuration of Op-Amp. Applications of Op-Amp zero crossing detectors, Comparator, Schmitt trigger, V-I and I-V converters, Instrumentation amplifier, peak detector, Waveform generation using Op-amp - sine, square, saw tooth and triangular generator"
+   },
+   {
+    "roman": "IV",
+    "title": "Other Analog circuits",
+    "hours": 8,
+    "text": "Active filters-Its configuration with frequency response, Analysis of first order low pass and high pass filters using OPAMP, IC 555 –construction, working and modes of operation- astable and monostable multi vibrators, Sequence generator, voltage regulators using IC78xx, 79xx, LM 317"
+   },
+   {
+    "roman": "V",
+    "title": "Diode rectifier (Uncontrolled Rectifier)",
+    "hours": 8,
+    "text": "Single phase half wave rectifier with R, RL loads. Single phase full wave Rectifier-Centre tap and bridge rectifier supplying R and RL load and performance parameters. Three phase full wave bridge rectifier with R load."
+   }
+  ],
+  "links": [
+   "https://nptel.ac.in/courses/108105132/"
+  ],
+  "textBooks": [
+   "Floyd and Jain, “Digital Fundamentals”, Pearson Education.",
+   "R. P. Jain, “Digital Electronics”, Tata McGraw Hill, New Delhi.",
+   "Malvino, “Digital Computer Electronics- An Introduction to Microcomputers,” Tata McGraw Hill.",
+   "Gaikwad R., “Operational Amplifier”, PHI New Delhi.",
+   "Floyd, “Electronics Devices”, Pearson Education.",
+   "Mottershed, “Electronics Devices & Circuits”, PHI New Delhi",
+   "Muhammad H. Rashid, “Power Electronics: Circuits, Devices and Applications”, 3rd edition, Pearsons",
+   "Fundamental of digital circuits, 4th Edition, by A Anand Kumar, PHI learning private limited publication."
+  ],
+  "refBooks": [
+   "Tokheim, “Digital Electronics-Principles and Application”, 6th edition, Tata McGraw Hill, New Delhi.",
+   "A Jaico and Charles H. Roth, “Fundamentals of Logic Design” Jr. Fourth Edition.",
+   "K. R. Botkar, “Integrated Circuits”, Khanna Publication, New Delhi.",
+   "James, “Operational Amplifier and Linear Integrated Circuits Theory and Application.”",
+   "P John Paul, “Electronics Devices and circuits”, New Age International Publications.",
+   "P. S. Bimbhra, “Power Electronics”, Khanna Publications.",
+   "Digital Principles and Application by Leach & Malvino, McGraw Hill Education",
+   "Foundations of Analog and Digital Electronic Circuits by Agarwal, Publisher"
+  ]
+ },
+ {
+  "code": "PCC-203-ELE",
+  "name": "Power System Engineering-I",
+  "hours": 2,
+  "cce": 30,
+  "ese": 70,
+  "credits": 2,
+  "prereq": "Power Generation, Various insulating materials and properties, Knowledge of fundamentals of electrical circuit components and engineering mathematics.",
+  "outcomes": [
+   "Understand the electrical terminology related to power plant & tariffs used in India.",
+   "Design electrical & mechanical aspects of a given underground cable & overhead transmission line.",
+   "Compute the inductance of a given 3-phase overhead transmission line with symmetrical & unsymmetrical conductor Spacing.",
+   "Evaluate the capacitance of a given 3-phase overhead transmission line with and without considering the earth surface effect.",
+   "Compute the voltage regulation and transmission efficiency of short & medium overhead transmission line using ABCD parameters with T and π model."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Basics of Power Systems and its tariff",
+    "hours": 6,
+    "text": "A) Basics of power systems: Structure of electrical power system, Different factors associated with generating stations such as Connected load, Maximum demand, Demand factor, Average load, Load factor, Diversity factor, Plant capacity factor, Reserve capacity, Plant use factor, Load curve, Load duration curve, Concept of base load and peak load stations, Advantages of interconnected grid system. B) Tariff: Introduction of Tariff, Tariff setting principles, desirable characteristics of tariff, various consumer categories and implemented tariff such as two-part tariff, three-part tariff (Numerical on two-part and three-part tariff), Power factor tariff, Time of day tariff for H.T and L.T industrial and commercial consumers, Introduction to Availability based tariff (ABT), kVAh tariff (Descriptive treatment only)."
+   },
+   {
+    "roman": "II",
+    "title": "Underground Cables, Mechanical Design of Overhead line",
+    "hours": 6,
+    "text": "and its Insulators A) Underground Cables: Overview on Construction and Classification of Cables, Dielectric stresses in single core cable, Importance of grading of cables. B) Mechanical Design of Overhead lines: Main components of overhead lines, Calculation of sag for equal and unequal supports, effect of ice and wind loading (with its numerical). C) Overhead Line Insulators: Types of insulators (Pin type, Post Insulator, Suspension type, Strain type, Shackle type) their construction and their applications. Potential distribution over suspension insulators, String efficiency, (Numerical on string efficiency and up to four discs), Methods of improving string efficiency (Descriptive treatment only)."
+   },
+   {
+    "roman": "III",
+    "title": "Resistance and Inductance of Transmission Line",
+    "hours": 6,
+    "text": "Resistance of transmission line, Skin and proximity effect, Factors responsible for production of Skin and proximity effects, Internal and external flux linkages of single conductor, Inductance of single phase two wire line, Concept of G.M.R and G.M.D, Necessity of transposition, Inductance of three phase line with symmetrical and unsymmetrical spacing with transposition, Inductance of bundled conductors."
+   },
+   {
+    "roman": "IV",
+    "title": "Capacitance of Transmission Line",
+    "hours": 6,
+    "text": "Electric potential at single charged conductor, Potential at conductor in a group of charged conductors, Capacitance of single-phase line (with and without effect of earth’s surface), Concept of G.M.R and G.M.D for capacitance calculations, need of transposition for capacitance calculations, Capacitance of three phase line with symmetrical and unsymmetrical spacing with transposition. Capacitance of double circuit three phase line with symmetrical (without considering earth effect)."
+   },
+   {
+    "roman": "V",
+    "title": "Performance of Transmission Line",
+    "hours": 6,
+    "text": "Classification of lines based on length and voltage levels such as short, medium and long lines, Performance of short transmission lines with voltage current relationship and phasor diagram, Representation of medium lines as 'Nominal П' and 'Nominal T' circuits using R,L and C parameters, Ferranti effect, Representation of 'T' and 'П' models of lines as two port networks, Evaluation and estimation of generalized circuit constants (ABCD) for short and medium lines, Estimation of efficiency and regulation of short and medium lines."
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   "V. K. Mehta, Rohit Mehta, \"Principles of Power System\", S. Chand Publication.",
+   "J. B. Gupta, \"Transmission and Distribution\", S. K. Kataria and Sons, New Delhi.",
+   "J. B. Gupta, \"Generation and Economic Considerations. K. Kataria & Sons, New Delhi.",
+   "Dr. B. R. Gupta, \"Generation of Electrical Energy\", S. Chand Publication.",
+   "A Chakraborty, M. L. Soni, P.V. Gupta, U. S. Bhatnagar, \"A textbook on Power System Engineering\", Dhanpat rai & Co, Delhi.",
+   "S. N. Singh, \"Electric Power Generation, Transmission and Distribution\", Prentice Hall of India."
+  ],
+  "refBooks": [
+   "Nagrath & Kothari, \"Power System Engineering\", Tata McGraw Hill Publications",
+   "D. Das, \"Electrical Power System\", New Age Publication",
+   "W. D. Stevenson, \"Power System Analysis\", Tata McGraw Hill Publications.",
+   "M. V. Deshpande, \"Elements of Power Station Design\", Wheeler Publishing.",
+   "I.J. Nagrath and D. P. Kothari, \"Modern Power System Analysis\", Tata McGraw Hill"
+  ]
+ },
+ {
+  "code": "MDM-222-ELE",
+  "name": "Engineering Mathematics-III",
+  "hours": 3,
+  "cce": 30,
+  "ese": 70,
+  "credits": 3,
+  "prereq": "Differential and Integral calculus, Taylor series, Differential equations of first order and first degree, Fourier series, Vector algebra and Algebra of complex numbers.",
+  "outcomes": [
+   "Solve higher order linear differential equation using appropriate techniques for modelling, analyzing of electrical circuits and control systems.",
+   "Apply Integral transforms such as Laplace transform, Fourier transform and Z-Transform to solve problems related to signal processing and control systems.",
+   "Apply Statistical methods like Correlation, Regression and Probability theory as applicable to analyze and interpret experimental data related to energy management, power systems, testing and quality control.",
+   "Perform Vector differentiation & integration, analyze the vector fields and apply to electro-magnetic fields & wave theory."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Linear Differential Equations (LDE) and Applications",
+    "hours": 8,
+    "text": "LDE of nth order with constant coefficients, Complementary Function, Particular Integral, General method, Short methods, Method of variation of parameters, Cauchy’s and Legendre’s DE, Simultaneous DE. Modeling of Electrical circuits."
+   },
+   {
+    "roman": "II",
+    "title": "Laplace transforms",
+    "hours": 8,
+    "text": "Laplace Transform (LT): Definition of LT, Inverse LT, Properties & theorems, LT of some special functions viz. Periodic, Unit Step, Unit Impulse. Applications of LT for solving LDE."
+   },
+   {
+    "roman": "III",
+    "title": "Fourier and Z - transforms",
+    "hours": 8,
+    "text": "Fourier Transform (FT): Complex exponential form of Fourier series, Fourier integral representation, Fourier Sine & Cosine integrals, Fourier transform, Fourier Sine & Cosine transforms, Fourier Sine & Cosine inverse transforms and applications. Z - Transform (ZT): Introduction, Definition, Standard properties, ZT of standard sequences and their inverses. Applications of Z – transform to solve difference equations."
+   },
+   {
+    "roman": "IV",
+    "title": "Statistics and Probability",
+    "hours": 8,
+    "text": "Measures of central tendency, Measures of dispersion, Coefficient of variation, Moments, Skewness and Kurtosis, Correlation and Regression, Reliability of Regression estimates. Probability, Probability density function, Probability distributions: Binomial, Poisson, Normal, Test of hypothesis: Chi- square test."
+   },
+   {
+    "roman": "V",
+    "title": "Vector Calculus",
+    "hours": 8,
+    "text": "Vector differentiation, Gradient, Divergence and Curl, Directional derivative, Solenoidal and Irrotational fields, Vector identities. Line, Surface and Volume integrals, Green’s Lemma, Gauss’s Divergence theorem and Stoke’s theorem. Applications to problems in Electro-magnetic fields."
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   "Higher Engineering Mathematics by B.V. Ramana (Tata McGraw-Hill).",
+   "Higher Engineering Mathematics by B. S. Grewal (Khanna Publication, Delhi)."
+  ],
+  "refBooks": []
+ },
+ {
+  "code": "PCC-251-ELE",
+  "name": "Electrical Machines-I",
+  "hours": 3,
+  "cce": 30,
+  "ese": 70,
+  "credits": 3,
+  "prereq": "Introduction of Electrical Machines, Magnetic circuit, mutual induced EMF, dynamically induced EMF, Direction of magnetic field in current carrying conductor, Flemings LHR & RHR, Electromechanical energy conversion",
+  "outcomes": [
+   "Compute the voltage regulation and efficiency of a given 1-phase transformer at a specified power factor & load",
+   "Understand the standard connections and parallel operation of 1-phase and 3-phase transformers.",
+   "Calculate the efficiency of a given DC motor",
+   "Compute the losses and efficiency of a given three phase Induction motor",
+   "Evaluate the equivalent circuit parameters by conducting no load and blocked rotor test & performance parameters by drawing circle diagram for a given 3-Phase Induction motor"
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Single Phase Transformer (Part-A)",
+    "hours": 8,
+    "text": "Single phase Transformer: Concept of ideal transformer. Useful and leakage flux, its effects. Resistance, leakage reactance and leakage impedance of transformer windings & their effects on voltage regulation and efficiency. Exact and approximate equivalent circuits referred to L.V. and H. V. side of the transformer. Phasor diagrams for no-load and on- load conditions. Efficiency and condition for maximum efficiency. Concept of all day efficiency. Auto transformers and their applications."
+   },
+   {
+    "roman": "II",
+    "title": "Single Phase and Three Phase Transformer (Part-B)",
+    "hours": 8,
+    "text": "Single phase Transformer: Polarity test. Parallel operation of single-phase transformers, conditions of parallel operations and load sharing. Three Phase Transformers: Standard connections of three phase transformers and their suitability for various applications, voltage Phasor diagrams and vector groups. Descriptive treatment of Parallel operation of three phase transformers Scott connection and V-V connections. Three winding (tertiary windings) transformers."
+   },
+   {
+    "roman": "III",
+    "title": "DC Machines",
+    "hours": 8,
+    "text": "Part A: Types of DC motors, significance of back E.M.F torque equation, working at no-load and on-load. Losses, power flow diagram and efficiency. Starting of DC motors and types of starters, characteristics and speed control of DC shunt and series motor. Emerging Applications of DC Machines (Descriptive treatment only) Part B: Armature reaction and commutation: Concept of magnetizing, demagnetizing & cross magnetizing armature reaction, compensating winding, concept of commutation, value of reactance voltage, methods of improving commutation, resistance commutation, EMF commutation, interpole or compoles. (Descriptive treatment only)"
+   },
+   {
+    "roman": "IV",
+    "title": "Three Phase Induction Motor (Part-A)",
+    "hours": 8,
+    "text": "Construction and types of induction motor, working principle, concept of rotating magnetic field, slip, frequency of rotor emf and rotor currents, mmf produced by rotor currents, its speed w.r.t. rotor and stator mmf. Production of torque, torque equation, torque-slip characteristics, effect of rotor resistance on torque-slip characteristics, condition for maximum torque. Relation between starting torque, full load torque and maximum torque. Losses in three phase induction motor, power- flow diagram, relation between rotor input power, rotor copper loss & gross mechanical power developed, efficiency."
+   },
+   {
+    "roman": "V",
+    "title": "Three Phase Induction Motor (Part-B)",
+    "hours": 8,
+    "text": "Induction motor as a generalized transformer; phasor diagram. Exact & approximate equivalent circuit. No load and blocked rotor tests to determine the equivalent circuit parameters and plotting the circle diagram. Necessity & types of starters for 3-phase induction motors."
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   "Edward Hughes “Electrical Technology”, ELBS, Pearson Education.",
+   "Ashfaq Husain, “Electrical Machines”, Dhanpat Rai& Sons.",
+   "S. K. Bhattacharya, “Electrical Machine”, Tata McGraw Hill publishing Co. Ltd, 2nd Edition.",
+   "Nagrath & Kothari, “Electrical Machines”, Tata McGraw Hill.",
+   "Bhag S Guru, Husein R. Hiziroglu, “Electrical Machines”, Oxford University Press.",
+   "K Krishna Reddy, “Electrical Machines- I and II”, SCITECH Publications (India) Pvt. Ltd. Chennai."
+  ],
+  "refBooks": [
+   "A.E. Clayton and N. N. Hancock, “Performance and Design of Direct Current Machines”, CBS Publishers, Third Edition.",
+   "A.E. Fitzgerald, Charles Kingsley, Stephen D. Umans, “Electrical Machines”, Tata McGraw Hill Publication Ltd., Fifth Edition.",
+   "A.S. Langsdorf, “Theory and performance of DC machines”, Tata McGraw Hill.",
+   "M.G. Say, “Performance and Design of AC. Machines”, CBS Publishers and Distributors.",
+   "Smarajit Ghosh, “Electrical Machines”, Pearson Education, New Delhi.",
+   "Charles I Hubert, “Electrical Machines Theory, Application, & Control”, Pearson Education, New Delhi, Second Edition.",
+   "Direct Current Machines, R K Rajput, Laxmi Publications",
+   "AC Machines, R K Rajput, Laxmi Publications",
+   "e-Books \"Electrical Machines\" by Slobodan N. Vukosavic (Springer Free Access) https://link.springer.com/book/10.1007/978-1-4614-0400-2 \"Electric Machines\" (IIT Kanpur Lecture Notes)"
+  ]
+ },
+ {
+  "code": "PCC-252-ELE",
+  "name": "Numerical Methods and Computer Programming",
+  "hours": 2,
+  "cce": 30,
+  "ese": 70,
+  "credits": 2,
+  "prereq": "Basic Calculus, Linear Algebra, Basic Programming Skills, Basic Electrical Engineering",
+  "outcomes": [
+   "Identify the suitable numerical techniques for solving engineering problems.",
+   "Write Python programs to implement numerical methods for real-time scenarios.",
+   "Apply problem-solving skills in electrical signals & systems and machines.",
+   "Analyze the results and errors for various computational methods.",
+   "Work in teams to build solutions and present projects using Python"
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to Python and Numerical Methods",
+    "hours": 6,
+    "text": "Python Basics: Data types, control statements, loops, functions, modules, file handling. Libraries: Introduction to NumPy, Matplotlib, SymPy and SciPy for scientific computation. Errors in Computation: Round-off and truncation errors and error sources. Overview of Numerical Methods: Need and scope of numerical methods in multidisciplinary domains. Importance in electrical engineering applications (circuit analysis, control systems, electromagnetics, etc.) Integrated Activities: Online module: Python basics via any MOOCs Real-life error examples (e.g., incorrect meter readings)"
+   },
+   {
+    "roman": "II",
+    "title": "Algebraic and Transcendental Equations",
+    "hours": 6,
+    "text": "Bisection Method, False Position (Regula Falsi) Method, Newton-Raphson Method (for one variable), Rate of Convergence and limitations of methods. Engineering Applications: Solving nonlinear equations in electrical circuits (e.g., diode IV characteristics, motor speed equations) Skill Integration: Develop reusable Python modules for root-finding Small group activity: Select and solve an interdisciplinary real-world nonlinear problem"
+   },
+   {
+    "roman": "III",
+    "title": "Systems of Linear Algebraic Equations",
+    "hours": 6,
+    "text": "Direct Methods: Gauss Elimination, Partial Pivoting, Gauss-Jordan, LU Decomposition. Iterative Methods: Jacobi Method, Gauss-Seidel Method. Applications: Power system equations, network analysis: Solving node-voltage and mesh- current equations in electric circuits. Practical Integration: Solve nodal/mesh equations using NumPy Team coding challenge: Solve a large circuit matrix and plot results"
+   },
+   {
+    "roman": "IV",
+    "title": "Interpolation, Numerical Differentiation, and Integration",
+    "hours": 6,
+    "text": "Interpolation: Newton’s Forward and Backward Difference, Lagrange Interpolation. Numerical Differentiation: Using finite differences for equally spaced points. Numerical Integration: Trapezoidal Rule, Simpson’s 1/3 Rule, Simpson’s 3/8 Rule (for single & double integration). Applications: Area under waveforms, energy calculations in electrical signals. 21st Century Skill Component Python visualization using Matplotlib Analyze sensor data or waveform signals from IoT kits (if available)"
+   },
+   {
+    "roman": "V",
+    "title": "Ordinary Differential Equations and Curve Fitting",
+    "hours": 6,
+    "text": "Solution of First Order ODEs: Euler’s Method, Modified Euler Method, Runge-Kutta Methods (2 & 4th order). nd Curve Fitting: Least Squares Method (Linear and 2nd Order). Applications: Transient analysis of RL, RC, and RLC circuits; fitting performance curves for machines. Project Integration: Build and simulate electrical system models Data fitting for experimental datasets (motor torque-speed curve, IV curves)"
+   }
+  ],
+  "links": [
+   "https://onlinecourses.nptel.ac.in/noc22_ph42/preview"
+  ],
+  "textBooks": [
+   "S. S. Sastry – Introductory Methods of Numerical Analysis, PHI",
+   "S Kalavathy, M Joice Punitha- Numerical Methods second Edition, Mc Graw-hill Education Pvt. Ltd.",
+   "B. S. Grewal - Numerical Methods in Engineering and Science, Khanna Publishers",
+   "Jaan Kiusalaas – Numerical Methods in Engineering with Python, Cambridge University Press",
+   "Steven C. Chapra – Applied Numerical Methods with Python for Engineers and Scientists, McGraw-Hill",
+   "Reema Thareja - Python Programming : Using Problem Solving Approach, Oxford University Press"
+  ],
+  "refBooks": [
+   "Steven C. Chapra, Raymond P. Canale - Numerical Methods for Engineers, McGraw-Hill",
+   "Amos Gilat, Vish Subramaniam - Numerical Methods for Engineers and Scientists, Wiley",
+   "Ruben R. Gonzalez - A First Course in Scientific Computing: Symbolic, Graphic, and Numeric Modeling Using MATLAB, Princeton University Press",
+   "Claude Gomez - Numerical Computation Using Python, Wiley (Scientific Computing series)",
+   "Rakesh Nayak - Python for Engineers and Scientists, BPB Publications",
+   "e-Books/ e-contents [E1]. MIT Open Courseware (Numerical Computing with Python) [E2]. Kaggle datasets for real-world examples"
+  ]
+ },
+ {
+  "code": "PCC-253-ELE",
+  "name": "Network Analysis",
+  "hours": 2,
+  "cce": 30,
+  "ese": 70,
+  "credits": 2,
+  "prereq": "Terminology of electrical networks, series and parallel combinations of resistance, Laplace transforms, linear differential equations",
+  "outcomes": [
+   "Calculate current/voltage in electrical circuits using simplification techniques, Mesh, Nodal analysis.",
+   "Solve the given network by applying Superposition, Thevenin’s, Norton, Reciprocity, Maximum power transfer and Millman’s theorems.",
+   "Analyze the response of RLC circuit in transient and steady state condition.",
+   "Apply Laplace transform to analyze behavior of an electrical circuit.",
+   "Apply the knowledge of network theory to find transfer function, poles and zeroes location to perform stability analysis and Design of filters"
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Types of Networks, Mesh and Nodal analysis",
+    "hours": 6,
+    "text": "Independent and Dependent (controlled) voltage and current sources. Concept of voltage and current divider, Source transformation. Network equations on Loop basis and Node basis, Concept of super node and super mesh. Dot convention for coupled circuits (series only)."
+   },
+   {
+    "roman": "II",
+    "title": "Network Theorems",
+    "hours": 6,
+    "text": "Superposition Theorem, Thevenin Theorem, Norton’s Theorem, Maximum Power Transfer Theorem, Reciprocity Theorem, Millman Theorems applied to electrical DC and AC networks with independent sources."
+   },
+   {
+    "roman": "III",
+    "title": "Transient Analysis in RLC circuit-Time domain approach",
+    "hours": 6,
+    "text": "Initial and Final Conditions in Network Elements, Forced and free response, Basic concept of time constants of RL and RC circuit, Steady-state and transient state response. Solutions of differential equations using classical method for R-L, R-C and R-L-C circuits (series and parallel)."
+   },
+   {
+    "roman": "IV",
+    "title": "Transient Analysis in RLC circuit: Laplace Transform approach",
+    "hours": 6,
+    "text": "Laplace Transform of Basic R, L and C components, Solutions of differential equations and network equations using Laplace transform method for RL, R-C and R-L-C circuits (series and parallel), Inverse Laplace transforms, transformed networks with initial conditions."
+   },
+   {
+    "roman": "V",
+    "title": "Network Functions and Filters",
+    "hours": 6,
+    "text": "Network functions for the one port and two port networks, calculation of network functions. Plotting of Poles and zeros of networks functions, Restrictions on poles and zeros locations for transfer functions and driving point function. Stability of active networks. Descriptive treatment to passive filters, low pass filters, high pass filters."
+   }
+  ],
+  "links": [
+   "https://onlinecourses.nptel.ac.in/noc20_ee46/preview"
+  ],
+  "textBooks": [
+   "Network Analysis Third Edition by M. E. Van Valkenburg, Prentice Hall of India Private Limited.",
+   "Network Analysis & Synthesis by G. K. Mittal, Khanna Publication.",
+   "Network Analysis and Synthesis by Ravish R Singh, McGraw Hill.",
+   "Introduction to Electric Circuits by Alexander & Sadiku, McGraw Hill.",
+   "Introduction to Electric Circuits by S. Charkarboorty, Dhanpat Rai & Co.",
+   "Fundamentals of Electrical Networks by B.R.Gupta & Vandana Singhal- S.Chand Publications",
+   "Electrical Circuit Analysis 2nd Edition by P. Ramesh babu, Scitech Publication India Pvt Ltd."
+  ],
+  "refBooks": [
+   "Network Analysis by Cramer, McGraw Hill Publication.",
+   "Engineering Circuit Analysis by William H. Hayt, Jr. Jack E. Kemmerly, McGraw Hill Publication",
+   "Schaum's Outline of Electric Circuits, McGraw-Hill Education; 7 edition",
+   "Joseph A. Edminister, Mahmood Maqvi, “Theory and Problems of Electric Circuits”, Mc Graw hill",
+   "“A Course in Electrical Circuits and Analysis” M. L. Soni, J. C. Gupta, Dhanpat rai and sons",
+   "3000 solved problems in Electrical circuits, Syed A. Nasar, Mc Graw hill"
+  ]
+ },
+ {
+  "code": "MDM-272-ELE",
+  "name": "Fundamentals of Data science & Machine Learning",
+  "hours": 2,
+  "cce": 30,
+  "ese": 70,
+  "credits": 2,
+  "prereq": "",
+  "outcomes": [
+   "Write and execute Python programs, manipulate data using NumPy and Pandas.",
+   "Differentiate structured and unstructured data, apply in electrical engineering, and identify data science roles and tools.",
+   "Collect, clean, visualize electrical data, apply descriptive statistics, understand hypothesis testing concepts.",
+   "Differentiate AI, ML, DL, describe ML workflow, apply in electrical systems, and build models with scikit- learn.",
+   "Apply Linear Regression, K-Nearest Neighbors, K-Means Clustering to electrical data, evaluate models, implement using scikit-learn."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Python Programming Basics for Data Science",
+    "hours": 6,
+    "text": "a) Python environment: Jupyter, Google Colab b) Data types: int, float, string, list, tuple, dictionary c) Python Functions d) Classes & Objects in Python e) Introduction to NumPy and pandas: array and DataFrame basics f) File operations: Reading and writing CSVs"
+   },
+   {
+    "roman": "II",
+    "title": "Fundamentals of Data Science and Applications in Electrical Engg",
+    "hours": 6,
+    "text": "a) Data Science: Concept, Key components and lifecycle b) Structured vs unstructured data, time-series in electrical systems c) Applications in Electrical Engineering: Load forecasting, Smart grids, Fault prediction d) Roles in data science: Analyst, Engineer, Scientist e) Overview of tools: Python, R, Jupyter, Excel"
+   },
+   {
+    "roman": "III",
+    "title": "Data Acquisition, Visualization, and Hypothesis Testing",
+    "hours": 6,
+    "text": "a) Data sources: SCADA, IoT sensors, meters b) Data preprocessing: handling missing values, outliers, duplicates c) Visualization tools: matplotlib, seaborn: Line plot, histogram, boxplot, scatter plot d) Descriptive statistics: mean, median, mode, std deviation e) Hypothesis testing: Null and alternate hypotheses, p-value, significance level, type I/II errors, t-test and z-test (conceptual introduction) f) Use case: Load comparison before and after optimization"
+   },
+   {
+    "roman": "IV",
+    "title": "Introduction to Machine Learning (ML)",
+    "hours": 6,
+    "text": "a) Machine Learning (ML): Concept, scope of ML b) Differences between Artificial Intelligence (AI), Machine Learning (ML), and Deep Learning (DL) c) ML Types: Supervised, Unsupervised (overview) d) ML pipeline: Data → Train → Predict → Evaluate e) Electrical Applications: Predictive maintenance, Load and outage forecasting, Fault classification f) Introduction to scikit-learn and model-building steps"
+   },
+   {
+    "roman": "V",
+    "title": "Basic ML Algorithms and Model Evaluation",
+    "hours": 6,
+    "text": "Supervised Learning: Linear Regression (for load forecasting), K-Nearest Neighbors (for fault classification) Unsupervised Learning: K-Means Clustering (load profile segmentation) Model Evaluation: Confusion Matrix, Accuracy, Precision, Recall, F1-Score, Cross-validation basics Simple Python implementation using scikit-learn"
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   "VanderPlas, Jake. Python Data Science Handbook: Essential Tools for Working with Data. O’Reilly Media, 2016.",
+   "Raschka, Sebastian & Mirjalili, Vahid. Python Machine Learning. Packt Publishing, 3rd Edition, 2019.",
+   "McKinney, Wes. Python for Data Analysis: Data Wrangling with Pandas, NumPy, and IPython. O’Reilly Media, 2nd Edition, 2017.",
+   "Alpaydin, Ethem. Introduction to Machine Learning. MIT Press, 4th Edition, 2020."
+  ],
+  "refBooks": [
+   "Saxena, Atulya K. Data Science and Machine Learning Applications in Engineering. CRC Press, 2021.",
+   "James, Gareth et al. An Introduction to Statistical Learning with Applications in R. Springer, 2nd Edition, 2021.",
+   "IEEE papers and case studies on Smart Grids, Load Forecasting, and Predictive Maintenance",
+   "Online resources [E1]. https://colab.research.google.com – Google Colab environment [E2]. https://scikit-learn.org – Machine Learning Library Documentation [E3]. https://matplotlib.org, https://seaborn.pydata.org – Visualization libraries [E4]. Kaggle Datasets – Sample datasets for electrical applications"
+  ]
+ }
+]
