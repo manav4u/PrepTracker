@@ -147,7 +147,7 @@ export function renderSubjectPage(c: SubjectPageConfig): string {
           <h3 style={{ marginTop: 16 }}>Reference books</h3><ul>{c.refBooks.map(t => <li key={t}>{t}</li>)}</ul>
 
           <h2>Video lectures</h2>
-          <p>{c.videoNote}: {c.videos.map((v, i) => <React.Fragment key={v.url}>{i > 0 && ', '}<a href={v.url} rel="noopener">{v.label}</a></React.Fragment>)}.</p>
+          <p>{c.videoNote}{c.videos.length > 0 ? ': ' : ''}{c.videos.map((v, i) => <React.Fragment key={v.url}>{i > 0 && ', '}<a href={v.url} rel="noopener">{v.label}</a></React.Fragment>)}.</p>
 
           <h2>Track it in PrepTracker</h2>
           <p>Tick off each unit as you finish it, and keep your own notes and links in one place. It is free and needs no account.</p>
