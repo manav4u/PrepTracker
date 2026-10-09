@@ -1,0 +1,5 @@
+import{test}from'node:test';import assert from'node:assert/strict';import{summarizeMarks,gradeFor}from'../lib/marks.mjs';const s=[{id:'m',credits:4,theoryCredits:3,termWorkCredits:1},{id:'p',credits:4,theoryCredits:3,termWorkCredits:1}];
+test('blank or incomplete theory cannot headline SGPA',()=>{assert.equal(summarizeMarks(s,{}).value,null);assert.equal(summarizeMarks(s,{m:{inSem:30}}).value,null);});
+test('full one subject remains partial with exact credit coverage',()=>{const x=summarizeMarks(s,{m:{inSem:30,endSem:70,termWork:25}});assert.equal(x.value,'10.00');assert.equal(x.isComplete,false);assert.equal(x.completedSubjects,1);assert.equal(x.gradedCredits,4);assert.equal(x.possibleCredits,8);});
+test('zero is entered, not blank; head-weighted full result',()=>{const x=summarizeMarks(s,{m:{inSem:0,endSem:0,termWork:0},p:{inSem:30,endSem:70,termWork:25}});assert.equal(x.isComplete,true);assert.equal(x.value,'5.00');});
+test('documented grade boundaries',()=>{for(const[p,g]of[[90,10],[89,9],[75,9],[74,8],[60,8],[59,7],[55,7],[54,6],[50,6],[49,5],[45,5],[44,4],[40,4],[39,0]])assert.equal(gradeFor(p).gp,g);});

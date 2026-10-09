@@ -208,7 +208,7 @@ const TodoList: React.FC = () => {
         {/* Progress Unit */}
         <div className="w-full md:w-64 bg-[#0a0a0a] border border-white/10 p-4 rounded-2xl relative overflow-hidden">
             <div className="flex justify-between items-end mb-2 relative z-10">
-                <span className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Efficiency</span>
+                <span className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Task completion</span>
                 <span className="text-2xl font-display font-bold text-white">{progress}%</span>
             </div>
             <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden relative z-10">

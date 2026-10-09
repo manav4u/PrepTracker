@@ -3,23 +3,13 @@ import React from 'react';
 import { SUBJECTS } from '../constants';
 import { RotateCcw, Activity, Cpu, AlertCircle } from 'lucide-react';
 import { useData } from '../context/DataContext';
+import { summarizeMarks, gradeFor } from '../lib/marks.mjs';
 
 const MARKS_KEY = 'sppu_calculator_marks';
 
 type MarkRow = { inSem?: number; endSem?: number; termWork?: number };
 
 // Grade table from the SPPU UG Credit Framework handbook (2024 pattern), Table of grade letters and grade points.
-const gradeFor = (pct: number): { letter: string; gp: number } => {
-  if (pct >= 90) return { letter: 'O', gp: 10 };
-  if (pct >= 75) return { letter: 'A+', gp: 9 };
-  if (pct >= 60) return { letter: 'A', gp: 8 };
-  if (pct >= 55) return { letter: 'B+', gp: 7 };
-  if (pct >= 50) return { letter: 'B', gp: 6 };
-  if (pct >= 45) return { letter: 'C', gp: 5 };
-  if (pct >= 40) return { letter: 'D', gp: 4 };
-  return { letter: 'F', gp: 0 };
-};
-
 // CGPA class bands from the same handbook (shown here for the SGPA as a guide).
 const bandFor = (v: number): string => {
   if (v >= 9.5) return 'Outstanding (O)';
@@ -53,26 +43,8 @@ const CalculatorPage: React.FC = () => {
     setMarks({ ...marks, [sId]: { ...(marks[sId] || {}), [field]: n } });
   };
 
-  // Each course head is graded on its own and weighted by its credits.
-  // Theory head = CCE (30) + End-Sem (70). Term work head = term work (25) as a percentage.
-  // A head with no marks entered is left out until you enter something for it.
-  const getSGPA = () => {
-    let pts = 0; let creds = 0;
-    filteredSubjects.forEach(s => {
-      const m = marks[s.id] || {};
-      const theoryCredits = s.theoryCredits ?? s.credits;
-      const twCredits = s.termWorkCredits ?? 0;
-      if (m.inSem !== undefined || m.endSem !== undefined) {
-        pts += gradeFor(((m.inSem || 0) + (m.endSem || 0))).gp * theoryCredits; creds += theoryCredits;
-      }
-      if (m.termWork !== undefined && twCredits > 0) {
-        pts += gradeFor((m.termWork / 25) * 100).gp * twCredits; creds += twCredits;
-      }
-    });
-    return creds ? (pts / creds).toFixed(2) : '0.00';
-  };
-
-  const sgpa = parseFloat(getSGPA());
+  const summary = summarizeMarks(filteredSubjects, marks);
+  const sgpa = Number(summary.value || 0);
   const totalCredits = filteredSubjects.reduce((acc, s) => acc + s.credits, 0);
 
   return (
@@ -86,7 +58,7 @@ const CalculatorPage: React.FC = () => {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E11D48] opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E11D48]"></span>
                 </span>
-                <span className="text-[10px] font-mono font-bold uppercase tracking-[0.25em] text-[#E11D48]">Prediction Active</span>
+                <span className="text-[10px] font-mono font-bold uppercase tracking-[0.25em] text-[#E11D48]">Marks planning</span>
             </div>
             <h1 className="text-5xl lg:text-7xl font-display font-bold tracking-tighter text-white leading-none">
             Forecaster
@@ -124,7 +96,8 @@ const CalculatorPage: React.FC = () => {
                 const currentIn = marks[s.id]?.inSem || 0;
                 const currentEnd = marks[s.id]?.endSem || 0;
                 const total = currentIn + currentEnd;
-                const isPassing = currentIn >= 12 && currentEnd >= 28 && total >= 40;
+                const hasTheory = marks[s.id]?.inSem !== undefined && marks[s.id]?.endSem !== undefined;
+                const isPassing = hasTheory;
 
                 return (
                     <div key={s.id} className="group p-5 hover:bg-white/[0.02] transition-colors relative">
@@ -133,23 +106,23 @@ const CalculatorPage: React.FC = () => {
                             {/* Subject Info */}
                             <div className="w-full sm:w-1/3">
                                 <div className="flex items-center gap-3 mb-1">
-                                    <div className={`w-1.5 h-1.5 rounded-full ${isPassing ? 'bg-green-500 shadow-[0_0_8px_#22c55e]' : 'bg-red-500 shadow-[0_0_8px_#ef4444]'}`}></div>
+                                    <div className={`w-1.5 h-1.5 rounded-full ${!hasTheory ? 'bg-slate-500' : isPassing ? 'bg-green-500' : 'bg-red-500'}`}></div>
                                     <span className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest">{s.code}</span>
                                 </div>
                                 <h4 className="text-sm font-bold text-white leading-tight">{s.name}</h4>
                             </div>
 
                             {/* Digital Inputs */}
-                            <div className="flex items-center gap-8 w-full sm:w-auto">
+                            <div className="grid grid-cols-3 gap-3 w-full sm:w-auto">
                                 {/* In Sem Input */}
                                 <div className="flex flex-col items-center gap-2">
-                                    <label className="text-[8px] font-mono text-slate-600 uppercase tracking-widest">IN-SEM / 30</label>
+                                    <label className="text-[8px] font-mono text-slate-600 uppercase tracking-widest">CCE / 30</label>
                                     <div className="relative group/input">
                                         <input 
-                                            type="number" 
-                                            value={marks[s.id]?.inSem || ''}
+                                            type="number" aria-label={`CCE marks: ${s.name}`} min="0" max="30"
+                                            value={marks[s.id]?.inSem ?? ''}
                                             onChange={(e) => updateMarks(s.id, 'inSem', e.target.value)}
-                                            className="w-20 bg-transparent text-2xl font-mono text-white text-center border-b border-white/10 focus:border-[#E11D48] outline-none py-1 transition-colors placeholder:text-white/10 tabular-nums"
+                                            className="w-full max-w-20 bg-transparent text-2xl font-mono text-white text-center border-b border-white/10 focus:border-[#E11D48] outline-none py-1 transition-colors placeholder:text-white/10 tabular-nums"
                                             placeholder="00"
                                         />
                                         <div className="absolute bottom-0 left-0 w-full h-[1px] bg-[#E11D48] scale-x-0 group-focus-within/input:scale-x-100 transition-transform duration-300"></div>
@@ -157,17 +130,17 @@ const CalculatorPage: React.FC = () => {
                                 </div>
 
                                 {/* Divider */}
-                                <div className="h-8 w-px bg-white/10 rotate-12"></div>
+                                
 
                                 {/* End Sem Input */}
                                 <div className="flex flex-col items-center gap-2">
                                     <label className="text-[8px] font-mono text-slate-600 uppercase tracking-widest">END-SEM / 70</label>
                                     <div className="relative group/input">
                                         <input 
-                                            type="number" 
-                                            value={marks[s.id]?.endSem || ''}
+                                            type="number" aria-label={`End-Sem marks: ${s.name}`} min="0" max="70"
+                                            value={marks[s.id]?.endSem ?? ''}
                                             onChange={(e) => updateMarks(s.id, 'endSem', e.target.value)}
-                                            className="w-20 bg-transparent text-2xl font-mono text-white text-center border-b border-white/10 focus:border-[#E11D48] outline-none py-1 transition-colors placeholder:text-white/10 tabular-nums"
+                                            className="w-full max-w-20 bg-transparent text-2xl font-mono text-white text-center border-b border-white/10 focus:border-[#E11D48] outline-none py-1 transition-colors placeholder:text-white/10 tabular-nums"
                                             placeholder="00"
                                         />
                                         <div className="absolute bottom-0 left-0 w-full h-[1px] bg-[#E11D48] scale-x-0 group-focus-within/input:scale-x-100 transition-transform duration-300"></div>
@@ -175,17 +148,17 @@ const CalculatorPage: React.FC = () => {
                                 </div>
 
                                 {/* Divider */}
-                                <div className="h-8 w-px bg-white/10 rotate-12"></div>
+                                
 
                                 {/* Term Work Input */}
                                 <div className="flex flex-col items-center gap-2">
                                     <label className="text-[8px] font-mono text-slate-600 uppercase tracking-widest">TERM WORK / 25</label>
                                     <div className="relative group/input">
                                         <input
-                                            type="number"
+                                            type="number" aria-label={`Term work marks: ${s.name}`} min="0" max="25"
                                             value={marks[s.id]?.termWork ?? ''}
                                             onChange={(e) => updateMarks(s.id, 'termWork', e.target.value)}
-                                            className="w-20 bg-transparent text-2xl font-mono text-white text-center border-b border-white/10 focus:border-[#E11D48] outline-none py-1 transition-colors"
+                                            className="w-full max-w-20 bg-transparent text-2xl font-mono text-white text-center border-b border-white/10 focus:border-[#E11D48] outline-none py-1 transition-colors"
                                             placeholder="00"
                                         />
                                     </div>
@@ -208,29 +181,30 @@ const CalculatorPage: React.FC = () => {
             <div className="relative z-10 w-full">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/5 mb-8">
                     <Activity size={12} className="text-[#E11D48]" />
-                    <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-300">Estimated Result</span>
+                    <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-300">{summary.isComplete ? 'Selected-course estimate' : 'Partial estimate'}</span>
                 </div>
 
                 <div className="mb-10 relative">
                     {/* The Big Number */}
-                    <h2 className="text-[9rem] leading-[0.8] font-display font-bold text-white tracking-tighter tabular-nums drop-shadow-[0_0_30px_rgba(255,255,255,0.1)]">
-                        {getSGPA()}
+                    <h2 className="text-7xl sm:text-[9rem] leading-[0.8] font-display font-bold text-white tracking-tighter tabular-nums drop-shadow-[0_0_30px_rgba(255,255,255,0.1)]">
+                        {summary.value ?? "--"}
                     </h2>
-                    <p className="text-sm font-mono text-slate-500 uppercase tracking-[0.4em] mt-2">Projected SGPA</p>
+                    <p className="text-sm font-mono text-slate-500 uppercase tracking-[0.4em] mt-2">{summary.isComplete ? 'Selected-course SGPA estimate' : 'Entered-head average'}</p>
                 </div>
 
+                <p className="text-sm text-slate-300 mb-6" aria-live="polite">{summary.completedSubjects} of {filteredSubjects.length} selected subjects complete. {summary.completeHeads}/{summary.totalHeads} graded heads; {summary.gradedCredits}/{summary.possibleCredits} credits entered. Incomplete theory needs both CCE and End-Sem.</p>
                 {/* Status Bars */}
                 <div className="space-y-6 w-full max-w-xs mx-auto">
                     <div className="bg-white/5 p-4 rounded-xl border border-white/5 flex justify-between items-center">
                         <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Band</span>
                         <span className={`text-sm font-bold uppercase tracking-wider ${sgpa >= 7.5 ? 'text-[#E11D48]' : 'text-white'}`}>
-                            {bandFor(sgpa)}
+                            {summary.value ? bandFor(sgpa) : "No complete heads"}
                         </span>
                     </div>
 
                     <div className="relative pt-2">
                         <div className="flex justify-between text-[9px] font-mono text-slate-500 mb-2 uppercase tracking-widest">
-                            <span>Performance Metric</span>
+                            <span>Grade-point scale</span>
                             <span>{Math.min(100, Math.round(sgpa * 10))}%</span>
                         </div>
                         <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
@@ -243,10 +217,10 @@ const CalculatorPage: React.FC = () => {
                 </div>
 
                 <p className="mt-8 text-[10px] leading-relaxed text-slate-500 max-w-xs mx-auto">
-                    Grades follow the SPPU UG credit framework handbook: theory (CCE 30 + End-Sem 70) and term work are graded separately and weighted by credits. Only the subjects you selected are counted, so the university SGPA can differ (it also includes the other courses of the semester, such as communication skills and co-curricular courses). A blank field is left out of the result.
+                    Grades follow the SPPU UG credit framework handbook: theory (CCE 30 + End-Sem 70) and term work are graded separately and weighted by credits. Only the subjects you selected are counted, so the university SGPA can differ (it also includes the other courses of the semester, such as communication skills and co-curricular courses). Only complete assessment heads are counted. Blank marks are not treated as zero. This is a selected-course estimate, not an official semester result.
                 </p>
 
-                {sgpa < 5 && (
+                {summary.isComplete && sgpa < 5 && (
                     <div className="mt-8 flex items-center justify-center gap-2 text-red-500 bg-red-500/10 px-4 py-2 rounded-lg border border-red-500/20">
                         <AlertCircle size={14} />
                         <span className="text-[10px] font-bold uppercase tracking-widest">Critical Performance Detected</span>
