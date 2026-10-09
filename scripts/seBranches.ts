@@ -12,8 +12,8 @@ import mech from './seData/mech.json';
 export const SE_BRANCHES: SeBranch[] = [
   {
     slug: 'se-computer-engineering', branch: 'Computer Engineering', short: 'SE Computer', motif: 'computer', accent: '#e11d48',
-    pdf: 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE%20-%20Computer%20Engineering%20-%202024%20Pattern_18072025.pdf',
-    pdfLabel: 'SPPU SE Computer Engineering 2024 pattern syllabus',
+    pdf: 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/SE%20-%20Computer%20Engineering%20-%202024%20Pattern%20Revised_13062026.pdf',
+    pdfLabel: 'SPPU SE Computer Engineering 2024 pattern syllabus (revised June 2026, effective 2026-27)',
     courses: computer as SeBranch['courses'],
   },
   {
