@@ -205,7 +205,7 @@ export const SUBJECTS: Subject[] = [
       },
       { 
         id: 'mech-u2', unit_number: 2, hours: 6, title: 'Equilibrium', 
-        topics: ['Free body diagram', 'Three Force Principle (Lami’s)', 'Equilibrium of Concurrent/Parallel/General forces', 'Types of load, support and beam; support reactions'] 
+        topics: ['Free body diagram', 'Equilibrium of two forces and three force principle', 'Equilibrium of Concurrent/Parallel/General forces', 'Types of load, support and beam; support reactions'] 
       },
       { 
         id: 'mech-u3', unit_number: 3, hours: 6, title: 'Friction and trusses', 
@@ -217,7 +217,7 @@ export const SUBJECTS: Subject[] = [
       },
       { 
         id: 'mech-u5', unit_number: 5, hours: 6, title: 'Kinetics of particle', 
-        topics: ["Newton's Second Law", 'Work Energy Principle', 'Impulse Momentum Principle', 'Coefficient of Restitution & Impact'] 
+        topics: ["Newton's Second Law", 'Work Energy Principle', 'Impulse Momentum Principle', 'Conservation of energy, impulse momentum and impact'] 
       },
     ]
   },
