@@ -40,7 +40,7 @@ details{border-bottom:1px solid #222;padding:10px 0}summary{cursor:pointer;color
 .uh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.uh h3{margin:0;flex:1;min-width:60%}.uh .hrs{float:none}
 .up{letter-spacing:.06em;font-size:12px;border:1px solid #3a1620;background:#1a0a10;color:#fb7185;font-weight:600}
 .tp{margin:12px 0 0}.tp{gap:6px}.tp .chip{font-size:12px;padding:3px 10px;color:#bbb;background:#0d0d0d}.units{padding-left:20px}.unit{padding:14px 14px}
-.motif{display:block;width:100%;max-width:600px;height:48px;margin:-10px 0 22px}
+.motif *{vector-effect:non-scaling-stroke}.motif{display:block;width:100%;max-width:600px;height:48px;margin:-10px 0 22px}
 @media(min-width:1280px){main{max-width:880px}.motif{max-width:720px}}
 footer{margin-top:48px;font-size:13px;color:#777}ol.co{padding-left:0;list-style:none}ol.co li{margin:10px 0;padding-left:56px;position:relative;color:#ccc}ol.co b{position:absolute;left:0;color:#fb7185}`;
 
