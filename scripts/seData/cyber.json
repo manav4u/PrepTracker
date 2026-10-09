@@ -1,0 +1,439 @@
+[
+ {
+  "code": "PCC-201-CYB",
+  "name": "Data Structures and Algorithms",
+  "hours": 3,
+  "cce": 40,
+  "ese": 60,
+  "credits": 3,
+  "prereq": "1. Fundamentals of Programming Languages 2. Programming and Problem Solving",
+  "outcomes": [
+   "Design the algorithms to solve the programming problems, identify appropriate algorithmic strategies for specific applications, and analyze the time and space complexity.",
+   "Demonstrate the use of sequential data structures like arrays and linked lists to store and process data.",
+   "Understand the fundamental principles behind various search and sort algorithms, analyze their time and space complexities, choose the most appropriate algorithm for a given problem based on data characteristics and effectively implement these algorithms in code.",
+   "Demonstrate the understanding of stack data structures, their memory representation, and applications in function calls, expression evaluation, and balancing parentheses.",
+   "Understand and implement a queue as a linear data structure to solve real-world problems."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to Algorithm and Data Structure",
+    "hours": 9,
+    "text": "Introduction to Basic Concepts: Data, Information, Knowledge , Data Structure, Abstract Data Types (ADT), Data Structure Classification Algorithms: Problem Solving, Introduction to Algorithm, Characteristics of Algorithm Complexity of Algorithm: Space complexity, Time complexity, Asymptotic notation-Big-O, Theta and Omega, Finding complexity using step count method, Analysis of programming constructs-Linear, Quadratic, Cubic, Logarithmic"
+   },
+   {
+    "roman": "II",
+    "title": "Array and Linked List",
+    "hours": 9,
+    "text": "Array: Basics of Array, Storage Representation and their Address Calculation: Row Major and Column Major. Types of Arrays: 1 Dimensional, Multi-Dimensional (2D, 3D), Array Operations, Sparse Array & Compressed Storage: Representation, Addition and Transpose, Array as an ADT, Pros & Cons of an Array. Linked List: Basics of Linked List, Linked List Operation: Create, Insert, Delete, Search, Types of Linked List: Singly Linked List (SLL), Doubly Linked List (DLL), Circular Linked List (CLL), Generalized Linked List (GLL): Representation of polynomial using GLL, Pros & Cons of Linked List."
+   },
+   {
+    "roman": "III",
+    "title": "Searching and Sorting",
+    "hours": 9,
+    "text": "Searching: Sequential Search, Variations on Sequential Searches, Sentinel Linear Search, Fibonacci Search, Binary Search Algorithm – Iterative and Recursive Implementation. Sorting: Insertion sort, Selection Sort, Bubble Sort, Merge Sort, Heap Sort, Quick Sort, Bucket Sort, Comparison of all sorting methods and their complexities Case study: Use of Fibonacci search in non-uniform access memory storage and in Optimization of Uni-modal Functions."
+   },
+   {
+    "roman": "IV",
+    "title": "Stack",
+    "hours": 9,
+    "text": "Basic Concepts: Definition, Operations. Stack as an ADT, Memory Representation: Using Array, Using Linked List. Memory Management: Stack Memory Vs Heap Memory, How function calls are managed using stacks, Stack Overflow: Causes & Prevention. Applications of Stack: Expression of Evaluation & Conversion Case study : Implementation and Comparison of Stack Using Array and Linked List"
+   },
+   {
+    "roman": "V",
+    "title": "Queue",
+    "hours": 9,
+    "text": "Queue: Basic Concepts, Queues as ADT, Queue Representation using sequential organization, Queue operations , Implementation of queue using array and linked organization, Types of Queue: Circular Queue and its advantages, Double ended Queue (Deque) and its types (Input restricted and Output restricted), Priority Queue: basic concept and its types (Ascending and descending), Real time applications of queues. Case study: Bank’s customer service system"
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   "Horowitz, Sahani and Mehta Fundamentals of Data Structures in C++, University Press, ISBN 10: 0716782928 ISBN 13: 9780716782926.",
+   "Michael T. Goodrich, Roberto Tamassia, Michael H. Goldwasser, Data Structures and Algorithms in Python, Wiley Publication, ISBN:978-1-118-29027-9"
+  ],
+  "refBooks": [
+   "R.Gillberg, B.Forouzan Data Structures: A Pseudocode approach with C, Cengage Learning, ISBN: 9788131503140.",
+   "M.Weiss Data Structures and Algorithm Analysis in C++, 2nd edition, Pearson Education, 2002, ISBN-81- 7808-670-0.",
+   "Horowitz, Sahani Fundamentals of Data Structures, Galgotia Book source.",
+   "“Introduction to Algorithms” by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein",
+   "Data Structures and Algorithms Made Easy in C++ Narasimha Karumanchi."
+  ]
+ },
+ {
+  "code": "PCC-203-CYB",
+  "name": "Discrete Mathematics",
+  "hours": 3,
+  "cce": 40,
+  "ese": 60,
+  "credits": 3,
+  "prereq": "Students should have prior knowledge of 1. Basic Mathematics",
+  "outcomes": [
+   "Apply and Analyze Set Theory and Propositional Logic",
+   "Evaluate and Construct Models using Relations and Functions",
+   "Design and Implement Tree Structures and Network Flow Algorithms",
+   "Analyze and Develop Solutions using Graph Theory",
+   "Apply and Solve Problems using Counting Principles"
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Set and Propositions",
+    "hours": 9,
+    "text": "Introduction and significance of Discrete Mathematics, Propositional Logic-: logic, Propositional Equivalences, Application of Propositional Logic- Translating English Sentences, Proof by Mathematical Induction and Strong Mathematical Induction. Sets: Naive Set Theory (Cantorian Set Theory), Axiomatic Set Theory, Set Operations, Cardinality of set, Principle of inclusion and exclusion. Types of Sets – Bounded and Unbounded Sets, Diagonalization Argument, Countable and Uncountable Sets, Finite and Infinite Sets, Countably Infinite and Uncountably Infinite Sets, Power set. Case study: Know about the great philosophers- Georg Cantor, Richard Dedekind and Aristotle. Design a recommendation system using logical propositions and predicates to filter movies based on user preferences."
+   },
+   {
+    "roman": "II",
+    "title": "Relations and Functions",
+    "hours": 9,
+    "text": "Introduction to Relations and their Properties Representation of Relations using Matrices and Digraphs Equivalence relations, Partial orderings, Partitions, Hasse diagram, Lattices, Chains and Anti- Chains, Transitive closure and Warshall‘s algorithm. Functions: Types of Functions (Injective, Surjective, Bijective) , Composition and Inverse of Functions , Recursive Functions and Applications in Algorithms , Counting Functions and Growth of Functions."
+   },
+   {
+    "roman": "III",
+    "title": "Trees",
+    "hours": 9,
+    "text": "Introduction to Trees and Properties ,Binary Trees and Binary Search Trees (BST) ,Tree Traversal Techniques: Preorder, Inorder, Postorder , Huffman Trees and Data Compression Algorithms ,Decision Trees and their Applications in Machine Learning , Applications of Trees in File Systems, The Max flow- Min Cut Theorem in Transport network."
+   },
+   {
+    "roman": "IV",
+    "title": "Graph Theory",
+    "hours": 9,
+    "text": "Introduction to Graphs: Types and Representation ,Graph Traversals: BFS and DFS ,Connected Components and Path finding Algorithms, Eulerian and Hamiltonian Paths and Circuits , Planar Graphs and Graph Coloring, Dijkstra’s Algorithm for Shortest Paths , Spanning Trees and Minimum Spanning Tree Algorithms (Prim’s and Kruskal’s) Case study : Model a social media platform using directed graphs to represent relationships such as “follower” or “friend.” Three utility problem, Web Graph, Google map"
+   },
+   {
+    "roman": "V",
+    "title": "Counting Principles and Algebraic Structures -",
+    "hours": 9,
+    "text": "Basic Counting Techniques: Addition and Multiplication Principles , Permutations and Combinations, Binomial Coefficients and Pascal’s Triangle, Pigeonhole Principle and its Applications , Inclusion- Exclusion Principle, Generating Functions for Counting Problems. The structure of algebra, Algebraic Systems, Semi Groups, Monoids, Groups, Homomorphism and Normal Subgroups and Congruence relations, Rings, Integral Domains and Fields."
+   }
+  ],
+  "links": [
+   "https://onlinecourses.nptel.ac.in/noc20_cs82/preview"
+  ],
+  "textBooks": [
+   "C. L. Liu, “Elements of Discrete Mathematics”, TMH, ISBN 10:0-07-066913-9.",
+   "N. Biggs, “Discrete Mathematics”, 3rd Ed, Oxford University Press, ISBN 0 –19-850717–8."
+  ],
+  "refBooks": [
+   "Kenneth H. Rosen, “Discrete Mathematics and its Applications”, Tata McGraw-Hill, ISBN 978- 0-07-288008-3",
+   "Bernard Kolman, Robert C. Busby and Sharon Ross, “Discrete Mathematical Structures”, Prentice-Hall of India /Pearson, ISBN: 0132078457, 9780132078450.",
+   "Narsingh Deo, “Graph with application to Engineering and Computer Science”, Prentice Hall of India, 1990, 0 – 87692 – 145 – 4.",
+   "Eric Gossett, “Discrete Mathematical Structures with Proofs”, Wiley India Ltd, ISBN:978-81- 265-2758-8.",
+   "Sriram P.and Steven S., “Computational Discrete Mathematics”, Cambridge University Press, ISBN 13: 978-0-521-73311-3.",
+   "Herstein, I. N. Topics in Algebra. 2nd ed., Indian Adaptation, Wiley India Pvt. Ltd., 2006. ISBN:"
+  ]
+ },
+ {
+  "code": "MDM-221-CYB",
+  "name": "Digital Electronics and Logic Design",
+  "hours": 2,
+  "cce": 40,
+  "ese": 60,
+  "credits": 2,
+  "prereq": "1. Basic Electronics Engineering (ESE-101-ETC)",
+  "outcomes": [
+   "Apply knowledge of Logic Minimization Techniques to reduce the complexity of Digital circuits.",
+   "Design and implement combinational circuits.",
+   "Design and implement sequential circuits.",
+   "Design and develop effective HDL code for digital circuits.",
+   "Apply different modeling techniques to develop VHDL code for specific Application design."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to Digital Systems",
+    "hours": 6,
+    "text": "Binary Number System: Representation and conversions (decimal, binary, octal, hexadecimal). Logic Levels and Gates: Introduction to digital signals, basic logic gates (AND, OR, NOT, NAND, NOR, XOR). Boolean Algebra: Boolean expressions, laws and theorems, simplification (K-map, Quine-McCluskey method)"
+   },
+   {
+    "roman": "II",
+    "title": "Combinational Logic Circuits",
+    "hours": 6,
+    "text": "Introduction to Combinational Circuits: Concept and examples. Design and Implementation: Adders (Half Adder, Full Adder), Subtractors, Multiplexers, Demultiplexers, Encoders, Decoders. Applications: Arithmetic circuits, data routing, and logical operations in digital systems."
+   },
+   {
+    "roman": "III",
+    "title": "Sequential Logic Circuits",
+    "hours": 6,
+    "text": "Basics of Flip-Flops: SR, JK, D, T. Design and Analysis of Sequential Circuits. Fundamental Concepts: Latch vs Flip-Flop.Sequential Circuit Design: Counters (Asynchronous and Synchronous), Registers, State Machine: Moore and Mealy Models. Analysis and Design: State diagrams, state tables, and timing diagrams"
+   },
+   {
+    "roman": "IV",
+    "title": "Digital System Design",
+    "hours": 6,
+    "text": "Introduction to Hardware Description Languages (VHDL/Verilog). Design Flow, Language constructs, Data objects, Data types, Entity, Architecture & types of modeling, Sequential statements, Concurrent statements, Packages, Sub programs, Attributes, HDL modeling of Combinational, Sequential circuits. Design of Basic Digital Systems using VHDL/Verilog"
+   },
+   {
+    "roman": "V",
+    "title": "Applications of Digital Logic",
+    "hours": 5,
+    "text": "Design Principles and Best Practices. FPGA and CPLD, Digital Systems in Communication, Computer Architecture, and Embedded Systems. Digital Signal Processing Fundamentals. Introduction to Microcontrollers and their Digital Logic. Case Studies in Modern Applications (Robotics, IoT)"
+   }
+  ],
+  "links": [
+   "https://swayam.gov.in/nd1_noc19_ee51/"
+  ],
+  "textBooks": [
+   "R.P. Jain, “Modern digital electronics”, 3rd edition, 12th reprint TMH Publication, 2007.",
+   "Stephen Brown, “Fundamentals of digital logic design with VHDL” 1st edition, TMH Publication"
+  ],
+  "refBooks": [
+   "M. Morris Mano, \"Digital Design,\" Pearson.",
+   "John F. Wakerly, \"Digital Design: Principles and Practices,\" Pearson.",
+   "Mark Bach, “Complete Digital Design”, Tata MCGraw Hill, 2005.",
+   "Charles H. Roth Jr., \"Fundamentals of Logic Design,\" Cengage Learning.",
+   "Douglas Perry, “VHDL programming by examples”, TMH",
+   "J Bhaskar, “A VHDL primer”, Pearson",
+   "Hamacher, Zaky, “Computer Organisation”, McGraw Hill, 5th edition"
+  ]
+ },
+ {
+  "code": "PCC-251-CYB",
+  "name": "Database Management Systems",
+  "hours": 3,
+  "cce": 40,
+  "ese": 60,
+  "credits": 3,
+  "prereq": "1. Data Structures and Algorithms 2. Discrete Mathematics",
+  "outcomes": [
+   "Explain the fundamentals of database management systems, including data models, ER modeling, and database design.",
+   "Develop and execute SQL and PL/SQL programs to manage and manipulate relational data.",
+   "Apply normalization techniques to improve database design and ensure data integrity.",
+   "Analyze transaction management concepts and concurrency control techniques for reliable database systems",
+   "Evaluate NoSQL database types and explain their suitability for handling unstructured data."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to Database Management System",
+    "hours": 9,
+    "text": "Introduction to Database Management Systems, Purpose of Database Systems, Database-System Applications, View of Data, Database Languages, Database System Structure, Enterprise Constraints, Data Models, Database Design and ER Model: Entity, Attributes, Relationships, Constraints, Keys, Design Process, Entity Relationship Model, ER Diagram, Design Issues, Extended E-R Features, Converting E-R & EER diagram into tables."
+   },
+   {
+    "roman": "II",
+    "title": "SQL and PL/SQL",
+    "hours": 9,
+    "text": "SQL: DDL, DML, Select Queries, String, Date and Numerical Functions, Aggregate Functions ,View, Indexes, Group by and Having Clause, Join Queries, Set, Set operation, Set membership, Nested queries, DCL, TCL PL/SQL: Control Statement, Cursor, Stored Procedure and Function, Trigger"
+   },
+   {
+    "roman": "III",
+    "title": "Relational Database Design",
+    "hours": 9,
+    "text": "Relational Model: Basic concepts, Attributes and Domains, CODD’s Rules, Relational Integrity, Referential Integrities, Database Design: Features of Good Relational Designs, Normalization, Atomic Domains and First Normal Form, Decomposition using Functional Dependencies, 2NF, 3NF, BCNF."
+   },
+   {
+    "roman": "IV",
+    "title": "Database Transactions",
+    "hours": 9,
+    "text": "Basic concept of a Transaction, Transaction Management, Properties of Transactions, ACID, Concept of Schedule, Serial Schedule, Serializability: Conflict and View, Cascaded Aborts, Recoverable and Non-recoverable Schedules, Concurrency Control: Need, Locking Methods."
+   },
+   {
+    "roman": "V",
+    "title": "NoSQL Database",
+    "hours": 9,
+    "text": "Introduction to NoSQL Database, NoSQL data models, CAP theorem and BASE Properties, Comparative study of SQL and NoSQL, MongoDB: CRUD Operations, Indexing and Aggregation."
+   }
+  ],
+  "links": [
+   "https://nptel.ac.in/courses/106105175",
+   "https://nptel.ac.in/courses/106106220"
+  ],
+  "textBooks": [
+   "Silberschatz A., Korth H., Sudarshan S., \"Database System Concepts\", McGraw Hill Publishers, ISBN 0-07-120413-X, 6th edition",
+   "Connally T., Begg C., \"Database Systems\", 4th Edition, Pearson Education, 2002, ISBN 8178088614",
+   "D T Editorial Services \"BIG DATA Black Book\", Dreamtech Press ISBN 13 : 9789351199311"
+  ],
+  "refBooks": [
+   "C J Date, “An Introduction to Database Systems”, Addison-Wesley, ISBN: 0201144719",
+   "S.K.Singh, “Database Systems: Concepts, Design and Application”, Pearson Education, ISBN 978-81-317-6092-5",
+   "Kristina Chodorow, Michael Dierolf, “MongoDB: The Definitive Guide”, O Reilly Publications, ISBN: 978-1-449-34468-9",
+   "Adam Fowler, “NoSQL For Dummies”, John Wiley & Sons, ISBN-1118905628",
+   "Kevin Roebuck, “Storing and Managing Big Data - NoSQL, HADOOP and More”, Emereopty Limited, ISBN: 1743045743, 9781743045749",
+   "Joy A. Kreibich, “Using SQLite”, O’REILLY, ISBN: 13:978-93-5110-934-1",
+   "Ivan Bayross, “SQL, PL/SQL the Programming Language of Oracle”, BPB Publications ISBN: 9788176569644, 9788176569644"
+  ]
+ },
+ {
+  "code": "PCC-252-CYB",
+  "name": "Advanced Data Structures",
+  "hours": 3,
+  "cce": 40,
+  "ese": 60,
+  "credits": 3,
+  "prereq": "1. Data Structure (PCC-201- CSC)",
+  "outcomes": [
+   "Apply nonlinear data structure like trees for solving problems of various domains.",
+   "Design and apply graphs as data structures in the application development.",
+   "Understand and apply efficient Hashing methods to store and retrieve the data.",
+   "Design and apply Search tree structures in the application development.",
+   "Use appropriate modern tools to understand and analyze the functionalities confined to the m-way Search Trees & Heap"
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Trees",
+    "hours": 9,
+    "text": "Tree- Basic terminology, Representation using sequential and linked organization, Binary tree - properties, Converting tree to binary tree, Binary tree traversals and Tree Iterators - Inorder, Preorder, Postorder, Depth First and Breadth First. Binary Search Tree (BST), BST operations, Threaded binary search tree-concepts, threads, insertion and deletion of nodes in Inorder threaded binary search tree, in order traversal of in-order threaded binary search tree."
+   },
+   {
+    "roman": "II",
+    "title": "Graph",
+    "hours": 9,
+    "text": "Graph: Basic Concepts, Storage representation, Adjacency matrix, adjacency list, adjacency multi list, inverse adjacency list, Dynamic graphs vs. static graphs. Traversals-Depth First Search and Breadth First Search, Minimum Spanning Tree, Greedy algorithms for computing minimum spanning tree- Prims and Kruskal Algorithms, Dikjtra’s Single source shortest path, All pairs shortest paths- Floyd-Warshall Algorithm"
+   },
+   {
+    "roman": "III",
+    "title": "Hashing",
+    "hours": 9,
+    "text": "Introduction to Hashing: Basic Concept, Comparison with arrays, linked lists, and trees. Hash Table & Operations: Definition, structure, insertion, deletion, searching, bucket roles, and performance metrics, Hash Functions: Properties of good hash functions; Types of Hash Functions: division, multiplication, extraction, mid-square, folding, and universal hashing. Collision and Resolution Techniques, Hash Table Overflow and Management, Applications of Hashing"
+   },
+   {
+    "roman": "IV",
+    "title": "Search Trees",
+    "hours": 9,
+    "text": "Symbol Table-Representation of Symbol Tables- Static tree table and Dynamic tree table, Weight balanced tree - Optimal Binary Search Tree (OBST), OBST as an example of Dynamic Programming, Height Balanced Tree- AVL tree. Red-Black Tree, AA tree, K-dimensional tree, Splay Tree"
+   },
+   {
+    "roman": "V",
+    "title": "Multi way Search Trees & Heap",
+    "hours": 9,
+    "text": "m-way Search Trees: Definition and properties, Searching m-way Search Trees, B Tree : Definition and properties, Insertion and Deletion in B Tree, B+ Tree : Definition and properties, Searching, Insertion and Deletion in B+ Tree. Heap: Heap data structures basic concepts, Min and Max Heap, Realization of Heap, Heap as an ADT, Heap sort, applications of heap."
+   }
+  ],
+  "links": [],
+  "textBooks": [],
+  "refBooks": [
+   "R.Gillberg, B.Forouzan Data Structures: A Pseudocode approach with C, Cengage Learning, ISBN: 9788131503140.",
+   "M.Weiss Data Structures and Algorithm Analysis in C++, 2nd edition,PearsonEducation,2002,ISBN- 81- 7808-670-0.",
+   "Horowitz, Sahani Fundamentals of Data Structures, GalgotiaBooksource.",
+   "Carrano and Henry, \"Data Structures and Problem Solving with C++: Walls and Mirrors\", Pearson; 6 edition, 2012",
+   "Data Structures and Algorithms Made Easy in C++ NarasimhaKarumanchi."
+  ]
+ },
+ {
+  "code": "PCC-253-CYB",
+  "name": "Probability and Statistics",
+  "hours": 2,
+  "cce": 40,
+  "ese": 60,
+  "credits": 2,
+  "prereq": "Basics of Integration and differentiation, Concepts of set theory",
+  "outcomes": [
+   "Apply probability distributions, Bayes’ theorem, and statistical measures for data analysis and decision-making.",
+   "Apply the Central Limit Theorem and construct confidence intervals to estimate and compare population parameters.",
+   "Apply statistical inference techniques to estimate population parameters from sample data.",
+   "Perform hypothesis testing and statistical analysis for decision-making.",
+   "Apply correlation and regression methods to interpret data trends and make predictions."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Probability Basics and distributions",
+    "hours": 6,
+    "text": "Conditional and Total Probabilities, Bayes theorem, Random variables, Discrete Probability Distributions- Binomial, Poisson, Geometric distribution, Continuous Probability Distribution: Normal, standard normal, uniform, exponential distribution."
+   },
+   {
+    "roman": "II",
+    "title": "Central limit theorem",
+    "hours": 6,
+    "text": "Central limit theorem, Large-Sample Confidence Intervals for a Population Mean, Confidence Intervals for Proportions, Small-Sample Confidence Intervals for a Population Mean, Confidence Intervals for the Difference Between Two Means, Confidence Intervals for the Difference Between Two Proportions, Small-Sample Confidence Intervals for the Difference Between Two Means, Confidence Intervals with Paired Data."
+   },
+   {
+    "roman": "III",
+    "title": "Sampling Theory and Statistical Estimation",
+    "hours": 6,
+    "text": "Population and Sample, Statistical inference, Sampling with and without replacement, Population parameters, Sample statics, Sampling distributions, Sample mean, Sampling distribution of means, Sample variances, Sampling distribution of variances, Case where population variances is unknown, Unbiased estimates and efficient estimates, point estimate and Interval Estimates"
+   },
+   {
+    "roman": "IV",
+    "title": "Test of hypothesis",
+    "hours": 6,
+    "text": "Statistical hypothesis, Null and Alternate hypothesis, test of hypothesis and significance, Type I and Type II errors, Level of Significance, Tests involving the Normal distribution, One-Tailed and Two- Tailed tests, P value. Special tests of significance for large samples and small samples (F, chi-square, z, t-test)"
+   },
+   {
+    "roman": "V",
+    "title": "Correlation and regression",
+    "hours": 6,
+    "text": "Introduction of correlation, correlation analysis, coefficient of correlation, probable error, regression, regression analysis, line of regression, standard error of estimate, Rank of correlation. Single and multiple regression."
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   "Statistics for Engineers and Scientists, Fourth Edition, William Navidi, McGraw-Hill publications",
+   "Schaum’s outline of “Probability and Statistics”, Fourth Edition"
+  ],
+  "refBooks": [
+   "Sheldon M. Ross, “Probability and Statistics for Engineers and Scientists”, Fifth Edition, ELSEVIER Publication",
+   "William Feller, An introduction to probability theory and its applications.",
+   "Douglas C. Montgomery, George C. Runger, Applied Statistics and Probability for Engineers, Wiley, Year- 2018, ISBN- 1119409535",
+   "Johnson Richard A., Miller I., Freund J.E., (2016), “Probability and Statistics for Engineers”, 9th edition, PHI publications",
+   "Rao G. S., (2018), “Probability and Statistics for Science and Engineering”, 11th edition, Universities press publication – G Shankar Rao",
+   "Douglas C. Montgomery, Elizabeth A. Peck, G. Geoffrey Vining, Introduction to Linear Regression Analysis, Wiley, 2012",
+   "Advanced Engineering Mathematics by Erwin Kreyszig (Wiley Eastern Ltd.).(ISBN 978-0-470- 45836-5.)",
+   "All of Statistics: A Concise Course in Statistical Inference\" by Larry Wasserman (Springer publication). E-Book"
+  ]
+ },
+ {
+  "code": "MDM-271-CYB",
+  "name": "Internet of Things",
+  "hours": 2,
+  "cce": 40,
+  "ese": 60,
+  "credits": 2,
+  "prereq": "1. Digital Electronics and Logic Design",
+  "outcomes": [
+   "Understand fundamental and ecosystem of IoT.",
+   "Interface different sensors and actuators with IoT development boards.",
+   "Illustrate different layers of IoT protocols.",
+   "Use of cloud and its services.",
+   "Apply and develop domain specific IoT applications."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to IoT",
+    "hours": 6,
+    "text": "What is Internet of Things: Definition & Characteristics of IoT, Evolution of IoT, Convergence of IoT, IoT Challenges, M2M Communication, Things in IoT, IoT Protocols, Functional blocks of IoT Ecosystem, Communication Models, Communication APIs, IoT enabled Technologies: Wireless Sensor Network, Cloud Computing, Big Data Analytics, Embedded Systems, IoT enabled Applications."
+   },
+   {
+    "roman": "II",
+    "title": "Introduction to Sensors, Actuator",
+    "hours": 6,
+    "text": "Sensors/Transducers – Definition, Principles, Classifications, Types, Characteristics and Specifications, Actuators - Definition, Principles, Classifications, Types, Characteristics and Specifications IoT Development Boards: Arduino IDE and Board Types, Raspberry Pi, NodeMCU, ESP 32, Beagle-bone"
+   },
+   {
+    "roman": "III",
+    "title": "Protocols for IoT",
+    "hours": 6,
+    "text": "IoT Access Technologies: Physical and MAC layers, IEEE 802.15.4, 802.11ah and Lora WAN, Network Layer- IP versions 4 & 6 ,6LoWPAN, IoT Application Layer Protocols – CoAP and MQTT, Transport Protocols - Zigbee, Bluetooth, BLE, ZWave"
+   },
+   {
+    "roman": "IV",
+    "title": "Cloud for IoT",
+    "hours": 6,
+    "text": "Fundamentals of Cloud Computing, Types of Cloud services- AWS, Azure, Adafruit, IoT with Cloud, Challenges faced in cloud services, selection of cloud for IoT applications"
+   },
+   {
+    "roman": "V",
+    "title": "IoT Applications",
+    "hours": 6,
+    "text": "Smart Cities – Smart Parking, Smart Lighting, Smart Roads, Structural Health Monitoring, Surveillance Energy – Smart Grids, Renewable Energy Systems, Prognostics Environment – Weather Monitoring, Air Pollution Monitoring, Noise Pollution Monitoring, Forest Fire Detection, River Floods Detection Agriculture – Smart Irrigation, GreenHouse Control Industry – Machine Diagnostics & Prognosis, Indoor Air Quality Monitoring Health & Lifestyle – Health & Fitness Monitoring, Wearable Electronics"
+   }
+  ],
+  "links": [
+   "https://onlinecourses.nptel.ac.in/noc22_cs53/preview"
+  ],
+  "textBooks": [
+   "David Hanes, Gonzalo Salgueiro, Patrick Grossetete, Rob Barton, Jerome Henry, “IoT Fundamentals – Networking Technologies, Protocols, and Use Cases for the Internet of Things”, 1st Edition, Published by Pearson Education, Inc, publishing as Cisco Press, 2017.",
+   "Hakima Chaouchi, “The Internet of Things - Connecting Objects to the Web”, 1st Edition, Wiley,",
+   "Arshdeep Bahga, Vijay Madisetti, “Internet of Things – Hands-On Approach”, 2nd Edition, Universities Press, 2016.",
+   "Perry Lea, “Internet of things For Architects”, 1st Edition, Packt Publication, 2018",
+   "Simone Cirani, Gianluigi Ferrari, Marco Picone, Luca Veltri, “Internet of Things:Architectures, Protocols and Standards”, Wiley"
+  ],
+  "refBooks": [
+   "Raj Kamal, Internet of Things: Architecture and Design Principles, McGraw Hill Education, 1st Edition, 2017",
+   "Adrian McEwen & Hakim Cassimally, “Designing the Internet of Things”, 1st Edition, Wiley,",
+   "David Hanes, Gonzalo Salgueiro, IoT Fundamentals Networking Technologies, Protocols and Use Cases for Internet of Things, Cisco Press, 1st Edition, 2017.",
+   "Donald Norris, “Raspberry Pi – Projects for the Evil Genius”, 2nd Edition, McGraw Hill, 2014."
+  ]
+ }
+]

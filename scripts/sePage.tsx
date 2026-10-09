@@ -60,6 +60,10 @@ MOTIFS.auto = R => <>
     <circle cx="34" cy="24" r="15" fill="none" stroke={D} strokeWidth="1.5" /><circle cx="34" cy="24" r="6" fill="none" stroke={R} strokeWidth="1.5" /><path d="M34 9 V39 M19 24 H49" stroke={D} strokeWidth="1.5" />
     <path d="M70 40 H190 M78 40 V30 Q78 24 90 24 H170 Q182 24 182 30 V40" stroke={D} strokeWidth="1.5" fill="none" /><circle cx="100" cy="42" r="5" fill="none" stroke={R} strokeWidth="1.5" /><circle cx="160" cy="42" r="5" fill="none" stroke={R} strokeWidth="1.5" />
     <path d="M210 24 H600" stroke="#3a1620" strokeWidth="1.5" strokeDasharray="2 7" /></>;
+MOTIFS.cyber = R => <>
+    <path d="M30 8 L48 14 V28 Q48 38 30 44 Q12 38 12 28 V14 Z" fill="none" stroke={D} strokeWidth="1.5" /><rect x="24" y="22" width="12" height="9" rx="1.5" fill={R} /><path d="M26 22 V19 Q26 14 30 14 Q34 14 34 19 V22" fill="none" stroke={R} strokeWidth="1.5" />
+    <path d="M70 24 H100 M108 24 H118 M126 24 H170" stroke={D} strokeWidth="1.5" /><circle cx="104" cy="24" r="3" fill="none" stroke={R} strokeWidth="1.5" /><circle cx="122" cy="24" r="3" fill="none" stroke={D} strokeWidth="1.5" />
+    <path d="M190 24 H600" stroke="#3a1620" strokeWidth="1.5" strokeDasharray="2 7" /></>;
 MOTIFS.mech = R => <>
     <circle cx="30" cy="24" r="14" fill="none" stroke={D} strokeWidth="1.5" strokeDasharray="4 3" /><circle cx="30" cy="24" r="5" fill={R} />
     <circle cx="66" cy="24" r="9" fill="none" stroke={R} strokeWidth="1.5" strokeDasharray="3 3" /><circle cx="66" cy="24" r="3" fill="none" stroke={D} strokeWidth="1.5" />
@@ -135,7 +139,7 @@ export function renderSeCourse(b: SeBranch, c: SeCourse): string {
       <h2>Course outcomes</h2>
       <ol className="co">{c.outcomes.map((o, i) => <li key={i}><b>CO{i + 1}</b>{o}</li>)}</ol>
       <h2>Books</h2>
-      <h3>Text books</h3><ul>{c.textBooks.map(t => <li key={t}>{t}</li>)}</ul>
+      {c.textBooks.length > 0 && <><h3>Text books</h3><ul>{c.textBooks.map(t => <li key={t}>{t}</li>)}</ul></>}
       {c.refBooks.length > 0 && <><h3 style={{ marginTop: 16 }}>Reference books</h3><ul>{c.refBooks.map(t => <li key={t}>{t}</li>)}</ul></>}
       {c.links.length > 0 && <><h2>NPTEL and SWAYAM links</h2><p>Listed in the official syllabus:</p><ul className="src">{c.links.map(l => <li key={l}><a href={l} rel="noopener">{l.replace('https://', '')}</a></li>)}</ul></>}
       <h2>FAQ</h2>

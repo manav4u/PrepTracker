@@ -7,6 +7,7 @@ import it from './seData/it.json';
 import civil from './seData/civil.json';
 import instr from './seData/instr.json';
 import auto from './seData/auto.json';
+import cyber from './seData/cyber.json';
 import mech from './seData/mech.json';
 
 // One entry per Second Year branch. Course data is checked against each branch's official SPPU 2024 pattern PDF.
@@ -64,5 +65,11 @@ export const SE_BRANCHES: SeBranch[] = [
     pdf: 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/SE%20Automobile%20Draft%20Syllabus%202024%20Pattern-9-6-2026_23062026.pdf',
     pdfLabel: 'SPPU SE Automobile Engineering 2024 pattern draft syllabus (June 2026)',
     courses: auto as SeBranch['courses'],
+  },
+  {
+    slug: 'se-cyber-security', branch: 'Cyber Security', short: 'SE Cyber Security', motif: 'cyber', accent: '#e11d48',
+    pdf: 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/SE%20-%20Cyber%20Security%20-%202024%20Pattern.pdf',
+    pdfLabel: 'SPPU SE Cyber Security 2024 pattern syllabus (effective 2026-27)',
+    courses: cyber as SeBranch['courses'],
   },
 ];
