@@ -56,11 +56,11 @@ details{border-bottom:1px solid #222;padding:10px 0}summary{cursor:pointer;color
 .gemwrap{width:64px}@media(min-width:760px){.gemwrap{width:auto}}
 .treenote{font:500 11px/1.5 ui-monospace,Menlo,monospace;letter-spacing:.06em;color:#666;margin-top:14px}
 
-.upills{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 18px}.upills a{text-decoration:none;display:inline-flex;align-items:center;gap:6px;border:1px solid #2a2a2a;background:#111;border-radius:999px;padding:5px 12px;font-size:13px;color:#ccc}.upills a b{font-weight:600;color:#fff}.upills a small{color:#fb7185;font:500 11px ui-monospace,Menlo,monospace}
+.upills{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 18px}.upills a{text-decoration:none;display:inline-flex;align-items:center;gap:6px;border:1px solid #2a2a2a;background:#111;border-radius:999px;padding:5px 12px;font-size:13px;color:#ccc}.upills a b{font-weight:600;color:#fff;letter-spacing:.04em;font-size:12px}.upills a small{color:#fb7185;font:500 11px ui-monospace,Menlo,monospace}
 .units{position:relative;padding-left:22px}.units:before{content:'';position:absolute;left:4px;top:18px;bottom:30px;width:1px;background:linear-gradient(#e11d48,#2a1018 40%,#2a1018)}
 .unit{position:relative;scroll-margin-top:16px}.unit:before{content:'';position:absolute;left:-22px;top:25px;width:9px;height:9px;border-radius:50%;background:#e11d48;box-shadow:0 0 0 4px #0a0a0a}
 .uh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.uh h3{margin:0;flex:1;min-width:60%}.uh .hrs{float:none}
-.up{border:1px solid #3a1620;background:#1a0a10;color:#fb7185;font-weight:600}
+.up{letter-spacing:.06em;font-size:12px;border:1px solid #3a1620;background:#1a0a10;color:#fb7185;font-weight:600}
 .tp{margin:12px 0 0}.tp{gap:6px}.tp .chip{font-size:12px;padding:3px 10px;color:#bbb;background:#0d0d0d}.units{padding-left:20px}.unit{padding:14px 14px}
 footer{margin-top:48px;font-size:13px;color:#777}ol.co{padding-left:0;list-style:none}ol.co li{margin:10px 0;padding-left:56px;position:relative;color:#ccc}ol.co b{position:absolute;left:0;color:#fb7185}`;
 
@@ -156,10 +156,10 @@ export function renderSubjectPage(c: SubjectPageConfig): string {
           </div>
 
           <h2>Unit-wise syllabus</h2>
-          <nav className="upills" aria-label="Jump to a unit">{s.units.map((u, i) => <a key={u.id} href={'#' + u.id}><b>U{SUP[i]}</b><small>{u.hours} h</small></a>)}</nav>
+          <nav className="upills" aria-label="Jump to a unit">{s.units.map((u, i) => <a key={u.id} href={'#' + u.id}><b>UNIT {ROMAN[i]}</b><small>{u.hours} h</small></a>)}</nav>
           <div className="units">{s.units.map((u, i) => (
             <section className="card unit" id={u.id} key={u.id}>
-              <div className="uh"><span className="chip up">U{SUP[i]}</span><h3>{u.title}</h3><span className="hrs">{u.hours} hours</span></div>
+              <div className="uh"><span className="chip up">UNIT {ROMAN[i]}</span><h3>{u.title}</h3><span className="hrs">{u.hours} hours</span></div>
               <div className="chips tp">{u.topics.map(t => <span className="chip" key={t}>{t}</span>)}</div>
             </section>
           ))}</div>
