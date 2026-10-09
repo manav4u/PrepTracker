@@ -89,7 +89,7 @@ export const SUBJECTS: Subject[] = [
       },
       { 
         id: 'phy-u3', unit_number: 3, hours: 8, title: 'Wave Optics', 
-        topics: ['Interference in thin films (Reflected system)', "Newton's rings", 'Polarization (PPL, CPL, EPL)', "Malu's law", 'Double refraction (Huygens theory)', 'LCDs & 3D Movies'] 
+        topics: ['Interference in thin films (Reflected system)', 'Wedge shaped film, ARC and optical flatness', 'Polarization (PPL, CPL, EPL)', "Malu's law", 'Double refraction (Huygens theory)', 'LCDs & 3D Movies'] 
       },
       { 
         id: 'phy-u4', unit_number: 4, hours: 8, title: 'Semiconductor Physics and Ultrasonics', 
@@ -97,7 +97,7 @@ export const SUBJECTS: Subject[] = [
       },
       { 
         id: 'phy-u5', unit_number: 5, hours: 8, title: 'Nanoparticles and Superconductivity', 
-        topics: ['Quantum confinement', 'Synthesis: Ball milling, PVD', 'GMR effect & HDD', 'Superconductivity (Type I & II)', 'Meissner effect & BCS theory', 'SQUID & Maglev train'] 
+        topics: ['Quantum confinement', 'Synthesis: Ball milling, PVD', 'GMR effect & HDD', 'Superconductivity (Type I & II)', 'Meissner effect, Cooper pairs & Josephson effect', 'SQUID & Maglev train'] 
       },
     ]
   },
