@@ -2,9 +2,9 @@ import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { SUBJECTS } from '../constants';
 
-const SITE = 'https://preptracker.manavdev.site';
-const SYLLABUS_PDF = 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/FE%202024%20Pattern%20Syllabus%20-%2016%20July%202024%20(1).pdf';
-const HANDBOOK = 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf';
+export const SITE = 'https://preptracker.manavdev.site';
+export const SYLLABUS_PDF = 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/FE%202024%20Pattern%20Syllabus%20-%2016%20July%202024%20(1).pdf';
+export const HANDBOOK = 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf';
 
 export interface SubjectPageConfig {
   id: string; slug: string; title: string; metaDescription: string; ogTitle: string; ogDescription: string;
@@ -16,7 +16,7 @@ export interface SubjectPageConfig {
   faq: [string, string][];
 }
 
-const css = `*{box-sizing:border-box}body{margin:0;background:#0a0a0a;color:#e5e5e5;font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+export const css = `*{box-sizing:border-box}body{margin:0;background:#0a0a0a;color:#e5e5e5;font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
 a{color:#fb7185}main{max-width:780px;margin:0 auto;padding:24px 18px 64px}
 nav.crumbs{font-size:13px;color:#888;margin-bottom:20px}nav.crumbs a{color:#aaa;text-decoration:none}
 h1{font-size:clamp(28px,6vw,44px);line-height:1.15;margin:0 0 8px;color:#fff}h2{font-size:22px;margin:40px 0 12px;color:#fff}h3{font-size:17px;margin:0 0 4px;color:#fff}
@@ -152,7 +152,7 @@ export function renderSubjectPage(c: SubjectPageConfig): string {
 
           <footer>
             <p>Sources: <a href={SYLLABUS_PDF} rel="noopener">SPPU First Year Engineering 2024 pattern syllabus (official PDF)</a> and the <a href={HANDBOOK} rel="noopener">SPPU credit framework handbook</a>. PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.</p>
-            <p><a href={SITE + '/'}>PrepTracker home</a></p>
+            <p><a href={SITE + '/'}>PrepTracker home</a> · <a href={SITE + '/syllabus/first-year-scheme-credits/'}>FE scheme and credits</a> · <a href={SITE + '/syllabus/grading-system-sgpa/'}>Grading and SGPA</a> · <a href={SITE + '/syllabus/cce-end-sem-exam-pattern/'}>Exam pattern</a></p>
           </footer>
         </main>
       </body>
