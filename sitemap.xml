@@ -709,102 +709,22 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/</loc>
-    <lastmod>2026-10-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/artificial-intelligence/</loc>
-    <lastmod>2026-10-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/augmented-and-virtual-reality/</loc>
-    <lastmod>2026-10-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/cloud-computing/</loc>
-    <lastmod>2026-10-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/computer-networks-and-security/</loc>
-    <lastmod>2026-10-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/data-science-and-big-data-analytics/</loc>
-    <lastmod>2026-10-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/database-management-systems/</loc>
-    <lastmod>2026-10-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/distributed-systems/</loc>
-    <lastmod>2026-10-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/human-computer-interface/</loc>
-    <lastmod>2026-10-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/information-security/</loc>
-    <lastmod>2026-10-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/internet-of-things-and-embedded-systems/</loc>
-    <lastmod>2026-10-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/software-modeling-and-architecture/</loc>
-    <lastmod>2026-10-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/software-project-management/</loc>
-    <lastmod>2026-10-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/systems-programming-and-operating-system/</loc>
-    <lastmod>2026-10-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/theory-of-computation/</loc>
-    <lastmod>2026-10-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/web-technology/</loc>
-    <lastmod>2026-10-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <url>
     <loc>https://preptracker.manavdev.site/syllabus/te-information-technology/</loc>
     <lastmod>2026-10-09</lastmod>
@@ -979,4 +899,4 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-</urlset>
+<url><loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/</loc></url><url><loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/artificial-intelligence/</loc></url><url><loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/computer-networks/</loc></url><url><loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/theory-of-computations/</loc></url><url><loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/data-mining-and-data-warehousing/</loc></url><url><loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/cloud-computing/</loc></url><url><loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/mobile-computing/</loc></url><url><loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/embedded-system/</loc></url><url><loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/machine-learning/</loc></url><url><loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/software-engineering-and-modeling/</loc></url><url><loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/quantum-computing/</loc></url><url><loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/distributed-systems/</loc></url><url><loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/user-interface-and-user-experience-design/</loc></url><url><loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/system-programming/</loc></url><url><loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/information-retrieval/</loc></url><url><loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/data-visualization-and-analytics/</loc></url><url><loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/cryptography-and-network-security/</loc></url><url><loc>https://preptracker.manavdev.site/syllabus/te-computer-engineering/advanced-databases/</loc></url></urlset>
