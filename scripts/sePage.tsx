@@ -8,7 +8,7 @@ export interface SeCourse {
   prereq: string; outcomes: string[]; units: SeUnit[]; textBooks: string[]; refBooks: string[]; links: string[];
 }
 export interface SeBranch {
-  slug: string; branch: string; short: string; pdf: string; pdfLabel: string; motif: string; accent: string; draft?: boolean; year?: 'TE'; courses: SeCourse[];
+  slug: string; branch: string; short: string; pdf: string; pdfLabel: string; motif: string; accent: string; draft?: boolean; year?: 'TE'; pattern?: string; ccLabel?: string; courses: SeCourse[];
 }
 export const slugify = (n: string) => n.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 export const coursePath = (b: SeBranch, c: SeCourse) => '/syllabus/' + b.slug + '/' + slugify(c.name) + '/';
@@ -76,6 +76,8 @@ MOTIFS.mech = R => <>
     <circle cx="121" cy="14" r="3.5" fill="none" stroke={D} strokeWidth="1.5" /><path d="M121 17 V30" stroke={D} strokeWidth="1.5" />
     <path d="M170 24 H600" stroke="#3a1620" strokeWidth="1.5" strokeDasharray="2 7" /></>;
 const YL = (b: SeBranch) => (b.year === 'TE' ? { s: 'TE', l: 'Third Year' } : { s: 'SE', l: 'Second Year' });
+const PT = (b: SeBranch) => b.pattern ?? '2024';
+const CC = (b: SeBranch) => b.ccLabel ?? 'CCE';
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
 const sectionCss = `.draft{border:1px solid #e11d48;background:#1a0a10;color:#fda4af;border-radius:12px;padding:12px 16px;margin:14px 0;font-size:14px}.crs{display:grid;gap:10px;margin:14px 0}.crs a{display:flex;justify-content:space-between;gap:12px;align-items:baseline;text-decoration:none;border:1px solid #222;background:#101010;border-radius:14px;padding:14px 16px;color:#fff}.crs a:hover{border-color:#e11d48}.crs small{color:#888;font:500 11px/1.3 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}.utext{margin:10px 0 0;color:#ccc;font-size:15px}.src li{margin:6px 0;word-break:break-word}`;
 
@@ -92,6 +94,7 @@ function Head({ title, desc, path }: { title: string; desc: string; path: string
   </>;
 }
 const DraftNote = ({ b }: { b: SeBranch }) => b.draft ? <p className="draft"><b>DRAFT.</b> SPPU published this {b.branch} syllabus as a draft. It may change before it is final, so check the official PDF and your college before relying on it.</p> : null;
+const PatternNote = ({ b }: { b: SeBranch }) => b.pattern && b.pattern !== '2024' ? <p className="draft"><b>{b.pattern} PATTERN.</b> This is the {b.pattern} pattern syllabus, the latest SPPU has published on its site for {YL(b).l} {b.branch}. A 2024 pattern syllabus for this year has not been published there yet, so confirm with your college which pattern applies to you.</p> : null;
 const Motif = ({ b }: { b: SeBranch }) => <svg className="motif" viewBox="0 0 600 48" preserveAspectRatio="xMinYMid meet" aria-hidden="true">{MOTIFS[b.motif](b.accent)}</svg>;
 const Foot = ({ b }: { b: SeBranch }) => <footer>
   <p>Source: <a href={b.pdf} rel="noopener">{b.pdfLabel} (official SPPU PDF)</a>. PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.</p>
@@ -102,11 +105,11 @@ export function renderSeCourse(b: SeBranch, c: SeCourse): string {
   const path = coursePath(b, c);
   const total = c.units.reduce((a, u) => a + u.hours, 0);
   const consistent = total === c.hours * 15;
-  const title = `${c.name} syllabus (${b.short}${b.draft ? ', draft' : ''}, SPPU 2024 pattern) - units, marks, books`;
-  const desc = `${c.name} (${c.code}) for SPPU ${b.branch} 2024 pattern${b.draft ? ' (draft syllabus)' : ''}: ${c.units.length} units${consistent ? `, ${total} hours` : ''}, ${c.credits} credits, CCE ${c.cce} and end-semester ${c.ese} marks, outcomes and books.`;
+  const title = `${c.name} syllabus (${b.short}${b.draft ? ', draft' : ''}, SPPU ${PT(b)} pattern) - units, marks, books`;
+  const desc = `${c.name} (${c.code}) for SPPU ${b.branch} ${PT(b)} pattern${b.draft ? ' (draft syllabus)' : ''}: ${c.units.length} units${consistent ? `, ${total} hours` : ''}, ${c.credits} credits, ${CC(b)} ${c.cce} and end-semester ${c.ese} marks, outcomes and books.`;
   const faq: [string, string][] = [
     [`How many units are in ${c.name}?`, `${c.name} (${c.code}) has ${c.units.length} units${consistent ? ` and ${total} hours of theory` : ''}: ${c.units.map(u => `Unit ${u.roman} ${u.title} (${u.hours} h)`).join('; ')}.`],
-    [`What is the marks scheme for ${c.name}?`, `The official ${b.branch} 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for ${c.cce} marks and the end-semester exam for ${c.ese} marks, for ${c.credits} credits.`],
+    [`What is the marks scheme for ${c.name}?`, `The official ${b.branch} ${PT(b)} pattern syllabus lists ${b.ccLabel ? 'mid-semester (' + b.ccLabel + ')' : 'continuous comprehensive evaluation (CCE)'} for ${c.cce} marks and the end-semester exam for ${c.ese} marks, for ${c.credits} credits.`],
     ...(c.prereq ? [[`What should I know before ${c.name}?`, `Prerequisite listed in the syllabus: ${c.prereq}.`] as [string, string]] : []),
   ];
   const page = (
@@ -121,9 +124,9 @@ export function renderSeCourse(b: SeBranch, c: SeCourse): string {
     </head><body><main>
       <nav className="crumbs"><a href={SITE + '/'}>PrepTracker</a> / <a href={SITE + '/syllabus/' + b.slug + '/'}>{b.short}</a> / {c.name}</nav>
       <h1>{c.name} syllabus</h1>
-      <DraftNote b={b} />
-      <p className="lead">{c.code} · {YL(b).l} {b.branch}, SPPU 2024 pattern. Every unit, the marks scheme, course outcomes and books, copied from the official syllabus PDF.</p>
-      <div className="chips"><span className="chip">{c.code}</span><span className="chip">{c.hours} h/week theory</span><span className="chip">CCE {c.cce} + End-sem {c.ese}</span></div>
+      <DraftNote b={b} /><PatternNote b={b} />
+      <p className="lead">{c.code} · {YL(b).l} {b.branch}, SPPU {PT(b)} pattern. Every unit, the marks scheme, course outcomes and books, copied from the official syllabus PDF.</p>
+      <div className="chips"><span className="chip">{c.code}</span><span className="chip">{c.hours} h/week theory</span><span className="chip">{CC(b)} {c.cce} + End-sem {c.ese}</span></div>
       <div className="stats" style={consistent ? undefined : { gridTemplateColumns: 'repeat(2,1fr)' }}>
         {consistent && <div className="stat"><b>{total}</b><span>hours of theory</span></div>}
         <div className="stat"><b>{String(c.units.length).padStart(2, '0')}<i>.</i></b><span>units</span></div>
@@ -139,7 +142,7 @@ export function renderSeCourse(b: SeBranch, c: SeCourse): string {
         </section>))}</div>
       <h2>Marks and credits</h2>
       <table><thead><tr><th>Head</th><th>Marks</th><th>Credit</th></tr></thead><tbody>
-        <tr><td>CCE (continuous comprehensive evaluation)</td><td>{c.cce}</td><td rowSpan={2}>{c.credits}</td></tr>
+        <tr><td>{b.ccLabel ? b.ccLabel + ' (mid-semester exam)' : 'CCE (continuous comprehensive evaluation)'}</td><td>{c.cce}</td><td rowSpan={2}>{c.credits}</td></tr>
         <tr><td>End-semester exam</td><td>{c.ese}</td></tr></tbody></table>
       {c.prereq && <p>Prerequisite: {c.prereq}.</p>}
       <h2>Course outcomes</h2>
@@ -157,8 +160,8 @@ export function renderSeCourse(b: SeBranch, c: SeCourse): string {
 
 export function renderSeBranch(b: SeBranch): string {
   const path = '/syllabus/' + b.slug + '/';
-  const title = `SPPU ${b.short} syllabus${b.draft ? ' (draft)' : ''} 2024 pattern - subject-wise units and marks`;
-  const desc = `Subject-wise syllabus for SPPU ${YL(b).l} ${b.branch}, 2024 pattern${b.draft ? ' (draft syllabus)' : ''}: ${b.courses.length} theory courses with units, hours, marks, outcomes and books, from the official PDF${b.draft ? ', which SPPU marks as a draft' : ''}.`;
+  const title = `SPPU ${b.short} syllabus${b.draft ? ' (draft)' : ''} ${PT(b)} pattern - subject-wise units and marks`;
+  const desc = `Subject-wise syllabus for SPPU ${YL(b).l} ${b.branch}, ${PT(b)} pattern${b.draft ? ' (draft syllabus)' : ''}: ${b.courses.length} theory courses with units, hours, marks, outcomes and books, from the official PDF${b.draft ? ', which SPPU marks as a draft' : ''}.`;
   const page = (
     <html lang="en"><head><Head title={title} desc={desc} path={path} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@graph': [
@@ -168,8 +171,8 @@ export function renderSeBranch(b: SeBranch): string {
     </head><body><main>
       <nav className="crumbs"><a href={SITE + '/'}>PrepTracker</a> / Syllabus / {b.short}</nav>
       <h1>{YL(b).s} {b.branch} syllabus{b.draft ? ' (draft)' : ''}</h1>
-      <DraftNote b={b} />
-      <p className="lead">{YL(b).l}, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes and books. Practical, lab and project courses are not listed here, only theory courses.</p>
+      <DraftNote b={b} /><PatternNote b={b} />
+      <p className="lead">{YL(b).l}, SPPU {PT(b)} pattern. Pick a subject for its units, marks, outcomes and books. Practical, lab and project courses are not listed here, only theory courses.</p>
       <Motif b={b} />
       <h2>Theory courses</h2>
       <div className="crs">{b.courses.map(c => <a key={c.code} href={SITE + coursePath(b, c)}><span>{c.name}</span><small>{c.code} · {c.credits} cr</small></a>)}</div>
