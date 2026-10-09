@@ -111,3 +111,13 @@
 - [Mathematical Methods in Engineering syllabus (MDM-221-ABE)](https://preptracker.manavdev.site/syllabus/se-automobile-engineering/mathematical-methods-in-engineering/)
 - [Mechanics of Structures syllabus (PCC-201-ABE)](https://preptracker.manavdev.site/syllabus/se-automobile-engineering/mechanics-of-structures/)
 - [Thermal Science syllabus (PCC-202-ABE)](https://preptracker.manavdev.site/syllabus/se-automobile-engineering/thermal-science/)
+
+## Second Year (SE) Cyber Security, 2024 pattern
+- [SE Cyber Security subjects](https://preptracker.manavdev.site/syllabus/se-cyber-security/): theory courses with units, marks, outcomes and books from the official SPPU PDF
+- [Advanced Data Structures syllabus (PCC-252-CYB)](https://preptracker.manavdev.site/syllabus/se-cyber-security/advanced-data-structures/)
+- [Data Structures and Algorithms syllabus (PCC-201-CYB)](https://preptracker.manavdev.site/syllabus/se-cyber-security/data-structures-and-algorithms/)
+- [Database Management Systems syllabus (PCC-251-CYB)](https://preptracker.manavdev.site/syllabus/se-cyber-security/database-management-systems/)
+- [Digital Electronics and Logic Design syllabus (MDM-221-CYB)](https://preptracker.manavdev.site/syllabus/se-cyber-security/digital-electronics-and-logic-design/)
+- [Discrete Mathematics syllabus (PCC-203-CYB)](https://preptracker.manavdev.site/syllabus/se-cyber-security/discrete-mathematics/)
+- [Internet of Things syllabus (MDM-271-CYB)](https://preptracker.manavdev.site/syllabus/se-cyber-security/internet-of-things/)
+- [Probability and Statistics syllabus (PCC-253-CYB)](https://preptracker.manavdev.site/syllabus/se-cyber-security/probability-and-statistics/)
