@@ -84,16 +84,19 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   }
 }
 
-const NavItem = ({ to, icon: Icon, active }: { to: string, icon: any, active: boolean }) => (
+const NavItem = ({ to, icon: Icon, active, label }: { to: string, icon: any, active: boolean, label: string }) => (
   <Link
     to={to}
-    className={`relative group flex items-center justify-center w-12 h-12 lg:w-14 lg:h-14 rounded-2xl lg:rounded-3xl transition-all duration-300 ${
+    aria-label={label}
+    aria-current={active ? "page" : undefined}
+    className={`relative group flex flex-col gap-1 items-center justify-center w-14 h-14 lg:w-16 lg:h-16 rounded-2xl lg:rounded-3xl transition-all duration-300 ${
       active
         ? 'bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.3)] scale-110'
         : 'text-white/40 hover:text-white hover:bg-white/5'
     }`}
   >
     <Icon size={22} strokeWidth={active ? 2.5 : 2} />
+    <span className="text-[10px] font-medium">{label}</span>
     {active && (
       <span className="absolute -bottom-2 lg:top-1/2 lg:-right-2 w-1 h-1 lg:w-1.5 lg:h-1.5 bg-[#E11D48] rounded-full shadow-[0_0_10px_#E11D48]"></span>
     )}
@@ -135,14 +138,14 @@ export default function App() {
                         </div>
                         <span className="font-bold tracking-widest uppercase text-xs text-white">PrepTracker</span>
                         </div>
-                        <Link to="/settings" className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-white/10">
+                        <Link to="/settings" aria-label="Open settings" className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-white/10">
                         <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${profile.name}`} alt="User" />
                         </Link>
                     </div>
 
                     {/* Adaptive Navigation Dock */}
                     <aside className="fixed z-50 transition-all duration-500
-                        bottom-6 left-4 right-4 h-20 glass-panel rounded-[2.5rem] flex items-center justify-around px-2 shadow-2xl
+                        bottom-0 left-0 right-0 h-20 glass-panel rounded-t-2xl flex items-center justify-around px-2 shadow-2xl
                         lg:bottom-auto lg:top-1/2 lg:left-6 lg:right-auto lg:h-auto lg:w-24 lg:flex-col lg:rounded-[3rem] lg:py-10 lg:gap-8 lg:-translate-y-1/2 lg:shadow-none
                     ">
                         <div className="hidden lg:flex w-14 h-14 items-center justify-center text-[#E11D48] mb-4">
@@ -150,11 +153,11 @@ export default function App() {
                         </div>
 
                         <nav className="flex flex-row lg:flex-col w-full justify-evenly lg:gap-6 items-center">
-                        <NavItem to="/" icon={LayoutGrid} active={location.pathname === '/'} />
-                        <NavItem to="/resources" icon={Library} active={location.pathname === '/resources'} />
-                        <NavItem to="/tasks" icon={ListTodo} active={location.pathname === '/tasks'} />
-                        <NavItem to="/calculator" icon={Calculator} active={location.pathname === '/calculator'} />
-                        <NavItem to="/settings" icon={Settings} active={location.pathname === '/settings'} />
+                        <NavItem label="Home" to="/" icon={LayoutGrid} active={location.pathname === '/'} />
+                        <NavItem label="Links" to="/resources" icon={Library} active={location.pathname === '/resources'} />
+                        <NavItem label="Tasks" to="/tasks" icon={ListTodo} active={location.pathname === '/tasks'} />
+                        <NavItem label="Marks" to="/calculator" icon={Calculator} active={location.pathname === '/calculator'} />
+                        <NavItem label="Settings" to="/settings" icon={Settings} active={location.pathname === '/settings'} />
                         </nav>
 
                         <div className="hidden lg:flex mt-4 pt-8 border-t border-white/5 w-full flex-col items-center gap-6">
@@ -167,17 +170,15 @@ export default function App() {
                                 Local Storage Active
                             </div>
                         </div>
-                        <button className="w-12 h-12 rounded-full bg-gradient-to-br from-white/5 to-white/0 border border-white/5 flex items-center justify-center hover:border-white/20 transition-all text-white/50 hover:text-white group">
-                            <Bell size={20} className="group-hover:rotate-12 transition-transform" />
-                        </button>
-                        <Link to="/settings" className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-white/10 hover:ring-white/40 transition-all hover:scale-110">
+
+                        <Link to="/settings" aria-label="Open settings" className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-white/10 hover:ring-white/40 transition-all hover:scale-110">
                             <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${profile.name}`} alt="User" />
                         </Link>
                         </div>
                     </aside>
 
                     <main className="flex-1 w-full min-w-0
-                        pt-24 pb-32 px-4
+                        pt-24 pb-28 px-4
                         lg:pl-40 lg:pr-12 lg:py-12 lg:pb-12
                     ">
                         {/* Desktop Top Bar */}
