@@ -505,4 +505,52 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://preptracker.manavdev.site/syllabus/se-automobile-engineering/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://preptracker.manavdev.site/syllabus/se-automobile-engineering/applied-thermodynamics-and-heat-transfer/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://preptracker.manavdev.site/syllabus/se-automobile-engineering/fluid-statics-and-dynamics/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://preptracker.manavdev.site/syllabus/se-automobile-engineering/manufacturing-technology/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://preptracker.manavdev.site/syllabus/se-automobile-engineering/materials-science-and-metallurgy/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://preptracker.manavdev.site/syllabus/se-automobile-engineering/mathematical-methods-in-engineering/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://preptracker.manavdev.site/syllabus/se-automobile-engineering/mechanics-of-structures/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://preptracker.manavdev.site/syllabus/se-automobile-engineering/thermal-science/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

@@ -101,3 +101,13 @@
 - [Fluid Mechanics syllabus (PCC-251-MEC)](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/fluid-mechanics/)
 - [Manufacturing Processes-I syllabus (PCC-252-MEC)](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/manufacturing-processes-i/)
 - [Solid Mechanics syllabus (PCC-201-MEC)](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/solid-mechanics/)
+
+## Second Year (SE) Automobile Engineering (draft), 2024 pattern
+- [SE Automobile Engineering (draft) subjects](https://preptracker.manavdev.site/syllabus/se-automobile-engineering/): theory courses with units, marks, outcomes and books from the official SPPU PDF
+- [Applied Thermodynamics and Heat Transfer syllabus (PCC-253-ABE)](https://preptracker.manavdev.site/syllabus/se-automobile-engineering/applied-thermodynamics-and-heat-transfer/)
+- [Fluid Statics and Dynamics syllabus (PCC-251-ABE)](https://preptracker.manavdev.site/syllabus/se-automobile-engineering/fluid-statics-and-dynamics/)
+- [Manufacturing Technology syllabus (PCC-252-ABE)](https://preptracker.manavdev.site/syllabus/se-automobile-engineering/manufacturing-technology/)
+- [Materials Science and Metallurgy syllabus (PCC-203-ABE)](https://preptracker.manavdev.site/syllabus/se-automobile-engineering/materials-science-and-metallurgy/)
+- [Mathematical Methods in Engineering syllabus (MDM-221-ABE)](https://preptracker.manavdev.site/syllabus/se-automobile-engineering/mathematical-methods-in-engineering/)
+- [Mechanics of Structures syllabus (PCC-201-ABE)](https://preptracker.manavdev.site/syllabus/se-automobile-engineering/mechanics-of-structures/)
+- [Thermal Science syllabus (PCC-202-ABE)](https://preptracker.manavdev.site/syllabus/se-automobile-engineering/thermal-science/)
