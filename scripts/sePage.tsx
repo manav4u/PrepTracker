@@ -8,7 +8,7 @@ export interface SeCourse {
   prereq: string; outcomes: string[]; units: SeUnit[]; textBooks: string[]; refBooks: string[]; links: string[];
 }
 export interface SeBranch {
-  slug: string; branch: string; short: string; pdf: string; pdfLabel: string; motif: string; accent: string; draft?: boolean; courses: SeCourse[];
+  slug: string; branch: string; short: string; pdf: string; pdfLabel: string; motif: string; accent: string; draft?: boolean; year?: 'TE'; courses: SeCourse[];
 }
 export const slugify = (n: string) => n.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 export const coursePath = (b: SeBranch, c: SeCourse) => '/syllabus/' + b.slug + '/' + slugify(c.name) + '/';
@@ -64,12 +64,18 @@ MOTIFS.cyber = R => <>
     <path d="M30 8 L48 14 V28 Q48 38 30 44 Q12 38 12 28 V14 Z" fill="none" stroke={D} strokeWidth="1.5" /><rect x="24" y="22" width="12" height="9" rx="1.5" fill={R} /><path d="M26 22 V19 Q26 14 30 14 Q34 14 34 19 V22" fill="none" stroke={R} strokeWidth="1.5" />
     <path d="M70 24 H100 M108 24 H118 M126 24 H170" stroke={D} strokeWidth="1.5" /><circle cx="104" cy="24" r="3" fill="none" stroke={R} strokeWidth="1.5" /><circle cx="122" cy="24" r="3" fill="none" stroke={D} strokeWidth="1.5" />
     <path d="M190 24 H600" stroke="#3a1620" strokeWidth="1.5" strokeDasharray="2 7" /></>;
+MOTIFS.rai = R => <>
+    <rect x="10" y="38" width="30" height="6" rx="2" fill="none" stroke={D} strokeWidth="1.5" /><path d="M25 38 V26 L50 12 L78 24" stroke={R} strokeWidth="2" fill="none" /><circle cx="25" cy="26" r="3.5" fill={R} /><circle cx="50" cy="12" r="3" fill="none" stroke={D} strokeWidth="1.5" />
+    <path d="M78 24 L88 16 M78 24 L88 32" stroke={D} strokeWidth="1.5" />
+    <circle cx="120" cy="24" r="4" fill="none" stroke={D} strokeWidth="1.5" /><circle cx="148" cy="14" r="4" fill="none" stroke={D} strokeWidth="1.5" /><circle cx="148" cy="34" r="4" fill="none" stroke={D} strokeWidth="1.5" /><path d="M124 22 L144 15 M124 26 L144 33" stroke={R} strokeWidth="1.2" />
+    <path d="M180 24 H600" stroke="#3a1620" strokeWidth="1.5" strokeDasharray="2 7" /></>;
 MOTIFS.mech = R => <>
     <circle cx="30" cy="24" r="14" fill="none" stroke={D} strokeWidth="1.5" strokeDasharray="4 3" /><circle cx="30" cy="24" r="5" fill={R} />
     <circle cx="66" cy="24" r="9" fill="none" stroke={R} strokeWidth="1.5" strokeDasharray="3 3" /><circle cx="66" cy="24" r="3" fill="none" stroke={D} strokeWidth="1.5" />
     <path d="M92 40 H150 M100 40 V30 H142 V40" stroke={D} strokeWidth="1.5" fill="none" />
     <circle cx="121" cy="14" r="3.5" fill="none" stroke={D} strokeWidth="1.5" /><path d="M121 17 V30" stroke={D} strokeWidth="1.5" />
     <path d="M170 24 H600" stroke="#3a1620" strokeWidth="1.5" strokeDasharray="2 7" /></>;
+const YL = (b: SeBranch) => (b.year === 'TE' ? { s: 'TE', l: 'Third Year' } : { s: 'SE', l: 'Second Year' });
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
 const sectionCss = `.draft{border:1px solid #e11d48;background:#1a0a10;color:#fda4af;border-radius:12px;padding:12px 16px;margin:14px 0;font-size:14px}.crs{display:grid;gap:10px;margin:14px 0}.crs a{display:flex;justify-content:space-between;gap:12px;align-items:baseline;text-decoration:none;border:1px solid #222;background:#101010;border-radius:14px;padding:14px 16px;color:#fff}.crs a:hover{border-color:#e11d48}.crs small{color:#888;font:500 11px/1.3 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}.utext{margin:10px 0 0;color:#ccc;font-size:15px}.src li{margin:6px 0;word-break:break-word}`;
 
@@ -116,7 +122,7 @@ export function renderSeCourse(b: SeBranch, c: SeCourse): string {
       <nav className="crumbs"><a href={SITE + '/'}>PrepTracker</a> / <a href={SITE + '/syllabus/' + b.slug + '/'}>{b.short}</a> / {c.name}</nav>
       <h1>{c.name} syllabus</h1>
       <DraftNote b={b} />
-      <p className="lead">{c.code} · Second Year {b.branch}, SPPU 2024 pattern. Every unit, the marks scheme, course outcomes and books, copied from the official syllabus PDF.</p>
+      <p className="lead">{c.code} · {YL(b).l} {b.branch}, SPPU 2024 pattern. Every unit, the marks scheme, course outcomes and books, copied from the official syllabus PDF.</p>
       <div className="chips"><span className="chip">{c.code}</span><span className="chip">{c.hours} h/week theory</span><span className="chip">CCE {c.cce} + End-sem {c.ese}</span></div>
       <div className="stats" style={consistent ? undefined : { gridTemplateColumns: 'repeat(2,1fr)' }}>
         {consistent && <div className="stat"><b>{total}</b><span>hours of theory</span></div>}
@@ -151,8 +157,8 @@ export function renderSeCourse(b: SeBranch, c: SeCourse): string {
 
 export function renderSeBranch(b: SeBranch): string {
   const path = '/syllabus/' + b.slug + '/';
-  const title = `SPPU SE ${b.short} syllabus${b.draft ? ' (draft)' : ''} 2024 pattern - subject-wise units and marks`;
-  const desc = `Subject-wise syllabus for SPPU Second Year ${b.branch}, 2024 pattern${b.draft ? ' (draft syllabus)' : ''}: ${b.courses.length} theory courses with units, hours, marks, outcomes and books, from the official PDF${b.draft ? ', which SPPU marks as a draft' : ''}.`;
+  const title = `SPPU ${b.short} syllabus${b.draft ? ' (draft)' : ''} 2024 pattern - subject-wise units and marks`;
+  const desc = `Subject-wise syllabus for SPPU ${YL(b).l} ${b.branch}, 2024 pattern${b.draft ? ' (draft syllabus)' : ''}: ${b.courses.length} theory courses with units, hours, marks, outcomes and books, from the official PDF${b.draft ? ', which SPPU marks as a draft' : ''}.`;
   const page = (
     <html lang="en"><head><Head title={title} desc={desc} path={path} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@graph': [
@@ -161,9 +167,9 @@ export function renderSeBranch(b: SeBranch): string {
           { '@type': 'ListItem', position: 2, name: b.short + ' syllabus', item: SITE + path }] }] }) }} />
     </head><body><main>
       <nav className="crumbs"><a href={SITE + '/'}>PrepTracker</a> / Syllabus / {b.short}</nav>
-      <h1>SE {b.branch} syllabus{b.draft ? ' (draft)' : ''}</h1>
+      <h1>{YL(b).s} {b.branch} syllabus{b.draft ? ' (draft)' : ''}</h1>
       <DraftNote b={b} />
-      <p className="lead">Second Year, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes and books. Practical, lab and project courses are not listed here, only theory courses.</p>
+      <p className="lead">{YL(b).l}, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes and books. Practical, lab and project courses are not listed here, only theory courses.</p>
       <Motif b={b} />
       <h2>Theory courses</h2>
       <div className="crs">{b.courses.map(c => <a key={c.code} href={SITE + coursePath(b, c)}><span>{c.name}</span><small>{c.code} · {c.credits} cr</small></a>)}</div>
