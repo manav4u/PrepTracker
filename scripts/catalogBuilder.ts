@@ -1,3 +1,4 @@
+import rollout from './trackerMetadata.json';
 import {SUBJECTS} from '../constants';
 import {SUBJECT_PAGES} from './pages';
 import {SE_BRANCHES} from './seBranches';
@@ -10,6 +11,6 @@ const pilot: Record<string,{semester:number;type:string;group?:string}> = {
 };
 export function catalog(){
  const fe=SUBJECTS.map(s=>({...s,year:'FE',branch:'Common First Year',branchSlug:'fe',pattern:'2024',source:SYLLABUS_PDF,sourceLabel:'Official FE 2024 syllabus',draft:false,trackerReady:true,type:'FE course',path:'/syllabus/'+SUBJECT_PAGES.find(p=>p.id===s.id)!.slug+'/',cce:30,ese:70}));
- const later=SE_BRANCHES.flatMap(b=>b.courses.map(c=>{const id=`${b.slug}:2024:${c.code}`;const metadata=(b.slug==='se-computer-engineering'||b.slug==='te-information-technology')?pilot[c.code]:undefined;return {id,name:c.name,code:c.code,credits:c.credits,units:c.units.map((u,i)=>({id:`${id}:unit:${i+1}`,unit_number:i+1,title:u.title,hours:u.hours,topics:[u.text],sourceText:u.text})),year:b.year||'SE',branch:b.branch,branchSlug:b.slug,pattern:b.pattern||'2024',source:b.pdf,sourceLabel:b.pdfLabel,draft:!!b.draft,trackerReady:!!metadata,type:metadata?.type||'Theory course',semester:metadata?.semester,electiveGroup:metadata?.group,path:coursePath(b,c),cce:c.cce,ese:c.ese};}));
- return {version:1,coverageNote:'Theory catalog only. FE subject combinations depend on your college. Semester/elective tracking is verified for the SE Computer and TE IT pilot; other branches remain reference-only until metadata review.',courses:[...fe,...later]};
+ const later=SE_BRANCHES.flatMap(b=>b.courses.map(c=>{const id=`${b.slug}:2024:${c.code}`;const metadata=(b.slug==='se-computer-engineering'||b.slug==='te-information-technology')?pilot[c.code]:(rollout as Record<string,{semester:number;type:string;group?:string}>)[`${b.slug}:${c.code}`];return {id,name:c.name,code:c.code,credits:c.credits,units:c.units.map((u,i)=>({id:`${id}:unit:${i+1}`,unit_number:i+1,title:u.title,hours:u.hours,topics:[u.text],sourceText:u.text})),year:b.year||'SE',branch:b.branch,branchSlug:b.slug,pattern:b.pattern||'2024',source:b.pdf,sourceLabel:b.pdfLabel,draft:!!b.draft,trackerReady:!!metadata,type:metadata?.type||'Theory course',semester:metadata?.semester,electiveGroup:metadata?.group,path:coursePath(b,c),cce:c.cce,ese:c.ese};}));
+ return {version:1,coverageNote:'Theory catalog only. FE subject combinations depend on your college. Tracking metadata covers verified published courses. SE Cyber Security remains reference-only because existing course content conflicts with its current official PDF; SE Automobile is a draft. This catalog is not a complete university curriculum: labs, open electives and some theory courses are not yet represented.',courses:[...fe,...later]};
 }
