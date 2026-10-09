@@ -35,6 +35,26 @@ details{border-bottom:1px solid #222;padding:10px 0}summary{cursor:pointer;color
 .note{font-size:13px;color:#777;margin:6px 0 0}
 .flow{list-style:none;margin:12px 0;padding:0;position:relative}.flow li{position:relative;padding:0 0 18px 44px;color:#ccc;font-size:15px}.flow li:before{content:'';position:absolute;left:14px;top:30px;bottom:-4px;width:2px;background:linear-gradient(#e11d48,#3a1620)}.flow li:last-child:before{display:none}
 .flow .n{position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;background:#1a0a10;border:1px solid #e11d48;color:#fb7185;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}.flow b{color:#fff;display:block;font-weight:600}.flow small{color:#777}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #2a1018;border-bottom:1px solid #2a1018;margin:28px 0}
+.stat{padding:18px 6px 16px;text-align:left;border-left:1px solid #1c1c1c;padding-left:14px}.stat:first-child{border-left:0;padding-left:0}
+.stat b{display:block;font:800 clamp(44px,13vw,76px)/0.95 Georgia,'Times New Roman',serif;color:#fff;letter-spacing:-2px}.stat b i{font-style:normal;color:#e11d48}
+.stat span{display:block;margin-top:8px;font:500 11px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.14em;text-transform:uppercase;color:#888}
+.tree{position:relative;margin:18px 0 8px;padding:0;list-style:none}
+.node{position:relative;display:grid;grid-template-columns:64px 1fr;gap:14px;padding:0 0 34px}
+.node:last-child{padding-bottom:0}
+.node svg.rail{position:absolute;left:0;top:56px;width:64px;height:calc(100% - 56px);overflow:visible}
+.node:last-child svg.rail{display:none}
+.gem{width:64px;height:64px}.gem text{font:800 22px Georgia,serif;fill:#fff}.gem .lv{font:500 8px ui-monospace,Menlo,monospace;letter-spacing:.12em;fill:#fb7185}
+.quest{border:1px solid #2a1018;background:linear-gradient(160deg,#150a0e,#0e0e0e 60%);border-radius:6px 22px 6px 22px;padding:14px 16px 14px}
+.quest .tag{font:500 11px ui-monospace,Menlo,monospace;letter-spacing:.14em;text-transform:uppercase;color:#fb7185}
+.quest h3{margin:4px 0 10px;font-size:18px}
+.xp{display:flex;gap:3px;margin:0 0 6px}.xp u{flex:1;height:9px;border-radius:2px;background:#1b1b1b;transform:skewX(-18deg);text-decoration:none}.xp u.on{background:linear-gradient(#fb7185,#be123c);box-shadow:0 0 6px #e11d4855}
+.xpl{display:flex;justify-content:space-between;font:500 11px ui-monospace,Menlo,monospace;letter-spacing:.1em;color:#888;text-transform:uppercase}
+.xpl b{color:#fff;font-weight:600}
+@media(min-width:760px){.node{grid-template-columns:1fr 84px 1fr;gap:0}.node .quest{grid-column:1;grid-row:1;margin-right:18px}.node .gemwrap{grid-column:2;grid-row:1;display:flex;justify-content:center}.node:nth-child(even) .quest{grid-column:3;margin:0 0 0 18px}.node svg.rail{left:50%;margin-left:-32px}}
+.gemwrap{width:64px}@media(min-width:760px){.gemwrap{width:auto}}
+.treenote{font:500 11px/1.5 ui-monospace,Menlo,monospace;letter-spacing:.06em;color:#666;margin-top:14px}
 footer{margin-top:48px;font-size:13px;color:#777}ol.co{padding-left:0;list-style:none}ol.co li{margin:10px 0;padding-left:56px;position:relative;color:#ccc}ol.co b{position:absolute;left:0;color:#fb7185}`;
 
 
@@ -59,6 +79,26 @@ function Donut({ parts, total }: { parts: number[]; total: number }) {
   );
 }
 
+
+function Gem({ n }: { n: number }) {
+  return (
+    <svg className="gem" viewBox="0 0 64 64" role="img" aria-label={'Unit ' + n}>
+      <path d="M32 3 L57 17 L58 46 L32 61 L6 47 L7 17 Z" fill="#1a0a10" stroke="#e11d48" strokeWidth="2" strokeLinejoin="round" />
+      <path d="M32 9 L51 20 L52 43 L32 55 L12 43 L13 20 Z" fill="none" stroke="#fb7185" strokeOpacity=".35" strokeWidth="1" strokeDasharray="3 3" />
+      <text x="32" y="38" textAnchor="middle">{String(n).padStart(2, '0')}</text>
+      <text className="lv" x="32" y="19" textAnchor="middle">LV</text>
+    </svg>
+  );
+}
+function Rail({ flip }: { flip: boolean }) {
+  const d = flip ? 'M32 0 C 10 30, 54 50, 30 90 S 40 140, 32 160' : 'M32 0 C 54 30, 10 50, 34 90 S 24 140, 32 160';
+  return (
+    <svg className="rail" viewBox="0 0 64 160" preserveAspectRatio="none" aria-hidden="true">
+      <path d={d} fill="none" stroke="#3a1620" strokeWidth="5" strokeLinecap="round" />
+      <path d={d} fill="none" stroke="#e11d48" strokeWidth="2" strokeLinecap="round" strokeDasharray="2 9" />
+    </svg>
+  );
+}
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
 
 export function renderSubjectPage(c: SubjectPageConfig): string {
@@ -101,6 +141,12 @@ export function renderSubjectPage(c: SubjectPageConfig): string {
           <p className="lead">{c.lead}</p>
           <div className="chips">{c.chips.map(x => <span className="chip" key={x}>{x}</span>)}</div>
 
+          <div className="stats">
+            <div className="stat"><b>{totalHours}</b><span>hours of theory</span></div>
+            <div className="stat"><b>{String(s.units.length).padStart(2, '0')}<i>.</i></b><span>units</span></div>
+            <div className="stat"><b>{String(s.credits).padStart(2, '0')}<i>.</i></b><span>credits</span></div>
+          </div>
+
           <h2>Unit-wise syllabus</h2>
           {s.units.map((u, i) => (
             <section className="card" key={u.id}>
@@ -109,21 +155,6 @@ export function renderSubjectPage(c: SubjectPageConfig): string {
               <ul>{u.topics.map(t => <li key={t}>{t}</li>)}</ul>
             </section>
           ))}
-
-          <h2>Where the hours go</h2>
-          <div className="viz">
-            <Donut parts={s.units.map(u => u.hours)} total={totalHours} />
-            <ul className="legend">{s.units.map((u, i) => <li key={u.id}><i style={{ background: PALETTE[i % PALETTE.length] }} /><span>Unit {ROMAN[i]}: {u.title}</span><b>{u.hours} h</b></li>)}</ul>
-          </div>
-
-          <h2>Effort by unit</h2>
-          <div className="bars">{s.units.map((u, i) => (
-            <div className="bar" key={u.id}>
-              <div className="lab"><span>Unit {ROMAN[i]}: {u.title}</span><b>{Math.round((u.hours / totalHours) * 100)}%</b></div>
-              <div className="track"><div className="fill" style={{ width: Math.round((u.hours / totalHours) * 100) + '%' }} /></div>
-            </div>
-          ))}</div>
-          <p className="note">Share of teaching hours per unit. The syllabus does not publish marks per unit, so this shows where the course time goes, not how the paper is weighted.</p>
 
           <h2>Marks and credits</h2>
           <table><thead><tr><th>Head</th><th>Marks</th><th>Credit</th></tr></thead><tbody>
@@ -137,9 +168,23 @@ export function renderSubjectPage(c: SubjectPageConfig): string {
           <ol className="co">{c.outcomes.map((o, i) => <li key={i}><b>CO{i + 1}</b>{o}{c.coUnits && <><br /><small style={{ color: '#777' }}>Covers Unit {ROMAN[i]}</small></>}</li>)}</ol>
 
           <h2>A study order that follows the syllabus</h2>
-          <ol className="flow">{order.map((idx, k) => (
-            <li key={idx}><span className="n">{k + 1}</span><b>Unit {ROMAN[idx]}: {s.units[idx].title}</b><small>{s.units[idx].hours} hours</small></li>
-          ))}</ol>
+          <ol className="tree">{order.map((idx, k) => {
+            const u = s.units[idx];
+            const before = order.slice(0, k + 1).reduce((a, j) => a + s.units[j].hours, 0);
+            return (
+              <li className="node" key={u.id}>
+                <div className="gemwrap"><Gem n={k + 1} /></div>
+                <Rail flip={k % 2 === 1} />
+                <div className="quest">
+                  <div className="tag">Unit {ROMAN[idx]} / {u.hours} hours</div>
+                  <h3>{u.title}</h3>
+                  <div className="xp" aria-hidden="true">{Array.from({ length: totalHours }).map((_, i) => <u key={i} className={i < before ? 'on' : ''} />)}</div>
+                  <div className="xpl"><span>course covered</span><b>{before} / {totalHours} h</b></div>
+                </div>
+              </li>
+            );
+          })}</ol>
+          <p className="treenote">Path shows the suggested order. The bar is cumulative teaching hours, taken from the syllabus. It is not a marks weightage; the syllabus publishes none.</p>
           <p>{c.studyOrder}</p>
 
           <h2>Books</h2>
