@@ -7,7 +7,7 @@ export interface InfoPage {
   body: React.ReactNode; faq: [string, string][]; cta?: { href: string; label: string };
 }
 
-const extra = `.tw{overflow-x:auto;margin:12px 0 4px;-webkit-overflow-scrolling:touch}.tw table{min-width:640px;font-size:13.5px}.tw th,.tw td{padding:7px 9px;border-bottom:1px solid #222;text-align:left;vertical-align:top}.tw th{color:#fb7185;font:600 11px ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase}.tw td.n{text-align:center;white-space:nowrap}.tw tr.tot td{color:#fff;font-weight:600;border-top:1px solid #3a1620}.eq{border:1px solid #2a1018;background:#120a0e;border-radius:10px;padding:14px 16px;margin:14px 0;font:15px/1.7 ui-monospace,Menlo,monospace;color:#fda4af;overflow-x:auto}.rel{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.rel a{text-decoration:none;border:1px solid #2a2a2a;background:#111;border-radius:999px;padding:5px 12px;font-size:13px;color:#ccc}`;
+const extra = `.scards{display:none}.sc{border:1px solid #222;background:#0f0f0f;border-radius:12px;padding:12px 14px;margin:10px 0}.sc small{display:block;font:500 11px ui-monospace,Menlo,monospace;letter-spacing:.06em;color:#fb7185}.sc b{display:block;color:#fff;margin:2px 0 4px;font-size:15px}.sc .chips{margin:8px 0 0}.sc .chip{font-size:12px;padding:3px 10px}.sc.tot{border-color:#3a1620;background:#1a0a10}@media(max-width:700px){.tw.wide{display:none}.scards{display:block}}.tw{overflow-x:auto;margin:12px 0 4px;-webkit-overflow-scrolling:touch}.tw table{min-width:640px;font-size:13.5px}.tw th,.tw td{padding:7px 9px;border-bottom:1px solid #222;text-align:left;vertical-align:top}.tw th{color:#fb7185;font:600 11px ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase}.tw td.n{text-align:center;white-space:nowrap}.tw tr.tot td{color:#fff;font-weight:600;border-top:1px solid #3a1620}.eq{border:1px solid #2a1018;background:#120a0e;border-radius:10px;padding:14px 16px;margin:14px 0;font:15px/1.7 ui-monospace,Menlo,monospace;color:#fda4af;overflow-x:auto}.rel{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.rel a{text-decoration:none;border:1px solid #2a2a2a;background:#111;border-radius:999px;padding:5px 12px;font-size:13px;color:#ccc}`;
 
 const SUBJECT_LINKS: [string, string][] = [
   ['engineering-mathematics-1', 'Maths-I'], ['engineering-mathematics-2', 'Maths-II'], ['engineering-physics', 'Physics'],
@@ -44,9 +44,24 @@ const SEM2: Row[] = [
 
 function SchemeTable({ rows }: { rows: Row[] }) {
   return (
-    <div className="tw"><table><thead><tr>{th.map(h => <th key={h}>{h}</th>)}</tr></thead><tbody>
-      {rows.map(r => <tr key={r[0]} className={r[0] === 'Total' ? 'tot' : undefined}>{r.map((c, i) => <td key={i} className={i >= 2 ? 'n' : undefined}>{c}</td>)}</tr>)}
-    </tbody></table></div>
+    <>
+      <div className="tw wide"><table><thead><tr>{th.map(h => <th key={h}>{h}</th>)}</tr></thead><tbody>
+        {rows.map(r => <tr key={r[0]} className={r[0] === 'Total' ? 'tot' : undefined}>{r.map((c, i) => <td key={i} className={i >= 2 ? 'n' : undefined}>{c}</td>)}</tr>)}
+      </tbody></table></div>
+      <div className="scards">
+        {rows.map(r => r[0] === 'Total' ? (
+          <div className="sc tot" key={r[0]}><b>Semester total</b><div className="chips"><span className="chip">{r[2]} + {r[3]} + {r[4]} hrs/week</span><span className="chip">CCE {r[5]}</span><span className="chip">End-Sem {r[6]}</span><span className="chip">Term work {r[7]}</span><span className="chip up">{r[9]} credits</span></div></div>
+        ) : (
+          <div className="sc" key={r[0]}><small>{r[0]}</small><b>{r[1]}</b>
+            <div className="chips">
+              <span className="chip">Hrs Th/Tut/Pr {[r[2], r[3], r[4]].join(' / ')}</span>
+              {r[5] !== '-' && <span className="chip">CCE {r[5]} + End-Sem {r[6]}</span>}
+              <span className="chip">Term work {r[7]}</span>
+              <span className="chip up">{r[9]} credits ({r[8]})</span>
+            </div></div>
+        ))}
+      </div>
+    </>
   );
 }
 
@@ -75,7 +90,7 @@ export const INFO_PAGES: InfoPage[] = [
         <SchemeTable rows={SEM1} />
         <h2>Semester II</h2>
         <SchemeTable rows={SEM2} />
-        <p className="note">Hrs are hours per week (Th theory, Tut tutorial, Pr practical). Where the book lists two courses with a slash, the pair is split across the two semesters, and the order flips in Semester II. Your college decides which group takes which course first. CCE is Comprehensive Continuous Evaluation. The book leaves the oral and practical exam columns empty for every course.</p>
+        <p className="note">Hrs are hours per week (Th theory, Tut tutorial, Pr practical). Where the book lists two courses with a slash, the pair is split across the two semesters, and the order flips in Semester II. CCE is Comprehensive Continuous Evaluation. The book leaves the oral and practical exam columns empty for every course.</p>
         <h2>Read it course by course</h2>
         <p>Each subject has its own page with units, outcomes and books:</p>
         <div className="rel">{SUBJECT_LINKS.map(([s, n]) => <a key={s} href={SITE + '/syllabus/' + s + '/'}>{n}</a>)}</div>
@@ -84,7 +99,7 @@ export const INFO_PAGES: InfoPage[] = [
     ),
     faq: [
       ['How many credits does First Year Engineering have in the SPPU 2024 pattern?', 'Each semester carries 22 credits: 12 theory, 3 tutorial and 7 practical or term-work credits. The SPPU credit framework handbook also sets a minimum of 22 credits per semester.'],
-      ['Which subjects are in Semester I and Semester II?', 'Both semesters have the same shape. Mathematics, one basic science course, one or two engineering science courses, a skill course, and co-curricular work. Engineering Mathematics-I is in Semester I and Engineering Mathematics-II in Semester II. The book pairs Physics with Chemistry, Electronics with Electrical, and Graphics with Mechanics, with one half of each pair in each semester.'],
+      ['Which subjects are in Semester I and Semester II?', 'Engineering Mathematics-I is in Semester I and Engineering Mathematics-II in Semester II. Fundamentals of Programming Languages is in Semester I and Programming and Problem Solving in Semester II. The book pairs Physics with Chemistry, Electronics with Electrical, and Graphics with Mechanics, with one half of each pair in each semester. The full lists are in the tables above.'],
       ['How many marks is each course?', 'A theory course is CCE 30 plus End-Sem 70, with 25 marks of term work on top. Courses without theory (workshop or lab, communication skills, co-curricular, Indian Knowledge System) carry 25 term-work marks only.'],
     ],
   },
@@ -98,7 +113,7 @@ export const INFO_PAGES: InfoPage[] = [
     body: (
       <>
         <h2>Grades and grade points</h2>
-        <div className="tw"><table style={{ minWidth: 420 }}><thead><tr><th>Grade</th><th>Grade points</th><th>Marks (out of 100)</th></tr></thead><tbody>
+        <div className="tw"><table style={{ minWidth: 300 }}><thead><tr><th>Grade</th><th>Grade points</th><th>Marks (out of 100)</th></tr></thead><tbody>
           {GRADES.map(g => <tr key={g[0]}><td>{g[0]}</td><td className="n">{g[1]}</td><td>{g[2]}</td></tr>)}
         </tbody></table></div>
         <p className="note">The handbook prints the fail row as "Marks of 40 or less", which overlaps the D band (40 to 44). We show it as "below the pass mark" instead of guessing a cutoff. The handbook also labels two bands "B" (B+ for 55 to 59, B for 50 to 54). Check your university exam rules for the exact fail boundary.</p>
@@ -107,7 +122,7 @@ export const INFO_PAGES: InfoPage[] = [
         <div className="eq">SGPA = sum(grade points x credits) / total credits</div>
         <p>Each graded row counts with its own credits, theory and term work or practical alike, the way the handbook lists them.</p>
         <h3>Worked example (made-up numbers)</h3>
-        <div className="tw"><table style={{ minWidth: 420 }}><thead><tr><th>Row</th><th>Credits</th><th>Grade</th><th>Points</th><th>Credits x points</th></tr></thead><tbody>
+        <div className="tw"><table style={{ minWidth: 300 }}><thead><tr><th>Row</th><th>Credits</th><th>Grade</th><th>Points</th><th>Credits x points</th></tr></thead><tbody>
           <tr><td>Theory A</td><td className="n">3</td><td className="n">A+</td><td className="n">9</td><td className="n">27</td></tr>
           <tr><td>Tutorial A</td><td className="n">1</td><td className="n">A</td><td className="n">8</td><td className="n">8</td></tr>
           <tr><td>Theory B</td><td className="n">2</td><td className="n">B+</td><td className="n">7</td><td className="n">14</td></tr>
@@ -118,7 +133,7 @@ export const INFO_PAGES: InfoPage[] = [
         <p><a className="cta" href={SITE + '/#/calculator'}>Use the SGPA calculator</a></p>
         <h2>CGPA and class of degree</h2>
         <p>CGPA is calculated the same way as SGPA, over all semesters of the programme. If you clear a failed course or improve a grade, the new grade replaces the old one in both SGPA and CGPA. The class awarded depends on CGPA:</p>
-        <div className="tw"><table style={{ minWidth: 380 }}><thead><tr><th>CGPA</th><th>Class</th></tr></thead><tbody>
+        <div className="tw"><table style={{ minWidth: 300 }}><thead><tr><th>CGPA</th><th>Class</th></tr></thead><tbody>
           {CLASSES.map(c => <tr key={c[0]}><td>{c[0]}</td><td>{c[1]}</td></tr>)}
         </tbody></table></div>
         <p className="note">We do not give a CGPA to percentage conversion. The handbook has a formula table for it, but its worked values do not match its own example, so we left it out rather than publish a number that might be wrong. Use the formula your college or the university notice gives you.</p>
@@ -142,9 +157,9 @@ export const INFO_PAGES: InfoPage[] = [
         <div className="chips"><span className="chip">CCE 30</span><span className="chip">End-Sem 70</span><span className="chip">Term work 25</span></div>
         <h2>CCE: 30 marks, run by your college</h2>
         <p>Comprehensive Continuous Evaluation covers all five units and is held at institute level.</p>
-        <div className="tw"><table style={{ minWidth: 520 }}><thead><tr><th>Part</th><th>Marks</th><th>Units</th></tr></thead><tbody>
-          <tr><td>Unit test</td><td className="n">12</td><td>Units I and II (6 marks per unit)</td></tr>
-          <tr><td>Assignments or case study</td><td className="n">12</td><td>Units III and IV (6 marks per unit)</td></tr>
+        <div className="tw"><table style={{ minWidth: 300 }}><thead><tr><th>Part</th><th>Marks</th><th>Units</th></tr></thead><tbody>
+          <tr><td>Unit test</td><td className="n">12</td><td>Units I and II</td></tr>
+          <tr><td>Assignments or case study</td><td className="n">12</td><td>Units III and IV</td></tr>
           <tr><td>Seminar presentation, open book test or quiz</td><td className="n">6</td><td>Unit V</td></tr>
         </tbody></table></div>
         <p>The book's example timeline: Units I and II in weeks 1 to 4 with the unit test in week 5, Units III and IV in weeks 6 to 8 with assignments collected in week 9, Unit V in weeks 10 to 12 and the seminar, open book test or quiz in week 13. The unit test is built on Bloom's taxonomy levels. For the seminar, you give a talk on a Unit V topic and answer questions, with slides and a 2 to 3 page summary.</p>
@@ -153,7 +168,7 @@ export const INFO_PAGES: InfoPage[] = [
         <p className="note">We do not show a marks split per unit. The book says 14 marks per unit for the 70, then also says 12 marks per unit, and the two cannot both be right. Do not rely on any unit-wise weightage you see quoted.</p>
         <h2>Term work: 25 marks, from your journal</h2>
         <p>Term work is continuous assessment of the journal of practical assignments, with a reflection on each. The book's evaluation criteria:</p>
-        <div className="tw"><table style={{ minWidth: 420 }}><thead><tr><th>Criterion</th><th>Weight</th></tr></thead><tbody>
+        <div className="tw"><table style={{ minWidth: 300 }}><thead><tr><th>Criterion</th><th>Weight</th></tr></thead><tbody>
           <tr><td>Completeness</td><td className="n">20%</td></tr><tr><td>Quality of work</td><td className="n">40%</td></tr>
           <tr><td>Organization</td><td className="n">20%</td></tr><tr><td>Presentation</td><td className="n">10%</td></tr><tr><td>Creativity and engagement</td><td className="n">10%</td></tr>
         </tbody></table></div>
