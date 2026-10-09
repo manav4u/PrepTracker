@@ -1,0 +1,993 @@
+[
+ {
+  "code": "314441",
+  "name": "Theory of Computation",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "1. Discrete Structures. 2. Data structures.",
+  "outcomes": [
+   "Construct finite automata and its variants to solve computing problems.",
+   "Write regular expressions for the regular languages and finite automata.",
+   "Identify types of grammar, design and simplify Context Free Grammar.",
+   "Construct Pushdown Automata machine for the Context Free Language.",
+   "Design and analyze Turing machines for formal languages.",
+   "Understand decidable and undecidable problems, analyze complexity classes."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Finite Automata",
+    "hours": 6,
+    "text": "Basic Concepts: Symbols, Strings, Language, Formal Language. Finite Automata (FA): Formal definition and notations for FSM, Concept of state transition diagram and transition table for FA, Construction of DFA, NFA, NFA with epsilon moves. Conversion of NFA with epsilon moves to NFA, Conversion of NFA to DFA, and Conversion of NFA with epsilon moves to DFA, Minimization of FA, Equivalence of FAs, and Applications of FA. Finite State Machine with output: Moore and Mealy machines - Definition, Construction, Inter- Conversion."
+   },
+   {
+    "roman": "II",
+    "title": "Regular Expressions and Languages",
+    "hours": 6,
+    "text": "Regular Expressions (RE) : Definition and Identities of RE, Operators of RE, Equivalence of two regular expressions, Equivalence of regular expressions and regular languages (RL), Conversion of RE to FA using direct method, Conversion of FA to RE using Arden’s theorem, Pumping lemma for RLs, Closure properties of RLs, Applications of Regular Expressions. TE (Information Technology) Syllabus (2019 Course) 9 Curriculum for Third Year of Information Technology (2019 Course), Savitribai Phule Pune University"
+   },
+   {
+    "roman": "III",
+    "title": "Context Free Grammar and Language",
+    "hours": 6,
+    "text": "Grammar: Introduction and representation, Chomsky Hierarchy, Formal definition of Regular Grammar(RG), Conversions: LRG to RLG, RLG to LRG, RG to FA, FA to RG. Context Free Grammar (CFG): Definition of CFG, Derivation tree, sentential forms, Leftmost and Rightmost derivations, Ambiguous Grammar and unambiguous grammar, Context Free Language (CFL). Grammar Simplification, Normal forms: Chomsky Normal Form, Greibach Normal Form. Closure properties of CFL, Pumping lemma for CFL."
+   },
+   {
+    "roman": "IV",
+    "title": "Pushdown Automata and Post Machine",
+    "hours": 6,
+    "text": "Pushdown Automata(PDA) : Introduction and formal definition of PDA, Construction of Transition diagram and Transition table for PDA, Instantaneous Description of PDA, Equivalence of Acceptance by Final State & Empty stack, Deterministic PDA and Nondeterministic PDA, Context Free Language and PDA Conversion of CFG to PDA and PDA to CFG. Post Machine (PM): Definition and construction of Post Machine."
+   },
+   {
+    "roman": "V",
+    "title": "Turing Machine",
+    "hours": 6,
+    "text": "Turing Machine (TM) : Formal definition of a Turing machine, Design of Turing machines, Variants of Turing Machines: Deterministic TM, Nondeterministic TM, Multi-tape TM, Universal Turing Machine, Halting problem of TM , Church-Turing thesis, Recursive Languages and Recursively Enumerable Languages, Post Correspondence Problem."
+   },
+   {
+    "roman": "VI",
+    "title": "Computational Complexity",
+    "hours": 6,
+    "text": "Decidability: Decidable problems concerning regular languages, Decidable problems concerning context free languages, Un-decidability. Computational Complexity: Measuring Complexity, The Class P, Examples of problems in P, The Class NP, and Examples of problems in NP, Reducibility, Mapping Reducibility, Polynomial Time Reduction and NP Completeness. Satisfiability Problem, NP Completeness of the SAT Problem, Normal Forms for Boolean Expressions, Cook’s theorem, Node-C over Problem. TE (Information Technology) Syllabus (2019 Course) 10 Curriculum for Third Year of Information Technology (2019 Course), Savitribai Phule Pune University"
+   }
+  ],
+  "textBooks": [
+   "John C. Martin, Introduction to Language and Theory of Computation, TMH, 3rd Edition, ISBN: 978-0070660489.",
+   "Vivek Kulkarni, Theory of Computation, Oxford University Press,ISBN- 13 : 978-0198084587."
+  ],
+  "refBooks": [
+   "John E. Hopcroft, Rajeev Motwani, Jeffrey D.Ullman, Introduction to Automata Theory Languages and Computation, Addison-Wesley, ISBN 0-201-44124-1.",
+   "K.L.P Mishra, N. Chandrasekaran, Theory of Computer Science : Automata, Languages and Computation, Prentice Hall India, 2nd Edition.",
+   "Michael Sipser, Introduction to the Theory of Computation, CENGAGE Learning, 3rd Edition ISBN- 13:978-81-315-2529-6.",
+   "Daniel Cohen, “Introduction to Computer Theory”, Wiley & Sons, ISBN 97881265133454.",
+   "Kavi Mahesh, “Theory of Computation: A Problem-Solving Approach”, Wiley India, ISBN-1081265331106. E- Books / E- Learning References :"
+  ],
+  "links": []
+ },
+ {
+  "code": "314442",
+  "name": "Operating Systems",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "1. Computer Organization and Architecture 2. Fundamentals of Data Structures",
+  "outcomes": [
+   "Explain the role of Modern Operating Systems.",
+   "Apply the concepts of process and thread scheduling.",
+   "Illustrate the concept of process synchronization, mutual exclusion and the deadlock.",
+   "Implement the concepts of various memory management techniques.",
+   "Make use of concept of I/O management and File system.",
+   "Understand Importance of System software."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Overview of Operating System",
+    "hours": 6,
+    "text": "Operating System Objectives and Functions, The Evolution of Operating Systems, Developments Leading to Modern Operating Systems, Virtual Machines, Introduction to Linux OS, BASH Shell scripting: Basic shell commands."
+   },
+   {
+    "roman": "II",
+    "title": "Process Management",
+    "hours": 6,
+    "text": "Process: Concept of a Process, Process States, Process Description, Process Control Threads: Processes and Threads, Concept of Multithreading, Types of Threads, Thread programming Using Pthreads. Scheduling: Types of Scheduling, Scheduling Algorithms, First Come First Served, Shortest Job First, Priority, Round Robin TE (Information Technology) Syllabus (2019 Course) 12 Curriculum for Third Year of Information Technology (2019 Course), Savitribai Phule Pune University"
+   },
+   {
+    "roman": "III",
+    "title": "Concurrency Control",
+    "hours": 6,
+    "text": "Process/thread Synchronization and Mutual Exclusion: Principles of Concurrency, Requirements for Mutual Exclusion, Mutual Exclusion: Operating System Support (Semaphores and Mutex). Classical synchronization problems: Readers/Writers Problem, Producer and Consumer problem, Inter-process communication (Pipes, Shared Memory). Deadlock: Principles of Deadlock, Deadlock Modeling, and Strategies to deal with deadlock: Prevention, Avoidance, Detection and Recovery. Example: Dining Philosophers Problem / Banker’s Algorithm."
+   },
+   {
+    "roman": "IV",
+    "title": "Memory Management",
+    "hours": 6,
+    "text": "Memory Management: Memory Management Requirements, Memory Partitioning: Fixed Partitioning, Dynamic Partitioning, Buddy System, Relocation, Paging, Page table structure, Segmentation Virtual Memory: Background, Demand Paging, Page Replacement (FIFO, LRU, Optimal), Allocation of frames, Thrashing"
+   },
+   {
+    "roman": "V",
+    "title": "Input/Output and File Management",
+    "hours": 6,
+    "text": "I/O Management and Disk Scheduling: I/O Devices, Organization of the I/O Function, I/O Buffering, Disk Scheduling (FIFO, SSTF, SCAN, C-SCAN, LOOK, C-LOOK). File Management: Overview-Files and File Systems, File structure. File Organization and Access, File Directories, File Sharing, Record Blocking, Secondary Storage Management."
+   },
+   {
+    "roman": "VI",
+    "title": "Systems Software and Its Importance",
+    "hours": 6,
+    "text": "Need of System Software, study of various components of system software. Assemblers: Elements of Assembly Language Programming, A simple Assembly Scheme and pass structure of Assemblers. Introduction to compilers: Phase structure of Compiler and entire compilation process. Introduction to Macro processors, Macro Definition and call, Macro Expansion Loaders and Linkers. General Loader Scheme, Subroutine Linkages, Relocation and linking Linkages, Relocation and linking"
+   }
+  ],
+  "textBooks": [
+   "William Stallings, Operating System: Internals and Design Principles, Prentice Hall, 8th Edition,2014, ISBN-10: 0133805913 • ISBN-13: 9780133805918",
+   "Abraham Silberschatz, Peter Baer Galvin and Greg Gagne, Operating System Concepts, John Wiley & Sons ,Inc., 9th Edition,2012, ISBN 978-1-118-06333-0",
+   "D. M. Dhamdhere, “Systems Programming and Operating Systems”, Tata McGraw-Hill, ISBN 13:978-0-07-463579-7, Second Revised Edition."
+  ],
+  "refBooks": [
+   "Tom Adelstein and Bill Lubanovic, Linux System Administration, O’Reilly Media, ISBN-10: 0596009526, ISBN-13: 978-0596009526.",
+   "Harvey M. Deitel, Operating Systems, Prentice Hall, ISBN-10: 0131828274, ISBN-13: 978-",
+   "3. Thomas W. Doeppner, Operating System in depth: Design and Programming, WILEY, ISBN: 978-0- 471-68723-8.",
+   "Mendel Cooper, Advanced Shell Scripting, Linux Documentation Project.",
+   "Andrew S. Tanenbaum & Herbert Bos, Modern Operating System, Pearson, ISBN-13: 9780133592221, 4th Edition.",
+   "J. J. Donovan, Systems Programming, McGraw-Hill, ISBN 13:978-0-07-460482-3, Indian Edition. E- Books / E- Learning References : E-learning references:"
+  ],
+  "links": []
+ },
+ {
+  "code": "314443",
+  "name": "Machine Learning",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "1. Basics of Statistics 2. Linear Algebra 3. Calculus 4. Probability",
+  "outcomes": [
+   "Apply basic concepts of machine learning and different types of machine learning algorithms.",
+   "Differentiate various regression techniques and evaluate their performance.",
+   "Compare different types of classification models and their relevant application.",
+   "Illustrate the tree-based and probabilistic machine learning algorithms.",
+   "Identify different unsupervised learning algorithms for the related real-world problems.",
+   "Apply fundamental concepts of ANN."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to Machine Learning",
+    "hours": 6,
+    "text": "Introduction: What is Machine Learning, Definition, Real life applications, Learning Tasks- Descriptive and Predictive Tasks, Types of Learning: Supervised Learning Unsupervised Learning, Semi-Supervised Learning, Reinforcement Learning. Features: Types of Data (Qualitative and Quantitative), Scales of Measurement (Nominal, Ordinal, Interval, Ratio), Concept of Feature, Feature construction, Feature Selection and Transformation, Curse of Dimensionality. Dataset Preparation: Training Vs. Testing Dataset, Dataset Validation Techniques – Hold-out, k-fold Cross validation, Leave-One-Out Cross-Validation (LOOCV)."
+   },
+   {
+    "roman": "II",
+    "title": "Classification",
+    "hours": 6,
+    "text": "TE (Information Technology) Syllabus (2019 Course) 15 Curriculum for Third Year of Information Technology (2019 Course), Savitribai Phule Pune University Binary Classification: Linear Classification model, Performance Evaluation- Confusion Matrix, Accuracy, Precision, Recall, ROC Curves, F-Measure Multi-class Classification: Model, Performance Evaluation Metrics – Per-class Precision and Per-Class Recall, weighted average precision and recall -with example, Handling more than two classes, Multiclass Classification techniques -One vs One, One vs Rest Linear Models: Introduction, Linear Support Vector Machines (SVM) – Introduction, Soft Margin SVM, Introduction to various SVM Kernel to handle non-linear data – RBF, Gaussian, Polynomial, Sigmoid. Logistic Regression – Model, Cost Function."
+   },
+   {
+    "roman": "III",
+    "title": "Regression",
+    "hours": 6,
+    "text": "Regression: Introduction, Univariate Regression – Least-Square Method, Model Representation, Cost Functions: MSE, MAE, R-Square, Performance Evaluation, Optimization of Simple Linear Regression with Gradient Descent - Example. Estimating the values of the regression coefficients Multivariate Regression: Model Representation Introduction to Polynomial Regression: Generalization- Overfitting Vs. Underfitting, Bias Vs. Variance."
+   },
+   {
+    "roman": "IV",
+    "title": "Tree Based and Probabilistic Models",
+    "hours": 6,
+    "text": "Tree Based Model: Decision Tree – Concepts and Terminologies, Impurity Measures -Gini Index, Information gain, Entropy, Tree Pruning -ID3/C4.5, Advantages and Limitations Probabilistic Models: Conditional Probability and Bayes Theorem, Naïve Bayes Classifier, Bayesian network for Learning and Inferencing."
+   },
+   {
+    "roman": "V",
+    "title": "Distance and Rule Based Models",
+    "hours": 6,
+    "text": "Distance Based Models: Distance Metrics (Euclidean, Manhattan, Hamming, Minkowski Distance Metric), Neighbors and Examples, K-Nearest Neighbour for Classification and Regression, Clustering as Learning task: K-means clustering Algorithm-with example, k-medoid algorithm-with example, Hierarchical Clustering, Divisive Dendrogram for hierarchical clustering, Performance Measures Association Rule Mining: Introduction, Rule learning for subgroup discovery, Apriori Algorithm, Performance Measures – Support, Confidence, Lift."
+   },
+   {
+    "roman": "VI",
+    "title": "Introduction to Artificial Neural Network",
+    "hours": 6,
+    "text": "TE (Information Technology) Syllabus (2019 Course) 16 Curriculum for Third Year of Information Technology (2019 Course), Savitribai Phule Pune University Perceptron Learning– Biological Neuron, Introduction to ANN, McCulloch Pitts Neuron, Perceptron and its Learning Algorithm, Sigmoid Neuron, Activation Functions: Tanh, ReLu Multi-layer Perceptron Model – Introduction, Learning parameters: Weight and Bias, Loss function: Mean Square Error Introduction to Deep Learning"
+   }
+  ],
+  "textBooks": [
+   "Ethem Alpaydin, Introduction to Machine Learning, PHI 2nd Edition-2013",
+   "Peter Flach: Machine Learning: The Art and Science of Algorithms that Make Sense of Data, Cambridge University Press, Edition 2012.",
+   "Hastie, Tibshirani, Friedman: Introduction to Statistical Machine Learning with Applications in R, Springer, 2nd Edition 2012",
+   "Tom M. Mitchell, Machine Learning, 1997, McGraw-Hill, First Edition"
+  ],
+  "refBooks": [
+   "C. M. Bishop: Pattern Recognition and Machine Learning, Springer 1st Edition-2013.",
+   "Ian H Witten, Eibe Frank, Mark A Hall: Data Mining, Practical Machine Learning Tools and Techniques, Elsevier, 3rd Edition",
+   "Kevin P Murphy: Machine Learning – A Probabilistic Perspective, MIT Press, August 2012.",
+   "Parag Kulkarni: Reinforcement and Systematic Machine Learning for Decision Making, Wiley IEEE Press, Edition July 2012.",
+   "Shalev-Shwartz S., Ben-David S., Understanding Machine Learning: From Theory to Algorithms, CUP, 2014",
+   "Jack Zurada: Introduction to Artificial Neural Systems, PWS Publishing Co. Boston, 2002 E- Books / E- Learning References:"
+  ],
+  "links": []
+ },
+ {
+  "code": "314444",
+  "name": "Human Computer Interaction",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "1. Problem Solving and Object Oriented Technologies",
+  "outcomes": [
+   "Explain importance of HCI study and principles of user-centered design (UCD) approach.",
+   "Develop understanding of human factors in HCI design.",
+   "Develop understanding of models, paradigms, and context of interactions.",
+   "Design effective user-interfaces following a structured and organized UCD process.",
+   "Evaluate usability of a user-interface design.",
+   "Apply cognitive models for predicting human-computer-interactions."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction",
+    "hours": 6,
+    "text": "What is HCI?, Disciplines involved in HCI, Why HCI study is important? The psychology of everyday things Donald A. Norman, Principles of HCI, User-centered Design. Measurable Human factors."
+   },
+   {
+    "roman": "II",
+    "title": "Interaction",
+    "hours": 6,
+    "text": "Input-output channels, Human memory, Human emotions, Individual differences, Psychology. Ergonomics, Human errors, Models of interaction, Paradigms of Interactions, Interaction styles, Interactivity, Context of interaction, User experience. TE (Information Technology) Syllabus (2019 Course) 18 Curriculum for Third Year of Information Technology (2019 Course), Savitribai Phule Pune University"
+   },
+   {
+    "roman": "III",
+    "title": "HCI Models and Theories",
+    "hours": 6,
+    "text": "User Profiles, categorization of users, Goal and task hierarchy model, Linguistic model, Physical and device models, GOMS, Norman’s 7 stage model, Cognitive architectures, Hierarchical task analysis (HTA), Uses of task analysis, Diagrammatic dialog design notations."
+   },
+   {
+    "roman": "IV",
+    "title": "Design Process",
+    "hours": 6,
+    "text": "Design Rules : Principles that support usability, Design standards, Design Guidelines, What is interaction design?, The software design process, User focus, Scenarios, Navigation Design, Screen Design, Prototyping techniques, Wire-Framing, Understanding the UI Layer and Its Execution Framework, Model- View-Controller(MVC) Framework"
+   },
+   {
+    "roman": "V",
+    "title": "HCI Guidelines and Evaluation Techniques",
+    "hours": 6,
+    "text": "Using toolkits, User interface management system (UIMS), Goals of evaluation, Categorization of Evaluation techniques, Choosing an Evaluation Method. DECIDE, Heuristic Evaluation, cognitive walk through, Usability testing"
+   },
+   {
+    "roman": "VI",
+    "title": "Future Trends",
+    "hours": 6,
+    "text": "Ubiquitous Computing, Design thinking, Finding things on web, Augmented Reality, Virtual Reality, Challenges in designing interfaces for smart homes, smart devices, handheld devices, smart wrist watch, Future of HCI"
+   }
+  ],
+  "textBooks": [
+   "Alan Dix (2008). Human Computer Interaction. Pearson Education. ISBN 978-81-317-1703-5.",
+   "Ben Shneiderman; Catherine Plaisant; Maxine Cohen; Steven Jacobs (29 August 2013).",
+   "Designing The User Interface: Strategies for Effective Human-Computer Interaction. Pearson Education Limited. ISBN 978-1-292-03701-1."
+  ],
+  "refBooks": [
+   "Gerard Jounghyun Kim (20 March 2015). Human–Computer Interaction: Fundamentals and Practice.CRC Press. ISBN 978-1-4822-3390-2.",
+   "Donald A. Norman (2013). The Design of Everyday Things Basic Books. ISBN 978-0-465-07299-6.",
+   "Jeff Johnson (17 December 2013). Designing with the Mind in Mind: Simple Guide to Understanding User Interface Design Guidelines. Elsevier. ISBN 978-0-12-411556-9.",
+   "Alan Cooper; Robert Reimann; David Cronin; Christopher Noessel (13 August 2014). About Face: The Essentials of Interaction Design. Wiley. ISBN 978-1-118-76658-3.",
+   "Alan Cooper (1 January 1999). The Inmates are running the Asylum, Sam’s. ISBN 978-0-672-31649-4.",
+   "John M. Carroll (21 May 2003). HCI Models, Theories, and Frameworks: Toward a MultidisciplinaryScience. Morgan Kaufmann. ISBN 978-0-08-049141-7.",
+   "Alan Cooper, Robert Reimann, David Cronin, Christopher Noessel, About Face: The Essentials of Interface Design, Wiley India, ISBN: 9788126559718,4th Ed",
+   "Rogers, Sharp, Preece, Interaction Design: Beyond Human Computer Interaction, Wiley India, ISBN:11. 9788126544912,3ed",
+   "Wilbert O. Galitz, The Essential Guide to user Interface Design, Wiley India, ISBN: 9788126502806 E- Books / E- Learning References:"
+  ],
+  "links": []
+ },
+ {
+  "code": "314445A",
+  "name": "Design and Analysis of Algorithm",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "1. Data Structures and Algorithms. 2. Discrete Structures. 3. Basic mathematics: Induction, probability theory, logarithms.",
+  "outcomes": [
+   "Calculate computational complexity using asymptotic notations for various algorithms.",
+   "Apply Divide & Conquer as well as Greedy approach to design algorithms.",
+   "Understand and analyze optimization problems using dynamic programming.",
+   "Illustrate different problems using Backtracking.",
+   "Compare different methods of Branch and Bound strategy.",
+   "Classify P, NP, NP-complete, NP-Hard problems."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction",
+    "hours": 7,
+    "text": "Proof Techniques: Contradiction, Mathematical Induction, Direct proofs, Proof by counter example, Proof by contraposition. Analysis of Algorithm: Efficiency- Analysis framework, asymptotic notations – big O, theta and omega. Analysis of Non-recursive and recursive algorithms: Solving Recurrence Equations using Masters theorem and Substitution method. Brute Force method: Introduction to Brute Force method & Exhaustive search, Brute Force solution to 8 queens’ problem. TE (Information Technology) Syllabus (2019 Course) 21 Curriculum for Third Year of Information Technology (2019 Course), Savitribai Phule Pune University"
+   },
+   {
+    "roman": "II",
+    "title": "Divide and Conquer and Greedy Method",
+    "hours": 6,
+    "text": "Divide & Conquer: General method, Quick Sort – Worst, Best and average case. Binary search, Finding Max- Min, Large integer Multiplication (for all above algorithms analysis to be done with recurrence). Greedy Method: General method and characteristics, Kruskal’s method for MST (using nlogn complexity), Dijkstra’s Algorithm, Fractional Knapsack problem, Job Sequencing, Max flow problem and Ford-Fulkerson algorithm in transport network"
+   },
+   {
+    "roman": "III",
+    "title": "Dynamic Programming",
+    "hours": 6,
+    "text": "General strategy, Principle of optimality, 0/1 knapsack Problem, Coin change-making problem, Bellman- Ford Algorithm, Multistage Graph problem (using Forward computation), Travelling Salesman Problem"
+   },
+   {
+    "roman": "IV",
+    "title": "Backtracking",
+    "hours": 6,
+    "text": "General method, Recursive backtracking algorithm, Iterative backtracking method. n-Queen problem, Sum of subsets, Graph coloring, 0/1 Knapsack Problem."
+   },
+   {
+    "roman": "V",
+    "title": "Branch and Bound",
+    "hours": 6,
+    "text": "The method, Control abstractions for Least Cost Search, Bounding, FIFO branch and bound, LC branch and bound, 0/1 Knapsack problem – LC branch and bound and FIFO branch and bound solution, Traveling salesperson problem- LC branch and bound"
+   },
+   {
+    "roman": "VI",
+    "title": "Computational Complexity",
+    "hours": 5,
+    "text": "Non Deterministic algorithms, The classes: P, NP, NP Complete, NP Hard, Satisfiability problem, Proofs for NP Complete Problems: Clique, Vertex Cover"
+   }
+  ],
+  "textBooks": [
+   "Horowitz and Sahani, Fundamentals of computer Algorithms, Galgotia, ISBN 81-7371-612-9.",
+   "Anany Levitin, Introduction to the Design & Analysis of Algorithm, Pearson, ISBN 81- 7758-835-4."
+  ],
+  "refBooks": [
+   "Jon Kleinberg, Algorithm Design, Pearson, ISBN : 0-321-29535-8",
+   "S. Sridhar, Design and Analysis of Algorithms, Oxford, ISBN 10 : 0-19-809369-1.",
+   "Thomas H Cormen and Charles E.L Leiserson, Introduction to Algorithm, PHI, ISBN: 9788120340077",
+   "Gilles Brassard, Paul Bratle, Fundamentals of Algorithms, Pearson, ISBN 978-81-317-1244-3.",
+   "R. C. T. Lee, SS Tseng, R C Chang, Y T Tsai, Introduction to Design and Analysis of Algorithms, A Strategic approach, Tata McGraw Hill, ISBN-13: 978-1-25-902582-2. ISBN-10: 1-25-902582-9.",
+   "Steven S Skiena, The Algorithm Design Manual, Springer, ISBN 978-81-8489-865-1.",
+   "George T. Heineman, Gary Pollice, Stanley Selkow, Algorithms in a Nutshell, A Desktop Quick Reference, O’Reilly, ISBN: 9789352133611.",
+   "Michael T. Goodrich, Roberto Tamassia, Algorithm Design: Foundations, Analysis and Internet",
+   "Examples, Wiley India, ISBN: 9788126509867",
+   "Rod Stephens, Essential Algorithms: A Practical Approach to Computer Algorithms, Wiley India, ISBN:9788126546138"
+  ],
+  "links": []
+ },
+ {
+  "code": "314445B",
+  "name": "Advanced Database Management System",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "1. Database Management System",
+  "outcomes": [
+   "Differentiate relational and object-oriented databases.",
+   "Illustrate parallel & distributed database architectures.",
+   "Apply concepts of NoSQL Databases.",
+   "Explain concepts of data warehouse and OLAP technologies.",
+   "Apply data mining algorithms and various software tools.",
+   "Comprehend emerging and enhanced data models for advanced applications."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Review of Relational Data Model and Relational Database Constraints",
+    "hours": 6,
+    "text": "Relational model concepts, Relational model constraints and relational database schemas, Update operations, anomalies, dealing with constraint violations, Types and violations. Overview of Object- Oriented Concepts – Objects, Basic properties. Advantages, examples, Abstract data types, Encapsulation, class hierarchies, polymorphism examples."
+   },
+   {
+    "roman": "II",
+    "title": "Parallel and Distributed Databases",
+    "hours": 6,
+    "text": "Introduction to Parallel Databases, Architectures for parallel databases, Parallel query evaluation Parallelizing individual operations, Parallel query optimizations. Introduction to distributed databases, Distributed DBMS architectures, storing data in a Distributed DBMS, Distributed catalog management, Distributed Query processing, Updating distributed data, Distributed transactions, Distributed Concurrency control and Recovery. TE (Information Technology) Syllabus (2019 Course) 24 Curriculum for Third Year of Information Technology (2019 Course), Savitribai Phule Pune University"
+   },
+   {
+    "roman": "III",
+    "title": "NoSQL Databases",
+    "hours": 6,
+    "text": "Introduction, Overview, and History of NoSQL Databases- The definition of Four Types of No SQL Databases. NoSQL Key/Value Database: MongoDB, Column-Oriented Database: Apache Cassandra, Comparison of Relational and NoSQL databases, NoSQL database Development Tools (Map Reduce/Hive) and Programming Languages (XML/JSON)"
+   },
+   {
+    "roman": "IV",
+    "title": "Data Warehousing",
+    "hours": 6,
+    "text": "Architectures and components of data warehouse, Characteristics and limitations of data warehouse, Data warehouse schema (Star, Snowflake), OLAP Architecture (ROLAP/MOLAP/HOLAP), Introduction to decision support system, Views and Decision support"
+   },
+   {
+    "roman": "V",
+    "title": "Data Mining",
+    "hours": 6,
+    "text": "Introduction to Data Mining, KDD seven step process, Architecture of data mining, Introduction to predictive and descriptive algorithms, Data mining software and applications"
+   },
+   {
+    "roman": "VI",
+    "title": "Enhanced Data Models for Advanced Applications",
+    "hours": 6,
+    "text": "Active database concepts and triggers; Temporal, Spatial, and Deductive Databases – Basic concepts. More Recent Applications: Mobile databases; Multimedia databases; Geographical Information Systems; Genome data management."
+   }
+  ],
+  "textBooks": [
+   "Silberschatz A., Korth H., Sudarshan S, Database System Concepts, McGraw Hill Publication, ISBN-0-07-120413-X, Sixth Edition.",
+   "S. K. Singh, Database Systems: Concepts, Design and Application, Pearson Publication, ISBN-978- 81-317-6092-5."
+  ],
+  "refBooks": [
+   "Kristina Chodorow, Michael Dirolf, “MongoDB: The Definitive Guide”, O’Reilly Publications",
+   "Jiawei Han, Micheline Kamber, Jian Pei, “Data Mining: Concepts and Techniques”, Elsevier",
+   "Mario Piattini, Oscar Diaz “Advanced Database Technology and Design”- online book.",
+   "M. Tamer Özsu, Patrick Valduriez, “Principles of Distributed Database Systems” Prentice Hall,",
+   "5. Ramez Elmasri and Shamkant B. Navathe “Fundamentals of Database System”7th Edition"
+  ],
+  "links": []
+ },
+ {
+  "code": "314445C",
+  "name": "Design Thinking",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "1. Software Engineering, 2. Problem Solving",
+  "outcomes": [
+   "Identify need and features of design thinking.",
+   "Identify the opportunities and challenges for design thinking innovation.",
+   "Learn the process of design thinking using various tools.",
+   "Summarize and learn the various prototyping techniques.",
+   "Enlist the activities carried out in Test and reflect phase of design thinking.",
+   "Interpret the design thinking disruptive innovations through case studies."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to Design Thinking",
+    "hours": 6,
+    "text": "Introduction to Design and Design Thinking, Definition of Design Thinking, Need of Design Thinking, Features of Design Thinking, Problem Solving and Design, Design thinking as Strategy of Innovation, Use of Design Thinking, Design Thinking-Attributes, The Principles of Design Thinking, The Five-step Process of Design Thinking(Empathize, Define, Ideate, Prototype, Test),Design Thinking-A Solution based thinking: Design Thinking vs. Scientific Method, Problem Focused vs. Solution Focused, Analysis vs. Synthesis, Divergent Thinking vs. Convergent Thinking , Roots of Design Thinking in Human Centric Design Process."
+   },
+   {
+    "roman": "II",
+    "title": "Explore and Empathize",
+    "hours": 6,
+    "text": "TE (Information Technology) Syllabus (2019 Course) 26 Curriculum for Third Year of Information Technology (2019 Course), Savitribai Phule Pune University Explore- STEEP Analysis, Activity Systems, Stakeholder Analysis, Framed Opportunities Empathise- Observation, Problem statement, User Interviews- Interview for Empathy, Explorative Interview, Ask 5x Why, 5W+H questions (Design Thinking Toolbox), Needs Finding, Empathy Map, Persona Development, Customer Journey Map"
+   },
+   {
+    "roman": "III",
+    "title": "Define and Ideate",
+    "hours": 6,
+    "text": "Define- Define Point of view, “How might we ...” question, Storytelling, Context Mapping Ideate-Brainstorming, 2x2 Matrix Ideate- Purpose, Methods & Tools, SCAMPER, SCAMPER for Ideation, SCAMPER template, Analogous Inspiration, IDEATION using Deconstruct & Reconstruct, User Experience Journey"
+   },
+   {
+    "roman": "IV",
+    "title": "Prototype",
+    "hours": 6,
+    "text": "Get Visual, Design Principals, Determine What to Prototype, Storyboard Prototype- How to carry out Prototyping? Frequently used kinds of prototypes, Focused experiments – Critical Experience Prototype (CEP) & Critical Function Prototype (CFP), Crazy experiments – Dark horse Prototype, Combined experiments – Funky prototype Prototyping -Paper Prototyping, Digital Prototyping- Wireframe vs Realistic Prototypes, HTML vs WYSIWYG Editors, Additional Tools for Prototyping, Working with a Developer, Prototype Examples"
+   },
+   {
+    "roman": "V",
+    "title": "Test and Reflect",
+    "hours": 6,
+    "text": "Test- Testing Sheet, Feedback Capture Grid, Powerful questions in experience testing, Solution interview Structured Usability Testing, A/B Testing, Design Testing with Users, Exploring Visual Design Mock-Ups Choosing a Design Testing, Usability Testing, Reflect- I like, I wish, I wonder, Create a pitch, lean canvas lessons learned, Road map for implementation Evolve- Concept Synthesis, Viability Analysis(Impact Evaluation), Innovation Tool using user needs, CAP, 4s."
+   },
+   {
+    "roman": "VI",
+    "title": "Disruptive Innovation",
+    "hours": 6,
+    "text": "Reimagining the Trade Show Experience at IBM, Redesigning the Customer Contact Center at Toyota, Social Networking at MeYou Health, Rethinking Subsidized Meals for the Elderly at The Good Kitchen THE SOCIAL PROBLEM Design Thinking in Healthcare with IDEO, Design Thinking Transformed Airbnb, IBM Design Thinking: A Framework To Help Teams Continuously Understand and Deliver, UberEATS."
+   }
+  ],
+  "textBooks": [
+   "Michael Lewrick, Patrick Link, Larry Leifer , “The Design Thinking Toolbox: A Guide to Mastering the Most Popular and Valuable Innovation Methods”, March 2020 edition, ISBN: 978-1-119- 62921-4, WILEY Publication.",
+   "Mr Lee Chong Hwa (Lead Facilitator), “The Design Thinking: Guidebook”"
+  ],
+  "refBooks": [
+   "IDEO (Firm), “The Field Guide to Human-centered Design: Design Kit”, 1st edition, ISBN- 978099140631-9, IDEO 2015.",
+   "Russ Unger, Carolyn Chandler, “A Project Guide to UX Design For user experience designers inthe field or in the making (Voices That Matter)”, 2nd Edition, ISBN 13: 978-0-321-81538-5",
+   "Karl T Ulrich, “Design – Creation of Artifacts in Society”, 1st edition, ISBN 978-0-9836487-0-3, University of Pennsylvania.",
+   "Tim Brown, “Change by Design: How Design Thinking Transforms Organizations and Inspires Innovation”, ISBN- 9780061937743, Harper Collins, 2009.",
+   "Eli Woolery, “Design Thinking Handbook”, In-Vision publisher.",
+   "Jeanne Liedtka, Andrew King, Kevin Bennett, “Solving Problems with Design Thinking: TenStories of What Works”, Columbia Business School Publishing, E-ISBN 978-0-231-53605-9",
+   "Jake Knapp, John Zeratsky, Braden Kowitz, “Sprint: How to Solve Big Problems and Test New Ideasin Just Five Days”, ISBN 9780593076118, Bantam Press, 2016.",
+   "Don Norman, “The Design of Everyday Things: Revised and Expanded Edition”, ISBN9780465072996, Basic Books, 2013.",
+   "Tom Kelly, “Creative Confidence: Unleashing the Creative Potential Within Us All”, October 2013 edition, ISBN: 978-0-385-34936-9 E -Books / E -Learning References:",
+   "Creating Customer Journey Maps - MODULE 4: Design Thinking and Customer Journey Maps Coursera",
+   "Design Thinking - A Primer online course video lectures by IIT Madras (freevideolectures.com)",
+   "NPTEL: Humanities and Social Sciences - NOC: Understanding Design Thinking & People Centered Design",
+   "NPTEL: Management - NOC: Design Thinking - A Primer"
+  ],
+  "links": []
+ },
+ {
+  "code": "314445D",
+  "name": "Internet of Things",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "1. Basics of Computer Network 2. Processor Architecture",
+  "outcomes": [
+   "Discuss fundamentals, architecture and framework of IoT.",
+   "Select suitable sensors and actuators for real time scenarios.",
+   "Justify the significance of protocol for wireless communication and IoT challenges",
+   "Understand the Python programming for development of IoT applications.",
+   "Understand the cloud interfacing technologies.",
+   "Design and Implement real time IoT applications."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to IoT",
+    "hours": 6,
+    "text": "Definition and Characteristics of IoT, IoT Framework and Architecture, Physical Design of IoT – IoT Protocols, IoT communication models, IoT Communication APIs, IoT Levels and Templates, IoT Enabled Technologies – Wireless Sensor Networks, Cloud Computing, Embedded Systems, Big Data Analysis, UAV, Web Services, IoT & M2M- Machine to Machine, Difference between IoT and M2M, Software Defined Network & NFV"
+   },
+   {
+    "roman": "II",
+    "title": "Things in IoT",
+    "hours": 6,
+    "text": "Introduction to Sensors - Light sensor, voltage sensor, Temperature and Humidity Sensor, Motion Detection Sensors, Wireless Sensors, Level Sensors, USB Sensors, Embedded Sensors, Distance Measurement with ultrasonic sensor Introduction to Actuators- Connecting LED, Buzzer, Controlling- AC Power devices, Servo motor, Speed DC Motor. Electronic Communication Protocols (Device Interfacing) Protocols: I2C, SPI, UART, USRT, CAN. TE (Information Technology) Syllabus (2019 Course) 29 Curriculum for Third Year of Information Technology (2019 Course), Savitribai Phule Pune University"
+   },
+   {
+    "roman": "III",
+    "title": "Communication Protocols and IoT Challenges",
+    "hours": 6,
+    "text": "Introduction to Non-IP Based Protocol (IEEE 802.11, IEEE 802.15.4), BlueTooth, ZigBee, IP Based Protocol (IPV4, IPV6, 6LoWPAN), Application Layer Protocols (MQTT, AMQP) Wireless medium access issues, MAC protocol, routing protocols, Sensor deployment & Node discovery, Data aggregation & dissemination."
+   },
+   {
+    "roman": "IV",
+    "title": "IoT Platforms and Its Programming",
+    "hours": 6,
+    "text": "Introduction to Arduino and Raspberry Pi- Installation, Interfaces (Serial, SPI, I2C), Introduction to Python program with Raspberry Pi with focus on interfacing external gadgets (Bluetooth Speaker, CCTV Camera, Robotic Arm etc.), controlling output, and reading input from pins. Introduction to Arduino Programming, Integration of Sensors and Actuators with Arduino."
+   },
+   {
+    "roman": "V",
+    "title": "IoT Physical Servers and Cloud Offerings",
+    "hours": 6,
+    "text": "Introduction to Cloud Storage models (SaaS, Paas, IaaS) and communication APIs Web server – Web server for IoT, Cloud for IoT (ThingSpeak, Ubidots), Python web application framework, Designing a RESTful web API. IoT Security: Vulnerabilities of IoT, Security Requirements, Challenges for Secure IoT, Threat Modelling, Key elements of IoT Security: Identity establishment, Access control, Data and message security, Non repudiation and availability, Security model for IoT."
+   },
+   {
+    "roman": "VI",
+    "title": "Domain Specific Applications of IoT",
+    "hours": 6,
+    "text": "Home Automation - Smart Appliances, Intrusion Detection, Smoke/Gas Detector, Smart City -Smart Parking, Smart Road, Structural Health Monitoring, Surveillance applications, Health - Fitness and Health Monitoring, Wearable Electronics, Agriculture - Smart Irrigation, Greenhouse Control, Environment - Weather Monitoring, Noise Pollution Monitoring, Logistic - Root Generation and Scheduling, Shipment Monitoring, Retail Management - Inventory Management, Smart Payments, Industry Applications - Machine Diagnosis and Prognosis, Indoor Air Quality Monitoring."
+   }
+  ],
+  "textBooks": [
+   "Vijay Madisetti, ArshdeepBahga, “Internet of Things: A Hands-On Approach” , 2014, Universities Press(India) Pvt Ltd., ISBN: 9788173719547",
+   "Matt Richardson & Shawn Wallac, “Getting Started with Raspberry Pi”, 2014, O'Reilly (SPD), ISBN:9789350239759",
+   "Pethuru Raj and Anupama C Raman, “The Internet of Things: Enabling Technologies, Platforms and Use Cases”, 2017, CRC Press, ISBN: 13:978-1-4987-6128-4.",
+   "Rushi Gajjar, “Raspberry Pi Sensors”, 2015, Packt Publishing, ISBN : 978-1-78439-361-8",
+   "Robert H. Bishop, “The Mechatronics Handbook”, 2002, CRC Press , ISBN: 0-8493-0066-5/02"
+  ],
+  "refBooks": [
+   "Peter Waher, “Learning Internet of Things”, 2015, Packt Publishing, ISBN: 978-1-78355-353-2",
+   "Peter Friess, “Internet of Things – From Research and Innovation to Market Deployment”, 2014, River Publishers, ISBN: 978-87-93102-94-1",
+   "Waltenegus Dargie, Christian Poellabauer, \"Fundamentals of Wireless Sensor Networks: Theory and Practice\", 2010, Wiley Publication, ISBN: 978-0-470-99765-9",
+   "Simon Monk, “Raspberry Pi Cookbook, Software and Hardware Problems and solutions”, 2019, O'Reilly, ISBN 9781492043225 E- Books / E- Learning References:"
+  ],
+  "links": []
+ },
+ {
+  "code": "314451",
+  "name": "Computer Network and Security",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "1. Basics of Computer Network",
+  "outcomes": [
+   "Explain Responsibilities, services offered and protocol used at application layer of network",
+   "Apply concepts of wireless network and different wireless standards.",
+   "Recognize the Adhoc Network’s MAC layer, routing protocol and Sensor network architecture.",
+   "Implement the principal concepts of network security and Understand network security threats, security services, and countermeasures",
+   "Apply basic cryptographic techniques in application development.",
+   "Gain a good comprehension of the landscape of cyber security Vulnerabilities & describe typical threats to modern digital systems."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Application Layer",
+    "hours": 6,
+    "text": "Client Server Paradigm: Communication using TCP and UDP, Peer to Peer Paradigm, Application Layer Protocols: DNS, FTP, TFTP, HTTP, SMTP, POP, IMAP, MIME, DHCP, TELNET. TE (Information Technology) Syllabus (2019 Course) 64 Curriculum for Third Year of Information Technology (2019 Course), Savitribai Phule Pune University"
+   },
+   {
+    "roman": "II",
+    "title": "Wireless Standards",
+    "hours": 6,
+    "text": "Wireless LANs: Fundamentals of WLAN, Design goals, Characteristics, Network Architecture, IEEE 802.11: components in IEEE 802.11 network, Physical Layer, MAC Sub Layers : DCF, PCF, Hidden and exposed station problem, Frame format, Addressing Mechanism, IEEE 802.15.1 Bluetooth: ArchitectureLayers, operational states, IEEE 802.16 WiMax: Services, Architecture, Layers, comparison between Bluetooth, IEEE 802.11 and IEEE 802.16."
+   },
+   {
+    "roman": "III",
+    "title": "Adhoc and WSN",
+    "hours": 6,
+    "text": "Infrastructure Network and Infrastructure-less Wireless Networks, Issues in Adhoc Wireless Network, Adhoc Network MAC Layer: Design Issues, Design Goal, Classification, MACAW, Adhoc Network Routing Layer: Issues in Designing a Routing Protocol for Ad-hoc Wireless Networks – Classifications of Routing Protocols, DSDV, AODV, DSR, Applications of Sensor Network, Comparison with Ad Hoc Wireless Network, Sensor node architecture Issues and Challenges in Designing a Sensor Network, Classification of sensor network protocols, SENSOR NETWORK ARCHITECTURE: Layered Architecture, Clustered Architecture"
+   },
+   {
+    "roman": "IV",
+    "title": "Introduction to Network Security",
+    "hours": 6,
+    "text": "Importance and Need for Security, Network Attacks- Passive, Active Network Security Threats: Unauthorized access, Distributed Denial of Service (DDoS) attacks, Man in the middle attacks, Concept of Security Principles: Confidentiality and Privacy, Authentication, Authorization and Access Control, Integrity, Nonrepudiation, Stream Ciphers: Substitution Cipher – Mono alphabetic Cipher, Polyalphabetic Substitution Cipher., Transposition Cipher: Rail-Fence Block Ciphers modes: Electronic Code Book (ECB) Mode., Cipher Block Chaining (CBC) Mode., Cipher Feedback Mode (CFB) , Output Feedback (OFB) Mode."
+   },
+   {
+    "roman": "V",
+    "title": "Cryptographic Algorithm",
+    "hours": 6,
+    "text": "Mathematical preliminaries: Groups, Rings, Fields, Prime numbers, Symmetric key algorithms: Data Encryption Standards, Advanced Encryption Standard, Public Key Encryption and Hash function: RSA Digital signatures, Digital Certificates and Public Key Infrastructure: Private Key Management, Diffie Hellman key exchange, The PKIX Model TE (Information Technology) Syllabus (2019 Course) 65 Curriculum for Third Year of Information Technology (2019 Course), Savitribai Phule Pune University"
+   },
+   {
+    "roman": "VI",
+    "title": "Introduction to Cyber Security",
+    "hours": 6,
+    "text": "Introduction to Cyber Security: Basic Cyber Security Concepts, Layers of security, Vulnerability, Threat, Harmful Acts-Malware, Phishing, MIM Attack, DOS Attack, SQL Injection, Internet Governance – Challenges and Constraints, Computer Criminals, Assets and Threat, Motive of Attackers, Software attacks, hardware attacks, Cyber Threats-Cyber Warfare, Cyber Crime, Cyber Stalking, Cyber Terrorism, Cyber Espionage, Comprehensive Cyber Security Policy"
+   }
+  ],
+  "textBooks": [
+   "Behrouz A. Forouzan, TCP/IP Protocol Suite, McGraw Hill Education, ISBN: 978-0-07-070652-1, 4th Edition.",
+   "C. Siva Ram Murthy, B. S. Manoj, Adhoc Wireless Networks: Architecture and Protocols, PearsonEducation, ISBN: 978-81-317-0688-6, 1st Edition.",
+   "Atul Kahate Cryptography and Network Security, 3e, McGraw Hill Education,",
+   "B. A. Forouzan Cryptography and Network Security McGraw Hill Education",
+   "William Stallings Cryptography and Network Security: Principles and Practice, 4th Edition.",
+   "Nina Godbole and Sunit Belpure, Cyber Security Understanding Cyber Crimes, Computer Forensics and Legal Perspectives, Wiley"
+  ],
+  "refBooks": [
+   "Kazem Sohraby, Daniel Minoli, TaiebZnati, Wireless Sensor Networks: Technology, Protocols and Applications, Wiley India, ISBN: 9788126527304",
+   "Schneir, Bruce, “Applied Cryptography: Protocols and Algorithms”",
+   "Charles E. Perkins, Adhoc Networking, Pearson Education, 978-81-317-2096-7",
+   "Andrew S. Tanenbaum, David J. Wethrall, Computer Network, Pearson Education, ISBN: 978-0-13- 212695-3.",
+   "Kurose Ross, Computer Networking: A Top Down Approach Featuring the Internet, Pearson Education, ISBN: 978-81-7758-878-",
+   "Dr. V.K. Pachghare, Cryptography and Information security, PHI, Second edition, ISBN- 978- 81-203-5082-3 E- Books / E- Learning References :",
+   "An Introduction to Cyber Security A Beginner’s Guide"
+  ],
+  "links": []
+ },
+ {
+  "code": "314452",
+  "name": "Data Science and Big Data Analytics",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "1. Engineering and discrete mathematics. 2. Database Management Systems, Data warehousing and Data mining. 3. Programming skill.",
+  "outcomes": [
+   "Understand Big Data primitives.",
+   "Learn and apply different mathematical models for Big Data.",
+   "Demonstrate Big Data learning skills by developing industry or research applications.",
+   "Analyze and apply each learning model comes from a different algorithmic approach and it will perform differently under different datasets.",
+   "Understand, apply and analyze needs, challenges and techniques for big data visualization.",
+   "Learn different programming platforms for big data analytics."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction: Data Science and Big Data",
+    "hours": 6,
+    "text": "Introduction to Data science and Big Data, Defining Data science and Big Data, Big Data examples, Data Explosion: Data Volume, Data Variety, Data Velocity and Veracity. Big data infrastructure and challenges Big Data Processing Architectures: Data Warehouse, Re-Engineering the Data Warehouse, shared everything and shared nothing architecture, Big data learning approaches. Data Science – The Big Picture: Relation between AI, Statistical Learning, Machine Learning, Data Mining and Big Data Analytics TE (Information Technology) Syllabus (2019 Course) 67 Curriculum for Third Year of Information Technology (2019 Course), Savitribai Phule Pune University"
+   },
+   {
+    "roman": "II",
+    "title": "Mathematical Foundation of Big Data",
+    "hours": 7,
+    "text": "Probability: Random Variables and Joint Probability, Conditional Probability and concept of Markov chains, Tail bounds, Markov chains and random walks, Pair-wise independence and universal hashing Approximate counting, Approximate median. Data Streaming Models and Statistical Methods: Flajole Martin algorithm, Distance Sampling and Random Projections, Bloom filters, Mode, Variance, standard deviation, Correlation analysis and Analysis of Variance."
+   },
+   {
+    "roman": "III",
+    "title": "Big Data Processing",
+    "hours": 6,
+    "text": "Big Data Analytics- Ecosystem and Technologies, Introduction to Google file system, Hadoop Architecture, Hadoop Storage: HDFS, Common Hadoop Shell commands, Anatomy of File Write and Read, NameNode, Secondary NameNode, and DataNode, Hadoop MapReduce paradigm, Map Reduce tasks, Job, Task trackers - Cluster Setup – SSH & Hadoop Configuration, Introduction to NOSQL, Textual ETL processing."
+   },
+   {
+    "roman": "IV",
+    "title": "Big Data Analytics",
+    "hours": 6,
+    "text": "Big Data Analytics- Architecture and Life Cycle, Types of analysis, Analytical approaches, Data Analytics with Mathematical manipulations, Data Ingestion from different sources (CSV, JSON, html, Excel, mongoDB, mysql, sqlite), Data cleaning, Handling missing values, data imputation, Data transformation, Data Standardization, handling categorical data with 2 and more categories, statistical and graphical analysis methods, Hive Data Analytics."
+   },
+   {
+    "roman": "V",
+    "title": "Big Data Visualization",
+    "hours": 6,
+    "text": "Introduction to Data visualization, Challenges to Big data visualization, Conventional data visualization tools, Techniques for visual data representations, Types of data visualization, Visualizing Big Data, Tools used in data visualization, Propriety Data Visualization tools, Open – source data visualization tools, Case Study: Analysis of a business problem of Zomato using visualization, Analytical techniques used in Big data visualization, Data Visualization using Tableau Introduction to: Candela, D3.js, Google Chart API TE (Information Technology) Syllabus (2019 Course) 68 Curriculum for Third Year of Information Technology (2019 Course), Savitribai Phule Pune University"
+   },
+   {
+    "roman": "VI",
+    "title": "Big Data Technologies Application and Impact",
+    "hours": 5,
+    "text": "Social media analytics, Text mining, Mobile analytics, Data analytics life cycle of case studies, Organizational impact, understanding decision theory, creating big data strategy, big data value creation drivers, Michael Porter’s valuation creation models, Big data user experience ramifications, Identifying big data use cases, Big Data Analytics Challenges and Research directions."
+   }
+  ],
+  "textBooks": [
+   "Krish Krishnan, Data warehousing in the age of Big Data, Elsevier, ISBN: 9780124058910, 1stEdition.",
+   "DT Editorial Services, Big Data, Black Book, DT Editorial Services, ISBN: 9789351197577, 2016Edition."
+  ],
+  "refBooks": [
+   "Mitzenmacher and Upfal, Probability and Computing: Randomized Algorithms and ProbabilisticAnalysis, Cambridge University press, ISBN : 521835402 .",
+   "Dana Ron, Algorithmic and Analysis Techniques in Property Testing, School of EE.",
+   "Graham Cormode, Minos Garofalakis, Peter J. Haas and Chris Jermaine, Synopses for Massive Data: Samples, Histograms, Wavelets, Sketches, Foundation and trends in databases, ISBN:10.1561/1900000004.",
+   "Alex Holmes, Hadoop in practice, Dreamtech press, ISBN:9781617292224.",
+   "AmbigaDhiraj, Big Data, Big Analytics: Emerging Business Intelligence and Analytic Trends forToday’s Business, Wiely CIO Series.",
+   "ArvindSathi, Big Data Analytics: Disruptive Technologies for Changing the Game, IBMCorporation, ISBN:978-1-58347-380-1.",
+   "EMC Education Services, Data Science and Big Data Analytics- Discovering, analyzing Visualizingand Presenting Data.",
+   "Li Chen, Zhixun Su, Bo Jiang, Mathematical Problems in Data Science, Springer, ISBN :978-3- 319-25127-1.",
+   "Philip Kromer and Russell Jurney, Big Data for chips, O’Reilly, ISBN :9789352132447.",
+   "EMC Education services, Data Science and Big Data Analytics, EMC2 Wiley, ISBN :978812655653-",
+   "Mueller Massaron, Python for Data science, Wiley, ISBN :9788126557394.",
+   "EMC Education Services, Data Science and Big Data Analytics, Wiley India, ISBN:9788126556533",
+   "Benoy Antony, Konstantin Boudnik, Cheryl Adams, Professional Hadoop, Wiley India,ISBN :9788126563029",
+   "Judith Hurwitz, Alan Nugent, Big Data For Dummies, Wiley India, ISBN : 9788126543281"
+  ],
+  "links": []
+ },
+ {
+  "code": "314453",
+  "name": "Web Application Development",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "1. Programming languages C++, Java.",
+  "outcomes": [
+   "- On completion of the course, students will be able to–",
+   "Develop Static and Dynamic website using technologies like HTML, CSS, Bootstrap.",
+   "Demonstrate the use of web scripting languages.",
+   "Develop web application with Front End & Back End Technologies.",
+   "Develop mobile website using JQuery Mobile.",
+   "Deploy web application on cloud using AWS."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to Web Technologies",
+    "hours": 6,
+    "text": "HTML: Getting started with HTML, Why HTML, Tags and Elements, Attributes, Properties, Headings list, Links, Tables, Images, HTML Form, Media (Audio, Video), Semantic HTML5 Elements. CSS: Why CSS, Types of CSS, How to use CSS, Properties, Classes, Child-Class (Nested CSS), Colors, Text, Background, Border, Margin, Padding, Positioning (flex, grid, inline, block), Animation, Transition. BOOTSTRAP: Why Bootstrap, CSS over Bootstrap, How to Use Bootstrap, Bootstrap Grid System, Bootstrap Responsive, Bootstrap Classes, Bootstrap Components (i.e., Button, Table, List, etc.), Bootstrap as a Cross Platform. W3C: What is W3C , How W3C handles/Supports Web Technologies. TE (Information Technology) Syllabus (2019 Course) 71 Curriculum for Third Year of Information Technology (2019 Course), Savitribai Phule Pune University"
+   },
+   {
+    "roman": "II",
+    "title": "Web Scripting Languages",
+    "hours": 6,
+    "text": "JavaScript: Introduction to Scripting languages, Introduction to JavaScript (JS), JS Variables and Constants, JS Variable Scopes, JS Data Types, JS Functions, JS Array, JS Object, JS Events. Advanced JavaScript: JSON - JSON Create, Key-Value Pair, JSON Access, JSON Array, JS Arrow Functions, JS Callback Functions, JS Promises, JS Async-Await Functions, JS Error Handling. AJAX: Why AJAX, Call HTTP Methods Using AJAX, Data Sending, Data Receiving, AJAX Error Handling. JQUERY :Why JQuery, How to Use, DOM Manipulation with JQuery, Dynamic Content Change with JQuery, UI Design Using JQuery."
+   },
+   {
+    "roman": "III",
+    "title": "Front End Technologies",
+    "hours": 6,
+    "text": "Front-End Frameworks: What is web framework? Why Web Framework? Web Framework Types. MVC: What is MVC, MVC Architecture, MVC in Practical, MVC in Web Frameworks. TypeScript: Introduction to TypeScript (TS), Variables and Constants, Modules in TS. AngularVersion 10+: Angular CLI, Angular Architecture, Angular Project Structure, Angular Lifecycle, Angular Modules, Angular Components, Angular Data Binding, Directives and Pipes, Angular Services and Dependency Injections (DI), Angular Routers, Angular Forms. ReactJS: Introduction to ReactJS, React Components, Inter Components Communication, Components Styling, Routing, Redux- Architecture, Hooks- Basic hooks, useState() hook, useEffect() hook useContext() hook."
+   },
+   {
+    "roman": "IV",
+    "title": "Back End Technologies",
+    "hours": 6,
+    "text": "Node.JS: Introduction to Node.JS, Environment Setup, Node.JS Events, Node.JS Functions, Node.JS Builtin Modules, File System, NPM, Install External Modules, Handling Data I/O in Node.JS, Create HTTP Server, Create Socket Server, Microservices- PM2. ExpressJS: Introduction to ExpressJS, Configure Routes, Template Engines, ExpressJS as Middleware, Serving Static Files, REST HTTP Method APIs, Applying Basic HTTP Authentication, Implement Session Authentication. MongoDB: NoSQL and MongoDB Basics, MongoDB-Node.JS Communication, CRUD Operations using Node.JS, Mongoose ODM for Middleware, Advanced MongoDB. TE (Information Technology) Syllabus (2019 Course) 72 Curriculum for Third Year of Information Technology (2019 Course), Savitribai Phule Pune University"
+   },
+   {
+    "roman": "V",
+    "title": "Mobile Web Development",
+    "hours": 6,
+    "text": "Mobile-First: What is Mobile-First? What is Mobile Web? Understanding Mobile Devices and Desktop. JQuery Mobile: Introduction to the jQuery Mobile Framework, Set-up jQuery Mobile, Pages, Icons, Transitions, Layouts Widgets, Events, Forms, Themes, Formatting Lists, Header and Footer, CSS Classes, Data Attributes, Building a Simple Mobile Webpage."
+   },
+   {
+    "roman": "VI",
+    "title": "Web Application Deployment",
+    "hours": 6,
+    "text": "Cloud: AWS Cloud, AWS Elastic Compute, AWS Elastic Load Balancer and its types, AWS VPC and Component of VPC, AWS storage, Deploy Website or Web Application on AWS, Launch an Application with AWS Elastic Beanstalk."
+   }
+  ],
+  "textBooks": [
+   "Kogent Learning Solutions Inc, Web Technologies: HTML, JAVASCRIPT, PHP, JAVA, JSP, XML and AJAX, Blackbook, Dreamtech Press, Second Edition, ISBN: 9788177228496.",
+   "Raymond Camden, Andy Matthews, JQuery Mobile Web Development Essentials, Packt Publishing, Second Edition, 9781782167891."
+  ],
+  "refBooks": [
+   "Steven M. Schafer, “HTML, XHTML and CSS”, Wiley India Edition, Fourth Edition,978- 81- 265-1635-3",
+   "Dr.Hiren Joshi, Web Technology and Application Development, DreamTech, First,ISBN:978- 93-5004-088-1",
+   "Steven M. Schafer, “HTML, XHTML and CSS”, Wiley India Edition, Fourth Edition,978- 81-265- 1635-3",
+   "Ivan Bayross, “Web Enabled Commercial Application Development Using HTML, JavaScript,DHTML and PHP, BPB Publications,4th Edition, ISBN:978-8183330084.",
+   "Brain Fling, Mobile Design and Development, O'REILLY, First Edition, ISBN: 13:978-81- 8404-817-9",
+   "Adam Bretz& Colin J Ihrig, Full Stack Javascript Development with MEAN, SPD, First Edition, ISBN:978-0992461256.",
+   "JavaScript: The Definitive Guide - Master The World's Most-Used Programming Language, Seventh Edition",
+   "Java Script, D.Flanagan, O’Reilly, SPD.",
+   "Programming Typescript: Making Your JavaScript Applications Scale, Boris Cherny",
+   "Learning Amazon Web Services AWS - A Hands-on Guide to the Fundamentals of AWS Cloud Author: Mark Wilkins."
+  ],
+  "links": []
+ },
+ {
+  "code": "314454A",
+  "name": "Artificial Intelligence",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "1. Discrete Mathematics, 2. Machine Learning, 3. Data Structures and Algorithms 4. Any Programming Knowledge (Java, Python)",
+  "outcomes": [
+   "Apply the fundamental concepts of Artificial Intelligence",
+   "Choose appropriate search strategies for any AI problem",
+   "Illustrate knowledge reasoning and knowledge representation methods (for solving real world problems)",
+   "Analyze the suitable techniques of NLP to develop AI applications",
+   "Correlate the appropriate methods of Game Theory to design AI applications",
+   "Understand the concept of deep learning and AI applications"
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to AI and Search",
+    "hours": 6,
+    "text": "Artificial Intelligence: Introduction, Components of Artificial Intelligence, Characteristics of Artificial Intelligence Systems, Intelligent Agents, Types of Intelligent Agents Statistical Analysis: Correlation coefficient, Rank Correlation, Residual Error, Mean Square Error, RMSE, Probability Distributions, Concept of Discrete PD and Continuous PD Search Strategies: Problem spaces (states, goals and operators), problem solving by search, Uninformed search (breadth-first, depth-first, depth first with iterative deepening) TE (Information Technology) Syllabus (2019 Course) 75 Curriculum for Third Year of Information Technology (2019 Course), Savitribai Phule Pune University"
+   },
+   {
+    "roman": "II",
+    "title": "Problem Solving",
+    "hours": 6,
+    "text": "Heuristic Search Techniques: Generate-and-Test; Hill Climbing; Properties of A* algorithm, Best-first Search; Problem Reduction. Constraint Satisfaction problem: Interference in CSPs; Backtracking search for CSPs; Local Search for CSPs; structure of CSP Problem. Beyond Classical Search: Local search algorithms and optimization problem, local search in continuous spaces, searching with nondeterministic action and partial observation, online search agent and unknown environments."
+   },
+   {
+    "roman": "III",
+    "title": "Knowledge Representation and Reasoning",
+    "hours": 6,
+    "text": "Knowledge Representation: Introduction to Knowledge Representation, Knowledge agent, Predicate logic, WFF, Inference rule & theorem proving: forward chaining, backward chaining, resolution; Propositional knowledge, Boolean circuit agents. Rule Based Systems, Knowledge Reasoning: Forward reasoning: Conflict resolution, backward reasoning: Use of backtracking, Structured Knowledge Reasoning: Semantic Net - slots, inheritance, Framesexceptions and defaults attached predicates, Conceptual Dependency formalism, Reasoning Under Uncertainty: Source of Uncertainty, Probabilistic Reasoning and Uncertainty; Probability theory; Bayes Theorem and Bayesian networks, Certainty Factor, Dempster-Shafer theory, Non Monotonic Reasoning, Truth maintenance Systems, Overview of Fuzzy Logic."
+   },
+   {
+    "roman": "IV",
+    "title": "Understanding of NLP",
+    "hours": 6,
+    "text": "Introduction: What is NLP, Steps in Natural Language Processing, Syntactic Analysis(Parsing): Grammars and Parsers, Augmented Transition Networks, Unification grammars Semantic Analysis: Semantic grammar, Case grammars, Conceptual parsing, Approximately Compositional Semantic Interpretation. Discourse and Pragmatic Processing: Using focus in Understanding, Modeling Beliefs, Using Goals and Plans for Understanding, Speech Acts, Conversational Postulates Text classification (Spell Checking), Probabilistic Language Models, Implementation aspects of Syntactic Analysis(Parsing) TE (Information Technology) Syllabus (2019 Course) 76 Curriculum for Third Year of Information Technology (2019 Course), Savitribai Phule Pune University"
+   },
+   {
+    "roman": "V",
+    "title": "Introduction to Game Theory",
+    "hours": 6,
+    "text": "Game Playing: Overview and Examples. Domain: Overview, MiniMax, Alpha-Beta Cut-off, Refinements, Iterative deepening, The Blocks World, Components of A Planning System, Goal Stack Planning, Nonlinear Planning Using Constraint Posting, Hierarchical Planning, Reactive Systems."
+   },
+   {
+    "roman": "VI",
+    "title": "Recent and Future Trends in AI",
+    "hours": 6,
+    "text": "Deep Learning: Introduction, Why to go deep? Architecture of Deep Network, Restricted Boltzmann Machines, Deep belief Network, Tensor Flow, Deep Learning libraries, Deep Learning platform, The no, Caffe, Deep Learning Use Cases. Applications: Overview of Artificial Intelligence Domains, AI-Robotics, AI-Neural Networks, AI-IOT, Computer Vision in AI Case Studies: Automatic Bird Identification using Deep Learning, Tumkur monitoring using Computer Vision, Text to Speech Conversion using APIs Mapping of Course CO6 Outcomes for Unit VI"
+   }
+  ],
+  "textBooks": [
+   "Stuart Russel, Peter Norvig, “AI – A Modern Approach”, Third Edition, Pearson Education, 2009",
+   "Elaine Rich, Kevin Knight and Shivashankar B Nair”, Artificial Intelligence “, Tata McGraw Hill Edition 3rd Edition, 2009",
+   "James Allen, Natural Language Understanding. Benjamin/Cummings, 2ed, 1995"
+  ],
+  "refBooks": [
+   "Algorithmic Game theory Edited by N Nishan, T Roughgarden; Cambridge University Press",
+   "Allen B. Downey, \"Think Stats\", Second Edition, O’Reilly Media, ISBN: 978-1-491-90733-7",
+   "Game Theory - D Fudenberg& J Tirole; MIT Press",
+   "K. Boyer, L. Stark, H. Bunke, “Applications of AI, Machine Vision and Robotics, World Scientific PubCo, 1995 E- Books / E- Learning References"
+  ],
+  "links": []
+ },
+ {
+  "code": "314454B",
+  "name": "Cyber Security",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "if Any",
+  "outcomes": [
+   "Develop basic understanding of cyber security.",
+   "Differentiate among different types of cyber threats and cyber-crimes.",
+   "Illustrate cyber forensic techniques to identify the criminal activities.",
+   "Apply forensic analysis tools to recover important evidence for identifying computercrime",
+   "Distinguish and classify the forms of cybercriminal activity and the technological and social engineering' methods used to undertake such crimes",
+   "Evaluate the effectiveness of cyber-security, cyber-laws and other countermeasures against cybercrime"
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to Cyber Security",
+    "hours": 6,
+    "text": "Introduction: Introduction to Cyber Security, Need, Importance and challenges in Cyber Security, Cyberspace, Cyber threats, Cyber-warfare, CIA Triad, Cyber Terrorism, Cyber Security of Critical Infrastructure, Cyber security - Organizational Implications. TE (Information Technology) Syllabus (2019 Course) 78 Curriculum for Third Year of Information Technology (2019 Course), Savitribai Phule Pune University"
+   },
+   {
+    "roman": "II",
+    "title": "Cyber Crimes and Hacking",
+    "hours": 6,
+    "text": "Overview of Cyber-Attacks and Vulnerabilities, Types of Threats – Malware, spyware, Sniffing, Gaining Access, Escalating Privileges, Executing Applications, Hiding Files, Covering Tracks, Worms, Trojans, Viruses, Backdoors. Types of Cyber Crime - cyber stalking, forgery, software piracy, cyber terrorism, phishing, computer vandalism, computer hacking, creating and distributing viruses over internet, spamming, cross site scripting, online auction fraud, cyber-squatting, logic bombs, web jacking, internet time thefts, DoS attack, salami attack, data diddling, email spoofing. Types of Hacker Hacking and Cracking, Hacking: Ethical issues, Ethical Hacking."
+   },
+   {
+    "roman": "III",
+    "title": "Cyber Forensics",
+    "hours": 6,
+    "text": "Introduction to Cyber Forensics: What are cyber forensics, cyber forensics investigation process,digital evidence, challenges in cyber forensics; Web Attack Forensics: Intrusion forensics, database forensics, preventive forensics; Antiforensics practices, Anti-forensics detection techniques, Network forensics analysis tools; Malware Forensics: Malware types, Malware Analysis, Tools for analysis; Email Forensics: e-mail Protocols, e-mail crimes, email forensics; Bitcoin Forensics: crypto currency, crimes related to bitcoin; Case Study: A detailed case study on cyber forensics and its Investigation Reports."
+   },
+   {
+    "roman": "IV",
+    "title": "Digital Forensics",
+    "hours": 6,
+    "text": "Introduction to Digital Forensics, Cyber Forensics vs Digital Forensics, the role of digital forensics and its environment, Forensic Software and Hardware, properties of digital evidence, recovering and preserving digital evidence, Advanced forensic Tools, selecting and analyzing digital evidence, validating the evidence, Forensic Technology and Practices, Forensic Ballistics and Photography, Face, Iris and Fingerprint Recognition, Audio Video Analysis Case Study: A detailed case study on Digital Forensics"
+   },
+   {
+    "roman": "V",
+    "title": "Social Engineering",
+    "hours": 6,
+    "text": "Introduction of social engineering and cyber security, social engineering conceptual evolution, defining social engineering-categories, Phases, attack spiral model, Attack Vendors-social approach, sociotechnical approach. Advanced social engineering attack, Phishing Attack, Insider Attack, Identity Theft, Preventing Insider Threats, Social Engineering Targets and Defense Strategies. Case Study: Phishing and Identity Theft Online Scams TE (Information Technology) Syllabus (2019 Course) 79 Curriculum for Third Year of Information Technology (2019 Course), Savitribai Phule Pune University"
+   },
+   {
+    "roman": "VI",
+    "title": "Cyber Ethics and Laws",
+    "hours": 6,
+    "text": "Introduction to Cyber Laws, E-Commerce and E-Governance, Certifying Authority and Controller, Offences under IT Act, Computer Offences and its penalty under ISO 27001, IT Act 2000, Positive Aspects and weak areas of ITA 2000, Digital signatures and the Indian ITA act, ITA 2008, and International Standards maintained for Cyber Security, Security Audit, Investigation by Investing Agency, Intellectual Property Rights in Cyberspace."
+   }
+  ],
+  "textBooks": [
+   "Cyber Security: Understanding Cyber Crimes, Computer Forensics and Legal Perspectives, Nina Godbole and Sunil Belapure, Wiley INDIA. ISBN 978-81-265-2179-1",
+   "Practical Cyber Forensics an Incident-Based Approach to Forensic Investigations, Niranjan Reddy, Apress, ISBN-13: 978-1-4842-4459-3",
+   "Practical Digital forensics – Richard Boddingtion, PACKT Publishing ISBN 978-1-78588-710-9"
+  ],
+  "refBooks": [
+   "William Stallings, Computer Security: Principles and Practices, Pearson 6th Ed, ISBN: 978-0- 13- 335469-0",
+   "Bernard Menezes, Network Security and Cryptography, Cengage Learning, ISBN-978-81- 315-1349- 1",
+   "Dr. V.K. Pachghare, Cryptography and Information security, PHI, Second edition, ISBN- 978- 81- 203-5082-3 E- Books / E- Learning References:",
+   "Z. Wang, L. Sun and H. Zhu, \"Defining Social Engineering in Cyber security,\" in IEEE Access, vol.8, pp. 85094-85115, 2020, Doi: 10.1109/ACCESS.2020.2992807.",
+   "Eoghan Casey, “Digital Evidence and Computer Crime: Forensic Science, Computers, and the Internet”, ELSVIER, May 2011, ISBN 978-0-12-374268-1"
+  ],
+  "links": []
+ },
+ {
+  "code": "314454C",
+  "name": "Cloud Computing",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "prereq": "1. Basics of Computer Networks 2. Operating Systems",
+  "outcomes": [
+   "Articulate the main concepts, key technologies and fundamentals of cloud computing.",
+   "Understand cloud enabling technologies and virtualization.",
+   "Analyze various cloud programming models and apply them to solve problems on the cloud.",
+   "Explain data storage and major security issues in the cloud.",
+   "Understand trends in ubiquitous cloud and internet of things.",
+   "Explore future trends of cloud computing."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Fundamentals of Cloud Computing",
+    "hours": 6,
+    "text": "Origins and Influences, Basic Concepts and Terminology, Goals and Benefits, Risks and Challenges, Roles and Boundaries, Cloud Characteristics, Cloud Delivery Models, Cloud Deployment Models, Federated Cloud/Intercloud, Types of Clouds."
+   },
+   {
+    "roman": "II",
+    "title": "Cloud-Enabling Technology and Virtualization",
+    "hours": 6,
+    "text": "TE (Information Technology) Syllabus (2019 Course) 81 Curriculum for Third Year of Information Technology (2019 Course), Savitribai Phule Pune University Cloud-Enabling Technology: Broadband Networks and Internet Architecture, Data Center Technology Virtualization Technology, Web Technology, Multitenant Technology, Service Technology. Implementation Levels of Virtualization, Virtualization Structures/Tools and Mechanisms, Types of Hypervisors, Virtualization of CPU, Memory, and I/O Devices, Virtual Clusters and Resource Management, Virtualization for Data-Center Automation."
+   },
+   {
+    "roman": "III",
+    "title": "Common Standards and Cloud Platforms",
+    "hours": 6,
+    "text": "Common Standards: The Open Cloud Consortium, Open Virtualization Format, Standards for Application Developers: Browsers (Ajax), Data (XML, JSON), Solution Stacks (LAMP and LAPP), Syndication (Atom, Atom Publishing Protocol, and RSS), Standards for Security. Amazon web services: Compute services Storage Services Communication Services Additional services Google AppEngine: Architecture and core concepts, Application life cycle, Cost model Microsoft Azure: Azure core concepts, SQL Azure, Windows Azure platform appliance"
+   },
+   {
+    "roman": "IV",
+    "title": "Data Storage and Security in Cloud",
+    "hours": 6,
+    "text": "Cloud file systems: GFS and HDFS, BigTable, HBase and Dynamo Cloud data stores: Datastore and Simple DB Gautam Shrauf, Cloud Storage-Overview, Cloud Storage Providers. Securing the Cloud- General Security Advantages of Cloud-Based Solutions, Introducing Business Continuity and Disaster Recovery. Disaster Recovery- Understanding the Threats."
+   },
+   {
+    "roman": "V",
+    "title": "Ubiquitous Clouds and the Internet of Things",
+    "hours": 6,
+    "text": "Cloud Trends in Supporting Ubiquitous Computing, Performance of Distributed Systems and the Cloud, Enabling Technologies for the Internet of Things (RFID, Sensor Networks and ZigBee Technology, GPS), Innovative Applications of the Internet of Things (Smart Buildings and Smart Power Grid, Retailing and Supply-Chain Management, Cyber-Physical System), Online Social and Professional Networking."
+   },
+   {
+    "roman": "VI",
+    "title": "Future of Cloud Computing",
+    "hours": 6,
+    "text": "How the Cloud Will Change Operating Systems, Location-Aware Applications, Intelligent Fabrics, Paints, and More, The Future of Cloud TV, Future of Cloud-Based Smart Devices, Faster Time to Market for Software Applications, Home-Based Cloud Computing, Mobile Cloud, Autonomic Cloud Engine, Multimedia Cloud, Energy Aware Cloud Computing, Jungle Computing. Docker at a Glance: Process Simplification, Broad Support and Adoption, Architecture, Getting the Most from Docker, The Docker Workflow TE (Information Technology) Syllabus (2019 Course) 82 Curriculum for Third Year of Information Technology (2019 Course), Savitribai Phule Pune University"
+   }
+  ],
+  "textBooks": [
+   "Thomas Erl, ZaighamMahmood and Ricardo Puttini, Cloud Computing: Concepts, Technology & Architecture, Pearson, ISBN :978 9332535923, 9332535922, 1 st Edition",
+   "Anthony T. Velte Toby J. Velte, Robert Elsenpeter, “Cloud Computing: A Practical Approach”, 2010, The McGraw-Hill."
+  ],
+  "refBooks": [
+   "RajkumarBuyya, Christian Vecchiola, S. ThamaraiSelvi, Mastering Cloud Computing: Foundations and Applications Programming, McGraw Hill, ISBN: 978 1259029950, 1259029956.",
+   "GautamShrof, “ENTERPRISE CLOUD COMPUTING Technology Architecture, Applications, Cambridge University Press, ISBN: 9780511778476",
+   "Srinivasan, J. Suresh, Cloud Computing: A practical approach for learning and implementation, Pearson, ISBN :9788131776513.",
+   "Jack J. Dongarra, Kai Hwang, Geoffrey C. Fox, Distributed and Cloud Computing: From Parallel Processing to the Internet of Things, Elsevier, ISBN :9789381269237, 9381269238, 1st Edition.",
+   "Brian J.S. Chee and Curtis Franklin, Jr., Cloud Computing: Technologies and Strategies of the Ubiquitous Data Center, CRC Press, ISBN :9781439806128.",
+   "Kris Jamsa, Cloud Computing: Saas, Paas, Iaas, Virtualization, Business Models, Mobile, Security, and More, Jones and Bartlett, ISBN :9789380853772.",
+   "John W. Ritting house, James F. Ransome, Cloud Computing Implementation, Management, and Security, CRC Press, ISBN : 978 1439806807, 1439806802.",
+   "Karl Matthias, Sean P. Kane, Docker: Up and Running, OReilly, ISBN:9781491917572,1491917571.",
+   "Barrie Sosinsky, Cloud Computing Bible, Wiley, ISBN: 978 8126529803.",
+   "Ronald L. Krutz and Russell D. Vines, Cloud Security: A Comprehensive guide to Secure Cloud Computing, Wiley, ISBN: 9788126528097.",
+   "Scott Adkins, John Belamaric, Vincent Giersch, Denys Makogon, Jason E. Robinson, OpenStack:Cloud Application Development, Wrox, ISBN :9781119194316.",
+   "KailashJayaswal, JagannathKallakurchi, Donald J. Houde, Cloud Computing Black Book ,Wiley Dreamtech,ISBN:9789351194187"
+  ],
+  "links": []
+ }
+]
