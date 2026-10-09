@@ -18,7 +18,6 @@ export const SUBJECTS: Subject[] = [
     credits: 4,
     theoryCredits: 3,
     termWorkCredits: 1,
-    examDate: '2026-06-03T14:00:00',
     units: [
       { 
         id: 'm1-u1', unit_number: 1, hours: 8, title: 'Single Variable Calculus', 
@@ -49,7 +48,6 @@ export const SUBJECTS: Subject[] = [
     credits: 3,
     theoryCredits: 2,
     termWorkCredits: 1,
-    examDate: '2026-06-19T14:00:00',
     units: [
       { 
         id: 'fpl-u1', unit_number: 1, hours: 6, title: 'Intro to Program Planning & C Programming', 
@@ -80,7 +78,6 @@ export const SUBJECTS: Subject[] = [
     credits: 4,
     theoryCredits: 3,
     termWorkCredits: 1,
-    examDate: '2026-06-05T14:00:00',
     units: [
       { 
         id: 'phy-u1', unit_number: 1, hours: 8, title: 'Fundamentals of Photonics', 
@@ -111,7 +108,6 @@ export const SUBJECTS: Subject[] = [
     credits: 4,
     theoryCredits: 3,
     termWorkCredits: 1,
-    examDate: '2026-06-08T14:00:00',
     units: [
       { 
         id: 'chem-u1', unit_number: 1, hours: 8, title: 'Water Technology', 
@@ -142,7 +138,6 @@ export const SUBJECTS: Subject[] = [
     credits: 3,
     theoryCredits: 2,
     termWorkCredits: 1,
-    examDate: '2026-06-10T14:00:00',
     units: [
       { 
         id: 'elect-u1', unit_number: 1, hours: 6, title: 'Diodes and Applications', 
@@ -173,7 +168,6 @@ export const SUBJECTS: Subject[] = [
     credits: 3,
     theoryCredits: 2,
     termWorkCredits: 1,
-    examDate: '2026-06-12T14:00:00',
     units: [
       { 
         id: 'elec-u1', unit_number: 1, hours: 6, title: 'Elementary Concepts and DC Circuits', 
@@ -204,7 +198,6 @@ export const SUBJECTS: Subject[] = [
     credits: 3,
     theoryCredits: 2,
     termWorkCredits: 1,
-    examDate: '2026-06-17T14:00:00',
     units: [
       { 
         id: 'mech-u1', unit_number: 1, hours: 6, title: 'Force systems and its resultants', 
@@ -235,7 +228,6 @@ export const SUBJECTS: Subject[] = [
     credits: 3,
     theoryCredits: 2,
     termWorkCredits: 1,
-    examDate: '2026-06-15T14:00:00',
     units: [
       { 
         id: 'graph-u1', unit_number: 1, hours: 6, title: 'Fundamentals & Projection of Point/Line', 
@@ -266,7 +258,6 @@ export const SUBJECTS: Subject[] = [
     credits: 4,
     theoryCredits: 3,
     termWorkCredits: 1,
-    examDate: '2026-06-22T14:00:00',
     units: [
       {
         id: 'm2-u1', unit_number: 1, hours: 8, title: 'Integral Calculus',
@@ -297,7 +288,6 @@ export const SUBJECTS: Subject[] = [
     credits: 3,
     theoryCredits: 2,
     termWorkCredits: 1,
-    examDate: '2026-06-24T14:00:00',
     units: [
       {
         id: 'pps-u1', unit_number: 1, hours: 4, title: 'Problem Solving, Programming and Python Programming',
@@ -341,7 +331,6 @@ export const SYSTEM_RESOURCES: ResourceItem[] = [
 
 export const EXAM_DATES: ExamDate[] = [
   // Keeping general milestones if needed, but Dashboard now favors specific subject exams
-  { name: 'End-Sem Starts', date: '2026-06-03T14:00:00' }
 ];
 
 export const PYQ_YEARS = [
