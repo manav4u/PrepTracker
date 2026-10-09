@@ -1,0 +1,496 @@
+[
+ {
+  "code": "PCC-201-CVL",
+  "name": "Mechanics of Structures",
+  "hours": 3,
+  "cce": 30,
+  "ese": 70,
+  "credits": 3,
+  "prereq": "Engineering Mechanics",
+  "outcomes": [
+   "Understand stress-strain behavior, apply Hooke’s law, and analyze axial stresses, strains and deformations in structures.",
+   "Analyze shear force & bending moment under various loading conditions.",
+   "Analyze bending & shear stresses in beams.",
+   "Apply torsion theory to circular shafts & determine principal stresses in beams.",
+   "Analyze axially loaded columns and determine slope and deflection of beams."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Simple Stresses and Strains",
+    "hours": 8,
+    "text": "Simple Stresses & Strains: Concepts, Types, Stress-Strain Diagram (elastic, plastic, brittle materials), Concept of axial stresses (compression, tension), strains (linear, lateral, shear, volumetric), Elastic constants and their relations, Stresses and strains due to change in temperature, Stresses, strains, and deformations in determinate and indeterminate structures for homogeneous and composite sections under concentrated loads and temperature changes."
+   },
+   {
+    "roman": "II",
+    "title": "Shear Force and Bending Moment",
+    "hours": 8,
+    "text": "Concept of shear force and bending moment, Relationship between shear force, bending moment, and intensity of loading, Shear force and bending moment diagrams for determinate beams under different loadings (concentrated, uniformly distributed, uniformly varying loads, and couples), Point of Contra-flexure & inflexion."
+   },
+   {
+    "roman": "III",
+    "title": "Bending and Shear Stresses in Beams",
+    "hours": 8,
+    "text": "Bending Stresses in Beams: Theory of simple bending, assumptions, derivation of flexure formula, Bending stress distribution diagrams and Moment of Resistance of cross-sections Shear Stresses in Beams: Concept of shear, complementary shear, derivation of shear stress formula, Shear stress distribution for various cross-sections, maximum and average shear stress for circular and rectangular sections."
+   },
+   {
+    "roman": "IV",
+    "title": "Torsion, Principal Stresses and Strains",
+    "hours": 8,
+    "text": "Torsion of Circular Shafts: Theory of torsion, assumptions, derivation of torsion formula, Stresses, strains and deformations in determinate and indeterminate shafts of solid and hollow sections under twisting moments, Power transmitted by shafts. Principal Stresses and Strains: Concept of principal planes and principal stresses, Normal and shear stresses on an oblique plane, magnitude and orientation of principal stresses, maximum shear stress."
+   },
+   {
+    "roman": "V",
+    "title": "Axially Loaded Columns, Slope and Deflection of Beams",
+    "hours": 8,
+    "text": "Axially Loaded Columns: Concept of critical load and buckling, Euler’s formula for buckling load with hinged ends, Equivalent length for various end conditions, Rankine’s formula, safe load on column, limitations of Euler’s formula. Direct and bending stresses for eccentrically loaded short columns, Structural components under eccentric loading (retaining walls, dams, chimneys), Effect of lateral force and self-weight, resultant stress diagrams for axial loads, uni-axial and bi-axial bending, Concept of core of section for solid and hollow rectangular and circular sections.Slope and deflection of determinate beams by Macaulay’s method."
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   "Mechanics of Structures Vol. I &II by S. B. Junnarkar and Dr. H. J. Shah, Charotar Publishing House Pvt Ltd.",
+   "Strength of Materials by R. Subramanian, Oxford University Press.",
+   "Strength of Materials by S. S. Ratan, Tata McGraw Hill.",
+   "Strength of Materials by B. C. Punmia, Ashok Kumar Jain & Arun Kumar Jain, Laxmi Publications."
+  ],
+  "refBooks": [
+   "Elements of Strength of Materials by Timoshenko and Young, East-West Press Ltd.",
+   "Mechanics of Materials by Beer and Johnston, McGraw Hill Publication.",
+   "Introduction to Mechanics of Solids by E.P. Popov, Prantice Hall Publication.",
+   "Mechanics of Materials by Gere & Timoshenko, CBC Publisher.",
+   "Elementary Structural Analysis by Norris, Wilbur and Utku, Tata McGraw Hill Publisher.",
+   "Intermediate Structural Analysis by R. C. Hibbler, Pearson Education Publishers"
+  ]
+ },
+ {
+  "code": "PCC-202-CVL",
+  "name": "Surveying",
+  "hours": 3,
+  "cce": 30,
+  "ese": 70,
+  "credits": 3,
+  "prereq": "Basic Introduction to Civil Engineering",
+  "outcomes": [
+   "Understand the concept of linear & angular measurements.",
+   "Demonstrate the knowledge of leveling for determination of reduced levels of various points on the earth surface.",
+   "Demonstrate the use of theodolite for the measurement of horizontal and vertical angles.",
+   "Apply the knowledge of tacheometric method of surveying for the preparation of contour map of a given area by conducting tacheometric survey.",
+   "Apply various methods of curve setting for setting out the horizontal & vertical curves for highway or railway alignment."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Distance Measurements and Angle Measurement",
+    "hours": 8,
+    "text": "Introduction, definition, object of survey, primary division of surveying, classification of surveys, uses of surveys, principles of surveying, units of measurement (linear and angular measure), scale and R.F. Introduction to instruments required for measuring distance and marking of stations. Direct ranging. Survey stations, selection of stations, base line, check line, tie line and offsets. Booking field notes, field work: equipment, reconnaissance, and reference sketches. Introduction of modern instruments and techniques used in surveying such as drone surveying, laser scanners, space based position survey (SBPS) etc. Compass traversing: introduction, open traverse, closed traverse, the prismatic compass, methods of using prismatic compass, bearing of lines, meridians: true, magnetic, arbitrary and grid, designation of bearings: whole circle bearing (WCB) and quadrantal or reduced bearing (RB) system, concept of fore and back bearings, local attraction, dip of the needle, magnetic declination. Plane table surveying: introduction, list of accessories, orientation, setting up of plane table, methods of plane tabling: radiation, intersection, traversing and resection. Advantages and disadvantages of plane tabling. Introduction to DGPS equipment and its application."
+   },
+   {
+    "roman": "II",
+    "title": "Levelling",
+    "hours": 8,
+    "text": "Object and use of levelling, definitions of terms used in levelling, different types of levels: dumpy level, auto level, and digital level, laser level. Levelling staff. Temporary adjustment of level, types of levelling operations; simple levelling, differential levelling, fly levelling, longitudinal profile levelling, cross-sectional levelling, checks in levelling. Curvature and refraction correction. Reciprocal levelling. Methods of calculation of reduced level: the collimation system and rise and fall system. Permanent adjustment of level: two peg test only."
+   },
+   {
+    "roman": "III",
+    "title": "Theodolite Traversing",
+    "hours": 8,
+    "text": "Study of 20” vernier transit theodolite, definitions of terms, fundamental lines (axes) of theodolite, conditions of adjustments, temporary adjustments of theodolite, measurement of horizontal angle by repetition and reiteration method. Measurement of vertical angle. Concept of direct angles, deflection angles. Setting out an angle, prolonging a line. Computation of latitude and departure. Balancing of traverse: omitted measurements."
+   },
+   {
+    "roman": "IV",
+    "title": "Tacheometry Survey and Total Station Survey",
+    "hours": 8,
+    "text": "Tachometry: introduction, instruments used in tacheometry, principle of tachometry, theory of stadia tacheometry, determination of tacheometric constants. Methods of tacheometry: fixed hair method- when line of sight is horizontal or inclined and staff is held vertically. Numerical. Contouring: definition of contours, uses of contour maps, characteristics of contours, methods of contouring, and interpolation of contours. Tachometric contour survey. Total station survey: introduction, parts of a total station, methods of observation: radiation method, resection method, Remote Distance Measurement (RDM), Remote Elevation Measurement (REM) Advancement in Total Station: Robotic Total station (RTS), Prism less or Laser based Total Station, Smart Stations, Applications of Total Station. Introduction to Drone Survey and its applications."
+   },
+   {
+    "roman": "V",
+    "title": "Curves",
+    "hours": 8,
+    "text": "Introduction, different forms of curves. Definitions and explanation of different terms: degree of curve, relation between radius and degree of curve, super elevation, centrifugal ratio. Types of horizontal curves. Notations used with circular curves. Properties of a simple circular curve. Horizontal curve setting by- a) offsets from chord produced and b) Rankine’s method of deflection angles. Field procedure for setting out the curve (by deflection angle) by one and two theodolite methods. Compound curve- calculation of data and setting out in the field. Transition curves: objectives of providing transition curves, requirement of ideal transition curve. Notations used with combined curves. Vertical curves: definition, gradient, rate of change of grade, length of vertical curve, types of vertical curves."
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   "Surveying and Levelling, R. Subramanian, Oxford Publication.",
+   "Surveying Vol. I, Dr. B. C. Punmia, Ashok K. Jain, Arun K. Jain, Laxmi Publication.",
+   "Surveying, Vol. I, S. K. Duggal, Tata Mc-Graw Hill.",
+   "Surveying and Levelling, Vol. I and Vol. II, T. P. Kanetkar and S. V. Kulkarni, Pune Vidyarthi Griha Prakashan.",
+   "Plane Surveying & Higher Surveying, Dr. A. M. Chandra, New Age International Publishers New Delhi."
+  ],
+  "refBooks": [
+   "Plane surveying, A. M. Chandra, New Age International Publishers New Delhi.",
+   "Surveying and Levelling, N. N. Basak, Tata Mc-Graw Hill.",
+   "Surveying Vol. I, Dr. K. R. Arora, Standard Book House."
+  ]
+ },
+ {
+  "code": "PCC-203-CVL",
+  "name": "Building Construction and Materials",
+  "hours": 3,
+  "cce": 30,
+  "ese": 70,
+  "credits": 3,
+  "prereq": "Basic & Engineering Science Course",
+  "outcomes": [
+   "Understand Building Construction Technology – Demonstrate knowledge of fundamental building construction concepts, including structural and non-structural components.",
+   "Explain Conventional Building Materials techniques.",
+   "Summarize Modern Construction Techniques.",
+   "Apply Green Building Concepts – Integrate principles of green building planning and sustainable materials into construction projects.",
+   "Describe Building Bye-laws & Regulations – Interpret and apply building bye-laws, regulations, and drawing standards, particularly in line with UDCPR, Maharashtra State."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to Building Technology",
+    "hours": 8,
+    "text": "Definition and scope of building technology, fundamentals of building construction, classification of buildings as per NBC (National Building Code).Type of structures: load bearing & framed structures and their requirements, type of loads and their effects. Building components and their functions: a. foundation, types of foundations and their suitability, b. wall construction techniques: masonry, c. framed structures components: footing, column, beam, lintels, arches, slabs, precast panels, d. flooring and roofing: types and methods, e. openings: doors and windows with types and installation"
+   },
+   {
+    "roman": "II",
+    "title": "Conventional Building Materials and Techniques",
+    "hours": 8,
+    "text": "Conventional Building Materials- Properties, Types and Uses -Stone, Brick, Cement, Concrete, Concrete Blocks, Flooring Materials-Tiles, Roofing Materials, Mortars and Plasters, Admixtures, Pigments, Timber-types, Products and its Applications in construction, Steel and Aluminum as Structural Materials, Plumbing Materials, Sanitary Wares, Electrical Materials and Appliances, Finishing Materials-Paints, Varnishes, Coatings, Claddings. Conventional Building Techniques- Load-Bearing Construction, Brick Masonry Construction, Stone Masonry Construction, Timber Construction, Bamboo Construction, Mud and Clay Construction, Lime Plaster and Mortar Construction, Thatch and Bamboo Roofing. Types and Purpose of Formwork and Scaffolding, Construction Site Safety Practices."
+   },
+   {
+    "roman": "III",
+    "title": "Modern Construction Techniques",
+    "hours": 8,
+    "text": "Modern Construction Process and Stages-Reinforced Cement Concrete (RCC) Construction, Concrete Frame Construction, Prefabrication Construction e.g. Airports, Seaports, Steel Frame Construction, Modular Construction, 3D printing in buildings, Dry Construction Techniques for Sustainability, Automation in the Construction Sector, its Applications and Case Studies."
+   },
+   {
+    "roman": "IV",
+    "title": "Green Building planning and Sustainable Materials",
+    "hours": 8,
+    "text": "Concept of Green Buildings and Green Ratings (LEED, GRIHA, IGBC), Green Construction-Concept of Green Roof, Importance of Sustainability in Construction, Passive Solar Design and Bioclimatic Architecture, Thermal Insulation. Eco-friendly Materials: Bamboo, Recycled Aggregates, Fly Ash Bricks, AAC Blocks, Green Concrete and Geopolymer Concrete, Use of Industrial and Agricultural Waste Materials, Energy-Efficient Building Materials, Energy Efficiency-Policies of Solar PV in Smart Domains (RPO, REC, Carbon Credit)."
+   },
+   {
+    "roman": "V",
+    "title": "Building Bye-Laws and Drawings",
+    "hours": 8,
+    "text": "Necessity of Bye-Laws, UDCPR (Unified Development Control and Promotion Regulations for Maharashtra State)-Plot Sizes, Road Width, Open Spaces, Marginal Distances, Building Line, Control Line, Room Sizes, Area Calculations-Built-up Area, Carpet Area, Floor Space Index (F.S.I.), Transfer Development Rights (TDR), Norms for Ventilation, Lighting, Vertical Circulation, Sanitation, Parking Spaces of Vehicles, Land Use Planning (Utilization of Space, Zoning). Introduction of building drawing: Principles of Building Planning and Principles of Architectural Design-Function, Utility, Aesthetics, Selection of Scales for various Drawings, Dimensioning, Abbreviations and Symbols as per IS 962. Norms and Standards of Residential Building and Public Building, Planning Strategy includes Line Plan, Detailed Plan, Elevation, and Section (Teach Students to Draw Residential and Public Building Drawings)."
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   "Building Construction – B.C. Punmia, Ashok Kumar Jain.",
+   "Building Materials by S.V.Deodhar, Khanna Publication.",
+   "Building Drawing with an Integrated Approach to Build Environment Sixth Edition (English, Paperback, S Y Patki, M G Shah, C M Kale)."
+  ],
+  "refBooks": [
+   "Building Materials – S.K. Duggal.",
+   "Construction Materials & Their Applications – Rangwala.",
+   "Sustainable Building Materials – J. Khatib.",
+   "Handbook on Green Building Design & Construction – Charles Kibert.",
+   "National Building Code (Latest Edition).",
+   "UDCPR Updated To 30.1.2024.",
+   "Model Building Bye-Laws 2016."
+  ]
+ },
+ {
+  "code": "MDM-221-CVL",
+  "name": "Engineering Mathematics - III",
+  "hours": 3,
+  "cce": 30,
+  "ese": 70,
+  "credits": 3,
+  "prereq": "Differential & Integral calculus, Differential equations of first order & first degree, Fourier series, Collection, Classification and Representation of data and Vector algebra.",
+  "outcomes": [
+   "SOLVE higher order linear differential equations and its applications to model and analyze bending of beams and whirling of shafts.",
+   "APPLY Statistical methods like correlation, regression in analyzing and interpreting experimental data applicable to reliability engineering and probability theory in testing and quality control.",
+   "SOLVE Algebraic & Transcendental equations and System of linear equations using numerical techniques.",
+   "OBTAIN Interpolating polynomials, numerical differentiation and integration, numerical solutions of ordinary differential equations used in modern scientific computing applicable to Civil engineering.",
+   "PERFORM Vector differentiation & integration, ANALYZE the vector fields and APPLY to fluid flow problems."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Linear Differential Equations (LDE) and Applications",
+    "hours": 8,
+    "text": "LDE of nth order with constant coefficients, Complementary Function, Particular Integral, General method, Short cut methods, Method of Variation of parameters, Cauchy’s and Legendre’s DE, Simultaneous DE. Modelling of problems on bending of beams and whirling of shafts."
+   },
+   {
+    "roman": "II",
+    "title": "Statistics and Probability",
+    "hours": 8,
+    "text": "Statistics: Measures of central tendency, Measures of dispersion, Coefficient of variation, Moments, Skewness and Kurtosis, Correlation and Regression, Reliability of Regression estimates. Probability: Introduction, Probability density function, Probability distributions: Binomial, Poisson, Normal and Test of hypothesis: Chi-square test and t- test."
+   },
+   {
+    "roman": "III",
+    "title": "Numerical Methods for solving Algebraic and Transcendental",
+    "hours": 8,
+    "text": "Equations Numerical Solution of Algebraic and Transcendental equations: Bisection, Secant, Regula-Falsi, Newton–Raphson and Successive Approximation Methods, Convergence and Stability. Numerical Solutions of System of linear equations: Gauss elimination with partial pivoting, LU Decomposition, Jacobi and Gauss-Seidel Methods."
+   },
+   {
+    "roman": "IV",
+    "title": "Numerical Interpolation and Solution of ODE",
+    "hours": 8,
+    "text": "Interpolation: Finite Differences, Newton’s and Lagrange’s Interpolation formulae, Numerical Differentiation. Numerical Integration: Trapezoidal and Simpson’s rules, Bound of truncation error. Solution of Ordinary differential equations (ODE): Euler’s, Modified Euler’s, Runge-Kutta 4th order methods and Predictor-Corrector methods"
+   },
+   {
+    "roman": "V",
+    "title": "Vector Calculus",
+    "hours": 8,
+    "text": "Vector differentiation, Gradient, Divergence, Curl, Directional derivative, Solenoidal & Irrotational fields, Vector identities. Line, surface and volume integrals, Green’s theorem, Gauss’s Divergence theorem and Stokes’ theorem."
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   "Higher Engineering Mathematics – B. V. Ramana (Tata McGraw-Hill)",
+   "Higher Engineering Mathematics – B.S. Grewal (Khanna Publication, Delhi)"
+  ],
+  "refBooks": [
+   "Erwin Kreyszig, “Advanced Engineering Mathematics,” 10th Edition, by Wiley India, 2006.",
+   "Michael D. Greenberg, “Advanced Engineering Mathematics, 2nd Edition, Pearson Education, 1998.",
+   "Peter V. O'Neil, “Advanced Engineering Mathematics”, 8th Edition, Cengage Learning, 2023.",
+   "Shepley L. Ross, “Differential Equations”, 3rd Edition, Wiley India, 2018.",
+   "Sheldon M. Ross, “Introduction to Probability and Statistics for Engineers and Scientists”, 6th Edition, Elsevier Academic Press, 2021. e-Books",
+   "https://archive.org/details/higher-engineering-mathematics-bs-grewal",
+   "https://wp.kntu.ac.ir/dfard/ebook/em/Advanced%20Engineering%20Mathematics%2010 th%20Edition.pdf",
+   "https://minerva.it.manchester.ac.uk/~saralees/statbook3.pdf",
+   "https://plcsitemiz.files.wordpress.com/2009/04/the-laplace-transform-theory-andapplications.pdf"
+  ]
+ },
+ {
+  "code": "PCC-251-CVL",
+  "name": "Fluid Mechanics",
+  "hours": 3,
+  "cce": 30,
+  "ese": 70,
+  "credits": 3,
+  "prereq": "Engineering Mathematics and Engineering Mechanics",
+  "outcomes": [
+   "Understand fluid properties and concepts of fluid statics and solve problems based on practical applications.",
+   "Understand fundamentals of fluid kinematics and apply it to solve fluid flow problems.",
+   "Solve fluid flow problems using Bernoulli’s equation.",
+   "Calculate major and minor losses in the pipe network.",
+   "Apply the knowledge of uniform flow and depth-energy to solve problems on open channel flow."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Properties of Fluids and Fluid Statics",
+    "hours": 8,
+    "text": "Properties of fluids: basic definitions - fluid, fluid mechanics, ideal fluids, real fluids, mass density, specific weight, specific volume, specific gravity; viscosity- dynamic and kinematic, classification of fluids based on newton’s law of viscosity (rheological diagram), surface tension, capillarity, vapour pressure, compressibility and elasticity. Fluid statics: pressure and its measurement, fluid pressure at a point, pascal’s law, hydrostatic law; concept of atmospheric, absolute, gauge and negative pressure; pressure measuring devices. Total pressure, intensity of pressure, center of pressure. Pressure on horizontal, vertical, inclined and curved surfaces."
+   },
+   {
+    "roman": "II",
+    "title": "Fluid Kinematics",
+    "hours": 8,
+    "text": "Eulerian and Lagrangian approach, velocity and acceleration, and their components in Cartesian co-ordinates, Classification of flows, streamline, stream tube, path line, streak line, control volume. Equation of continuity for 3-D flow in Cartesian coordinates, components of rotation, velocity potential, stream function, flow net and it’s use."
+   },
+   {
+    "roman": "III",
+    "title": "Fluid Dynamics",
+    "hours": 8,
+    "text": "Forces acting on fluid mass in motion, Euler’s equation of motion along a streamline and its integration to get Bernoulli’s equation and its limitations, Modified Bernoulli’s equation, concept of HGL and TEL, Application of Bernoulli’s equation: Venturimeter, Orifice meter, Rota-meter and Pitot tube."
+   },
+   {
+    "roman": "IV",
+    "title": "Flow Through Pipes",
+    "hours": 8,
+    "text": "Characteristics of laminar flow, laminar flow through a circular pipe: Hagen Poiseuille equation, Hazen-Williams formula. Characteristics of turbulent flow, Darcy-Weisbach Equation, Moody’s diagram, Major and minor losses of energy in pipes, flow through pipes in simple and compound pipe,pipes in series, parallel,Dupit’s equation, Introduction to pipe network and design: Hardy cross method."
+   },
+   {
+    "roman": "V",
+    "title": "Open Channel Flow",
+    "hours": 8,
+    "text": "Introduction to Open channel flow: Classification of channels, channel flows and geometric elements of channel, Velocity distribution in open channel flow and hydraulic jump. Uniform flow in open channels: Uniform flow formulae: Chezy’s and Manning's formulae; Factors affecting Manning's roughness coefficient. Most efficient channel sections: rectangular, trapezoidal. Depth-Energy Relationships in Open Channel Flow: Specific energy and Specific force diagram, Depth discharge Diagram, Critical depth, Conditions for occurrence of critical flow; Froude's number, flow classification based on it, Introduction to channel transition."
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   "A Text Book on Fluid Mechanics and Hydraulic Machines by Dr. R. K. Bansal Pub: Laxmi Publications (P),Ltd. New Delhi",
+   "A Text Book of Fluid Mechanics and Hydraulic Machines- by Dr. R K Rajput Pub: S Chand and Co Ltd. New Delhi",
+   "A Text Book on Fluid Mechanics and Hydraulic Machines by Sukumar Pati Pub: McGraw Hill, New Delhi"
+  ],
+  "refBooks": [
+   "Hydraulics and Fluid Mechanics including Hydraulic Machine by Dr P. N. Modi & S. M. Seth Pub: Standard book house, Delhi",
+   "Flow in Open Channels by K Subramanya, Tata McGraw Hill, New Delhi",
+   "Engineering Fluid Mechanics by R. J. Garde and A. J. Mirajgaonkar, SCITECH Publications( India )Pvt. Ltd, Chennai",
+   "Fluid Mechanics and its Applications, Vijay Gupta, Santosh K Gupta, New Age international pvt. Ltd, New Delhi,",
+   "Fluid Mechanics, Fundamentals and applications by Yunus. A Cengel and John. M Cimbala, Mc Graw Hill International, New Delhi.",
+   "Fluid Mechanics by Streeter, Wylie and Bedford , McGraw Hill International, New Delhi.",
+   "Open Channel Hydraulics by Ven Tee Chow,McGraw- Hill Book Company- Koga."
+  ]
+ },
+ {
+  "code": "PCC-252-CVL",
+  "name": "Structural Analysis",
+  "hours": 3,
+  "cce": 30,
+  "ese": 70,
+  "credits": 3,
+  "prereq": "Fundamentals Mathematics , Engineering Mechanics and Mechanics of Structures",
+  "outcomes": [
+   "Classify different types of structures and determine static and kinematic indeterminacy of beams, frames, and trusses.",
+   "Analyze statically indeterminate beams, frames, and trusses using the consistent deformation method and unit load method for various loading and support conditions.",
+   "Apply approximate methods such as Cantilever and Portal methods to analyze multi-storey, two-bay rigid frames.",
+   "Apply slope-deflection and moment distribution methods to analyze indeterminate beams and rigid jointed frames, including both sway and non-sway conditions.",
+   "Apply the stiffness method (structure approach) to analyze beams and rigid frames using matrix formulation for systems with up to three degrees of indeterminacy."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Fundamentals of Structure and Analysis of Redundant Beams",
+    "hours": 8,
+    "text": "Types and classification of structures based on structural forms, concept of indeterminacy: static and kinematic indeterminacy. Analysis of propped cantilever, fixed beam and continuous beams within determinacy up to second degree by consistent deformation method."
+   },
+   {
+    "roman": "II",
+    "title": "Analysis of Redundant Frames",
+    "hours": 8,
+    "text": "Analysis of redundant trusses by unit load method for external loading ,lack of fit, sinking of support and temperature changes (indeterminacy up to second degree). Approximate methods of analysis of upto two-storied two-bay, 2-D rigid jointed frames by Cantilever and Portal method."
+   },
+   {
+    "roman": "III",
+    "title": "Slope-Deflection Method",
+    "hours": 8,
+    "text": "Slope-deflection equations, equilibrium equation of slope-deflection method, application of slope deflection method to beams with and without joint translation and rotation, yielding of support, application to non-sway rigid jointed rectangular portal frames, shear force and bending moment diagram. Sway analysis of rigid jointed portal frames (Involving not more than three unknowns)."
+   },
+   {
+    "roman": "IV",
+    "title": "Moment Distribution Method",
+    "hours": 8,
+    "text": "Stiffness factor, carry over factor, distribution factor, application of moment distribution method to beams with and without joint translation and yielding of support. Application to non- sway rigid jointed rectangular portal frames, shear force and bending moment diagram. Sway analysis of rigid jointed portal frames (Involving not more than three unknowns)."
+   },
+   {
+    "roman": "V",
+    "title": "Stiffness Method",
+    "hours": 8,
+    "text": "Fundamental concepts of matrix methods: flexibility and stiffness. Stiffness method of analysis: Structure approach & Member approach. Application to beams by structure approach (Involving not more than three unknowns). Application to rigid jointed portal frames by structure approach (Involving not more than three unknowns)."
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   "Theory of Structures by S.Ramamrutham and R.Narayan, Dhanpat Rai Publishing Company (P) Ltd.",
+   "Structural Analysis-I & II by S. S. Bhavikatti, Vikas Publishing House Pvt. Ltd.",
+   "Mechanics of Structures Vol. II (Theory and AnalysisofStructures) by Dr. H. J. Shahand S.B.Junnarkar Charotar Publishing House Pvt .Ltd.",
+   "Structural Analysis: A Matrix Approach by G.S.Pandit and S.P.Gupta, Tata McGraw Hill Education Pvt. Limited."
+  ],
+  "refBooks": [
+   "Intermediate Structural Analysis by C.K.Wang,Tata McGraw Hill Education Pvt.Ltd.",
+   "Basic Structural Analysis by C.S.Reddy,Tata McGraw Hill EducationPvt.Ltd.",
+   "Structural Analysis by R.C.Hibbler ,Pearson Education.",
+   "Structural Analysis by Aslam Kassimali, Cengage Learning India Private Limited",
+   "Matrix Analysis of Framed Structures by William Weaver Jr. and James M.Gere, Springer"
+  ]
+ },
+ {
+  "code": "PCC-253-CVL",
+  "name": "Concrete Technology",
+  "hours": 3,
+  "cce": 30,
+  "ese": 70,
+  "credits": 3,
+  "prereq": "Engineering Chemistry",
+  "outcomes": [
+   "Describe the composition, properties, and functions of various ingredients of concrete.",
+   "Understand standard tests on fresh and hardened concrete and interpret results related to workability, strength, and durability.",
+   "Design concrete mixes using IS 10262 for various applications, including performance based requirements.",
+   "Analyze durability concerns in concrete and recommend suitable preventive or mitigation measures.",
+   "Compare and evaluate advanced concrete, sustainable materials, and smart technologies for modern construction."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Fundamentals of Concrete Technology",
+    "hours": 6,
+    "text": "Introduction to concrete and its importance. Cement: Raw materials, manufacturing, composition, types, hydration, and properties. Aggregates: Types, properties, quality control, and recycled aggregates. Water: Quality requirements and its role. Admixtures: Types, functions, and modern admixtures. Fibers: Types, and functions."
+   },
+   {
+    "roman": "II",
+    "title": "Properties of Fresh and Hardened Concrete",
+    "hours": 6,
+    "text": "Workability and factors affecting workability. Tests on fresh concrete: Slump, compaction factor, Vee-Bee, flow table test. Setting time and bleeding of concrete. Strength development: Compressive, tensile, flexural strength. Factors affecting strength and durability. Microstructure of hardened concrete. Permeability of concrete. Non-destructive testing of concrete: Rebound hammer, ultrasonic pulse velocity, penetration resistance, pull-out test."
+   },
+   {
+    "roman": "III",
+    "title": "Concrete Mix Design",
+    "hours": 6,
+    "text": "Principles of mix design. Design mix, nominal mix, methods of concrete mix design. Batching, mixing, transportation, placement, compaction, curing. IS 10262 method of concrete mix design. Case studies of concrete failure due to improper mix design. Introduction and mix design of High Strength Concrete, Ultra High Performance concrete (UHPC)"
+   },
+   {
+    "roman": "IV",
+    "title": "Durability and Sustainability of Concrete",
+    "hours": 6,
+    "text": "Importance of durability. Causes and mechanisms of deterioration: Sulphate attack, chloride ingress, alkali-silica reaction. Corrosion of reinforcement: Mechanism and prevention. Permeability, porosity, and water absorption. Sustainable concrete: Use of recycled aggregates, industrial by-products, and green cements. Introduction to life cycle analysis of concrete"
+   },
+   {
+    "roman": "V",
+    "title": "Advanced and Special Concretes",
+    "hours": 6,
+    "text": "High performance concrete, self-compacting concrete, fiber reinforced concrete. Lightweight concrete, pervious concrete, high density concrete. 3D printed concrete and digital fabrication techniques. Smart concrete: Self-healing concrete, sensor embedded concrete. Nano technology in concrete. Green concrete. Composite concrete."
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   "Concrete Technology, Adam M. Neville, J. J. Brooks, Pearson Education",
+   "Concrete Technology, M. Gambhir, Tata McGraw-Hill Publishing Company"
+  ],
+  "refBooks": [
+   "Properties of Concrete, A. M. Neville, Pearson Education.",
+   "Concrete: Microstructure, Properties, and Materials, P. Kumar Mehta and Paulo J.M. Monteiro, McGraw Hill Education."
+  ]
+ },
+ {
+  "code": "MDM-271-CVL",
+  "name": "Engineering Geology",
+  "hours": 2,
+  "cce": 30,
+  "ese": 70,
+  "credits": 2,
+  "prereq": "Geography and Basic Civil Engg.",
+  "outcomes": [
+   "Explain about the basic concepts of engineering geology, important rocks, and minerals both in lab and on the fields and their inherent characteristics and their uses in engineering constructions as well as other industry.",
+   "Exploring the importance of Surveying with reference to modern technologies and also to understand the fundamentals of surface water and Groundwater regime for sustainable of life.",
+   "Recognize effect of plate tectonics, structural geology and their significance and utility in engineering activities. Incorporate the various methods of survey, to evaluate and interpret geological nature of the rocks present at the foundations of the dams, percolation tanks, tunnels and to infer site / alignment/ level free from geological defects.",
+   "Assess the Importance of geological nature of the site, precautions and treatments to improve the site conditions for dams, reservoir, tunnels and highways.",
+   "Explain geological hazards and importance."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Rock Science",
+    "hours": 6,
+    "text": "a Introduction to Applied Engineering Geology in Engineering Industry. b Mineral Definition, types of minerals, Industrial minerals etc. Computer Industry: copper, aluminium, quartz etc. Medicine Industry: magnesium, calcium, zinc, iron, copper, sodium, potassium etc. Electronics Industry: tungsten, copper, aluminium, arsenic, barite and lead etc. c Petrology: Rocks Definition, Types, Importance of Rocks, Application in Civil Industry and other industries too. Economic zones in India. Civil Industry: limestone, granite, marble, basalt, slate, quartzite etc. Medicine Industry: schist, quartz, rhodonite, kaolinite, bentonite, barium, &pumice etc. Computer Industry: Quartz and other rocks containing silicon are used in computers to make semi-conductors, which are the core of computer chips. Electronics Industry:Sulphides, Quartz, Clays etc."
+   },
+   {
+    "roman": "II",
+    "title": "Remote Sensing and GIS, Hydrogeology",
+    "hours": 6,
+    "text": "a Remote Sensing (RS): Concepts, Remote Sensing platforms, types of Sensors, Fundamentals of EMR, Resolutions, tools of Visual Interpretation, Applications. b Geographical Information System (GIS):Introduction, Definition, Components, GIS data types, Application of GIS in Engineering, Highlights the modern and future trends of GIS, case study of Smart Cities planning using GIS. c Hydrogeology: Fundamentals of hydro-Geology, Groundwater, Water table, depth zones, Hydrogeological properties of rock, Aquifers and its types, Artificial recharge of groundwater, Methods of conservation of groundwater, Watershed development and management Indian Knowledge System for Hydrology; Ancient and modern techniques for groundwater prospecting, case study highlighting success of watershed management."
+   },
+   {
+    "roman": "III",
+    "title": "Structural Geology and Preliminary Geological Exploration",
+    "hours": 6,
+    "text": "a Structural Geology:Plate tectonics and Mountain building activity. Outcrop, dip and strike, unconformity and overlap. Study of major geological structures: faults, folds, joints and their types. Recognition and significance of the above structures in civil engineering. b Preliminary Geological Exploration:Preliminary Geological Exploration: reconnaissance survey, surface, and subsurface geological investigations: Direct methods like test & trial pits, pilot trenches, and drilling. Drilling activities: planning, inspection/observations, precautions, limitations, and logging of the core data. Indirect methods like Resistivity, seismic survey and its significance and limitations."
+   },
+   {
+    "roman": "IV",
+    "title": "Preliminary Geological Investigation of Dam Tunnel and",
+    "hours": 6,
+    "text": "Highways a Dams Types of dams and their foundation requirement PGI For dam site ● Selection of dam sites: Geological and geotechnical factors ● Types of dams and their foundation requirement (Rock and soil permeability, seepage control and grout curtain techniques) ● Reservoir-induced seismicity and stability of slopes around reservoirs b Tunnel Tunnelling and Underground Excavations ● Geological and geotechnical investigations for tunnels ● Rock mass classification systems (RMR, Q-system) ● Methods of tunnelling: Drill & blast, TBM, and NATM ● Geological hazards in tunnelling: Water ingress, rock bursting, and squeezing ground ● Case studies of tunnel failures and lessons learned c Highways Engineering Geology for Highways ● Geotechnical considerations in highway alignment and design ● Slope stability and landslide mitigation for roadways ● Geological mapping and remote sensing applications in highway construction ● Use of geo-synthetics in road engineering"
+   },
+   {
+    "roman": "V",
+    "title": "Geohazards",
+    "hours": 6,
+    "text": "a Definition, and types. b Causes, Effects, Precautions and case studies. (Floods, Earthquakes, Landslides)"
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   "Text Book of Engineering Geology by R.B. Gupte, 2001, P.V.G. Publications, Pune.",
+   "A Text Book of Engineering Geology by N. ChennaKesavulu. 2010, Mc Millan India Ltd.",
+   "Engineering Geology, Parbin Singh."
+  ],
+  "refBooks": [
+   "Principles of Engineering Geology by S.K.Garg.1999, Khanna Publ, New Delhi.",
+   "Principles of Engineering Geology by D. Venkat Reddy. 2010, Vikas Publishers.",
+   "Structural Geology, M. P. Billings, Pearson India Pvt. Ltd. e-Books",
+   "MITopencourseware (https://ocw.mit.edu/courses/12-001-introduction-to-geology-fall-2013/pages/lecture-n otes-and-slides/",
+   "https://ocw.mit.edu/courses/earth-atmospheric-and-planetary-sciences/12-103-science- and-policy-of-natural-hazards-spring-2010/lecture-notes/"
+  ]
+ }
+]

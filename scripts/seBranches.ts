@@ -4,6 +4,7 @@ import cse from './seData/cse.json';
 import aids from './seData/aids.json';
 import elec from './seData/elec.json';
 import it from './seData/it.json';
+import civil from './seData/civil.json';
 
 // One entry per Second Year branch. Course data is checked against each branch's official SPPU 2024 pattern PDF.
 export const SE_BRANCHES: SeBranch[] = [
@@ -36,5 +37,11 @@ export const SE_BRANCHES: SeBranch[] = [
     pdf: 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE%20IT%202024%20Pattern%20Syllabus_15072025.pdf',
     pdfLabel: 'SPPU SE Information Technology 2024 pattern syllabus',
     courses: it as SeBranch['courses'],
+  },
+  {
+    slug: 'se-civil-engineering', branch: 'Civil Engineering', short: 'SE Civil', motif: 'civil', accent: '#e11d48',
+    pdf: 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE-Civil2024_pattern-_final_version_22072025.pdf',
+    pdfLabel: 'SPPU SE Civil Engineering 2024 pattern syllabus',
+    courses: civil as SeBranch['courses'],
   },
 ];
