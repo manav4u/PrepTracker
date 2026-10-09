@@ -11,6 +11,7 @@ import cyber from './seData/cyber.json';
 import terai from './seData/terai.json';
 import temech from './seData/temech.json';
 import tecomp19 from './seData/tecomp19.json';
+import teit19 from './seData/teit19.json';
 import mech from './seData/mech.json';
 
 // One entry per Second Year branch. Course data is checked against each branch's official SPPU 2024 pattern PDF.
@@ -92,5 +93,11 @@ export const SE_BRANCHES: SeBranch[] = [
     pdf: 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2021/Third%20Year%20Engineering%202019%20Pattern_16022022.rar',
     pdfLabel: 'SPPU TE Computer Engineering 2019 course syllabus (TE_Computer_2019_Course_22.06.2021, inside the official Third Year Engineering 2019 Pattern archive)',
     courses: tecomp19 as SeBranch['courses'],
+  },
+  {
+    slug: 'te-information-technology', branch: 'Information Technology', short: 'TE IT', motif: 'it', accent: '#e11d48', year: 'TE', pattern: '2019', ccLabel: 'Mid-Sem',
+    pdf: 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2021/Third%20Year%20Engineering%202019%20Pattern_16022022.rar',
+    pdfLabel: 'SPPU TE Information Technology 2019 course syllabus (Third_Year_Information Technology_2019_Course_09.07.2021, inside the official Third Year Engineering 2019 Pattern archive)',
+    courses: teit19 as SeBranch['courses'],
   },
 ];
