@@ -8,6 +8,7 @@ import civil from './seData/civil.json';
 import instr from './seData/instr.json';
 import auto from './seData/auto.json';
 import cyber from './seData/cyber.json';
+import terai from './seData/terai.json';
 import mech from './seData/mech.json';
 
 // One entry per Second Year branch. Course data is checked against each branch's official SPPU 2024 pattern PDF.
@@ -71,5 +72,11 @@ export const SE_BRANCHES: SeBranch[] = [
     pdf: 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/SE%20-%20Cyber%20Security%20-%202024%20Pattern.pdf',
     pdfLabel: 'SPPU SE Cyber Security 2024 pattern syllabus (effective 2026-27)',
     courses: cyber as SeBranch['courses'],
+  },
+  {
+    slug: 'te-robotics-and-ai', branch: 'Robotics and Artificial Intelligence', short: 'TE Robotics and AI', motif: 'rai', accent: '#e11d48', year: 'TE',
+    pdf: 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/TE_Robotics%20and%20AI_Syllabus_2024%20Pattern%20(1)_13062026.pdf',
+    pdfLabel: 'SPPU TE Robotics and Artificial Intelligence 2024 pattern syllabus (June 2026)',
+    courses: terai as SeBranch['courses'],
   },
 ];

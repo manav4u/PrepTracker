@@ -121,3 +121,14 @@
 - [Discrete Mathematics syllabus (PCC-203-CYB)](https://preptracker.manavdev.site/syllabus/se-cyber-security/discrete-mathematics/)
 - [Internet of Things syllabus (MDM-271-CYB)](https://preptracker.manavdev.site/syllabus/se-cyber-security/internet-of-things/)
 - [Probability and Statistics syllabus (PCC-253-CYB)](https://preptracker.manavdev.site/syllabus/se-cyber-security/probability-and-statistics/)
+
+## Third Year (TE) Robotics and Artificial Intelligence, 2024 pattern
+- [TE Robotics and AI subjects](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/): theory courses with units, marks, outcomes and books from the official SPPU PDF
+- [Advances in Robotics and Artificial Intelligence syllabus (PCC-304-RAI)](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/advances-in-robotics-and-artificial-intelligence/)
+- [Deep Learning and Neural Networks syllabus (PCC-351-RAI)](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/deep-learning-and-neural-networks/)
+- [Design of Robot Elements syllabus (PCC-305-RAI)](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/design-of-robot-elements/)
+- [Dynamics and Control of Robotic Systems syllabus (PCC-301-RAI)](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/dynamics-and-control-of-robotic-systems/)
+- [Machine Learning for Robotics syllabus (PCC-302-RAI)](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/machine-learning-for-robotics/)
+- [Robot Modeling and Simulation syllabus (PCC-303-RAI)](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/robot-modeling-and-simulation/)
+- [Robot Operating System syllabus (PCC-353-RAI)](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/robot-operating-system/)
+- [Robotic Process Automation syllabus (PCC-352-RAI)](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/robotic-process-automation/)
