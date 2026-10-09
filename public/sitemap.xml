@@ -84,4 +84,59 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <url>
+    <loc>https://preptracker.manavdev.site/syllabus/se-computer-engineering/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://preptracker.manavdev.site/syllabus/se-computer-engineering/data-structures/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://preptracker.manavdev.site/syllabus/se-computer-engineering/object-oriented-programming-and-computer-graphics/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://preptracker.manavdev.site/syllabus/se-computer-engineering/operating-systems/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://preptracker.manavdev.site/syllabus/se-computer-engineering/digital-electronics-and-logic-design/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://preptracker.manavdev.site/syllabus/se-computer-engineering/database-management-systems/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://preptracker.manavdev.site/syllabus/se-computer-engineering/discrete-mathematics/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://preptracker.manavdev.site/syllabus/se-computer-engineering/computer-organization-and-microprocessor/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://preptracker.manavdev.site/syllabus/se-computer-engineering/internet-of-things/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

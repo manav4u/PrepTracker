@@ -1,0 +1,120 @@
+import React from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
+import { css, SITE } from './syllabusPage';
+
+export interface SeUnit { roman: string; title: string; hours: number; text: string }
+export interface SeCourse {
+  code: string; name: string; hours: number; credits: number; cce: number; ese: number;
+  prereq: string; outcomes: string[]; units: SeUnit[]; textBooks: string[]; refBooks: string[]; links: string[];
+}
+export interface SeBranch {
+  slug: string; branch: string; short: string; pdf: string; pdfLabel: string; motif: string; accent: string; courses: SeCourse[];
+}
+export const slugify = (n: string) => n.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+export const coursePath = (b: SeBranch, c: SeCourse) => '/syllabus/' + b.slug + '/' + slugify(c.name) + '/';
+
+const D = '#6b2a3b';
+const MOTIFS: Record<string, (r: string) => React.ReactNode> = {
+  computer: R => <>
+    {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19].map(i => <text key={i} x={6 + i * 14} y="20" fill={i % 7 === 3 ? R : D} fontSize="15" fontFamily="monospace">{(i * 5 + 3) % 3 === 0 ? '1' : '0'}</text>)}
+    <path d="M300 38 H340 M340 38 L370 14 M340 38 L370 38 M340 38 L370 44" stroke={D} strokeWidth="1.5" fill="none" />
+    <circle cx="340" cy="38" r="4" fill={R} /><circle cx="370" cy="14" r="3.5" fill="none" stroke={R} strokeWidth="1.5" /><circle cx="370" cy="38" r="3.5" fill="none" stroke={D} strokeWidth="1.5" /><circle cx="370" cy="44" r="3.5" fill="none" stroke={D} strokeWidth="1.5" />
+    <path d="M380 24 H600" stroke="#3a1620" strokeWidth="1.5" strokeDasharray="2 7" /></>,
+};
+const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
+const sectionCss = `.crs{display:grid;gap:10px;margin:14px 0}.crs a{display:flex;justify-content:space-between;gap:12px;align-items:baseline;text-decoration:none;border:1px solid #222;background:#101010;border-radius:14px;padding:14px 16px;color:#fff}.crs a:hover{border-color:#e11d48}.crs small{color:#888;font:500 11px/1.3 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}.utext{margin:10px 0 0;color:#ccc;font-size:15px}.src li{margin:6px 0;word-break:break-word}`;
+
+function Head({ title, desc, path }: { title: string; desc: string; path: string }) {
+  return <>
+    <meta charSet="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title><meta name="description" content={desc} />
+    <link rel="canonical" href={SITE + path} /><meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#0a0a0a" /><link rel="icon" type="image/svg+xml" href={SITE + '/favicon.svg'} />
+    <meta property="og:type" content="article" /><meta property="og:site_name" content="PrepTracker" />
+    <meta property="og:title" content={title} /><meta property="og:description" content={desc} /><meta property="og:url" content={SITE + path} />
+    <meta property="og:image" content={SITE + '/assets/ProjectPrepTracker.png'} /><meta name="twitter:card" content="summary_large_image" />
+    <style dangerouslySetInnerHTML={{ __html: css + sectionCss }} />
+  </>;
+}
+const Motif = ({ b }: { b: SeBranch }) => <svg className="motif" viewBox="0 0 600 48" preserveAspectRatio="xMinYMid meet" aria-hidden="true">{MOTIFS[b.motif](b.accent)}</svg>;
+const Foot = ({ b }: { b: SeBranch }) => <footer>
+  <p>Source: <a href={b.pdf} rel="noopener">{b.pdfLabel} (official SPPU PDF)</a>. PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.</p>
+  <p><a href={SITE + '/'}>PrepTracker home</a> · <a href={SITE + '/syllabus/' + b.slug + '/'}>{b.short} subjects</a> · <a href={SITE + '/syllabus/grading-system-sgpa/'}>Grading and SGPA</a></p>
+</footer>;
+
+export function renderSeCourse(b: SeBranch, c: SeCourse): string {
+  const path = coursePath(b, c);
+  const total = c.units.reduce((a, u) => a + u.hours, 0);
+  const title = `${c.name} syllabus (${b.short}, SPPU 2024 pattern) - units, marks, books`;
+  const desc = `${c.name} (${c.code}) for SPPU ${b.branch} 2024 pattern: ${c.units.length} units, ${total} hours, ${c.credits} credits, CCE ${c.cce} and end-semester ${c.ese} marks, outcomes and books.`;
+  const faq: [string, string][] = [
+    [`How many units are in ${c.name}?`, `${c.name} (${c.code}) has ${c.units.length} units and ${total} hours of theory: ${c.units.map(u => `Unit ${u.roman} ${u.title} (${u.hours} h)`).join('; ')}.`],
+    [`What is the marks scheme for ${c.name}?`, `The official ${b.branch} 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for ${c.cce} marks and the end-semester exam for ${c.ese} marks, for ${c.credits} credits.`],
+    [`What should I know before ${c.name}?`, `Prerequisite listed in the syllabus: ${c.prereq}.`],
+  ];
+  const page = (
+    <html lang="en"><head>
+      <Head title={title} desc={desc} path={path} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@graph': [
+        { '@type': 'BreadcrumbList', itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'PrepTracker', item: SITE + '/' },
+          { '@type': 'ListItem', position: 2, name: b.short + ' syllabus', item: SITE + '/syllabus/' + b.slug + '/' },
+          { '@type': 'ListItem', position: 3, name: c.name, item: SITE + path }] },
+        { '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }] }) }} />
+    </head><body><main>
+      <nav className="crumbs"><a href={SITE + '/'}>PrepTracker</a> / <a href={SITE + '/syllabus/' + b.slug + '/'}>{b.short}</a> / {c.name}</nav>
+      <h1>{c.name} syllabus</h1>
+      <p className="lead">{c.code} · Second Year {b.branch}, SPPU 2024 pattern. Every unit, the marks scheme, course outcomes and books, copied from the official syllabus PDF.</p>
+      <div className="chips"><span className="chip">{c.code}</span><span className="chip">{c.hours} h/week theory</span><span className="chip">CCE {c.cce} + End-sem {c.ese}</span></div>
+      <div className="stats">
+        <div className="stat"><b>{total}</b><span>hours of theory</span></div>
+        <div className="stat"><b>{String(c.units.length).padStart(2, '0')}<i>.</i></b><span>units</span></div>
+        <div className="stat"><b>{String(c.credits).padStart(2, '0')}<i>.</i></b><span>credits</span></div>
+      </div>
+      <Motif b={b} />
+      <h2>Unit-wise syllabus</h2>
+      <nav className="upills" aria-label="Jump to a unit">{c.units.map((u, i) => <a key={u.roman} href={'#unit-' + (i + 1)}><b>UNIT {ROMAN[i]}</b><small>{u.hours} h</small></a>)}</nav>
+      <div className="units">{c.units.map((u, i) => (
+        <section className="card unit" id={'unit-' + (i + 1)} key={u.roman}>
+          <div className="uh"><span className="chip up">UNIT {ROMAN[i]}</span><h3>{u.title}</h3><span className="hrs">{u.hours} hours</span></div>
+          {u.text.split(/(?=Case [Ss]tud(?:y|ies))/).map((t, k) => <p className="utext" key={k}>{t.trim()}</p>)}
+        </section>))}</div>
+      <h2>Marks and credits</h2>
+      <table><thead><tr><th>Head</th><th>Marks</th><th>Credit</th></tr></thead><tbody>
+        <tr><td>CCE (continuous comprehensive evaluation)</td><td>{c.cce}</td><td rowSpan={2}>{c.credits}</td></tr>
+        <tr><td>End-semester exam</td><td>{c.ese}</td></tr></tbody></table>
+      <p>Prerequisite: {c.prereq}.</p>
+      <h2>Course outcomes</h2>
+      <ol className="co">{c.outcomes.map((o, i) => <li key={i}><b>CO{i + 1}</b>{o}</li>)}</ol>
+      <h2>Books</h2>
+      <h3>Text books</h3><ul>{c.textBooks.map(t => <li key={t}>{t}</li>)}</ul>
+      {c.refBooks.length > 0 && <><h3 style={{ marginTop: 16 }}>Reference books</h3><ul>{c.refBooks.map(t => <li key={t}>{t}</li>)}</ul></>}
+      {c.links.length > 0 && <><h2>NPTEL and SWAYAM links</h2><p>Listed in the official syllabus:</p><ul className="src">{c.links.map(l => <li key={l}><a href={l} rel="noopener">{l.replace('https://', '')}</a></li>)}</ul></>}
+      <h2>FAQ</h2>
+      {faq.map(([q, a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}
+      <Foot b={b} />
+    </main></body></html>);
+  return '<!doctype html>' + renderToStaticMarkup(page);
+}
+
+export function renderSeBranch(b: SeBranch): string {
+  const path = '/syllabus/' + b.slug + '/';
+  const title = `SPPU SE ${b.short} syllabus 2024 pattern - subject-wise units and marks`;
+  const desc = `Subject-wise syllabus for SPPU Second Year ${b.branch}, 2024 pattern: ${b.courses.length} theory courses with units, hours, marks, outcomes and books, from the official PDF.`;
+  const page = (
+    <html lang="en"><head><Head title={title} desc={desc} path={path} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@graph': [
+        { '@type': 'BreadcrumbList', itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'PrepTracker', item: SITE + '/' },
+          { '@type': 'ListItem', position: 2, name: b.short + ' syllabus', item: SITE + path }] }] }) }} />
+    </head><body><main>
+      <nav className="crumbs"><a href={SITE + '/'}>PrepTracker</a> / Syllabus / {b.short}</nav>
+      <h1>SE {b.branch} syllabus</h1>
+      <p className="lead">Second Year, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes and books. Practical, lab and project courses are not listed here, only theory courses.</p>
+      <Motif b={b} />
+      <h2>Theory courses</h2>
+      <div className="crs">{b.courses.map(c => <a key={c.code} href={SITE + coursePath(b, c)}><span>{c.name}</span><small>{c.code} · {c.credits} cr</small></a>)}</div>
+      <Foot b={b} />
+    </main></body></html>);
+  return '<!doctype html>' + renderToStaticMarkup(page);
+}
