@@ -11,7 +11,7 @@ import cyber from './seData/cyber.json';
 import terai from './seData/terai.json';
 import temech from './seData/temech.json';
 import tecomp24 from './seData/tecomp24.json';
-import teit19 from './seData/teit19.json';
+import teit24 from './seData/teit24.json';
 import teel19 from './seData/teel19.json';
 import mech from './seData/mech.json';
 
@@ -96,10 +96,10 @@ export const SE_BRANCHES: SeBranch[] = [
     courses: tecomp24 as SeBranch['courses'],
   },
   {
-    slug: 'te-information-technology', branch: 'Information Technology', short: 'TE IT', motif: 'it', accent: '#e11d48', year: 'TE', pattern: '2019', ccLabel: 'Mid-Sem',
-    pdf: 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2021/Third%20Year%20Engineering%202019%20Pattern_16022022.rar',
-    pdfLabel: 'SPPU TE Information Technology 2019 course syllabus (Third_Year_Information Technology_2019_Course_09.07.2021, inside the official Third Year Engineering 2019 Pattern archive)',
-    courses: teit19 as SeBranch['courses'],
+    slug: 'te-information-technology', branch: 'Information Technology', short: 'TE IT', motif: 'it', accent: '#e11d48', year: 'TE',
+    pdf: 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/TE%20IT%202024%20Pattern%20Final_09102026.pdf',
+    pdfLabel: 'SPPU TE Information Technology 2024 pattern syllabus (October 9, 2026, effective 2026-27)',
+    courses: teit24 as SeBranch['courses'],
   },
   {
     slug: 'te-electrical', branch: 'Electrical Engineering', short: 'TE Electrical', motif: 'elec', accent: '#e11d48', year: 'TE', pattern: '2019', ccLabel: 'ISE',
