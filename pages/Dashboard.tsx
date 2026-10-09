@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { SUBJECTS } from '../constants';
+import { CATALOG as SUBJECTS } from '../lib/catalog';
 import SubjectCard from '../components/SubjectCard';
 import { UnitStatus } from '../types';
 import { ChevronRight, Sparkles, CalendarDays, TrendingUp, Activity } from 'lucide-react';

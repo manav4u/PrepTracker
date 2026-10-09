@@ -21,7 +21,8 @@ import {
   ArrowUpRight,
   HardDrive
 } from 'lucide-react';
-import { SUBJECTS, SYSTEM_RESOURCES, getYouTubeID } from '../constants';
+import { SYSTEM_RESOURCES, getYouTubeID } from '../constants';
+import { CATALOG as SUBJECTS } from '../lib/catalog';
 import { UnitStatus, ResourceItem } from '../types';
 import { useData } from '../context/DataContext';
 import ResourceViewerModal from '../components/ResourceViewerModal';
@@ -57,7 +58,7 @@ const SubjectDetail: React.FC = () => {
           if (!subject) return;
 
           const relevantSystem = SYSTEM_RESOURCES.filter(r =>
-              subject.code.startsWith(r.subject) || r.subject === 'GLOBAL'
+              subject.code.startsWith(r.subject) || (r.subject === 'GLOBAL' && subject.year === 'FE')
           );
 
           let relevantCustom: ResourceItem[] = [];
@@ -66,7 +67,7 @@ const SubjectDetail: React.FC = () => {
               if (savedCustomRaw) {
                   const allCustom: ResourceItem[] = JSON.parse(savedCustomRaw);
                   relevantCustom = allCustom.filter(r =>
-                      subject.code.startsWith(r.subject) || r.subject === 'GLOBAL'
+                      subject.code.startsWith(r.subject) || (r.subject === 'GLOBAL' && subject.year === 'FE')
                   );
               }
           } catch(e) {}
@@ -167,7 +168,7 @@ const SubjectDetail: React.FC = () => {
             </h1>
           </div>
           <div className="flex gap-4 w-full lg:w-auto shrink-0">
-            <a href="http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/FE%202024%20Pattern%20Syllabus%20-%2016%20July%202024%20(1).pdf" target="_blank" rel="noopener noreferrer" className="flex-1 lg:flex-none px-6 py-4 rounded-xl border border-white/10 text-xs font-bold text-white hover:bg-white hover:text-black transition-all">Official syllabus PDF</a>
+            <a href={subject.source} target="_blank" rel="noopener noreferrer" className="flex-1 lg:flex-none px-6 py-4 rounded-xl border border-white/10 text-xs font-bold text-white hover:bg-white hover:text-black transition-all">Official syllabus PDF</a>
             <span className="flex-1 lg:flex-none px-6 py-4 text-xs text-slate-400">Quick Test: planned</span>
           </div>
         </div>
@@ -237,7 +238,7 @@ const SubjectDetail: React.FC = () => {
                            {unit.topics.map((t, idx) => (
                              <li key={idx} className="text-sm text-slate-300 flex items-start gap-3">
                                <span className="w-1 h-1 rounded-full bg-[#E11D48] mt-2 shrink-0"></span>
-                               <span className="leading-relaxed font-medium">{t}</span>
+                               <span className="leading-relaxed font-medium break-words">{t}</span>
                              </li>
                            ))}
                          </ul>

@@ -1,7 +1,7 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import { User, RotateCcw, Trash2, Terminal, AlertTriangle, Upload, Download, HardDrive, Check, AlertOctagon, Loader2, ScanLine, Save } from 'lucide-react';
-import { SUBJECTS } from '../constants';
+import { CATALOG as SUBJECTS } from '../lib/catalog';
 import { useData } from '../context/DataContext';
 import { createBackup, parseBackup, readState, restoreBackup, rollbackRestore, KEYS as KEYS_FOR_RESET, ROLLBACK_KEY, MAX_BYTES } from '../lib/backup.mjs';
 
@@ -358,13 +358,14 @@ const SettingsPage: React.FC = () => {
                     </button>
                 </div>
 
+                <a href="/#/directory" className="inline-block mb-5 py-3 text-rose-400">Add courses from syllabus directory</a>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     {selectedSubjectsList.map(sub => (
                         <div key={sub.id} className="p-4 rounded-xl border border-white/5 bg-white/[0.02] flex items-center gap-3">
                             <div className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_5px_#22c55e]"></div>
                             <div>
                                 <p className="text-xs font-bold text-white leading-tight">{sub.name}</p>
-                                <p className="text-[9px] font-mono text-slate-500 mt-1">{sub.code}</p>
+                                <p className="text-[9px] font-mono text-slate-500 mt-1">{sub.code}</p><button aria-label={`Remove ${sub.name} from plan`} onClick={() => setProfile({...profile,selectedSubjects:profile.selectedSubjects.filter(id => id !== sub.id)})} className="text-xs text-rose-300 py-3">Remove from plan (keep progress)</button>
                             </div>
                         </div>
                     ))}

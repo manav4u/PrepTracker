@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { SUBJECTS } from '../constants';
+import { CATALOG } from '../lib/catalog';
 import { RotateCcw, Activity, Cpu, AlertCircle } from 'lucide-react';
 import { useData } from '../context/DataContext';
 import { summarizeMarks, gradeFor } from '../lib/marks.mjs';
@@ -35,6 +36,7 @@ const CalculatorPage: React.FC = () => {
   if (!profile) return null;
   const selectedIds = profile.selectedSubjects || [];
 
+  const unsupported = CATALOG.filter(s => selectedIds.includes(s.id) && s.year !== 'FE');
   const filteredSubjects = SUBJECTS.filter(s => selectedIds.includes(s.id));
 
   const updateMarks = (sId: string, field: 'inSem' | 'endSem' | 'termWork', val: string) => {
@@ -50,6 +52,7 @@ const CalculatorPage: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto space-y-12 animate-in fade-in duration-700">
       
+<p className="text-sm text-slate-300">FE marks planner only. {unsupported.length > 0 && `${unsupported.length} SE/TE courses are excluded: complete assessment schemes are not yet mapped.`}</p>
       {/* Header */}
       <header className="border-b border-white/5 pb-8 flex justify-between items-end">
         <div>

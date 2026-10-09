@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Hexagon, Zap, Cpu, CheckCircle2, ScanFace, ShieldCheck, HardDrive } from 'lucide-react';
 import { Profile } from '../types';
+import { Link } from 'react-router-dom';
 import { useData } from '../context/DataContext';
 
 interface OnboardingProps {}
@@ -52,7 +53,7 @@ const BinaryChoice = ({ titleA, codeA, titleB, codeB, selected, onSelect, label 
 const Onboarding: React.FC<OnboardingProps> = () => {
   const { setProfile } = useData();
   // Stages: 'boot' -> 'identity' -> 'matrix' -> 'processing'
-  const [stage, setStage] = useState<'boot' | 'identity' | 'matrix' | 'processing'>('boot');
+  const [stage, setStage] = useState<'boot' | 'identity' | 'matrix' | 'processing'>('identity');
   const [bootProgress, setBootProgress] = useState(0);
   const [name, setName] = useState('');
   
@@ -158,6 +159,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden selection:bg-white selection:text-black">
+      <div className="relative z-50 p-6 text-center"><Link to="/directory" className="inline-block px-5 py-3 border border-rose-500/40 rounded-xl text-rose-300">SE or TE? Choose year, branch and semester from the syllabus directory</Link></div>
       
       {/* Dynamic Grid Background */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none"></div>
