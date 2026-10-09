@@ -21,6 +21,13 @@ const MOTIFS: Record<string, (r: string) => React.ReactNode> = {
     <circle cx="340" cy="38" r="4" fill={R} /><circle cx="370" cy="14" r="3.5" fill="none" stroke={R} strokeWidth="1.5" /><circle cx="370" cy="38" r="3.5" fill="none" stroke={D} strokeWidth="1.5" /><circle cx="370" cy="44" r="3.5" fill="none" stroke={D} strokeWidth="1.5" />
     <path d="M380 24 H600" stroke="#3a1620" strokeWidth="1.5" strokeDasharray="2 7" /></>,
 };
+MOTIFS.cse = R => <>
+    <text x="4" y="36" fill={D} fontSize="34" fontFamily="monospace">{'{'}</text>
+    <path d="M44 24 H90 M90 24 L120 10 M90 24 L120 38 M120 10 L150 4 M120 10 L150 18 M120 38 L150 32 M120 38 L150 44" stroke={D} strokeWidth="1.5" fill="none" />
+    <circle cx="44" cy="24" r="4" fill={R} /><circle cx="90" cy="24" r="3.5" fill="none" stroke={R} strokeWidth="1.5" /><circle cx="120" cy="10" r="3.5" fill="none" stroke={D} strokeWidth="1.5" /><circle cx="120" cy="38" r="3.5" fill="none" stroke={D} strokeWidth="1.5" />
+    {[150, 150, 150, 150].map((x, i) => <circle key={i} cx={x} cy={[4, 18, 32, 44][i]} r="3" fill={i === 1 ? R : D} />)}
+    <text x="176" y="36" fill={D} fontSize="34" fontFamily="monospace">{'}'}</text>
+    <path d="M210 24 H600" stroke="#3a1620" strokeWidth="1.5" strokeDasharray="2 7" /></>;
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
 const sectionCss = `.crs{display:grid;gap:10px;margin:14px 0}.crs a{display:flex;justify-content:space-between;gap:12px;align-items:baseline;text-decoration:none;border:1px solid #222;background:#101010;border-radius:14px;padding:14px 16px;color:#fff}.crs a:hover{border-color:#e11d48}.crs small{color:#888;font:500 11px/1.3 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}.utext{margin:10px 0 0;color:#ccc;font-size:15px}.src li{margin:6px 0;word-break:break-word}`;
 
