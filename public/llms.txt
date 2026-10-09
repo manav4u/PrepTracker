@@ -8,6 +8,10 @@
 - [Resources](https://preptracker.manavdev.site/#/resources): saved study links
 - [Tasks](https://preptracker.manavdev.site/#/tasks): to-do list
 
+## Syllabus pages
+
+- [Engineering Mathematics-I syllabus (BSC-101-BES)](https://preptracker.manavdev.site/syllabus/engineering-mathematics-1/): units, hours, marks scheme, outcomes, books for SPPU FE 2024 pattern
+
 ## Source
 
 - [GitHub repository](https://github.com/manav4u/PrepTracker): code and README
