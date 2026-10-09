@@ -5,6 +5,7 @@ import chem from './chem';
 import elect from './elect';
 import elec from './elec';
 import mech from './mech';
+import fpl from './fpl';
 
 // One config per subject. Each is checked against the official SPPU FE 2024 syllabus book.
-export const SUBJECT_PAGES: SubjectPageConfig[] = [m1, phy, chem, elect, elec, mech];
+export const SUBJECT_PAGES: SubjectPageConfig[] = [m1, phy, chem, elect, elec, mech, fpl];
