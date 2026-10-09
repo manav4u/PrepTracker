@@ -5,6 +5,7 @@ import aids from './seData/aids.json';
 import elec from './seData/elec.json';
 import it from './seData/it.json';
 import civil from './seData/civil.json';
+import instr from './seData/instr.json';
 
 // One entry per Second Year branch. Course data is checked against each branch's official SPPU 2024 pattern PDF.
 export const SE_BRANCHES: SeBranch[] = [
@@ -43,5 +44,11 @@ export const SE_BRANCHES: SeBranch[] = [
     pdf: 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE-Civil2024_pattern-_final_version_22072025.pdf',
     pdfLabel: 'SPPU SE Civil Engineering 2024 pattern syllabus',
     courses: civil as SeBranch['courses'],
+  },
+  {
+    slug: 'se-instrumentation-and-control-engineering', branch: 'Instrumentation and Control Engineering', short: 'SE Instrumentation', motif: 'instr', accent: '#e11d48',
+    pdf: 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE_Instrumentation%20and%20Control_2024%20Course_Updated_3rd%20July%202025_10072025.pdf',
+    pdfLabel: 'SPPU SE Instrumentation and Control Engineering 2024 pattern syllabus',
+    courses: instr as SeBranch['courses'],
   },
 ];

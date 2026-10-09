@@ -50,6 +50,12 @@ MOTIFS.civil = R => <>
     <path d="M50 30 V17 M80 30 V13 M110 30 V17" stroke={D} strokeWidth="1" />
     <circle cx="80" cy="13" r="3.5" fill={R} />
     <path d="M170 40 H600" stroke="#3a1620" strokeWidth="1.5" strokeDasharray="2 7" /></>;
+MOTIFS.instr = R => <>
+    <path d="M10 40 A30 30 0 0 1 70 40" stroke={D} strokeWidth="1.5" fill="none" />
+    {[0, 1, 2, 3, 4].map(i => { const a = Math.PI * (1 - i / 4); return <path key={i} d={`M${40 + 26 * Math.cos(a)} ${40 - 26 * Math.sin(a)} L${40 + 31 * Math.cos(a)} ${40 - 31 * Math.sin(a)}`} stroke={D} strokeWidth="1.5" />; })}
+    <path d="M40 40 L58 22" stroke={R} strokeWidth="2" /><circle cx="40" cy="40" r="3.5" fill={R} />
+    <path d="M96 24 H120 L126 10 L134 38 L142 14 L148 24 H190" stroke={D} strokeWidth="1.5" fill="none" />
+    <path d="M210 24 H600" stroke="#3a1620" strokeWidth="1.5" strokeDasharray="2 7" /></>;
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
 const sectionCss = `.crs{display:grid;gap:10px;margin:14px 0}.crs a{display:flex;justify-content:space-between;gap:12px;align-items:baseline;text-decoration:none;border:1px solid #222;background:#101010;border-radius:14px;padding:14px 16px;color:#fff}.crs a:hover{border-color:#e11d48}.crs small{color:#888;font:500 11px/1.3 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}.utext{margin:10px 0 0;color:#ccc;font-size:15px}.src li{margin:6px 0;word-break:break-word}`;
 

@@ -80,3 +80,14 @@
 - [Mechanics of Structures syllabus (PCC-201-CVL)](https://preptracker.manavdev.site/syllabus/se-civil-engineering/mechanics-of-structures/)
 - [Structural Analysis syllabus (PCC-252-CVL)](https://preptracker.manavdev.site/syllabus/se-civil-engineering/structural-analysis/)
 - [Surveying syllabus (PCC-202-CVL)](https://preptracker.manavdev.site/syllabus/se-civil-engineering/surveying/)
+
+## Second Year (SE) Instrumentation and Control Engineering, 2024 pattern
+- [SE Instrumentation and Control Engineering subjects](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/): theory courses with units, marks, outcomes and books from the official SPPU PDF
+- [Control System Components syllabus (PCC-252-INC)](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/control-system-components/)
+- [Data Science syllabus (MDM-271-INC)](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/data-science/)
+- [Data Structures syllabus (MDM-221-INC)](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/data-structures/)
+- [Digital Electronics syllabus (PCC-253-INC)](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/digital-electronics/)
+- [Feedback Control Systems syllabus (PCC-251-INC)](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/feedback-control-systems/)
+- [Linear Integrated Circuits syllabus (PCC-203-INC)](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/linear-integrated-circuits/)
+- [Sensors and Transducers syllabus (PCC-201-INC)](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/sensors-and-transducers/)
+- [Signals and Systems syllabus (PCC-202-INC)](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/signals-and-systems/)
