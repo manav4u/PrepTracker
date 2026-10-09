@@ -37,3 +37,14 @@
 - [Discrete Mathematics syllabus (PCC-252-CSE)](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/discrete-mathematics/)
 - [Computer Organization and Microprocessor syllabus (PCC-253-CSE)](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/computer-organization-and-microprocessor/)
 - [Internet of Things syllabus (MDM-271-CSE)](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/internet-of-things/)
+
+## Second Year (SE) Artificial Intelligence and Data Science, 2024 pattern
+- [SE AI&DS subjects](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/): theory courses with units, marks, outcomes and books from the official SPPU PDF
+- [Data Structures syllabus (PCC-201-AID)](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/data-structures/)
+- [Artificial Intelligence syllabus (PCC-202-AID)](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/artificial-intelligence/)
+- [Operating System syllabus (PCC-203-AID)](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/operating-system/)
+- [Digital Electronics and Logic Design syllabus (MDM-221-AID)](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/digital-electronics-and-logic-design/)
+- [Database Management Systems syllabus (PCC-251-AID)](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/database-management-systems/)
+- [Data Science syllabus (PCC-252-AID)](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/data-science/)
+- [Probability and Statistics syllabus (PCC-253-AID)](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/probability-and-statistics/)
+- [Embedded Systems syllabus (MDM-271-AID)](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/embedded-systems/)
