@@ -22,6 +22,11 @@ try {
     fs.mkdirSync(sub, { recursive: true });
     fs.writeFileSync(path.join(sub, 'index.html'), mod.renderSubjectPage(c));
   }
+  for (const c of mod.INFO_PAGES) {
+    const sub = path.resolve('dist/syllabus/' + c.slug + '/');
+    fs.mkdirSync(sub, { recursive: true });
+    fs.writeFileSync(path.join(sub, 'index.html'), mod.renderInfoPage(c));
+  }
   console.log(`prerendered landing page (${html.length} bytes)`);
 } finally {
   fs.rmSync(outDir, { recursive: true, force: true });
