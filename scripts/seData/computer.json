@@ -1,0 +1,538 @@
+[
+ {
+  "code": "PCC-201-COM",
+  "name": "Data Structures",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "theory": [
+   3,
+   3
+  ],
+  "prereq": "Programming and Problem Solving, Fundamentals of Programming Languages",
+  "outcomes": [
+   "Understand and Analyze various types of data structures and algorithms",
+   "Apply various sorting and searching algorithms for given problem",
+   "Make Use of Stacks and Queues to solve the given problem",
+   "Analyze different hashing techniques and collision resolution strategies.",
+   "Demonstrate basic operations on trees and graphs"
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to Data Structures and Algorithms",
+    "hours": 9,
+    "text": "Introduction: Introduction to Data Structures: Abstract Data Types (ADT), Linear and Non-linear, Static and Dynamic, Persistent and Ephemeral data structures Algorithms: Space complexity, Time complexity, Asymptotic notation- Big-O, Theta and Omega, finding complexity using step count method, Analysis of programming constructs-Linear, Quadratic, Cubic, Logarithmic. Algorithmic Strategies: Introduction to algorithm design strategies- Divide and Conquer, and Greedy strategy Case Study:E-commerce Product Sorting using Divide and Conquer strategy Google Calendar application using Greedy strategy"
+   },
+   {
+    "roman": "II",
+    "title": "Linear Data Structures, searching and sorting",
+    "hours": 9,
+    "text": "Overview of Array, Array as an Abstract Data Type, Operations on Array, Storage Representation, Multidimensional Arrays[2D, nD], Sparse matrix representation using 2D Searching: Sequential Search/Linear Search, Binary Search, Fibonacci Search, and Indexed Sequential Search. Sorting: Concepts- Stability, Efficiency, and Number of Passes, Internal and External Sorting, Bubble sort, Insertion Sort, Selection Sort , Quick Sort, Merge sort Case Study : Social Network Adjacency Matrix Representing friendship connections among millions of users."
+   },
+   {
+    "roman": "III",
+    "title": "Stacks, Queues and Linked Lists",
+    "hours": 9,
+    "text": "Stacks: Stack operations, Multiple Stacks, Applications of Stack for Expression Conversion [infix, prefix and postfix], Postfix expression evaluation Queues: Queue Operations, Circular Queue, Priority Queue and its advantages and applications Linked list: Introduction of Linked Lists, Primitive Operations on Linked List- Create, Traverse, Search, Insert, Delete, Sort, and Concatenate. Types of Linked List: Singly linked, linear and Circular Linked Lists, Doubly Linked List, Case study: Implementation of Stack and Queue operations using Linked lists"
+   },
+   {
+    "roman": "IV",
+    "title": "Hashing",
+    "hours": 9,
+    "text": "Hash Table : Concepts-hash table, hash function, basic operations, bucket, collision, probe, synonym, overflow, open hashing, closed hashing, perfect hash function, load density, full table, load factor, rehashing, properties of good hash function, Collision resolution strategies- open addressing and chaining, Hash table overflow- open addressing and chaining, extendible hashing, closed addressing and separate chaining Case study : Dictionary Application using Hash Tables, Description: Implement a dictionary where words and meanings are stored and retrieved using hashing with collision resolution"
+   },
+   {
+    "roman": "V",
+    "title": "Graphs and Trees",
+    "hours": 9,
+    "text": "Graphs: Basic Concepts, Storage representation, Adjacency matrix, adjacency list, Traversals-depth first and breadth first, Minimum spanning Tree, Greedy algorithms for computing minimum spanning tree- Prims and Kruskal Algorithms Trees: General tree and its representation: sequential and linked organization, Binary tree- prop- erties, converting tree to binary tree, binary tree traversals (recursive and non-recursive) - inorder, preorder, post order, Operations on binary tree. Binary Search Tree (BST) and its operation Case study: GPS/Navigation system that models a city map as a weighted graph and applies core graph algorithms ZIP/GZIP file compression using frequency-based encoding. using Huffman tree"
+   }
+  ],
+  "textBooks": [
+   "Data structures and algorithms in python by Michael T. Goodrich, ISBN-13: 978-1118290279, ISBN-10: 1118290275, Publisher: Wiley; 1st edition (March 18, 2013).",
+   "Problem Solving with Algorithms and Data Structures Using Python by Bradley N Miller and David L. Ranum. ISBN-13: 978-1590282571, ISBN-10: 1590282574, Publisher: Franklin, Beedle & Associates; 2nd edition (August 22, 2011)."
+  ],
+  "refBooks": [
+   "Hands-On Data Structures and Algorithms with Python: Write complex and powerful code using the latest features of Python 3.7, 2nd Edition by Dr. Basant Agarwal, Benjamin Baka. ISBN: 9781788991933, 2018.",
+   "Core Python Programming -R. Nageswara Rao, ISBN-10: 9789351199427, ISBN-13: 978-9351199427, Willy; 1st edition (January 1, 2016)."
+  ],
+  "links": [
+   "https://nptel.ac.in/courses/106102064",
+   "https://onlinecourses.swayam2.ac.in/cec19_cs04/preview"
+  ]
+ },
+ {
+  "code": "PCC-202-COM",
+  "name": "Object Oriented programming and Computer Graphics",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "theory": [
+   3,
+   3
+  ],
+  "prereq": "Programming and Problem Solving concepts",
+  "outcomes": [
+   "Apply fundamental programming constructs, object oriented constructs in Java for Implementing an application.",
+   "Apply fundamental object oriented constructs like class, objects, array of objects in Java for Implementing an application..",
+   "Apply object-oriented features like Inheritance, Polymorphism, Dynamic binding, Exception handling, multi-threading in Java for implementing an application",
+   "Understand basic concepts in computer graphics and implement them by applying object oriented features",
+   "Understand mathematical foundation in 2D, 3D Transformation, Projections and implement them by applying object oriented features"
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to OOP Concepts and Control Structure",
+    "hours": 9,
+    "text": "Programming paradigms - Introduction to programming paradigms, Introduction to four main Programming paradigms- procedural, object oriented, functional, and logic & rule based. Need of objectoriented programming, Fundamentals of object-oriented programming: Namespaces, objects, classes, data members, methods, messages, data encapsulation, data abstraction and information hiding, inheritance, polymorphism. Benefits of OOP, Java as object oriented programming language. Overview of Java Language: simple Java program structure: documentation section, package statement, import statements, class definition, main method class. Implementing Java Program, JVM, Data types, Primitive Types vs. Reference type, floating point numbers, operators and expressions, Java Class Libraries, Typical Java Development Environment, and Memory Concepts. Control Statements: Selection Statements: if, if-else, nested if-else, Iteration Statements: do, while, for, for-each statement, break, and continue statements Case Study: Analyze the object -oriented features in Java with other object oriented programming languages."
+   },
+   {
+    "roman": "II",
+    "title": "Introduction to Classes and Objects and Arrays",
+    "hours": 9,
+    "text": "Introduction to Classes and Objects: Defining a Class, Field declaration, method declaration and definition, instantiating an object of a Class, Accessing class members, declaring methods with multiple parameters, argument passing, object as a parameter, returning objects, assigning object reference variables, set methods and get methods, constructors, this keyword, Constructors, static methods, scope of declaration, method overloading and Java API packages. Arrays: declaring and creating arrays in Java, examples using arrays, passing arrays to methods, multidimensional arrays, variable-length argument lists, using command-line arguments. Managing I/O: Streams Byte Streams and Character Streams, Predefined Streams, Reading console Input, Writing Console Output, Print Writer class. Case Studies: Demonstrate an interactive Banking/Library management system using class, objects, array of objects"
+   },
+   {
+    "roman": "III",
+    "title": "Inheritance and Polymorphism Exception Handling and Multithreading",
+    "hours": 9,
+    "text": "Inheritance: Super classes and Subclasses, protected members, relationship between super classes and subclasses, types of Inheritance, constructors in subclasses, object class. Polymorphism: Abstract classes and methods, final methods and classes, dynamic binding, polymorphism examples and Interfaces. Exception handling: fundamentals, Exception Types, Using try-catch, Multiple try-catch clauses, Nested try statements, throw, throws, finally, Built-in Exceptions MultiThreading: Java Thread Model, Main Thread, Creating a Thread , Creating Multiple Threads. Case Study ; Demonstrate online Banking/Library system using Inheritance, Exception handling and Multi-Threading concepts"
+   },
+   {
+    "roman": "IV",
+    "title": "Graphics Primitives, Scan Conversion, Windowing and Clipping",
+    "hours": 9,
+    "text": "Introduction: graphics primitives - pixel, resolution, aspect ratio, frame buffer. Display devices, applications of computer graphics. Scan conversion: Line drawing algorithms: Digital Differential Analyzer (DDA), Bresenham. Circle drawing algorithms: DDA, Bresenham, and Midpoint. Polygons: Introduction to polygon, types: convex, concave and complex. Inside test. Polygon Filling: flood fill, seed fill, scan line fill. Windowing and clipping: viewing transformations, 2-D clipping: Cohen – Sutherland algorithm line Clipping algorithm, Sutherland Hodgeman polygon clipping algorithm. Case Studies - 1) Real-Time Map Rendering in GPS Navigation Systems using Line and Circle Drawing Algorithms 2) 3D pipeline / polygonal modelling and applications"
+   },
+   {
+    "roman": "V",
+    "title": "2D, 3D Transformations and Projections",
+    "hours": 9,
+    "text": "2-D Transformations: 2-D transformations - Translation, Scaling, Rotation and Shear, Rotation about an arbitrary point. 3-D Transformations: 3-D transformations - Translation, Scaling, Rotation and Shear, Rotation about an arbitrary axis. Projections: Parallel (Oblique: Cavalier, Cabinet and orthographic: isometric, diametric, trimetric) and Perspective (Vanishing Points – 1 point, 2 point and 3 point) Case Studies - 1) Affine Transformations Vlab (Vlab link: https://cse19- iiith.vlabs.ac.in/exp/affinetransformation/theory.html) 2) Image augmentation in Deep learning"
+   }
+  ],
+  "textBooks": [
+   "E Balaguruswamy, (2023). Programming with Java: A Primer. 7th edition. India: McGraw Hill Education",
+   "Herbert Schildt, (2021). Java: The complete reference, 13th edition. McGraw-Hill Education.",
+   "S. Harrington, “Computer Graphics”, 2ndEdition, McGraw-Hill Publications, 1987, ISBN 0 – 07–100472 – 6.",
+   "Donald D. Hearn and Baker, “Computer Graphics with OpenGL”, 4thEdition, ISBN-13: 9780136053583"
+  ],
+  "refBooks": [
+   "Paul Deitel and Harvey Detail, Java: How to Program, Pearson’s Publication, 9thEdition",
+   "Horstmann, C. S. (2023). Core Java - Vol. I – Fundamentals (Vol. 12). Pearson Education",
+   "Dr. Samit Bhattacharya, Computer Graphics, Oxford University Press, ISBN-13: 978-0-19- 809619-1; ISBN-10: 0-19-809619-4.",
+   "D. Rogers, “Procedural Elements for Computer Graphics”, 2ndEdition, Tata McGraw-Hill Publication, 2001, ISBN 0 – 07 – 047371 – 4."
+  ],
+  "links": [
+   "https://nptel.ac.in/courses/106106090"
+  ]
+ },
+ {
+  "code": "PCC-203-COM",
+  "name": "Operating Systems",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "theory": [
+   3,
+   3
+  ],
+  "prereq": "Data Structures, Digital Electronics",
+  "outcomes": [
+   "Analyze the fundamentals of Operating Systems, including types, structures, system calls, and basic Linux commands.",
+   "Apply process scheduling and synchronization to optimize CPU utilization in modern operating systems.",
+   "Identify the mechanism for dealing with deadlocks and concurrency concerns.",
+   "Apply techniques of memory management to solve memory management problems",
+   "Illustrate I/O and file management policies."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to Operating System",
+    "hours": 9,
+    "text": "Basics of Operating Systems: Objectives & Functions, Evolution of OS, Types of Operating Systems, OS Service, System Calls: Introduction, Types of System Calls OS structure: Layered Approach, Monolithic, Microkernel Operating Systems Introduction to Linux OS: Components of Linux system, Basic Shell commands Case studies: 1) Automating User and File Management in Linux using Shell Script 2) Demonstrating Different OS Structures (Monolithic, Layered, Microkernel OS)"
+   },
+   {
+    "roman": "II",
+    "title": "Process and Thread Management",
+    "hours": 9,
+    "text": "Process management: Definition, types of process. Process States and Transitions diagram, Process Control Block (PCB), context switching and its impact on performance, Process Scheduling. Types of Schedulers: long term, short term, middle term, Threads: Concept of thread, Multithreading, User-level vs Kernel-level Threads. Scheduling Algorithms: Preemptive Scheduling vs Non-preemptive Scheduling, FCFS, SJF, RR, Priority Process Scheduling in UNIX and Windows Cast Studies - 1) Prepare case study on challenges for Real-time Scheduling 2)Performance Comparison of Scheduling Algorithms (FCFS vs SJF, RR vs Priority Scheduling) under different workload conditions"
+   },
+   {
+    "roman": "III",
+    "title": "Interprocess Communication and Deadlock",
+    "hours": 9,
+    "text": "Concurrency: Critical section problem, Synchronization primitives (Semaphores, Mutexes, Monitors) Synchronization Problems: Producer-Consumer, Reader Writer, Dining Philosophers Inter-Process Communication (IPC): Message passing, Shared memory Deadlocks: Conditions, Prevention, Avoidance (Banker’s Algorithm), Detection, Recovery Case Studies - 1) Interprocess Communication (IPC) in a Banking System 2) Deadlock in Railway Scheduling Systems"
+   },
+   {
+    "roman": "IV",
+    "title": "Memory Management",
+    "hours": 9,
+    "text": "Introduction, Contiguous and non-contiguous, Fragmentation:Internal and External fragmentation Memory allocation strategies: First Fit, Best Fit, Worst Fit, Memory Partitioning:Fixed and Dynamic partitions Paging: Structure of page table, Segmentation.Virtual Memory: Background, Demand Paging Page Replacement: FIFO, LRU, Optimal Thrashing. Case study : Intel Premium"
+   },
+   {
+    "roman": "V",
+    "title": "File and Disk Management",
+    "hours": 9,
+    "text": "File Management: File operation, Directory structure, File System structure, File Organization and Access, File Directories, File Allocation Methods,Secondary Storage Management, File Systems in Operating System (FAT, NTFS, EXT, and HFS). Disk Management: Secondary-Storage Structure - Disk structure, Disk scheduling algorithm (FIFO, SSTF, SCAN, C-SCAN, LOOK, C-LOOK), Disk reliability, Disk formatting, Boot-block, Bad blocks. Case Studies - 1) Study of Linux File System. 2) Study of Android File System."
+   }
+  ],
+  "textBooks": [
+   "William Stallings, Operating System: Internals and Design Principles, Prentice Hall, ISBN-10: 0-13-380591-3, ISBN-13: 978-0-13-380591-8, 8th Edition",
+   "Abraham Silberschatz, Peter Baer Galvin and Greg Gagne, Operating System Concepts, WILEY, ISBN 978-1-118-06333-0, 9th Edition",
+   "Arnold Robbins, Nelson H. F. Beebe, Classic Shell Scripting, O’Reilly Media, Inc., 2005, ISBN"
+  ],
+  "refBooks": [
+   "Tom Adelstein and Bill Lubanovic, Linux System Administration, O’Reilly Media, ISBN-10: 0596009526, ISBN-13: 978-0596009526.",
+   "Harvey M. Deitel, Operating Systems, Prentice Hall, ISBN-10: 0131828274, ISBN-13: 978-",
+   "3. Thomas W. Doeppner, Operating System in depth: Design and Programming, WILEY, ISBN: 978-0-471-68723-8.",
+   "Mendel Cooper, Advanced Shell Scripting, Linux Documentation Project. 5. Andrew S. Tanenbaum & Herbert Bos, Modern Operating System, Pearson, ISBN-13: 9780133592221, 4th Edition. E-Book",
+   "https://repository.dinus.ac.id/docs/ajar/Operating_System.pdf"
+  ],
+  "links": [
+   "https://onlinecourses.nptel.ac.in/noc24_cs108/preview"
+  ]
+ },
+ {
+  "code": "MDM-221-COM",
+  "name": "Digital Electronics and Logic Design",
+  "hours": 2,
+  "credits": 2,
+  "cce": 30,
+  "ese": 70,
+  "theory": [
+   2,
+   2
+  ],
+  "prereq": "Basic Electronics Engineering (ESE-101-ETC), if any",
+  "outcomes": [
+   "Understand and apply key concepts of Boolean algebra, binary number systems and simplification techniques for Boolean functions.",
+   "Study the design and operation of combinational circuits in digital systems.",
+   "Understand and apply the design and operation of various sequential circuits in digital systems.",
+   "Understand the design and implementation of FSMs and ASMs for sequential circuits, and study logic families.",
+   "Explore the fundamentals and applications of programmable logic devices (PLDs) in digital circuit design"
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Boolean Algebra and Simplification Techniques",
+    "hours": 6,
+    "text": "Boolean Algebra: Basic theorems and properties of Boolean algebra, DeMorgan’s rules. Signed Binary number representation: Signed Magnitude, 1’s complement and 2’s complement representation. Simplification Techniques: Sum of product and Product of sum form, Minimization of SOP and POS using K-map. Minimization of Boolean function using K-map (up to 4 variables). Case Study: Design and Optimization of a Digital Temperature Control System"
+   },
+   {
+    "roman": "II",
+    "title": "Combinational Logic Design",
+    "hours": 6,
+    "text": "Adders/Subtractors: Half Adder, Full Adder, Half Subtractor, Full Subtractor, Binary Adder (IC 7483), BCD adder, Look ahead carry generator. Code Converters: BCD, Excess-3, Gray code, Binary Code. Multiplexers and Demultiplexers, Comparators (2 bit). Case Study :Design of a Binary Calculator for BCD Input and 2’s Complement Operations"
+   },
+   {
+    "roman": "III",
+    "title": "Sequential Circuits",
+    "hours": 6,
+    "text": "Flip-Flops: SR, JK, D, T; Preset &Clear, Master Slave JK Flip Flops, Truth Tables and Excitation tables, Conversion from one type to another type of Flop Flop. Registers: Registers: SISO, SIPO, PISO, PIPO, Shift Registers Counters: Ring Counter, BCD Counter, Johnson Counter. Case study: Design of a Digital Stopwatch Using Flip-Flops, Registers, and Counters"
+   },
+   {
+    "roman": "IV",
+    "title": "Algorithmic State Machines and Logic Families",
+    "hours": 6,
+    "text": "Algorithmic State Machines: Finite State Machines (FSM) and ASM, ASM charts, notations, construction of ASM chart and realization for sequential circuits. Logic Families: Classification of logic families: Unipolar and Bipolar Logic Families, Characteristics of Digital ICs: Fan-in, Fan-out, Current and voltage parameters, Noise immunity, Propagation Delay, Power Dissipation, Figure of Merits, Operating Temperature Range, power supply requirements. Introduction to TTL & CMOS, Comparison between TTL and CMOS Case study : Vending Machine Controller using Algorithmic State Machines"
+   },
+   {
+    "roman": "V",
+    "title": "Programmable Logic Devices",
+    "hours": 6,
+    "text": "PLDS: PLD, ROM as PLD, Programmable Logic Array (PLA): Implementation procedure, Construction and working, Advantages over read only memory and applications, Programmable Array Logic (PAL): Architecture, Programming PAL’s, construction and working, Designing combinational circuits using PLDs. Case study: Traffic Light Control System Using PLD"
+   }
+  ],
+  "textBooks": [
+   "Modern Digital Electronics by R.P.Jain, 4th Edition, ISBN 978-0-07-06691-16 Tata McGraw Hill",
+   "Digital Logic and Computer Design by Moris Mano, Pearson , ISBN 978-93-325-4252-5"
+  ],
+  "refBooks": [
+   "John F. Wakerly, \"Digital Design: Principles and Practices,\" Pearson.",
+   "Mark Bach, “Complete Digital Design”, Tata MCGraw Hill, 2005.",
+   "Charles H. Roth Jr., \"Fundamentals of Logic Design,\" Cengage Learning."
+  ],
+  "links": [
+   "https://nptel.ac.in/courses/117106093",
+   "https://swayam.gov.in/nd1_noc19_ee51"
+  ]
+ },
+ {
+  "code": "PCC-251-COM",
+  "name": "Database Management Systems",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "theory": [
+   3,
+   3
+  ],
+  "prereq": "Discrete Mathematics, Data Structures and Algorithms",
+  "outcomes": [
+   "Explain the fundamentals of database management systems, including data models, ER modeling, and database design.",
+   "Develop and execute SQL and PL/SQL programs to manage and manipulate relational data.",
+   "Apply normalization techniques to improve database design and ensure data integrity.",
+   "Analyze transaction management concepts and concurrency control techniques for reliable database systems",
+   "Evaluate NoSQL database types and explain their suitability for handling unstructured data."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to Database Management System",
+    "hours": 9,
+    "text": "Introduction to Database Management Systems, Purpose of Database Systems, Database-System Applications, View of Data, Database Languages, Database System Structure, Enterprise Constraints Data Models, Database Design and ER Model: Entity, Attributes, Relationships, Constraints, Keys, Design Process, Entity Relationship Model, ER Diagram, Design Issues, Extended E-R Features, Converting E-R & EER diagram into tables. Case Study: Study of Architecture of any DBMS like Oracle or MySQL. Design a database schema for any problem given in previous Question Papers."
+   },
+   {
+    "roman": "II",
+    "title": "SQL and PL/SQL",
+    "hours": 9,
+    "text": "SQL: DDL, DML, Select Queries, String, Date and Numerical Functions, Aggregate Functions ,View, Indexes, Group by and Having Clause, Join Queries, Set, Set operation, Set membership, Nested queries, DCL, TCL PL/SQL: Control Statement, Cursor, Stored Procedure and Function, Trigger Case Study : Design and implement a Student Course Management System using SQL and PL/SQL to manage students, courses, and faculty members efficiently. The system should store and retrieve relevant data, ensuring integrity, security, and performance optimization."
+   },
+   {
+    "roman": "III",
+    "title": "Relational Database Design",
+    "hours": 9,
+    "text": "Relational Model: Basic concepts, Attributes and Domains, CODD’s Rules, Relational Integrity, Referential Integrities, Database Design: Features of Good Relational Designs, Normalization, Atomic Domains and First Normal Form, Decomposition using Functional Dependencies, 2NF, 3NF, BCNF. Case study: Design and Optimization of a Relational Database for a University Management System"
+   },
+   {
+    "roman": "IV",
+    "title": "Database Transactions",
+    "hours": 9,
+    "text": "Basic concept of a Transaction, Transaction Management, Properties of Transactions, ACID, Concept of Schedule, Serial Schedule, Serializability: Conflict and View, Cascaded Aborts, Recoverable and Non-recoverable Schedules, Concurrency Control: Need, Locking Methods. Case study : Design Online Shopping Cart Transaction Management In an e-commerce platform, multiple users simultaneously add, update, and purchase products. To ensure data consistency and reliability, the system must handle concurrent transactions effectively."
+   },
+   {
+    "roman": "V",
+    "title": "NoSQL Database",
+    "hours": 9,
+    "text": "Introduction to NoSQL Database, NoSQL data models, CAP theorem and BASE Properties, Comparative study of SQL and NoSQL, MongoDB: CRUD Operations, Indexing and Aggregation. Case study: Study NoSQL Database Selection for a Social Media Platform."
+   }
+  ],
+  "textBooks": [
+   "Silberschatz A., Korth H., Sudarshan S., \"Database System Concepts\", McGraw Hill Publishers, ISBN 0-07-120413-X, 6th edition",
+   "Connally T., Begg C., \"Database Systems\", 4th Edition, Pearson Education, 2002, ISBN 8178088614",
+   "D T Editorial Services \"BIG DATA Black Book\", Dreamtech Press ISBN 13 : 9789351199311"
+  ],
+  "refBooks": [
+   "C J Date, “An Introduction to Database Systems”, Addison-Wesley, ISBN: 0201144719",
+   "S.K.Singh, “Database Systems: Concepts, Design and Application”, Pearson Education, ISBN 978-81-317-6092-5",
+   "Kristina Chodorow, Michael Dierolf, “MongoDB: The Definitive Guide”, O Reilly Publications, ISBN: 978-1-449-34468-9",
+   "Adam Fowler, “NoSQL For Dummies”, John Wiley & Sons, ISBN-1118905628",
+   "Kevin Roebuck, “Storing and Managing Big Data - NoSQL, HADOOP and More”, Emereopty Limited, ISBN: 1743045743, 9781743045749",
+   "Joy A. Kreibich, “Using SQLite”, O’REILLY, ISBN: 13:978-93-5110-934-1",
+   "Ivan Bayross, “SQL, PL/SQL the Programming Language of Oracle”, BPB Publications ISBN: 9788176569644, 9788176569644"
+  ],
+  "links": [
+   "https://nptel.ac.in/courses/106105175",
+   "https://nptel.ac.in/courses/106106220"
+  ]
+ },
+ {
+  "code": "PCC-252-COM",
+  "name": "Discrete Mathematics",
+  "hours": 3,
+  "credits": 3,
+  "cce": 30,
+  "ese": 70,
+  "theory": [
+   3,
+   3
+  ],
+  "prereq": "Prior knowledge of basic mathematics",
+  "outcomes": [
+   "Apply and Analyze Set Theory and Propositional Logic",
+   "Evaluate and Construct Models using Relations and Functions",
+   "Design and Implement Tree Structures and Network Flow Algorithms",
+   "Analyze and Develop Solutions using Graph Theory",
+   "Apply and Solve Problems using Counting Principles, Understand Algebraic structures"
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Set and Propositions",
+    "hours": 9,
+    "text": "Introduction and significance of Discrete Mathematics, Propositional Logic- logic, Propositional Equivalences, Application of Propositional Logic- Translating English Sentences, Proof by Mathematical Induction and Strong Mathematical Induction. Sets– Naïve Set Theory (Cantorian Set Theory), Axiomatic Set Theory, Set Operations, Cardinality of set, Principle of inclusion and exclusion. Types of Sets – Bounded and Unbounded Sets, Diagonalization Argument, Countable and Uncountable Sets, Finite and Infinite Sets, Countably Infinite and Uncountably Infinite Sets, Power set. Case study: Know about the great philosophers- Georg Cantor, Richard Dedekind and Aristotle. Design a recommendation system using logical propositions and predicates to filter movies based on user preferences."
+   },
+   {
+    "roman": "II",
+    "title": "Relations and Functions",
+    "hours": 9,
+    "text": "Introduction to Relations and their Properties Representation of Relations using Matrices and Digraphs Equivalence relations, Partial orderings, Partitions, Hasse diagram, Lattices, Chains and Anti- Chains, Transitive closure and Warshall‘s algorithm. Functions: Types of Functions (Injective, Surjective, Bijective) , Composition and Inverse of Functions , Recursive Functions and Applications in Algorithms, Counting Functions and Growth of Functions Cast Study - Know about the great philosophers-Dirichlet"
+   },
+   {
+    "roman": "III",
+    "title": "Introduction to Trees",
+    "hours": 9,
+    "text": "Introduction to Trees and Properties decision tree, prefix codes and Huffman coding, Applications of Trees in File Systems, cut sets, The Max flow- Min Cut Theorem in Transport network, Minimum Spanning Tree Algorithms Prims and Kruskal algorithm Case Studies - Algebraic Expression Tree, Tic-Tac-Toe Game Tree, implement a file directory system using a tree structure, allowing hierarchical organization of files and folders"
+   },
+   {
+    "roman": "IV",
+    "title": "Introduction to Graph Theory",
+    "hours": 9,
+    "text": "Graph Terminology and Special Types of Graphs, Representing Graphs and Graph Isomorphism, Connectivity, Euler and Hamilton Paths, the handshaking lemma, Single source shortest path- Dijk- stra’s Algorithm, Planar Graphs, Graph Colouring Case study : Model a social media platform using directed graphs to represent relationships such as “follower” or “friend.” Three utility problem, Web Graph, Google map"
+   },
+   {
+    "roman": "V",
+    "title": "Counting Principles and Algebraic Structures -",
+    "hours": 9,
+    "text": "Basic Counting Techniques: Addition and Multiplication Principles, Permutations and Combinations, Binomial Coefficients and Pascal’s Triangle, Pigeonhole Principle and its Applications, Inclusion- Exclusion Principle, Generating Functions for Counting Problems. The structure of algebra - Algebraic Systems, Semi Groups, Monoids, Groups, Homomorphism and Normal Subgroups and Congruence relations, Rings, Integral Domains and Fields. Case Studies - Study Sudoku solving algorithms and algorithm for generation of new SUDOKU. Study Hank-shake Puzzle and algorithm to solve it Calculate the number of possible password combinations given specific constraints on length, character types, and repetition"
+   }
+  ],
+  "textBooks": [
+   "Kenneth H. Rosen, \"Discrete Mathematics and its Applications\", Tata McGraw-Hill, ISBN 978-0-07-288008-3",
+   "Bernard Kolman, Robert C. Busby and Sharon Ross, \"Discrete Mathematical Structures\", Prentice-Hall of India / Pearson, ISBN: 0132078457, 9780132078450",
+   "Narsingh Deo, \"Graph with application to Engineering and Computer Science\", Prentice Hall of India, 1990, 0-87692-145-4",
+   "Eric Gossett, \"Discrete Mathematical Structures with Proofs\", Wiley India Ltd, ISBN: 978-81-265-2758-8",
+   "Sriram P. and Steven S., \"Computational Discrete Mathematics\", Cambridge University Press, ISBN 13: 978-0-521-73311-3",
+   "Herstein, I. N. Topics in Algebra. 2nd ed., Indian Adaptation, Wiley India Pvt. Ltd., 2006. ISBN: 9788126510184"
+  ],
+  "refBooks": [],
+  "links": [
+   "https://nptel.ac.in/courses/106106094",
+   "https://nptel.ac.in/courses/106108227",
+   "https://onlinecourses.nptel.ac.in/noc20_cs82/preview"
+  ]
+ },
+ {
+  "code": "PCC-253-COM",
+  "name": "Computer Organization and Microprocessor",
+  "hours": 2,
+  "credits": 2,
+  "cce": 30,
+  "ese": 70,
+  "theory": [
+   2,
+   2
+  ],
+  "prereq": "Digital Electronics and Logic Design",
+  "outcomes": [
+   "Understand and analyze computer system design and historical development of computers and foundational architectures like Von Neumann and Harvard.",
+   "To design and optimize internal, and external memory systems for high-performance computing.",
+   "To understand fundamental knowledge of the 8086-microprocessor architecture, programming model, addressing modes, and instruction set.",
+   "To understand memory management, I/O operations and interrupt handling, including address translation, memory banks and interrupt controllers.",
+   "To explore the multiprocessor systems, Flynn’s Taxonomy and RISC design principles, including memory architectures"
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Computer Evolution and Performance",
+    "hours": 6,
+    "text": "A Brief History of Computers, Von Neumann Architecture, Harvard Architecture, Designing for Performance, Evolution of Intel processor architecture- 4 bit to 64 bit, performance assessment. A top level view of Computer function and interconnection Computer Components, Interconnection structure, bus interconnection, Computer Arithmetic- The Arithmetic and Logic Unit, addition and subtraction of signed numbers, design of adder and fast adder, carry look ahead addition, multiplication of positive numbers, signed operand multiplication, Booths algorithm for multiplying binary integers. Case Study: Evolution (Brief History) of Microprocessors"
+   },
+   {
+    "roman": "II",
+    "title": "Memory Management",
+    "hours": 6,
+    "text": "Characteristics of Memory System, The memory hierarchy. Cache Memory- Cache memory principles, Elements of cache design cache address, size, and mapping functions. Replacement algorithms, write policy, line size, number of cache, one level and two level cache. Performance characteristics of two level cache- locality & operations. Internal Memory- semiconductor main memory, advanced DRAM organization. External Memory- Hard Disk organization. RAID- level 1 to level 6. Case Study : Memory Management in ATMs"
+   },
+   {
+    "roman": "III",
+    "title": "Introduction to 8086 Microprocessor",
+    "hours": 6,
+    "text": "8086 Architecture: Introduction to 16 bit microprocessor, Architecture and Pin diagram of 8086, Programmers model of 8086 (Registers). Addressing modes of 8086: Immediate Addressing, Register Addressing, Direct Addressing, Indirect Addressing, Indexed Addressing, Based Addressing, Based Indexed Addressing Instruction set of 8086: Data Movement Instructions, Arithmetic Instructions, Logic Instructions, Control Transfer Instructions, String Instructions, Input / Output Instructions, Flag Control Instructions, Process Control Instructions, Other Instructions. Case study: Design of Basic Calculator Using 8086"
+   },
+   {
+    "roman": "IV",
+    "title": "Memory Organization and Interrupts",
+    "hours": 6,
+    "text": "Memory Organization: Segmentation, logical to physical address translation, even and odd memory banks, Read write cycle timing diagrams, Address mapping and decoding, I/O: memory mapped I/O & I/O Mapped I/O. Interrupts: Interrupt Control & status registers, Interrupt Vector Table (IVT), ISR, Hardware and software Interrupts, 8259 (Programmable Interrupt Controller): Features, Block Diagram, Control & Status registers. Case study : Memory and Interrupt Management in an Automated Railway Reservation System"
+   },
+   {
+    "roman": "V",
+    "title": "Parallel Organization",
+    "hours": 6,
+    "text": "Multiprocessors, Clusters, Flynn’s Taxonomy for Multiple Processor Organizations, Closely and Loosely Coupled Multiprocessors Systems, Symmetric Multiprocessor (SMP) Organization, UMA, NUMA. RISC: Instruction execution characteristics, use of large register file, compiler-based register optimization, RISC architecture and pipelining. RISC Vs CISC. Case study:Multi-core System"
+   }
+  ],
+  "textBooks": [
+   "W. Stallings, Computer Organization and Architecture: Designing for performance, Pearson Education/ Prentice Hall of India, 2003, ISBN 978-93-325-1870-4, 7 th Edition.",
+   "Zaky S, Hamacher, Computer Organization, 5th Edition, McGraw-Hill Publications, 2001, ISBN- 978-1-25-900537-5, 5th Edition.",
+   "Douglas Hall, “Microprocessors & Interfacing”, McGraw Hill, Revised 2 Edition,",
+   "A. Ray, K. Bhurchandi, “Advanced Microprocessors and peripherals: Arch, Programming & Interfacing” Tata McGraw Hill,2004 ISBN 0-07-463841."
+  ],
+  "refBooks": [
+   "John P Hays, Computer Architecture and Organization, McGraw-Hill Publication, 1998, ISBN:978-1-25-902856-4, 3rd Edition.",
+   "Miles Murdocca and Vincent Heuring, Computer Architecture and Organization- an integrated approach, Wiley India Pvt. Ltd, ISBN:978-81-265-1198-3, 2nd Edition 55",
+   "A. Tanenbaum, Structured Computer Organization||, Prentice Hall of India, 1991 ISBN: 81 – 203 – 1553 – 7, 4th Edition.",
+   "Patterson and Hennessy, Computer Organization and Design, Morgan Kaufmann Publishers In, ISBN 978-0-12-374750-1, 4th Edition.",
+   "Liu, Gibson, “Microcomputer Systems: The 8086/88 Family”, 2 nd Edition, PHI,2005.",
+   "Kenneth Ayala, “The 8086 Microprocessor: Programming & Interfacing the PC”"
+  ],
+  "links": [
+   "https://swayam.gov.in/nd1_noc21_cs61/preview"
+  ]
+ },
+ {
+  "code": "MDM-271-COM",
+  "name": "Internet of Things",
+  "hours": 2,
+  "credits": 2,
+  "cce": 30,
+  "ese": 70,
+  "theory": [
+   2,
+   2
+  ],
+  "prereq": "Digital Electronics and Logic Design, if any",
+  "outcomes": [
+   "Understand fundamental and ecosystem of IoT.",
+   "Interface different sensors and actuators with IoT development boards.",
+   "Illustrate different layers of IoT protocols.",
+   "Use of cloud and its services.",
+   "Apply and develop domain specific IoT applications."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction to IoT",
+    "hours": 6,
+    "text": "What is Internet of Things: Definition & Characteristics of IoT, Evolution of IoT, Convergence of IoT, IoT Challenges, M2M Communication, Things in IoT, IoT Protocols, Functional blocks of IoT Ecosystem, Communication Models, Communication APIs, IoT enabled Technologies: Wireless Sensor Network, Cloud Computing, Big Data Analytics, Embedded Systems, IoT enabled Applications. Case Study: Home Automation"
+   },
+   {
+    "roman": "II",
+    "title": "Introduction to Sensors, Actuator",
+    "hours": 6,
+    "text": "Sensors/Transducers – Definition, Principles, Classifications, Types, Characteristics and Specifications, Actuators -– Definition, Principles, Classifications, Types, Characteristics and Specifications IoT Development Boards: Arduino IDE and Board Types, Raspberry Pi, NodeMCU, ESP 32, Beaglebone Case Study : Interfacing Sensors"
+   },
+   {
+    "roman": "III",
+    "title": "Protocols for IoT",
+    "hours": 6,
+    "text": "IoT Access Technologies: Physical and MAC layers, IEEE 802.15.4, 802.11ah and Lora WAN, Network Layer- IP versions 4 & 6 ,6LoWPAN, IoT Application Layer Protocols – CoAP and MQTT, Transport Protocols - Zigbee, Bluetooth, BLE, ZWave Case study: MQTT"
+   },
+   {
+    "roman": "IV",
+    "title": "Cloud for IoT",
+    "hours": 6,
+    "text": "Fundamentals of Cloud Computing, Types of Cloud services- AWS, Azure, Adafruit, IoT with Cloud, Challenges faced in cloud services, selection of cloud for IoT applications Case study : How to use Adafruit cloud"
+   },
+   {
+    "roman": "V",
+    "title": "IoT Applications",
+    "hours": 6,
+    "text": "Smart Cities – Smart Parking, Smart Lighting, Smart Roads, Structural Health Monitoring, Surveillance Energy – Smart Grids, Renewable Energy Systems, Prognostics Environment – Weather Monitoring, Air Pollution Monitoring, Noise Pollution Monitoring, Forest Fire Detection, River Floods Detection Agriculture – Smart Irrigation, GreenHouse Control Industry – Machine Diagnostics & Prognosis, Indoor Air Quality Monitoring Health & Lifestyle – Health & Fitness Monitoring, Wearable Electronics Case study: IoT Analytics: Thingspeak"
+   }
+  ],
+  "textBooks": [
+   "David Hanes, Gonzalo Salgueiro, Patrick Grossetete, Rob Barton, Jerome Henry, “IoT Fundamentals – Networking Technologies, Protocols, and Use Cases for the Internet of Things”, 1st Edition, Published by Pearson Education, Inc, publishing as Cisco Press, 2017.",
+   "Hakima Chaouchi, “The Internet of Things - Connecting Objects to the Web”, 1st Edition, Wiley,",
+   "3. Arshdeep Bahga, Vijay Madisetti, “Internet of Things – Hands-On Approach”, 2nd Edition, Universities Press, 2016.",
+   "Perry Lea, “Internet of things For Architects”, 1st Edition, Packt Publication, 2018",
+   "Simone Cirani, Gianluigi Ferrari, Marco Picone, Luca Veltri, “Internet of Things:Architectures, Protocols and Standards”, Wiley"
+  ],
+  "refBooks": [
+   "Raj Kamal, Internet of Things: Architecture and Design Principles, McGraw Hill Education, 1st Edition, 2017",
+   "Adrian McEwen & Hakim Cassimally, “Designing the Internet of Things”, 1st Edition, Wiley,",
+   "3. David Hanes, Gonzalo Salgueiro, IoT Fundamentals Networking Technologies, Protocols and Use Cases for Internet of Things, Cisco Press, 1st Edition, 2017.",
+   "Donald Norris, “Raspberry Pi – Projects for the Evil Genius”, 2nd Edition, McGraw Hill, 2014."
+  ],
+  "links": [
+   "https://onlinecourses.nptel.ac.in/noc22_cs53/preview"
+  ]
+ }
+]

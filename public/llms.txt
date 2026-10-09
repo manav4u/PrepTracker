@@ -15,3 +15,14 @@
 ## Source
 
 - [GitHub repository](https://github.com/manav4u/PrepTracker): code and README
+
+## Second Year (SE) Computer Engineering, 2024 pattern
+- [SE Computer Engineering subjects](https://preptracker.manavdev.site/syllabus/se-computer-engineering/): theory courses with units, marks, outcomes and books from the official SPPU PDF
+- [Data Structures syllabus (PCC-201-COM)](https://preptracker.manavdev.site/syllabus/se-computer-engineering/data-structures/)
+- [Object Oriented programming and Computer Graphics syllabus (PCC-202-COM)](https://preptracker.manavdev.site/syllabus/se-computer-engineering/object-oriented-programming-and-computer-graphics/)
+- [Operating Systems syllabus (PCC-203-COM)](https://preptracker.manavdev.site/syllabus/se-computer-engineering/operating-systems/)
+- [Digital Electronics and Logic Design syllabus (MDM-221-COM)](https://preptracker.manavdev.site/syllabus/se-computer-engineering/digital-electronics-and-logic-design/)
+- [Database Management Systems syllabus (PCC-251-COM)](https://preptracker.manavdev.site/syllabus/se-computer-engineering/database-management-systems/)
+- [Discrete Mathematics syllabus (PCC-252-COM)](https://preptracker.manavdev.site/syllabus/se-computer-engineering/discrete-mathematics/)
+- [Computer Organization and Microprocessor syllabus (PCC-253-COM)](https://preptracker.manavdev.site/syllabus/se-computer-engineering/computer-organization-and-microprocessor/)
+- [Internet of Things syllabus (MDM-271-COM)](https://preptracker.manavdev.site/syllabus/se-computer-engineering/internet-of-things/)

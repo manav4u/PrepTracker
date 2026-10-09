@@ -27,6 +27,16 @@ try {
     fs.mkdirSync(sub, { recursive: true });
     fs.writeFileSync(path.join(sub, 'index.html'), mod.renderInfoPage(c));
   }
+  for (const b of mod.SE_BRANCHES) {
+    const bd = path.resolve('dist/syllabus/' + b.slug + '/');
+    fs.mkdirSync(bd, { recursive: true });
+    fs.writeFileSync(path.join(bd, 'index.html'), mod.renderSeBranch(b));
+    for (const c of b.courses) {
+      const cd = path.resolve('dist' + mod.coursePath(b, c));
+      fs.mkdirSync(cd, { recursive: true });
+      fs.writeFileSync(path.join(cd, 'index.html'), mod.renderSeCourse(b, c));
+    }
+  }
   console.log(`prerendered landing page (${html.length} bytes)`);
 } finally {
   fs.rmSync(outDir, { recursive: true, force: true });

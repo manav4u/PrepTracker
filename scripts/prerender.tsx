@@ -16,3 +16,5 @@ export function renderLanding(): string {
 export { renderSubjectPage } from './syllabusPage';
 export { SUBJECT_PAGES } from './pages';
 export { INFO_PAGES, renderInfoPage } from './infoPages';
+export { renderSeCourse, renderSeBranch, coursePath } from './sePage';
+export { SE_BRANCHES } from './seBranches';
