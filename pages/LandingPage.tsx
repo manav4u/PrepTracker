@@ -47,7 +47,7 @@ const LandingPage: React.FC = () => {
             <span className="font-bold text-white tracking-tight">PrepTracker</span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
-            <a href="#syllabus" className="hover:text-white transition-colors">Syllabus</a>
+            <Link to="/directory" className="hover:text-white transition-colors">Browse syllabus</Link>
             <a href="#vault" className="hover:text-white transition-colors">Vault</a>
             <a href="#tasks" className="hover:text-white transition-colors">Tasks</a>
           </div>
@@ -109,6 +109,7 @@ const LandingPage: React.FC = () => {
             >
               Choose my subjects <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
+            <Link to="/directory" className="px-6 py-4 rounded-lg border border-white/20 text-white">Browse syllabus</Link>
             <a
               href="#syllabus"
               className="w-full sm:w-auto px-8 py-4 bg-white/5 text-white border border-white/10 font-bold rounded-lg hover:bg-white/10 transition-all flex items-center justify-center gap-2"
