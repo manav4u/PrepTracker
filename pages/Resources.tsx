@@ -172,7 +172,7 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ item, onClick, isSelectionM
                     <span className={`w-1.5 h-1.5 rounded-full transition-colors ${item.isSystem ? 'bg-slate-700 group-hover:bg-[#E11D48]' : 'bg-green-500'}`}></span> 
                     AUTH: {item.author}
                 </span>
-                {item.isSystem && (
+                {item.isSystem && item.downloads && (
                     <span className="text-[10px] font-mono font-bold text-slate-400 flex items-center gap-1.5 bg-black/30 px-2 py-1 rounded border border-white/5">
                         <Download size={10} /> {item.downloads}
                     </span>

@@ -4,33 +4,72 @@ import { SUBJECTS } from '../constants';
 import { RotateCcw, Activity, Cpu, AlertCircle } from 'lucide-react';
 import { useData } from '../context/DataContext';
 
+const MARKS_KEY = 'sppu_calculator_marks';
+
+type MarkRow = { inSem?: number; endSem?: number; termWork?: number };
+
+// Grade table from the SPPU UG Credit Framework handbook (2024 pattern), Table of grade letters and grade points.
+const gradeFor = (pct: number): { letter: string; gp: number } => {
+  if (pct >= 90) return { letter: 'O', gp: 10 };
+  if (pct >= 75) return { letter: 'A+', gp: 9 };
+  if (pct >= 60) return { letter: 'A', gp: 8 };
+  if (pct >= 55) return { letter: 'B+', gp: 7 };
+  if (pct >= 50) return { letter: 'B', gp: 6 };
+  if (pct >= 45) return { letter: 'C', gp: 5 };
+  if (pct >= 40) return { letter: 'D', gp: 4 };
+  return { letter: 'F', gp: 0 };
+};
+
+// CGPA class bands from the same handbook (shown here for the SGPA as a guide).
+const bandFor = (v: number): string => {
+  if (v >= 9.5) return 'Outstanding (O)';
+  if (v >= 8.5) return 'Excellent (A+)';
+  if (v >= 7.5) return 'Very Good (A)';
+  if (v >= 6.25) return 'Good (B+)';
+  if (v >= 5.25) return 'Above Average (B)';
+  if (v >= 4.75) return 'Average (C)';
+  if (v >= 4) return 'Pass (D)';
+  return 'Fail (F)';
+};
+
 const CalculatorPage: React.FC = () => {
-  const { profile, marks, setMarks } = useData();
+  const { profile } = useData();
+  const [marks, setMarksState] = React.useState<Record<string, MarkRow>>(() => {
+    try { return JSON.parse(localStorage.getItem(MARKS_KEY) || '{}'); } catch { return {}; }
+  });
+  const setMarks = (next: Record<string, MarkRow>) => {
+    setMarksState(next);
+    try { localStorage.setItem(MARKS_KEY, JSON.stringify(next)); } catch { /* storage unavailable */ }
+  };
 
   if (!profile) return null;
   const selectedIds = profile.selectedSubjects || [];
-  
+
   const filteredSubjects = SUBJECTS.filter(s => selectedIds.includes(s.id));
 
-  const updateMarks = (sId: string, field: 'inSem' | 'endSem', val: string) => {
-    const n = Math.min(field === 'inSem' ? 30 : 70, Math.max(0, parseInt(val) || 0));
-    setMarks(prev => ({
-      ...prev,
-      [sId]: { ...(prev[sId] || { inSem: 0, endSem: 0 }), [field]: n }
-    }));
+  const updateMarks = (sId: string, field: 'inSem' | 'endSem' | 'termWork', val: string) => {
+    const max = field === 'inSem' ? 30 : field === 'endSem' ? 70 : 25;
+    const n = val === '' ? undefined : Math.min(max, Math.max(0, parseInt(val) || 0));
+    setMarks({ ...marks, [sId]: { ...(marks[sId] || {}), [field]: n } });
   };
 
+  // Each course head is graded on its own and weighted by its credits.
+  // Theory head = CCE (30) + End-Sem (70). Term work head = term work (25) as a percentage.
+  // A head with no marks entered is left out until you enter something for it.
   const getSGPA = () => {
     let pts = 0; let creds = 0;
     filteredSubjects.forEach(s => {
-      const m = marks[s.id] || { inSem: 0, endSem: 0 };
-      const total = m.inSem + m.endSem;
-      let gp = 0;
-      if (total >= 90) gp = 10; else if (total >= 80) gp = 9; else if (total >= 70) gp = 8;
-      else if (total >= 60) gp = 7; else if (total >= 50) gp = 6; else if (total >= 40) gp = 5;
-      pts += gp * s.credits; creds += s.credits;
+      const m = marks[s.id] || {};
+      const theoryCredits = s.theoryCredits ?? s.credits;
+      const twCredits = s.termWorkCredits ?? 0;
+      if (m.inSem !== undefined || m.endSem !== undefined) {
+        pts += gradeFor(((m.inSem || 0) + (m.endSem || 0))).gp * theoryCredits; creds += theoryCredits;
+      }
+      if (m.termWork !== undefined && twCredits > 0) {
+        pts += gradeFor((m.termWork / 25) * 100).gp * twCredits; creds += twCredits;
+      }
     });
-    return (pts / (creds || 1)).toFixed(2);
+    return creds ? (pts / creds).toFixed(2) : '0.00';
   };
 
   const sgpa = parseFloat(getSGPA());
@@ -54,8 +93,8 @@ const CalculatorPage: React.FC = () => {
             </h1>
         </div>
         <div className="hidden lg:block text-right opacity-50">
-            <p className="text-[9px] font-mono text-white uppercase tracking-widest">Algorithm: SPPU_2019_REV</p>
-            <p className="text-[9px] font-mono text-white uppercase tracking-widest">Version: 1.4.2</p>
+            <p className="text-[9px] font-mono text-white uppercase tracking-widest">Rules: SPPU 2024 pattern (NEP-2020)</p>
+            <p className="text-[9px] font-mono text-white uppercase tracking-widest">Grades: O to F, 10-point</p>
         </div>
       </header>
 
@@ -85,7 +124,7 @@ const CalculatorPage: React.FC = () => {
                 const currentIn = marks[s.id]?.inSem || 0;
                 const currentEnd = marks[s.id]?.endSem || 0;
                 const total = currentIn + currentEnd;
-                const isPassing = total >= 40;
+                const isPassing = currentIn >= 12 && currentEnd >= 28 && total >= 40;
 
                 return (
                     <div key={s.id} className="group p-5 hover:bg-white/[0.02] transition-colors relative">
@@ -134,6 +173,23 @@ const CalculatorPage: React.FC = () => {
                                         <div className="absolute bottom-0 left-0 w-full h-[1px] bg-[#E11D48] scale-x-0 group-focus-within/input:scale-x-100 transition-transform duration-300"></div>
                                     </div>
                                 </div>
+
+                                {/* Divider */}
+                                <div className="h-8 w-px bg-white/10 rotate-12"></div>
+
+                                {/* Term Work Input */}
+                                <div className="flex flex-col items-center gap-2">
+                                    <label className="text-[8px] font-mono text-slate-600 uppercase tracking-widest">TERM WORK / 25</label>
+                                    <div className="relative group/input">
+                                        <input
+                                            type="number"
+                                            value={marks[s.id]?.termWork ?? ''}
+                                            onChange={(e) => updateMarks(s.id, 'termWork', e.target.value)}
+                                            className="w-20 bg-transparent text-2xl font-mono text-white text-center border-b border-white/10 focus:border-[#E11D48] outline-none py-1 transition-colors"
+                                            placeholder="00"
+                                        />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -166,9 +222,9 @@ const CalculatorPage: React.FC = () => {
                 {/* Status Bars */}
                 <div className="space-y-6 w-full max-w-xs mx-auto">
                     <div className="bg-white/5 p-4 rounded-xl border border-white/5 flex justify-between items-center">
-                        <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Class</span>
-                        <span className={`text-sm font-bold uppercase tracking-wider ${sgpa >= 7.75 ? 'text-[#E11D48]' : 'text-white'}`}>
-                            {sgpa >= 7.75 ? 'Distinction' : sgpa >= 6.75 ? 'First Class' : 'Second Class'}
+                        <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Band</span>
+                        <span className={`text-sm font-bold uppercase tracking-wider ${sgpa >= 7.5 ? 'text-[#E11D48]' : 'text-white'}`}>
+                            {bandFor(sgpa)}
                         </span>
                     </div>
 
@@ -185,6 +241,10 @@ const CalculatorPage: React.FC = () => {
                         </div>
                     </div>
                 </div>
+
+                <p className="mt-8 text-[10px] leading-relaxed text-slate-500 max-w-xs mx-auto">
+                    Grades follow the SPPU UG credit framework handbook: theory (CCE 30 + End-Sem 70) and term work are graded separately and weighted by credits. Only the subjects you selected are counted, so the university SGPA can differ (it also includes the other courses of the semester, such as communication skills and co-curricular courses). A blank field is left out of the result.
+                </p>
 
                 {sgpa < 5 && (
                     <div className="mt-8 flex items-center justify-center gap-2 text-red-500 bg-red-500/10 px-4 py-2 rounded-lg border border-red-500/20">

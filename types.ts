@@ -10,6 +10,7 @@ export interface Unit {
   id: string;
   unit_number: number;
   title: string;
+  hours?: number; // official teaching hours (SPPU FE 2024 syllabus)
   weightage?: number; 
   topics: string[]; 
 }
@@ -19,6 +20,8 @@ export interface Subject {
   name: string;
   code: string;
   credits: number;
+  theoryCredits?: number; // theory head credits
+  termWorkCredits?: number; // tutorial / practical / term work head credits
   units: Unit[];
   common?: boolean;
   examDate?: string; // ISO String for the specific paper date
