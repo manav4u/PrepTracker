@@ -50,7 +50,7 @@ const CalculatorPage: React.FC = () => {
   const totalCredits = filteredSubjects.reduce((acc, s) => acc + s.credits, 0);
 
   return (
-    <div className="max-w-7xl mx-auto space-y-12 animate-in fade-in duration-700">
+    <div className="max-w-7xl mx-auto space-y-6 animate-in fade-in duration-700">
       
 <p className="text-sm text-slate-300">FE marks planner only. {unsupported.length > 0 && `${unsupported.length} SE/TE courses are excluded: complete assessment schemes are not yet mapped.`}</p>
       {/* Header */}
@@ -63,8 +63,8 @@ const CalculatorPage: React.FC = () => {
                 </span>
                 <span className="text-[10px] font-mono font-bold uppercase tracking-[0.25em] text-[#E11D48]">Marks planning</span>
             </div>
-            <h1 className="text-5xl lg:text-7xl font-display font-bold tracking-tighter text-white leading-none">
-            Forecaster
+            <h1 className="text-3xl lg:text-5xl font-display font-bold tracking-tighter text-white leading-none">
+            Marks planner
             </h1>
         </div>
         <div className="hidden lg:block text-right opacity-50">
@@ -103,7 +103,7 @@ const CalculatorPage: React.FC = () => {
                 const isPassing = hasTheory;
 
                 return (
-                    <div key={s.id} className="group p-5 hover:bg-white/[0.02] transition-colors relative">
+                    <div key={s.id} className="group p-4 sm:p-5 m-3 rounded-2xl border border-white/10 hover:bg-white/[0.02] transition-colors relative">
                         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
                             
                             {/* Subject Info */}
@@ -119,7 +119,7 @@ const CalculatorPage: React.FC = () => {
                             <div className="grid grid-cols-3 gap-3 w-full sm:w-auto">
                                 {/* In Sem Input */}
                                 <div className="flex flex-col items-center gap-2">
-                                    <label className="text-[8px] font-mono text-slate-600 uppercase tracking-widest">CCE / 30</label>
+                                    <label className="text-xs font-mono text-slate-300 uppercase tracking-widest">CCE / 30</label>
                                     <div className="relative group/input">
                                         <input 
                                             type="number" aria-label={`CCE marks: ${s.name}`} min="0" max="30"
@@ -137,7 +137,7 @@ const CalculatorPage: React.FC = () => {
 
                                 {/* End Sem Input */}
                                 <div className="flex flex-col items-center gap-2">
-                                    <label className="text-[8px] font-mono text-slate-600 uppercase tracking-widest">END-SEM / 70</label>
+                                    <label className="text-xs font-mono text-slate-300 uppercase tracking-widest">END-SEM / 70</label>
                                     <div className="relative group/input">
                                         <input 
                                             type="number" aria-label={`End-Sem marks: ${s.name}`} min="0" max="70"
@@ -155,7 +155,7 @@ const CalculatorPage: React.FC = () => {
 
                                 {/* Term Work Input */}
                                 <div className="flex flex-col items-center gap-2">
-                                    <label className="text-[8px] font-mono text-slate-600 uppercase tracking-widest">TERM WORK / 25</label>
+                                    <label className="text-xs font-mono text-slate-300 uppercase tracking-widest">TERM WORK / 25</label>
                                     <div className="relative group/input">
                                         <input
                                             type="number" aria-label={`Term work marks: ${s.name}`} min="0" max="25"

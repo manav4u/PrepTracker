@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useSearchParams, Link } from 'react-router-dom';
 import { 
   ArrowLeft, 
   CheckCircle2, 
@@ -23,6 +23,7 @@ import {
 } from 'lucide-react';
 import { SYSTEM_RESOURCES, getYouTubeID } from '../constants';
 import { CATALOG as SUBJECTS } from '../lib/catalog';
+import { deriveOutline } from '../lib/outline.mjs';
 import { UnitStatus, ResourceItem } from '../types';
 import { useData } from '../context/DataContext';
 import ResourceViewerModal from '../components/ResourceViewerModal';
@@ -30,7 +31,11 @@ import ComingSoonModal from '../components/ComingSoonModal';
 
 const SubjectDetail: React.FC = () => {
   const { id } = useParams();
+  const [searchParams,setSearchParams] = useSearchParams();
+  const targetUnit=searchParams.get('unit');
+  useEffect(()=>{if(targetUnit)requestAnimationFrame(()=>document.getElementById(targetUnit)?.scrollIntoView({block:'start'}));},[id,targetUnit]);
   const subject = SUBJECTS.find(s => s.id === id);
+  const [copied,setCopied]=useState('');
   const [showChat, setShowChat] = useState(false);
   const [chatInput, setChatInput] = useState('');
   const [chatHistory, setChatHistory] = useState<{role: 'user' | 'ai', text: string}[]>([
@@ -150,7 +155,7 @@ const SubjectDetail: React.FC = () => {
       <ResourceViewerModal isOpen={!!viewResource} onClose={() => setViewResource(null)} resource={viewResource} />
       <ComingSoonModal isOpen={!!comingSoon} onClose={() => setComingSoon(null)} feature={comingSoon || ''} />
 
-      <div className="mb-12 lg:mb-20">
+      <div className="mb-6 lg:mb-10">
         <Link to="/" className="inline-flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-white uppercase tracking-widest transition-colors mb-8">
           <ArrowLeft size={14} /> Back to Dashboard
         </Link>
@@ -163,21 +168,22 @@ const SubjectDetail: React.FC = () => {
               </span>
               {subject.code} • {subject.credits} Credits • <HardDrive size={10} className="inline mr-1" /> Local
             </span>
-            <h1 className="text-4xl lg:text-8xl font-display font-bold text-white leading-[0.9] tracking-tighter text-balance">
+            <h1 className="text-3xl lg:text-5xl font-display font-bold text-white leading-[0.9] tracking-tighter text-balance">
               {subject.name}
             </h1>
           </div>
           <div className="flex gap-4 w-full lg:w-auto shrink-0">
             <a href={subject.source} target="_blank" rel="noopener noreferrer" className="flex-1 lg:flex-none px-6 py-4 rounded-xl border border-white/10 text-xs font-bold text-white hover:bg-white hover:text-black transition-all">Official syllabus PDF</a>
-            <span className="flex-1 lg:flex-none px-6 py-4 text-xs text-slate-400">Quick Test: planned</span>
+            <button onClick={()=>{document.querySelectorAll('details').forEach(d=>d.open=true);window.print();}} className="px-4 py-3 border border-white/10 rounded-xl text-sm">Print course</button>
           </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
+      <nav aria-label="Jump to unit" className="sticky top-20 lg:top-0 z-20 flex gap-2 overflow-x-auto py-3 mb-5 bg-[#030303] border-b border-white/10">{subject.units.map(u=><button key={u.id} onClick={()=>setSearchParams({unit:u.id})} className="shrink-0 px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-sm">Unit {u.unit_number}</button>)}</nav>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8">
         {/* Timeline / Unit List */}
         <div className="lg:col-span-8 relative">
-          <div className="absolute left-6 top-8 bottom-8 w-px bg-white/5"></div>
+          <div className="hidden"></div>
           
           <div className="space-y-8">
             {subject.units.map((unit, i) => {
@@ -187,13 +193,13 @@ const SubjectDetail: React.FC = () => {
               const completedPyqs = p.pyqsCompleted || [];
 
               return (
-                <div key={unit.id} className="relative pl-16 group">
+                <div key={unit.id} id={unit.id} className="relative group scroll-mt-40">
                   {/* Timeline Node */}
-                  <div className={`absolute left-[1.1rem] top-8 w-5 h-5 rounded-full border-[3px] transition-all duration-300 z-10 bg-[#030303] ${
+                  <div className={`hidden left-[1.1rem] top-8 w-5 h-5 rounded-full border-[3px] transition-all duration-300 z-10 bg-[#030303] ${
                     isMastered ? 'border-[#E11D48] bg-[#E11D48] shadow-[0_0_15px_#E11D48]' : isActive ? 'border-white bg-white' : 'border-white/10'
                   }`}></div>
 
-                  <div className="bg-[#0a0a0a] p-8 rounded-3xl border border-white/5 hover:border-white/10 transition-all">
+                  <div className="bg-[#0a0a0a] p-4 sm:p-6 rounded-2xl border border-white/5 hover:border-white/10 transition-all">
                     <div className="flex flex-col sm:flex-row justify-between items-start mb-8 gap-6 sm:gap-0">
                       <div>
                         <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1 block">Unit 0{unit.unit_number}</span>
@@ -228,22 +234,11 @@ const SubjectDetail: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Topics List */}
-                    {unit.topics && (
-                       <div className="mb-8 p-6 rounded-2xl bg-white/5 border border-white/5">
-                         <h4 className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">
-                           <List size={12} /> Key Topics
-                         </h4>
-                         <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-3">
-                           {unit.topics.map((t, idx) => (
-                             <li key={idx} className="text-sm text-slate-300 flex items-start gap-3">
-                               <span className="w-1 h-1 rounded-full bg-[#E11D48] mt-2 shrink-0"></span>
-                               <span className="leading-relaxed font-medium break-words">{t}</span>
-                             </li>
-                           ))}
-                         </ul>
-                       </div>
-                    )}
+                    {unit.topics && <div className="mb-6">
+                      <h4 className="text-sm font-bold text-slate-300 mb-3">Reading outline</h4>
+                      {(unit as any).sourceText?<><p className="text-xs text-slate-400 mb-3">Derived by splitting the source at semicolons, line breaks and sentence boundaries. Not an official topic hierarchy.</p><ul className="space-y-3 list-disc pl-5 text-sm leading-7 text-slate-200">{deriveOutline((unit as any).sourceText).map((t:string,idx:number)=><li className="break-words" key={idx}>{t}</li>)}</ul><details className="mt-5 p-3 border border-white/10 rounded-lg"><summary className="cursor-pointer text-sm text-rose-300">Preserved official unit paragraph</summary><p className="text-sm leading-7 text-slate-300 mt-3 whitespace-pre-wrap break-words">{(unit as any).sourceText}</p></details></>:<ul className="list-disc pl-5 space-y-3 text-sm leading-7 text-slate-200">{unit.topics.map((t,idx)=><li className="break-words" key={idx}>{t}</li>)}</ul>}
+                      <button onClick={()=>{const u=new URL(window.location.href);u.hash=`/subject/${encodeURIComponent(subject.id)}?unit=${encodeURIComponent(unit.id)}`;navigator.clipboard?.writeText(u.href).then(()=>setCopied(unit.id)).catch(()=>setCopied('failed'));}} className="mt-3 py-3 text-sm text-rose-300">Copy unit link</button><span role="status" className="ml-3 text-xs text-slate-400">{copied===unit.id?'Copied':copied==='failed'?'Copy failed. Use the unit navigation to bookmark this URL.':''}</span>
+                    </div>}
 
                     {/* Functional PYQ completion log */}
                     <div className="flex flex-col gap-3">
