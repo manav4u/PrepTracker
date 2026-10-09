@@ -1,0 +1,466 @@
+[
+ {
+  "code": "PCC-201-INC",
+  "name": "Sensors and Transducers",
+  "hours": 3,
+  "cce": 30,
+  "ese": 70,
+  "credits": 3,
+  "prereq": "Definition of transducer, sensors, classification of transducers & sensors.",
+  "outcomes": [
+   "Classify units, standards, performance characteristics of pressure, temperature, Flow, Level, Force, Torque, Displacement, and Speed Transducers",
+   "Summarize the working principles and applications of pressure, temperature, Flow, Level, Force, Torque, Displacement, Speed, Vibration, Viscosity and Density Transducers.",
+   "Select suitable sensors/transducers for physical parameter measurement.",
+   "Use dead weight and vacuum gauge tester to calibrate pressure gauges.",
+   "Examine characteristics of T/C, RTD and LVDT. Implement signal conditioning circuits for Thermocouple and RTD for given specification."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Pressure Measurement",
+    "hours": 10,
+    "text": "Classification and selection criteria of transducers. Definition, pressure scale, units and relations, manometers and their types, elastic pressure sensors, piezoelectric secondary pressure sensors, differential pressure sensors, high-pressure sensors, low-pressure sensors, standards, working principle, types, materials, capacitive (delta cell), Differential Pressure Transmitter (DPT), concept of live, dead zero, two and four wire transmitters, Dead Weight Tester."
+   },
+   {
+    "roman": "II",
+    "title": "Temperature Measurement",
+    "hours": 8,
+    "text": "Temperature scales, units and relations, classification of temperature sensors, working principle, types, materials, Non electrical sensors (bimetallic, thermometer), electrical sensors (RTD, Thermocouple, Thermistor, IC sensor LM35), Non-Contact temperature sensors (Radiation and optical). Design of signal conditioning circuits for RTD and Thermocouple."
+   },
+   {
+    "roman": "III",
+    "title": "Flow Measurement",
+    "hours": 8,
+    "text": "Classification of Flow transducers, types of flow, Bernoulli's equation for incompressible flow, primary or quantity meters (positive displacement flow meter), secondary or rate meter (obstruction type, variable area type), electrical flow sensors (turbine type, electromagnetic type, and ultrasonic type), flow switches, Vortex shedding, anemometers, mass flowmeter: Coriolis flow meter, Application of DPT for flow measurement."
+   },
+   {
+    "roman": "IV",
+    "title": "Level, Force and Torque Measurement",
+    "hours": 8,
+    "text": "Standards, working principle, types, float, displacers, bubbler, and DP- cell, ultrasonic, capacitive, microwave, radar, laser type transducers, level gages, resistance, solid level detectors, fibre optic level detectors, Application of DPT for level measurement Force and Torque measurement: Elastic elements, strain gauges, load cells, strain gauge torque meter, inductive torque meter and MEMS accelerometers"
+   },
+   {
+    "roman": "V",
+    "title": "Miscellaneous sensors",
+    "hours": 6,
+    "text": "Displacement Measurement: Inductive-LVDT, capacitive, ultrasonic, optical and proximity sensors. Speed Measurement: Tachometer, Magnetic pickups, Encoders, and Photo electric pickups. Vibration Measurement: Piezoelectric, Seismic, Potentiometric. Viscosity: Say bolt, Searle's rotating cylinder, Cone and plate, Falling and rolling ball Density: Chain-balanced float type, Hydrometer (Buoyancy type) flame sensor, smoke sensor, motion sensor"
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   "A.K. Sawhney, “Electrical & Electronic Instruments & Measurement”, Dhanpat Rai and Sons, Eleventh ed., 2000.",
+   "B. C. Nakra and K. K. Choudhari, “Instrumentation Measurements and Analysis”, Tata McGraw Hill Education, Second ed., 2004.",
+   "D.V.S. Murty, “Instrumentation and Measurement Principles”, PHI, New Delhi, Second ed. 2003.",
+   "C. D. Johnson, “Process Control Technology”, PHI-Seventh Edition, 1988",
+   "C. S. Rangan ,G..R.Sharma, V.S.V Mani, “Instrumentation Devices and Systems” McGraw Hill Education, Second ed. 2003."
+  ],
+  "refBooks": [
+   "E.O. Doebelin, “Measurement Systems”, McGraw Hill, Seventh ed., 2019.",
+   "D. Patranabis, “Principle of Industrial Instrumentation”, Tata McGraw Hill, Second ed.,",
+   "Sabrie Soloman, “Sensors Handbook”, McGraw Hill Publication, Second ed., 2010.",
+   "B.G. Liptak, “Process Measurement & Analysis”, Chilton Book Company, Third ed.,"
+  ]
+ },
+ {
+  "code": "PCC-202-INC",
+  "name": "Signals and Systems",
+  "hours": 3,
+  "cce": 30,
+  "ese": 70,
+  "credits": 3,
+  "prereq": "Differential equation, matrix algebra, complex numbers.",
+  "outcomes": [
+   "Identify the type of signals and perform elementary operations on signals.",
+   "Classify systems based on their properties",
+   "Understand fundamental properties of LTI systems and be able to determine response of the system for given input.",
+   "Analyze and design of an LTI systems using Fourier transform and Laplace transform.",
+   "Apply the concept of Z-Transform to solve difference equations and to find the system stability."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Fundamentals of Signals",
+    "hours": 8,
+    "text": "Representation of Continuous and Discrete-time Signals, Unit Step, Unit Ramp, Unit Impulse, Sinusoidal and Complex Exponentials. Classification of signals – Periodic and Aperiodic Signal, Even and Odd Signal, Energy and Power Signal, Deterministic and Random signals. Transformation of Independent Variables –Time Shifting, Time Scaling and Time Reversal."
+   },
+   {
+    "roman": "II",
+    "title": "Fundamentals of Systems",
+    "hours": 8,
+    "text": "Representation of Continuous and Discrete Time Systems. Classification of systems - Static and Dynamic, Linear and Nonlinear, Time variant and Time Invariant, Causal and Non–Causal, Stable and unstable, Invertible and non- invertible systems. Block Diagram Representation and Interconnection of Systems Continuous-Time LTI Systems: The Convolution Integral, Discrete-Time LTI Systems: The Convolution Sum. Properties of Linear Time-Invariant Systems."
+   },
+   {
+    "roman": "III",
+    "title": "Fourier analysis of Continuous Time Signals",
+    "hours": 8,
+    "text": "Fourier Series Representation of Continuous-Time Periodic Signals, Convergence of the Fourier Series, Properties of Continuous-Time Fourier Series, Dirichlet condition for existence of Fourier series, orthogonality, basis functions, Magnitude and phase response. Fourier Transform (FT) representation of Continuous-Time Aperiodic signals, Dirichlet condition for existence of Fourier transform, Properties of Continuous-Time Fourier Transform, Magnitude and phase response, FT of standard Continuous-Time signals."
+   },
+   {
+    "roman": "IV",
+    "title": "Laplace Transform",
+    "hours": 8,
+    "text": "Definition of Laplace Transform (LT), Limitations of Fourier transform and need of Laplace transform, ROC, Laplace transform of standard periodic and Aperiodic functions, properties of Laplace transform and their significance, Laplace transform evaluation using properties, Inverse Laplace transform based on partial fraction expansion, stability considerations in S-domain, Application of Laplace transform to the LTI system analysis."
+   },
+   {
+    "roman": "V",
+    "title": "Z-Transform",
+    "hours": 8,
+    "text": "Z-Transform, Significance and Properties of Region of Convergence, Properties of Z-Transform, Inverse Z Transform, relationship of Z-transform with Fourier transform, applications of Z- transform to solutions of difference equations."
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   "A. V. Oppenheim, A. S. Wilsky with S. H. Nawab, Signals and Systems, Prentice- Hall of India Private Limited, Second Edition, 1997.",
+   "A. Nagoor Kanni, Signals and Systems, Mc Graw Hill. 2nd Edition.",
+   "Ramesh Babu, Signals and Systems, Sci-Tech Publications, 2nd Edition."
+  ],
+  "refBooks": [
+   "Alan V Oppenheim, Alan S Wilsky, Signals and Systems, PHI, Second ed. 2009",
+   "Proakis J. G and D. G. Manolakis, Digital Signal processing, Principles, Algorithms and Applications, Prentice Hall of India."
+  ]
+ },
+ {
+  "code": "PCC-203-INC",
+  "name": "Linear Integrated Circuits",
+  "hours": 3,
+  "cce": 30,
+  "ese": 70,
+  "credits": 3,
+  "prereq": "Functional block diagram of an operational amplifier, Ideal & Practical values of performance parameters, Inverting and Non-Inverting Amplifier.",
+  "outcomes": [
+   "Execute the applications of closed-loop Op-Amp circuits in feedback amplifiers to design and analyse various configurations.",
+   "Implement linear and non-linear applications of Operational amplifiers to develop integrated circuits for diverse functionalities.",
+   "Use timers and special purpose ICs effectively to create multivibrators and oscillators for different electronic systems.",
+   "Demonstrate the design and implementation of active filters and regulators to enhance the performance of electronic circuits."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Closed loop Op- Amplifier circuits",
+    "hours": 8,
+    "text": "Introduction to feedback amplifiers, Loading effect. Voltage series feedback (non-inverting amplifier with feedback): deriving close loop gain, input impedance, output impedance and bandwidth; Voltage follower and its applications. Voltage shunt feedback (Inverting amplifier with feedback): deriving close loop gain, input impedance, output impedance and bandwidth; Inverter circuit, Differential amplifier with one op-amp. With derivation of close loop gain."
+   },
+   {
+    "roman": "II",
+    "title": "Linear Applications of an Operational amplifier",
+    "hours": 8,
+    "text": "Voltage summing and subtracter, Integrator and practical integrator, Differentiator and practical differentiator, Instrumentation amplifier with three Op-amps, Current to Voltage converter with zero and span adjustment circuit, Voltage to current converter with zero and span adjustment circuit."
+   },
+   {
+    "roman": "III",
+    "title": "Non-Linear Applications of an Operational amplifier",
+    "hours": 7,
+    "text": "Comparator and its characteristics, Zero Crossing Detector (ZCD) and its use, Schmitt trigger with external bias, Precision half wave and full wave rectifiers. Sine wave oscillators using op-amp.: Barkhausen criteria, Wein bridge oscillator, RC phase shift oscillator."
+   },
+   {
+    "roman": "IV",
+    "title": "Timers and Special purpose ICs",
+    "hours": 8,
+    "text": "Design and applications of Astable, Monostable (Re-triggerable and non-retrigger able) and Bistable Multivibrators using LM555. Voltage controlled oscillator (LM 566), Phase locked Loop (LM 565), V to F and F to V converter (LM331), Analog Multiplexer/Demultiplexer (CD 4051)."
+   },
+   {
+    "roman": "V",
+    "title": "Active filters and Regulators",
+    "hours": 9,
+    "text": "Filters: Definition, types and Difference between active and passive filters, their merits and demerits. Filter terminology: Pass band, stop band, cut off, Ripple, Q and order of the filter. Butterworth approximations, Low pass (LP), High pass (HP), Band pass (BP), Narrow band pass, Band reject, Notch filter, First and second order filters, (Design of LP, HP and BP filter). Regulators: Performance parameters (line regulation, load regulation, ripple rejection), Fixed volt regulators (IC78xx, 79xx), Linear voltage regulator IC 723(High voltage, low voltage regulator circuits)."
+   }
+  ],
+  "links": [],
+  "textBooks": [],
+  "refBooks": [
+   "Ramakant Gaikwad, “Operational Amplifiers” PHI, 3rd ed., 1992.",
+   "William D. Stanley, “Operational Amplifiers with Linear Integrated Circuits”, 4th ed., Pearson Education India, 2002",
+   "D. Roy Choudhury, “Linear Integrated Circuits” New Age International, 4th edition.",
+   "Paul Horowitz, Winfield Hill, “The Art of Electronics”, 2nd Ed., Cambridge University."
+  ]
+ },
+ {
+  "code": "MDM-221-INC",
+  "name": "Data Structures",
+  "hours": 2,
+  "cce": 30,
+  "ese": 70,
+  "credits": 2,
+  "prereq": "Python programming, looping statements, conditional statements, functions.",
+  "outcomes": [
+   "Implement various data structures and algorithms using Python programming language effectively.",
+   "Implement various operations on linked lists such as insert, delete, traverse, and reversal.",
+   "Analyse sorting algorithms like Bubble Sort, Insertion Sort, Merge Sort, and Quicksort, demonstrating the ability to choose the most appropriate algorithm for a given scenario.",
+   "Design and implement binary search trees, traverse graphs using DFS and BFS, and apply these concepts to develop efficient solutions for graph-related problems."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Python Basics",
+    "hours": 4,
+    "text": "Variables, Data Types, Loops and Conditionals, Functions, Lambda Expressions, List Comprehension, Python Modules (Collections, Queue, Etc.)."
+   },
+   {
+    "roman": "II",
+    "title": "Linked List and Sorting Algorithms",
+    "hours": 6,
+    "text": "Linked List - Node Creation, Node Structure, Insert, Delete, Traverse, Singly Linked List, Doubly Linked, Reversing a Linked List, List, Circular Linked List, Comparison to Python Lists and Applications of Linked Lists."
+   },
+   {
+    "roman": "III",
+    "title": "Recursion, Searching and Sorting Algorithms",
+    "hours": 8,
+    "text": "Recursion- Base Case and Recursive Case, Call Stack Visualization, Examples Like Factorial, Fibonacci, Reverse String, Tower of Hanoi, Recursion Vs Iteration. Sorting & Searching Algorithms - Bubble Sort, Insertion Sort, Merge Sort, Quicksort, Stable Sorting, Linear Search and Binary Search."
+   },
+   {
+    "roman": "IV",
+    "title": "Trees & Graphs",
+    "hours": 8,
+    "text": "Trees - Tree Terminology: Root, Leaf, Height, Depth, Binary Tree Structure Binary Search Tree: Insert, Search, Delete, Traversal Methods: In order, Preorder, Post order, Level-Order (Using Queue) Graphs: What is a Graph, Representation: Adjacency Matrix, Adjacency List (Dictionary of Lists), Directed Vs Undirected, Weighted Vs Unweighted. Graph Traversal - Depth-First Search (DFS), Breadth-First Search (BFS)"
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   "Data Structures and Algorithms in Python by Michael Goodrich, Roberto Tamassia, Michael Goldwasser, Wiley Publication.",
+   "Open Data Structures (in pseudocode), Pat Mortin https://opendatastructures.org/ods-python/",
+   "Hands-On Data Structures and Algorithms with Python, Dr. Basant Agarwal, Packt publication."
+  ],
+  "refBooks": [
+   "A First Course on Data Structures in Python, Donald R. Sheehy. https://donsheehy.github.io/datastructures/fullbook.pdf",
+   "Data Structures and Algorithms with Python, Kent D. Lee, Steve Hubbard, Springer Publication."
+  ]
+ },
+ {
+  "code": "PCC-251-INC",
+  "name": "Feedback Control Systems",
+  "hours": 3,
+  "cce": 30,
+  "ese": 70,
+  "credits": 3,
+  "prereq": "Basics of Laplace Transforms and Differential Equation.",
+  "outcomes": [
+   "Develop the mathematical model of control systems",
+   "Analyze the Time domain response of control systems and calculate time domain specifications of second order systems.",
+   "Analyze the system stability in time domain using Root Locus method.",
+   "Analyze the system stability in frequency domain using Bode plot and Polar plot method.",
+   "Evaluate the parameters of PID controller through Zeigler Nichols and Cohen Coon Tuning method to optimize system performance."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Fundamentals of Control System",
+    "hours": 10,
+    "text": "Basic concept of control system, classification of control systems: Open Loop and Closed Control System, Transfer Function, concept of pole and zero, Modelling of Electrical and Mechanical systems using differential equations and transfer function, analogy between electrical and mechanical systems, Block diagram algebra, Signal Flow Graph: Mason’s gain formula."
+   },
+   {
+    "roman": "II",
+    "title": "Time domain analysis of Control System",
+    "hours": 8,
+    "text": "Standard test signals: step, ramp, parabolic and impulse signal, type and order of control system, Concept of transient and steady state response, time response of first and second order systems to unit impulse, unit step input, time domain specifications of second order systems, derivation of time domain specifications, steady state error and static error coefficients."
+   },
+   {
+    "roman": "III",
+    "title": "Stability analysis and Root Locus",
+    "hours": 8,
+    "text": "Concept of stability: BIBO, nature of system response for various locations of poles in S-plane, Routh’s-Hurwithz criterion. Root Locus: Angle and magnitude condition, Basic properties of root locus. Construction of root locus, Stability analysis using root locus."
+   },
+   {
+    "roman": "IV",
+    "title": "Frequency domain analysis",
+    "hours": 8,
+    "text": "Introduction to Frequency domain specifications, Polar Plot, Introduction to Bode plot, Asymptotic approximation: sketching of Bode plot, stability analysis using Bode plot."
+   },
+   {
+    "roman": "V",
+    "title": "Control Actions and Tuning",
+    "hours": 6,
+    "text": "Process Characteristics: Process equation, capacity, self – regulation, disturbances, control lag, process lag, distance/velocity lag (dead time). Control actions (ON-OFF, proportional, integral, derivative, proportional plus integral, proportional plus derivative, proportional plus integral plus derivative, Controller tuning by Ziegler-Nichols methods, Cohen Coon tuning method."
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   "I. J. Nagrath, M. Gopal, “Control System Engineering”, New Age International Publishers, 5th Ed.",
+   "B. S. Manke, “Linear Control Systems”, Khanna Publishers, 2nd Ed.",
+   "A. K. Jairath, “Problems and Solutions of Control Systems”, CBS Publisher, 6th Ed.",
+   "4. S. K. Bhattacharya, “Control System Engineering”, Pearson India, 02nd Ed."
+  ],
+  "refBooks": [
+   "K. Ogata, “Modern Control Engineering”, PHI, 6th Ed..",
+   "Norman S. Nise, “Control System Engineering”, John Wiley and Sons, 7th Ed.",
+   "B. C. Kuo, “Automatic Control Systems”, PHI, 7th Ed."
+  ]
+ },
+ {
+  "code": "PCC-252-INC",
+  "name": "Control System Components",
+  "hours": 3,
+  "cce": 30,
+  "ese": 70,
+  "credits": 3,
+  "prereq": "Basic Circuit Theory, Motor Fundamentals, Basics of Control Circuit, Mechanical Elements, Semiconductor Device.",
+  "outcomes": [
+   "Select switches, relays & contactors for industrial control applications.",
+   "Design and construct motor control circuits using standard symbols and understand motor protection techniques.",
+   "Examine and interpret pneumatic and hydraulic components, and circuits to develop effective control systems.",
+   "Demonstrate the use of power control elements, electrical fuse & circuit breakers, and actuators.",
+   "Assess and justify the selection and sizing of control valves for gas, vapor, and liquid services, including the use of positioners for enhanced performance."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Industrial Control Devices",
+    "hours": 8,
+    "text": "Switches: Principle, symbolic representation, working, application of Toggle switch, Slide switch, DIP switch, Rotary switch, Thumbwheel switch, Selector switch, Push button, Drum switch, Limit switch, Temperature switch, Pressure switch, Level switch, Flow switch. Relays: Working, specifications/selection criteria and applications of electromechanical relay, Solid state relays. Contactors: Working, specifications and applications of contactors. Comparison between relay & contactor."
+   },
+   {
+    "roman": "II",
+    "title": "Sequencing & Interlocking for Motors",
+    "hours": 8,
+    "text": "Standard symbols used in motor control wiring diagrams. Sequencing and Interlocking Concepts: Applications in motor control: Start and stop operations, Emergency shutdown procedures and Direct-On-Line (DOL) and Star-Delta starting methods. Motor Protection Techniques: Short circuit protection, Overload protection, Low/under-voltage protection, Phase reversal protection and Over-temperature protection. Advanced Motor Control Operations: Reversing the direction of motor rotation, Braking methods, Variable speed starting and Jogging and inching controls. Motor Control Canters (MCCs): Concept and wiring diagrams of MCCs for industrial applications."
+   },
+   {
+    "roman": "III",
+    "title": "Introduction to Pneumatic & Hydraulic Systems",
+    "hours": 8,
+    "text": "Comparison in between Pneumatic, hydraulic & electrical systems. Pneumatic & Hydraulic components: Pneumatic & Hydraulic Power Supply and its components, Cylinders: Single acting & Double acting cylinder, Cushion, Double rod, Tandem, Multiple position, Rotary. Pneumatic & Hydraulic motors. Direction controlled valves and flow control, Special types of valves like relief valve, pressure reducing, Time delay valve, Pneumatic relay (Bleed & Non bleed, Reverse & direct). Pneumatic & Hydraulic Circuits: Standard Symbols used for developing pneumatic & hydraulic circuits, Sequence diagram (step-displacement), Direction control, Speed control, Reciprocating, Sequencing, and Meter in, Meter out for hydraulic circuits."
+   },
+   {
+    "roman": "IV",
+    "title": "Power Control Elements",
+    "hours": 8,
+    "text": "Principle, characteristics, specifications and applications of SCR, UJT, TRIAC, DIAC, MOSFET, IGBT, Triggering and Commutation of SCR. Circuit Breaker and Fuses. Actuators: Advantages, disadvantages and applications of spring and diaphragm, piston cylinder actuators and smart actuators. Design of a spring and diaphragm actuators."
+   },
+   {
+    "roman": "V",
+    "title": "Control valves",
+    "hours": 8,
+    "text": "Control valve terminology: Rangeability, turndown, viscosity index, valve capacity, distortion coefficient, AO, AC, fail-safe actions, cavitation, flashing and noise, their effects and remedies. Control valve characteristics: Inherent and installed. Control valve classification: advantages, disadvantages and applications of globe- Single seated, double seated, 3-way, diaphragm, rotary, angle, Gate, Needle, ball and butterfly valve. Designing control valve for gas, vapor and liquid services: valve sizing by ANSI/ISA 75.01 std., high temperature-pressure service valves. Positioners: Need, applications, types, effect on performance of control valve. Definition of Cavitation and Flashing."
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   "Industrial Electronics, Petruzella, McGraw-Hill, 01st Edition.",
+   "Pneumatic Instrumentation, Majumdhar, TMH, 01st Edition.",
+   "Industrial Hydraulics, Pipenger, McGraw-Hill Education, 3rd Edition.",
+   "Process Control, Instrument Engineering Hand book, B.G. Liptak, Butterworth- Heinemann Ltd, Butterworth-Heinemann Ltd, 3rd Edition.",
+   "MD Singh, K B Khanchandani, ‘Power Electronics’, McGraw Hill Company, 2nd edition.",
+   "C. D. Johnson, “Process control and Instrument technology”, Tata McGraw Hill Publications, 08th Ed.",
+   "N.A. Anderson, Boca Ratan, “Instrumentation for Process measurement and control”, Radnor Pennsylvania, CRC Press, 03rd Ed"
+  ],
+  "refBooks": [
+   "Pneumatics, Festo Didactic.",
+   "Hydraulics, Festo Didactic.",
+   "P. C. Sen,’ Power Electronics’, TMH, 2007, 02nd Edition.",
+   "Mohamad Rashid,’ Power Electronics’, PHI, 2nd edition, 2004.",
+   "“Control valve Handbook”, ISA."
+  ]
+ },
+ {
+  "code": "PCC-253-INC",
+  "name": "Digital Electronics",
+  "hours": 2,
+  "cce": 30,
+  "ese": 70,
+  "credits": 2,
+  "prereq": "Logic gates, flip flops, logic devices.",
+  "outcomes": [
+   "Execute logical functions using different number systems, Boolean algebra, and minimization techniques to design and implement digital circuits effectively.",
+   "Implement various logic families, analyze their performance specifications, and demonstrate Proficiency in interfacing TTL and CMOS logic.",
+   "Use combinational and sequential logic circuits to solve complex problems, differentiate between different types of flip-flops, and relate the design of counters and registers with practical applications.",
+   "Test and compare the applications of programmable logic devices in digital clock and frequency counter circuits, showcasing their versatility and efficiency."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Logic Families",
+    "hours": 6,
+    "text": "Logic families: TTL, CMOS, RTL, DTL logic family. Digital IC specification terminology. CD40XX /74XX series digital ICs. Characteristics of TTL logic family. Interfacing of logic family. Tristate Logic, Comparison of Different logic families."
+   },
+   {
+    "roman": "II",
+    "title": "Number system & Logic circuit minimization",
+    "hours": 6,
+    "text": "techniques Number system: Introduction to number system and number system conversion. Boolean algebra, De-Morgan's Thermos, Minimization of combinational logic functions using SOP and PSO forms. Don’t care Conditions. K-Maps up to 4 variables and Quine-McCuskey techniques."
+   },
+   {
+    "roman": "III",
+    "title": "Combinational Logic Circuits",
+    "hours": 6,
+    "text": "Introduction to Combinational logic circuits: half adder, full adder, half subtractor, full subtractor, decimal adder, decimal subtractor, magnitude comparator, decoders, encoders, multiplexer & demultiplexer. Implementation of combinational logic circuits."
+   },
+   {
+    "roman": "IV",
+    "title": "Sequential Logic",
+    "hours": 8,
+    "text": "Flip Flops: Study of SR, JK, MSJK, D, T types of flip flop, excitation tables, Conversion of Flip Flop. Counters: Binary, BCD, Up-Down counters. Design of synchronous and asynchronous counter using T and D flip flops, Realization of counters using ICs 7490, 7492,7493 and 74193. Shift Registers: Serial in Serial out, Parallel in Parallel out shift registers, Ring counter, Johnson counter. Programmable logic array (PLA) - Input, Output Buffers, AND, OR, Invert/ Non-Invert Matrix."
+   }
+  ],
+  "links": [
+   "https://onlinecourses.nptel.ac.in/noc21_ee75/preview",
+   "https://onlinecourses.nptel.ac.in/noc25_ee20/preview"
+  ],
+  "textBooks": [
+   "Floyd “Digital Principles”, Pearson Education, 11th Ed.",
+   "Gothman, ‘Digital Electronics’,2nd edition, PHI",
+   "M. Morris Mano,’ Digital Design’, Pearson Education, 03rd Ed."
+  ],
+  "refBooks": [
+   "Leach, Malvino , Saha; Digital Principles and Applications; 7th Edition, McGraw Hill",
+   "R. P. Jain; Modern Digital Electronics; 4th Edition, McGraw Hill MOOC / NPTEL/YouTube Links: -",
+   "NPTEL Course: Digital Circuit https://onlinecourses.nptel.ac.in/noc21_ee75/preview",
+   "NPTEL Course: Digital Electronics Circuit https://onlinecourses.nptel.ac.in/noc25_ee20/preview"
+  ]
+ },
+ {
+  "code": "MDM-271-INC",
+  "name": "Data Science",
+  "hours": 2,
+  "cce": 30,
+  "ese": 70,
+  "credits": 2,
+  "prereq": "Data Structure, Data Science Software Tools.",
+  "outcomes": [
+   "Execute data collection and sampling methods to gather data for analysis effectively.",
+   "Implement statistical tools and techniques to analyze and interpret data accurately.",
+   "Use data science packages for data processing, analysis, and visualization efficiently.",
+   "Demonstrate proficiency in exploratory data analysis techniques and present insights effectively."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Data Science",
+    "hours": 5,
+    "text": "Data Science Life Cycle, Data Science Software Tools, Programming Languages for Data Science, Applications of Data Science, types of data. Data Collection and Sampling. Statistics: Descriptive Statistics: Measurement of central tendency (Mean, median and mode), measurement of spread (Range, IQR, variance, standard deviation), correlation, covariance and Inferential Statistics (Probability, Hypothesis testing)."
+   },
+   {
+    "roman": "II",
+    "title": "Data Science Packages",
+    "hours": 8,
+    "text": "NumPy- Array Operation, Indexing//slicing, mathematical operations, Matrix operations, String operation. Pandas- Basic pandas’ operation on data frame, append, loc and iloc, missing values, merge, concat, join, group by, pivot, melt, date time index, Matplotlib- Histogram, Line chart, bar chart, pie chart, scatter plot, subplot, imshow. Seaborn- Histogram, line chart, pie chart, bar chart, scatter pot, heatmap, pair plot SciPy- used for scientific purpose SkLearn- used for Machine learning"
+   },
+   {
+    "roman": "III",
+    "title": "Exploratory Data Analysis",
+    "hours": 6,
+    "text": "Identification of variables and data types, Univariate, bivariate, multivariate analysis, Variable transformations, Missing value treatment (Mean /median/mode methods) Outlier treatment (Percentile, Std dev, IQR, Boxplot, Z score)."
+   },
+   {
+    "roman": "IV",
+    "title": "Data Cleaning and Data Visualization",
+    "hours": 7,
+    "text": "Categorical to Numerical: One hot encoding, dummies, Label encoding, Correlation Analysis, Feature Selection, Feature Rescaling (Normalization and Standardization ) Feature Transformation(Log, exponential, square ) Tableau Desktop: Different types of Databases, Connecting With Data, different types of charts, Creating Views and Analysis, case study."
+   }
+  ],
+  "links": [
+   "https://onlinecourses.nptel.ac.in/noc25_cs20/preview",
+   "https://onlinecourses.nptel.ac.in/noc25_cs60/preview"
+  ],
+  "textBooks": [
+   "Python for data analysis by O’Reilly",
+   "Data Visualization in python by Daniel Nelson",
+   "Mastering Python for Data Science by Samir Madhavan."
+  ],
+  "refBooks": [
+   "Data Science and Big Data Analytics: Discovering, Analyzing, Visualizing, and Presenting Data by John Wiley & Sons",
+   "Python for Data Analysis by W McKinney",
+   "Think Stats: Probability and Statistics for Programmers by Allen B. Downey MOOC / NPTEL/YouTube Links: -",
+   "NPTEL Course: Data Science for Engineers https://onlinecourses.nptel.ac.in/noc25_cs20/preview",
+   "NPTEL Course: Python for Data Science https://onlinecourses.nptel.ac.in/noc25_cs60/preview"
+  ]
+ }
+]
