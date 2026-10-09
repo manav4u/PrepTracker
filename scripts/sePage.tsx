@@ -79,7 +79,7 @@ const YL = (b: SeBranch) => (b.year === 'TE' ? { s: 'TE', l: 'Third Year' } : { 
 const PT = (b: SeBranch) => b.pattern ?? '2024';
 const CC = (b: SeBranch) => b.ccLabel ?? 'CCE';
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
-const sectionCss = `.draft{border:1px solid #e11d48;background:#1a0a10;color:#fda4af;border-radius:12px;padding:12px 16px;margin:14px 0;font-size:14px}.crs{display:grid;gap:10px;margin:14px 0}.crs a{display:flex;justify-content:space-between;gap:12px;align-items:baseline;text-decoration:none;border:1px solid #222;background:#101010;border-radius:14px;padding:14px 16px;color:#fff}.crs a:hover{border-color:#e11d48}.crs small{color:#888;font:500 11px/1.3 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}.utext{margin:10px 0 0;color:#ccc;font-size:15px}.src li{margin:6px 0;word-break:break-word}`;
+const sectionCss = `main{overflow-wrap:anywhere}.draft{border:1px solid #e11d48;background:#1a0a10;color:#fda4af;border-radius:12px;padding:12px 16px;margin:14px 0;font-size:14px}.crs{display:grid;gap:10px;margin:14px 0}.crs a{display:flex;justify-content:space-between;gap:12px;align-items:baseline;text-decoration:none;border:1px solid #222;background:#101010;border-radius:14px;padding:14px 16px;color:#fff}.crs a:hover{border-color:#e11d48}.crs small{color:#888;font:500 11px/1.3 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}.utext{margin:10px 0 0;color:#ccc;font-size:15px}.src li{margin:6px 0;word-break:break-word}`;
 
 function Head({ title, desc, path }: { title: string; desc: string; path: string }) {
   return <>
@@ -97,6 +97,7 @@ const DraftNote = ({ b }: { b: SeBranch }) => b.draft ? <p className="draft"><b>
 const PatternNote = ({ b }: { b: SeBranch }) => b.pattern && b.pattern !== '2024' ? <p className="draft"><b>{b.pattern} PATTERN.</b> This is the {b.pattern} pattern syllabus, the latest SPPU has published on its site for {YL(b).l} {b.branch}. A 2024 pattern syllabus for this year has not been published there yet, so confirm with your college which pattern applies to you.</p> : null;
 const Motif = ({ b }: { b: SeBranch }) => <svg className="motif" viewBox="0 0 600 48" preserveAspectRatio="xMinYMid meet" aria-hidden="true">{MOTIFS[b.motif](b.accent)}</svg>;
 const Foot = ({ b }: { b: SeBranch }) => <footer>
+  {b.slug === 'te-computer-engineering' && <p>Source note: Mobile Computing uses PEC321CCOM from the curriculum table; its detailed course heading prints PCC305CCOM. Robotics and Automation is a tutorial/practical course and is excluded from this theory-course list.</p>}
   <p>Source: <a href={b.pdf} rel="noopener">{b.pdfLabel} (official SPPU PDF)</a>. PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.</p>
   <p><a href={SITE + '/'}>PrepTracker home</a> · <a href={SITE + '/syllabus/' + b.slug + '/'}>{b.short} subjects</a> · <a href={SITE + '/syllabus/grading-system-sgpa/'}>Grading and SGPA</a></p>
 </footer>;
