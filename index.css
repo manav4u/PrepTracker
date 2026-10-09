@@ -35,3 +35,11 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+/* Readable labels, keyboard focus and motion preferences. */
+button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid #fb7185; outline-offset: 4px; }
+main { scroll-padding-bottom: 100px; }
+main button, main a, main input { scroll-margin-bottom: 100px; }
+.text-slate-500 { color: #94a3b8; }
+.text-slate-600 { color: #94a3b8; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }

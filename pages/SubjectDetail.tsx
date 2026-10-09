@@ -199,7 +199,7 @@ const SubjectDetail: React.FC = () => {
                         <h3 className={`text-2xl font-display font-bold mt-1 transition-colors tracking-tight ${isMastered ? 'text-[#E11D48]' : 'text-white'}`}>{unit.title}</h3>
                       </div>
                       
-                      <div className="flex bg-white/5 p-1 rounded-xl">
+                      <div className="flex flex-wrap bg-white/5 p-1 rounded-xl">
                         {[
                             { status: UnitStatus.NOT_STARTED, icon: Circle, label: 'Start' },
                             { status: UnitStatus.IN_PROGRESS, icon: Timer, label: 'Study' },
@@ -209,15 +209,16 @@ const SubjectDetail: React.FC = () => {
                              return (
                                 <button
                                     key={item.status}
+                                    aria-label={`${item.label}: ${unit.title}`} aria-pressed={isSelected}
                                     onClick={() => updateStatus(unit.id, item.status)}
-                                    className={`relative px-4 py-2 rounded-lg flex items-center gap-2 transition-all duration-300 ${
+                                    className={`relative px-3 py-3 rounded-lg flex items-center gap-2 transition-all duration-300 ${
                                         isSelected 
                                         ? 'bg-white text-black shadow-lg' 
                                         : 'text-slate-500 hover:text-white hover:bg-white/5'
                                     }`}
                                 >
                                     <item.icon size={14} className={isSelected ? 'text-black' : 'text-current'} strokeWidth={2.5} />
-                                    <span className={`text-[10px] font-bold uppercase tracking-wider ${isSelected ? 'block' : 'hidden lg:block'}`}>
+                                    <span className={`text-[10px] font-bold uppercase tracking-wider block`}>
                                         {item.label}
                                     </span>
                                 </button>
