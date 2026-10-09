@@ -43,3 +43,17 @@ main button, main a, main input { scroll-margin-bottom: 100px; }
 .text-slate-500 { color: #94a3b8; }
 .text-slate-600 { color: #94a3b8; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+@media print {
+ html, body, #root, #root * { color:#111 !important; background:#fff !important; background-image:none !important; box-shadow:none !important; text-shadow:none !important; }
+ #root header, #root nav, #root button, #root aside, #root .fixed, #root .lg\:col-span-4 { display:none !important; }
+ #root main {padding:0 !important;margin:0 !important;overflow:visible !important;}
+ #root .grid {display:block !important;}
+ #root details > * {display:block !important;}
+ #root .scroll-mt-20 {break-inside:avoid;}
+}
+@media print {
+ #root div, #root section, #root article, #root h1, #root h2, #root h3, #root h4, #root p, #root span, #root a, #root li, #root summary, #root details {color:#111 !important;background:#fff !important;}
+}
+@media print {
+ #root * {transition:none !important;animation:none !important;}
+}

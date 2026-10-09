@@ -1,4 +1,5 @@
 import React from 'react';
+import {deriveOutline} from '../lib/outline.mjs';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { css, SITE } from './syllabusPage';
 
@@ -79,7 +80,7 @@ const YL = (b: SeBranch) => (b.year === 'TE' ? { s: 'TE', l: 'Third Year' } : { 
 const PT = (b: SeBranch) => b.pattern ?? '2024';
 const CC = (b: SeBranch) => b.ccLabel ?? 'CCE';
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
-const sectionCss = `main{overflow-wrap:anywhere}.draft{border:1px solid #e11d48;background:#1a0a10;color:#fda4af;border-radius:12px;padding:12px 16px;margin:14px 0;font-size:14px}.crs{display:grid;gap:10px;margin:14px 0}.crs a{display:flex;justify-content:space-between;gap:12px;align-items:baseline;text-decoration:none;border:1px solid #222;background:#101010;border-radius:14px;padding:14px 16px;color:#fff}.crs a:hover{border-color:#e11d48}.crs small{color:#888;font:500 11px/1.3 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}.utext{margin:10px 0 0;color:#ccc;font-size:15px}.src li{margin:6px 0;word-break:break-word}`;
+const sectionCss = `main{overflow-wrap:anywhere}.draft{border:1px solid #e11d48;background:#1a0a10;color:#fda4af;border-radius:12px;padding:12px 16px;margin:14px 0;font-size:14px}.crs{display:grid;gap:10px;margin:14px 0}.crs a{display:flex;justify-content:space-between;gap:12px;align-items:baseline;text-decoration:none;border:1px solid #222;background:#101010;border-radius:14px;padding:14px 16px;color:#fff}.crs a:hover{border-color:#e11d48}.crs small{color:#888;font:500 11px/1.3 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}.upills{position:sticky;top:0;background:#0a0a0a;z-index:3;padding:10px 0}.unit{scroll-margin-top:100px}.outline li{margin:8px 0;color:#ddd;font-size:15px;line-height:1.8}@media print{body{background:#fff;color:#111}nav,.upills{display:none}.card{background:white;color:#111;break-inside:avoid}.utext,.outline li{color:#111}details>*{display:block!important}a{color:#111}}.utext{margin:10px 0 0;color:#ccc;font-size:15px}.src li{margin:6px 0;word-break:break-word}`;
 
 function Head({ title, desc, path }: { title: string; desc: string; path: string }) {
   return <>
@@ -141,7 +142,7 @@ export function renderSeCourse(b: SeBranch, c: SeCourse): string {
       <div className="units">{c.units.map((u, i) => (
         <section className="card unit" id={'unit-' + (i + 1)} key={u.roman}>
           <div className="uh"><span className="chip up">UNIT {ROMAN[i]}</span><h3>{u.title}</h3><span className="hrs">{u.hours} hours</span></div>
-          {u.text.split(/(?=Case [Ss]tud(?:y|ies))/).map((t, k) => <p className="utext" key={k}>{t.trim()}</p>)}
+          <p className="utext" style={{fontSize:12}}>Derived reading outline. Source text split at semicolons, line breaks and sentence boundaries, not an official topic hierarchy.</p><ul className="outline">{deriveOutline(u.text).map((t:string,k:number)=><li key={k}>{t}</li>)}</ul><details><summary>Preserved official unit paragraph</summary><p className="utext">{u.text}</p></details><a href={'#unit-'+(i+1)} style={{display:'inline-block',marginTop:12,fontSize:13}}>Unit permalink</a>
         </section>))}</div>
       <h2>Marks and credits</h2>
       <table><thead><tr><th>Head</th><th>Marks</th><th>Credit</th></tr></thead><tbody>
