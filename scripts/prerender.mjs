@@ -17,6 +17,9 @@ try {
   const page = fs.readFileSync(file, 'utf8');
   if (!page.includes('<div id="root"></div>')) throw new Error('empty #root marker not found in dist/index.html');
   fs.writeFileSync(file, page.replace('<div id="root"></div>', `<div id="root">${html}</div>`));
+  const sub = path.resolve('dist' + mod.M1_PATH);
+  fs.mkdirSync(sub, { recursive: true });
+  fs.writeFileSync(path.join(sub, 'index.html'), mod.renderM1Page());
   console.log(`prerendered landing page (${html.length} bytes)`);
 } finally {
   fs.rmSync(outDir, { recursive: true, force: true });

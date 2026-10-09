@@ -12,3 +12,5 @@ export function renderLanding(): string {
     </MemoryRouter>
   );
 }
+
+export { renderM1Page, M1_PATH } from './syllabusPage';
