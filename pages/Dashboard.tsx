@@ -70,7 +70,7 @@ const ProgressGraphCard = ({ data, labels }: { data: number[], labels: string[] 
     return (
         <div className="p-6 rounded-3xl bg-[#0a0a0a] border border-white/5 flex flex-col justify-between h-36 lg:h-40 relative overflow-hidden group hover:border-white/20 transition-all">
             <div className="flex justify-between items-start z-10">
-                <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-slate-500">Study Activity</span>
+                <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-slate-500">Course completion</span>
                 <div className="flex items-center gap-2">
                     <span className="relative flex h-1.5 w-1.5">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E11D48] opacity-75"></span>
@@ -271,7 +271,7 @@ const Dashboard: React.FC = () => {
            <ProgressGraphCard data={graphData} labels={graphLabels} />
            
            <StatPill label="Days to Exam" value={`${daysToNextExam}d`} sub={nextExam ? nextExam.code : 'No Exams'} icon={CalendarDays} />
-           <StatPill label="Study Streak" value={validStreak} sub="Day Streak" icon={TrendingUp} active={validStreak > 2} />
+           <StatPill label="Completed units" value={totalMastered} sub="Self-reported Done" icon={TrendingUp} />
         </div>
       </section>
 
