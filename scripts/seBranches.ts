@@ -9,6 +9,7 @@ import instr from './seData/instr.json';
 import auto from './seData/auto.json';
 import cyber from './seData/cyber.json';
 import terai from './seData/terai.json';
+import temech from './seData/temech.json';
 import mech from './seData/mech.json';
 
 // One entry per Second Year branch. Course data is checked against each branch's official SPPU 2024 pattern PDF.
@@ -78,5 +79,11 @@ export const SE_BRANCHES: SeBranch[] = [
     pdf: 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/TE_Robotics%20and%20AI_Syllabus_2024%20Pattern%20(1)_13062026.pdf',
     pdfLabel: 'SPPU TE Robotics and Artificial Intelligence 2024 pattern syllabus (June 2026)',
     courses: terai as SeBranch['courses'],
+  },
+  {
+    slug: 'te-mechanical-engineering', branch: 'Mechanical Engineering', short: 'TE Mechanical', motif: 'mech', accent: '#e11d48', year: 'TE',
+    pdf: 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/R10_%20TE%20(2024%20PATT)%20Mechanical%20Engineering%20Syllabus%20(30.5.2026)_04062026.pdf',
+    pdfLabel: 'SPPU TE Mechanical Engineering 2024 pattern syllabus (May 2026)',
+    courses: temech as SeBranch['courses'],
   },
 ];

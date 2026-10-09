@@ -132,3 +132,14 @@
 - [Robot Modeling and Simulation syllabus (PCC-303-RAI)](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/robot-modeling-and-simulation/)
 - [Robot Operating System syllabus (PCC-353-RAI)](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/robot-operating-system/)
 - [Robotic Process Automation syllabus (PCC-352-RAI)](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/robotic-process-automation/)
+
+## Third Year (TE) Mechanical Engineering, 2024 pattern
+- [TE Mechanical subjects](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/): theory courses with units, marks, outcomes and books from the official SPPU PDF
+- [Computer Integrated Manufacturing syllabus (PCC-351-MEC)](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/computer-integrated-manufacturing/)
+- [Design of Machine Elements syllabus (PCC-303-MEC)](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/design-of-machine-elements/)
+- [Heat & Mass Transfer syllabus (PCC-301-MEC)](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/heat-and-mass-transfer/)
+- [Manufacturing Process-II syllabus (PCC-304-MEC)](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/manufacturing-process-ii/)
+- [Metrology and Quality Control syllabus (PCC-305-MEC)](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/metrology-and-quality-control/)
+- [Refrigeration & Air-conditioning syllabus (PCC-352-MEC)](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/refrigeration-and-air-conditioning/)
+- [Theory of Machines syllabus (PCC-302-MEC)](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/theory-of-machines/)
+- [Transmission System Design syllabus (PCC-353-MEC)](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/transmission-system-design/)

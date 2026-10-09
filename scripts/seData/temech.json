@@ -1,0 +1,538 @@
+[
+ {
+  "code": "PCC-301-MEC",
+  "name": "Heat & Mass Transfer",
+  "hours": 4,
+  "cce": 30,
+  "ese": 70,
+  "credits": 4,
+  "prereq": "Fluid Mechanics, Engineering Thermodynamics, Engineering Mathematics",
+  "outcomes": [
+   "EXPLAIN fundamental heat transfer mechanisms and analyze heat conduction in engineering systems.",
+   "ANALYZE fins, insulation systems, and transient heat conduction problems.",
+   "APPLY convection heat transfer principles and empirical correlations to determine heat transfer rates.",
+   "ANALYZE radiation heat exchange between surfaces and thermal systems.",
+   "EVALUATE the performance of heat exchangers using LMTD and NTU methods.CO5."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Introduction and Conduction (Steady State)",
+    "hours": 8,
+    "text": "Introduction and basic concepts: Introduction, Application areas of heat transfer. Basic modes of Heat Transfer, mechanisms and governing laws for these modes. Concept of 1D, 2D and 3D heat transfer. General three dimensional heat conduction equation in Cartesian coordinates (with derivation), cylindrical and spherical coordinates (no derivation). Thermal Conductivity, variable thermal conductivity, thermal diffusivity. (Simple numerical on modes and laws of transfer of heat transfer) One dimensional steady state heat conduction: One dimensional steady state heat conduction equation for the plane wall, cylinder and sphere, Overall heat transfer coefficient. Electrical Analogy - thermal resistance of composite structures and thermal contact resistance. Conduction with internal heat generation for plane wall, solid cylinder and solid sphere (Numerical on electrical analogy.)"
+   },
+   {
+    "roman": "II",
+    "title": "Finned Surfaces, Thermal Insulation and Transient Heat Conduction.",
+    "hours": 8,
+    "text": "Finned surfaces: Extended surface, types of fins, analysis of fins of uniform cross section area for temperature distribution and heat transfer rate for infinitely long & adequately long (with insulated end) fins. Fin efficiency & effectiveness. (Numerical on extended surfaces.) Thermal insulation and transient heat conduction: Thermal Insulation-types and selection, Critical radius of Insulation for cylinder and sphere, Unsteady state heat transfer, lumped heat capacity analysis, Heisler’s charts. Biot’s Number, Fourier’s Number & their significance. (Numerical on critical radius and lumped heat capacity.)"
+   },
+   {
+    "roman": "III",
+    "title": "Convective Heat Transfer, Mass Transfer",
+    "hours": 8,
+    "text": "Basic concept of convection and forced convection: Concept of hydrodynamics & thermal boundary layer thickness, local and average heat transfer coefficient. Reynolds number, Prandtl number, Nusselt number. Empirical co-relations for external, internal flows, laminar & turbulent flow through conduits. (Numerical on forced convection with given empirical co-relations). Free or natural convection, boiling and condensation: Grashof’s number, Rayleigh number, flow over horizontal and vertical plate, Empirical co-relations for cylinders and sphere. Introduction to mass transfer: Introduction to mass transfer, diffusion using Fick’s Law of Diffusion, and basic applications. (Numerical on natural convection with given empirical co-relations)."
+   },
+   {
+    "roman": "IV",
+    "title": "Radiation Heat Transfer",
+    "hours": 6,
+    "text": "Basic Concepts of Radiation: Radiation, spectrum of radiation, black body radiation, radiation intensity, Laws of radiation-Kirchhoff, Planck’s, Wien’s displacement law, Stefan Boltzmann & Lamberts Co-sine law. Emissivity, absorptivity, transmissivity, reflectivity, radiosity, emissive power, irradiation. (Simple numerical on basic radiation). Radiation heat exchange: Radiation heat exchange between surfaces, shape factor & its laws, radiation between parallel plates, cylinder & spheres. Radiation shields. (Numerical on Radiation shields)."
+   },
+   {
+    "roman": "V",
+    "title": "Heat Exchangers, Boiling and Condensation",
+    "hours": 7,
+    "text": "Introduction & LMTD Method: Introduction and detailed classification of heat exchangers. Overall heat transfer coefficient, fouling factor and its effect on heat exchanger performance. Log Mean Temperature Difference (LMTD) method for heat exchanger analysis. (Numerical on LMTD Method). Effectiveness– NTU method: Effectiveness–NTU method for heat exchanger performance evaluation. Boiling and Condensation heat transfer: Pool boiling curve and regimes of pool boiling, Critical heat flux, film and drop wise condensation. (Numerical on Effectiveness-NTU Method)."
+   }
+  ],
+  "links": [
+   "https://nptel.ac.in/courses/112101097",
+   "https://nptel.ac.in/courses/112106315"
+  ],
+  "textBooks": [
+   "P.K. Nag, Heat & Mass Transfer, McGraw Hill Education Private Limited.",
+   "M.M. Rathod, Engineering Heat and Mass Transfer, Third Edition, Laxmi Publications, New Delhi",
+   "V. M. Domkundwar, Heat Transfer, Dhanpat Rai & Co Ltd.",
+   "S.P. Sukhatme, A Textbook on Heat Transfer, Universities Press.",
+   "R.C. Sachdeva, Fundamentals of Engineering Heat and Mass Transfer, New Age Science.",
+   "Joshi's Process Equipment Design, by V.V. Mahajani , S.B. Umarji ,Trinity Press",
+   "S. P. Venkatesan, Heat Transfer, Ane Books Pvt. Ltd."
+  ],
+  "refBooks": [
+   "Franck P. Incropera, David P. DeWitt – Fundamentals of Heat and Mass Transfer,",
+   "Y. A. Cengel and A.J. Ghajar, Heat and Mass Transfer – Fundamentals and Applications, Tata McGraw Hill Education Private Limited.",
+   "A.F. Mills, Basic Heat and Mass Transfer, Pearson.",
+   "Holman, Fundamentals of Heat and Mass Transfer, McGraw – Hill publication.",
+   "M. Thirumaleshwar, Fundamentals of Heat and Mass Transfer, Pearson Education India.",
+   "B.K. Dutta, Heat Transfer-Principles and Applications, PHI.",
+   "C.P. Kothandaraman, S. V. Subramanyam, Heat and Mass Transfer Data Book, New Academic Science.",
+   "Process heat Transfer, D. Q. Kern, Wiley Publication"
+  ]
+ },
+ {
+  "code": "PCC-302-MEC",
+  "name": "Theory of Machines",
+  "hours": 3,
+  "cce": 30,
+  "ese": 70,
+  "credits": 3,
+  "prereq": "Engineering Mathematics - I and II, Engineering Physics, Engineering Mechanics, Geometric Modelling & Drafting",
+  "outcomes": [
+   "APPLY kinematic concepts to analyze mechanisms used in engineering applications",
+   "ANALYZE displacement, velocity, and acceleration of mechanisms using analytical and graphical methods.",
+   "DESIGN and SYNTHESIZE mechanisms for specified motion and path generation problems.",
+   "ANALYZE gear systems and APPLY kinematic principles in power transmission applications.",
+   "DESIGN cam profiles for required follower motion considering practical constraints"
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Fundamentals of Mechanism",
+    "hours": 7,
+    "text": "Introduction: kinematic link, kinematic pair, kinematic chain, types of constrained motions, types of joints, mechanism, machine, Degree of freedom and Mobility. Inversions of Mechanisms: Four-Bar Chain, Slider crank Chain, Double slider crank Chain. Mechanisms with Higher pairs: Equivalent Linkages and their Cases (Sliding Pairs in Place of Turning Pairs, Spring in Place of Turning Pairs, Cam Pair in Place of Turning Pairs)"
+   },
+   {
+    "roman": "II",
+    "title": "Kinematic Analysis of Mechanisms: Analytical Method & Graphical",
+    "hours": 7,
+    "text": "Method Analytical methods: Displacement, velocity and acceleration analysis of slider crank Mechanism. Vector and Complex Algebra Methods (Theoretical Treatment only). Graphical methods: Displacement, velocity and acceleration analysis of mechanisms by Relative Velocity Method (Mechanisms up to 6 Links), Coriolis component of Acceleration (Theoretical treatment only) Instantaneous Centre of Velocity, Kennedy’s Theorem, Angular Velocity ratio Theorem, Analysis of mechanism by ICR method (Mechanisms up to 6 Links)"
+   },
+   {
+    "roman": "III",
+    "title": "Synthesis of Mechanisms",
+    "hours": 7,
+    "text": "Steps in Synthesis: Type synthesis, Number Synthesis, Dimensional synthesis, Tasks of Kinematic synthesis - Path, function and motion generation (Body guidance), Precision Positions, Chebychev spacing, Mechanical and structural errors Graphical Synthesis: Inversion and relative pole method for three-position synthesis of Four-Bar and Single Slider Crank Mechanisms Analytical Synthesis: Three-position synthesis of the Four-Bar mechanism using Freudenstein’s equation"
+   },
+   {
+    "roman": "IV",
+    "title": "Kinematics of Gears",
+    "hours": 8,
+    "text": "Introduction: Classification, terminology, law of gearing, involute and cycloidal tooth profile, Spur Gear: path of contact, arc of contact sliding velocity, Interference and undercutting, Minimum number of teeth to avoid interference, Force Analysis (theoretical treatment only) Helical and Spiral Gears: Terminology, Geometrical Relationships, virtual number of teeth for helical gears Bevel Gear & Worm and Worm Wheel: Terminology, Geometrical Relationships Gear Train: Types, Analysis of Epicyclic gear Trains, Holding torque - simple, compound and Epicyclic gear Trains, compound Epicyclic gear Train"
+   },
+   {
+    "roman": "V",
+    "title": "Cams & Followers",
+    "hours": 8,
+    "text": "Introduction: Types of cams and followers, and their classification, analysis of standard motions to the follower, Cam Profile: Determination of cam profiles for different follower motions Methods of control: pressure angle, radius of curvature and undercutting. Jump phenomenon of Eccentric cam,"
+   }
+  ],
+  "links": [
+   "https://nptel.ac.in/courses/112104121",
+   "https://nptel.ac.in/courses/112106270",
+   "https://onlinecourses.nptel.ac.in/noc22_me108/preview",
+   "https://onlinecourses.nptel.ac.in/noc25_me46/preview"
+  ],
+  "textBooks": [
+   "S. S. Rattan, “Theory of Machines”, Third Edition, McGraw Hill Education (India) Pvt. Ltd., New Delhi.",
+   "Bevan T, “Theory of Machines”, Third Edition, Longman Publication",
+   "G. Ambekar, “Mechanism and Machine Theory”, PHI",
+   "J. J. Uicker, G. R. Pennock, J. E. Shigley, “Theory of Machines and Mechanisms”, Fifth Edition, International Student Edition, Oxford"
+  ],
+  "refBooks": [
+   "Ghosh Malik, “Theory of Mechanism and Machines”, East-West Pvt. Ltd.",
+   "Hannah and Stephans, “Mechanics of Machines”, Edward Arnolde Publication",
+   "R. L. Norton, “Kinematics and Dynamics of Machinery”, First Edition, McGraw Hill Education (India) P Ltd. New Delhi",
+   "Sadhu Singh, “Theory of Machines”, Pearson",
+   "Dr. V. P. Singh, “Theory of Machine”, Dhanpatrai and Sons",
+   "C. S. Sharma & Kamlesh Purohit, “Theory of Machine and Mechanism”, PHI."
+  ]
+ },
+ {
+  "code": "PCC-303-MEC",
+  "name": "Design of Machine Elements",
+  "hours": 4,
+  "cce": 30,
+  "ese": 70,
+  "credits": 4,
+  "prereq": "The basics of material elastic behavior, stress, strain, its relationship, failure modes, different theories of failure and its applications. The design cycle, basis of design considerations like strength, rigidity, manufacture, assembly and cost, standards and codes. The preferred sizes and series, tolerances and types of fits. Construction of SMD and BMD. Roots of equations, Interpolation rule.",
+  "outcomes": [
+   "DESIGN levers and components subjected to eccentric loading by selecting appropriate material.",
+   "DESIGN shafts, keys and couplings under different loading conditions.",
+   "EVALUATE the stresses developed in the different type of welded and threaded joints.",
+   "APPLY the design procedure for different types of springs and EVALUATE dimensions of machine components under fluctuating loads.",
+   "ANALYZE different stresses developed in power screws and APPLY those in the procedure to design screw jack."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Fundamentals of Machine Design and Material Selection",
+    "hours": 7,
+    "text": "Selection of materials and factor of safety, Service factor, Design of hand / foot lever, lever for safety valve, bell crank lever, Design of components subjected to eccentric loading., Design process , Design considerations, Engineering materials and their properties, Stress concentration, Static and fluctuating loads."
+   },
+   {
+    "roman": "II",
+    "title": "Design of Shafts, Keys and Couplings",
+    "hours": 7,
+    "text": "Shaft design on the Strength basis, torsional rigidity basis and lateral rigidity basis, Design of shaft as per A.S.M.E. code. Design of square and rectangular keys, Kennedy key and splines. Design of Flange Coupling and Bushed-Pin Flexible Coupling."
+   },
+   {
+    "roman": "III",
+    "title": "Design of Mechanical Joints",
+    "hours": 8,
+    "text": "Introduction to threaded joints, Bolts of uniform strength, locking devices, eccentrically loaded bolted joint in shear, Eccentric load perpendicular and parallel to axis of bolt, Eccentric load on circular base. Applications of joints in mechanical systems Introduction to welded joints, Strength of butt, parallel and transverse fillet welds, axially loaded unsymmetrical welded joints, Eccentric load in plane of welds, Welded joints subjected to bending and torsional moments. Design of cotter and knuckle joints"
+   },
+   {
+    "roman": "IV",
+    "title": "Design of Springs and Mechanical Components under Variable",
+    "hours": 8,
+    "text": "Loads Springs: Types and applications of springs, Stress and deflection equations for helical compression Springs, Springs in series and parallel, Design of helical springs, concentric helical springs, surge in spring, Design of Multi-leaf springs, Nipping of Leaf springs, Shot Peening. Analysis of machine elements under variable loads: Fatigue Failure, Stress-Life (S–N) Curve and Endurance Limit, Factors Affecting Endurance Strength (Modifying Factors and Notch Sensitivity), Reversed Stress Concept, Fatigue Failure Theories: Soderberg, Goodman, and Gerber Criteria, Modified Goodman Diagram for Design Applications, Design for Finite and Infinite Life, Cumulative Damage in Fatigue, Fatigue Design Under Combined Stresses (Theoretical Approach)"
+   },
+   {
+    "roman": "V",
+    "title": "Design of Power Screw",
+    "hours": 8,
+    "text": "Terminology of Power Screw, Torque analysis and Design of power screws with square and trapezoidal threads, Collar friction torque, Self-locking screw, Efficiency of square threaded screw, Efficiency of selflocking screw, Design of screw, nuts and C-Clamp. Design of screw jack, Differential and Compound Screw and Re-circulating Ball Screw (Theoretical treatment only)."
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   ": 1 Bhandari V.B., Design of Machine Elements, Tata McGraw Hill Publication Co. Ltd. 2 Shigley J.E. and Mischke C.R., Mechanical Engineering Design, McGraw Hill Publication Co. Ltd."
+  ],
+  "refBooks": [
+   ": 1 Spotts M.F. and Shoup T.E., Design of Machine Elements, Prentice Hall International.",
+   "Juvinal R.C., Fundamentals of Machine Components Design, John Wiley and Sons.",
+   "Black P.H. and O. Eugene Adams, Machine Design, McGraw Hill Book Co. Inc.",
+   "Willium C. Orthwein, Machine Components Design, West Publishing Co. and Jaico Publications House.",
+   "Hall A.S., Holowenko A.R. and Laughlin H.G, Theory and Problems of Machine Design, Schaum’s Outline Series.",
+   "C. S. Sharma and Kamlesh Purohit, Design of Machine Elements, PHI Learing Pvt. Ltd.",
+   "D. K. Aggarwal & P. C. Sharma, Machine Design, S.K Kataria and Sons.",
+   "P. C. Gope, Machine Design: Fundamentals and Applications, PHI Learing Pvt. Ltd.",
+   "Design Data - P.S.G. College of Technology, Coimbatore.",
+   "K. Mahadevan, K. Balveera Reddy, Design Data Handbook for Mechanical Engineers, CBS Publishers."
+  ]
+ },
+ {
+  "code": "PCC-304-MEC",
+  "name": "Manufacturing Process-II",
+  "hours": 3,
+  "cce": 30,
+  "ese": 70,
+  "credits": 3,
+  "prereq": "Workshop Practices, Manufacturing Processes-I",
+  "outcomes": [
+   "DECIDE the appropriate cutter, method for gear cutting and able to DETERMINE the cutting parameter using indexing method.",
+   "CATEGORIZE the polymer process according to product and able to DEVELOP concept for composite fabrication.",
+   "DETERMINE the suitable modern machining process for particular application and EXAMINE the material removal rate.",
+   "CLASSIFY the different 3D printing techniques and able to DEVELOP a product by using the 3D printing techniques.",
+   "DESIGN and DEVELOP the jig or fixture according to need of the component used in machining."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Multipoint cutting tools and Gear Manufacturing",
+    "hours": 8,
+    "text": "Introduction of multi point cutting tools, Nomenclature of multipoint cutting tools like milling, drilling, reaming and taps, Selection criteria for multipoint cutters. Introduction and classification of gear manufacturing, Gear milling, standard cutters and limitations, Indexing and numerical on indexing, Gear Hobbing, Gear Shaping, Gear Shaving and Gear Grinding processes,"
+   },
+   {
+    "roman": "II",
+    "title": "Polymer and composite Processing",
+    "hours": 7,
+    "text": "Thermoplastics and Thermosetting, Moulding: Compression moulding, Transfer moulding, Blow moulding, Injection moulding - Process and equipment Extrusion of Plastic: Type of extruder, extrusion of film, pipe, Cable and Sheet – Principle Pressure forming and Vacuum forming. Introduction to composites, Composite properties, Matrices, Fiber reinforcement. Composite Manufacturing Processes: Hand lay-up Process, Spray lay-up, Resin transfer moulding, Pultrusion, and Compression moulding process, Vacuum impregnation process, Processing of metal matrix composites, Fabrication of ceramic matrix composites, Carbon-carbon composites, Polymer matrix and nano-composites."
+   },
+   {
+    "roman": "III",
+    "title": "Modern Machining Processes",
+    "hours": 7,
+    "text": "Introduction to modern manufacturing processes, Need and classification of modern manufacturing methods. Introduction, Working Principle, equipment, process parameters, material removal rates of Mechanical Energy Process machining processes : Abrasive Jet Machining (AJM), Water Jet Machining (WJM), Ultra Sonic Machining (USM), Energy Assisted Modern Fabrication Process : Laser beam machining (LBM), Focused Ion beam (FIB) Electro-chemical Machining Process : Electro chemical machining (ECM), Photochemical machining (PCM) Electro-thermal Machining Process : Electric discharge machining (EDM), Wire Electric Discharge Machining (W-EDM)"
+   },
+   {
+    "roman": "IV",
+    "title": "Additive Manufacturing",
+    "hours": 7,
+    "text": "Introduction to AM, Classification of AM Processes (Process-based, material form based, application-based - direct and indirect processes and Microand Nano-additive processes), Light-Based Photo-curing: Stereolithography (SLA), Digital Light Processing (DLP), Laser-Based Melting: Selective Laser Sintering (SLS), Direct Metal Laser Sintering (DMLS), Selective Laser Melting (SLM). Extrusion-Based Deposition: Fused Deposition Modeling (FDM). Inkjet(droplet)-Based Deposition and Fusion: Multi-jet Modeling (MJM), Polyjet Printing, Nanoparticle Jet, Quality considerations and Post-Processing techniques: Requirements and Techniques, Support Removal, Sanding, Acetone treatment, Polishing."
+   },
+   {
+    "roman": "V",
+    "title": "Jig and Fixture Design",
+    "hours": 7,
+    "text": "Importance of jigs and fixtures in mass production, Concept of Interchangeability, degree of freedom, six point principle or 3-2-1 location method, Fundamental principles for the design of jigs and fixtures. Jigs- Definition, locating methods and devices, Clamping principles, Drill bushes, Types of jigs- Template jig, Leaf jig, Box Jig or Tumble Jig, Indexing Jig, Angular post jig. Fixtures: Definition. Design principles of fixture, Types of fixtures- Turning fixture, Grinding fixture, Welding fixture, Indexing fixtures, Inspection fixtures. Numerical on simple jig or fixture design"
+   }
+  ],
+  "links": [
+   "https://nptel.ac.in/courses/112104195",
+   "https://nptel.ac.in/courses/112107219"
+  ],
+  "textBooks": [
+   "P. N. Rao, “Manufacturing Technology Vol. I &amp; II” , Tata McGraw Hill Publishers",
+   "P. C. Sharma, “Production Engineering”, Khanna Publishers",
+   "Manufacturing Science&quot; A. Ghosh, and A.K. Mallik, Affiliated East-West Press Pvt. Ltd. New Delhi.",
+   "Elanchezhian, C., T. Sunder Selwyn, and B. Vijaya Ramnath. Design of Jigs, Fixtures and Press Tools. Eswar press, 2004."
+  ],
+  "refBooks": [
+   "R.K.Jain, “Production Technology” Khanna Publication",
+   "Brent Strong, “Fundamentals of Composites Manufacturing: Materials, Methods”, SME Book series",
+   "Materials and Processes in Manufacturing & quot; (8th Edition),E.P. DeGarmo, J. T Black, R.A. Kohser, Prentice Hall of India, New Delhi (ISBN 0-02-978760).",
+   "Nontraditional Manufacturing Processes&quot;, G.F.Benedict, Marcel Dekker, Inc. New York (ISBN 0-8247-7352-7)."
+  ]
+ },
+ {
+  "code": "PCC-305-MEC",
+  "name": "Metrology and Quality Control",
+  "hours": 3,
+  "cce": 30,
+  "ese": 70,
+  "credits": 3,
+  "prereq": "Fundamentals of engineering measurements and instrumentation, Basic knowledge of manufacturing processes and machine tools, statistics and probability concepts.",
+  "outcomes": [
+   "APPLY principles of metrology, calibration and measurement uncertainty in engineering applications",
+   "UNDERSTAND and USE advanced metrology systems like CMM and non-contact measurement techniques for inspection",
+   "IMPLEMENT quality tools and methodologies for continuous improvement",
+   "ANALYZE process performance using statistical quality control and sampling techniques",
+   "APPLY advanced quality engineering tools such as FMEA, Lean Six Sigma, and digital quality systems"
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Modern Measurement Systems and Metrology Fundamentals",
+    "hours": 8,
+    "text": "Metrology Fundamentals and Modern Measurement Systems: Role of metrology in smart manufacturing and Industry 4.0, measurement standards and traceability (ISO/BIS standards), types and sources of errors, measurement uncertainty analysis, accuracy, precision, repeatability and reproducibility (R&R concept), calibration: digital calibration systems and documentation. Measurement Instruments and Comparators: Digital instruments such as Vernier caliper, micrometer and height gauge, Types of gauges-plain plug gauge, ring gauge, snap gauge, limit gauge and gauge materials comparators: mechanical, pneumatic and electrical (LVDT). Limits, Fits and Geometric Tolerance: Limits, fits and tolerances, Introduction to Geometric Dimensioning and Tolerance (GD&T) symbols and industrial applications. CCE Activities: Measurement of dimensions of given components using digital instruments such as Vernier calliper, micro meter, height gauge, and dial gauge"
+   },
+   {
+    "roman": "II",
+    "title": "Advanced Metrology and Industrial Inspection Systems",
+    "hours": 8,
+    "text": "Coordinate Measuring Machines (CMM): Types of CMM such as bridge, gantry, portable and horizontal arm, types of probes including touch trigger, scanning and optical probes, applications in reverse engineering and inspection. Optical and Non-Contact Metrology: Machine vision systems including image processing basics and industrial inspection applications, profile projector and toolmaker’s microscope, 3D scanning technologies such as laser scanning and structured light. Thread and Gear Metrology: Thread parameters such as major diameter, minor diameter and pitch diameter, introduction to optical and CMM-based thread measurement, gear metrology including gear errors Surface Metrology: Surface texture and parameters such as Ra, Rz and Rt, modern surface measuring instruments including stylus-based instruments, optical surface profilers."
+   },
+   {
+    "roman": "III",
+    "title": "Introduction to Quality and Quality Tools",
+    "hours": 8,
+    "text": "Introduction to Quality: Quality Concepts, Quality dimensions, Statements, Cost of quality & value of quality, Deming‟s cycles & 14 Points, Juran Trilogy approach, Seven Quality Tools, Introduction to New Seven Tools, Quality Circle, 5S, Kaizen, Poka yoke, Kanban, JIT, QMS (ISO 9000, TS16949, ISO14000). Criteria for Quality Award (National & International)"
+   },
+   {
+    "roman": "IV",
+    "title": "Statistical Quality Control",
+    "hours": 7,
+    "text": "Statistical quality control: Statistical concept, Frequency diagram, Concept of variance analysis, Control, Chart for Variable (X & R Chart) & Attribute (P & C Chart), Process capability (Indices: cp, cpk, ppk), Statistical Process Control and six sigma. Acceptance Sampling: Sampling Inspection, OC Curve and its characteristics, sampling methods, Sampling Plans, calculation of sample size, AOQ, Probability of acceptance. (Numerical on control charts and sampling)"
+   },
+   {
+    "roman": "V",
+    "title": "Advanced Quality Engineering",
+    "hours": 8,
+    "text": "Advanced Quality Tools: Failure Mode and Effects Analysis (FMEA), Failure Mode, Effects and Criticality Analysis (FMECA), steps involved in FMEA, Risk Priority Number (RPN), severity, occurrence and detection ratings, basic symbols, and case studies. Lean and Six Sigma Integration: Overview of Six Sigma (DMAIC methodology), introduction to Lean principles, waste identification and integration of Lean and Six Sigma for process improvement. Digital Quality and Industry 4.0: Introduction to digital quality management systems, real-time quality monitoring, application of IoT in quality control, and concepts of smart inspection and data-driven decision making."
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   "Jain R.K., Engineering Metrology, Khanna Publication.",
+   "C. Gupta, Engineering Metrology, Dhanpath Rai.",
+   "Bewoor A. K. and Kulkarni V. A., Metrology and Measurements, Tata McGraw hill Publication.",
+   "Juran J. M., Quality Handbook, McGraw Hill Publications. Grant S.P., Statistical Quality Control, Tata McGraw hill Publication."
+  ],
+  "refBooks": [
+   "Narayana K.L., Engineering Metrology.",
+   "Galyer J.F & Shotbolt C.R., Metrology for engineers.",
+   "Gupta I.C., Engineering Metrology, Dhanpatrai Publiartions.",
+   "Judge A.W., Engineering Precision Measurements, Chapman and Hall",
+   "Francis T. Farago, Mark A. Curtis, Handbook of dimensional measurement.",
+   "ASTME, Handbook of Industrial Metrology, Prentice Hall of India Ltd.",
+   "Connie Dotson, Fundamentals of Dimensional Metrology, Thamson Publn., 4th Edition.",
+   "Basterfield D. H., Quality control, Pearson Education India, 2004.",
+   "Kulkarni V. A. and Bewoor A. K., Quality Control, John Wiley Publication.",
+   "Harrison M. Wordsworth, Stefeen Godfrey, Modern Methods for Quality control and Improvement, Willy Publication."
+  ]
+ },
+ {
+  "code": "PCC-351-MEC",
+  "name": "Computer Integrated Manufacturing",
+  "hours": 4,
+  "cce": 30,
+  "ese": 70,
+  "credits": 4,
+  "prereq": "Solid Modelling and Drafting, Computer Aided Engineering, Industrial Engineering, Basic Programming, Machining Knowledge",
+  "outcomes": [
+   "- EXPLAIN the core concepts, evolution, and components of CIM and factory automation.",
+   "- ANALYZE the role of hardware and software elements and their integration within a CIM environment.",
+   "- DEVELOP and SIMULATE CNC programs, understanding their integration with CAM, robotics, and material handling systems.",
+   "- EVALUATE integrated systems for process planning, quality control (CAI/SPC), and enterprise resource planning (ERP/MES).",
+   "- ASSESS the implications of Industry 4.0/5.0 technologies, including digital twins, IIoT, and sustainable manufacturing practices."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Foundations of CIM, Automation and Networking",
+    "hours": 8,
+    "text": "Foundations of CIM, Automation and Networking: Need & Evolution of CIM, CIM wheel and components. Introduction to Modern Manufacturing Paradigms: Lean, Agile, and Sustainable Manufacturing, Automation: Definition, Types (Fixed, Programmable, Flexible), and Strategic Reasons for Automation. Types of Production Systems. CIM networking: CIM Hardware and Software, introduction to CAD/CAM/CIM Networking, Classification of networks, Types of network topologies, CIM database, its types and DBMS. Product life cycle management, CAD-CAM Integration & Product Development in a networked environment. Field assignment: CIM wheel audit at a local manufacturing plant (Task to be done by group of 3-4 students) Visit a nearby factory (auto parts, FMCG, pharma) and map its operations onto the CIM wheel. Identify which spokes (CAD, CAM, CAPP, MRP, etc.) are implemented and which are missing. Submit a gapanalysis report."
+   },
+   {
+    "roman": "II",
+    "title": "Hardware Integration: CNC, Robotics and Material Handling",
+    "hours": 7,
+    "text": "Hardware Integration: CNC, Robotics and Material Handling: Computer Numerical Control (CNC): Principles, types, applications. Advanced CNC Programming: Part programming (manual & on versational), canned cycles, subroutines, macro programming. Integration with CAM: Toolpath generation and ost-processing. Industrial Robotics: Robot anatomy, configurations, end-effectors, sensors, and programming (basic pick-and-place). Robot work cell design and safety. Automated Material Handling Systems: Conveyors, AGVs, AS/RS. Field assignment: 1) Students can generate CNC turning part in group of 3-4 use in various applications like aerospace, automotive , medical, defence , construction, energy example:- stepped shaft, grooved pin with thread ,surgical instruments ,propeller shaft, gun barrel etc. 2) For CNC Milling parts Like Bracket (L shape, U shape), spacers and washers, Nameplate and tags."
+   },
+   {
+    "roman": "III",
+    "title": "Digital Manufacturing & Simulation",
+    "hours": 7,
+    "text": "Digital Manufacturing & Simulation: Introduction to Digital Manufacturing: Role of simulation, virtual commissioning, and digital twins in validating manufacturing processes. Group Technology (GT): Part families, coding and classification systems (e.g., Opitz, MICLASS). Benefits of GT in design and manufacturing. Cellular Manufacturing: Design and layout of manufacturing cells. Flexible Manufacturing Systems (FMS): Components, types, layouts, and scheduling. Quantitative analysis of FMS performance. Field assignment: Visit to any robotics or automation industry to showcase various automatic material handling systems to students. (Students must generate Visit report)"
+   },
+   {
+    "roman": "IV",
+    "title": "Information Integration: CAPP, CAI, ERP & MES",
+    "hours": 7,
+    "text": "Information Integration: CAPP, CAI, ERP & MES: Computer Aided Process Planning (CAPP): Variant and Generative approaches. Computer Aided Inspection (CAI): Introduction to CMM, machine vision for inspection, integration with CAD. Statistical Process Control (SPC) in a networked environment. Enterprisewide Integration: From MRP to ERP, MES (Manufacturing Execution Systems), and flow of information from shop floor to top floor Field assignment: Identify and categories various products around (daily used stationary product) according to Group technology classification technique. Ex: - Opitz coding system Note: - Student must complete task in a group of 3-4 and generate Chart."
+   },
+   {
+    "roman": "V",
+    "title": "Industry 4.0/5.0, Sustainability",
+    "hours": 7,
+    "text": "Industry 4.0/5.0, Sustainability & Case Studies: Industry 4.0: IIoT, Cyber-Physical Systems (CPS), Cloudbased Manufacturing, AI/ML in predictive maintenance and quality. Cybersecurity in manufacturing. Industry 5.0: Human-centricity, sustainability, and resilience, examples of CIM implementation (automotive, aerospace). Emerging trends: Additive manufacturing integration with CIM, collaborative robots (cobots). Field assignment Visit an Industry 4.0-enabled plant OR Study a published case study (Bosch, Siemens, Mahindra, Tata Motors) Identify and document at least 6 components from: IoT sensors, Big Data analytics, Cloud platform, Cybersecurity measures, Digital Twin/Simulation, AR/VR, Additive Manufacturing, Autonomous robots Map each component to its function and quantify the benefit. Note:- students must generate component mapping table including Industry 4.0 component, technology used, location in plant, function, observed benefits."
+   }
+  ],
+  "links": [
+   "https://nptel.ac.in/courses/112104289",
+   "https://onlinecourses.nptel.ac.in/noc22_me10/preview"
+  ],
+  "textBooks": [
+   "Automation, Production Systems, and Automation, Production system & Computer Integrated manufacturing, M. P. Groover Person India, 2007 2nd edition",
+   "Principles of Computer Integrated Manufacturing, S. Kant Vajpayee, Prentice Hall India"
+  ],
+  "refBooks": [
+   "Chang, T.C. and Wysk, R.A., 1997. Computer-aided manufacturing. Prentice Hall PTR.",
+   "Xu, X., 2009. Integrating Advanced Computer-Aided Design, Manufacturing, and Numerical Control. Information Science Reference.",
+   "Weatherall, A., 2013. Computer integrated manufacturing: from fundamentals to implementation. Butterworth-Heinemann.",
+   "Nanua Singh, Systems Approach to Computer Integrated Design and Manufacturing, John Wiley Publications.",
+   "Harrington J, Computer Integrated Manufacturing Krieger Publications 1979.",
+   "Zeid, CAD/CAM, Tata McGraw Hill.",
+   "Jha, N.K. “Handbook of Flexible Manufacturing Systems \", Academic Press Inc., 1991"
+  ]
+ },
+ {
+  "code": "PCC-352-MEC",
+  "name": "Refrigeration & Air-conditioning",
+  "hours": 3,
+  "cce": 30,
+  "ese": 70,
+  "credits": 3,
+  "prereq": "Fluid Mechanics; Engineering Thermodynamics; Applied Thermodynamics, Engineering Mathematics.",
+  "outcomes": [
+   "ANALYZE performance of vapour compression and vapour absorption refrigeration systems.",
+   "EVALUATE and design multi-pressure and cascade refrigeration systems.",
+   "SELECT and ANALYZE refrigeration system components and advanced refrigeration technologies.",
+   "PERFORM psychrometric analysis and estimate cooling loads for air conditioning applications.",
+   "DESIGN ventilation systems, duct layouts, and evaluate modern HVAC systems."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Vapour Refrigeration Systems",
+    "hours": 8,
+    "text": "Vapour compression systems: Working of simple vapour compression system, representation of vapour compression cycle (VCC) on T-s and P-h diagram, COP (Coefficient of Performance), EER (Energy Efficiency Ratio), SEER (Seasonal Energy Efficiency Ratio), IPLV (Integrated Part Load Value), NPLV (Seasonal Energy Efficiency Ratio), effect of operating parameters on performance of VCC, actual VCC. (Numerical on vapour compression cycle). Vapour absorption systems: Introduction, Working of simple vapour absorption system (VAS), desirable properties of binary mixture (aqua-ammonia), performance evaluation of simple VAS (Simple numerical treatment), actual VAS, Lithium bromide–water absorption system, applications of VAS, comparison between VCC and VAC."
+   },
+   {
+    "roman": "II",
+    "title": "Multi Pressure Refrigeration Systems",
+    "hours": 7,
+    "text": "Multistage or Compound Systems: Need of multi staging, two stage compression with flash gas removal, flash intercooler and complete multistage compression system. Multi Evaporator Systems: Single compressor-individual expansion valve, Single compressor multiple expansion valve, Individual compressor-multiple expansion valve, Individual compressor with compound compression and flash inter cooling. (Limited to two evaporators). Ammonia-CO2 cascade cycle. (Only theoretical approach). (Numerical on Multi Evaporator Systems)."
+   },
+   {
+    "roman": "III",
+    "title": "Refrigeration System Components.",
+    "hours": 8,
+    "text": "Major components of refrigeration systems: Compressors: reciprocating, rotary, screw, and centrifugal compressors. Characteristics and performance comparison. Condensers: Air-cooled, water-cooled, and evaporative condensers. Evaporators: flooded type, dry expansion type, and plate evaporators. Expansion devices: thermostatic expansion valves, capillary tubes, electronic expansion valves. Safety and control devices: LP/HP cut-off controls, frost control, oil pressure failure control, motor overload protection, temperature control devices."
+   },
+   {
+    "roman": "IV",
+    "title": "Applied Psychrometry and Cooling Load Estimation",
+    "hours": 8,
+    "text": "Applied Psychrometry : Psychrometric properties of moist air: dry bulb temperature, wet bulb temperature, dew point temperature, relative humidity, humidity ratio, enthalpy. Psychrometric chart and its use. Psychrometric processes Concepts of Apparatus Dew Point (ADP), Bypass Factor (BPF). Sensible Heat Factor (SHF), Room Sensible Heat Factor (RSHF), Grand Sensible Heat Factor (GSHF), Effective Sensible Heat Factor (ESHF). (Numerical on Applied Psychrometry). Cooling load estimation: Internal heat gains (people, lights, equipment) Solar heat gain through building envelope Ventilation and infiltration loads Methods of cooling load calculation including CLTD/CLF method. Thermal comfort: human comfort parameters, comfort charts, factors affecting comfort. Indoor Air Quality (IAQ): indoor contaminants and methods to improve IAQ. Outdoor design conditions and weather data in HVAC design."
+   },
+   {
+    "roman": "V",
+    "title": "Ventilation, Air Distribution and Modern HVAC Systems",
+    "hours": 8,
+    "text": "Ventilation: Introduction to Ventilation and infiltration in buildings. Natural ventilation and mechanical ventilation. Air distribution systems and duct design. Duct design considerations including: Duct layout and materials, Pressure losses in ducts, Friction losses in ducts, Equivalent diameter for rectangular ducts (Numerical on Duct design) Methods of duct design: Equal friction method; Static regain method; Velocity reduction method Air distribution components including filters, diffusers, grills, dampers, and fan coil units. Fans used in HVAC systems and fan laws. Modern HVAC systems: VRF (Variable Refrigerant Flow), VAV (Variable Air Volume), Desiccant-based air conditioning, Evaporative cooling systems, Thermal energy storage systems, clean room air conditioning, Radiant cooling systems."
+   }
+  ],
+  "links": [
+   "https://nptel.ac.in/courses/112107208"
+  ],
+  "textBooks": [
+   "Arora C. P., Refrigeration and Air Conditioning, Tata McGraw-Hill",
+   "Manohar Prasad, Refrigeration and Air Conditioning, Willey Eastern Ltd, 1983",
+   "McQuiston, ― Heating Ventilating and air Conditioning: Analysis and Design‖ 6th Edition, Wiley India",
+   "Arora and Domkundwar, Refrigeration & Air Conditioning, Dhanpatrai & Company, New Delhi",
+   "Khurmi R.S. and Gupta J.K., Refrigeration and Air conditioning, Eurasia Publishing House Pvt. Ltd, New Delhi,1994.",
+   "Ballaney P.L., Refrigeration and Air conditioning, Khanna Publishers, New Delhi, 1992"
+  ],
+  "refBooks": [
+   "Dossat Ray J, Principles of refrigeration, S.I. version, Willey Eastern Ltd, 2000",
+   "Stockers W.F and Jones J.W., Refrigeration and Air conditioning, McGraw Hill International editions 1982.",
+   "Threlkeld J.L, Thermal Environmental Engineering, Prentice Hall Inc., New Delhi",
+   "Aanatnarayan, Basics of refrigeration and Air Conditioning, Tata McGraw Hill Publications",
+   "Roger Legg, Air Conditioning System Design, Commissioning and Maintenance",
+   "ASHRAE & ISHRAE handbook"
+  ]
+ },
+ {
+  "code": "PCC-353-MEC",
+  "name": "Transmission System Design",
+  "hours": 4,
+  "cce": 30,
+  "ese": 70,
+  "credits": 4,
+  "prereq": "Classification of Gears, Gear Terminology, Terminology of Helical gear, Virtual number of teeth. Classification, selection and application of Belt, chain and rope drives.",
+  "outcomes": [
+   "to: On completion of the course, learner will be able to",
+   "APPLY the principle of Spur & Helical gear design for industrial application.",
+   "DESIGN Bevel & Worm gear considering design parameters as per design standards.",
+   "SELECT Rolling and Sliding Contact Bearings from manufacturer's catalogue for a typical application considering suitable design parameters.",
+   "DESIGN and ANALYZE various types of Clutches, Brakes, used in automobile.",
+   "ELABORATE various modes of operation, degree of hybridization in hybrid electric vehicles."
+  ],
+  "units": [
+   {
+    "roman": "I",
+    "title": "Spur and Helical Gears",
+    "hours": 7,
+    "text": "Introduction to gears: Material selection for gears, Modes of gear tooth failure, Gear Lubrication Methods. Spur Gears: Number of teeth and face width, Force analysis, Beam strength (Lewis) equation, Velocity factor, Service factor, Load concentration factor, Effective load on gear, Wear strength (Buckingham’s) equation, Estimation of module based on beam and wear strength, Estimation of dynamic tooth load by velocity factor and Buckingham’s equation. AGMA (American Gear Manufacturing Association) approach of Gear design (Only mathematical relations, no numerical) Helical Gears: Force analysis of Helical Gear, Beam Strength of Helical Gear, Wear strength and estimation of effective load based on Velocity factor (Barth factor) and Buckingham’s equation. (No numerical on force analysis of helical)"
+   },
+   {
+    "roman": "II",
+    "title": "Bevel and Worm Gear",
+    "hours": 7,
+    "text": "Bevel Gears: Types of Bevel gears, Terminology, Virtual number of teeth, and force analysis of Straight Bevel Gear. Design of Straight Bevel Gear based on Beam Strength, Wear strength and estimation of effective load based on Velocity factor (Barth factor) and Buckingham’s equation. (Simple numerical to be taken no design calculations) Worm Gears: Worm and worm gear terminology and proportions of worm and worm gears, Force analysis of worm gear drives, Friction in Worm gears, efficiency of worm gears, Worm and worm gear material, Strength and wear ratings of worm gears (Bending stress factor, speed factor, surface stress factor, zone factor) IS 1443-1974, Thermal consideration in worm gear drive. (Simple numerical to be taken no design calculations)"
+   },
+   {
+    "roman": "III",
+    "title": "Sliding and Rolling Contact Bearing",
+    "hours": 8,
+    "text": "Sliding contact bearing (Theoretical treatment only): Introduction to sliding contact bearing, classification, Reynolds’s equation (2D), Petroff’s equations, Sommerfeld number, Parameters of bearing design. Rolling Contact Bearings: Types of rolling contact Bearings and its selection, Static and dynamic load carrying capacities, Stribeck’s Equation, Equivalent bearing load, Load-life relationship, Selection of bearing life, Selection of rolling contact bearings from manufacturer's catalogue, Design for cyclic loads, Types of failure in rolling contact bearings - causes and remedies. (Simple Numerical treatment)"
+   },
+   {
+    "roman": "IV",
+    "title": "Design of Clutches and Brakes",
+    "hours": 8,
+    "text": "Clutches: Introduction, Types of clutches, Material, Positive clutches, friction clutches, single plate, multiple plate, Cone clutch, and centrifugal clutches, Application of friction clutches automotive and industrial machinery sector. (Only Theoretical Treatment) Brakes: Introduction, Types of brakes, Material, Design of band brake, external and internal shoe breaks internal expanding shoe brakes, design of disc brakes. Application of brakes in automotive and industrial machinery sector. (Only Theoretical Treatment)"
+   },
+   {
+    "roman": "V",
+    "title": "Transmission system in Hybrid Electric Vehicle",
+    "hours": 8,
+    "text": "Introduction, Types of Hybrid Electric Vehicles: Basic Classification, Basic Modes of Operation, Other Derivatives, Degree of Hybridization. Power Split Devices (PSD): Simple and EM compound PSD, HEV Component Characteristics: The IC Engine, Electric Machines, Battery, HEV Performance Analysis: Series HEV, Parallel HEV, HEV Component Sizing: General Considerations, Sizing for Performance, Optimum Sizing, Power Management: Control Potential, Control."
+   }
+  ],
+  "links": [],
+  "textBooks": [
+   "Shigley J.E. and Mischke C.R., Mechanical Engineering Design, McGraw Hill Publication Co. ltd.",
+   "Spotts M.F. and Shoup T.E., Design of Machine Elements, Prentice Hall International.",
+   "Bhandari V.B, Design of Machine Elements, Tata McGraw Hill Publication Co. Ltd.",
+   "Juvinal R.C, Fundamentals of Machine Components Design, John Wiley and Sons."
+  ],
+  "refBooks": [
+   "Design Data - P.S.G. College of Technology, Coimbatore.",
+   "Vehicle Powertrain Systems by Behrooz Mashadi, David Crolla. A John Wiley & Sons, Ltd.",
+   "Automobiles–Power trains and Automobiles–Dynamics by Crolla, David, A John Wiley &Sons, Ltd.",
+   "Automotive Engineering Powertrain, Chassis System and Vehicle Body by David A Crolla, Elsevier B H New York, London, Oxford.",
+   "lack P.H. and O. Eugene Adams, Machine Design, McGraw Hill Book Co. Inc.",
+   "Willium C. Orthwein, Machine Components Design, West Publishing Co. and Jaico Publications House.",
+   "P. Kannaiah, Design of Transmission systems‖, SCIETCH Publications Pvt Ltd.",
+   "C.S. Sharma and Kamlesh Purohit, Design of Machine Elements, PHI Learning Pvt. Ltd.",
+   "D.K. Aggarwal& P.C. Sharma, Machine Design, S.K Kataria and Sons.",
+   "P. C. Gope, Machine Design: Fundamentals and Applications, PHI Learning Pvt. Ltd.",
+   "Bhandari, V. B. Machine Design data book, Tata McGraw Hill Publication Co. Ltd.",
+   "K. Mahadevan, K. Balveera Reddy, Design Data Handbook for Mechanical Engineers, CBS Publishers."
+  ]
+ }
+]
