@@ -4,9 +4,9 @@
 
 ## App
 
-- [PrepTracker](https://manav4u.github.io/PrepTracker/): the dashboard with subjects and progress
-- [Resources](https://manav4u.github.io/PrepTracker/#/resources): saved study links
-- [Tasks](https://manav4u.github.io/PrepTracker/#/tasks): to-do list
+- [PrepTracker](https://preptracker.manavdev.site/): the dashboard with subjects and progress
+- [Resources](https://preptracker.manavdev.site/#/resources): saved study links
+- [Tasks](https://preptracker.manavdev.site/#/tasks): to-do list
 
 ## Source
 
