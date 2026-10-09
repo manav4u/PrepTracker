@@ -300,16 +300,6 @@ const SettingsPage: React.FC = () => {
                                 className="w-full bg-transparent border-b border-white/20 py-2 text-2xl font-display font-bold text-white focus:border-[#E11D48] focus:outline-none transition-colors placeholder:text-white/10"
                             />
                         </div>
-                        <div className="space-y-2">
-                            <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest block">Student ID / PRN</label>
-                            <input 
-                                type="text" 
-                                value={profile.prn || ''}
-                                onChange={(e) => update('prn', e.target.value)}
-                                placeholder="NOT_SET"
-                                className="w-full bg-transparent border-b border-white/20 py-2 text-xl font-mono text-slate-300 focus:border-[#E11D48] focus:outline-none transition-colors placeholder:text-white/10"
-                            />
-                        </div>
                      </div>
 
                      {/* Visual ID Card Preview */}
@@ -338,9 +328,9 @@ const SettingsPage: React.FC = () => {
 
                             <div className="flex justify-between items-end">
                                 <div>
-                                    <span className="text-[8px] font-mono text-slate-500 uppercase tracking-widest block mb-0.5 opacity-70">PRN Identifier</span>
+                                    <span className="text-[8px] font-mono text-slate-500 uppercase tracking-widest block mb-0.5 opacity-70">Storage location</span>
                                     <p className="font-mono font-bold text-[#E11D48] tracking-[0.2em] text-sm sm:text-base">
-                                        {profile.prn || '0000000000'}
+                                        This browser
                                     </p>
                                 </div>
                                 <div className="relative w-12 h-12 flex items-center justify-center opacity-30">

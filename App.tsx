@@ -189,14 +189,7 @@ export default function App() {
                         </div>
 
                         <div className="flex items-center gap-4">
-                            <div className="relative group">
-                                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 group-focus-within:text-white transition-colors" size={18} />
-                                <input
-                                type="text"
-                                placeholder="Search anything..."
-                                className="bg-white/5 border border-white/5 rounded-full pl-12 pr-6 py-3 text-xs font-medium w-64 focus:w-80 focus:bg-white/10 focus:border-white/10 outline-none transition-all placeholder:text-white/20"
-                                />
-                            </div>
+
                         </div>
                         </div>
 

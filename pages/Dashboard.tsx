@@ -282,9 +282,7 @@ const Dashboard: React.FC = () => {
             <h2 className="text-3xl font-display font-bold text-white mb-1 tracking-tight">Active Courses</h2>
             <p className="text-slate-500 text-xs font-bold tracking-[0.2em] uppercase">Real-time Syllabus Tracking</p>
           </div>
-          <button className="text-[10px] font-bold text-slate-500 hover:text-white uppercase tracking-[0.2em] transition-colors flex items-center gap-2 px-4 py-2 rounded-full border border-white/5 hover:bg-white/5">
-            View All <ChevronRight size={12} />
-          </button>
+
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
