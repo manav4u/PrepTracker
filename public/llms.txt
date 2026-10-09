@@ -69,3 +69,14 @@
 - [Digital Electronics and Logic Design syllabus (MDM-221-ITT)](https://preptracker.manavdev.site/syllabus/se-information-technology/digital-electronics-and-logic-design/)
 - [Object Oriented Programming syllabus (PCC-202-ITT)](https://preptracker.manavdev.site/syllabus/se-information-technology/object-oriented-programming/)
 - [Processor Architecture syllabus (MDM-271-ITT)](https://preptracker.manavdev.site/syllabus/se-information-technology/processor-architecture/)
+
+## Second Year (SE) Civil Engineering, 2024 pattern
+- [SE Civil Engineering subjects](https://preptracker.manavdev.site/syllabus/se-civil-engineering/): theory courses with units, marks, outcomes and books from the official SPPU PDF
+- [Building Construction and Materials syllabus (PCC-203-CVL)](https://preptracker.manavdev.site/syllabus/se-civil-engineering/building-construction-and-materials/)
+- [Concrete Technology syllabus (PCC-253-CVL)](https://preptracker.manavdev.site/syllabus/se-civil-engineering/concrete-technology/)
+- [Engineering Geology syllabus (MDM-271-CVL)](https://preptracker.manavdev.site/syllabus/se-civil-engineering/engineering-geology/)
+- [Engineering Mathematics - III syllabus (MDM-221-CVL)](https://preptracker.manavdev.site/syllabus/se-civil-engineering/engineering-mathematics-iii/)
+- [Fluid Mechanics syllabus (PCC-251-CVL)](https://preptracker.manavdev.site/syllabus/se-civil-engineering/fluid-mechanics/)
+- [Mechanics of Structures syllabus (PCC-201-CVL)](https://preptracker.manavdev.site/syllabus/se-civil-engineering/mechanics-of-structures/)
+- [Structural Analysis syllabus (PCC-252-CVL)](https://preptracker.manavdev.site/syllabus/se-civil-engineering/structural-analysis/)
+- [Surveying syllabus (PCC-202-CVL)](https://preptracker.manavdev.site/syllabus/se-civil-engineering/surveying/)

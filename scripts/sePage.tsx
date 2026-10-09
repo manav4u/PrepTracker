@@ -44,6 +44,12 @@ MOTIFS.it = R => <>
     <path d="M18 22 L56 10 M18 26 L56 38 M64 10 L106 22 M64 38 L106 26 M64 10 L64 36" stroke={D} strokeWidth="1.2" fill="none" />
     <rect x="130" y="19" width="10" height="10" rx="2" fill={R} /><rect x="146" y="19" width="10" height="10" rx="2" fill="none" stroke={D} strokeWidth="1.5" /><rect x="162" y="19" width="10" height="10" rx="2" fill="none" stroke={D} strokeWidth="1.5" />
     <path d="M190 24 H600" stroke="#3a1620" strokeWidth="1.5" strokeDasharray="2 7" /></>;
+MOTIFS.civil = R => <>
+    <path d="M6 40 H150" stroke={D} strokeWidth="1.5" /><path d="M20 40 V30 M50 40 V30 M80 40 V30 M110 40 V30 M140 40 V30" stroke={D} strokeWidth="1.5" />
+    <path d="M20 30 Q80 -6 140 30" stroke={R} strokeWidth="1.8" fill="none" />
+    <path d="M50 30 V17 M80 30 V13 M110 30 V17" stroke={D} strokeWidth="1" />
+    <circle cx="80" cy="13" r="3.5" fill={R} />
+    <path d="M170 40 H600" stroke="#3a1620" strokeWidth="1.5" strokeDasharray="2 7" /></>;
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
 const sectionCss = `.crs{display:grid;gap:10px;margin:14px 0}.crs a{display:flex;justify-content:space-between;gap:12px;align-items:baseline;text-decoration:none;border:1px solid #222;background:#101010;border-radius:14px;padding:14px 16px;color:#fff}.crs a:hover{border-color:#e11d48}.crs small{color:#888;font:500 11px/1.3 ui-monospace,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}.utext{margin:10px 0 0;color:#ccc;font-size:15px}.src li{margin:6px 0;word-break:break-word}`;
 
