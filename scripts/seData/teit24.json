@@ -234,7 +234,7 @@
     "links": []
   },
   {
-    "code": "PEC-321B-IT",
+    "code": "PEC-321C-IT",
     "name": "Web Application Development",
     "hours": 3,
     "credits": 3,
@@ -295,7 +295,7 @@
     "links": []
   },
   {
-    "code": "PEC-321C-IT",
+    "code": "PEC-321D-IT",
     "name": "Image Processing Computer Vision",
     "hours": 3,
     "credits": 3,
@@ -354,7 +354,7 @@
     "links": []
   },
   {
-    "code": "PEC-321D-IT",
+    "code": "PEC-321B-IT",
     "name": "Advanced Database Management System",
     "hours": 3,
     "credits": 3,
