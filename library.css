@@ -8,3 +8,4 @@
 .library-more{display:flex;flex-direction:column;align-items:center;gap:12px;padding:28px 0;text-align:center}
 .library-more p{font-size:14px;margin:0}
 .library-more button{min-height:44px;padding:10px 22px;font:inherit;font-weight:600;cursor:pointer}
+.map-note{font-size:14px;line-height:1.5;margin:0 0 14px;padding:10px 12px;border-left:3px solid var(--paper-ink,#2f4a37)}
