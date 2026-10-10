@@ -304,7 +304,7 @@ export default function Study({
               <i>Then check it.</i>
             </h1>
             <span>Local, self-reported practice. No automatic grading.</span>
-          <DeskSketch kind="study" to=".studio-selectors select, .studio-selectors button, .studio-selectors input" status="Pick a topic to compare"/></header>
+          <DeskSketch kind="study" to=".studio-selectors select, .studio-selectors button, .studio-selectors input" status={`${history.length} ${history.length === 1 ? "attempt" : "attempts"} on this topic · choose a topic`}/></header>
         )}
         {!embedded && (
           <details className="studio-select">

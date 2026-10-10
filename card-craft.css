@@ -33,3 +33,7 @@
   :is(.folio-heading,.pins-heading,.marks-heading,.cabinet-heading,.care-heading,.progress-heading,.studio-heading,.notebook-masthead){padding-bottom:8px!important;gap:6px!important;}
   .progress-heading p,.studio-heading p{margin-top:4px!important;margin-bottom:0!important;}
 }
+/* Put the user's plan budget before the generated evidence, in DOM and pixels. */
+.folio-heading + .folio-budget{margin-top:24px;margin-bottom:28px}
+.folio-save-error{grid-column:1/-1;border-left:3px solid #8b3a2d;padding:10px 14px;background:var(--paper-paper);color:var(--paper-ink)}
+@media(max-width:600px){.folio-heading + .folio-budget{margin-top:16px;margin-bottom:22px}}
