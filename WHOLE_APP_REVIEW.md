@@ -166,3 +166,15 @@ Scores: identity 8.7, typography 8.5, density 8.7, hierarchy 8.5, responsive 8.5
 Review: https://preptracker-paper-review.vercel.app/
 Deployment: https://preptracker-paper-review-p7u5v6vcj-manavships.vercel.app
 No merge, production/main untouched.
+
+## Cycle 7: stop loading the syllabus just to count it
+
+Landing imported the full source catalog only for the number of courses and the coverage note. Generate a tiny summary from the same catalog build instead. A new visitor now gets the unchanged count/note without fetching or parsing the 947 KB source catalog chunk (~166 KB gzip). Directory still fetches the catalog on navigation; all source entries, IDs and tracking restrictions are unchanged. This improves the entry route, not the weight of the working catalog itself.
+
+62 tests pass, including a summary/source parity guard; typecheck/build pass. Local and anonymous hosted network checks show zero catalog requests on landing, then the real catalog chunk on Directory navigation and the same 150-course count. Local/hosted 13 pages phone/PC and ten 320 routes no overflow/page errors. Actual final hosted landing phone/PC pixels inspected. Review-only one-hour credential deleted and populated token list confirms absence.
+
+Scores unchanged visually: identity 8.7, typography 8.5, density 8.7, hierarchy 8.5, responsive 8.5, motion 8, exam use 8.6, reliability/honesty 8.5, accessibility 8, performance 8, breadth 7.5. Overall 8.5. Biggest miss: catalog still loads in full on working course routes; material/PYQ mapping remains incomplete. No claim of faster measured wall-clock rendering or 10/10.
+
+Review: https://preptracker-paper-review.vercel.app/
+Deployment: https://preptracker-paper-review-jlkpwbz8o-manavships.vercel.app
+No merge or production/main change.
