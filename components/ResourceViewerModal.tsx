@@ -33,7 +33,7 @@ const ResourceViewerModal: React.FC<ResourceViewerModalProps> = ({ isOpen, onClo
                             <Globe size={18} className="text-slate-400" />
                             <h3 className="text-sm font-bold text-white uppercase tracking-wider truncate max-w-[200px] sm:max-w-md">{resource.title}</h3>
                         </div>
-                        <button onClick={onClose} className="p-2 hover:bg-white/10 rounded-full transition-colors text-slate-400 hover:text-white">
+                        <button aria-label="Close resource viewer" onClick={onClose} className="p-2 hover:bg-white/10 rounded-full transition-colors text-slate-400 hover:text-white">
                             <X size={20} />
                         </button>
                     </div>
@@ -93,7 +93,7 @@ const ResourceViewerModal: React.FC<ResourceViewerModalProps> = ({ isOpen, onClo
                                 <h3 className="text-lg font-bold text-white drop-shadow-lg">{resource.title}</h3>
                                 <p className="text-[10px] text-[#E11D48] font-mono font-bold mt-1 tracking-widest uppercase">Streaming from Secure Vault Node</p>
                             </div>
-                            <button onClick={onClose} className="pointer-events-auto p-3 bg-white/10 backdrop-blur-xl rounded-full hover:bg-white/20 text-white transition-all hover:scale-110 active:scale-95">
+                            <button aria-label="Close resource viewer" onClick={onClose} className="pointer-events-auto p-3 bg-white/10 backdrop-blur-xl rounded-full hover:bg-white/20 text-white transition-all hover:scale-110 active:scale-95">
                                 <X size={24} />
                             </button>
                         </div>
