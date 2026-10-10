@@ -30,6 +30,8 @@ import LandingPage from './pages/LandingPage';
 import { UnitStatus } from './types';
 import { useData } from './context/DataContext';
 
+import './round2-palette.css';
+
 // --- ERROR BOUNDARY COMPONENT ---
 interface ErrorBoundaryProps {
   children?: ReactNode;
