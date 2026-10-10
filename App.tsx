@@ -110,6 +110,7 @@ const NavItem = ({ to, icon: Icon, active, label }: { to: string, icon: any, act
 export default function App() {
   const { profile, setProfile } = useData();
   const location = useLocation();
+  useEffect(()=>{document.querySelector('.app-shell>main')?.scrollTo(0,0);},[location.pathname]);
 
   // ROUTING LOGIC:
   // 1. If no profile/setup -> Show Landing Page by default.
@@ -134,7 +135,7 @@ export default function App() {
                      location.pathname === '/' ? <LandingPage /> : <Navigate to="/landing" />
                 ) : (
                     // APP SHELL
-                    <div className="flex flex-col lg:flex-row min-h-screen bg-[#030303] text-slate-200 selection:bg-[#E11D48] selection:text-white overflow-hidden">
+                    <div className="app-shell flex flex-col lg:flex-row min-h-screen bg-[#030303] text-slate-200 selection:bg-[#E11D48] selection:text-white overflow-hidden">
 
                     {/* Mobile Branding Header */}
                     <div className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-[#030303]/80 backdrop-blur-xl border-b border-white/5 px-6 py-4 flex justify-between items-center">
