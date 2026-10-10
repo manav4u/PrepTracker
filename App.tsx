@@ -133,6 +133,7 @@ export default function App() {
                     // Redirect root to landing if not setup
                      location.pathname === '/' ? <LandingPage /> : <Navigate to="/landing" />
                 ) : (
+                    location.pathname === '/' ? <Dashboard /> :
                     // APP SHELL
                     <div className="flex flex-col lg:flex-row min-h-screen bg-[#030303] text-slate-200 selection:bg-[#E11D48] selection:text-white overflow-hidden">
 
