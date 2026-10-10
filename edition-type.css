@@ -31,3 +31,15 @@ body,input,select,textarea,button{font-family:"DM Sans",Arial,sans-serif;}
 .atlas-find-empty { padding:16px;border-bottom:1px solid var(--paper-rule); }
 .atlas-find-empty h3 { font:20px/1.3 "Libre Baskerville",Georgia; }
 .atlas-find-empty p { font-size:12px;line-height:1.6;margin-top:10px; }
+/* The comparison is a working form, not three full screens of repeated setup. */
+.studio-task-reference { border-block:1px solid var(--paper-rule);margin:15px 0; }
+.studio-task-reference summary { font-size:11px;padding:12px 0; }
+.studio-task-reference blockquote { margin:0 0 16px; }
+.studio-optional-url { margin:8px 0;border-bottom:1px solid var(--paper-rule); }
+.studio-optional-url summary { font-size:11px; }
+.studio-date-pair { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px; }
+.studio-date-pair label { min-width:0; }
+.studio-page .studio-heading h1 { font-size:clamp(35px,4.5vw,49px);line-height:1.08; }
+.studio-paper .studio-topic h2 { font-size:clamp(25px,3.2vw,34px);line-height:1.15; }
+@media(max-width:899px){.studio-page .studio-paper { padding:22px 20px; }.studio-page .studio-paper h3 { font-size:26px;line-height:1.18; }.studio-steps { padding:13px 0;margin-bottom:18px; }.studio-steps b { font-size:21px;margin-bottom:4px; }.studio-topic { padding-bottom:15px; }.studio-stage>p { line-height:1.65; }.studio-page textarea { min-height:140px; }.studio-page .stage-3 textarea { min-height:130px; }.studio-stage label { margin:14px 0; }.studio-page .studio-note { line-height:1.65;margin:11px 0; }}
+@media(max-width:350px){.studio-date-pair {grid-template-columns:1fr;gap:0;}.studio-page .studio-paper{padding:20px 16px;}}

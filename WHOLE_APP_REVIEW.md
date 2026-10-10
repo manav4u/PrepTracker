@@ -154,3 +154,15 @@ Self-review /10: identity 8.7, typography 8.5, useful density 8.6, hierarchy 8.3
 
 Deployment: https://preptracker-paper-review-ee9d51nsd-manavships.vercel.app
 Review: https://preptracker-paper-review.vercel.app/
+
+## Cycle 6: a shorter comparison desk
+
+Biggest working-form miss addressed: repeated question, optional link and oversized proportions made comparison longer than it needed to be. The chosen task is now a native disclosure in stages 2/3, optional reference URL is a disclosure, dates share a row when width allows. Studio heading/topic/stage sizes and phone textarea height are tighter; fields still resize. Required comparison source, worked reference, outcome and return controls stay visible. No extra stage or fabricated automatic evaluation.
+
+61 tests/typecheck/build pass. Local all-page 320/390/1280 overflow/error audit/core flows/injected failures pass. Explicit comparison at 320/390/1280 records the optional URL and correct outcome. Hosted repeats all three viewport save tests and all-page audit with no overflow/page errors. Actual hosted stage phone/PC and full-phone-form pixels inspected. Save failure retains the entered source without showing a receipt; failed Undo retains the saved attempt. Review-only one-hour credential revoked after publish, populated token list confirms absence.
+
+Scores: identity 8.7, typography 8.5, density 8.7, hierarchy 8.5, responsive 8.5, motion 8, exam use 8.6, reliability/honesty 8.5, accessibility 8, performance 7.5, breadth 7.5. Overall 8.5/10. Biggest remaining miss: initial source catalog weight and incomplete topic material/PYQ mapping, plus large comparison references still necessarily take space. Product limits remain; not 10/10.
+
+Review: https://preptracker-paper-review.vercel.app/
+Deployment: https://preptracker-paper-review-p7u5v6vcj-manavships.vercel.app
+No merge, production/main untouched.

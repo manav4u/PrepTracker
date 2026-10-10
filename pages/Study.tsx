@@ -345,7 +345,7 @@ export default function Study({
           recorded attempts go in your backup.
         </p>
         <div className="studio-layout">
-          <article className="studio-paper">
+          <article className={`studio-paper stage-${stage}`}>
             <div className="studio-topic">
               <p>
                 {course.code} / UNIT {node.unit.unit_number}
@@ -475,7 +475,7 @@ export default function Study({
               >
                 <p className="studio-kicker">02 / WITHOUT THE ANSWER</p>
                 <h3>Your attempt.</h3>
-                <blockquote>{goal}</blockquote>
+                <details className="studio-task-reference"><summary>The task you chose</summary><blockquote>{goal}</blockquote></details>
                 <p>{method.steps[1]}</p>
                 <label>
                   Your work or explanation
@@ -534,7 +534,7 @@ export default function Study({
                   03 / CHECK WITH A REAL REFERENCE
                 </p>
                 <h3>What needs another pass?</h3>
-                <blockquote>{goal}</blockquote>
+                <details className="studio-task-reference"><summary>The task you chose</summary><blockquote>{goal}</blockquote></details>
                 <p>{method.check}</p>
                 <details>
                   <summary>See my attempt</summary>
@@ -555,7 +555,7 @@ export default function Study({
                     placeholder="Your notes, textbook section, worked solution…"
                   />
                 </label>
-                <label>
+                <details className="studio-optional-url"><summary>Add a reference link (optional)</summary><label>
                   Reference URL (optional)
                   <input
                     type="url"
@@ -563,7 +563,7 @@ export default function Study({
                     onChange={(e) => setUrl(e.target.value)}
                     placeholder="https://…"
                   />
-                </label>
+                </label></details>
                 <label>
                   Reference steps or explanation
                   <textarea
@@ -612,7 +612,7 @@ export default function Study({
                     ))}
                   </div>
                 </fieldset>
-                <label>
+                <div className="studio-date-pair"><label>
                   Attempt date
                   <input
                     type="date"
@@ -633,7 +633,7 @@ export default function Study({
                     disabled={noReview}
                     onChange={(e) => setReview(e.target.value)}
                   />
-                </label>
+                </label></div>
                 <label className="studio-check">
                   <input
                     type="checkbox"
