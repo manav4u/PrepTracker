@@ -44,3 +44,5 @@ import './week-folio.css';
 import './site-palette.css';
 
 import "./cycle-three.css";
+
+import "./edition-type.css";

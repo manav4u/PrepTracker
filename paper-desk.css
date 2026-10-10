@@ -6,7 +6,7 @@
   background:var(--pd-bg);
   color:var(--pd-ink);
   min-height:100vh;
-  font:14px Arial,
+  font:14px "DM Sans",Arial,
     sans-serif;
   padding-bottom:1px;
 }
@@ -73,7 +73,7 @@
 .paper-desk h1,
 .paper-desk h2,
 .paper-desk h3 {
-  font-family:Georgia, serif;
+  font-family:"Libre Baskerville",Georgia, serif;
   font-weight:normal;
   letter-spacing:-0.7px;
   line-height:1.12;
@@ -191,7 +191,7 @@
 .pd-ledger strong,
 .pd-stat strong {
   display:block;
-  font:normal 45px Georgia;
+  font:normal 45px "Libre Baskerville",Georgia;
   letter-spacing:-2px;
   line-height:1.15;
   margin:14px 0 8px;
@@ -525,7 +525,7 @@
 }
 .pd-paperdates b {
   display:block;
-  font:normal 32px Georgia;
+  font:normal 32px "Libre Baskerville",Georgia;
   margin:4px 0;
 }
 .pd-paperdates small {
@@ -545,7 +545,7 @@
   padding-top:20px;
 }
 .pd-paperdetail h4 {
-  font:25px Georgia;
+  font:25px "Libre Baskerville",Georgia;
   margin:10px 0;
 }
 .pd-paperdetail p {
@@ -736,7 +736,7 @@
   margin-top:22px;
 }
 .pd-assistant h4 {
-  font:23px Georgia;
+  font:23px "Libre Baskerville",Georgia;
   margin:0 0 8px;
 }
 .pd-assistant p {

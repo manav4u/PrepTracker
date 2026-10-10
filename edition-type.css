@@ -1,0 +1,23 @@
+@font-face{font-family:"DM Sans";font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/dm-sans-400-normal.woff2") format("woff2");}
+@font-face{font-family:"DM Sans";font-style:normal;font-weight:500;font-display:swap;src:url("/fonts/dm-sans-500-normal.woff2") format("woff2");}
+@font-face{font-family:"DM Sans";font-style:normal;font-weight:600;font-display:swap;src:url("/fonts/dm-sans-600-normal.woff2") format("woff2");}
+@font-face{font-family:"Libre Baskerville";font-style:italic;font-weight:400;font-display:swap;src:url("/fonts/libre-baskerville-400-italic.woff2") format("woff2");}
+@font-face{font-family:"Libre Baskerville";font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/libre-baskerville-400-normal.woff2") format("woff2");}
+@font-face{font-family:"Libre Baskerville";font-style:normal;font-weight:700;font-display:swap;src:url("/fonts/libre-baskerville-700-normal.woff2") format("woff2");}
+body,input,select,textarea,button{font-family:"DM Sans",Arial,sans-serif;}
+/* Typesetting is a layer, not another template: readable course work comes before the method note. */
+.atlas-method { border-block:1px solid var(--paper-rule);padding:0;margin:18px 0; }
+.atlas-method summary { cursor:pointer;min-height:52px;padding:16px 0;font-size:11px; }
+.atlas-method summary span { margin-left:18px;font:italic 15px "Libre Baskerville",Georgia,serif;color:var(--paper-green-deep); }
+.atlas-method[open] { padding-bottom:20px; }
+.atlas-method header { margin-top:18px; }
+.atlas-ledger { padding:16px 0;gap:9px; }
+.atlas-ledger p { margin:3px 0 0; }
+.notebook-masthead h1 { font-size:clamp(28px,4.5vw,49px);line-height:1.1;letter-spacing:-.045em; }
+.notebook-source { margin:12px 0; }
+.notebook-leaf h2 { font-size:27px;line-height:1.2; }
+.atlas-topic-list .notebook-topic p { line-height:1.65; }
+.library-catalog-card .library-card-copy>h3 { font-size:24px;line-height:1.2; }
+.link-cabinet .cabinet-card h2 { font-size:23px;line-height:1.2; }
+@media(max-width:849px){.atlas-ledger b { font-size:30px; }.notebook-masthead { gap:16px; }.notebook-leaf h2 {font-size:24px;}.notebook-masthead h1 {font-size:31px;}}
+@media(max-width:350px){.notebook-masthead h1 {font-size:27px;}.atlas-ledger b {font-size:27px;}}

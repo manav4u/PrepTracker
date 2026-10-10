@@ -119,3 +119,19 @@ Self-review: visual identity 8.5, useful density 8.5, palette/hierarchy 8, respo
 Review: https://preptracker-paper-review.vercel.app/
 Deployment: https://preptracker-paper-review-4uhi7xfj4-manavships.vercel.app
 PR130 stays open/unmerged. Production/main unchanged.
+
+## Review-refine cycle 4: type and reading proportion
+
+Biggest miss addressed: Georgia/Arial gave the edition a borrowed browser-default feel, and the method block on course pages delayed the unit work by a whole phone screen.
+
+Self-hosted Libre Baskerville (regular, bold, italic) and DM Sans (400/500/600), with OFL licenses included. Latin/punctuation subset keeps the six font assets to about 113 KB. No runtime Google Fonts dependency; old unused Inter/Space Grotesk links removed after network verification caught them. Original family fallbacks remain for missing characters/load failure. Serif is for headings/figures, sans for working text and controls. Course title/leaf and resource/catalog heading proportions retuned for the wider real type.
+
+Course preparation guidance is a native, keyboard-accessible disclosure, closed initially. Its method remains one tap away; the course unit tabs/work now fit far earlier on phone. Coverage declarations and limits stay visible.
+
+Validation: 61 tests/typecheck/build pass; local all-page 320/390/1280 audit, core flows, injected failures pass. Anonymous hosted all 13 pages 390/1280 and ten routes 320 no page errors/overflow. Hosted core flows pass; new controls and seven empty routes pass. Hosted network/computed styles confirm both selected families loaded and only first-party font requests. Method disclosure opens and preserves all three steps. Actual hosted all-page contact sheets and full-size course phone pixels inspected after final publish. No fabricated test or practice evidence.
+
+Self-review /10: identity 8.7, typography 8.5, useful density 8.5, hierarchy 8.3, responsive 8.5, motion 8, exam use 8.5, reliability/honesty 8.5, accessibility 8, performance 7.5, breadth 7.5. Overall 8.4. Biggest remaining miss is not a font: very long source/topic text and the working studio still require substantial scrolling; resource/PYQ mapping is incomplete, so visual polish cannot make the product 10/10.
+
+Review: https://preptracker-paper-review.vercel.app/
+Final deployment: https://preptracker-paper-review-6gntihkp5-manavships.vercel.app
+No merge or production/main change.

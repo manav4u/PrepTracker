@@ -389,7 +389,7 @@ body {
     transform: none !important;
   }
 }
-.route-loading { padding: 32px; color: var(--paper-muted); font: 16px Georgia, serif; }
+.route-loading { padding: 32px; color: var(--paper-muted); font: 16px "Libre Baskerville",Georgia, serif; }
 /* Paper / green / ink hierarchy. Surface color does not assert completion. */
 :root {
   --paper-panel: #afbea6;
@@ -477,12 +477,12 @@ body {
 .edition-strip { display:grid;grid-template-columns:1fr;gap:20px;position:relative;padding:24px;margin:0 0 26px;background:var(--paper-panel);border:1px solid var(--paper-green-edge);box-shadow:4px 4px 0 #687e5b35,inset 0 0 0 5px #ffffff20;overflow:hidden; }
 .edition-strip:before { content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(90deg,transparent 0 5px,#263b2b06 5px 6px); }
 .edition-strip-index { position:relative; }
-.edition-strip-index>span { font:9px Arial;letter-spacing:.13em; }
-.edition-strip-index>p { font:italic 25px/1.1 Georgia;margin:12px 0 0;max-width:300px; }
+.edition-strip-index>span { font:9px "DM Sans",Arial;letter-spacing:.13em; }
+.edition-strip-index>p { font:italic 25px/1.1 "Libre Baskerville",Georgia;margin:12px 0 0;max-width:300px; }
 .edition-strip-facts { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;position:relative; }
 .edition-strip-facts>div { border-top:1px solid #3d594560;padding-top:12px;min-width:0; }
-.edition-strip-facts small { font:8px/1.5 Arial;display:block;letter-spacing:.05em; }
-.edition-strip-facts strong { font:25px/1.15 Georgia;display:block;margin-top:9px;overflow-wrap:anywhere; }
+.edition-strip-facts small { font:8px/1.5 "DM Sans",Arial;display:block;letter-spacing:.05em; }
+.edition-strip-facts strong { font:25px/1.15 "Libre Baskerville",Georgia;display:block;margin-top:9px;overflow-wrap:anywhere; }
 .edition-strip-mark { display:flex;gap:5px;align-items:end;height:45px;position:absolute;right:22px;top:24px;opacity:.4;pointer-events:none; }
 .edition-strip-mark i { width:5px;height:22px;border:1px solid var(--paper-green-deep);transform:skewY(-20deg); }
 .edition-strip-mark i:nth-child(2n) { height:35px; }.edition-strip-mark i:nth-child(3n) { height:45px; }
