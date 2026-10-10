@@ -21,3 +21,9 @@
 .desk-sketch .sketch-status:focus-visible{outline:3px solid var(--paper-green-deep);outline-offset:3px;}
 @media(prefers-reduced-motion:no-preference){.desk-sketch .sketch-status{transition:transform .2s ease,box-shadow .2s ease;}.desk-sketch .sketch-status:hover{transform:rotate(0) translateY(-2px);box-shadow:3px 5px 0 rgba(61,89,69,.4);}.desk-sketch .sketch-status i{animation:sketch-pulse 2.4s ease-in-out infinite;}@keyframes sketch-pulse{50%{transform:scale(1.5);opacity:.6}}}
 @media(max-width:899px){.desk-sketch{max-width:250px!important;margin-top:8px!important;margin-bottom:4px!important}.desk-sketch .sketch-status{font-size:12.5px;padding:6px 12px}}
+/* Card states: keyboard focus, press, disabled */
+:is(.pd-card,.cabinet-card,.library-catalog-card,.selected-course):focus-within,:is(.cabinet-card,.pd-card,.selected-course):focus-visible{outline:2.5px solid var(--paper-green-deep);outline-offset:3px;}
+:is(.cabinet-card,.selected-course,.pd-card):active{transform:translate(1px,1px);box-shadow:inset 0 1px 0 rgba(255,253,247,.5),1px 2px 0 -1px rgba(117,141,109,.5);}
+:is(.cabinet-card,.selected-course)[aria-pressed="true"]{outline:2px solid var(--paper-ink);outline-offset:-9px;}
+:is(.pd-stat,.pd-card,.folio-budget,.cabinet-card,.library-catalog-card,.selected-course)[disabled],:is(.pd-stat,.pd-card,.cabinet-card,.library-catalog-card)[aria-disabled="true"]{opacity:.7;}
+@media(max-width:600px){.desk-sketch{max-width:215px!important}.desk-sketch .sketch-status{font-size:12px;padding:5px 11px}}
