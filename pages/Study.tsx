@@ -1,3 +1,4 @@
+import DeskSketch from "../components/DeskSketch";
 import "../studio.css";
 import "../quiet-study.css";
 import EditionNav from "../components/EditionNav";
@@ -303,7 +304,7 @@ export default function Study({
               <i>Then check it.</i>
             </h1>
             <span>Local, self-reported practice. No automatic grading.</span>
-          </header>
+          <DeskSketch kind="study"/></header>
         )}
         {!embedded && (
           <details className="studio-select">

@@ -190,3 +190,13 @@ Overall remains 8.5, accessibility 8.2. Biggest miss, now confirmed by the user'
 Deployment: https://preptracker-paper-review-716lxbq3a-manavships.vercel.app
 Review: https://preptracker-paper-review.vercel.app/
 No merge or production/main change.
+
+## Cycle 9 - October 10: drawn page identity
+
+The user's non-desk critique was fair: earlier cycles improved utility while those pages stayed too static. Eight working pages now have distinct hand-drawn schematics: time/topic/week on Plan, paper/course on Pins, weighted credits on Marks, original reference cards on Links, a conceptual coverage/attempt/return path on Progress, browser-to-backup on Settings, read/try/check/return on Courses, and attempt/compare on Studio. Notebook rules, irregular paper edges, margin notes and draw-in motion carry the desk language beyond the desk. These are explanatory illustrations, not measured progress graphs. Reduced motion disables the animations. Decorative SVGs are hidden from assistive technology.
+
+Self-review caught broad legacy heading div/svg selectors clipping the Pins/Course sketches and squeezing the Marks heading. Those collisions were fixed; labels stay readable while strokes draw. Desktop redundant counters no longer sit behind the drawings. Functional counts remain in the page registers. Inspected rendered hosted pixels on phone and desktop; all 13 routes at 390/1280 and ten working routes at 320 passed horizontal-overflow checks. Hosted pin creation, editable plan generation/state, marks persistence, resource save/view, profile persistence, backup export and Studio stage two passed. Local storage failure checks still retain drafts and saved records. Typecheck/build pass; 62 tests pass. Draw-in and reduced-motion states checked in the hosted browser.
+
+Review deployment only: https://preptracker-paper-review-iat819w2c-manavships.vercel.app . No merge; production/main untouched. Temporary project-scoped publishing credential deleted after use.
+
+Honest limit: this is the first drawn-identity pass, not a 10/10 claim. The diagrams explain workflows rather than reacting to live state; deeper action-linked visual feedback remains worthwhile. Long mobile mastheads can still push controls below the first viewport. Existing local-only, syllabus/resource mapping and self-reported-progress limits remain unchanged.

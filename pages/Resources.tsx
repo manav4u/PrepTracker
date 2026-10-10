@@ -1,3 +1,4 @@
+import DeskSketch from "../components/DeskSketch";
 import { CATALOG } from "../lib/catalog";
 import "../link-cabinet.css";
 import EditionNav from "../components/EditionNav";
@@ -105,7 +106,7 @@ export default function Resources() {
             {resources.length}
             <small>LINKS IN THIS BROWSER</small>
           </span>
-        </header><section className="cabinet-drawers" aria-label="Resource drawers">{['notes','lecture streams','textbooks','solved pyqs'].map((category,i)=><button key={category} aria-pressed={tab===category} onClick={()=>setTab(tab===category?'all':category)}><span className="drawer-number">0{i+1}</span><strong>{resources.filter(r=>r.category.includes(category)||(category==='textbooks'&&r.type==='book')).length}</strong><span>{category}</span><i aria-hidden="true"/></button>)}</section>
+        <DeskSketch kind="links"/></header><section className="cabinet-drawers" aria-label="Resource drawers">{['notes','lecture streams','textbooks','solved pyqs'].map((category,i)=><button key={category} aria-pressed={tab===category} onClick={()=>setTab(tab===category?'all':category)}><span className="drawer-number">0{i+1}</span><strong>{resources.filter(r=>r.category.includes(category)||(category==='textbooks'&&r.type==='book')).length}</strong><span>{category}</span><i aria-hidden="true"/></button>)}</section>
         <p className="cabinet-disclosure">
           A cabinet for notes, videos and references. Saved locally, not
           cloud-synced. A saved link is not a verified endorsement. System

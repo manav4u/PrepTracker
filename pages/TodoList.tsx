@@ -1,3 +1,4 @@
+import DeskSketch from "../components/DeskSketch";
 import "../task-pins.css";
 import EditionNav from "../components/EditionNav";
 import React, { useState } from "react";
@@ -107,7 +108,7 @@ export default function TodoList() {
               ON YOUR BOARD
             </p>
           </div>
-        </header><nav className="board-register" aria-label="Task board register"><a href="#pin-editor" onClick={e=>{e.preventDefault();document.getElementById('pin-editor')?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});document.querySelector<HTMLInputElement>('#pin-editor input')?.focus();}}><b>＋</b><span>Write a new pin<small>One thing, with a place to land.</small></span></a><div><b>{tasks.filter(t=>!t.completed&&t.category==='EXAM').length}</b><span>Pending papers</span></div><div><b>{tasks.filter(t=>t.completed).length}</b><span>Marked complete</span></div></nav>
+        <DeskSketch kind="pins"/></header><nav className="board-register" aria-label="Task board register"><a href="#pin-editor" onClick={e=>{e.preventDefault();document.getElementById('pin-editor')?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});document.querySelector<HTMLInputElement>('#pin-editor input')?.focus();}}><b>＋</b><span>Write a new pin<small>One thing, with a place to land.</small></span></a><div><b>{tasks.filter(t=>!t.completed&&t.category==='EXAM').length}</b><span>Pending papers</span></div><div><b>{tasks.filter(t=>t.completed).length}</b><span>Marked complete</span></div></nav>
         <p className="pins-disclosure">
           Exam dates, lab work and assignments are entered by you, not an
           official timetable. Calendar export creates all-day events. It does

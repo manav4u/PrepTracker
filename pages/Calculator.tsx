@@ -1,3 +1,4 @@
+import DeskSketch from "../components/DeskSketch";
 import "../marks-ledger.css";
 import EditionNav from "../components/EditionNav";
 
@@ -96,7 +97,7 @@ const CalculatorPage: React.FC = () => {
             <br />
             OFFICIAL RESULT
           </div>
-        </header><section className="marks-completeness" aria-label="Assessment-head coverage"><div className="marks-fraction"><b>{summary.completeHeads}</b><span>/ {summary.totalHeads}</span><small>COMPLETE ASSESSMENT HEADS</small></div><div className="marks-head-track"><div>{Array.from({length:summary.totalHeads},(_,i)=><span key={i} className={i<summary.completeHeads?'entered':''} aria-hidden="true">{i<summary.completeHeads?'✓':'·'}</span>)}</div><p>{!summary.totalHeads?'Choose FE courses or a semester basket below.':summary.isComplete?'All selected heads entered.':'Still a partial entry.'} {summary.gradedCredits} of {summary.possibleCredits} credits have complete marks.</p></div></section>
+        <DeskSketch kind="marks"/></header><section className="marks-completeness" aria-label="Assessment-head coverage"><div className="marks-fraction"><b>{summary.completeHeads}</b><span>/ {summary.totalHeads}</span><small>COMPLETE ASSESSMENT HEADS</small></div><div className="marks-head-track"><div>{Array.from({length:summary.totalHeads},(_,i)=><span key={i} className={i<summary.completeHeads?'entered':''} aria-hidden="true">{i<summary.completeHeads?'✓':'·'}</span>)}</div><p>{!summary.totalHeads?'Choose FE courses or a semester basket below.':summary.isComplete?'All selected heads entered.':'Still a partial entry.'} {summary.gradedCredits} of {summary.possibleCredits} credits have complete marks.</p></div></section>
         <div className="marks-layout">
           <section className="marks-inputs">
             <details className="marks-coverage" open>

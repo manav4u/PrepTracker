@@ -1,3 +1,4 @@
+import DeskSketch from "../components/DeskSketch";
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import EditionNav from "../components/EditionNav";
@@ -136,7 +137,7 @@ export default function Progress() {
           <span>
             Pick a topic to see your recorded work and what to try next.
           </span>
-        </header><section className="progress-course-bands" aria-label="Coverage by course">{maps.map((m:any,i:number)=><button key={m.course.id} onClick={()=>{setCid(m.course.id);setTid('');setLens('coverage');setFilter('all');}} aria-pressed={active?.course.id===m.course.id}><span>{String(i+1).padStart(2,'0')}</span><div><strong>{m.course.name}</strong><i><em style={{width:`${m.summary.total?m.summary.covered/m.summary.total*100:0}%`}}/></i><small>{m.summary.covered} / {m.summary.total} covered by you</small></div><b>↗</b></button>)}</section>
+        <DeskSketch kind="progress"/></header><section className="progress-course-bands" aria-label="Coverage by course">{maps.map((m:any,i:number)=><button key={m.course.id} onClick={()=>{setCid(m.course.id);setTid('');setLens('coverage');setFilter('all');}} aria-pressed={active?.course.id===m.course.id}><span>{String(i+1).padStart(2,'0')}</span><div><strong>{m.course.name}</strong><i><em style={{width:`${m.summary.total?m.summary.covered/m.summary.total*100:0}%`}}/></i><small>{m.summary.covered} / {m.summary.total} covered by you</small></div><b>↗</b></button>)}</section>
         <details className="quiet-progress-totals">
           <summary>Your totals across courses</summary>
           <section className="progress-ledger" aria-label="Progress ledger">
