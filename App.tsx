@@ -1,3 +1,4 @@
+import Study from './pages/Study';
 import React, { useState, useEffect, ReactNode, Component } from 'react';
 import { Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
 import {
@@ -204,6 +205,7 @@ export default function App() {
                             <Route path="/" element={<Dashboard />} />
                             <Route path="/subject/:id" element={<SubjectDetail />} />
                             <Route path="/resources" element={<Resources />} />
+                            <Route path="/study" element={<Study />} />
                             <Route path="/tasks" element={<TodoList />} />
                             <Route path="/calculator" element={<CalculatorPage />} />
                             <Route path="/settings" element={<SettingsPage />} />

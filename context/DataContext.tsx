@@ -4,7 +4,10 @@ import { Profile, UserProgress, Task, ResourceItem } from '../types';
 import { SYSTEM_RESOURCES } from '../constants';
 import { KEYS } from '../lib/backup.mjs';
 
+export type StudyState={topics:Record<string,{status?:'not-started'|'studying'|'done';confidence?:'low'|'medium'|'high';lastRevised?:string}>;events:{id:string;topicId:string;day:string;at:string;kind:'revision';confidence:'low'|'medium'|'high'}[]};
 interface DataContextType {
+  study: StudyState;
+  setStudy: React.Dispatch<React.SetStateAction<StudyState>>;
   profile: Profile | null;
   setProfile: (profile: Profile) => void;
   userProgress: UserProgress[];
@@ -19,6 +22,8 @@ interface DataContextType {
 const DataContext = createContext<DataContextType | undefined>(undefined);
 
 export const DataProvider = ({ children }: { children: ReactNode }) => {
+  const [study,setStudy]=useState<StudyState>(()=>{try{return JSON.parse(localStorage.getItem(KEYS.study)||'{"topics":{},"events":[]}');}catch{return {topics:{},events:[]};}});
+  useEffect(()=>{localStorage.setItem(KEYS.study,JSON.stringify(study));},[study]);
   const [profile, setProfileState] = useState<Profile | null>(() => {
     try {
       const saved = localStorage.getItem(KEYS.profile);
@@ -121,7 +126,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <DataContext.Provider value={{
+    <DataContext.Provider value={{study,setStudy,
       profile,
       setProfile,
       userProgress,
