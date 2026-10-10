@@ -1,9 +1,10 @@
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, useRef, useCallback, ReactNode } from 'react';
 import { Profile, UserProgress, Task, ResourceItem } from '../types';
 import { SYSTEM_RESOURCES } from '../constants';
 import { migrateLearning } from '../lib/learning.mjs';
 import { KEYS } from '../lib/backup.mjs';
+import {persistStudy} from '../lib/study-storage.mjs';
 
 export type PlanEntry={id:string;topicId:string;courseId:string;label:string;date:string;minutes:number;reason:string;status:'planned'|'done'|'skipped'};
 export type RecallOutcome='again'|'hint'|'solo';
@@ -13,6 +14,7 @@ export type AttemptRecord={id:string;topicId:string;courseId:string;unitId:strin
 export type StudyState={schemaVersion?:2;attempts?:AttemptRecord[];marksConfig?:{semester:1|2;workshop:'workshop'|'design'};plan?:PlanEntry[];budget?:{minutes:number;sessionMinutes:number};topics:Record<string,TopicState>;events:{id:string;topicId:string;day:string;at:string;kind:'revision';confidence:'low'|'medium'|'high'}[]};
 interface DataContextType {
   study: StudyState;
+  commitStudy: React.Dispatch<React.SetStateAction<StudyState>>;
   setStudy: React.Dispatch<React.SetStateAction<StudyState>>;
   profile: Profile | null;
   setProfile: (profile: Profile) => void;
@@ -28,8 +30,17 @@ interface DataContextType {
 const DataContext = createContext<DataContextType | undefined>(undefined);
 
 export const DataProvider = ({ children }: { children: ReactNode }) => {
-  const [study,setStudy]=useState<StudyState>(()=>{try{return migrateLearning(JSON.parse(localStorage.getItem(KEYS.study)||'{"topics":{},"events":[]}'));}catch{return {topics:{},events:[]};}});
-  useEffect(()=>{localStorage.setItem(KEYS.study,JSON.stringify(study));},[study]);
+  const [study,setStudyState]=useState<StudyState>(()=>{try{return migrateLearning(JSON.parse(localStorage.getItem(KEYS.study)||'{"topics":{},"events":[]}'));}catch{return {topics:{},events:[]};}});
+  const studyRef=useRef(study);
+  const [studyError,setStudyError]=useState('');
+  const commitStudy=useCallback<React.Dispatch<React.SetStateAction<StudyState>>>((action)=>{
+    const next=typeof action==='function'?action(studyRef.current):action;
+    persistStudy(localStorage,next);
+    studyRef.current=next;
+    setStudyState(next);
+    setStudyError('');
+  },[]);
+  const setStudy=useCallback<React.Dispatch<React.SetStateAction<StudyState>>>((action)=>{try{commitStudy(action);}catch(e){setStudyError(e instanceof Error?e.message:'Could not save study changes.');}},[commitStudy]);
   const [profile, setProfileState] = useState<Profile | null>(() => {
     try {
       const saved = localStorage.getItem(KEYS.profile);
@@ -132,7 +143,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <DataContext.Provider value={{study,setStudy,
+    <DataContext.Provider value={{study,setStudy,commitStudy,
       profile,
       setProfile,
       userProgress,
@@ -143,6 +154,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
       addResource,
       deleteResources
     }}>
+      {studyError&&<p className="study-storage-error" role="alert">{studyError}</p>}
       {children}
     </DataContext.Provider>
   );
