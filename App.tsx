@@ -122,8 +122,8 @@ export default function App() {
     <ErrorBoundary>
         <Routes>
             {/* PUBLIC ROUTES */}
-            <Route path="/add/:id" element={<div className="min-h-screen p-6 lg:p-12 bg-[#030303] text-white"><AddToPlan /></div>} />
-            <Route path="/directory" element={<div className="min-h-screen p-6 lg:p-12 bg-[#030303] text-white"><Directory /></div>} />
+            <Route path="/add/:id" element={<AddToPlan />} />
+            <Route path="/directory" element={<Directory />} />
             <Route path="/landing" element={isSetupComplete ? <Navigate to="/" /> : <LandingPage />} />
             <Route path="/onboarding" element={isSetupComplete ? <Navigate to="/" /> : <Onboarding />} />
 
@@ -133,7 +133,7 @@ export default function App() {
                     // Redirect root to landing if not setup
                      location.pathname === '/' ? <LandingPage /> : <Navigate to="/landing" />
                 ) : (
-                    location.pathname === '/' ? <Dashboard /> : location.pathname === '/tasks' ? <TodoList /> : location.pathname.startsWith('/subject/') ? <Routes><Route path="/subject/:id" element={<SubjectDetail />}/></Routes> :
+                    location.pathname === '/' ? <Dashboard /> : location.pathname === '/tasks' ? <TodoList /> : location.pathname === '/calculator' ? <CalculatorPage /> : location.pathname.startsWith('/subject/') ? <Routes><Route path="/subject/:id" element={<SubjectDetail />}/></Routes> : location.pathname === '/directory' ? <Directory/> : location.pathname.startsWith('/add/') ? <Routes><Route path="/add/:id" element={<AddToPlan/>}/></Routes> :
                     // APP SHELL
                     <div className="flex flex-col lg:flex-row min-h-screen bg-[#030303] text-slate-200 selection:bg-[#E11D48] selection:text-white overflow-hidden">
 
