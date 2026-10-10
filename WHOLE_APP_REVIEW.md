@@ -85,10 +85,14 @@ The user requested "Green 30" and said other pages were too quiet at 20:01. This
 - Coverage tiles use deep fill, checks and labels. Uncovered tiles stay warm paper, so a green supporting panel does not falsely suggest completion. Resource video count derives from video type/YouTube parsing, not a nonexistent category.
 - The formerly over-heavy Add face is now a bounded green title band over a light reading/action body.
 
-Current validation is LOCAL, not hosted: all 13 pages inspected at 390/1280; ten main routes also at 320. No page overflow/errors. Typecheck, build and 61 tests pass. Core create/save/reload flows and injected storage failures pass. Resource failure preserves title, failed removal retains saved link, successful removal deletes it; reduced-motion has zero active CSS animations; mobile More drawer works. An initial test-script failure targeted a desktop-only missing More button, corrected to mobile dock; it was not an app failure.
+Local validation: all 13 pages inspected at 390/1280; ten main routes also at 320. No page overflow/errors. Typecheck, build and 61 tests pass. Core create/save/reload flows and injected storage failures pass. Resource failure preserves title, failed removal retains saved link, successful removal deletes it; reduced-motion has zero active CSS animations; mobile More drawer works. An initial test-script failure targeted a desktop-only missing More button, corrected to mobile dock; it was not an app failure.
 
 Approximate first-1000px local green surface area: main phone views 20-38%, desktop 19-34%. Add desktop is lighter (13%); source notebook phone heavier (38%). These are samples, not literal 60/30/10 on every scroll/data combination.
 
 Self-review: palette/hierarchy 8, visual richness 8, responsive 8.5, motion 8, exam usefulness 8, reliability/honesty 8.5, accessibility 8, performance 7.5, breadth 7.5. Overall 8.1/10. The new page indexes still share a family; this is richer and more useful, not a claim of a fully bespoke visual sculpture per route. Catalog size, system typography, long sources, local-only storage and FE-only marks remain the known limits.
 
-Hosted publication is pending a supported review-only deployment route. The stable URL currently still shows the prior oat pass. No production/main mutation or merge.
+Hosted publication completed at 20:20 IST on the isolated review project. The stable URL now shows this green pass: https://preptracker-paper-review.vercel.app/ . Anonymous 13-page phone/PC plus ten-route 320-pixel audit found no horizontal overflow or page errors. Actual hosted contact sheets and full-size Resources phone, Marks phone and Plan PC inspected. Hosted task, same-day papers, plan generation/state, marks persistence, resource creation/view, profile persistence, backup export and study-stage flows pass.
+
+Hosted first-view green surface audit is approximately 19-38% on main phone views and 17-33% on desktop, affected by the review banner and scroll position. Add PC remains lighter at 14%. This is a supporting hierarchy, not a literal pixel quota.
+
+No production/main mutation or merge.
