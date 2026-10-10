@@ -2,10 +2,15 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { Profile, UserProgress, Task, ResourceItem } from '../types';
 import { SYSTEM_RESOURCES } from '../constants';
+import { migrateLearning } from '../lib/learning.mjs';
 import { KEYS } from '../lib/backup.mjs';
 
 export type PlanEntry={id:string;topicId:string;courseId:string;label:string;date:string;minutes:number;reason:string;status:'planned'|'done'|'skipped'};
-export type StudyState={marksConfig?:{semester:1|2;workshop:'workshop'|'design'};plan?:PlanEntry[];budget?:{minutes:number;sessionMinutes:number};topics:Record<string,{status?:'not-started'|'studying'|'done';confidence?:'low'|'medium'|'high';lastRevised?:string}>;events:{id:string;topicId:string;day:string;at:string;kind:'revision';confidence:'low'|'medium'|'high'}[]};
+export type RecallOutcome='again'|'hint'|'solo';
+export type TopicState={status?:'not-started'|'studying'|'done';confidence?:'low'|'medium'|'high';lastRevised?:string;lastAttempt?:string;outcome?:RecallOutcome;nextReview?:string|null};
+export type ComparisonReference={kind:'user'|'reviewed';label:string;text:string;url?:string};
+export type AttemptRecord={id:string;topicId:string;courseId:string;unitId:string;goal:string;answer:string;paper:boolean;outcome:RecallOutcome;reference:ComparisonReference;day:string;at:string;review:string|null;before:TopicState|null};
+export type StudyState={schemaVersion?:2;attempts?:AttemptRecord[];marksConfig?:{semester:1|2;workshop:'workshop'|'design'};plan?:PlanEntry[];budget?:{minutes:number;sessionMinutes:number};topics:Record<string,TopicState>;events:{id:string;topicId:string;day:string;at:string;kind:'revision';confidence:'low'|'medium'|'high'}[]};
 interface DataContextType {
   study: StudyState;
   setStudy: React.Dispatch<React.SetStateAction<StudyState>>;
@@ -23,7 +28,7 @@ interface DataContextType {
 const DataContext = createContext<DataContextType | undefined>(undefined);
 
 export const DataProvider = ({ children }: { children: ReactNode }) => {
-  const [study,setStudy]=useState<StudyState>(()=>{try{return JSON.parse(localStorage.getItem(KEYS.study)||'{"topics":{},"events":[]}');}catch{return {topics:{},events:[]};}});
+  const [study,setStudy]=useState<StudyState>(()=>{try{return migrateLearning(JSON.parse(localStorage.getItem(KEYS.study)||'{"topics":{},"events":[]}'));}catch{return {topics:{},events:[]};}});
   useEffect(()=>{localStorage.setItem(KEYS.study,JSON.stringify(study));},[study]);
   const [profile, setProfileState] = useState<Profile | null>(() => {
     try {
