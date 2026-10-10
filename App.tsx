@@ -122,8 +122,8 @@ export default function App() {
     <ErrorBoundary>
         <Routes>
             {/* PUBLIC ROUTES */}
-            <Route path="/add/:id" element={<div className="min-h-screen p-6 lg:p-12 bg-[#030303] text-white"><AddToPlan /></div>} />
-            <Route path="/directory" element={<div className="min-h-screen p-6 lg:p-12 bg-[#030303] text-white"><Directory /></div>} />
+            <Route path="/add/:id" element={<AddToPlan />} />
+            <Route path="/directory" element={<Directory />} />
             <Route path="/landing" element={isSetupComplete ? <Navigate to="/" /> : <LandingPage />} />
             <Route path="/onboarding" element={isSetupComplete ? <Navigate to="/" /> : <Onboarding />} />
 
