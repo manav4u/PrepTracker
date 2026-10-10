@@ -56,3 +56,5 @@
 @media(max-width:600px){.marks-row{padding-left:14px;padding-right:14px}}
 .cabinet-card.selected{outline:2px solid var(--paper-green-deep);outline-offset:-8px;background-color:var(--paper-panel)}
 .studio-draft-note.draft-error{border-left:3px solid #8b3a2d;padding:12px 16px;background:var(--paper-paper);color:var(--paper-ink)}
+/* Small copy on green paper must remain readable, not washed into the panel. */
+:root{--paper-muted:#3f493c;--paper-green-deep:#304934}
