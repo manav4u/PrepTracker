@@ -1,3 +1,4 @@
+import EditionStrip from "../components/EditionStrip";
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import EditionNav from "../components/EditionNav";
@@ -136,7 +137,7 @@ export default function Progress() {
           <span>
             Pick a topic to see your recorded work and what to try next.
           </span>
-        </header>
+        </header><EditionStrip code="05 / MAP" title="Read what you recorded." facts={[{value:totals.covered+" / "+totals.total,label:"covered"},{value:totals.attempted,label:"attempted"},{value:totals.due,label:"returns due"}]}/>
         <details className="quiet-progress-totals">
           <summary>Your totals across courses</summary>
           <section className="progress-ledger" aria-label="Progress ledger">
@@ -266,7 +267,7 @@ export default function Progress() {
                 ? "Filled square = marked covered by you. Outline = no coverage mark. Attempts stay separate."
                 : lens === "returns"
                   ? "Dark square = attempted and due on your chosen date. Other squares keep their recorded state."
-                  : "Outline = no attempt. Sand = needs another pass. Dark fill = return due. Check = latest attempt without help, self-reported. Green is reserved for coverage marks."}
+                  : "Outline = no attempt. Sand = needs another pass. Dark fill = return due. Check = latest attempt without help, self-reported. Checks and labels identify recorded evidence; green panels are part of the design."}
             </p>
             <section
               className={`course-constellation lens-${lens}`}

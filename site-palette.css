@@ -1,5 +1,5 @@
 /* One shared palette for the complete edition.
-   Green is earned coverage/completion, never navigation, brand, generic paper or selection.
+   Green is a secondary design surface. Completion is conveyed by checks and labels, not color alone.
    Red is reserved for error and destructive action. */
 :root {
   --paper-ground: #efe9df;
@@ -390,14 +390,12 @@ body {
   }
 }
 .route-loading { padding: 32px; color: var(--paper-muted); font: 16px Georgia, serif; }
-/* 60-30-10 hierarchy: light paper dominates; deeper oat paper supports;
-   sage remains a small earned-data accent, absent when there is no progress.
-   These are visual roles, not a fabricated quota on dynamic records. */
+/* Paper / green / ink hierarchy. Surface color does not assert completion. */
 :root {
-  --paper-panel: #d5c6ad;
-  --paper-hover: #c9b99b;
-  --paper-rule: #c2b397;
-  --paper-muted: #605c50;
+  --paper-panel: #afbea6;
+  --paper-hover: #97ad91;
+  --paper-rule: #b9b7a5;
+  --paper-muted: #52604e;
 }
 /* The secondary is a real surface, not another near-white. */
 :is(.front-preview, .library-filters, .map-panel, .folio-budget,
@@ -474,3 +472,59 @@ body {
   .link-cabinet .cabinet-heading { background: linear-gradient(90deg, var(--paper-panel) 68%, transparent 68%); }
   .task-pins .pins-heading { background: linear-gradient(90deg, var(--paper-panel) 68%, transparent 68%); }
 }
+/* Green book-cloth and paper edges give the secondary a tactile role. */
+:root { --paper-green-deep: #3d5945; --paper-green-edge: #758d6d; }
+.edition-strip { display:grid;grid-template-columns:1fr;gap:20px;position:relative;padding:24px;margin:0 0 26px;background:var(--paper-panel);border:1px solid var(--paper-green-edge);box-shadow:4px 4px 0 #687e5b35,inset 0 0 0 5px #ffffff20;overflow:hidden; }
+.edition-strip:before { content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(90deg,transparent 0 5px,#263b2b06 5px 6px); }
+.edition-strip-index { position:relative; }
+.edition-strip-index>span { font:9px Arial;letter-spacing:.13em; }
+.edition-strip-index>p { font:italic 25px/1.1 Georgia;margin:12px 0 0;max-width:300px; }
+.edition-strip-facts { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;position:relative; }
+.edition-strip-facts>div { border-top:1px solid #3d594560;padding-top:12px;min-width:0; }
+.edition-strip-facts small { font:8px/1.5 Arial;display:block;letter-spacing:.05em; }
+.edition-strip-facts strong { font:25px/1.15 Georgia;display:block;margin-top:9px;overflow-wrap:anywhere; }
+.edition-strip-mark { display:flex;gap:5px;align-items:end;height:45px;position:absolute;right:22px;top:24px;opacity:.4;pointer-events:none; }
+.edition-strip-mark i { width:5px;height:22px;border:1px solid var(--paper-green-deep);transform:skewY(-20deg); }
+.edition-strip-mark i:nth-child(2n) { height:35px; }.edition-strip-mark i:nth-child(3n) { height:45px; }
+:is(.front-preview,.library-filters,.map-panel,.folio-budget,.pins-form,.cabinet-controls,.marks-coverage,.care-bookplate,.studio-paper,.atlas-ledger,.atlas-method,.progress-heading,.care-heading,.library-disclosure) { background-image:repeating-linear-gradient(0deg,transparent 0 4px,#293d2b05 4px 5px);box-shadow:4px 4px 0 #687e5b25,inset 0 0 0 4px #ffffff12; }
+:is(.pin-card,.cabinet-card,.folio-session,.care-course-grid article,.library-catalog-card) { border-top:4px solid var(--paper-green-edge);box-shadow:4px 4px 0 #526b4a25; }
+:is(.pin-card,.cabinet-card,.folio-session,.care-course-grid article,.library-catalog-card):hover { transform:translateY(-3px);box-shadow:6px 7px 0 #526b4a35; }
+:is(.folio-heading,.pins-heading,.marks-heading,.cabinet-heading,.care-heading,.progress-heading,.studio-heading) { border-bottom:2px solid var(--paper-green-deep);padding-bottom:24px; }
+.task-pins .pins-heading,.edition-care .care-heading,.progress-map .progress-heading,.link-cabinet .cabinet-heading { background:transparent;box-shadow:none;border-inline:0;border-top:0;padding-inline:0; }
+.paper-desk .pd-sheethead { background:var(--paper-panel);border-left:7px solid var(--paper-green-deep); }
+.paper-desk .pd-stat:not(:first-child) { box-shadow:inset 0 5px 0 #3d594535; }
+.pd-tiles button:not(.covered),.pd-legend .empty { background:#e6e1d2;border-color:#b9b09c; }
+.pd-tiles button.covered { background:var(--paper-green-deep);color:var(--paper-paper);border-color:#2d4634;box-shadow:inset 0 1px 0 #7f9974,0 2px 0 #243829; }
+.progress-map .lens-coverage .map-square.covered,.notebook-topic button[aria-pressed=true] { background:var(--paper-green-deep);color:var(--paper-paper);border-color:var(--paper-green-deep); }
+.library-bookplate { background:linear-gradient(var(--paper-panel) 0 240px,var(--paper-paper) 240px);box-shadow:7px 7px 0 #526b4a30; }
+.library-bookplate input { background:var(--paper-paper); }
+.library-bookplate input::placeholder { color:var(--paper-muted);opacity:1; }
+.studio-page .studio-paper { border-left:7px solid var(--paper-green-deep); }
+.notebook-page .atlas-method { border-left:7px solid var(--paper-green-deep); }
+.folio-day-tabs>a { box-shadow:3px 3px 0 #526b4a25; }
+.cabinet-card>header,.library-card-index { border-bottom-color:var(--paper-green-edge); }
+.front-preview,.map-panel { border-left:7px solid var(--paper-green-deep); }
+@media(min-width:900px) { .edition-strip { grid-template-columns:240px 1fr;align-items:center;padding:26px 35px; }.edition-strip-mark{display:none;}.edition-strip-facts strong{font-size:36px;}.edition-strip-index>p{font-size:29px;}.marks-ledger .marks-coverage{min-height:330px;} }
+@media(max-width:350px) { .edition-strip{padding:20px;}.edition-strip-facts{gap:9px;}.edition-strip-facts strong{font-size:21px;}.edition-strip-mark{display:none;} }
+@media(prefers-reduced-motion:reduce) { :is(.pin-card,.cabinet-card,.folio-session,.care-course-grid article,.library-catalog-card):hover{transform:none;} }
+/* Decorative spine ribs have equal height: they are not a pretend data chart. */
+.edition-strip-mark i,.edition-strip-mark i:nth-child(2n),.edition-strip-mark i:nth-child(3n) { height:40px; }
+@media(max-width:899px) { .edition-strip-index>p { max-width:calc(100% - 62px); } }
+/* Page-specific paper objects. The index carries different working forms. */
+.week-folio .edition-strip { border-radius:0 0 18px 0;border-left:8px solid var(--paper-green-deep); }
+.week-folio .folio-day>header>span { background:var(--paper-green-deep);color:var(--paper-paper);padding:8px 14px;box-shadow:4px 4px 0 var(--paper-panel); }
+.task-pins .edition-strip { margin-top:25px;overflow:visible; }
+.task-pins .edition-strip:after { content:"";position:absolute;top:-10px;left:45%;height:21px;width:74px;background:#e9e5d5b5;border:1px solid #63795330;transform:rotate(-4deg);pointer-events:none; }
+.marks-ledger .edition-strip { background-image:repeating-linear-gradient(0deg,transparent 0 27px,#3d594510 27px 28px);box-shadow:0 5px 0 #687e5b35; }
+.link-cabinet .edition-strip { border-left:10px double var(--paper-green-deep); }
+.link-cabinet .cabinet-card { border-left:5px solid var(--paper-green-edge); }
+.link-cabinet .cabinet-card>div>span { padding:8px;background:var(--paper-green-deep);color:var(--paper-paper);min-width:40px;text-align:center; }
+.edition-care .care-bookplate { outline:1px solid var(--paper-green-edge);outline-offset:-9px;box-shadow:5px 5px 0 #526b4a25; }
+.edition-care .edition-strip { border-top:6px solid var(--paper-green-deep); }
+.progress-map .edition-strip { border-bottom:6px double var(--paper-green-deep); }
+.progress-map .course-constellation article { border-left:6px solid var(--paper-green-deep); }
+.library-page .library-catalog-card:before { border-left:2px solid var(--paper-green-edge); }
+.studio-page .studio-steps { padding:16px 10px;background:var(--paper-paper);border:1px solid var(--paper-green-edge);box-shadow:4px 4px 0 #526b4a25; }
+/* Offset overly dense first phone views without weakening the green hierarchy. */
+@media(max-width:899px) { .task-pins .edition-strip,.marks-ledger .edition-strip { background:var(--paper-paper);border-left:12px solid var(--paper-panel); }.marks-ledger .edition-strip:before,.task-pins .edition-strip:before{display:none;} }
+@media(min-width:900px) { .paper-desk .pd-sheet { border-left:18px solid var(--paper-panel); }.progress-map .progress-topic-index{border-right:12px solid var(--paper-green-deep);} }

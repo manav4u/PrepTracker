@@ -5,7 +5,7 @@ Reviewed 10 October 2026. PR130 remains a review build, not a production release
 ## What changed
 
 - One warm-paper palette across landing, setup, course library, course notebook, desk, plan, tasks, marks, resources, revision, progress and settings.
-- Green means recorded coverage/completion. Neutral ink means navigation and selection. Errors and destructive actions stay distinct.
+- After the 20:01 steering, green is a secondary design surface across the app. Dark checks, labels and state text identify actual coverage/completion. Color alone is not evidence. Ink remains navigation/actions; errors and destructive actions stay distinct.
 - Different page structures remain: paper desk, course notebook, week folio, task pins, marks ledger and link cabinet. This is not the same hero grid repeated.
 - Desk and Progress show evidence without changing coverage. Coverage edits belong in Courses.
 - Stored writes happen before saved-looking state. Failed task/resource creation preserves the form; failed practice save preserves the attempt; failed Undo keeps the recorded attempt.
@@ -60,7 +60,7 @@ Reviewed 10 October 2026. PR130 remains a review build, not a production release
 
 Review deployment: https://preptracker-paper-review.vercel.app/
 
-## Proportional hierarchy follow-up
+## Earlier oat hierarchy follow-up (superseded by green steering)
 
 The 19:46 critique was valid: the first consistent pass used too many near-white surfaces, so the secondary color did not carry enough visual weight. This follow-up makes support surfaces deeper oat (`#d5c6ad`) while leaving the dominant reading paper light and recorded progress sage.
 
@@ -74,3 +74,21 @@ Anonymous hosted screenshots checked again on all 13 pages at 390 and 1280 pixel
 A simple color-area audit of first 1000-pixel hosted views found oat at roughly 23-38% on the ten main phone views and 15-33% on desktop. The phone Add course view remains heavier at 46%; desktop marks remains lighter at 15%. These are known misses, not exact 60/30/10 compliance. Recorded green occupied about 3-4% in the sampled desk/progress views and zero where no recorded progress is shown. This audit measures pixels, not perceived hierarchy, and changes with scroll position and data.
 
 The goal is a dominant/support/accent hierarchy, not literal percentages on every dynamic screen. This pass fixes the previously weak secondary hierarchy but does not claim a perfect ratio or a 10/10 design. Product/reliability compromises above remain unchanged.
+
+## Green secondary and richer pages
+
+The user requested "Green 30" and said other pages were too quiet at 20:01. This supersedes the previous earned-only green rule.
+
+- Muted green (`#afbea6`) is now the real secondary paper/book-cloth surface. Deep green (`#3d5945`) supplies edges, checks and book-spine details. Light paper stays dominant; ink carries text and primary actions.
+- Plan, Tasks, Marks, Resources, Progress and Settings have working-page indexes with current record counts. These are actual values, not invented sample activity: planned sessions/minutes/dates, open tasks/papers, resource types, completed assessment heads, topic evidence and backup state.
+- Page forms differ: folio binding/day tabs, pinned task tape, ruled marks ledger, resource cabinet spines, framed settings bookplate, topic-map binding and revision work sheet. Fine texture and offset paper edges add depth without photographic noise.
+- Coverage tiles use deep fill, checks and labels. Uncovered tiles stay warm paper, so a green supporting panel does not falsely suggest completion. Resource video count derives from video type/YouTube parsing, not a nonexistent category.
+- The formerly over-heavy Add face is now a bounded green title band over a light reading/action body.
+
+Current validation is LOCAL, not hosted: all 13 pages inspected at 390/1280; ten main routes also at 320. No page overflow/errors. Typecheck, build and 61 tests pass. Core create/save/reload flows and injected storage failures pass. Resource failure preserves title, failed removal retains saved link, successful removal deletes it; reduced-motion has zero active CSS animations; mobile More drawer works. An initial test-script failure targeted a desktop-only missing More button, corrected to mobile dock; it was not an app failure.
+
+Approximate first-1000px local green surface area: main phone views 20-38%, desktop 19-34%. Add desktop is lighter (13%); source notebook phone heavier (38%). These are samples, not literal 60/30/10 on every scroll/data combination.
+
+Self-review: palette/hierarchy 8, visual richness 8, responsive 8.5, motion 8, exam usefulness 8, reliability/honesty 8.5, accessibility 8, performance 7.5, breadth 7.5. Overall 8.1/10. The new page indexes still share a family; this is richer and more useful, not a claim of a fully bespoke visual sculpture per route. Catalog size, system typography, long sources, local-only storage and FE-only marks remain the known limits.
+
+Hosted publication is pending a supported review-only deployment route. The stable URL currently still shows the prior oat pass. No production/main mutation or merge.

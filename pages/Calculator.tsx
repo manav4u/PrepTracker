@@ -1,3 +1,4 @@
+import EditionStrip from "../components/EditionStrip";
 import "../marks-ledger.css";
 import EditionNav from "../components/EditionNav";
 
@@ -96,7 +97,7 @@ const CalculatorPage: React.FC = () => {
             <br />
             OFFICIAL RESULT
           </div>
-        </header>
+        </header><EditionStrip code="04 / LEDGER" title="Every entered head counts." facts={[{value:summary.completeHeads+" / "+summary.totalHeads,label:"complete heads"},{value:summary.gradedCredits,label:"graded credits"},{value:summary.isComplete?'Complete':'Partial',label:"coverage state"}]}/>
         <div className="marks-layout">
           <section className="marks-inputs">
             <details className="marks-coverage" open>

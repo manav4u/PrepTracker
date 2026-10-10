@@ -1,3 +1,4 @@
+import EditionStrip from "../components/EditionStrip";
 import { CATALOG } from "../lib/catalog";
 import "../link-cabinet.css";
 import EditionNav from "../components/EditionNav";
@@ -105,7 +106,7 @@ export default function Resources() {
             {resources.length}
             <small>LINKS IN THIS BROWSER</small>
           </span>
-        </header>
+        </header><EditionStrip code="03 / CABINET" title="A shelf, not a search history." facts={[{value:resources.filter(r=>r.category==='notes').length,label:"notes"},{value:resources.filter(r=>r.type==='video'||!!getYouTubeID(r.url)).length,label:"videos"},{value:resources.filter(r=>!r.isSystem).length,label:"your own links"}]}/>
         <p className="cabinet-disclosure">
           A cabinet for notes, videos and references. Saved locally, not
           cloud-synced. A saved link is not a verified endorsement. System

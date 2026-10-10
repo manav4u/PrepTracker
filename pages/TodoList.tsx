@@ -1,3 +1,4 @@
+import EditionStrip from "../components/EditionStrip";
 import "../task-pins.css";
 import EditionNav from "../components/EditionNav";
 import React, { useState } from "react";
@@ -107,7 +108,7 @@ export default function TodoList() {
               ON YOUR BOARD
             </p>
           </div>
-        </header>
+        </header><EditionStrip code="02 / BOARD" title="Dates with a place to land." facts={[{value:tasks.filter(t=>!t.completed).length,label:"open tasks"},{value:tasks.filter(t=>!t.completed&&t.category==='EXAM').length,label:"pending papers"},{value:tasks.filter(t=>t.completed).length,label:"marked complete"}]}/>
         <p className="pins-disclosure">
           Exam dates, lab work and assignments are entered by you, not an
           official timetable. Calendar export creates all-day events. It does
