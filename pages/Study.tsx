@@ -67,6 +67,7 @@ export default function Study({
   }, [stage, receipt]);
   const dirty = !!(goal || answer || paper || reference || label || url);
   const [hydratedKey, setHydratedKey] = useState("");
+  const [draftError, setDraftError] = useState("");
   useEffect(() => {
     try {
       const saved =
@@ -118,7 +119,8 @@ export default function Study({
           }),
         );
       else sessionStorage.removeItem(draftKey);
-    } catch {}
+      setDraftError("");
+    } catch { setDraftError("This tab could not keep your unfinished session. Keep this sheet open and copy your work before leaving or reloading."); }
   }, [
     hydratedKey,
     draftKey,
@@ -341,9 +343,8 @@ export default function Study({
             </div>
           </details>
         )}
-        <p className="studio-draft-note">
-          Unfinished work stays in this tab. Closing the tab clears it. Only
-          recorded attempts go in your backup.
+        <p className={`studio-draft-note ${draftError ? "draft-error" : ""}`} role={draftError ? "alert" : undefined}>
+          {draftError || "Unfinished work stays in this tab. Closing the tab clears it. Only recorded attempts go in your backup."}
         </p>
         <div className="studio-layout">
           <article className={`studio-paper stage-${stage}`}>

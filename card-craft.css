@@ -51,3 +51,8 @@
  .marks-row{padding:22px 14px}
  .marks-row-title h3{font-size:22px}
 }
+/* Inset rules need real breathing room on both desktop and phone. */
+.marks-row{padding-left:18px;padding-right:18px}
+@media(max-width:600px){.marks-row{padding-left:14px;padding-right:14px}}
+.cabinet-card.selected{outline:2px solid var(--paper-green-deep);outline-offset:-8px;background-color:var(--paper-panel)}
+.studio-draft-note.draft-error{border-left:3px solid #8b3a2d;padding:12px 16px;background:var(--paper-paper);color:var(--paper-ink)}
