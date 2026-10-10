@@ -135,6 +135,7 @@ const SettingsPage: React.FC = () => {
           // Critical Operation: Hard Reset sequence
           setTimeout(() => {
              [...Object.values(KEYS_FOR_RESET), ROLLBACK_KEY, 'sppu_user_progress'].forEach(key => localStorage.removeItem(key));
+             Object.keys(localStorage).filter(k => k.startsWith('preptracker-session:')).forEach(k => localStorage.removeItem(k));
              // Force reload to root to prevent hash router ghosts
              window.location.reload();
           }, 1500);

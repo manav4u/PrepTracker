@@ -85,7 +85,7 @@ export default function Dashboard() {
         <header className="pd-greeting">
           <div>
             <p>
-              {profile.name}'s desk /{" "}
+              {profile.name ? `${profile.name}'s desk` : "Your desk"} /{" "}
               {fmt(today, { weekday: "long", day: "numeric", month: "long" })}
             </p>
             <h1>Before the paper.</h1>
@@ -119,6 +119,42 @@ export default function Dashboard() {
             )}
           </div>
         </header>
+        {(() => {
+          const paper: any = model.papers[0];
+          const shelf: any = paper && model.shelves.find((x: any) => x.course.id === paper.courseId);
+          const nextNode: any = shelf?.nodes.find((n: any) => study.topics[n.id]?.status !== "done");
+          const today1: any = model.planned.length;
+          if (!paper || !shelf)
+            return (
+              <section className="pd-tonight pd-tonight-empty" aria-label="Next paper">
+                <p className="pd-kicker">Next paper</p>
+                <h2>No paper date yet.</h2>
+                <p>Add your exam date and this spot counts down to it, with the topic to open next.</p>
+                <Link to="/tasks">Add a paper date ↗</Link>
+              </section>
+            );
+          return (
+            <section className="pd-tonight" aria-label="Next paper">
+              <p className="pd-kicker">Next paper</p>
+              <h2>
+                {paper.days === 0 ? "Today" : paper.days === 1 ? "Tomorrow" : `${paper.days} days`}
+                <small> · {shelf.course.name}</small>
+              </h2>
+              <p>
+                {shelf.covered} of {shelf.total} topics marked covered · {shelf.total - shelf.covered} left.
+                {today1 ? ` ${today1} planned today.` : ""}
+              </p>
+              <div className="pd-tonight-actions">
+                {nextNode ? (
+                  <Link to={courseLink(nextNode)}>Next topic: {nextNode.text} ↗</Link>
+                ) : (
+                  <span>Every topic is marked covered.</span>
+                )}
+                <Link to="/planner">Open plan ↗</Link>
+              </div>
+            </section>
+          );
+        })()}
         <section className="pd-sheet">
           <header className="pd-sheethead">
             <span className="pd-kicker">Your syllabus / at a glance</span>

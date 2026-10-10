@@ -64,16 +64,39 @@ const CalculatorPage: React.FC = () => {
     ? [...baseSubjects, ...extraHeads(semester, workshop)]
     : baseSubjects;
 
+  const [rejected, setRejected] = React.useState<Record<string, string>>({});
+  const markMax = (field: "inSem" | "endSem" | "termWork") =>
+    field === "inSem" ? 30 : field === "endSem" ? 70 : 25;
   const updateMarks = (
     sId: string,
     field: "inSem" | "endSem" | "termWork",
     val: string,
   ) => {
-    const max = field === "inSem" ? 30 : field === "endSem" ? 70 : 25;
-    const n =
-      val === "" ? undefined : Math.min(max, Math.max(0, parseInt(val) || 0));
+    const max = markMax(field);
+    const key = `${sId}:${field}`;
+    const trimmed = val.trim();
+    const valid = /^\d{1,3}$/.test(trimmed) && Number(trimmed) <= max;
+    if (trimmed !== "" && !valid) {
+      // Never rewrite a typo into a plausible mark: keep the text, drop the stored value, say why.
+      setRejected((r) => ({ ...r, [key]: val }));
+      if (marks[sId]?.[field] !== undefined)
+        setMarks({ ...marks, [sId]: { ...(marks[sId] || {}), [field]: undefined } });
+      return;
+    }
+    setRejected((r) => {
+      if (!(key in r)) return r;
+      const { [key]: _gone, ...rest } = r;
+      return rest;
+    });
+    const n = trimmed === "" ? undefined : Number(trimmed);
     setMarks({ ...marks, [sId]: { ...(marks[sId] || {}), [field]: n } });
   };
+  const markValue = (sId: string, field: "inSem" | "endSem" | "termWork") =>
+    rejected[`${sId}:${field}`] ?? marks[sId]?.[field] ?? "";
+  const markError = (sId: string, field: "inSem" | "endSem" | "termWork") =>
+    `${sId}:${field}` in rejected
+      ? `Enter a whole number from 0 to ${markMax(field)}. Not counted until fixed.`
+      : "";
 
   const summary = summarizeMarks(filteredSubjects, marks);
   const sgpa = Number(summary.value || 0);
@@ -173,7 +196,7 @@ const CalculatorPage: React.FC = () => {
               <button
                 onClick={() => {
                   if (confirm("Clear all entered marks in this browser?"))
-                    setMarks({});
+                    setMarks({}); setRejected({});
                 }}
               >
                 Clear marks ↺
@@ -206,7 +229,8 @@ const CalculatorPage: React.FC = () => {
                           aria-label={`CCE marks: ${s.name}`}
                           min="0"
                           max="30"
-                          value={marks[s.id]?.inSem ?? ""}
+                          value={markValue(s.id, "inSem")}
+ aria-invalid={!!markError(s.id, "inSem")}
                           onChange={(e) =>
                             updateMarks(s.id, "inSem", e.target.value)
                           }
@@ -220,7 +244,8 @@ const CalculatorPage: React.FC = () => {
                           aria-label={`End-Sem marks: ${s.name}`}
                           min="0"
                           max="70"
-                          value={marks[s.id]?.endSem ?? ""}
+                          value={markValue(s.id, "endSem")}
+ aria-invalid={!!markError(s.id, "endSem")}
                           onChange={(e) =>
                             updateMarks(s.id, "endSem", e.target.value)
                           }
@@ -236,7 +261,8 @@ const CalculatorPage: React.FC = () => {
                       aria-label={`Term work marks: ${s.name}`}
                       min="0"
                       max="25"
-                      value={marks[s.id]?.termWork ?? ""}
+                      value={markValue(s.id, "termWork")}
+ aria-invalid={!!markError(s.id, "termWork")}
                       onChange={(e) =>
                         updateMarks(s.id, "termWork", e.target.value)
                       }
@@ -244,6 +270,13 @@ const CalculatorPage: React.FC = () => {
                     />
                   </label>
                 </div>
+                {(["inSem", "endSem", "termWork"] as const).map((f) =>
+                  markError(s.id, f) ? (
+                    <p key={f} className="marks-error" role="alert">
+                      {f === "inSem" ? "CCE" : f === "endSem" ? "End-Sem" : "Term work"}: {markError(s.id, f)}
+                    </p>
+                  ) : null,
+                )}
               </article>
             ))}
           </section>

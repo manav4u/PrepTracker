@@ -71,7 +71,7 @@ export default function Study({
   useEffect(() => {
     try {
       const saved =
-        JSON.parse(sessionStorage.getItem(draftKey) || "null") || {};
+        JSON.parse(localStorage.getItem(draftKey) || "null") || {};
       setReceipt(null);
       commitLock.current = false;
       setMotionReady(false);
@@ -90,7 +90,7 @@ export default function Study({
         setNoReview(!!saved.noReview);
         setMessage(
           saved.goal || saved.answer
-            ? "Unfinished session restored in this tab."
+            ? "Unfinished session restored from this browser."
             : "",
         );
       }
@@ -101,7 +101,7 @@ export default function Study({
     if (hydratedKey !== draftKey) return;
     try {
       if (dirty)
-        sessionStorage.setItem(
+        localStorage.setItem(
           draftKey,
           JSON.stringify({
             goal,
@@ -118,9 +118,9 @@ export default function Study({
             noReview,
           }),
         );
-      else sessionStorage.removeItem(draftKey);
+      else localStorage.removeItem(draftKey);
       setDraftError("");
-    } catch { setDraftError("This tab could not keep your unfinished session. Keep this sheet open and copy your work before leaving or reloading."); }
+    } catch { setDraftError("This browser could not keep your unfinished session. Keep this sheet open and copy your work before leaving or reloading."); }
   }, [
     hydratedKey,
     draftKey,
@@ -150,7 +150,7 @@ export default function Study({
       if (dirty && a && a.getAttribute("href")?.startsWith("#/")) {
         if (
           !window.confirm(
-            "Leave this sheet? Your unfinished session is kept in this tab.",
+            "Leave this sheet? Your unfinished session is kept in this browser.",
           )
         ) {
           e.preventDefault();
@@ -169,7 +169,7 @@ export default function Study({
     if (
       dirty &&
       !window.confirm(
-        "Close this sheet? Your unfinished session is kept in this tab.",
+        "Close this sheet? Your unfinished session is kept in this browser.",
       )
     )
       return;
@@ -177,7 +177,7 @@ export default function Study({
   };
   const reset = () => {
     try {
-      sessionStorage.removeItem(draftKey);
+      localStorage.removeItem(draftKey);
     } catch {}
     setGoal("");
     setAnswer("");
@@ -344,7 +344,7 @@ export default function Study({
           </details>
         )}
         <p className={`studio-draft-note ${draftError ? "draft-error" : ""}`} role={draftError ? "alert" : undefined}>
-          {draftError || "Unfinished work stays in this tab. Closing the tab clears it. Only recorded attempts go in your backup."}
+          {draftError || "Unfinished work is kept in this browser, so closing the tab does not lose it. It is not in your backup and not cloud-synced; only recorded attempts are. Clearing browser data removes it."}
         </p>
         <div className="studio-layout">
           <article className={`studio-paper stage-${stage}`}>

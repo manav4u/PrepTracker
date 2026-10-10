@@ -1118,3 +1118,10 @@
 .pd-row {
   align-items:start;
 }
+
+.paper-desk .pd-tonight { margin: 0 0 18px; padding: 16px 18px; border: 1px solid var(--ink, #2d2a24); background: #fffdf7; box-shadow: 4px 4px 0 rgba(45,42,36,.18); }
+.paper-desk .pd-tonight h2 { margin: 2px 0 6px; font-size: clamp(1.6rem, 6vw, 2.2rem); line-height: 1.1; }
+.paper-desk .pd-tonight h2 small { font-size: 0.95rem; font-weight: 400; color: #3f493c; }
+.paper-desk .pd-tonight p { margin: 4px 0; line-height: 1.5; }
+.paper-desk .pd-tonight-actions { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-top: 10px; }
+.paper-desk .pd-tonight-actions a, .paper-desk .pd-tonight > a { min-height: 44px; display: inline-flex; align-items: center; }
