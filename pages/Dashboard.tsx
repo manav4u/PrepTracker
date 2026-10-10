@@ -14,27 +14,7 @@ const fmt = (
   opts: Intl.DateTimeFormatOptions = { day: "numeric", month: "short" },
 ) => new Date(day + "T12:00:00").toLocaleDateString("en", opts);
 function Tally({ value }: { value: number }) {
-  const [count, setCount] = useState(value);
-  useEffect(() => {
-    if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setCount(value);
-      return;
-    }
-    let frame = 0;
-    const start = performance.now();
-    const tick = (now: number) => {
-      const t = Math.min(1, (now - start) / 650);
-      setCount(Math.round(value * (1 - Math.pow(1 - t, 3))));
-      if (t < 1) frame = requestAnimationFrame(tick);
-    };
-    frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
-  }, [value]);
-  return (
-    <span aria-label={String(value)}>
-      <span aria-hidden="true">{count}</span>
-    </span>
-  );
+  return <span>{value}</span>;
 }
 export default function Dashboard() {
   const { profile, study, tasks, resources } = useData(),

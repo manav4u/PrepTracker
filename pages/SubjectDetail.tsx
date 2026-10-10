@@ -23,7 +23,7 @@ export default function SubjectDetail(){
  useEffect(()=>{if(!subject)return;let custom:ResourceItem[]=[],deleted:string[]=[];try{custom=JSON.parse(localStorage.getItem('sppu_custom_resources')||'[]');deleted=JSON.parse(localStorage.getItem('sppu_deleted_system_ids')||'[]');}catch{}const matches=(r:ResourceItem)=>subject.code.startsWith(r.subject)||(r.subject==='GLOBAL'&&subject.year==='FE');setResources([...SYSTEM_RESOURCES.filter(r=>!deleted.includes(r.id)),...custom].filter(matches));},[id]);
  if(!subject||!unit)return <div className="notebook-page"><main><h1>Course not found.</h1><Link to="/directory">Open course directory</Link></main></div>;
  const getProg=(uid:string)=>userProgress.find(x=>x.unitId===uid)||{unitId:uid,status:UnitStatus.NOT_STARTED,pyqsCompleted:[]};const p=getProg(unit.id);
- const updateStatus=(status:UnitStatus)=>{const next=userProgress.filter(x=>x.unitId!==unit.id);setUserProgress([...next,{...p,status}]);if(profile){const today=new Date().toDateString(),last=profile.lastStudyDate?new Date(profile.lastStudyDate).toDateString():'';if(last!==today)setProfile({...profile,streak:(profile.streak||0)+1,lastStudyDate:new Date().toISOString()});}};
+ const updateStatus=(status:UnitStatus)=>{const next=userProgress.filter(x=>x.unitId!==unit.id);setUserProgress([...next,{...p,status}]);};
  const togglePyq=(year:string)=>{setUserProgress([...userProgress.filter(x=>x.unitId!==unit.id),{...p,pyqsCompleted:p.pyqsCompleted.includes(year)?p.pyqsCompleted.filter(y=>y!==year):[...p.pyqsCompleted,year]}]);};
  const roman=(n:number)=>['I','II','III','IV','V','VI','VII','VIII','IX','X'][n-1]||String(n);
  const raw=(unit as any).sourceText as string|undefined;const outline=raw?deriveOutline(raw):unit.topics;

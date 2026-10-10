@@ -1,0 +1,392 @@
+/* One shared palette for the complete edition.
+   Green is earned coverage/completion, never navigation, brand, generic paper or selection.
+   Red is reserved for error and destructive action. */
+:root {
+  --paper-ground: #efe9df;
+  --paper-paper: #fffdf7;
+  --paper-panel: #f0e9d9;
+  --paper-ink: #38382e;
+  --paper-muted: #69685d;
+  --paper-rule: #d8d0c1;
+  --paper-hover: #e7dece;
+  --paper-progress: #91a382;
+  --paper-progress-dark: #4f6542;
+  --paper-progress-pale: #e1e8d7;
+  --paper-danger: #a43a30;
+  --paper-danger-pale: #f3e0db;
+  --study-secondary: var(--paper-ink);
+  --study-muted: var(--paper-muted);
+  --study-boundary: var(--paper-rule);
+}
+body {
+  background: var(--paper-ground);
+  background-image: none;
+  color: var(--paper-ink);
+}
+::selection {
+  background: var(--paper-hover);
+  color: var(--paper-ink);
+}
+:is(
+  .paper-desk,
+  .front-cover,
+  .map-page,
+  .library-page,
+  .notebook-page,
+  .studio-page,
+  .progress-map,
+  .week-folio,
+  .task-pins,
+  .marks-ledger,
+  .link-cabinet,
+  .edition-care
+) {
+  background: var(--paper-ground);
+  color: var(--paper-ink);
+  --red: var(--paper-ink);
+  --secondary: var(--paper-ink);
+  --pd-bg: var(--paper-ground);
+  --pd-ink: var(--paper-ink);
+  --pd-muted: var(--paper-muted);
+  --pd-green: var(--paper-ink);
+}
+:is(a, button, input, select, textarea, summary):focus-visible {
+  outline-color: var(--paper-ink) !important;
+}
+/* Shared navigation stays the same across routes, including More. */
+.edition-nav,
+.paper-desk .edition-nav {
+  background: var(--paper-ground);
+  border-color: var(--paper-rule);
+  color: var(--paper-ink);
+}
+.edition-nav .edition-nav-brand,
+.paper-desk .edition-nav-brand {
+  color: var(--paper-ink);
+}
+.edition-nav > div > a[aria-current],
+.edition-nav > div > a[aria-current] > span {
+  color: var(--paper-ink);
+}
+.edition-mobile-dock,
+.paper-desk .edition-mobile-dock {
+  background: var(--paper-paper);
+  border-color: var(--paper-rule);
+  box-shadow:
+    0 6px 0 var(--paper-hover),
+    0 0 0 5px #efe9dfb0,
+    0 -6px 25px #38382e18;
+}
+.edition-mobile-dock > a[aria-current],
+.edition-mobile-dock > button.active,
+.paper-desk .edition-mobile-dock > a[aria-current],
+.edition-mobile-dock a[aria-current]:hover,
+.edition-mobile-dock .dock-more.active:hover {
+  background: var(--paper-ink);
+  color: var(--paper-paper);
+  box-shadow: 0 2px 0 var(--paper-muted);
+}
+.edition-mobile-dock > a[aria-current]:after,
+.paper-desk .edition-mobile-dock > a[aria-current]:after {
+  background: var(--paper-ink);
+}
+.edition-mobile-dock a:hover,
+.edition-mobile-dock button:hover,
+.edition-drawer a:hover {
+  background: var(--paper-hover);
+}
+.edition-drawer {
+  background: var(--paper-paper);
+  border-color: var(--paper-rule);
+}
+.edition-drawer > div > a {
+  background: var(--paper-panel);
+  color: var(--paper-ink);
+  border-color: var(--paper-rule);
+}
+/* Distinct page structures, one neutral paper family. */
+.front-cover .front-collection,
+.front-feature-grid article,
+.front-feature-grid article:nth-child(3n + 2),
+.front-feature-grid article:nth-child(3n),
+.library-catalog-card,
+.library-catalog-card[class*="tone-"],
+.pin-card,
+.pin-card.tone-1,
+.pin-card.tone-2,
+.cabinet-card,
+.cabinet-card.tone-1,
+.cabinet-card.tone-2 {
+  background: var(--paper-paper);
+  border-color: var(--paper-rule);
+}
+.front-preview,
+.library-filters,
+.map-panel,
+.folio-budget,
+.pins-form,
+.cabinet-controls,
+.care-identity,
+.care-backup,
+.studio-method,
+.atlas-start {
+  background: var(--paper-panel);
+  border-color: var(--paper-rule);
+}
+.notebook-leaf,
+.studio-paper,
+.folio-session,
+.marks-receipt,
+.care-bookplate,
+.care-dialog,
+.cabinet-dialog,
+.pd-dialog {
+  background: var(--paper-paper);
+  border-color: var(--paper-rule);
+}
+.atlas-emblem {
+  background: var(--paper-panel) !important;
+  color: var(--paper-ink);
+}
+.atlas-emblem small {
+  color: var(--paper-muted);
+}
+.care-heading > span,
+.care-restore,
+.care-toast,
+.library-added {
+  background: var(--paper-panel);
+  border-color: var(--paper-rule);
+  color: var(--paper-ink);
+}
+.care-restore:hover,
+.care-restore.drag-active {
+  background: var(--paper-paper);
+}
+.cabinet-card.selected,
+.map-choice.chosen,
+.studio-outcomes button[aria-pressed="true"],
+.progress-map-heading button[aria-pressed="true"],
+.progress-topic-index nav button[aria-pressed="true"],
+.filtered-topics > button[aria-pressed="true"] {
+  background: var(--paper-hover);
+  border-color: var(--paper-ink);
+  color: var(--paper-ink);
+}
+/* Primary actions are ink. In-progress and selected states stay neutral. */
+.paper-desk .pd-primary,
+.front-actions a,
+.map-next,
+.library-add-button,
+.studio-page .studio-primary,
+.folio-generate button,
+.pins-submit button,
+.cabinet-primary,
+.care-primary,
+.notebook-log {
+  background: var(--paper-ink) !important;
+  color: var(--paper-paper) !important;
+  border-color: var(--paper-ink);
+  box-shadow: 0 2px 0 var(--paper-muted);
+}
+.paper-desk .pd-primary:hover,
+.pins-submit button:hover {
+  background: var(--paper-muted) !important;
+}
+.front-actions a + a,
+.pins-submit button + button {
+  background: transparent !important;
+  color: var(--paper-ink) !important;
+  box-shadow: none;
+}
+.notebook-status button[aria-pressed="true"],
+.notebook-confidence button[aria-pressed="true"],
+.notebook-pyq button[aria-pressed="true"],
+.pd-paperdates button[aria-pressed="true"] {
+  background: var(--paper-hover);
+  color: var(--paper-ink);
+  border-color: var(--paper-ink);
+}
+.notebook-unit-tabs button[aria-pressed="true"],
+.cabinet-tabs button[aria-pressed="true"],
+.front-tabs button[aria-pressed="true"],
+.progress-method nav button[aria-pressed="true"] {
+  background: var(--paper-ink);
+  color: var(--paper-paper);
+  border-color: var(--paper-ink);
+}
+.notebook-unit-tabs button[aria-pressed="true"] span,
+.progress-method button[aria-pressed="true"] span {
+  color: var(--paper-paper);
+}
+/* Earned marks: topic coverage and task/session completion only. */
+.pd-tiles button {
+  background: var(--paper-panel);
+  border-color: var(--paper-rule);
+  color: var(--paper-muted);
+  box-shadow: 0 2px 0 var(--paper-hover);
+}
+.pd-tiles button.covered {
+  background: linear-gradient(145deg, #a6b595, var(--paper-progress));
+  border-color: #7e9270;
+  color: #253620;
+  box-shadow:
+    inset 0 1px 0 #c3cfb5,
+    0 2px 0 #6e855f;
+}
+.pd-progress i,
+.pd-chart-rail i,
+.pd-ribbon i {
+  background: var(--paper-progress);
+}
+.pd-ribbon .partial i {
+  background: repeating-linear-gradient(
+    135deg,
+    #b5c2a4 0,
+    #b5c2a4 3px,
+    #d3dcc8 3px,
+    #d3dcc8 6px
+  );
+}
+.pd-ribbon b {
+  color: var(--paper-ink);
+}
+.pd-legend i {
+  background: var(--paper-progress);
+}
+.pd-legend .empty {
+  background: var(--paper-panel);
+}
+.pd-change {
+  color: var(--paper-progress-dark);
+}
+.notebook-topic button[aria-pressed="true"],
+.progress-map .lens-coverage .map-square.covered,
+.progress-coverage-toggle[aria-pressed="true"] {
+  background: var(--paper-progress-pale);
+  border-color: var(--paper-progress-dark);
+  color: var(--paper-progress-dark);
+}
+.folio-session.state-done,
+.pin-complete {
+  background: var(--paper-progress-pale);
+  border-color: var(--paper-progress-dark);
+}
+.pin-complete .pin-dot {
+  background: var(--paper-progress-dark);
+}
+.front-sample-check.marked {
+  color: var(--paper-progress-dark);
+}
+.progress-map .map-square.unaided,
+.evidence-badge.unaided,
+.attempt-ribbon .solo {
+  background: var(--paper-panel);
+  color: var(--paper-ink);
+}
+.progress-map .map-square.unaided small,
+.state-pip.unaided {
+  color: var(--paper-muted);
+}
+.state-pip.unaided {
+  background: var(--paper-muted);
+}
+/* Errors and destructive confirmations remain visibly different. */
+.care-danger,
+.care-toast.error,
+.map-warning {
+  background: var(--paper-danger-pale);
+  border-color: var(--paper-danger);
+  color: var(--paper-danger);
+}
+.care-danger summary,
+.care-danger p,
+.care-toast.error,
+.study-storage-error,
+.library-bookplate .library-add-error,
+.studio-message:not(.receipt-status) {
+  color: var(--paper-danger);
+}
+.care-danger button {
+  background: var(--paper-danger);
+  color: var(--paper-paper);
+}
+.study-storage-error {
+  background: var(--paper-danger-pale);
+  border-color: var(--paper-danger);
+}
+/* Loading backdrops and resource dialogs use the same warm ground. */
+.care-busy {
+  background: #efe9dff5;
+  color: var(--paper-ink);
+}
+/* Green-neutral decor and subject-color seams do not escape the shared contract. */
+.pd-sheet:before,
+.pd-card:before {
+  background: var(--paper-rule);
+}
+.pd-badge,
+.pd-ribbon button {
+  background: var(--paper-panel);
+  border-color: var(--paper-rule);
+  color: var(--paper-muted);
+}
+.pd-slip {
+  border-left-color: var(--paper-rule);
+}
+.pd-slip:after {
+  border-color: transparent var(--paper-hover) transparent transparent;
+}
+.pd-paperdetail a,
+.pd-link,
+.pd-resources a,
+.pd-slip > b {
+  color: var(--paper-ink) !important;
+}
+.course-constellation article {
+  border-left-color: var(--paper-rule);
+}
+.progress-map .lens-coverage .map-square:not(.covered) {
+  background: var(--paper-paper);
+  color: var(--paper-muted);
+}
+/* One arrival/response layer for every working page. */
+:is(
+    .week-folio,
+    .task-pins,
+    .marks-ledger,
+    .link-cabinet,
+    .edition-care,
+    .studio-page,
+    .progress-map
+  )
+  > main {
+  animation: edition-arrive 0.4s both;
+}
+:is(
+  .folio-session,
+  .pin-card,
+  .cabinet-card,
+  .care-course-grid article,
+  .marks-row,
+  .notebook-leaf,
+  .studio-paper
+) {
+  transition:
+    box-shadow 0.16s,
+    transform 0.16s;
+}
+:is(.folio-session, .cabinet-card, .care-course-grid article):hover {
+  box-shadow: 0 4px 0 var(--paper-rule);
+}
+@media (prefers-reduced-motion: reduce) {
+  #root * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  #root :is(button, a):hover {
+    transform: none !important;
+  }
+}
+.route-loading { padding: 32px; color: var(--paper-muted); font: 16px Georgia, serif; }
