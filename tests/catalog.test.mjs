@@ -4,3 +4,10 @@ test('verified pilot mappings and distinct elective codes',()=>{const it=c.filte
 test('references stay available; unsupported tracking not invented',()=>{assert.ok(c.every(x=>x.source&&x.path.startsWith('/syllabus/')&&x.units.length));assert.ok(c.filter(x=>['se-cyber-security','se-automobile-engineering'].includes(x.branchSlug)).every(x=>!x.trackerReady&&!x.semester));});
 
 test("reviewed branch rollout is scoped and elective groups are distinct",()=>{assert.ok(c.filter(x=>x.branchSlug==='te-electrical').every(x=>x.trackerReady));assert.equal(c.filter(x=>x.branchSlug==='te-electrical'&&x.electiveGroup==='PEC III').length,3);assert.equal(c.filter(x=>x.branchSlug==='te-computer-engineering'&&x.electiveGroup==='PEC I').length,4);});
+
+test('cover summary matches the generated source catalog without shipping its unit text',()=>{
+ const summary=JSON.parse(fs.readFileSync(new URL('../catalog/summary.json',import.meta.url),'utf8'));
+ assert.equal(summary.courseCount,d.courses.length);
+ assert.equal(summary.coverageNote,d.coverageNote);
+ assert.deepEqual(Object.keys(summary).sort(),['courseCount','coverageNote']);
+});

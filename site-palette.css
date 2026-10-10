@@ -1,0 +1,530 @@
+/* One shared palette for the complete edition.
+   Green is a secondary design surface. Completion is conveyed by checks and labels, not color alone.
+   Red is reserved for error and destructive action. */
+:root {
+  --paper-ground: #efe9df;
+  --paper-paper: #fffdf7;
+  --paper-panel: #f0e9d9;
+  --paper-ink: #38382e;
+  --paper-muted: #69685d;
+  --paper-rule: #d8d0c1;
+  --paper-hover: #e7dece;
+  --paper-progress: #91a382;
+  --paper-progress-dark: #4f6542;
+  --paper-progress-pale: #e1e8d7;
+  --paper-danger: #a43a30;
+  --paper-danger-pale: #f3e0db;
+  --study-secondary: var(--paper-ink);
+  --study-muted: var(--paper-muted);
+  --study-boundary: var(--paper-rule);
+}
+body {
+  background: var(--paper-ground);
+  background-image: none;
+  color: var(--paper-ink);
+}
+::selection {
+  background: var(--paper-hover);
+  color: var(--paper-ink);
+}
+:is(
+  .paper-desk,
+  .front-cover,
+  .map-page,
+  .library-page,
+  .notebook-page,
+  .studio-page,
+  .progress-map,
+  .week-folio,
+  .task-pins,
+  .marks-ledger,
+  .link-cabinet,
+  .edition-care
+) {
+  background: var(--paper-ground);
+  color: var(--paper-ink);
+  --red: var(--paper-ink);
+  --secondary: var(--paper-ink);
+  --pd-bg: var(--paper-ground);
+  --pd-ink: var(--paper-ink);
+  --pd-muted: var(--paper-muted);
+  --pd-green: var(--paper-ink);
+}
+:is(a, button, input, select, textarea, summary):focus-visible {
+  outline-color: var(--paper-ink) !important;
+}
+/* Shared navigation stays the same across routes, including More. */
+.edition-nav,
+.paper-desk .edition-nav {
+  background: var(--paper-ground);
+  border-color: var(--paper-rule);
+  color: var(--paper-ink);
+}
+.edition-nav .edition-nav-brand,
+.paper-desk .edition-nav-brand {
+  color: var(--paper-ink);
+}
+.edition-nav > div > a[aria-current],
+.edition-nav > div > a[aria-current] > span {
+  color: var(--paper-ink);
+}
+.edition-mobile-dock,
+.paper-desk .edition-mobile-dock {
+  background: var(--paper-paper);
+  border-color: var(--paper-rule);
+  box-shadow:
+    0 6px 0 var(--paper-hover),
+    0 0 0 5px #efe9dfb0,
+    0 -6px 25px #38382e18;
+}
+.edition-mobile-dock > a[aria-current],
+.edition-mobile-dock > button.active,
+.paper-desk .edition-mobile-dock > a[aria-current],
+.edition-mobile-dock a[aria-current]:hover,
+.edition-mobile-dock .dock-more.active:hover {
+  background: var(--paper-ink);
+  color: var(--paper-paper);
+  box-shadow: 0 2px 0 var(--paper-muted);
+}
+.edition-mobile-dock > a[aria-current]:after,
+.paper-desk .edition-mobile-dock > a[aria-current]:after {
+  background: var(--paper-ink);
+}
+.edition-mobile-dock a:hover,
+.edition-mobile-dock button:hover,
+.edition-drawer a:hover {
+  background: var(--paper-hover);
+}
+.edition-drawer {
+  background: var(--paper-paper);
+  border-color: var(--paper-rule);
+}
+.edition-drawer > div > a {
+  background: var(--paper-panel);
+  color: var(--paper-ink);
+  border-color: var(--paper-rule);
+}
+/* Distinct page structures, one neutral paper family. */
+.front-cover .front-collection,
+.front-feature-grid article,
+.front-feature-grid article:nth-child(3n + 2),
+.front-feature-grid article:nth-child(3n),
+.library-catalog-card,
+.library-catalog-card[class*="tone-"],
+.pin-card,
+.pin-card.tone-1,
+.pin-card.tone-2,
+.cabinet-card,
+.cabinet-card.tone-1,
+.cabinet-card.tone-2 {
+  background: var(--paper-paper);
+  border-color: var(--paper-rule);
+}
+.front-preview,
+.library-filters,
+.map-panel,
+.folio-budget,
+.pins-form,
+.cabinet-controls,
+.care-identity,
+.care-backup,
+.studio-method,
+.atlas-start {
+  background: var(--paper-panel);
+  border-color: var(--paper-rule);
+}
+.notebook-leaf,
+.studio-paper,
+.folio-session,
+.marks-receipt,
+.care-bookplate,
+.care-dialog,
+.cabinet-dialog,
+.pd-dialog {
+  background: var(--paper-paper);
+  border-color: var(--paper-rule);
+}
+.atlas-emblem {
+  background: var(--paper-panel) !important;
+  color: var(--paper-ink);
+}
+.atlas-emblem small {
+  color: var(--paper-muted);
+}
+.care-heading > span,
+.care-restore,
+.care-toast,
+.library-added {
+  background: var(--paper-panel);
+  border-color: var(--paper-rule);
+  color: var(--paper-ink);
+}
+.care-restore:hover,
+.care-restore.drag-active {
+  background: var(--paper-paper);
+}
+.cabinet-card.selected,
+.map-choice.chosen,
+.studio-outcomes button[aria-pressed="true"],
+.progress-map-heading button[aria-pressed="true"],
+.progress-topic-index nav button[aria-pressed="true"],
+.filtered-topics > button[aria-pressed="true"] {
+  background: var(--paper-hover);
+  border-color: var(--paper-ink);
+  color: var(--paper-ink);
+}
+/* Primary actions are ink. In-progress and selected states stay neutral. */
+.paper-desk .pd-primary,
+.front-actions a,
+.map-next,
+.library-add-button,
+.studio-page .studio-primary,
+.folio-generate button,
+.pins-submit button,
+.cabinet-primary,
+.care-primary,
+.notebook-log {
+  background: var(--paper-ink) !important;
+  color: var(--paper-paper) !important;
+  border-color: var(--paper-ink);
+  box-shadow: 0 2px 0 var(--paper-muted);
+}
+.paper-desk .pd-primary:hover,
+.pins-submit button:hover {
+  background: var(--paper-muted) !important;
+}
+.front-actions a + a,
+.pins-submit button + button {
+  background: transparent !important;
+  color: var(--paper-ink) !important;
+  box-shadow: none;
+}
+.notebook-status button[aria-pressed="true"],
+.notebook-confidence button[aria-pressed="true"],
+.notebook-pyq button[aria-pressed="true"],
+.pd-paperdates button[aria-pressed="true"] {
+  background: var(--paper-hover);
+  color: var(--paper-ink);
+  border-color: var(--paper-ink);
+}
+.notebook-unit-tabs button[aria-pressed="true"],
+.cabinet-tabs button[aria-pressed="true"],
+.front-tabs button[aria-pressed="true"],
+.progress-method nav button[aria-pressed="true"] {
+  background: var(--paper-ink);
+  color: var(--paper-paper);
+  border-color: var(--paper-ink);
+}
+.notebook-unit-tabs button[aria-pressed="true"] span,
+.progress-method button[aria-pressed="true"] span {
+  color: var(--paper-paper);
+}
+/* Earned marks: topic coverage and task/session completion only. */
+.pd-tiles button {
+  background: var(--paper-panel);
+  border-color: var(--paper-rule);
+  color: var(--paper-muted);
+  box-shadow: 0 2px 0 var(--paper-hover);
+}
+.pd-tiles button.covered {
+  background: linear-gradient(145deg, #a6b595, var(--paper-progress));
+  border-color: #7e9270;
+  color: #253620;
+  box-shadow:
+    inset 0 1px 0 #c3cfb5,
+    0 2px 0 #6e855f;
+}
+.pd-progress i,
+.pd-chart-rail i,
+.pd-ribbon i {
+  background: var(--paper-progress);
+}
+.pd-ribbon .partial i {
+  background: repeating-linear-gradient(
+    135deg,
+    #b5c2a4 0,
+    #b5c2a4 3px,
+    #d3dcc8 3px,
+    #d3dcc8 6px
+  );
+}
+.pd-ribbon b {
+  color: var(--paper-ink);
+}
+.pd-legend i {
+  background: var(--paper-progress);
+}
+.pd-legend .empty {
+  background: var(--paper-panel);
+}
+.pd-change {
+  color: var(--paper-progress-dark);
+}
+.notebook-topic button[aria-pressed="true"],
+.progress-map .lens-coverage .map-square.covered,
+.progress-coverage-toggle[aria-pressed="true"] {
+  background: var(--paper-progress-pale);
+  border-color: var(--paper-progress-dark);
+  color: var(--paper-progress-dark);
+}
+.folio-session.state-done,
+.pin-complete {
+  background: var(--paper-progress-pale);
+  border-color: var(--paper-progress-dark);
+}
+.pin-complete .pin-dot {
+  background: var(--paper-progress-dark);
+}
+.front-sample-check.marked {
+  color: var(--paper-progress-dark);
+}
+.progress-map .map-square.unaided,
+.evidence-badge.unaided,
+.attempt-ribbon .solo {
+  background: var(--paper-panel);
+  color: var(--paper-ink);
+}
+.progress-map .map-square.unaided small,
+.state-pip.unaided {
+  color: var(--paper-muted);
+}
+.state-pip.unaided {
+  background: var(--paper-muted);
+}
+/* Errors and destructive confirmations remain visibly different. */
+.care-danger,
+.care-toast.error,
+.map-warning {
+  background: var(--paper-danger-pale);
+  border-color: var(--paper-danger);
+  color: var(--paper-danger);
+}
+.care-danger summary,
+.care-danger p,
+.care-toast.error,
+.study-storage-error,
+.library-bookplate .library-add-error,
+.studio-message:not(.receipt-status) {
+  color: var(--paper-danger);
+}
+.care-danger button {
+  background: var(--paper-danger);
+  color: var(--paper-paper);
+}
+.study-storage-error {
+  background: var(--paper-danger-pale);
+  border-color: var(--paper-danger);
+}
+/* Loading backdrops and resource dialogs use the same warm ground. */
+.care-busy {
+  background: #efe9dff5;
+  color: var(--paper-ink);
+}
+/* Green-neutral decor and subject-color seams do not escape the shared contract. */
+.pd-sheet:before,
+.pd-card:before {
+  background: var(--paper-rule);
+}
+.pd-badge,
+.pd-ribbon button {
+  background: var(--paper-panel);
+  border-color: var(--paper-rule);
+  color: var(--paper-muted);
+}
+.pd-slip {
+  border-left-color: var(--paper-rule);
+}
+.pd-slip:after {
+  border-color: transparent var(--paper-hover) transparent transparent;
+}
+.pd-paperdetail a,
+.pd-link,
+.pd-resources a,
+.pd-slip > b {
+  color: var(--paper-ink) !important;
+}
+.course-constellation article {
+  border-left-color: var(--paper-rule);
+}
+.progress-map .lens-coverage .map-square:not(.covered) {
+  background: var(--paper-paper);
+  color: var(--paper-muted);
+}
+/* One arrival/response layer for every working page. */
+:is(
+    .week-folio,
+    .task-pins,
+    .marks-ledger,
+    .link-cabinet,
+    .edition-care,
+    .studio-page,
+    .progress-map
+  )
+  > main {
+  animation: edition-arrive 0.4s both;
+}
+:is(
+  .folio-session,
+  .pin-card,
+  .cabinet-card,
+  .care-course-grid article,
+  .marks-row,
+  .notebook-leaf,
+  .studio-paper
+) {
+  transition:
+    box-shadow 0.16s,
+    transform 0.16s;
+}
+:is(.folio-session, .cabinet-card, .care-course-grid article):hover {
+  box-shadow: 0 4px 0 var(--paper-rule);
+}
+@media (prefers-reduced-motion: reduce) {
+  #root * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  #root :is(button, a):hover {
+    transform: none !important;
+  }
+}
+.route-loading { padding: 32px; color: var(--paper-muted); font: 16px "Libre Baskerville",Georgia, serif; }
+/* Paper / green / ink hierarchy. Surface color does not assert completion. */
+:root {
+  --paper-panel: #afbea6;
+  --paper-hover: #97ad91;
+  --paper-rule: #b9b7a5;
+  --paper-muted: #52604e;
+}
+/* The secondary is a real surface, not another near-white. */
+:is(.front-preview, .library-filters, .map-panel, .folio-budget,
+    .pins-form, .cabinet-controls, .studio-method,
+    .marks-coverage, .progress-topic-index) {
+  background: var(--paper-panel);
+  border-color: var(--paper-rule);
+}
+.folio-session:nth-child(even),
+.pin-card:nth-child(even):not(.pin-complete),
+.cabinet-card:nth-child(3n+2):not(.selected),
+.library-catalog-card:nth-child(3n+2) {
+  background: var(--paper-panel);
+}
+.care-backup { background: var(--paper-paper); }
+.care-course-grid article { background: var(--paper-panel); }
+
+.notebook-margin > section { background: var(--paper-panel); }
+.notebook-margin .material-shelf { background: var(--paper-panel); }
+.progress-map .course-constellation article { background: var(--paper-panel); }
+.progress-map .progress-method { background: var(--paper-panel); }
+.front-feature-grid article:nth-child(3n+2) { background: var(--paper-panel); }
+.library-bookplate { background: var(--paper-panel); }
+.library-bookplate .library-added { background: var(--paper-paper); }
+/* Read the supporting color before scrolling, including the evidence pages. */
+.paper-desk .pd-stat { background: var(--paper-panel); }
+.paper-desk .pd-folio,
+.paper-desk .pd-row > .pd-panel:nth-child(even) { background: var(--paper-panel); }
+.notebook-page .atlas-ledger,
+.notebook-page .atlas-method {
+  background: var(--paper-panel);
+  padding: 22px;
+  border: 1px solid var(--paper-rule);
+}
+.notebook-page .atlas-method { margin-block: 24px; }
+.studio-page .studio-paper { background: var(--paper-panel); }
+.studio-page .studio-steps { border-color: var(--paper-muted); }
+.studio-page .studio-stage { background: transparent; }
+.studio-page .studio-paper input:not([type=checkbox]),
+.studio-page .studio-paper textarea { background: var(--paper-paper); }
+.studio-page .studio-topic small { color: var(--paper-ink); }
+/* Secondary supporting bands fill roughly a third of the reading composition,
+   rather than scattering tiny beige badges over an otherwise uniform page. */
+.library-page .library-disclosure,
+.link-cabinet .cabinet-heading,
+.progress-map .progress-heading {
+  background: var(--paper-panel);
+  padding: 24px;
+  border: 1px solid var(--paper-rule);
+}
+@media (min-width: 900px) {
+  .week-folio .folio-budget { min-height: 245px; }
+  .marks-ledger .marks-coverage { min-height: 310px; }
+  .link-cabinet .cabinet-controls { min-height: 150px; align-items: center; }
+}
+
+.paper-desk .pd-map,
+.paper-desk .pd-stat:first-child { background: var(--paper-paper); }
+.edition-care .care-heading,
+.task-pins .pins-heading {
+  background: var(--paper-panel);
+  padding: 24px;
+  border: 1px solid var(--paper-rule);
+}
+@media (max-width: 899px) {
+  .task-pins .pins-heading { background: transparent; padding: 0 0 30px; border-inline: 0; border-top: 0; }
+}
+/* Keep the dominant light paper dominant in the densest desk composition. */
+.paper-desk .pd-sheet { background: var(--paper-paper); }
+.paper-desk .pd-sheethead { background: var(--paper-panel); padding: 20px; margin-bottom: 20px; }
+.edition-care .care-identity { background: var(--paper-paper); }
+.edition-care .care-bookplate { background: var(--paper-panel); }
+@media (min-width: 900px) {
+  .link-cabinet .cabinet-heading { background: linear-gradient(90deg, var(--paper-panel) 68%, transparent 68%); }
+  .task-pins .pins-heading { background: linear-gradient(90deg, var(--paper-panel) 68%, transparent 68%); }
+}
+/* Green book-cloth and paper edges give the secondary a tactile role. */
+:root { --paper-green-deep: #3d5945; --paper-green-edge: #758d6d; }
+.edition-strip { display:grid;grid-template-columns:1fr;gap:20px;position:relative;padding:24px;margin:0 0 26px;background:var(--paper-panel);border:1px solid var(--paper-green-edge);box-shadow:4px 4px 0 #687e5b35,inset 0 0 0 5px #ffffff20;overflow:hidden; }
+.edition-strip:before { content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(90deg,transparent 0 5px,#263b2b06 5px 6px); }
+.edition-strip-index { position:relative; }
+.edition-strip-index>span { font:9px "DM Sans",Arial;letter-spacing:.13em; }
+.edition-strip-index>p { font:italic 25px/1.1 "Libre Baskerville",Georgia;margin:12px 0 0;max-width:300px; }
+.edition-strip-facts { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;position:relative; }
+.edition-strip-facts>div { border-top:1px solid #3d594560;padding-top:12px;min-width:0; }
+.edition-strip-facts small { font:8px/1.5 "DM Sans",Arial;display:block;letter-spacing:.05em; }
+.edition-strip-facts strong { font:25px/1.15 "Libre Baskerville",Georgia;display:block;margin-top:9px;overflow-wrap:anywhere; }
+.edition-strip-mark { display:flex;gap:5px;align-items:end;height:45px;position:absolute;right:22px;top:24px;opacity:.4;pointer-events:none; }
+.edition-strip-mark i { width:5px;height:22px;border:1px solid var(--paper-green-deep);transform:skewY(-20deg); }
+.edition-strip-mark i:nth-child(2n) { height:35px; }.edition-strip-mark i:nth-child(3n) { height:45px; }
+:is(.front-preview,.library-filters,.map-panel,.folio-budget,.pins-form,.cabinet-controls,.marks-coverage,.care-bookplate,.studio-paper,.atlas-ledger,.atlas-method,.progress-heading,.care-heading,.library-disclosure) { background-image:repeating-linear-gradient(0deg,transparent 0 4px,#293d2b05 4px 5px);box-shadow:4px 4px 0 #687e5b25,inset 0 0 0 4px #ffffff12; }
+:is(.pin-card,.cabinet-card,.folio-session,.care-course-grid article,.library-catalog-card) { border-top:4px solid var(--paper-green-edge);box-shadow:4px 4px 0 #526b4a25; }
+:is(.pin-card,.cabinet-card,.folio-session,.care-course-grid article,.library-catalog-card):hover { transform:translateY(-3px);box-shadow:6px 7px 0 #526b4a35; }
+:is(.folio-heading,.pins-heading,.marks-heading,.cabinet-heading,.care-heading,.progress-heading,.studio-heading) { border-bottom:2px solid var(--paper-green-deep);padding-bottom:24px; }
+.task-pins .pins-heading,.edition-care .care-heading,.progress-map .progress-heading,.link-cabinet .cabinet-heading { background:transparent;box-shadow:none;border-inline:0;border-top:0;padding-inline:0; }
+.paper-desk .pd-sheethead { background:var(--paper-panel);border-left:7px solid var(--paper-green-deep); }
+.paper-desk .pd-stat:not(:first-child) { box-shadow:inset 0 5px 0 #3d594535; }
+.pd-tiles button:not(.covered),.pd-legend .empty { background:#e6e1d2;border-color:#b9b09c; }
+.pd-tiles button.covered { background:var(--paper-green-deep);color:var(--paper-paper);border-color:#2d4634;box-shadow:inset 0 1px 0 #7f9974,0 2px 0 #243829; }
+.progress-map .lens-coverage .map-square.covered,.notebook-topic button[aria-pressed=true] { background:var(--paper-green-deep);color:var(--paper-paper);border-color:var(--paper-green-deep); }
+.library-bookplate { background:linear-gradient(var(--paper-panel) 0 240px,var(--paper-paper) 240px);box-shadow:7px 7px 0 #526b4a30; }
+.library-bookplate input { background:var(--paper-paper); }
+.library-bookplate input::placeholder { color:var(--paper-muted);opacity:1; }
+.studio-page .studio-paper { border-left:7px solid var(--paper-green-deep); }
+.notebook-page .atlas-method { border-left:7px solid var(--paper-green-deep); }
+.folio-day-tabs>a { box-shadow:3px 3px 0 #526b4a25; }
+.cabinet-card>header,.library-card-index { border-bottom-color:var(--paper-green-edge); }
+.front-preview,.map-panel { border-left:7px solid var(--paper-green-deep); }
+@media(min-width:900px) { .edition-strip { grid-template-columns:240px 1fr;align-items:center;padding:26px 35px; }.edition-strip-mark{display:none;}.edition-strip-facts strong{font-size:36px;}.edition-strip-index>p{font-size:29px;}.marks-ledger .marks-coverage{min-height:330px;} }
+@media(max-width:350px) { .edition-strip{padding:20px;}.edition-strip-facts{gap:9px;}.edition-strip-facts strong{font-size:21px;}.edition-strip-mark{display:none;} }
+@media(prefers-reduced-motion:reduce) { :is(.pin-card,.cabinet-card,.folio-session,.care-course-grid article,.library-catalog-card):hover{transform:none;} }
+/* Decorative spine ribs have equal height: they are not a pretend data chart. */
+.edition-strip-mark i,.edition-strip-mark i:nth-child(2n),.edition-strip-mark i:nth-child(3n) { height:40px; }
+@media(max-width:899px) { .edition-strip-index>p { max-width:calc(100% - 62px); } }
+/* Page-specific paper objects. The index carries different working forms. */
+.week-folio .edition-strip { border-radius:0 0 18px 0;border-left:8px solid var(--paper-green-deep); }
+.week-folio .folio-day>header>span { background:var(--paper-green-deep);color:var(--paper-paper);padding:8px 14px;box-shadow:4px 4px 0 var(--paper-panel); }
+.task-pins .edition-strip { margin-top:25px;overflow:visible; }
+.task-pins .edition-strip:after { content:"";position:absolute;top:-10px;left:45%;height:21px;width:74px;background:#e9e5d5b5;border:1px solid #63795330;transform:rotate(-4deg);pointer-events:none; }
+.marks-ledger .edition-strip { background-image:repeating-linear-gradient(0deg,transparent 0 27px,#3d594510 27px 28px);box-shadow:0 5px 0 #687e5b35; }
+.link-cabinet .edition-strip { border-left:10px double var(--paper-green-deep); }
+.link-cabinet .cabinet-card { border-left:5px solid var(--paper-green-edge); }
+.link-cabinet .cabinet-card>div>span { padding:8px;background:var(--paper-green-deep);color:var(--paper-paper);min-width:40px;text-align:center; }
+.edition-care .care-bookplate { outline:1px solid var(--paper-green-edge);outline-offset:-9px;box-shadow:5px 5px 0 #526b4a25; }
+.edition-care .edition-strip { border-top:6px solid var(--paper-green-deep); }
+.progress-map .edition-strip { border-bottom:6px double var(--paper-green-deep); }
+.progress-map .course-constellation article { border-left:6px solid var(--paper-green-deep); }
+.library-page .library-catalog-card:before { border-left:2px solid var(--paper-green-edge); }
+.studio-page .studio-steps { padding:16px 10px;background:var(--paper-paper);border:1px solid var(--paper-green-edge);box-shadow:4px 4px 0 #526b4a25; }
+/* Offset overly dense first phone views without weakening the green hierarchy. */
+@media(max-width:899px) { .task-pins .edition-strip,.marks-ledger .edition-strip { background:var(--paper-paper);border-left:12px solid var(--paper-panel); }.marks-ledger .edition-strip:before,.task-pins .edition-strip:before{display:none;} }
+@media(min-width:900px) { .paper-desk .pd-sheet { border-left:18px solid var(--paper-panel); }.progress-map .progress-topic-index{border-right:12px solid var(--paper-green-deep);} }
