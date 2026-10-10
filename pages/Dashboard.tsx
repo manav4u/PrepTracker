@@ -240,7 +240,35 @@ export default function Dashboard() {
                       <h3>{s.course.name}</h3>
                       <span>{String(i + 1).padStart(2, "0")}</span>
                     </header>
-                    <div className="pd-tiles">
+                    <div
+                      className="pd-tiles"
+                      role="group"
+                      aria-label={`${s.course.name} topics. Tab to enter, arrow keys to move between topics.`}
+                      onKeyDown={(e) => {
+                        const keys: Record<string, number> = {
+                          ArrowRight: 1,
+                          ArrowDown: 1,
+                          ArrowLeft: -1,
+                          ArrowUp: -1,
+                        };
+                        const step = keys[e.key];
+                        if (!step) return;
+                        const all = Array.from(
+                          e.currentTarget.querySelectorAll("button"),
+                        ) as HTMLButtonElement[];
+                        const at = all.indexOf(
+                          document.activeElement as HTMLButtonElement,
+                        );
+                        if (at < 0) return;
+                        e.preventDefault();
+                        const next = all[at + step];
+                        if (next) {
+                          all.forEach((b) => (b.tabIndex = -1));
+                          next.tabIndex = 0;
+                          next.focus();
+                        }
+                      }}
+                    >
                       {s.nodes.map((n: any, j: number) => (
                         <button
                           key={n.id}
@@ -251,6 +279,7 @@ export default function Dashboard() {
                           }
                           aria-label={`${s.course.name}: ${n.text}. ${study.topics[n.id]?.status === "done" ? "Covered" : "Still to cover"}. Show detail`}
                           title={`${n.text} · ${study.topics[n.id]?.status === "done" ? "Covered" : "Still to cover"}`}
+                          tabIndex={j === 0 ? 0 : -1}
                           onClick={() => setPicked({ kind: "topic", node: n })}
                         >
                           {j + 1}

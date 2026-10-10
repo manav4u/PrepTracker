@@ -159,7 +159,7 @@
   color:var(--pd-muted);
 }
 .pd-badge {
-  font-size:9px;
+  font-size:11px;
   letter-spacing:1px;
   border:1px solid var(--paper-rule);
   background:var(--paper-paper);
@@ -279,7 +279,7 @@
   border:1px solid var(--paper-rule);
   border-radius:3px;
   box-shadow:0 2px 0 var(--paper-rule);
-  font-size:9px;
+  font-size:11px;
   color:var(--paper-muted);
   padding:0;
   transition:transform 0.16s,
@@ -529,7 +529,7 @@
   margin:4px 0;
 }
 .pd-paperdates small {
-  font-size:8px;
+  font-size:10px;
   display:block;
   overflow-wrap:anywhere;
 }
@@ -637,7 +637,7 @@
   border-color:transparent var(--paper-rule) transparent transparent;
 }
 .pd-slip > span {
-  font-size:9px;
+  font-size:11px;
   letter-spacing:1px;
   color:var(--pd-muted);
 }
@@ -927,11 +927,11 @@
     align-items:start;
   }
   .pd-kicker {
-    font-size:9px;
+    font-size:11px;
     letter-spacing:0.8px;
   }
   .pd-badge {
-    font-size:8px;
+    font-size:10px;
     padding:6px;
     letter-spacing:0.6px;
   }

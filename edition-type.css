@@ -48,7 +48,7 @@ body,input,select,textarea,button{font-family:"DM Sans",Arial,sans-serif;}
 .edition-skip:focus { transform:none; }
 .edition-error { min-height:100vh;display:grid;place-items:center;padding:28px;background:var(--paper-ground);color:var(--paper-ink); }
 .edition-error section { max-width:620px;padding:36px;border:1px solid var(--paper-rule);border-top:8px solid var(--paper-danger);background:var(--paper-paper);box-shadow:6px 7px 0 var(--paper-panel); }
-.edition-error section>p:first-child { font-size:9px;letter-spacing:.1em;line-height:1.8; }
+.edition-error section>p:first-child { font-size:11px;letter-spacing:.1em;line-height:1.8; }
 .edition-error-mark { margin-top:28px;width:60px;height:60px;background:var(--paper-danger-pale);border:1px solid var(--paper-danger);color:var(--paper-danger);display:grid;place-items:center;font:36px "Libre Baskerville",Georgia;transform:rotate(-3deg); }
 .edition-error h1 { font:clamp(30px,4vw,46px)/1.12 "Libre Baskerville",Georgia;margin:26px 0 18px; }
 .edition-error p { font-size:13px;line-height:1.8; }
