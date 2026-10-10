@@ -1121,3 +1121,7 @@
 .pd-stat strong small {
   margin-left: 4px;
 }
+/* Keep the short coverage panel from becoming an empty page beside the slips. */
+.pd-row {
+  align-items: start;
+}
