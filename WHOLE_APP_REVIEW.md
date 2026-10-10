@@ -143,3 +143,14 @@ Course unit reading now has phrase search and a Show what is left toggle. It pre
 Local validation: 61 tests/typecheck/build pass; all-page 320/390/1280 overflow/error audit/core flows/injected failures pass. Filtered-index test starts with empty fixture topic states: cover topic 1, show six remaining, mark displayed topic 2 (Mean Value Theorems); it disappears from filtered results and reset confirms topic 2 is covered. No-match phrase and Reset view pass. Actual course phone pixels inspected.
 
 Not deployed. Hosted review remains cycle 4. Browser opened only the token form and stopped; no new credential created. Publication awaits a decision on the review-only credential route.
+
+### Cycle 5 hosted closeout
+
+Published after the user's original 21:39 Continue reply to the tonight-build temporary-credential question. Review-only project-scoped one-hour credential created for this publish, then deleted; populated account token list confirmed its absence. No production/main change.
+
+Anonymous hosted filtered-ID proof passed: six remaining after covering first entry; original topic 2 (Mean Value Theorems) marked, removed from filtered view, and still correctly covered after Reset view. Phrase no-result and Reset view passed. Hosted all-page phone/PC plus ten main pages 320 no overflow/page errors; hosted core flows passed. Actual hosted course-filter phone pixels inspected.
+
+Self-review /10: identity 8.7, typography 8.5, useful density 8.6, hierarchy 8.3, responsive 8.5, motion 8, exam use 8.6, reliability/honesty 8.5, accessibility 8, performance 7.5, breadth 7.5. Overall 8.4. A useful improvement, not a new whole-point score. Biggest remaining miss: study-session comparison is long on phone; the large catalog bundle and incomplete material/PYQ mapping remain.
+
+Deployment: https://preptracker-paper-review-ee9d51nsd-manavships.vercel.app
+Review: https://preptracker-paper-review.vercel.app/
