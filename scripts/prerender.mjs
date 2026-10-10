@@ -45,7 +45,14 @@ try {
       fs.writeFileSync(file,fs.readFileSync(file,'utf8').replace('</main>',link+'<p><a href="/#/directory">Browse all syllabus courses</a></p></main>'));
     }
   }
+  for (const file of sourceFiles(path.resolve('dist/syllabus'))) {
+    let page=fs.readFileSync(file,'utf8');
+    page=page.replace('</head>', `<style>${mod.readingCss}</style></head>`).replace('<body>', '<body>'+mod.readingChrome).replace('</body>', `<script>${mod.readingScript}</script></body>`);
+    fs.writeFileSync(file,page);
+  }
   console.log(`prerendered landing page (${html.length} bytes)`);
 } finally {
   fs.rmSync(outDir, { recursive: true, force: true });
 }
+
+function sourceFiles(dir){return fs.readdirSync(dir,{withFileTypes:true}).flatMap(d=>d.isDirectory()?sourceFiles(path.join(dir,d.name)):d.name==='index.html'?[path.join(dir,d.name)]:[]);}
