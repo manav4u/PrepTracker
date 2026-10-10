@@ -37,3 +37,17 @@
 .folio-heading + .folio-budget{margin-top:24px;margin-bottom:28px}
 .folio-save-error{grid-column:1/-1;border-left:3px solid #8b3a2d;padding:10px 14px;background:var(--paper-paper);color:var(--paper-ink)}
 @media(max-width:600px){.folio-heading + .folio-budget{margin-top:16px;margin-bottom:22px}}
+/* Marks on phone: keep head totals, put the editable ledger in reach. */
+@media(max-width:600px){
+ .marks-completeness{display:flex;align-items:center;gap:16px;padding:16px 18px;margin-bottom:16px}
+ .marks-fraction{flex:none}
+ .marks-fraction b{font-size:38px}
+ .marks-fraction span{font-size:19px}
+ .marks-fraction small{font-size:7px;max-width:96px}
+ .marks-head-track>div{display:none}
+ .marks-head-track p{margin:0;font-size:11px;line-height:1.65}
+ .marks-coverage{padding:14px 18px}
+ .marks-coverage summary{font-size:18px;line-height:1.4;min-height:32px}
+ .marks-row{padding:22px 14px}
+ .marks-row-title h3{font-size:22px}
+}

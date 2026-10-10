@@ -100,8 +100,8 @@ const CalculatorPage: React.FC = () => {
         <DeskSketch kind="marks" to={summary.totalHeads ? ".marks-row input, .marks-row button" : ".marks-selects select"} status={summary.totalHeads ? `${summary.completeHeads} of ${summary.totalHeads} heads entered · open a row` : "No FE rows yet · choose coverage"}/></header><section className="marks-completeness" aria-label="Assessment-head coverage"><div className="marks-fraction"><b>{summary.completeHeads}</b><span>/ {summary.totalHeads}</span><small>COMPLETE ASSESSMENT HEADS</small></div><div className="marks-head-track"><div>{Array.from({length:summary.totalHeads},(_,i)=><span key={i} className={i<summary.completeHeads?'entered':''} aria-hidden="true">{i<summary.completeHeads?'✓':'·'}</span>)}</div><p>{!summary.totalHeads?'Choose FE courses or a semester basket below.':summary.isComplete?'All selected heads entered.':'Still a partial entry.'} {summary.gradedCredits} of {summary.possibleCredits} credits have complete marks.</p></div></section>
         <div className="marks-layout">
           <section className="marks-inputs">
-            <details className="marks-coverage" open>
-              <summary>Choose your coverage.</summary>
+            <details className="marks-coverage" open={!filteredSubjects.length}>
+              <summary>{fullMode ? "Full semester basket · change coverage" : "Selected courses · change coverage"}</summary>
               <p>
                 Full 22-credit coverage requires exactly five theory courses:
                 the right Maths and Programming course plus one
