@@ -4,7 +4,8 @@ import { Profile, UserProgress, Task, ResourceItem } from '../types';
 import { SYSTEM_RESOURCES } from '../constants';
 import { KEYS } from '../lib/backup.mjs';
 
-export type StudyState={topics:Record<string,{status?:'not-started'|'studying'|'done';confidence?:'low'|'medium'|'high';lastRevised?:string}>;events:{id:string;topicId:string;day:string;at:string;kind:'revision';confidence:'low'|'medium'|'high'}[]};
+export type PlanEntry={id:string;topicId:string;courseId:string;label:string;date:string;minutes:number;reason:string;status:'planned'|'done'|'skipped'};
+export type StudyState={plan?:PlanEntry[];budget?:{minutes:number;sessionMinutes:number};topics:Record<string,{status?:'not-started'|'studying'|'done';confidence?:'low'|'medium'|'high';lastRevised?:string}>;events:{id:string;topicId:string;day:string;at:string;kind:'revision';confidence:'low'|'medium'|'high'}[]};
 interface DataContextType {
   study: StudyState;
   setStudy: React.Dispatch<React.SetStateAction<StudyState>>;
