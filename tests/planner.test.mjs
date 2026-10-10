@@ -1,0 +1,3 @@
+import{test}from'node:test';import assert from'node:assert/strict';import{generatePlan}from'../lib/planner.mjs';
+const topics=['a','b','c'].map(id=>({id,course:{id,name:id},unit:{unit_number:1}}));
+test('budget, linked deadlines, weak topics and completed exclusion',()=>{const state={topics:{a:{confidence:'low'},c:{status:'done'}},events:[]};let p=generatePlan(topics,state,[{courseId:'b',dueDate:'2026-10-11',completed:false}],{minutes:20,sessionMinutes:20,start:'2026-10-10'});assert.equal(p[0].topicId,'b');assert.equal(p[1].topicId,'a');assert.equal(p[1].date,'2026-10-11');assert.equal(p.length,2);assert.deepEqual(generatePlan(topics,state,[],{minutes:0,start:'2026-10-10'}),[]);});

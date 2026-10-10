@@ -79,5 +79,6 @@ export interface Task {
   priority: Priority;
   category: TaskCategory;
   dueDate?: string;
+  courseId?: string;
   createdAt: string;
 }
