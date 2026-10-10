@@ -1,5 +1,6 @@
 
 import React from 'react';
+import {semesterCourses,extraHeads} from '../lib/feMarks.mjs';
 import { SUBJECTS } from '../constants';
 import { CATALOG } from '../lib/catalog';
 import { RotateCcw, Activity, Cpu, AlertCircle } from 'lucide-react';
@@ -24,7 +25,9 @@ const bandFor = (v: number): string => {
 };
 
 const CalculatorPage: React.FC = () => {
-  const { profile } = useData();
+  const { profile,study,setStudy } = useData();
+  const config=study.marksConfig;
+  const semester=config?.semester||1;const workshop=config?.workshop||'workshop';
   const [marks, setMarksState] = React.useState<Record<string, MarkRow>>(() => {
     try { return JSON.parse(localStorage.getItem(MARKS_KEY) || '{}'); } catch { return {}; }
   });
@@ -37,7 +40,10 @@ const CalculatorPage: React.FC = () => {
   const selectedIds = profile.selectedSubjects || [];
 
   const unsupported = CATALOG.filter(s => selectedIds.includes(s.id) && s.year !== 'FE');
-  const filteredSubjects = SUBJECTS.filter(s => selectedIds.includes(s.id));
+  const baseSubjects=SUBJECTS.filter(s=>selectedIds.includes(s.id));
+  const basket=semesterCourses(CATALOG,selectedIds,semester);
+  const fullMode=!!config&&basket.valid;
+  const filteredSubjects=fullMode?[...baseSubjects,...extraHeads(semester,workshop)]:baseSubjects;
 
   const updateMarks = (sId: string, field: 'inSem' | 'endSem' | 'termWork', val: string) => {
     const max = field === 'inSem' ? 30 : field === 'endSem' ? 70 : 25;
@@ -53,6 +59,7 @@ const CalculatorPage: React.FC = () => {
     <div className="max-w-7xl mx-auto space-y-6 animate-in fade-in duration-700">
       
 <p className="text-sm text-slate-300">FE marks planner only. {unsupported.length > 0 && `${unsupported.length} SE/TE courses are excluded: complete assessment schemes are not yet mapped.`}</p>
+      <section className="p-5 rounded-2xl border border-white/10 space-y-4"><h2 className="text-xl font-bold">FE semester coverage</h2><p className="text-sm text-slate-400">Choose your semester and vocational basket. Full 22-credit coverage requires exactly five theory courses: the right Maths and Programming course plus one Physics/Chemistry, one BEE/BXE and one Graphics/Mechanics. Other heads are added only when that selection matches. Verify your college combination.</p><div className="grid sm:grid-cols-2 gap-4"><label className="text-sm">Semester<select aria-label="Semester" value={config?.semester||''} onChange={e=>setStudy(old=>({...old,marksConfig:e.target.value?{semester:Number(e.target.value) as 1|2,workshop}:undefined}))} className="block mt-2 p-3 w-full bg-zinc-900 rounded-xl"><option value="">Selected courses only</option><option value="1">Semester I</option><option value="2">Semester II</option></select></label><label className="text-sm">Vocational basket<select aria-label="Vocational basket" value={workshop} onChange={e=>setStudy(old=>({...old,marksConfig:{semester,workshop:e.target.value as any}}))} className="block mt-2 p-3 w-full bg-zinc-900 rounded-xl"><option value="workshop">Manufacturing Practice Workshop</option><option value="design">Design Thinking and Idea Lab</option></select></label></div>{config&&!basket.valid&&<p role="alert" className="text-sm text-amber-300">Course selection does not match this semester. Showing selected-course estimate only. Update your plan in Settings.</p>}<p className="text-xs text-slate-400">{fullMode?'All 22 listed credits represented.':'Not full-semester coverage.'} This estimates grade points, not pass eligibility. The handbook overlaps at exactly 40: D 40-44 and F≤40; this planner uses D at 40. Confirm boundary and separate-head pass requirements with your college.</p><div className="flex flex-wrap gap-4 text-sm"><a href="http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/FE%202024%20Pattern%20Syllabus%20-%2016%20July%202024%20(1).pdf" target="_blank" rel="noopener noreferrer" className="text-rose-300">Official FE scheme, pp2-3</a><a href="http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf" target="_blank" rel="noopener noreferrer" className="text-rose-300">Grade rules handbook</a></div></section>
       {/* Header */}
       <header className="border-b border-white/5 pb-8 flex justify-between items-end">
         <div>
@@ -99,7 +106,7 @@ const CalculatorPage: React.FC = () => {
                 const currentIn = marks[s.id]?.inSem || 0;
                 const currentEnd = marks[s.id]?.endSem || 0;
                 const total = currentIn + currentEnd;
-                const hasTheory = marks[s.id]?.inSem !== undefined && marks[s.id]?.endSem !== undefined;
+                const hasTheory = s.theoryCredits===0 || (marks[s.id]?.inSem !== undefined && marks[s.id]?.endSem !== undefined);
                 const isPassing = hasTheory;
 
                 return (
@@ -117,7 +124,7 @@ const CalculatorPage: React.FC = () => {
 
                             {/* Digital Inputs */}
                             <div className="grid grid-cols-3 gap-3 w-full sm:w-auto">
-                                {/* In Sem Input */}
+                                {s.theoryCredits!==0&&<>{/* In Sem Input */}
                                 <div className="flex flex-col items-center gap-2">
                                     <label className="text-xs font-mono text-slate-300 uppercase tracking-widest">CCE / 30</label>
                                     <div className="relative group/input">
@@ -153,7 +160,7 @@ const CalculatorPage: React.FC = () => {
                                 {/* Divider */}
                                 
 
-                                {/* Term Work Input */}
+                                </>}{/* Term Work Input */}
                                 <div className="flex flex-col items-center gap-2">
                                     <label className="text-xs font-mono text-slate-300 uppercase tracking-widest">TERM WORK / 25</label>
                                     <div className="relative group/input">
@@ -184,7 +191,7 @@ const CalculatorPage: React.FC = () => {
             <div className="relative z-10 w-full">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/5 mb-8">
                     <Activity size={12} className="text-[#E11D48]" />
-                    <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-300">{summary.isComplete ? 'Selected-course estimate' : 'Partial estimate'}</span>
+                    <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-300">{summary.isComplete ? (fullMode?'Full FE coverage estimate':'Selected-course estimate') : 'Partial estimate'}</span>
                 </div>
 
                 <div className="mb-10 relative">
@@ -192,7 +199,7 @@ const CalculatorPage: React.FC = () => {
                     <h2 className="text-7xl sm:text-[9rem] leading-[0.8] font-display font-bold text-white tracking-tighter tabular-nums drop-shadow-[0_0_30px_rgba(255,255,255,0.1)]">
                         {summary.value ?? "--"}
                     </h2>
-                    <p className="text-sm font-mono text-slate-500 uppercase tracking-[0.4em] mt-2">{summary.isComplete ? 'Selected-course SGPA estimate' : 'Entered-head average'}</p>
+                    <p className="text-sm font-mono text-slate-500 uppercase tracking-[0.4em] mt-2">{summary.isComplete ? (fullMode?'FE semester estimate':'Selected-course SGPA estimate') : 'Entered-head average'}</p>
                 </div>
 
                 <p className="text-sm text-slate-300 mb-6" aria-live="polite">{summary.completedSubjects} of {filteredSubjects.length} selected subjects complete. {summary.completeHeads}/{summary.totalHeads} graded heads; {summary.gradedCredits}/{summary.possibleCredits} credits entered. Incomplete theory needs both CCE and End-Sem.</p>
@@ -220,13 +227,13 @@ const CalculatorPage: React.FC = () => {
                 </div>
 
                 <p className="mt-8 text-[10px] leading-relaxed text-slate-500 max-w-xs mx-auto">
-                    Grades follow the SPPU UG credit framework handbook: theory (CCE 30 + End-Sem 70) and term work are graded separately and weighted by credits. Only the subjects you selected are counted, so the university SGPA can differ (it also includes the other courses of the semester, such as communication skills and co-curricular courses). Only complete assessment heads are counted. Blank marks are not treated as zero. This is a selected-course estimate, not an official semester result.
+                    Grades follow the SPPU UG credit framework handbook: theory (CCE 30 + End-Sem 70) and term work are graded separately and weighted by credits. Full-semester mode includes the three additional vocational/general heads only when the selected theory basket matches. Otherwise only selected courses are counted. Only complete assessment heads are counted. Blank marks are not treated as zero. This is a selected-course estimate, not an official semester result.
                 </p>
 
                 {summary.isComplete && sgpa < 5 && (
                     <div className="mt-8 flex items-center justify-center gap-2 text-red-500 bg-red-500/10 px-4 py-2 rounded-lg border border-red-500/20">
                         <AlertCircle size={14} />
-                        <span className="text-[10px] font-bold uppercase tracking-widest">Critical Performance Detected</span>
+                        <span className="text-[10px] font-bold uppercase tracking-widest">Review your entered marks</span>
                     </div>
                 )}
             </div>
