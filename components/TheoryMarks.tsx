@@ -16,7 +16,7 @@ export default function TheoryMarks({ selectedIds }: { selectedIds: string[] }) 
       return {};
     }
   });
-  const [problem, setProblem] = React.useState("");
+  const [problem, setProblem] = React.useState<{ id: string; msg: string } | null>(null);
   if (!courses.length) return null;
   const set = (id: string, field: "cce" | "ese", raw: string, max: number) => {
     const row = { ...(marks[id] || {}) } as Row;
@@ -24,7 +24,7 @@ export default function TheoryMarks({ selectedIds }: { selectedIds: string[] }) 
     else {
       const n = Number(raw);
       if (!Number.isInteger(n) || n < 0 || n > max) {
-        setProblem(`Enter a whole number from 0 to ${max}. Your last saved mark was kept.`);
+        setProblem({ id, msg: `${field === "cce" ? "CCE" : "End-Sem"} must be a whole number from 0 to ${max}. Your last saved mark was kept.` });
         return;
       }
       row[field] = n;
@@ -33,9 +33,9 @@ export default function TheoryMarks({ selectedIds }: { selectedIds: string[] }) 
     try {
       writeLocal(localStorage, KEY, next);
       setMarks(next);
-      setProblem("");
+      setProblem(null);
     } catch (e) {
-      setProblem((e as Error).message);
+      setProblem({ id, msg: (e as Error).message });
     }
   };
   return (
@@ -47,7 +47,6 @@ export default function TheoryMarks({ selectedIds }: { selectedIds: string[] }) 
         points or an SGPA, because term work and practical credits for SE and
         TE are not mapped yet. Check your college for those.
       </p>
-      {problem && <p role="alert">{problem}</p>}
       {courses.map((c) => {
         const t = theoryTotal(c, marks[c.id]);
         return (
@@ -85,6 +84,7 @@ export default function TheoryMarks({ selectedIds }: { selectedIds: string[] }) 
                   onChange={(e) => set(c.id, "ese", e.target.value, t.eseMax)}
                 />
               </label>
+              {problem?.id === c.id && <p role="alert">{problem.msg}</p>}
               <p role="status">
                 {t.done
                   ? `${t.total} / ${t.max} · ${t.percent}%`
