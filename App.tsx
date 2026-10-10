@@ -133,7 +133,7 @@ export default function App() {
                     // Redirect root to landing if not setup
                      location.pathname === '/' ? <LandingPage /> : <Navigate to="/landing" />
                 ) : (
-                    location.pathname === '/' ? <Dashboard /> : location.pathname === '/settings' ? <SettingsPage /> : location.pathname === '/study' ? <Study /> : location.pathname === '/planner' ? <Planner /> : location.pathname === '/tasks' ? <TodoList /> : location.pathname === '/calculator' ? <CalculatorPage /> : location.pathname.startsWith('/subject/') ? <Routes><Route path="/subject/:id" element={<SubjectDetail />}/></Routes> : location.pathname === '/directory' ? <Directory/> : location.pathname.startsWith('/add/') ? <Routes><Route path="/add/:id" element={<AddToPlan/>}/></Routes> :
+                    location.pathname === '/' ? <Dashboard /> : location.pathname === '/resources' ? <Resources /> : location.pathname === '/settings' ? <SettingsPage /> : location.pathname === '/study' ? <Study /> : location.pathname === '/planner' ? <Planner /> : location.pathname === '/tasks' ? <TodoList /> : location.pathname === '/calculator' ? <CalculatorPage /> : location.pathname.startsWith('/subject/') ? <Routes><Route path="/subject/:id" element={<SubjectDetail />}/></Routes> : location.pathname === '/directory' ? <Directory/> : location.pathname.startsWith('/add/') ? <Routes><Route path="/add/:id" element={<AddToPlan/>}/></Routes> :
                     // APP SHELL
                     <div className="flex flex-col lg:flex-row min-h-screen bg-[#030303] text-slate-200 selection:bg-[#E11D48] selection:text-white overflow-hidden">
 
