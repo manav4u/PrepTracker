@@ -135,3 +135,11 @@ Self-review /10: identity 8.7, typography 8.5, useful density 8.5, hierarchy 8.3
 Review: https://preptracker-paper-review.vercel.app/
 Final deployment: https://preptracker-paper-review-6gntihkp5-manavships.vercel.app
 No merge or production/main change.
+
+## Cycle 5, local-only pending review publish route
+
+Course unit reading now has phrase search and a Show what is left toggle. It preserves the full official/source-boundary entries and their original IDs, rather than clipping or rewriting long text. Shown/total count, Reset view and explicit zero-result states are included. Coverage remains self-reported, never a test result.
+
+Local validation: 61 tests/typecheck/build pass; all-page 320/390/1280 overflow/error audit/core flows/injected failures pass. Filtered-index test starts with empty fixture topic states: cover topic 1, show six remaining, mark displayed topic 2 (Mean Value Theorems); it disappears from filtered results and reset confirms topic 2 is covered. No-match phrase and Reset view pass. Actual course phone pixels inspected.
+
+Not deployed. Hosted review remains cycle 4. Browser opened only the token form and stopped; no new credential created. Publication awaits a decision on the review-only credential route.

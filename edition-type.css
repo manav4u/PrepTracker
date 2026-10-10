@@ -21,3 +21,13 @@ body,input,select,textarea,button{font-family:"DM Sans",Arial,sans-serif;}
 .link-cabinet .cabinet-card h2 { font-size:23px;line-height:1.2; }
 @media(max-width:849px){.atlas-ledger b { font-size:30px; }.notebook-masthead { gap:16px; }.notebook-leaf h2 {font-size:24px;}.notebook-masthead h1 {font-size:31px;}}
 @media(max-width:350px){.notebook-masthead h1 {font-size:27px;}.atlas-ledger b {font-size:27px;}}
+/* Long official units need a working index, not a shortened or invented syllabus. */
+.atlas-find { display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:var(--paper-panel);padding:16px;margin:16px 0 22px;border:1px solid var(--paper-green-edge); }
+.atlas-find label { display:block;flex:1 1 180px;font-size:10px;line-height:1.7; }
+.atlas-find input { display:block;width:100%;min-height:44px;margin-top:6px;padding:10px;border:1px solid var(--paper-green-edge);background:var(--paper-paper);border-radius:0;color:var(--paper-ink);font-size:12px; }
+.atlas-find button { min-height:44px;padding:10px 12px;border:1px solid var(--paper-green-edge);background:var(--paper-paper);font-size:11px;color:var(--paper-ink); }
+.atlas-find button[aria-pressed=true] { background:var(--paper-green-deep);color:var(--paper-paper); }
+.atlas-find>span { flex-basis:100%;font-size:10px; }
+.atlas-find-empty { padding:16px;border-bottom:1px solid var(--paper-rule); }
+.atlas-find-empty h3 { font:20px/1.3 "Libre Baskerville",Georgia; }
+.atlas-find-empty p { font-size:12px;line-height:1.6;margin-top:10px; }
