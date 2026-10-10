@@ -250,7 +250,7 @@ const SettingsPage: React.FC = () => {
       />
 
       <ConfirmModal isOpen={!!pendingBackup} title="Replace saved data?"
-        description={pendingBackup ? `${pendingBackup.data.profile?.name || 'No profile'}: ${pendingBackup.data.progress.length} unit records, ${pendingBackup.data.tasks.length} tasks, ${pendingBackup.data.resources.length} custom resources, ${pendingBackup.data.hiddenResourceIds.length} hidden resources, ${Object.keys(pendingBackup.data.marks).length} marks rows. This replaces saved data in this browser. A rollback snapshot is kept. ${pendingBackup.warnings.join(' ')}` : ''}
+        description={pendingBackup ? `${pendingBackup.data.profile?.name || 'No profile'}: ${Object.keys(pendingBackup.data.study.topics).length} topic records, ${pendingBackup.data.study.events.length} revision logs, ${pendingBackup.data.progress.length} unit records, ${pendingBackup.data.tasks.length} tasks, ${pendingBackup.data.resources.length} custom resources, ${pendingBackup.data.hiddenResourceIds.length} hidden resources, ${Object.keys(pendingBackup.data.marks).length} marks rows. This replaces saved data in this browser. A rollback snapshot is kept. ${pendingBackup.warnings.join(' ')}` : ''}
         onConfirm={confirmRestore} onCancel={() => setPendingBackup(null)} isDanger />
       {/* Background Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none -z-10"></div>
