@@ -390,3 +390,87 @@ body {
   }
 }
 .route-loading { padding: 32px; color: var(--paper-muted); font: 16px Georgia, serif; }
+/* 60-30-10 hierarchy: light paper dominates; deeper oat paper supports;
+   sage remains a small earned-data accent, absent when there is no progress.
+   These are visual roles, not a fabricated quota on dynamic records. */
+:root {
+  --paper-panel: #d5c6ad;
+  --paper-hover: #c9b99b;
+  --paper-rule: #c2b397;
+  --paper-muted: #605c50;
+}
+/* The secondary is a real surface, not another near-white. */
+:is(.front-preview, .library-filters, .map-panel, .folio-budget,
+    .pins-form, .cabinet-controls, .studio-method,
+    .marks-coverage, .progress-topic-index) {
+  background: var(--paper-panel);
+  border-color: var(--paper-rule);
+}
+.folio-session:nth-child(even),
+.pin-card:nth-child(even):not(.pin-complete),
+.cabinet-card:nth-child(3n+2):not(.selected),
+.library-catalog-card:nth-child(3n+2) {
+  background: var(--paper-panel);
+}
+.care-backup { background: var(--paper-paper); }
+.care-course-grid article { background: var(--paper-panel); }
+
+.notebook-margin > section { background: var(--paper-panel); }
+.notebook-margin .material-shelf { background: var(--paper-panel); }
+.progress-map .course-constellation article { background: var(--paper-panel); }
+.progress-map .progress-method { background: var(--paper-panel); }
+.front-feature-grid article:nth-child(3n+2) { background: var(--paper-panel); }
+.library-bookplate { background: var(--paper-panel); }
+.library-bookplate .library-added { background: var(--paper-paper); }
+/* Read the supporting color before scrolling, including the evidence pages. */
+.paper-desk .pd-stat { background: var(--paper-panel); }
+.paper-desk .pd-folio,
+.paper-desk .pd-row > .pd-panel:nth-child(even) { background: var(--paper-panel); }
+.notebook-page .atlas-ledger,
+.notebook-page .atlas-method {
+  background: var(--paper-panel);
+  padding: 22px;
+  border: 1px solid var(--paper-rule);
+}
+.notebook-page .atlas-method { margin-block: 24px; }
+.studio-page .studio-paper { background: var(--paper-panel); }
+.studio-page .studio-steps { border-color: var(--paper-muted); }
+.studio-page .studio-stage { background: transparent; }
+.studio-page .studio-paper input:not([type=checkbox]),
+.studio-page .studio-paper textarea { background: var(--paper-paper); }
+.studio-page .studio-topic small { color: var(--paper-ink); }
+/* Secondary supporting bands fill roughly a third of the reading composition,
+   rather than scattering tiny beige badges over an otherwise uniform page. */
+.library-page .library-disclosure,
+.link-cabinet .cabinet-heading,
+.progress-map .progress-heading {
+  background: var(--paper-panel);
+  padding: 24px;
+  border: 1px solid var(--paper-rule);
+}
+@media (min-width: 900px) {
+  .week-folio .folio-budget { min-height: 245px; }
+  .marks-ledger .marks-coverage { min-height: 310px; }
+  .link-cabinet .cabinet-controls { min-height: 150px; align-items: center; }
+}
+
+.paper-desk .pd-map,
+.paper-desk .pd-stat:first-child { background: var(--paper-paper); }
+.edition-care .care-heading,
+.task-pins .pins-heading {
+  background: var(--paper-panel);
+  padding: 24px;
+  border: 1px solid var(--paper-rule);
+}
+@media (max-width: 899px) {
+  .task-pins .pins-heading { background: transparent; padding: 0 0 30px; border-inline: 0; border-top: 0; }
+}
+/* Keep the dominant light paper dominant in the densest desk composition. */
+.paper-desk .pd-sheet { background: var(--paper-paper); }
+.paper-desk .pd-sheethead { background: var(--paper-panel); padding: 20px; margin-bottom: 20px; }
+.edition-care .care-identity { background: var(--paper-paper); }
+.edition-care .care-bookplate { background: var(--paper-panel); }
+@media (min-width: 900px) {
+  .link-cabinet .cabinet-heading { background: linear-gradient(90deg, var(--paper-panel) 68%, transparent 68%); }
+  .task-pins .pins-heading { background: linear-gradient(90deg, var(--paper-panel) 68%, transparent 68%); }
+}

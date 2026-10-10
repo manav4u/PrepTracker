@@ -34,7 +34,7 @@ Reviewed 10 October 2026. PR130 remains a review build, not a production release
 
 | Aspect | Score | Remaining miss |
 |---|---:|---|
-| Palette consistency | 9 | Subtle rules and small labels are still deliberately low emphasis. |
+| Palette consistency and hierarchy | 8 | Distinct support surfaces now read across the app, but the exact area ratio varies by page, data and viewport. |
 | Visual identity | 8.5 | Distinct paper forms, but several pages still carry large editorial headings. |
 | Responsive layout | 8.5 | Checked phone/PC widths; long source paragraphs and a 150-course catalog need scrolling. |
 | Motion | 8 | Arrival, ribbon sweep, lifts and drawer response work; no rich transition choreography between every route. |
@@ -43,7 +43,7 @@ Reviewed 10 October 2026. PR130 remains a review build, not a production release
 | Accessibility | 8 | Keyboard/focus/reduced motion present; not a full screen-reader, Safari or cross-browser certification. |
 | Performance | 7.5 | Pages split; catalog is still about 948 kB raw / 166 kB gzip and triggers the build warning. |
 | Product breadth | 7.5 | FE marks only; supplemental learning materials and unavailable AI are explicit. |
-| Overall | 8.2 | Ready for product review, not a claim of a complete 10/10 product. |
+| Overall | 8.1 | Ready for product review, not a claim of a complete 10/10 product. |
 
 ## All known product compromises
 
@@ -59,3 +59,18 @@ Reviewed 10 October 2026. PR130 remains a review build, not a production release
 10. Restore uses a rollback snapshot, but backup files remain private data the student must keep safe. No cloud backup promise.
 
 Review deployment: https://preptracker-paper-review.vercel.app/
+
+## Proportional hierarchy follow-up
+
+The 19:46 critique was valid: the first consistent pass used too many near-white surfaces, so the secondary color did not carry enough visual weight. This follow-up makes support surfaces deeper oat (`#d5c6ad`) while leaving the dominant reading paper light and recorded progress sage.
+
+- Supporting bands now carry the desk header/stats, plan budget, task form, marks coverage choices, catalog filters/disclosure, resources controls, course method/stats, revision work sheet, progress heading/maps and settings bookplate.
+- Longer lists use bounded alternating oat cards rather than making the entire page one dark panel.
+- Light reading leaves stay distinct from oat support panels. Ink remains the text/navigation/action color.
+- Green is not added to meet a decorative quota. Empty, setup, resources and settings views can have none.
+
+Anonymous hosted screenshots checked again on all 13 pages at 390 and 1280 pixels; ten main routes also checked at 320. No horizontal overflow or page errors observed. Main hosted flows and local save/Undo/import flows pass. Typecheck, build and 61 tests pass.
+
+A simple color-area audit of first 1000-pixel hosted views found oat at roughly 23-38% on the ten main phone views and 15-33% on desktop. The phone Add course view remains heavier at 46%; desktop marks remains lighter at 15%. These are known misses, not exact 60/30/10 compliance. Recorded green occupied about 3-4% in the sampled desk/progress views and zero where no recorded progress is shown. This audit measures pixels, not perceived hierarchy, and changes with scroll position and data.
+
+The goal is a dominant/support/accent hierarchy, not literal percentages on every dynamic screen. This pass fixes the previously weak secondary hierarchy but does not claim a perfect ratio or a 10/10 design. Product/reliability compromises above remain unchanged.
