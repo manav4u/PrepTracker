@@ -148,7 +148,7 @@ Source: http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/TE
 - PEC-363C-ELE: semester 6, PEC III
 
 ## Held
-- SE Cyber Security: current official curriculum differs from existing content. PCC-203 is Computer Network, not Discrete Mathematics; MDM-221 is Fundamentals of Internet of Things, not Digital Electronics. Semester IV PCC-252/253 and MDM-271 also differ. Reference-only pending a full content rebuild.
+- SE Cyber Security: official curriculum tables differ from the detailed pages in the same PDF; the detailed pages support existing course names. PCC-203 is Computer Network, not Discrete Mathematics; MDM-221 is Fundamentals of Internet of Things, not Digital Electronics. Semester IV PCC-252/253 and MDM-271 also differ. Reference-only pending a full content rebuild.
 - SE Automobile: source is explicitly a draft. Reference-only.
 
 ## Limits

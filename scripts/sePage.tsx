@@ -95,6 +95,7 @@ function Head({ title, desc, path }: { title: string; desc: string; path: string
   </>;
 }
 const DraftNote = ({ b }: { b: SeBranch }) => b.draft ? <p className="draft"><b>DRAFT.</b> SPPU published this {b.branch} syllabus as a draft. It may change before it is final, so check the official PDF and your college before relying on it.</p> : null;
+const CyberNote = ({b}:{b:SeBranch}) => b.slug==='se-cyber-security'?<section className="draft"><b>Official PDF conflict: reference only.</b><p>The curriculum tables and detailed course pages in the same official 2024 PDF disagree. This page preserves the detailed theory-course text. Do not treat it as a confirmed semester plan; verify with your college.</p><ul><li>PCC-203: table says Basics of Computer Network; detailed page says Discrete Mathematics.</li><li>MDM-221: table says Fundamentals of Internet of Things; detailed page says Digital Electronics and Logic Design.</li><li>PCC-252: table says Discrete Mathematics; detailed page says Advanced Data Structures.</li><li>PCC-253: table says Introduction to Cyber Security; detailed page says Probability and Statistics.</li><li>MDM-271: table says Smart Devices and IoT Security; detailed page says Internet of Things.</li></ul><p>PCC-202 is listed as theory in the table, but its detailed page has practical-only assessment. The replacement courses have no matching detailed units here. Tracking stays unavailable until a corrected source resolves this.</p></section>:null;
 const PatternNote = ({ b }: { b: SeBranch }) => b.pattern && b.pattern !== '2024' ? <p className="draft"><b>{b.pattern} PATTERN.</b> This is the {b.pattern} pattern syllabus, the latest SPPU has published on its site for {YL(b).l} {b.branch}. A 2024 pattern syllabus for this year has not been published there yet, so confirm with your college which pattern applies to you.</p> : null;
 const Motif = ({ b }: { b: SeBranch }) => <svg className="motif" viewBox="0 0 600 48" preserveAspectRatio="xMinYMid meet" aria-hidden="true">{MOTIFS[b.motif](b.accent)}</svg>;
 const Foot = ({ b }: { b: SeBranch }) => <footer>
@@ -128,7 +129,7 @@ export function renderSeCourse(b: SeBranch, c: SeCourse): string {
     </head><body><main>
       <nav className="crumbs"><a href={SITE + '/'}>PrepTracker</a> / <a href={SITE + '/syllabus/' + b.slug + '/'}>{b.short}</a> / {c.name}</nav>
       <h1>{c.name} syllabus</h1>
-      <DraftNote b={b} /><PatternNote b={b} />
+      <DraftNote b={b} /><PatternNote b={b} /><CyberNote b={b} />
       <p className="lead">{c.code} · {YL(b).l} {b.branch}, SPPU {PT(b)} pattern. Every unit, the marks scheme, course outcomes and books, copied from the official syllabus PDF.</p>
       <div className="chips"><span className="chip">{c.code}</span><span className="chip">{c.hours} h/week theory</span><span className="chip">{CC(b)} {c.cce} + End-sem {c.ese}</span></div>
       <div className="stats" style={consistent ? undefined : { gridTemplateColumns: 'repeat(2,1fr)' }}>
@@ -175,7 +176,7 @@ export function renderSeBranch(b: SeBranch): string {
     </head><body><main>
       <nav className="crumbs"><a href={SITE + '/'}>PrepTracker</a> / Syllabus / {b.short}</nav>
       <h1>{YL(b).s} {b.branch} syllabus{b.draft ? ' (draft)' : ''}</h1>
-      <DraftNote b={b} /><PatternNote b={b} />
+      <DraftNote b={b} /><PatternNote b={b} /><CyberNote b={b} />
       <p className="lead">{YL(b).l}, SPPU {PT(b)} pattern. Pick a subject for its units, marks, outcomes and books. Practical, lab and project courses are not listed here, only theory courses.</p>
       <Motif b={b} />
       <h2>Theory courses</h2>

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "coverageNote": "Theory catalog only. FE subject combinations depend on your college. Tracking metadata covers verified published courses. SE Cyber Security remains reference-only because existing course content conflicts with its current official PDF; SE Automobile is a draft. This catalog is not a complete university curriculum: labs, open electives and some theory courses are not yet represented.",
+  "coverageNote": "Theory catalog only. FE subject combinations depend on your college. Tracking metadata covers verified published courses. SE Cyber Security remains reference-only because the official PDF curriculum tables conflict with its own detailed course pages; SE Automobile is a draft. This catalog is not a complete university curriculum: labs, open electives and some theory courses are not yet represented.",
   "courses": [
     {
       "id": "m1",
@@ -5730,9 +5730,9 @@
           "title": "Introduction to Algorithm and Data Structure",
           "hours": 9,
           "topics": [
-            "Introduction to Basic Concepts: Data, Information, Knowledge , Data Structure, Abstract Data Types (ADT), Data Structure Classification Algorithms: Problem Solving, Introduction to Algorithm, Characteristics of Algorithm Complexity of Algorithm: Space complexity, Time complexity, Asymptotic notation-Big-O, Theta and Omega, Finding complexity using step count method, Analysis of programming constructs-Linear, Quadratic, Cubic, Logarithmic"
+            "Introduction to Basic Concepts: Data, Information, Knowledge , Data Structure, Abstract Data Types (ADT), Data Structure Classification Algorithms: Problem Solving, Introduction to Algorithm, Characteristics of Algorithm Complexity of Algorithm: Space complexity, Time complexity, Asymptotic notation-Big-O, Theta and Omega, Finding complexity using step count method, Analysis of programming constructs-Linear, Quadratic, Cubic, Logarithmic Case Study:Social Network Recommendation System, Search Engine Auto-complete"
           ],
-          "sourceText": "Introduction to Basic Concepts: Data, Information, Knowledge , Data Structure, Abstract Data Types (ADT), Data Structure Classification Algorithms: Problem Solving, Introduction to Algorithm, Characteristics of Algorithm Complexity of Algorithm: Space complexity, Time complexity, Asymptotic notation-Big-O, Theta and Omega, Finding complexity using step count method, Analysis of programming constructs-Linear, Quadratic, Cubic, Logarithmic"
+          "sourceText": "Introduction to Basic Concepts: Data, Information, Knowledge , Data Structure, Abstract Data Types (ADT), Data Structure Classification Algorithms: Problem Solving, Introduction to Algorithm, Characteristics of Algorithm Complexity of Algorithm: Space complexity, Time complexity, Asymptotic notation-Big-O, Theta and Omega, Finding complexity using step count method, Analysis of programming constructs-Linear, Quadratic, Cubic, Logarithmic Case Study:Social Network Recommendation System, Search Engine Auto-complete"
         },
         {
           "id": "se-cyber-security:2024:PCC-201-CYB:unit:2",
@@ -5740,9 +5740,9 @@
           "title": "Array and Linked List",
           "hours": 9,
           "topics": [
-            "Array: Basics of Array, Storage Representation and their Address Calculation: Row Major and Column Major. Types of Arrays: 1 Dimensional, Multi-Dimensional (2D, 3D), Array Operations, Sparse Array & Compressed Storage: Representation, Addition and Transpose, Array as an ADT, Pros & Cons of an Array. Linked List: Basics of Linked List, Linked List Operation: Create, Insert, Delete, Search, Types of Linked List: Singly Linked List (SLL), Doubly Linked List (DLL), Circular Linked List (CLL), Generalized Linked List (GLL): Representation of polynomial using GLL, Pros & Cons of Linked List."
+            "Array: Basics of Array, Storage Representation and their Address Calculation: Row Major and Column Major. Types of Arrays: 1 Dimensional, Multi-Dimensional (2D, 3D), Array Operations, Sparse Array & Compressed Storage: Representation, Addition and Transpose, Array as an ADT, Pros & Cons of an Array. Linked List: Basics of Linked List, Linked List Operation: Create, Insert, Delete, Search, Types of Linked List: Singly Linked List (SLL), Doubly Linked List (DLL), Circular Linked List (CLL), Generalized Linked List (GLL): Representation of polynomial using GLL, Pros & Cons of Linked List. Case Study : Analyze and implement a playlist manager using both an Array and a Linked List. Compare their performance based on different operations."
           ],
-          "sourceText": "Array: Basics of Array, Storage Representation and their Address Calculation: Row Major and Column Major. Types of Arrays: 1 Dimensional, Multi-Dimensional (2D, 3D), Array Operations, Sparse Array & Compressed Storage: Representation, Addition and Transpose, Array as an ADT, Pros & Cons of an Array. Linked List: Basics of Linked List, Linked List Operation: Create, Insert, Delete, Search, Types of Linked List: Singly Linked List (SLL), Doubly Linked List (DLL), Circular Linked List (CLL), Generalized Linked List (GLL): Representation of polynomial using GLL, Pros & Cons of Linked List."
+          "sourceText": "Array: Basics of Array, Storage Representation and their Address Calculation: Row Major and Column Major. Types of Arrays: 1 Dimensional, Multi-Dimensional (2D, 3D), Array Operations, Sparse Array & Compressed Storage: Representation, Addition and Transpose, Array as an ADT, Pros & Cons of an Array. Linked List: Basics of Linked List, Linked List Operation: Create, Insert, Delete, Search, Types of Linked List: Singly Linked List (SLL), Doubly Linked List (DLL), Circular Linked List (CLL), Generalized Linked List (GLL): Representation of polynomial using GLL, Pros & Cons of Linked List. Case Study : Analyze and implement a playlist manager using both an Array and a Linked List. Compare their performance based on different operations."
         },
         {
           "id": "se-cyber-security:2024:PCC-201-CYB:unit:3",
@@ -5810,9 +5810,9 @@
           "title": "Relations and Functions",
           "hours": 9,
           "topics": [
-            "Introduction to Relations and their Properties Representation of Relations using Matrices and Digraphs Equivalence relations, Partial orderings, Partitions, Hasse diagram, Lattices, Chains and Anti- Chains, Transitive closure and Warshall‘s algorithm. Functions: Types of Functions (Injective, Surjective, Bijective) , Composition and Inverse of Functions , Recursive Functions and Applications in Algorithms , Counting Functions and Growth of Functions."
+            "Introduction to Relations and their Properties Representation of Relations using Matrices and Digraphs Equivalence relations, Partial orderings, Partitions, Hasse diagram, Lattices, Chains and Anti- Chains, Transitive closure and Warshall‘s algorithm. Functions: Types of Functions (Injective, Surjective, Bijective) , Composition and Inverse of Functions , Recursive Functions and Applications in Algorithms , Counting Functions and Growth of Functions. Case Study: Know about the great philosophers-Dirichlet"
           ],
-          "sourceText": "Introduction to Relations and their Properties Representation of Relations using Matrices and Digraphs Equivalence relations, Partial orderings, Partitions, Hasse diagram, Lattices, Chains and Anti- Chains, Transitive closure and Warshall‘s algorithm. Functions: Types of Functions (Injective, Surjective, Bijective) , Composition and Inverse of Functions , Recursive Functions and Applications in Algorithms , Counting Functions and Growth of Functions."
+          "sourceText": "Introduction to Relations and their Properties Representation of Relations using Matrices and Digraphs Equivalence relations, Partial orderings, Partitions, Hasse diagram, Lattices, Chains and Anti- Chains, Transitive closure and Warshall‘s algorithm. Functions: Types of Functions (Injective, Surjective, Bijective) , Composition and Inverse of Functions , Recursive Functions and Applications in Algorithms , Counting Functions and Growth of Functions. Case Study: Know about the great philosophers-Dirichlet"
         },
         {
           "id": "se-cyber-security:2024:PCC-203-CYB:unit:3",
@@ -5820,9 +5820,9 @@
           "title": "Trees",
           "hours": 9,
           "topics": [
-            "Introduction to Trees and Properties ,Binary Trees and Binary Search Trees (BST) ,Tree Traversal Techniques: Preorder, Inorder, Postorder , Huffman Trees and Data Compression Algorithms ,Decision Trees and their Applications in Machine Learning , Applications of Trees in File Systems, The Max flow- Min Cut Theorem in Transport network."
+            "Introduction to Trees and Properties ,Binary Trees and Binary Search Trees (BST) ,Tree Traversal Techniques: Preorder, Inorder, Postorder , Huffman Trees and Data Compression Algorithms ,Decision Trees and their Applications in Machine Learning , Applications of Trees in File Systems, The Max flow- Min Cut Theorem in Transport network. Case Studies - Algebraic Expression Tree, Tic-Tac-Toe Game Tree, implement a file directory system using a tree structure, allowing hierarchical organization of files and folders"
           ],
-          "sourceText": "Introduction to Trees and Properties ,Binary Trees and Binary Search Trees (BST) ,Tree Traversal Techniques: Preorder, Inorder, Postorder , Huffman Trees and Data Compression Algorithms ,Decision Trees and their Applications in Machine Learning , Applications of Trees in File Systems, The Max flow- Min Cut Theorem in Transport network."
+          "sourceText": "Introduction to Trees and Properties ,Binary Trees and Binary Search Trees (BST) ,Tree Traversal Techniques: Preorder, Inorder, Postorder , Huffman Trees and Data Compression Algorithms ,Decision Trees and their Applications in Machine Learning , Applications of Trees in File Systems, The Max flow- Min Cut Theorem in Transport network. Case Studies - Algebraic Expression Tree, Tic-Tac-Toe Game Tree, implement a file directory system using a tree structure, allowing hierarchical organization of files and folders"
         },
         {
           "id": "se-cyber-security:2024:PCC-203-CYB:unit:4",
@@ -5840,9 +5840,9 @@
           "title": "Counting Principles and Algebraic Structures -",
           "hours": 9,
           "topics": [
-            "Basic Counting Techniques: Addition and Multiplication Principles , Permutations and Combinations, Binomial Coefficients and Pascal’s Triangle, Pigeonhole Principle and its Applications , Inclusion- Exclusion Principle, Generating Functions for Counting Problems. The structure of algebra, Algebraic Systems, Semi Groups, Monoids, Groups, Homomorphism and Normal Subgroups and Congruence relations, Rings, Integral Domains and Fields."
+            "Basic Counting Techniques: Addition and Multiplication Principles , Permutations and Combinations, Binomial Coefficients and Pascal’s Triangle, Pigeonhole Principle and its Applications , Inclusion- Exclusion Principle, Generating Functions for Counting Problems. The structure of algebra, Algebraic Systems, Semi Groups, Monoids, Groups, Homomorphism and Normal Subgroups and Congruence relations, Rings, Integral Domains and Fields. Case Studies - Study Sudoku solving algorithms and algorithm for generation of new SUDOKU. Study Hank-shake Puzzle and algorithm to solve it Calculate the number of possible password combinations given specific constraints on length, character types, and repetition."
           ],
-          "sourceText": "Basic Counting Techniques: Addition and Multiplication Principles , Permutations and Combinations, Binomial Coefficients and Pascal’s Triangle, Pigeonhole Principle and its Applications , Inclusion- Exclusion Principle, Generating Functions for Counting Problems. The structure of algebra, Algebraic Systems, Semi Groups, Monoids, Groups, Homomorphism and Normal Subgroups and Congruence relations, Rings, Integral Domains and Fields."
+          "sourceText": "Basic Counting Techniques: Addition and Multiplication Principles , Permutations and Combinations, Binomial Coefficients and Pascal’s Triangle, Pigeonhole Principle and its Applications , Inclusion- Exclusion Principle, Generating Functions for Counting Problems. The structure of algebra, Algebraic Systems, Semi Groups, Monoids, Groups, Homomorphism and Normal Subgroups and Congruence relations, Rings, Integral Domains and Fields. Case Studies - Study Sudoku solving algorithms and algorithm for generation of new SUDOKU. Study Hank-shake Puzzle and algorithm to solve it Calculate the number of possible password combinations given specific constraints on length, character types, and repetition."
         }
       ],
       "year": "SE",
@@ -5870,9 +5870,9 @@
           "title": "Introduction to Digital Systems",
           "hours": 6,
           "topics": [
-            "Binary Number System: Representation and conversions (decimal, binary, octal, hexadecimal). Logic Levels and Gates: Introduction to digital signals, basic logic gates (AND, OR, NOT, NAND, NOR, XOR). Boolean Algebra: Boolean expressions, laws and theorems, simplification (K-map, Quine-McCluskey method)"
+            "Binary Number System: Representation and conversions (decimal, binary, octal, hexadecimal). Logic Levels and Gates: Introduction to digital signals, basic logic gates (AND, OR, NOT, NAND, NOR, XOR). Boolean Algebra: Boolean expressions, laws and theorems, simplification (K-map, Quine-McCluskey method) Case Studies: Design of any real time application using k-Map as a minimization technique. 1. M. Morris Mano, \"Digital Design,\" Pearson. 2. John F. Wakerly, \"Digital Design: Principles and Practices,\" Pearson."
           ],
-          "sourceText": "Binary Number System: Representation and conversions (decimal, binary, octal, hexadecimal). Logic Levels and Gates: Introduction to digital signals, basic logic gates (AND, OR, NOT, NAND, NOR, XOR). Boolean Algebra: Boolean expressions, laws and theorems, simplification (K-map, Quine-McCluskey method)"
+          "sourceText": "Binary Number System: Representation and conversions (decimal, binary, octal, hexadecimal). Logic Levels and Gates: Introduction to digital signals, basic logic gates (AND, OR, NOT, NAND, NOR, XOR). Boolean Algebra: Boolean expressions, laws and theorems, simplification (K-map, Quine-McCluskey method) Case Studies: Design of any real time application using k-Map as a minimization technique. 1. M. Morris Mano, \"Digital Design,\" Pearson. 2. John F. Wakerly, \"Digital Design: Principles and Practices,\" Pearson."
         },
         {
           "id": "se-cyber-security:2024:MDM-221-CYB:unit:2",
@@ -5880,9 +5880,9 @@
           "title": "Combinational Logic Circuits",
           "hours": 6,
           "topics": [
-            "Introduction to Combinational Circuits: Concept and examples. Design and Implementation: Adders (Half Adder, Full Adder), Subtractors, Multiplexers, Demultiplexers, Encoders, Decoders. Applications: Arithmetic circuits, data routing, and logical operations in digital systems."
+            "Introduction to Combinational Circuits: Concept and examples. Design and Implementation: Adders (Half Adder, Full Adder), Subtractors, Multiplexers, Demultiplexers, Encoders, Decoders. Applications: Arithmetic circuits, data routing, and logical operations in digital systems. Case Studies: Combinational Logic Design of BCD to 7-segment display Controller 1. M. Morris Mano, \"Digital Design,\" Pearson. 2. John F. Wakerly, \"Digital Design: Principles and Practices,\" Pearson."
           ],
-          "sourceText": "Introduction to Combinational Circuits: Concept and examples. Design and Implementation: Adders (Half Adder, Full Adder), Subtractors, Multiplexers, Demultiplexers, Encoders, Decoders. Applications: Arithmetic circuits, data routing, and logical operations in digital systems."
+          "sourceText": "Introduction to Combinational Circuits: Concept and examples. Design and Implementation: Adders (Half Adder, Full Adder), Subtractors, Multiplexers, Demultiplexers, Encoders, Decoders. Applications: Arithmetic circuits, data routing, and logical operations in digital systems. Case Studies: Combinational Logic Design of BCD to 7-segment display Controller 1. M. Morris Mano, \"Digital Design,\" Pearson. 2. John F. Wakerly, \"Digital Design: Principles and Practices,\" Pearson."
         },
         {
           "id": "se-cyber-security:2024:MDM-221-CYB:unit:3",
@@ -5890,9 +5890,9 @@
           "title": "Sequential Logic Circuits",
           "hours": 6,
           "topics": [
-            "Basics of Flip-Flops: SR, JK, D, T. Design and Analysis of Sequential Circuits. Fundamental Concepts: Latch vs Flip-Flop.Sequential Circuit Design: Counters (Asynchronous and Synchronous), Registers, State Machine: Moore and Mealy Models. Analysis and Design: State diagrams, state tables, and timing diagrams"
+            "Basics of Flip-Flops: SR, JK, D, T. Design and Analysis of Sequential Circuits. Fundamental Concepts: Latch vs Flip-Flop.Sequential Circuit Design: Counters (Asynchronous and Synchronous), Registers, State Machine: Moore and Mealy Models. Analysis and Design: State diagrams, state tables, and timing diagrams Case Studies: Design of vending machines. 1. M. Morris Mano, \"Digital Design,\" Pearson. 2. John F. Wakerly, \"Digital Design: Principles and Practices,\" Pearson."
           ],
-          "sourceText": "Basics of Flip-Flops: SR, JK, D, T. Design and Analysis of Sequential Circuits. Fundamental Concepts: Latch vs Flip-Flop.Sequential Circuit Design: Counters (Asynchronous and Synchronous), Registers, State Machine: Moore and Mealy Models. Analysis and Design: State diagrams, state tables, and timing diagrams"
+          "sourceText": "Basics of Flip-Flops: SR, JK, D, T. Design and Analysis of Sequential Circuits. Fundamental Concepts: Latch vs Flip-Flop.Sequential Circuit Design: Counters (Asynchronous and Synchronous), Registers, State Machine: Moore and Mealy Models. Analysis and Design: State diagrams, state tables, and timing diagrams Case Studies: Design of vending machines. 1. M. Morris Mano, \"Digital Design,\" Pearson. 2. John F. Wakerly, \"Digital Design: Principles and Practices,\" Pearson."
         },
         {
           "id": "se-cyber-security:2024:MDM-221-CYB:unit:4",
@@ -5900,9 +5900,9 @@
           "title": "Digital System Design",
           "hours": 6,
           "topics": [
-            "Introduction to Hardware Description Languages (VHDL/Verilog). Design Flow, Language constructs, Data objects, Data types, Entity, Architecture & types of modeling, Sequential statements, Concurrent statements, Packages, Sub programs, Attributes, HDL modeling of Combinational, Sequential circuits. Design of Basic Digital Systems using VHDL/Verilog"
+            "Introduction to Hardware Description Languages (VHDL/Verilog). Design Flow, Language constructs, Data objects, Data types, Entity, Architecture & types of modeling, Sequential statements, Concurrent statements, Packages, Sub programs, Attributes, HDL modeling of Combinational, Sequential circuits. Design of Basic Digital Systems using VHDL/Verilog Case Studies: Design of Traffic Light Controller"
           ],
-          "sourceText": "Introduction to Hardware Description Languages (VHDL/Verilog). Design Flow, Language constructs, Data objects, Data types, Entity, Architecture & types of modeling, Sequential statements, Concurrent statements, Packages, Sub programs, Attributes, HDL modeling of Combinational, Sequential circuits. Design of Basic Digital Systems using VHDL/Verilog"
+          "sourceText": "Introduction to Hardware Description Languages (VHDL/Verilog). Design Flow, Language constructs, Data objects, Data types, Entity, Architecture & types of modeling, Sequential statements, Concurrent statements, Packages, Sub programs, Attributes, HDL modeling of Combinational, Sequential circuits. Design of Basic Digital Systems using VHDL/Verilog Case Studies: Design of Traffic Light Controller"
         },
         {
           "id": "se-cyber-security:2024:MDM-221-CYB:unit:5",
@@ -5940,9 +5940,9 @@
           "title": "Introduction to Database Management System",
           "hours": 9,
           "topics": [
-            "Introduction to Database Management Systems, Purpose of Database Systems, Database-System Applications, View of Data, Database Languages, Database System Structure, Enterprise Constraints, Data Models, Database Design and ER Model: Entity, Attributes, Relationships, Constraints, Keys, Design Process, Entity Relationship Model, ER Diagram, Design Issues, Extended E-R Features, Converting E-R & EER diagram into tables."
+            "Introduction to Database Management Systems, Purpose of Database Systems, Database-System Applications, View of Data, Database Languages, Database System Structure, Enterprise Constraints, Data Models, Database Design and ER Model: Entity, Attributes, Relationships, Constraints, Keys, Design Process, Entity Relationship Model, ER Diagram, Design Issues, Extended E-R Features, Converting E-R & EER diagram into tables. Case Studies: Study of Architecture of any DBMS like Oracle or MySQL. Design a database schema for any problem given in previous Question Papers."
           ],
-          "sourceText": "Introduction to Database Management Systems, Purpose of Database Systems, Database-System Applications, View of Data, Database Languages, Database System Structure, Enterprise Constraints, Data Models, Database Design and ER Model: Entity, Attributes, Relationships, Constraints, Keys, Design Process, Entity Relationship Model, ER Diagram, Design Issues, Extended E-R Features, Converting E-R & EER diagram into tables."
+          "sourceText": "Introduction to Database Management Systems, Purpose of Database Systems, Database-System Applications, View of Data, Database Languages, Database System Structure, Enterprise Constraints, Data Models, Database Design and ER Model: Entity, Attributes, Relationships, Constraints, Keys, Design Process, Entity Relationship Model, ER Diagram, Design Issues, Extended E-R Features, Converting E-R & EER diagram into tables. Case Studies: Study of Architecture of any DBMS like Oracle or MySQL. Design a database schema for any problem given in previous Question Papers."
         },
         {
           "id": "se-cyber-security:2024:PCC-251-CYB:unit:2",
@@ -5950,9 +5950,9 @@
           "title": "SQL and PL/SQL",
           "hours": 9,
           "topics": [
-            "SQL: DDL, DML, Select Queries, String, Date and Numerical Functions, Aggregate Functions ,View, Indexes, Group by and Having Clause, Join Queries, Set, Set operation, Set membership, Nested queries, DCL, TCL PL/SQL: Control Statement, Cursor, Stored Procedure and Function, Trigger"
+            "SQL: DDL, DML, Select Queries, String, Date and Numerical Functions, Aggregate Functions ,View, Indexes, Group by and Having Clause, Join Queries, Set, Set operation, Set membership, Nested queries, DCL, TCL PL/SQL: Control Statement, Cursor, Stored Procedure and Function, Trigger Case Studies: Design and implement a Student Course Management System using SQL and PL/SQL to manage students, courses, and faculty members efficiently. The system should store and retrieve relevant data, ensuring integrity, security, and performance optimization."
           ],
-          "sourceText": "SQL: DDL, DML, Select Queries, String, Date and Numerical Functions, Aggregate Functions ,View, Indexes, Group by and Having Clause, Join Queries, Set, Set operation, Set membership, Nested queries, DCL, TCL PL/SQL: Control Statement, Cursor, Stored Procedure and Function, Trigger"
+          "sourceText": "SQL: DDL, DML, Select Queries, String, Date and Numerical Functions, Aggregate Functions ,View, Indexes, Group by and Having Clause, Join Queries, Set, Set operation, Set membership, Nested queries, DCL, TCL PL/SQL: Control Statement, Cursor, Stored Procedure and Function, Trigger Case Studies: Design and implement a Student Course Management System using SQL and PL/SQL to manage students, courses, and faculty members efficiently. The system should store and retrieve relevant data, ensuring integrity, security, and performance optimization."
         },
         {
           "id": "se-cyber-security:2024:PCC-251-CYB:unit:3",
@@ -5960,9 +5960,9 @@
           "title": "Relational Database Design",
           "hours": 9,
           "topics": [
-            "Relational Model: Basic concepts, Attributes and Domains, CODD’s Rules, Relational Integrity, Referential Integrities, Database Design: Features of Good Relational Designs, Normalization, Atomic Domains and First Normal Form, Decomposition using Functional Dependencies, 2NF, 3NF, BCNF."
+            "Relational Model: Basic concepts, Attributes and Domains, CODD’s Rules, Relational Integrity, Referential Integrities, Database Design: Features of Good Relational Designs, Normalization, Atomic Domains and First Normal Form, Decomposition using Functional Dependencies, 2NF, 3NF, BCNF. Case Studies: Design and Optimization of a Relational Database for a University Management System"
           ],
-          "sourceText": "Relational Model: Basic concepts, Attributes and Domains, CODD’s Rules, Relational Integrity, Referential Integrities, Database Design: Features of Good Relational Designs, Normalization, Atomic Domains and First Normal Form, Decomposition using Functional Dependencies, 2NF, 3NF, BCNF."
+          "sourceText": "Relational Model: Basic concepts, Attributes and Domains, CODD’s Rules, Relational Integrity, Referential Integrities, Database Design: Features of Good Relational Designs, Normalization, Atomic Domains and First Normal Form, Decomposition using Functional Dependencies, 2NF, 3NF, BCNF. Case Studies: Design and Optimization of a Relational Database for a University Management System"
         },
         {
           "id": "se-cyber-security:2024:PCC-251-CYB:unit:4",
@@ -5970,9 +5970,9 @@
           "title": "Database Transactions",
           "hours": 9,
           "topics": [
-            "Basic concept of a Transaction, Transaction Management, Properties of Transactions, ACID, Concept of Schedule, Serial Schedule, Serializability: Conflict and View, Cascaded Aborts, Recoverable and Non-recoverable Schedules, Concurrency Control: Need, Locking Methods."
+            "Basic concept of a Transaction, Transaction Management, Properties of Transactions, ACID, Concept of Schedule, Serial Schedule, Serializability: Conflict and View, Cascaded Aborts, Recoverable and Non-recoverable Schedules, Concurrency Control: Need, Locking Methods. Case Studies: Design Online Shopping Cart Transaction Management In an e-commerce platform, multiple users simultaneously add, update, and purchase products. To ensure data consistency and reliability, the system must handle concurrent transactions effectively."
           ],
-          "sourceText": "Basic concept of a Transaction, Transaction Management, Properties of Transactions, ACID, Concept of Schedule, Serial Schedule, Serializability: Conflict and View, Cascaded Aborts, Recoverable and Non-recoverable Schedules, Concurrency Control: Need, Locking Methods."
+          "sourceText": "Basic concept of a Transaction, Transaction Management, Properties of Transactions, ACID, Concept of Schedule, Serial Schedule, Serializability: Conflict and View, Cascaded Aborts, Recoverable and Non-recoverable Schedules, Concurrency Control: Need, Locking Methods. Case Studies: Design Online Shopping Cart Transaction Management In an e-commerce platform, multiple users simultaneously add, update, and purchase products. To ensure data consistency and reliability, the system must handle concurrent transactions effectively."
         },
         {
           "id": "se-cyber-security:2024:PCC-251-CYB:unit:5",
@@ -5980,9 +5980,9 @@
           "title": "NoSQL Database",
           "hours": 9,
           "topics": [
-            "Introduction to NoSQL Database, NoSQL data models, CAP theorem and BASE Properties, Comparative study of SQL and NoSQL, MongoDB: CRUD Operations, Indexing and Aggregation."
+            "Introduction to NoSQL Database, NoSQL data models, CAP theorem and BASE Properties, Comparative study of SQL and NoSQL, MongoDB: CRUD Operations, Indexing and Aggregation. Case Studies: Study NoSQL Database Selection for a Social Media Platform."
           ],
-          "sourceText": "Introduction to NoSQL Database, NoSQL data models, CAP theorem and BASE Properties, Comparative study of SQL and NoSQL, MongoDB: CRUD Operations, Indexing and Aggregation."
+          "sourceText": "Introduction to NoSQL Database, NoSQL data models, CAP theorem and BASE Properties, Comparative study of SQL and NoSQL, MongoDB: CRUD Operations, Indexing and Aggregation. Case Studies: Study NoSQL Database Selection for a Social Media Platform."
         }
       ],
       "year": "SE",
@@ -6010,9 +6010,9 @@
           "title": "Trees",
           "hours": 9,
           "topics": [
-            "Tree- Basic terminology, Representation using sequential and linked organization, Binary tree - properties, Converting tree to binary tree, Binary tree traversals and Tree Iterators - Inorder, Preorder, Postorder, Depth First and Breadth First. Binary Search Tree (BST), BST operations, Threaded binary search tree-concepts, threads, insertion and deletion of nodes in Inorder threaded binary search tree, in order traversal of in-order threaded binary search tree."
+            "Tree- Basic terminology, Representation using sequential and linked organization, Binary tree - properties, Converting tree to binary tree, Binary tree traversals and Tree Iterators - Inorder, Preorder, Postorder, Depth First and Breadth First. Binary Search Tree (BST), BST operations, Threaded binary search tree- concepts, threads, insertion and deletion of nodes in Inorder threaded binary search tree, in order traversal of in-order threaded binary search tree. Case Studies: Use of Binary tree in expression tree evaluation."
           ],
-          "sourceText": "Tree- Basic terminology, Representation using sequential and linked organization, Binary tree - properties, Converting tree to binary tree, Binary tree traversals and Tree Iterators - Inorder, Preorder, Postorder, Depth First and Breadth First. Binary Search Tree (BST), BST operations, Threaded binary search tree-concepts, threads, insertion and deletion of nodes in Inorder threaded binary search tree, in order traversal of in-order threaded binary search tree."
+          "sourceText": "Tree- Basic terminology, Representation using sequential and linked organization, Binary tree - properties, Converting tree to binary tree, Binary tree traversals and Tree Iterators - Inorder, Preorder, Postorder, Depth First and Breadth First. Binary Search Tree (BST), BST operations, Threaded binary search tree- concepts, threads, insertion and deletion of nodes in Inorder threaded binary search tree, in order traversal of in-order threaded binary search tree. Case Studies: Use of Binary tree in expression tree evaluation."
         },
         {
           "id": "se-cyber-security:2024:PCC-252-CYB:unit:2",
@@ -6020,9 +6020,9 @@
           "title": "Graph",
           "hours": 9,
           "topics": [
-            "Graph: Basic Concepts, Storage representation, Adjacency matrix, adjacency list, adjacency multi list, inverse adjacency list, Dynamic graphs vs. static graphs. Traversals-Depth First Search and Breadth First Search, Minimum Spanning Tree, Greedy algorithms for computing minimum spanning tree- Prims and Kruskal Algorithms, Dikjtra’s Single source shortest path, All pairs shortest paths- Floyd-Warshall Algorithm"
+            "Graph: Basic Concepts, Storage representation, Adjacency matrix, adjacency list, adjacency multi list, inverse adjacency list, Dynamic graphs vs. static graphs. Traversals-Depth First Search and Breadth First Search, Minimum Spanning Tree, Greedy algorithms for computing minimum spanning tree- Prims and Kruskal Algorithms, Dikjtra’s Single source shortest path, All pairs shortest paths- Floyd-Warshall Algorithm Case Studies: Airlines operate flights between multiple cities. Each city is a node, and each flight is an edge with a cost (ticket price or distance).Given departure and destination cities, find the cheapest flight route."
           ],
-          "sourceText": "Graph: Basic Concepts, Storage representation, Adjacency matrix, adjacency list, adjacency multi list, inverse adjacency list, Dynamic graphs vs. static graphs. Traversals-Depth First Search and Breadth First Search, Minimum Spanning Tree, Greedy algorithms for computing minimum spanning tree- Prims and Kruskal Algorithms, Dikjtra’s Single source shortest path, All pairs shortest paths- Floyd-Warshall Algorithm"
+          "sourceText": "Graph: Basic Concepts, Storage representation, Adjacency matrix, adjacency list, adjacency multi list, inverse adjacency list, Dynamic graphs vs. static graphs. Traversals-Depth First Search and Breadth First Search, Minimum Spanning Tree, Greedy algorithms for computing minimum spanning tree- Prims and Kruskal Algorithms, Dikjtra’s Single source shortest path, All pairs shortest paths- Floyd-Warshall Algorithm Case Studies: Airlines operate flights between multiple cities. Each city is a node, and each flight is an edge with a cost (ticket price or distance).Given departure and destination cities, find the cheapest flight route."
         },
         {
           "id": "se-cyber-security:2024:PCC-252-CYB:unit:3",
@@ -6030,9 +6030,9 @@
           "title": "Hashing",
           "hours": 9,
           "topics": [
-            "Introduction to Hashing: Basic Concept, Comparison with arrays, linked lists, and trees. Hash Table & Operations: Definition, structure, insertion, deletion, searching, bucket roles, and performance metrics, Hash Functions: Properties of good hash functions; Types of Hash Functions: division, multiplication, extraction, mid-square, folding, and universal hashing. Collision and Resolution Techniques, Hash Table Overflow and Management, Applications of Hashing"
+            "Introduction to Hashing: Basic Concept, Comparison with arrays, linked lists, and trees. Hash Table & Operations: Definition, structure, insertion, deletion, searching, bucket roles, and performance metrics, Hash Functions: Properties of good hash functions; Types of Hash Functions: division, multiplication, extraction, mid-square, folding, and universal hashing. Collision and Resolution Techniques, Hash Table Overflow and Management, Applications of Hashing Case Studies: Student Records Management with Collision Handling"
           ],
-          "sourceText": "Introduction to Hashing: Basic Concept, Comparison with arrays, linked lists, and trees. Hash Table & Operations: Definition, structure, insertion, deletion, searching, bucket roles, and performance metrics, Hash Functions: Properties of good hash functions; Types of Hash Functions: division, multiplication, extraction, mid-square, folding, and universal hashing. Collision and Resolution Techniques, Hash Table Overflow and Management, Applications of Hashing"
+          "sourceText": "Introduction to Hashing: Basic Concept, Comparison with arrays, linked lists, and trees. Hash Table & Operations: Definition, structure, insertion, deletion, searching, bucket roles, and performance metrics, Hash Functions: Properties of good hash functions; Types of Hash Functions: division, multiplication, extraction, mid-square, folding, and universal hashing. Collision and Resolution Techniques, Hash Table Overflow and Management, Applications of Hashing Case Studies: Student Records Management with Collision Handling"
         },
         {
           "id": "se-cyber-security:2024:PCC-252-CYB:unit:4",
@@ -6040,9 +6040,9 @@
           "title": "Search Trees",
           "hours": 9,
           "topics": [
-            "Symbol Table-Representation of Symbol Tables- Static tree table and Dynamic tree table, Weight balanced tree - Optimal Binary Search Tree (OBST), OBST as an example of Dynamic Programming, Height Balanced Tree- AVL tree. Red-Black Tree, AA tree, K-dimensional tree, Splay Tree"
+            "Symbol Table-Representation of Symbol Tables- Static tree table and Dynamic tree table, Weight balanced tree - Optimal Binary Search Tree (OBST), OBST as an example of Dynamic Programming, Height Balanced Tree- AVL tree. Red-Black Tree, AA tree, K-dimensional tree, Splay Tree Case Studies: Keyword search in a document using OBST"
           ],
-          "sourceText": "Symbol Table-Representation of Symbol Tables- Static tree table and Dynamic tree table, Weight balanced tree - Optimal Binary Search Tree (OBST), OBST as an example of Dynamic Programming, Height Balanced Tree- AVL tree. Red-Black Tree, AA tree, K-dimensional tree, Splay Tree"
+          "sourceText": "Symbol Table-Representation of Symbol Tables- Static tree table and Dynamic tree table, Weight balanced tree - Optimal Binary Search Tree (OBST), OBST as an example of Dynamic Programming, Height Balanced Tree- AVL tree. Red-Black Tree, AA tree, K-dimensional tree, Splay Tree Case Studies: Keyword search in a document using OBST"
         },
         {
           "id": "se-cyber-security:2024:PCC-252-CYB:unit:5",
@@ -6050,9 +6050,9 @@
           "title": "Multi way Search Trees & Heap",
           "hours": 9,
           "topics": [
-            "m-way Search Trees: Definition and properties, Searching m-way Search Trees, B Tree : Definition and properties, Insertion and Deletion in B Tree, B+ Tree : Definition and properties, Searching, Insertion and Deletion in B+ Tree. Heap: Heap data structures basic concepts, Min and Max Heap, Realization of Heap, Heap as an ADT, Heap sort, applications of heap."
+            "m- way Search Trees: Definition and properties, Searching m-way Search Trees, B Tree : Definition and properties, Insertion and Deletion in B Tree, B+ Tree : Definition and properties, Searching, Insertion and Deletion in B+ Tree. Heap: Heap data structures basic concepts, Min and Max Heap, Realization of Heap, Heap as an ADT, Heap sort, applications of heap. Case Studies: Inventory Management System by using Sequential File Organization and Indexed File Organization."
           ],
-          "sourceText": "m-way Search Trees: Definition and properties, Searching m-way Search Trees, B Tree : Definition and properties, Insertion and Deletion in B Tree, B+ Tree : Definition and properties, Searching, Insertion and Deletion in B+ Tree. Heap: Heap data structures basic concepts, Min and Max Heap, Realization of Heap, Heap as an ADT, Heap sort, applications of heap."
+          "sourceText": "m- way Search Trees: Definition and properties, Searching m-way Search Trees, B Tree : Definition and properties, Insertion and Deletion in B Tree, B+ Tree : Definition and properties, Searching, Insertion and Deletion in B+ Tree. Heap: Heap data structures basic concepts, Min and Max Heap, Realization of Heap, Heap as an ADT, Heap sort, applications of heap. Case Studies: Inventory Management System by using Sequential File Organization and Indexed File Organization."
         }
       ],
       "year": "SE",
@@ -6080,9 +6080,9 @@
           "title": "Probability Basics and distributions",
           "hours": 6,
           "topics": [
-            "Conditional and Total Probabilities, Bayes theorem, Random variables, Discrete Probability Distributions- Binomial, Poisson, Geometric distribution, Continuous Probability Distribution: Normal, standard normal, uniform, exponential distribution."
+            "Conditional and Total Probabilities, Bayes theorem, Random variables, Discrete Probability Distributions- Binomial, Poisson, Geometric distribution, Continuous Probability Distribution: Normal, standard normal, uniform, exponential distribution. Case Studies: Predicting Customer Churn in Telecom Industry 1. Schaum’s outline of “Probability and Statistics”, Fourth Edition 2. Sheldon M. Ross, “Probability and Statistics for Engineers and Scientists”, Fifth Edition, ELSE- VIER Publication"
           ],
-          "sourceText": "Conditional and Total Probabilities, Bayes theorem, Random variables, Discrete Probability Distributions- Binomial, Poisson, Geometric distribution, Continuous Probability Distribution: Normal, standard normal, uniform, exponential distribution."
+          "sourceText": "Conditional and Total Probabilities, Bayes theorem, Random variables, Discrete Probability Distributions- Binomial, Poisson, Geometric distribution, Continuous Probability Distribution: Normal, standard normal, uniform, exponential distribution. Case Studies: Predicting Customer Churn in Telecom Industry 1. Schaum’s outline of “Probability and Statistics”, Fourth Edition 2. Sheldon M. Ross, “Probability and Statistics for Engineers and Scientists”, Fifth Edition, ELSE- VIER Publication"
         },
         {
           "id": "se-cyber-security:2024:PCC-253-CYB:unit:2",
@@ -6090,9 +6090,9 @@
           "title": "Central limit theorem",
           "hours": 6,
           "topics": [
-            "Central limit theorem, Large-Sample Confidence Intervals for a Population Mean, Confidence Intervals for Proportions, Small-Sample Confidence Intervals for a Population Mean, Confidence Intervals for the Difference Between Two Means, Confidence Intervals for the Difference Between Two Proportions, Small-Sample Confidence Intervals for the Difference Between Two Means, Confidence Intervals with Paired Data."
+            "Central limit theorem, Large-Sample Confidence Intervals for a Population Mean, Confidence Intervals for Proportions, Small-Sample Confidence Intervals for a Population Mean, Confidence Intervals for the Difference Between Two Means, Confidence Intervals for the Difference Between Two Proportions, Small-Sample Confidence Intervals for the Difference Between Two Means, Confidence Intervals with Paired Data. Case Studies: Assessing Customer Satisfaction Between Two Retail Chains 1. Statistics for Engineers and Scientists, Fourth Edition, William Navidi, McGraw-Hill publications 2. Rao G. S., (2018), “Probability and Statistics for Science and Engineering”, 11th edition, Universities press publication – G Shankar Rao"
           ],
-          "sourceText": "Central limit theorem, Large-Sample Confidence Intervals for a Population Mean, Confidence Intervals for Proportions, Small-Sample Confidence Intervals for a Population Mean, Confidence Intervals for the Difference Between Two Means, Confidence Intervals for the Difference Between Two Proportions, Small-Sample Confidence Intervals for the Difference Between Two Means, Confidence Intervals with Paired Data."
+          "sourceText": "Central limit theorem, Large-Sample Confidence Intervals for a Population Mean, Confidence Intervals for Proportions, Small-Sample Confidence Intervals for a Population Mean, Confidence Intervals for the Difference Between Two Means, Confidence Intervals for the Difference Between Two Proportions, Small-Sample Confidence Intervals for the Difference Between Two Means, Confidence Intervals with Paired Data. Case Studies: Assessing Customer Satisfaction Between Two Retail Chains 1. Statistics for Engineers and Scientists, Fourth Edition, William Navidi, McGraw-Hill publications 2. Rao G. S., (2018), “Probability and Statistics for Science and Engineering”, 11th edition, Universities press publication – G Shankar Rao"
         },
         {
           "id": "se-cyber-security:2024:PCC-253-CYB:unit:3",
@@ -6100,9 +6100,9 @@
           "title": "Sampling Theory and Statistical Estimation",
           "hours": 6,
           "topics": [
-            "Population and Sample, Statistical inference, Sampling with and without replacement, Population parameters, Sample statics, Sampling distributions, Sample mean, Sampling distribution of means, Sample variances, Sampling distribution of variances, Case where population variances is unknown, Unbiased estimates and efficient estimates, point estimate and Interval Estimates"
+            "Population and Sample, Statistical inference, Sampling with and without replacement, Population parameters, Sample statics, Sampling distributions, Sample mean, Sampling distribution of means, Sample variances, Sampling distribution of variances, Case where population variances is unknown, Unbiased estimates and efficient estimates, point estimate and Interval Estimates Case Studies: Estimating Average Monthly Household Expenditure in a City"
           ],
-          "sourceText": "Population and Sample, Statistical inference, Sampling with and without replacement, Population parameters, Sample statics, Sampling distributions, Sample mean, Sampling distribution of means, Sample variances, Sampling distribution of variances, Case where population variances is unknown, Unbiased estimates and efficient estimates, point estimate and Interval Estimates"
+          "sourceText": "Population and Sample, Statistical inference, Sampling with and without replacement, Population parameters, Sample statics, Sampling distributions, Sample mean, Sampling distribution of means, Sample variances, Sampling distribution of variances, Case where population variances is unknown, Unbiased estimates and efficient estimates, point estimate and Interval Estimates Case Studies: Estimating Average Monthly Household Expenditure in a City"
         },
         {
           "id": "se-cyber-security:2024:PCC-253-CYB:unit:4",
@@ -6110,9 +6110,9 @@
           "title": "Test of hypothesis",
           "hours": 6,
           "topics": [
-            "Statistical hypothesis, Null and Alternate hypothesis, test of hypothesis and significance, Type I and Type II errors, Level of Significance, Tests involving the Normal distribution, One-Tailed and Two- Tailed tests, P value. Special tests of significance for large samples and small samples (F, chi-square, z, t-test)"
+            "Statistical hypothesis, Null and Alternate hypothesis, test of hypothesis and significance, Type I and Type II errors, Level of Significance, Tests involving the Normal distribution, One-Tailed and Two- Tailed tests, P value. Special tests of significance for large samples and small samples (F, chi- square, z, t- test) Case Studies: Effectiveness of a New Drug vs. Existing Drug 1. Statistics for Engineers and Scientists, Fourth Edition, William Navidi, McGraw-Hill publications 2. Rao G. S., (2018), “Probability and Statistics for Science and Engineering”, 11th edition, Universities press publication – G Shankar Rao"
           ],
-          "sourceText": "Statistical hypothesis, Null and Alternate hypothesis, test of hypothesis and significance, Type I and Type II errors, Level of Significance, Tests involving the Normal distribution, One-Tailed and Two- Tailed tests, P value. Special tests of significance for large samples and small samples (F, chi-square, z, t-test)"
+          "sourceText": "Statistical hypothesis, Null and Alternate hypothesis, test of hypothesis and significance, Type I and Type II errors, Level of Significance, Tests involving the Normal distribution, One-Tailed and Two- Tailed tests, P value. Special tests of significance for large samples and small samples (F, chi- square, z, t- test) Case Studies: Effectiveness of a New Drug vs. Existing Drug 1. Statistics for Engineers and Scientists, Fourth Edition, William Navidi, McGraw-Hill publications 2. Rao G. S., (2018), “Probability and Statistics for Science and Engineering”, 11th edition, Universities press publication – G Shankar Rao"
         },
         {
           "id": "se-cyber-security:2024:PCC-253-CYB:unit:5",
@@ -6120,9 +6120,9 @@
           "title": "Correlation and regression",
           "hours": 6,
           "topics": [
-            "Introduction of correlation, correlation analysis, coefficient of correlation, probable error, regression, regression analysis, line of regression, standard error of estimate, Rank of correlation. Single and multiple regression."
+            "Introduction of correlation, correlation analysis, coefficient of correlation, probable error, regression, regression analysis, line of regression, standard error of estimate, Rank of correlation. Single and multiple regression. Case Studies: Impact of Advertising on Sales 1. Statistics for Engineers and Scientists, Fourth Edition, William Navidi, McGraw-Hill publications 2. Douglas C. Montgomery, Elizabeth A. Peck, G. Geoffrey Vining, Introduction to Linear Regression Analysis, Wiley, 2012."
           ],
-          "sourceText": "Introduction of correlation, correlation analysis, coefficient of correlation, probable error, regression, regression analysis, line of regression, standard error of estimate, Rank of correlation. Single and multiple regression."
+          "sourceText": "Introduction of correlation, correlation analysis, coefficient of correlation, probable error, regression, regression analysis, line of regression, standard error of estimate, Rank of correlation. Single and multiple regression. Case Studies: Impact of Advertising on Sales 1. Statistics for Engineers and Scientists, Fourth Edition, William Navidi, McGraw-Hill publications 2. Douglas C. Montgomery, Elizabeth A. Peck, G. Geoffrey Vining, Introduction to Linear Regression Analysis, Wiley, 2012."
         }
       ],
       "year": "SE",
@@ -6150,9 +6150,9 @@
           "title": "Introduction to IoT",
           "hours": 6,
           "topics": [
-            "What is Internet of Things: Definition & Characteristics of IoT, Evolution of IoT, Convergence of IoT, IoT Challenges, M2M Communication, Things in IoT, IoT Protocols, Functional blocks of IoT Ecosystem, Communication Models, Communication APIs, IoT enabled Technologies: Wireless Sensor Network, Cloud Computing, Big Data Analytics, Embedded Systems, IoT enabled Applications."
+            "What is Internet of Things: Definition & Characteristics of IoT, Evolution of IoT, Convergence of IoT, IoT Challenges, M2M Communication, Things in IoT, IoT Protocols, Functional blocks of IoT Ecosystem, Communication Models, Communication APIs, IoT enabled Technologies: Wireless Sensor Network, Cloud Computing, Big Data Analytics, Embedded Systems, IoT enabled Applications. Case Studies: Home Automation"
           ],
-          "sourceText": "What is Internet of Things: Definition & Characteristics of IoT, Evolution of IoT, Convergence of IoT, IoT Challenges, M2M Communication, Things in IoT, IoT Protocols, Functional blocks of IoT Ecosystem, Communication Models, Communication APIs, IoT enabled Technologies: Wireless Sensor Network, Cloud Computing, Big Data Analytics, Embedded Systems, IoT enabled Applications."
+          "sourceText": "What is Internet of Things: Definition & Characteristics of IoT, Evolution of IoT, Convergence of IoT, IoT Challenges, M2M Communication, Things in IoT, IoT Protocols, Functional blocks of IoT Ecosystem, Communication Models, Communication APIs, IoT enabled Technologies: Wireless Sensor Network, Cloud Computing, Big Data Analytics, Embedded Systems, IoT enabled Applications. Case Studies: Home Automation"
         },
         {
           "id": "se-cyber-security:2024:MDM-271-CYB:unit:2",
@@ -6160,9 +6160,9 @@
           "title": "Introduction to Sensors, Actuator",
           "hours": 6,
           "topics": [
-            "Sensors/Transducers – Definition, Principles, Classifications, Types, Characteristics and Specifications, Actuators - Definition, Principles, Classifications, Types, Characteristics and Specifications IoT Development Boards: Arduino IDE and Board Types, Raspberry Pi, NodeMCU, ESP 32, Beagle-bone"
+            "Sensors/Transducers – Definition, Principles, Classifications, Types, Characteristics and Specifications, Actuators - Definition, Principles, Classifications, Types, Characteristics and Specifications IoT Development Boards: Arduino IDE and Board Types, Raspberry Pi, NodeMCU, ESP 32, Beaglebone Case Studies: Interfacing Sensors"
           ],
-          "sourceText": "Sensors/Transducers – Definition, Principles, Classifications, Types, Characteristics and Specifications, Actuators - Definition, Principles, Classifications, Types, Characteristics and Specifications IoT Development Boards: Arduino IDE and Board Types, Raspberry Pi, NodeMCU, ESP 32, Beagle-bone"
+          "sourceText": "Sensors/Transducers – Definition, Principles, Classifications, Types, Characteristics and Specifications, Actuators - Definition, Principles, Classifications, Types, Characteristics and Specifications IoT Development Boards: Arduino IDE and Board Types, Raspberry Pi, NodeMCU, ESP 32, Beaglebone Case Studies: Interfacing Sensors"
         },
         {
           "id": "se-cyber-security:2024:MDM-271-CYB:unit:3",
@@ -6170,9 +6170,9 @@
           "title": "Protocols for IoT",
           "hours": 6,
           "topics": [
-            "IoT Access Technologies: Physical and MAC layers, IEEE 802.15.4, 802.11ah and Lora WAN, Network Layer- IP versions 4 & 6 ,6LoWPAN, IoT Application Layer Protocols – CoAP and MQTT, Transport Protocols - Zigbee, Bluetooth, BLE, ZWave"
+            "IoT Access Technologies: Physical and MAC layers, IEEE 802.15.4, 802.11ah and Lora WAN, Network Layer- IP versions 4 & 6 ,6LoWPAN, IoT Application Layer Protocols – CoAP and MQTT, Transport Protocols - Zigbee, Bluetooth, BLE, ZWave Case Studies: MQTT"
           ],
-          "sourceText": "IoT Access Technologies: Physical and MAC layers, IEEE 802.15.4, 802.11ah and Lora WAN, Network Layer- IP versions 4 & 6 ,6LoWPAN, IoT Application Layer Protocols – CoAP and MQTT, Transport Protocols - Zigbee, Bluetooth, BLE, ZWave"
+          "sourceText": "IoT Access Technologies: Physical and MAC layers, IEEE 802.15.4, 802.11ah and Lora WAN, Network Layer- IP versions 4 & 6 ,6LoWPAN, IoT Application Layer Protocols – CoAP and MQTT, Transport Protocols - Zigbee, Bluetooth, BLE, ZWave Case Studies: MQTT"
         },
         {
           "id": "se-cyber-security:2024:MDM-271-CYB:unit:4",
@@ -6180,9 +6180,9 @@
           "title": "Cloud for IoT",
           "hours": 6,
           "topics": [
-            "Fundamentals of Cloud Computing, Types of Cloud services- AWS, Azure, Adafruit, IoT with Cloud, Challenges faced in cloud services, selection of cloud for IoT applications"
+            "Fundamentals of Cloud Computing, Types of Cloud services- AWS, Azure, Adafruit, IoT with Cloud, Challenges faced in cloud services, selection of cloud for IoT applications Case Studies: How to use Adafruit cloud"
           ],
-          "sourceText": "Fundamentals of Cloud Computing, Types of Cloud services- AWS, Azure, Adafruit, IoT with Cloud, Challenges faced in cloud services, selection of cloud for IoT applications"
+          "sourceText": "Fundamentals of Cloud Computing, Types of Cloud services- AWS, Azure, Adafruit, IoT with Cloud, Challenges faced in cloud services, selection of cloud for IoT applications Case Studies: How to use Adafruit cloud"
         },
         {
           "id": "se-cyber-security:2024:MDM-271-CYB:unit:5",
@@ -6190,9 +6190,9 @@
           "title": "IoT Applications",
           "hours": 6,
           "topics": [
-            "Smart Cities – Smart Parking, Smart Lighting, Smart Roads, Structural Health Monitoring, Surveillance Energy – Smart Grids, Renewable Energy Systems, Prognostics Environment – Weather Monitoring, Air Pollution Monitoring, Noise Pollution Monitoring, Forest Fire Detection, River Floods Detection Agriculture – Smart Irrigation, GreenHouse Control Industry – Machine Diagnostics & Prognosis, Indoor Air Quality Monitoring Health & Lifestyle – Health & Fitness Monitoring, Wearable Electronics"
+            "Smart Cities – Smart Parking, Smart Lighting, Smart Roads, Structural Health Monitoring, Surveillance Energy – Smart Grids, Renewable Energy Systems, Prognostics Environment – Weather Monitoring, Air Pollution Monitoring, Noise Pollution Monitoring, Forest Fire Detection, River Floods Detection Agriculture – Smart Irrigation, GreenHouse Control Industry – Machine Diagnostics & Prognosis, Indoor Air Quality Monitoring Health & Lifestyle – Health & Fitness Monitoring, Wearable Electronics Case Studies: IoT Analytics: Thingspeak"
           ],
-          "sourceText": "Smart Cities – Smart Parking, Smart Lighting, Smart Roads, Structural Health Monitoring, Surveillance Energy – Smart Grids, Renewable Energy Systems, Prognostics Environment – Weather Monitoring, Air Pollution Monitoring, Noise Pollution Monitoring, Forest Fire Detection, River Floods Detection Agriculture – Smart Irrigation, GreenHouse Control Industry – Machine Diagnostics & Prognosis, Indoor Air Quality Monitoring Health & Lifestyle – Health & Fitness Monitoring, Wearable Electronics"
+          "sourceText": "Smart Cities – Smart Parking, Smart Lighting, Smart Roads, Structural Health Monitoring, Surveillance Energy – Smart Grids, Renewable Energy Systems, Prognostics Environment – Weather Monitoring, Air Pollution Monitoring, Noise Pollution Monitoring, Forest Fire Detection, River Floods Detection Agriculture – Smart Irrigation, GreenHouse Control Industry – Machine Diagnostics & Prognosis, Indoor Air Quality Monitoring Health & Lifestyle – Health & Fitness Monitoring, Wearable Electronics Case Studies: IoT Analytics: Thingspeak"
         }
       ],
       "year": "SE",
