@@ -42,3 +42,5 @@ import './studio.css';
 import './task-pins.css';
 import './week-folio.css';
 import './site-palette.css';
+
+import "./cycle-three.css";

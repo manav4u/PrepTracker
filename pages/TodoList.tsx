@@ -1,4 +1,3 @@
-import EditionStrip from "../components/EditionStrip";
 import "../task-pins.css";
 import EditionNav from "../components/EditionNav";
 import React, { useState } from "react";
@@ -108,14 +107,14 @@ export default function TodoList() {
               ON YOUR BOARD
             </p>
           </div>
-        </header><EditionStrip code="02 / BOARD" title="Dates with a place to land." facts={[{value:tasks.filter(t=>!t.completed).length,label:"open tasks"},{value:tasks.filter(t=>!t.completed&&t.category==='EXAM').length,label:"pending papers"},{value:tasks.filter(t=>t.completed).length,label:"marked complete"}]}/>
+        </header><nav className="board-register" aria-label="Task board register"><a href="#pin-editor" onClick={e=>{e.preventDefault();document.getElementById('pin-editor')?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});document.querySelector<HTMLInputElement>('#pin-editor input')?.focus();}}><b>＋</b><span>Write a new pin<small>One thing, with a place to land.</small></span></a><div><b>{tasks.filter(t=>!t.completed&&t.category==='EXAM').length}</b><span>Pending papers</span></div><div><b>{tasks.filter(t=>t.completed).length}</b><span>Marked complete</span></div></nav>
         <p className="pins-disclosure">
           Exam dates, lab work and assignments are entered by you, not an
           official timetable. Calendar export creates all-day events. It does
           not subscribe you to updates or send reminders from this closed page.
         </p>
         <div className="pins-layout">
-          <form onSubmit={save} className="pins-form">
+          <form id="pin-editor" onSubmit={save} className="pins-form">
             <span className="pins-tape" />
             <p className="pins-eyebrow">A PLACE TO PUT IT DOWN</p>
             <h2>{edit ? "Edit your pin." : "A new pin."}</h2>

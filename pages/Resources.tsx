@@ -1,4 +1,3 @@
-import EditionStrip from "../components/EditionStrip";
 import { CATALOG } from "../lib/catalog";
 import "../link-cabinet.css";
 import EditionNav from "../components/EditionNav";
@@ -98,15 +97,15 @@ export default function Resources() {
         <header className="cabinet-heading">
           <p>THE EXAM EDITION / YOUR SAVED LINKS</p>
           <h1>
-            Good things.
+            Your reference
             <br />
-            <i>Kept close.</i>
+            <i>cabinet.</i>
           </h1>
           <span>
             {resources.length}
             <small>LINKS IN THIS BROWSER</small>
           </span>
-        </header><EditionStrip code="03 / CABINET" title="A shelf, not a search history." facts={[{value:resources.filter(r=>r.category==='notes').length,label:"notes"},{value:resources.filter(r=>r.type==='video'||!!getYouTubeID(r.url)).length,label:"videos"},{value:resources.filter(r=>!r.isSystem).length,label:"your own links"}]}/>
+        </header><section className="cabinet-drawers" aria-label="Resource drawers">{['notes','lecture streams','textbooks','solved pyqs'].map((category,i)=><button key={category} aria-pressed={tab===category} onClick={()=>setTab(tab===category?'all':category)}><span className="drawer-number">0{i+1}</span><strong>{resources.filter(r=>r.category.includes(category)||(category==='textbooks'&&r.type==='book')).length}</strong><span>{category}</span><i aria-hidden="true"/></button>)}</section>
         <p className="cabinet-disclosure">
           A cabinet for notes, videos and references. Saved locally, not
           cloud-synced. A saved link is not a verified endorsement. System

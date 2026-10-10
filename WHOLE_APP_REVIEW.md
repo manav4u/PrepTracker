@@ -96,3 +96,26 @@ Hosted publication completed at 20:20 IST on the isolated review project. The st
 Hosted first-view green surface audit is approximately 19-38% on main phone views and 17-33% on desktop, affected by the review banner and scroll position. Add PC remains lighter at 14%. This is a supporting hierarchy, not a literal pixel quota.
 
 No production/main mutation or merge.
+
+## Review-refine cycle 3: remove the repeated index
+
+Brutal finding: the green pass repeated the same three-number strip on six pages. Texture and different borders did not fix the shared template. Large headings also spent too much first-screen space on atmosphere.
+
+Removed the shared strip and component. Each working page now has its own useful form:
+
+- Plan: a date runway, with actual planned minutes and clickable date slips.
+- Tasks: a write-a-pin register that focuses the real editor, plus pending-paper/completed counts.
+- Marks: a complete-assessment-head track, with entered cells and explicit partial coverage. Zero courses prompts a course/basket choice, not a success state.
+- Resources: four working category drawers, with exact category counts and filter selection.
+- Progress: per-course recorded-coverage bands that select the course below. No chart invents history or practice evidence.
+- Settings: a data-custody seal and backup jump instead of another generic statistic strip.
+
+Mastheads are smaller, resource/catalog/task typography is tighter, and unnecessary desktop control minimum heights were removed. Actions and evidence arrive earlier without stripping the paper identity.
+
+Validation: typecheck/build and 61 tests pass. Local core flows/injected failures pass. Anonymous hosted 13-page phone/PC and ten-route 320 audit has no page overflow/errors. New drawer filters returned the expected 2 notes / 11 lecture-stream links in the fixture; course band selected Physics; task jump focused the editor; backup jump responded. Seven empty routes checked without overflow. Hosted main task/plan/marks/resources/profile/backup/study flows pass. Hosted all-page pixels plus Resources phone and empty Marks phone inspected. Empty-state screenshots were taken after the arrival animation settled, not during its fade.
+
+Self-review: visual identity 8.5, useful density 8.5, palette/hierarchy 8, responsive 8.5, motion 8, exam usefulness 8.5, reliability/honesty 8.5, accessibility 8, performance 7.5, breadth 7.5. Overall 8.3/10. Biggest remaining design miss: typography is still system Georgia/Arial and some course/source pages remain long. The app is improved, not 10/10. Existing product limits remain.
+
+Review: https://preptracker-paper-review.vercel.app/
+Deployment: https://preptracker-paper-review-4uhi7xfj4-manavships.vercel.app
+PR130 stays open/unmerged. Production/main unchanged.
