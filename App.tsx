@@ -63,27 +63,16 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen bg-[#030303] text-white flex flex-col items-center justify-center p-6 text-center relative overflow-hidden">
-             {/* Background Grid */}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none"></div>
-
-            <div className="relative z-10 max-w-md w-full bg-[#0a0a0a] border border-red-900/30 p-8 rounded-3xl shadow-2xl">
-                <div className="w-16 h-16 bg-red-500/10 rounded-full flex items-center justify-center mx-auto mb-6 text-red-500">
-                    <AlertTriangle size={32} />
-                </div>
-                <h1 className="text-3xl font-display font-bold text-white mb-2">This page could not open.</h1>
-                <p className="text-slate-400 text-sm mb-8 leading-relaxed font-mono">
-                    Your saved work has not been cleared. Reload to try again.
-                </p>
-                <button
-                    onClick={this.handleHardReset}
-                    className="w-full py-4 bg-red-600 text-white font-bold uppercase tracking-[0.2em] rounded-xl hover:bg-red-700 transition-all shadow-[0_0_20px_rgba(220,38,38,0.4)] flex items-center justify-center gap-3"
-                >
-                    <RefreshCw size={18} /> Reload page
-                </button>
-                <p className="mt-6 text-[10px] text-slate-600 uppercase tracking-widest">If this keeps happening, restore a recent backup.</p>
-            </div>
-        </div>
+        <main className="edition-error">
+          <section role="alert">
+            <p>THE EXAM EDITION / PAGE COULD NOT OPEN</p>
+            <div className="edition-error-mark" aria-hidden="true">!</div>
+            <h1>This page could not open.</h1>
+            <p>Your saved work has not been cleared. Reload to try again.</p>
+            <button onClick={this.handleHardReset}><RefreshCw size={16} /> Reload page</button>
+            <small>If this keeps happening, restore a recent backup from Settings after the app opens.</small>
+          </section>
+        </main>
       );
     }
 
@@ -94,7 +83,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
 export default function App() {
   const { profile } = useData();
   const ready = !!profile?.setupComplete;
-  return <ErrorBoundary><React.Suspense fallback={<p className="route-loading" role="status">Opening your exam desk…</p>}><Routes>
+  return <ErrorBoundary><button className="edition-skip" onClick={()=>{const main=document.querySelector<HTMLElement>('main');if(main){main.setAttribute('tabindex','-1');main.focus();main.scrollIntoView({block:'start'});}}}>Skip to page content</button><React.Suspense fallback={<p className="route-loading" role="status">Opening your exam desk…</p>}><Routes>
     <Route path="/directory" element={<Directory />} />
     <Route path="/add/:id" element={<AddToPlan />} />
     <Route path="/landing" element={ready ? <Navigate to="/" /> : <LandingPage />} />

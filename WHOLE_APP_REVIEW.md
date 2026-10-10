@@ -178,3 +178,15 @@ Scores unchanged visually: identity 8.7, typography 8.5, density 8.7, hierarchy 
 Review: https://preptracker-paper-review.vercel.app/
 Deployment: https://preptracker-paper-review-jlkpwbz8o-manavships.vercel.app
 No merge or production/main change.
+
+## Cycle 8: keyboard entry and the failure page
+
+Added first-Tab Skip to page content, which focuses the real main element. The exception boundary no longer falls back to the old black/red neon UI. Paper error card, destructive/error red only, Reload action, no saved-work deletion. Forced corrupt-profile test preserves saved profile; no promise of repairing malformed data.
+
+62 tests/typecheck/build/local all-page/failure tests pass. Hosted first Tab/Enter focuses main at 320/390/1280. Forced failure page has no overflow and retains saved profile at each size. Hosted all-page audit passes. Actual final hosted error phone/PC and keyboard skip phone pixels inspected. Review-only credential deleted and absence verified.
+
+Overall remains 8.5, accessibility 8.2. Biggest miss, now confirmed by the user's latest critique: non-desk pages lack the desk's diagrams, scribble/flow visuals and motion. Functional refinement did not solve that personality gap. Next cycle addresses it, not more tiny performance work.
+
+Deployment: https://preptracker-paper-review-716lxbq3a-manavships.vercel.app
+Review: https://preptracker-paper-review.vercel.app/
+No merge or production/main change.
