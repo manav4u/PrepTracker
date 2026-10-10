@@ -1,6 +1,7 @@
 import DeskSketch from "../components/DeskSketch";
 import "../marks-ledger.css";
 import EditionNav from "../components/EditionNav";
+import TheoryMarks from "../components/TheoryMarks";
 
 import React from "react";
 import { semesterCourses, extraHeads } from "../lib/feMarks.mjs";
@@ -187,7 +188,7 @@ const CalculatorPage: React.FC = () => {
                   ? "All 22 listed credits represented."
                   : "Not full-semester coverage."}{" "}
                 {unsupported.length > 0 &&
-                  `${unsupported.length} SE/TE courses excluded: complete assessment schemes are not yet mapped.`}
+                  `${unsupported.length} SE/TE courses are not in the FE estimate. Their theory marks are tracked separately below, without grade points.`}
               </p>
             </details>
             {saveError && <p role="alert">{saveError}</p>}
@@ -205,7 +206,8 @@ const CalculatorPage: React.FC = () => {
             {!filteredSubjects.length && (
               <p className="marks-empty">
                 No FE courses selected. Add your FE course combination in
-                Settings to begin. SE/TE assessment mapping is not ready.
+                Settings to begin. SE/TE courses get their own theory marks
+                section below.
               </p>
             )}
             {filteredSubjects.map((s, i) => (
@@ -345,6 +347,7 @@ const CalculatorPage: React.FC = () => {
             )}
           </aside>
         </div>
+        <TheoryMarks selectedIds={selectedIds} />
       </main>
     </div>
   );
