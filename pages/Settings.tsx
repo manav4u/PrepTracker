@@ -96,6 +96,7 @@ const SettingsPage: React.FC = () => {
   
   // State for Micro-interactions
   const [toast, setToast] = useState<{ message: string, type: 'success' | 'error' } | null>(null);
+  useEffect(() => { if (!toast) return; const timer = window.setTimeout(() => setToast(null), 3000); return () => window.clearTimeout(timer); }, [toast]);
   const [isBusy, setIsBusy] = useState<{ active: boolean, message: string }>({ active: false, message: '' });
   
   // Modal State Logic
