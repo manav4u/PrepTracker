@@ -1,0 +1,21 @@
+/* Quiet controls use book-cloth Plum. Red remains primary action/return ink.
+   The deployed paper, grain, and subject tints are deliberately retained. */
+:root{--study-secondary:#62415d;--study-muted:#675d4d;--study-boundary:#85775f}
+.desk-page a:focus-visible,.desk-page button:focus-visible,.notebook-page button:focus-visible,.notebook-page a:focus-visible,.studio-page :focus-visible,.material-shelf a:focus-visible,.material-shelf summary:focus-visible,.edition-nav a:focus-visible,.edition-mobile-dock a:focus-visible,.edition-mobile-dock button:focus-visible,.edition-drawer a:focus-visible,.edition-drawer button:focus-visible{outline-color:var(--study-secondary)}
+.desk-week nav button.active{background:var(--study-secondary);color:#f7f3e9}.desk-week nav button.active small{color:#f7f3e9}
+.desk-timer button{background:var(--study-secondary);color:#f7f3e9}.desk-note button,.prep-history details a,.desk-nav button{color:var(--study-secondary)}
+.notebook-unit-tabs button[aria-pressed=true]{background:var(--study-secondary);color:#f7f3e9}.notebook-unit-tabs button[aria-pressed=true] span{color:#f7f3e9}
+.notebook-modes button[aria-pressed=true]{color:var(--study-secondary);border-bottom-color:var(--study-secondary)}
+.notebook-status button[aria-pressed=true]{border-color:var(--study-secondary);color:var(--study-secondary)}
+.studio-page button:not(.studio-primary){color:var(--study-secondary);border-color:var(--study-boundary)}
+.studio-outcomes button[aria-pressed=true]{border-color:var(--study-secondary);outline:1px solid var(--study-secondary)}
+.studio-page summary,.studio-method a,.studio-page footer a,.atlas-start a,.material-shelf summary,.material-shelf>a{color:var(--study-secondary)}
+.studio-page input:not([type=checkbox]),.studio-page select,.studio-page textarea{background:#f7f3e9;border-color:var(--study-boundary)}
+.notebook-unit-tabs button,.notebook-status button,.notebook-modes button,.notebook-topic button,.studio-page button,.edition-drawer header button{border-color:var(--study-boundary)}
+.material-shelf article>span,.material-shelf p,.material-shelf small,.studio-heading>span,.studio-page label,.studio-topic small,.studio-steps span,.studio-page .studio-note,.studio-outcomes small,.studio-page legend,.studio-trail>p,.studio-trail details p,.atlas-ledger p,.atlas-method>small,.atlas-topic-list small,.atlas-start p,.atlas-start small,.notebook-honesty,.notebook-masthead span,.notebook-page-label,.notebook-leaf-bottom,.notebook-recall-hint,.notebook-footer>span,.notebook-top>span,.desk-sheet small,.desk-sheet p,.prep-ledger p,.prep-history p,.prep-history summary,.prep-history li small,.desk-note p,.edition-nav-brand small,.edition-nav>div>a{color:var(--study-muted)}
+.edition-nav>div>a[aria-current]{color:var(--study-secondary)}.edition-nav>div>a[aria-current]>span{color:var(--study-secondary)}
+.edition-mobile-dock>a,.edition-mobile-dock>button{color:var(--study-muted)}
+.edition-mobile-dock>a[aria-current],.edition-mobile-dock>button.active{background:var(--study-secondary);color:#f7f3e9;box-shadow:0 2px 0 #40303d}
+.edition-mobile-dock>a[aria-current]:after{background:var(--study-secondary)}
+.desk-week nav button[aria-pressed=true]{background:var(--study-secondary);color:#f7f3e9}.desk-week nav button[aria-pressed=true] small{color:#f7f3e9}
+.desk-timer button span{color:#f7f3e9}
