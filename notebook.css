@@ -5,3 +5,8 @@
 @media print{.notebook-layout>*{display:none!important}.notebook-layout>.notebook-print-only{display:block!important}.notebook-print-only article{break-inside:avoid;margin:25px 0}.notebook-print-only h1{font:28px "Libre Baskerville",Georgia}.notebook-print-only h2{font:20px "Libre Baskerville",Georgia;margin-bottom:12px}.notebook-print-only p{white-space:pre-wrap;font-size:12px;line-height:1.8}.notebook-page:after{display:none}.notebook-layout{padding:0}}
 
 .notebook-resources>button{width:100%;background:none;text-align:left;color:var(--paper-ink);min-height:44px}.notebook-footer{flex-wrap:wrap}
+
+/* Quick log: visibly a different, unverified kind of record */
+.notebook-quicklog{padding:16px!important;border:1.5px dashed var(--paper-muted);background:transparent;position:relative}
+.notebook-quicklog .quicklog-stamp{display:inline-block;margin:0 0 6px;padding:2px 8px;border:1px dashed var(--paper-muted);font:600 11px/1.4 'DM Sans',sans-serif;letter-spacing:.14em;color:var(--paper-muted);transform:rotate(-1.5deg)}
+.notebook-quicklog .notebook-log{background:transparent!important;color:var(--paper-ink)!important;border:1.5px dashed var(--paper-ink);box-shadow:none}
