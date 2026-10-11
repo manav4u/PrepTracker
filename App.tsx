@@ -1,21 +1,18 @@
-import Planner from './pages/Planner';
-import Progress from './pages/Progress';
-import Study from './pages/Study';
-import React, { useState, useEffect, ReactNode, Component } from 'react';
+import React, { Component, ReactNode } from 'react';
 import { Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
 import {
   LayoutGrid,
   Library,
   Calculator,
   Settings,
-  Bell,
-  Search,
   Hexagon,
-  Menu,
   AlertTriangle,
   RefreshCw,
   ListTodo,
-  HardDrive
+  CheckCircle2,
+  BookOpen,
+  CalendarDays,
+  Sparkles
 } from 'lucide-react';
 import Dashboard from './pages/Dashboard';
 import Directory from './pages/Directory';
@@ -27,7 +24,9 @@ import SettingsPage from './pages/Settings';
 import Onboarding from './pages/Onboarding';
 import TodoList from './pages/TodoList';
 import LandingPage from './pages/LandingPage';
-import { UnitStatus } from './types';
+import Planner from './pages/Planner';
+import Progress from './pages/Progress';
+import Study from './pages/Study';
 import { useData } from './context/DataContext';
 
 import './round2-palette.css';
@@ -44,7 +43,7 @@ interface ErrorBoundaryState {
 class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   state: ErrorBoundaryState = { hasError: false };
 
-  static getDerivedStateFromError(error: any) {
+  static getDerivedStateFromError() {
     return { hasError: true };
   }
 
@@ -53,36 +52,29 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   }
 
   handleHardReset = () => {
-    // Only clear session storage to avoid wiping local data backup if unnecessary
     sessionStorage.clear();
-    // Potentially clear specific corrupt keys from local storage if known,
-    // but avoid full clear to preserve 'sppu_profile' etc. if they are valid.
     window.location.reload();
   };
 
   render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen bg-[#030303] text-white flex flex-col items-center justify-center p-6 text-center relative overflow-hidden">
-             {/* Background Grid */}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none"></div>
-
-            <div className="relative z-10 max-w-md w-full bg-[#0a0a0a] border border-red-900/30 p-8 rounded-3xl shadow-2xl">
-                <div className="w-16 h-16 bg-red-500/10 rounded-full flex items-center justify-center mx-auto mb-6 text-red-500">
-                    <AlertTriangle size={32} />
-                </div>
-                <h1 className="text-3xl font-display font-bold text-white mb-2">System Failure</h1>
-                <p className="text-slate-400 text-sm mb-8 leading-relaxed font-mono">
-                    The application encountered a non-recoverable data error.
-                </p>
-                <button
-                    onClick={this.handleHardReset}
-                    className="w-full py-4 bg-red-600 text-white font-bold uppercase tracking-[0.2em] rounded-xl hover:bg-red-700 transition-all shadow-[0_0_20px_rgba(220,38,38,0.4)] flex items-center justify-center gap-3"
-                >
-                    <RefreshCw size={18} /> Execute Reset
-                </button>
-                <p className="mt-6 text-[10px] text-slate-600 uppercase tracking-widest">Error Code: RENDER_PROCESS_TERMINATED</p>
+        <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col items-center justify-center p-6 text-center relative overflow-hidden">
+          <div className="relative z-10 max-w-md w-full bg-white border border-rose-200 p-8 rounded-3xl shadow-xl">
+            <div className="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-6 text-rose-600">
+              <AlertTriangle size={32} />
             </div>
+            <h1 className="text-2xl font-bold text-slate-900 mb-2 font-display">System Notice</h1>
+            <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+              The application encountered a temporary display issue.
+            </p>
+            <button
+              onClick={this.handleHardReset}
+              className="w-full py-3.5 bg-rose-600 text-white font-semibold rounded-xl hover:bg-rose-700 transition-all shadow-md flex items-center justify-center gap-2"
+            >
+              <RefreshCw size={18} /> Refresh Application
+            </button>
+          </div>
         </div>
       );
     }
@@ -91,141 +83,156 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   }
 }
 
-const NavItem = ({ to, icon: Icon, active, label }: { to: string, icon: any, active: boolean, label: string }) => (
+const NavItem = ({ to, icon: Icon, active, label }: { to: string; icon: any; active: boolean; label: string }) => (
   <Link
     to={to}
     aria-label={label}
     aria-current={active ? "page" : undefined}
-    className={`relative group flex flex-col gap-1 items-center justify-center w-14 h-14 lg:w-16 lg:h-16 rounded-2xl lg:rounded-3xl transition-all duration-300 ${
+    className={`relative group flex flex-col gap-1 items-center justify-center w-14 h-14 lg:w-16 lg:h-16 rounded-2xl transition-all duration-200 ${
       active
-        ? 'bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.3)] scale-110'
-        : 'text-white/40 hover:text-white hover:bg-white/5'
+        ? 'bg-rose-600 text-white shadow-md shadow-rose-600/20 scale-105'
+        : 'text-slate-500 hover:text-slate-900 hover:bg-slate-100'
     }`}
   >
-    <Icon size={22} strokeWidth={active ? 2.5 : 2} />
-    <span className="text-[10px] font-medium">{label}</span>
+    <Icon size={20} strokeWidth={active ? 2.5 : 2} />
+    <span className="text-[10px] font-medium tracking-tight">{label}</span>
     {active && (
-      <span className="absolute -bottom-2 lg:top-1/2 lg:-right-2 w-1 h-1 lg:w-1.5 lg:h-1.5 bg-[#E11D48] rounded-full shadow-[0_0_10px_#E11D48]"></span>
+      <span className="absolute -bottom-1 lg:top-1/2 lg:-right-1.5 w-1.5 h-1.5 bg-rose-600 rounded-full ring-2 ring-white"></span>
     )}
   </Link>
 );
 
 export default function App() {
-  const { profile, setProfile } = useData();
+  const { profile } = useData();
   const location = useLocation();
-
-  // ROUTING LOGIC:
-  // 1. If no profile/setup -> Show Landing Page by default.
-  // 2. If user clicks "Launch App" on Landing Page -> Show Onboarding (handled via route).
-  // 3. If setup complete -> Show Dashboard/App Shell.
 
   const isSetupComplete = profile && profile.setupComplete;
 
   return (
     <ErrorBoundary>
-        <Routes>
-            {/* PUBLIC ROUTES */}
-            <Route path="/add/:id" element={<AddToPlan />} />
-            <Route path="/directory" element={<Directory />} />
-            <Route path="/landing" element={isSetupComplete ? <Navigate to="/" /> : <LandingPage />} />
-            <Route path="/onboarding" element={isSetupComplete ? <Navigate to="/" /> : <Onboarding />} />
+      <Routes>
+        {/* PUBLIC ROUTES */}
+        <Route path="/add/:id" element={<AddToPlan />} />
+        <Route path="/directory" element={<Directory />} />
+        <Route path="/landing" element={isSetupComplete ? <Navigate to="/" /> : <LandingPage />} />
+        <Route path="/onboarding" element={isSetupComplete ? <Navigate to="/" /> : <Onboarding />} />
 
-            {/* APP ROUTES (Protected by Setup Check) */}
-            <Route path="*" element={
-                !isSetupComplete ? (
-                    // Redirect root to landing if not setup
-                     location.pathname === '/' ? <LandingPage /> : <Navigate to="/landing" />
-                ) : (
-                    location.pathname === '/' ? <Dashboard /> : location.pathname === '/resources' ? <Resources /> : location.pathname === '/settings' ? <SettingsPage /> : location.pathname === '/progress' ? <Progress /> : location.pathname === '/study' ? <Study /> : location.pathname === '/planner' ? <Planner /> : location.pathname === '/tasks' ? <TodoList /> : location.pathname === '/calculator' ? <CalculatorPage /> : location.pathname.startsWith('/subject/') ? <Routes><Route path="/subject/:id" element={<SubjectDetail />}/></Routes> : location.pathname === '/directory' ? <Directory/> : location.pathname.startsWith('/add/') ? <Routes><Route path="/add/:id" element={<AddToPlan/>}/></Routes> :
-                    // APP SHELL
-                    <div className="flex flex-col lg:flex-row min-h-screen bg-[#030303] text-slate-200 selection:bg-[#E11D48] selection:text-white overflow-hidden">
+        {/* APP ROUTES (Protected by Setup Check) */}
+        <Route
+          path="*"
+          element={
+            !isSetupComplete ? (
+              location.pathname === '/' ? <LandingPage /> : <Navigate to="/landing" />
+            ) : location.pathname === '/' ? (
+              <Dashboard />
+            ) : location.pathname === '/resources' ? (
+              <Resources />
+            ) : location.pathname === '/settings' ? (
+              <SettingsPage />
+            ) : location.pathname === '/progress' ? (
+              <Progress />
+            ) : location.pathname === '/study' ? (
+              <Study />
+            ) : location.pathname === '/planner' ? (
+              <Planner />
+            ) : location.pathname === '/tasks' ? (
+              <TodoList />
+            ) : location.pathname === '/calculator' ? (
+              <CalculatorPage />
+            ) : location.pathname.startsWith('/subject/') ? (
+              <Routes>
+                <Route path="/subject/:id" element={<SubjectDetail />} />
+              </Routes>
+            ) : location.pathname === '/directory' ? (
+              <Directory />
+            ) : location.pathname.startsWith('/add/') ? (
+              <Routes>
+                <Route path="/add/:id" element={<AddToPlan />} />
+              </Routes>
+            ) : (
+              // APP SHELL
+              <div className="flex flex-col lg:flex-row min-h-screen bg-slate-50 text-slate-800 selection:bg-rose-500 selection:text-white">
+                {/* Mobile Branding Header */}
+                <div className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 px-5 py-3 flex justify-between items-center shadow-sm">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-lg bg-rose-50 flex items-center justify-center text-rose-600">
+                      <Hexagon size={22} strokeWidth={2.5} className="fill-rose-500/10" />
+                    </div>
+                    <span className="font-bold tracking-tight text-slate-900 text-sm font-display">PrepTracker</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Link to="/directory" className="text-xs font-semibold text-rose-600 bg-rose-50 px-2.5 py-1.5 rounded-lg border border-rose-100">
+                      Library
+                    </Link>
+                    <Link to="/settings" aria-label="Open settings" className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-slate-200">
+                      <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${profile?.name || 'Student'}`} alt="User" />
+                    </Link>
+                  </div>
+                </div>
 
-                    {/* Mobile Branding Header */}
-                    <div className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-[#030303]/80 backdrop-blur-xl border-b border-white/5 px-6 py-4 flex justify-between items-center">
-                        <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 flex items-center justify-center text-[#E11D48]">
-                            <Hexagon size={24} strokeWidth={2.5} className="fill-[#E11D48]/10" />
-                        </div>
-                        <span className="font-bold tracking-widest uppercase text-xs text-white">PrepTracker</span>
-                        </div>
-                        <Link to="/directory" className="text-xs text-rose-400">Syllabus</Link>
-                        <Link to="/settings" aria-label="Open settings" className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-white/10">
-                        <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${profile.name}`} alt="User" />
-                        </Link>
+                {/* Navigation Sidebar / Dock */}
+                <aside className="fixed z-50 transition-all duration-300
+                  bottom-0 left-0 right-0 h-16 bg-white/95 backdrop-blur-md border-t border-slate-200 flex items-center justify-around px-2 shadow-lg
+                  lg:bottom-auto lg:top-1/2 lg:left-6 lg:right-auto lg:h-auto lg:w-20 lg:flex-col lg:rounded-3xl lg:border lg:py-8 lg:gap-6 lg:-translate-y-1/2 lg:shadow-xl lg:bg-white
+                ">
+                  <Link to="/" className="hidden lg:flex w-12 h-12 rounded-2xl bg-rose-50 items-center justify-center text-rose-600 hover:scale-105 transition-transform">
+                    <Hexagon size={28} strokeWidth={2.5} className="fill-rose-500/10" />
+                  </Link>
+
+                  <nav className="flex flex-row lg:flex-col w-full justify-evenly lg:gap-3 items-center">
+                    <NavItem label="Home" to="/" icon={LayoutGrid} active={location.pathname === '/'} />
+                    <NavItem label="Planner" to="/planner" icon={CalendarDays} active={location.pathname === '/planner'} />
+                    <NavItem label="Study" to="/study" icon={BookOpen} active={location.pathname === '/study'} />
+                    <NavItem label="Tasks" to="/tasks" icon={ListTodo} active={location.pathname === '/tasks'} />
+                    <NavItem label="Marks" to="/calculator" icon={Calculator} active={location.pathname === '/calculator'} />
+                    <NavItem label="Links" to="/resources" icon={Library} active={location.pathname === '/resources'} />
+                    <NavItem label="Settings" to="/settings" icon={Settings} active={location.pathname === '/settings'} />
+                  </nav>
+
+                  <div className="hidden lg:flex mt-2 pt-4 border-t border-slate-100 w-full flex-col items-center gap-3">
+                    <Link to="/settings" aria-label="Open settings" className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-slate-200 hover:ring-rose-500 transition-all hover:scale-105">
+                      <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${profile?.name || 'Student'}`} alt="User" />
+                    </Link>
+                  </div>
+                </aside>
+
+                <main className="flex-1 w-full min-w-0 pt-20 pb-24 px-4 lg:pl-32 lg:pr-10 lg:py-10">
+                  {/* Desktop Top Header Bar */}
+                  <div className="hidden lg:flex justify-between items-center mb-8 max-w-[1400px] mx-auto">
+                    <div className="flex items-center gap-3 text-xs font-semibold tracking-wide text-slate-500 uppercase">
+                      <span>{new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' })}</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
+                      <span className="text-rose-600">{profile?.name ? `${profile.name}'s Desk` : 'Study Edition'}</span>
                     </div>
 
-                    {/* Adaptive Navigation Dock */}
-                    <aside className="fixed z-50 transition-all duration-500
-                        bottom-0 left-0 right-0 h-20 glass-panel rounded-t-2xl flex items-center justify-around px-2 shadow-2xl
-                        lg:bottom-auto lg:top-1/2 lg:left-6 lg:right-auto lg:h-auto lg:w-24 lg:flex-col lg:rounded-[3rem] lg:py-10 lg:gap-8 lg:-translate-y-1/2 lg:shadow-none
-                    ">
-                        <div className="hidden lg:flex w-14 h-14 items-center justify-center text-[#E11D48] mb-4">
-                        <Hexagon size={32} strokeWidth={2.5} className="fill-[#E11D48]/10" />
-                        </div>
-
-                        <nav className="flex flex-row lg:flex-col w-full justify-evenly lg:gap-6 items-center">
-                        <NavItem label="Home" to="/" icon={LayoutGrid} active={location.pathname === '/'} />
-                        <NavItem label="Links" to="/resources" icon={Library} active={location.pathname === '/resources'} />
-                        <NavItem label="Tasks" to="/tasks" icon={ListTodo} active={location.pathname === '/tasks'} />
-                        <NavItem label="Marks" to="/calculator" icon={Calculator} active={location.pathname === '/calculator'} />
-                        <NavItem label="Settings" to="/settings" icon={Settings} active={location.pathname === '/settings'} />
-                        </nav>
-
-                        <div className="hidden lg:flex mt-4 pt-8 border-t border-white/5 w-full flex-col items-center gap-6">
-                        <div className="relative group">
-                            <div className="absolute inset-0 bg-[#E11D48] rounded-full blur-md opacity-0 group-hover:opacity-20 transition-opacity"></div>
-                            <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#E11D48] transition-all">
-                                <HardDrive size={20} />
-                            </div>
-                            <div className="absolute left-16 top-1/2 -translate-y-1/2 px-3 py-1 bg-white text-black text-[8px] font-bold uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl">
-                                Local Storage Active
-                            </div>
-                        </div>
-
-                        <Link to="/settings" aria-label="Open settings" className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-white/10 hover:ring-white/40 transition-all hover:scale-110">
-                            <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${profile.name}`} alt="User" />
-                        </Link>
-                        </div>
-                    </aside>
-
-                    <main className="flex-1 w-full min-w-0
-                        pt-24 pb-28 px-4
-                        lg:pl-40 lg:pr-12 lg:py-12 lg:pb-12
-                    ">
-                        {/* Desktop Top Bar */}
-                        <div className="hidden lg:flex justify-between items-center mb-16 max-w-[1600px] mx-auto">
-                        <div className="flex items-center gap-4 text-sm font-medium text-white/40">
-                            <span>{new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</span>
-                            <span className="w-1 h-1 rounded-full bg-white/20"></span>
-                            <Link to="/directory" className="text-[#E11D48]">Browse syllabus</Link>
-                        </div>
-
-                        <div className="flex items-center gap-4">
-
-                        </div>
-                        </div>
-
-                        <div className="max-w-[1600px] mx-auto h-full">
-                        <Routes>
-                            <Route path="/" element={<Dashboard />} />
-                            <Route path="/subject/:id" element={<SubjectDetail />} />
-                            <Route path="/resources" element={<Resources />} />
-                            <Route path="/planner" element={<Planner />} />
-                            <Route path="/study" element={<Study />} />
-                            <Route path="/tasks" element={<TodoList />} />
-                            <Route path="/calculator" element={<CalculatorPage />} />
-                            <Route path="/settings" element={<SettingsPage />} />
-                        </Routes>
-                        </div>
-                    </main>
-
-                    {/* Background Decor */}
-                    <div className="fixed top-0 right-0 w-[500px] lg:w-[800px] h-[500px] lg:h-[800px] bg-[#E11D48] opacity-[0.03] blur-[100px] lg:blur-[150px] rounded-full pointer-events-none -z-10 translate-x-1/3 -translate-y-1/3"></div>
-                    <div className="fixed bottom-0 left-0 w-[400px] lg:w-[600px] h-[400px] lg:h-[600px] bg-blue-600 opacity-[0.03] blur-[100px] lg:blur-[150px] rounded-full pointer-events-none -z-10 -translate-x-1/3 translate-y-1/3"></div>
+                    <div className="flex items-center gap-3">
+                      <Link
+                        to="/directory"
+                        className="px-4 py-2 bg-white text-slate-700 text-xs font-semibold rounded-xl border border-slate-200 hover:border-slate-300 shadow-sm transition-all flex items-center gap-2"
+                      >
+                        <Library size={14} className="text-rose-600" /> Browse Course Catalog
+                      </Link>
                     </div>
-                )
-            } />
-        </Routes>
+                  </div>
+
+                  <div className="max-w-[1400px] mx-auto h-full">
+                    <Routes>
+                      <Route path="/" element={<Dashboard />} />
+                      <Route path="/subject/:id" element={<SubjectDetail />} />
+                      <Route path="/resources" element={<Resources />} />
+                      <Route path="/planner" element={<Planner />} />
+                      <Route path="/study" element={<Study />} />
+                      <Route path="/tasks" element={<TodoList />} />
+                      <Route path="/calculator" element={<CalculatorPage />} />
+                      <Route path="/settings" element={<SettingsPage />} />
+                    </Routes>
+                  </div>
+                </main>
+              </div>
+            )
+          }
+        />
+      </Routes>
     </ErrorBoundary>
   );
 }

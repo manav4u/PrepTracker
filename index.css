@@ -4,31 +4,62 @@
 
 :root {
   --sppu-maroon: #E11D48;
-  --bg-void: #030303;
+  --bg-porcelain: #F8FAFC;
+  --text-main: #0F172A;
+  --text-muted: #64748B;
+  --border-light: #E2E8F0;
+  --card-bg: #FFFFFF;
 }
+
 body {
   font-family: 'Inter', sans-serif;
-  background-color: var(--bg-void);
+  background-color: var(--bg-porcelain);
   background-image:
-    radial-gradient(circle at 50% 0%, rgba(225, 29, 72, 0.05) 0%, transparent 50%),
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 100% 100%, 40px 40px, 40px 40px;
-  color: #f8fafc;
+    radial-gradient(circle at 50% 0%, rgba(225, 29, 72, 0.03) 0%, transparent 60%),
+    linear-gradient(rgba(15, 23, 42, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 32px 32px, 32px 32px;
+  color: var(--text-main);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
+
 ::selection {
   background: #E11D48;
-  color: white;
+  color: #FFFFFF;
 }
+
 .glass-panel {
-  background: rgba(10, 10, 10, 0.8);
-  backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
 }
+
+.light-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 1rem;
+}
+
+.light-card-hover {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.light-card-hover:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+  transform: translateY(-2px);
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Hide arrows in number inputs */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -36,24 +67,42 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-/* Readable labels, keyboard focus and motion preferences. */
-button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid #fb7185; outline-offset: 4px; }
-main { scroll-padding-bottom: 100px; }
-main button, main a, main input { scroll-margin-bottom: 100px; }
-.text-slate-500 { color: #94a3b8; }
-.text-slate-600 { color: #94a3b8; }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
-@media print {
- html, body, #root, #root * { color:#111 !important; background:#fff !important; background-image:none !important; box-shadow:none !important; text-shadow:none !important; }
- #root header, #root nav, #root button, #root aside, #root .fixed, #root .lg\:col-span-4 { display:none !important; }
- #root main {padding:0 !important;margin:0 !important;overflow:visible !important;}
- #root .grid {display:block !important;}
- #root details > * {display:block !important;}
- #root .scroll-mt-20 {break-inside:avoid;}
+/* Focus and scroll margins */
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid #E11D48;
+  outline-offset: 2px;
 }
-@media print {
- #root div, #root section, #root article, #root h1, #root h2, #root h3, #root h4, #root p, #root span, #root a, #root li, #root summary, #root details {color:#111 !important;background:#fff !important;}
+
+main {
+  scroll-padding-bottom: 100px;
 }
+main button, main a, main input {
+  scroll-margin-bottom: 100px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 @media print {
- #root * {transition:none !important;animation:none !important;}
+  html, body, #root, #root * {
+    color: #111 !important;
+    background: #fff !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  #root header, #root nav, #root button, #root aside, #root .fixed {
+    display: none !important;
+  }
+  #root main {
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
 }
