@@ -8,9 +8,9 @@ export default function PaperStackHero(){
   <div className="hero-glow" aria-hidden="true"/>
   <div className="hero-sheet hero-sheet-back" aria-hidden="true"><span>{sheets[1]}</span></div>
   <div className="hero-sheet hero-sheet-mid" aria-hidden="true"><span>{sheets[0]}</span></div>
-  <div className="hero-sheet hero-sheet-top"><span className="hero-tape" aria-hidden="true"/><span className="hero-bigstamp" aria-hidden="true">{done.length} / {topics.length}<em>COVERED</em></span>
+  <div className="hero-sheet hero-sheet-top"><span className="hero-tape" aria-hidden="true"/>
    <header><p>EXAMPLE DESK</p><small>SAMPLE STUDENT, NOT REAL DATA</small></header>
-   <h2>Data Structures</h2>
+   <div className="hero-titlerow"><h2>Data Structures</h2><span className="hero-bigstamp" aria-hidden="true">{done.length} / {topics.length}<em>COVERED</em></span></div>
    <p className="hero-count"><b>{done.length}</b> of {topics.length} topics covered <i>by your own word</i></p>
    <ul className="hero-tiles">{topics.map((t,i)=><li key={t}><button type="button" aria-pressed={done.includes(i)} onClick={()=>toggle(i)}><span className="hero-tile-no" aria-hidden="true">{String(i+1).padStart(2,"0")}</span><span className="hero-tile-name">{t}</span><span className="hero-stamp" aria-hidden="true">{done.includes(i)?'covered':''}</span></button></li>)}</ul>
    <p className="hero-note">Tap a tile. This is a demo and does not save anything.</p>

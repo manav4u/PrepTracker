@@ -53,4 +53,10 @@
 .hero-tiles .hero-stamp{position:static;margin-left:auto}
 @media(prefers-reduced-motion:reduce){.hero-tiles button{transition:none}}
 @media(min-width:900px){.hero-sheet-top .hero-bigstamp{top:96px;right:30px;font-size:18px}.hero-sheet-top .hero-bigstamp em{font-size:10px}}
-@media(max-width:599px){.hero-sheet-top .hero-bigstamp{display:none}}
+
+/* Cycle 25: stamp sits beside the title in normal flow, so it can never cover the title or the honesty label */
+.hero-titlerow{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.hero-titlerow h2{margin-right:0}
+.hero-sheet-top .hero-titlerow .hero-bigstamp{position:static;top:auto;right:auto;flex:none;margin:16px 2px 6px 0;font-size:13px;padding:4px 8px 3px}
+.hero-sheet-top .hero-titlerow .hero-bigstamp em{font-size:8px}
+@media(min-width:900px){.hero-sheet-top .hero-titlerow .hero-bigstamp{font-size:18px;padding:5px 11px 4px;margin:16px 4px 6px 0}.hero-sheet-top .hero-titlerow .hero-bigstamp em{font-size:10px}}
