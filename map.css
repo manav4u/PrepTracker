@@ -19,3 +19,11 @@
 .load-door-ghost{min-height:44px;padding:0 16px;border:1px solid #cbbd9f;background:transparent;color:#3b3427;font:500 14px 'DM Sans',sans-serif;border-radius:2px;cursor:pointer}
 .load-door-error{color:#8a2d1d!important;margin:8px 0 0!important}
 .load-door-btn:focus-visible,.load-door-ghost:focus-visible{outline:2px solid #1f5a3a;outline-offset:2px}
+
+/* Cycle 24: year choices read as real buttons */
+.map-page .map-year-options button{background:var(--paper-paper);color:var(--paper-ink);border:1.5px solid var(--paper-ink);border-radius:3px;min-height:56px;min-width:92px;padding:10px 16px;font:700 16px "Libre Baskerville",Georgia,serif;cursor:pointer;box-shadow:0 2px 0 var(--paper-muted);transition:transform .15s,box-shadow .15s}
+.map-page .map-year-options button small{font:500 11px "DM Sans",Arial;margin-top:4px;opacity:.85}
+.map-page .map-year-options button:hover{transform:translateY(-1px);box-shadow:0 3px 0 var(--paper-muted)}
+.map-page .map-year-options button:focus-visible{outline:2px solid var(--paper-green-deep);outline-offset:3px}
+.map-page .map-year-options button[aria-pressed=true]{background:var(--paper-ink);color:var(--paper-paper);border-color:var(--paper-ink);box-shadow:none;transform:translateY(1px)}
+@media(prefers-reduced-motion:reduce){.map-page .map-year-options button{transition:none}}

@@ -39,3 +39,18 @@
 .hero-sheet-top header{border-bottom-color:var(--paper-green-edge)}
 .hero-sheet-top::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--paper-green-deep)}
 .hero-glow{-webkit-mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,#000 45%,transparent 100%);mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,#000 45%,transparent 100%)}
+
+/* Cycle 24: tape, misregistered ink stamp, numbered ruled rows */
+.hero-sheet-top .hero-tape{position:absolute;top:-20px;left:50%;width:92px;height:24px;margin-left:-46px;transform:rotate(-3deg);background:linear-gradient(90deg,#e6dcc0e6,#efe6cdd9);box-shadow:0 1px 2px #5a3e1a30;z-index:3;clip-path:polygon(0 8%,3% 0,6% 10%,9% 0,12% 8%,100% 0,100% 100%,96% 92%,93% 100%,90% 90%,87% 100%,84% 92%,0 100%)}
+.hero-sheet-top .hero-bigstamp{position:absolute;right:16px;top:84px;display:flex;flex-direction:column;align-items:center;gap:1px;padding:5px 11px 4px;border:2px solid var(--paper-green-deep);border-radius:3px;color:var(--paper-green-deep);font:700 15px/1 "DM Sans",Arial;letter-spacing:.08em;transform:rotate(-8deg);opacity:.88;pointer-events:none;z-index:2;mix-blend-mode:multiply;text-shadow:1.5px 1px 0 #2f6b4a55;box-shadow:1.5px 1px 0 #2f6b4a44,inset 1.5px 1px 0 #2f6b4a33}
+.hero-sheet-top .hero-bigstamp em{font:700 9px/1 "DM Sans",Arial;font-style:normal;letter-spacing:.22em}
+.hero-tiles{grid-template-columns:1fr!important;gap:0!important}
+.hero-tiles button{display:flex;align-items:center;gap:12px;min-height:44px;border:0!important;border-bottom:1px solid var(--paper-rule)!important;background:transparent!important;padding:6px 4px;border-radius:0}
+.hero-tiles button:hover{transform:none;background:var(--paper-progress-pale)!important}
+.hero-tiles button[aria-pressed=true]{background:transparent!important}
+.hero-tile-no{font:12px "Libre Baskerville",Georgia;color:var(--paper-muted);min-width:20px}
+.hero-tiles button[aria-pressed=true] .hero-tile-name{color:var(--paper-green-deep)}
+.hero-tiles .hero-stamp{position:static;margin-left:auto}
+@media(prefers-reduced-motion:reduce){.hero-tiles button{transition:none}}
+@media(min-width:900px){.hero-sheet-top .hero-bigstamp{top:96px;right:30px;font-size:18px}.hero-sheet-top .hero-bigstamp em{font-size:10px}}
+@media(max-width:599px){.hero-sheet-top .hero-bigstamp{display:none}}
