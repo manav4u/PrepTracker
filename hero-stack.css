@@ -1,0 +1,32 @@
+.front-cover .front-hero{position:relative}
+.front-cover .front-hero h1{font-size:50px;line-height:1.02;letter-spacing:-.035em}
+.front-cover .front-hero h1 .hero-under{position:relative;display:inline-block;font-style:italic;white-space:nowrap}
+.front-cover .hero-under svg{position:absolute;left:-2%;bottom:-.16em;width:104%;height:.34em;overflow:visible;pointer-events:none}
+.front-cover .hero-under path{fill:none;stroke:var(--paper-green-deep);stroke-width:5;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:hero-draw .9s .35s cubic-bezier(.5,0,.2,1) forwards}
+.hero-stack{position:relative;min-width:0;height:430px;margin-top:6px;isolation:isolate;overflow:hidden;-webkit-mask-image:linear-gradient(#000 82%,transparent);mask-image:linear-gradient(#000 82%,transparent)}
+.hero-glow{position:absolute;inset:-12% -10% -4%;z-index:-1;background:radial-gradient(ellipse 60% 55% at 62% 38%,#f3dcb4 0,#f7e8cc 38%,transparent 72%),radial-gradient(ellipse 40% 40% at 20% 78%,#dfe8d2 0,transparent 70%)}
+.hero-sheet{position:absolute;left:6%;right:6%;background:var(--paper-paper);border:1px solid var(--paper-rule);box-shadow:0 1px 0 #fff inset,0 18px 28px -14px #5a4a2c40,0 2px 4px #5a4a2c22}
+.hero-sheet-back{top:12px;height:380px;transform:rotate(3.2deg);background:#f4ecda}
+.hero-sheet-mid{top:26px;height:380px;transform:rotate(-2.2deg);background:#f8f1e1}
+.hero-sheet>span{position:absolute;top:8px;right:16px;font:10px "DM Sans",Arial;letter-spacing:.14em;text-transform:uppercase;color:var(--paper-muted)}
+.hero-sheet-top{top:44px;padding:20px 20px 24px;transform:rotate(.4deg);min-height:420px;background:linear-gradient(180deg,#fffdf7,#fbf6e9)}
+.hero-sheet-top header{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--paper-rule);padding-bottom:12px}
+.hero-sheet-top header p,.hero-sheet-top header small{font:10px "DM Sans",Arial;letter-spacing:.12em;color:var(--paper-muted);margin:0}
+.hero-sheet-top h2{font:26px/1.1 "Libre Baskerville",Georgia;margin:16px 0 6px;letter-spacing:-.02em}
+.hero-count{font:12px/1.6 "DM Sans",Arial;color:var(--paper-muted);margin:0 0 14px}
+.hero-count b{font:22px "Libre Baskerville",Georgia;color:var(--paper-green-deep);font-weight:400}
+.hero-count i{font-family:"Libre Baskerville",Georgia}
+.hero-tiles{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.hero-tiles button{position:relative;width:100%;min-height:50px;text-align:left;padding:8px 10px;border:1px solid var(--paper-rule);background:var(--paper-paper);font:12px "DM Sans",Arial;color:var(--paper-ink);overflow:hidden;transition:transform .18s,background .2s,border-color .2s}
+.hero-tiles button:hover{transform:translateY(-2px);border-color:var(--paper-green-edge)}
+.hero-tiles button[aria-pressed=true]{background:var(--paper-progress-pale);border-color:var(--paper-green-edge)}
+.hero-stamp{position:absolute;right:6px;bottom:5px;font:9px "DM Sans",Arial;letter-spacing:.12em;text-transform:uppercase;color:var(--paper-green-deep);border:1.5px solid var(--paper-green-deep);padding:1px 5px;border-radius:2px;transform:rotate(-7deg);opacity:0}
+.hero-tiles button[aria-pressed=true] .hero-stamp{animation:hero-stamp .32s cubic-bezier(.3,1.6,.5,1) both}
+.hero-note{font:10px "DM Sans",Arial;letter-spacing:.06em;color:var(--paper-muted);margin:12px 0 0}
+@keyframes hero-draw{to{stroke-dashoffset:0}}
+@keyframes hero-stamp{from{opacity:0;transform:rotate(-7deg) scale(1.7)}to{opacity:.95;transform:rotate(-7deg) scale(1)}}
+@media(min-width:900px){.front-cover .front-hero h1{font-size:84px}.front-cover .front-hero{grid-template-columns:1.1fr 1fr;gap:56px}.hero-stack{height:560px;-webkit-mask-image:none;mask-image:none;overflow:visible}.hero-sheet-top{top:36px;padding:28px 30px 30px}.hero-sheet-back,.hero-sheet-mid{height:470px}.hero-sheet-top h2{font-size:36px}.hero-tiles button{min-height:58px;font-size:13px}.hero-tiles{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
+@media(max-width:350px){.front-cover .front-hero h1{font-size:42px}}
+@media(prefers-reduced-motion:reduce){.front-cover .hero-under path{animation:none;stroke-dashoffset:0}.hero-tiles button[aria-pressed=true] .hero-stamp{animation:none;opacity:.95}}
+.front-cover .hero-under path{stroke-width:3.2}
+@media(max-width:899px){.front-cover .front-hero{gap:18px;padding-bottom:24px}.front-cover .front-hero h1{margin:14px 0}.front-cover .front-intro{margin:12px 0}.front-cover .front-actions{flex-direction:row;flex-wrap:wrap;gap:10px}.front-cover .front-actions a{flex:1 1 150px;padding:14px 12px}.front-cover .front-local{margin-top:14px}}
