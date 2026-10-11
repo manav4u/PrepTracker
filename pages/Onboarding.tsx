@@ -1,16 +1,402 @@
-import EditionNav from '../components/EditionNav';import React,{useState,useEffect}from'react';import{ArrowRight,ArrowLeft,Check,Hexagon,Layers,BookOpen,Shield,ChevronRight}from'lucide-react';import '../map.css';import{useData}from'../context/DataContext';import{CATALOG}from'../lib/catalog';import{selectableCourses,selectionGroup,chooseCourse}from'../lib/onboarding.mjs';
-const STAGES=['Year','Branch','Semester','Courses','Launch'];
-export default function Onboarding(){const{setProfile,profile}=useData();const[step,setStep]=useState(0),[year,setYear]=useState(''),[branch,setBranch]=useState(''),[semester,setSemester]=useState(0),[selected,setSelected]=useState<string[]>([]),[name,setName]=useState(profile?.name||''),[error,setError]=useState(''),[egg,setEgg]=useState(false);
- useEffect(()=>{if(step)document.querySelector('.map-panel')?.scrollIntoView({block:'start'});},[step]);
- const branches=Array.from(new Map(CATALOG.filter(c=>c.year===year).map(c=>[c.branchSlug,c.branch])).entries());const courses=selectableCourses(CATALOG,year,branch,semester);const groups:string[]=[...new Set<string>(courses.map(c=>String(selectionGroup(c)||'Core courses')))];const branchName=branches.find(([id])=>id===branch)?.[1];const held=branch&&!CATALOG.some(c=>c.branchSlug===branch&&c.trackerReady);const semesters=year==='FE'?[1,2]:year==='SE'?[3,4]:[5,6];const ready=step===0?!!year:step===1?!!branch&&!held:step===2?!!semester:step===3?selected.length>0&&groups.filter(g=>g!=='Core courses').every(g=>courses.some(c=>selectionGroup(c)===g&&selected.includes(c.id))):!!name.trim();
- const next=()=>{setError('');if(step===2){setSelected(courses.filter(c=>!selectionGroup(c)).map(c=>c.id));}if(step<4)setStep(step+1);else{try{const p={...profile,name:name.trim(),theme:profile?.theme||'dark',selectedSubjects:selected,setupComplete:true,streak:profile?.streak||0,lastStudyDate:profile?.lastStudyDate||''};localStorage.setItem('sppu_profile',JSON.stringify(p));setProfile(p as any);}catch{setError('Could not save in this browser. Free storage or allow local storage, then try again.');}}};
- const yearInfo=[['FE','First year','The common foundation','I.'],['SE','Second year','Find your discipline','II.'],['TE','Third year','Go deeper into your branch','III.']];const activeYear=yearInfo.find(x=>x[0]===year);
- return <div className="map-page"><EditionNav setup/><header className="map-top"><span>PREPTRACKER</span><button aria-label="A tiny map surprise" aria-pressed={egg} onClick={()=>setEgg(!egg)}>p.</button></header><main className="map-main"><aside className="map-left"><div className="map-route"><svg viewBox="0 0 390 200" fill="none" aria-hidden="true"><path d="M30 155C70 190 125 190 114 115S185 135 225 80 292 80 341 35" stroke="#ad9c7b" strokeWidth="1.2" strokeDasharray="3 5"/><path d="M0 160C60 100 30 70 115 42s100 22 125-38M300 200c-60-60 45-95 90-88M0 175C70 119 43 90 122 59s107 21 132-42M313 200c-58-64 36-72 77-72" stroke="#cbbd9f" strokeWidth=".8"/></svg><span className={`map-spot ${step===0?'selected':''}`} style={{left:17,top:137}}>I.</span><span className={`map-spot ${step===1?'selected':''}`} style={{left:98,top:100}}>II.</span><span className={`map-spot ${step===2?'selected':''}`} style={{left:207,top:64}}>III.</span><button className="map-destination" aria-label="A desk map surprise" aria-pressed={egg} onClick={()=>setEgg(!egg)}>Your desk ↗</button><span className="map-route-label" style={{left:58,top:126}}>YEAR</span><span className="map-route-label" style={{left:113,top:76}}>BRANCH</span><span className="map-route-label" style={{left:202,top:41}}>SEMESTER</span><p role="status" className="map-route-note">{egg?'Plot twist: the next chapter is yours.':'Every good semester starts somewhere.'}</p></div><div className="map-journey"><p className="map-eyebrow">YOUR STARTING MAP</p><h2>Five stops.<br/><i>One study space.</i></h2><ol>{STAGES.map((title,i)=><li key={title} className={i===step?'current':i<step?'complete':''}><button disabled={i>step} onClick={()=>setStep(i)}><span>{i<step?'✓':String(i+1).padStart(2,'0')}</span><div><strong>{title}</strong><small>{[activeYear?.[1]||'Choose your year',branchName||'Your discipline',semester?`Semester ${semester}`:'Your current semester',selected.length?`${selected.length} courses packed`:'Core courses and real electives',name?`A desk for ${name}`:'Name, review, begin'][i]}</small></div>{i===step&&<b>←</b>}</button></li>)}</ol><div className="map-safety"><span>YOUR HISTORY STAYS WITH YOU</span><p>Setup changes your course shelf. Existing progress, tasks and revision logs are kept.</p><p>Selections save only when you launch. Leaving setup before launch discards this draft.</p></div></div></aside><section className="map-panel"><nav aria-label="Setup steps" className="map-stages">{STAGES.map((s,i)=><button key={s} disabled={i>step} aria-current={i===step?'step':undefined} onClick={()=>setStep(i)}>{s}</button>)}</nav><header className="map-heading" key={step} aria-live="polite"><p className="map-eyebrow">STOP {String(step+1).padStart(2,'0')} / 05</p><h1>{['Where does your story begin?','Find your discipline.','Which semester is yours?','Pack your course bag.','Your pass is ready.'][step]}</h1><p>{['Pick your year. We will find your branch, semester and courses along the way.','The branch you actually study. No directory detour.','One semester at a time, with your existing course history kept intact.','Start with core courses. Choose your real electives and adjust your subjects.','Check your course list, add your name and head to your desk.'][step]}</p></header>
- {step===0&&<><div className="map-pass-stack"><div className="map-pass-ghost"/><article className="map-pass"><header><span>THE STUDENT EDITION</span><span>2024 PATTERN</span></header><div><span className="map-roman">{activeYear?.[3]||'?.'}</span><section><h2>{activeYear?.[1]||'Your year'}</h2><p>{activeYear?.[2]||'Choose your starting point below'}</p></section></div><footer><span>{year||'FE / SE / TE'} ENGINEERING</span><span>{year?'SELECTED ✓':'YOUR STARTING POINT'}</span></footer></article></div><div className="map-year-options">{yearInfo.map(([id,title])=><button key={id} aria-label={`${id} ENGINEERING ${title}`} aria-pressed={year===id} onClick={()=>{setYear(id);setBranch(id==='FE'?'fe':'');setSemester(0);setSelected([]);}}>{id}<small>{title}</small></button>)}</div></>}
- {step===1&&<div className="map-branch-grid">{branches.map(([id,title])=>{const available=CATALOG.some(c=>c.branchSlug===id&&c.trackerReady);return <button key={id} aria-pressed={branch===id} className={`map-choice ${branch===id?'chosen':''}`} onClick={()=>{setBranch(id);setSemester(0);setSelected([]);}}><small>{year} · {available?'TRACKING AVAILABLE':'REFERENCE ONLY'}</small><h3>{title}</h3><span className="choice-check">{branch===id&&<Check size={16}/>}</span></button>})}</div>}
- {held&&step===1&&<p className="map-warning">{branch==='se-cyber-security'?'The official Cyber PDF disagrees with itself. Tracking is held until its course tables and detailed units agree.':'This branch is based on a draft source. Tracking is held until the curriculum is confirmed.'} Choose another supported branch to build a tracker; reference pages remain available.</p>}
- {step===2&&<><div className="map-semester-grid">{semesters.map(n=><button key={n} aria-pressed={semester===n} className={`map-choice ${semester===n?'chosen':''}`} onClick={()=>{setSemester(n);setSelected([]);}}><small>{year} · {branchName}</small><h3>Semester <strong>{String(n).padStart(2,'0')}</strong></h3><p>{n%2?'First half of the year':'Second half of the year'}</p><span className="choice-check">{semester===n&&<Check size={16}/>}</span></button>)}</div>{year==='FE'&&<p className="map-note">FE colleges swap Physics/Chemistry, Electrical/Electronics and Graphics/Mechanics. Choose your actual combination in the next step.</p>}</>}
- {step===3&&<div className="map-course-groups">{groups.map(g=><section key={g}><div className="map-group-title"><h3>{g}</h3><span>{g==='Core courses'?'Adjust your selection':'Choose one'}</span></div><div className="map-course-grid">{courses.filter(c=>(selectionGroup(c)||'Core courses')===g).map(c=><button key={c.id} aria-pressed={selected.includes(c.id)} className={`map-choice course-choice ${selected.includes(c.id)?'chosen':''}`} onClick={()=>setSelected(chooseCourse(selected,c,courses))}><small>{c.code}</small><h3>{c.name}</h3><p>{c.units.length} units · {c.credits} credits</p><span className="choice-check">{selected.includes(c.id)&&<Check size={16}/>}</span></button>)}</div></section>)}<p className="map-note">Theory tracking only. This is the represented course catalog, not every lab or open elective in the university curriculum.</p></div>}
- {step===4&&<div className="map-review"><label>Your dashboard name<input autoComplete="given-name" maxLength={80} placeholder="What should we call you?" value={name} onChange={e=>setName(e.target.value)}/></label><div className="map-review-band"><span>{year}</span><div><b>{branchName}</b><p>Semester {semester} · {selected.length} courses</p></div></div><ul>{courses.filter(c=>selected.includes(c.id)).map(c=><li key={c.id}><Check size={14}/>{c.name}</li>)}</ul><p className="map-note">No account required. Saved in this browser. Export backups before switching devices or clearing browser data.</p></div>}
- {error&&<p role="alert" className="map-warning">{error}</p>}<footer className="map-actions"><button className="map-back" disabled={step===0} onClick={()=>setStep(step-1)}><ArrowLeft size={16}/>Back</button><span className="map-summary">{year||'Your year'}{semester?` / SEM ${semester}`:''}{selected.length?` / ${selected.length} COURSES`:''}</span><button className="map-next" disabled={!ready} onClick={next}>{step===4?'Launch dashboard':'Continue'}<ArrowRight size={17}/></button></footer></section></main><footer className="map-privacy">No account required. Saved in this browser.<br/>Export backups before switching devices.</footer></div>;
+import React, { useState, useEffect } from 'react';
+import { ArrowRight, ArrowLeft, Check, Sparkles, BookOpen, Layers, Shield, User, GraduationCap, School } from 'lucide-react';
+import EditionNav from '../components/EditionNav';
+import { useData } from '../context/DataContext';
+import { CATALOG } from '../lib/catalog';
+import { selectableCourses, selectionGroup, chooseCourse } from '../lib/onboarding.mjs';
+import '../map.css';
+
+const STAGES = ['Year', 'Branch', 'Semester', 'Courses', 'Launch'];
+
+export default function Onboarding() {
+  const { setProfile, profile } = useData();
+  const [step, setStep] = useState(0);
+  const [year, setYear] = useState('FE');
+  const [branch, setBranch] = useState('fe');
+  const [semester, setSemester] = useState(1);
+  const [selected, setSelected] = useState<string[]>([]);
+  const [name, setName] = useState(profile?.name || '');
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [step]);
+
+  // Derived Catalog Data
+  const branches = Array.from(new Map(CATALOG.filter(c => c.year === year).map(c => [c.branchSlug, c.branch])).entries());
+  const courses = selectableCourses(CATALOG, year, branch, semester);
+  const groups: string[] = [...new Set<string>(courses.map(c => String(selectionGroup(c) || 'Core courses')))];
+  const branchName = branches.find(([id]) => id === branch)?.[1] || (year === 'FE' ? 'First Year Common' : '');
+  const held = branch && !CATALOG.some(c => c.branchSlug === branch && c.trackerReady);
+  const semesters = year === 'FE' ? [1, 2] : year === 'SE' ? [3, 4] : [5, 6];
+
+  // Auto-initialize selected courses when semester or step changes
+  useEffect(() => {
+    if (courses.length > 0 && selected.length === 0) {
+      // Auto-select core courses and first items in groups
+      const initial: string[] = [];
+      groups.forEach(g => {
+        const groupCourses = courses.filter(c => (selectionGroup(c) || 'Core courses') === g);
+        if (groupCourses.length > 0) {
+          initial.push(groupCourses[0].id);
+        }
+      });
+      setSelected(initial);
+    }
+  }, [semester, year, branch]);
+
+  const isReady =
+    step === 0 ? !!year :
+    step === 1 ? !!branch && !held :
+    step === 2 ? !!semester :
+    step === 3 ? selected.length > 0 :
+    !!name.trim();
+
+  const handleNext = () => {
+    setError('');
+    if (step === 2 && selected.length === 0) {
+      const autoSelected = courses.map(c => c.id);
+      setSelected(autoSelected);
+    }
+    if (step < 4) {
+      setStep(step + 1);
+    } else {
+      try {
+        const p = {
+          ...profile,
+          name: name.trim(),
+          theme: 'light',
+          selectedSubjects: selected,
+          setupComplete: true,
+          streak: profile?.streak || 0,
+          lastStudyDate: profile?.lastStudyDate || ''
+        };
+        localStorage.setItem('sppu_profile', JSON.stringify(p));
+        setProfile(p as any);
+      } catch (err) {
+        setError('Could not save profile in this browser. Please check local storage permissions.');
+      }
+    }
+  };
+
+  const yearInfo = [
+    { id: 'FE', title: 'First Year', subtitle: 'The common engineering foundation', badge: 'Pattern 2024' },
+    { id: 'SE', title: 'Second Year', subtitle: 'Specialized branch core topics', badge: 'Core Branch' },
+    { id: 'TE', title: 'Third Year', subtitle: 'Advanced branch electives & labs', badge: 'Upper Division' }
+  ];
+
+  return (
+    <div className="map-page bg-slate-50 min-h-screen">
+      <EditionNav setup />
+
+      <main className="map-main">
+        {/* Left Sidebar Progress Card */}
+        <aside className="map-sidebar mb-8 lg:mb-0">
+          <div className="flex items-center gap-3 pb-6 border-b border-slate-100">
+            <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center font-bold">
+              <GraduationCap size={22} />
+            </div>
+            <div>
+              <span className="text-[10px] font-bold tracking-widest text-rose-600 uppercase">Setup Edition</span>
+              <h2 className="text-lg font-bold text-slate-900 font-display">Study Setup</h2>
+            </div>
+          </div>
+
+          <div className="map-step-nav">
+            {STAGES.map((title, idx) => {
+              const isCurrent = idx === step;
+              const isDone = idx < step;
+              return (
+                <button
+                  key={title}
+                  disabled={idx > step}
+                  onClick={() => setStep(idx)}
+                  className={`map-step-item ${isCurrent ? 'active' : isDone ? 'complete' : ''}`}
+                >
+                  <div className="map-step-badge">
+                    {isDone ? <Check size={16} strokeWidth={2.5} /> : idx + 1}
+                  </div>
+                  <div>
+                    <span className="text-xs font-semibold block text-slate-900">{title}</span>
+                    <span className="text-[11px] text-slate-500">
+                      {idx === 0
+                        ? year || 'Select year'
+                        : idx === 1
+                        ? branchName || 'Select branch'
+                        : idx === 2
+                        ? semester ? `Semester ${semester}` : 'Select sem'
+                        : idx === 3
+                        ? `${selected.length} subjects`
+                        : name || 'Desk name'}
+                    </span>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="mt-6 pt-6 border-t border-slate-100">
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80">
+              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block mb-1">Local Storage Active</span>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Your subject configuration and study progress are stored private to this browser.
+              </p>
+            </div>
+          </div>
+        </aside>
+
+        {/* Right Main Panel */}
+        <section className="map-panel">
+          <div>
+            {/* Step Header */}
+            <header className="map-heading">
+              <span className="map-eyebrow">Step 0{step + 1} of 05</span>
+              <h1>
+                {step === 0 && 'Select your academic year.'}
+                {step === 1 && 'Choose your engineering branch.'}
+                {step === 2 && 'Which semester are you in?'}
+                {step === 3 && 'Configure your active subject shelf.'}
+                {step === 4 && 'Name your study desk & review.'}
+              </h1>
+              <p>
+                {step === 0 && 'Choose your current year of study to load official SPPU 2024 syllabus requirements.'}
+                {step === 1 && 'Select your department to tailor course tracking to your curriculum.'}
+                {step === 2 && 'Each semester provides specific theory unit outlines and credit allocations.'}
+                {step === 3 && 'Pick your active courses or First Year rotation subjects.'}
+                {step === 4 && 'Enter your name to personalize your study dashboard.'}
+              </p>
+            </header>
+
+            {/* STEP 0: YEAR SELECTION */}
+            {step === 0 && (
+              <div className="map-choice-grid">
+                {yearInfo.map(item => (
+                  <button
+                    key={item.id}
+                    onClick={() => {
+                      setYear(item.id);
+                      setBranch(item.id === 'FE' ? 'fe' : '');
+                      setSemester(item.id === 'FE' ? 1 : item.id === 'SE' ? 3 : 5);
+                      setSelected([]);
+                    }}
+                    className={`map-choice-card ${year === item.id ? 'selected' : ''}`}
+                  >
+                    <div>
+                      <div className="flex justify-between items-start mb-3">
+                        <span className="text-xs font-bold text-rose-600 px-2.5 py-1 bg-rose-50 rounded-md border border-rose-100">
+                          {item.badge}
+                        </span>
+                        {year === item.id && (
+                          <div className="w-6 h-6 rounded-full bg-rose-600 text-white flex items-center justify-center">
+                            <Check size={14} strokeWidth={2.5} />
+                          </div>
+                        )}
+                      </div>
+                      <h3 className="text-xl font-bold text-slate-900 font-display mb-1">{item.title}</h3>
+                      <p className="text-xs text-slate-600">{item.subtitle}</p>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {/* STEP 1: BRANCH SELECTION */}
+            {step === 1 && (
+              <div className="map-choice-grid">
+                {branches.map(([id, title]) => {
+                  const available = CATALOG.some(c => c.branchSlug === id && c.trackerReady);
+                  return (
+                    <button
+                      key={id}
+                      onClick={() => {
+                        setBranch(id);
+                        setSemester(year === 'FE' ? 1 : year === 'SE' ? 3 : 5);
+                        setSelected([]);
+                      }}
+                      className={`map-choice-card ${branch === id ? 'selected' : ''} ${!available ? 'disabled' : ''}`}
+                    >
+                      <div>
+                        <div className="flex justify-between items-start mb-2">
+                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${available ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-slate-100 text-slate-500'}`}>
+                            {available ? 'Ready' : 'Reference'}
+                          </span>
+                          {branch === id && (
+                            <div className="w-6 h-6 rounded-full bg-rose-600 text-white flex items-center justify-center">
+                              <Check size={14} strokeWidth={2.5} />
+                            </div>
+                          )}
+                        </div>
+                        <h3 className="text-base font-bold text-slate-900 font-display mt-2">{title}</h3>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+
+            {/* STEP 2: SEMESTER SELECTION */}
+            {step === 2 && (
+              <div className="map-choice-grid">
+                {semesters.map(num => (
+                  <button
+                    key={num}
+                    onClick={() => {
+                      setSemester(num);
+                      setSelected([]);
+                    }}
+                    className={`map-choice-card ${semester === num ? 'selected' : ''}`}
+                  >
+                    <div>
+                      <div className="flex justify-between items-start mb-3">
+                        <span className="text-xs font-bold text-rose-600 bg-rose-50 px-2.5 py-1 rounded-md border border-rose-100">
+                          {num % 2 !== 0 ? 'Autumn Term' : 'Spring Term'}
+                        </span>
+                        {semester === num && (
+                          <div className="w-6 h-6 rounded-full bg-rose-600 text-white flex items-center justify-center">
+                            <Check size={14} strokeWidth={2.5} />
+                          </div>
+                        )}
+                      </div>
+                      <h3 className="text-2xl font-bold text-slate-900 font-display mb-1">Semester 0{num}</h3>
+                      <p className="text-xs text-slate-600">
+                        {year === 'FE' ? 'Includes core engineering mathematics & foundation subjects' : `Semester ${num} curriculum`}
+                      </p>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {/* STEP 3: COURSE SELECTION */}
+            {step === 3 && (
+              <div className="space-y-6">
+                {groups.map(groupName => {
+                  const groupCourses = courses.filter(c => (selectionGroup(c) || 'Core courses') === groupName);
+                  return (
+                    <div key={groupName} className="space-y-3">
+                      <div className="flex justify-between items-center pb-2 border-b border-slate-100">
+                        <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wider">{groupName}</h3>
+                        <span className="text-xs text-slate-500 font-medium">
+                          {groupName === 'Core courses' ? 'Selected courses' : 'Choose one'}
+                        </span>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {groupCourses.map(course => {
+                          const isSelected = selected.includes(course.id);
+                          return (
+                            <button
+                              key={course.id}
+                              type="button"
+                              onClick={() => setSelected(chooseCourse(selected, course, courses))}
+                              className={`p-4 rounded-xl border-2 text-left transition-all ${
+                                isSelected
+                                  ? 'border-rose-600 bg-rose-50/60 text-slate-900 shadow-sm'
+                                  : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300'
+                              }`}
+                            >
+                              <div className="flex justify-between items-start mb-2">
+                                <span className="text-[11px] font-bold text-rose-600 bg-rose-100/80 px-2 py-0.5 rounded">
+                                  {course.code}
+                                </span>
+                                <div className={`w-5 h-5 rounded-md border flex items-center justify-center transition-colors ${
+                                  isSelected ? 'bg-rose-600 border-rose-600 text-white' : 'border-slate-300 bg-white'
+                                }`}>
+                                  {isSelected && <Check size={12} strokeWidth={3} />}
+                                </div>
+                              </div>
+                              <h4 className="font-bold text-sm text-slate-900 mb-1">{course.name}</h4>
+                              <p className="text-xs text-slate-500">
+                                {course.units.length} units · {course.credits} credits
+                              </p>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+
+            {/* STEP 4: LAUNCH DESK */}
+            {step === 4 && (
+              <div className="space-y-6">
+                <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+                  <label htmlFor="student-name-input" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                    Student Dashboard Name
+                  </label>
+                  <div className="relative">
+                    <User size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
+                    <input
+                      id="student-name-input"
+                      type="text"
+                      maxLength={60}
+                      placeholder="Enter your name (e.g. Alex)"
+                      value={name}
+                      onChange={e => setName(e.target.value)}
+                      className="w-full pl-12 pr-4 py-3.5 bg-white border border-slate-300 rounded-xl text-slate-900 text-base font-medium focus:border-rose-600 focus:ring-1 focus:ring-rose-600 transition-all outline-none"
+                    />
+                  </div>
+                </div>
+
+                <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-4">
+                  <div className="flex justify-between items-center pb-4 border-b border-slate-100">
+                    <div>
+                      <span className="text-xs font-bold text-rose-600 uppercase tracking-wider block">Configuration Summary</span>
+                      <h3 className="text-lg font-bold text-slate-900 font-display">
+                        {year} · {branchName}
+                      </h3>
+                    </div>
+                    <span className="px-3 py-1 bg-rose-50 border border-rose-100 text-rose-600 text-xs font-bold rounded-lg">
+                      Semester 0{semester}
+                    </span>
+                  </div>
+
+                  <div>
+                    <span className="text-xs font-semibold text-slate-500 block mb-2">Enrolled Courses ({selected.length})</span>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {courses.filter(c => selected.includes(c.id)).map(c => (
+                        <li key={c.id} className="flex items-center gap-2 text-xs font-medium text-slate-700 bg-slate-50 px-3 py-2 rounded-lg border border-slate-200/80">
+                          <Check size={14} className="text-rose-600 flex-shrink-0" />
+                          <span className="truncate">{c.name}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {error && (
+              <div className="mt-4 p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-medium">
+                {error}
+              </div>
+            )}
+          </div>
+
+          {/* Action Footer */}
+          <footer className="map-actions">
+            <button
+              type="button"
+              disabled={step === 0}
+              onClick={() => setStep(step - 1)}
+              className="map-btn-back"
+            >
+              <ArrowLeft size={16} /> Back
+            </button>
+
+            <button
+              type="button"
+              disabled={!isReady}
+              onClick={handleNext}
+              className="map-btn-next"
+            >
+              {step === 4 ? 'Launch Dashboard' : 'Continue'} <ArrowRight size={16} />
+            </button>
+          </footer>
+        </section>
+      </main>
+    </div>
+  );
 }
