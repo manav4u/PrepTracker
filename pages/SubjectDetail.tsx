@@ -1,37 +1,413 @@
-import '../notebook.css';
-import '../atlas.css';
-import {learningNodes,learningSummary} from '../lib/learning.mjs';
-import {subjectMethod} from '../lib/subject-method.mjs';
-import EditionNav from '../components/EditionNav';
-import MaterialShelf from '../components/MaterialShelf';
-import React,{useEffect,useState} from 'react';
-import {useParams,useSearchParams,Link} from 'react-router-dom';
-import {CATALOG} from '../lib/catalog';
-import {UnitStatus,ResourceItem} from '../types';
-import {useData} from '../context/DataContext';
-import {SYSTEM_RESOURCES} from '../constants';
-import {deriveOutline} from '../lib/outline.mjs';
-import {topicId,recordRevision,nextRevision} from '../lib/study.mjs';
+
+import React, { useState, useEffect, useRef } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { 
+  ArrowLeft, 
+  CheckCircle2, 
+  Circle, 
+  PlayCircle, 
+  BrainCircuit,
+  List,
+  X,
+  Send,
+  Timer,
+  Check,
+  FileQuestion,
+  FileText,
+  Video,
+  BookOpen,
+  Link as LinkIcon,
+  Search,
+  ArrowUpRight,
+  HardDrive
+} from 'lucide-react';
+import { SUBJECTS, SYSTEM_RESOURCES, getYouTubeID } from '../constants';
+import { UnitStatus, ResourceItem } from '../types';
+import { useData } from '../context/DataContext';
 import ResourceViewerModal from '../components/ResourceViewerModal';
-import {validDay} from '../lib/dates.mjs';
-export default function SubjectDetail(){
- const {id}=useParams();const[params,setParams]=useSearchParams();const subject=CATALOG.find(c=>c.id===id);
- const {userProgress,setUserProgress,profile,setProfile,study,setStudy}=useData();
- const [mode,setMode]=useState('Topics'),[flipped,setFlipped]=useState(false),[recallIndex,setRecallIndex]=useState(0),[copied,setCopied]=useState(''),[resources,setResources]=useState<ResourceItem[]>([]),[viewResource,setViewResource]=useState<ResourceItem|null>(null);
- const unit=subject?.units.find(u=>u.id===params.get('unit'))||subject?.units[0];
- useEffect(()=>{setFlipped(false);setRecallIndex(0);setMode('Topics');window.scrollTo(0,0);},[id,unit?.id]);
- useEffect(()=>{if(!subject)return;let custom:ResourceItem[]=[],deleted:string[]=[];try{custom=JSON.parse(localStorage.getItem('sppu_custom_resources')||'[]');deleted=JSON.parse(localStorage.getItem('sppu_deleted_system_ids')||'[]');}catch{}const matches=(r:ResourceItem)=>subject.code.startsWith(r.subject)||(r.subject==='GLOBAL'&&subject.year==='FE');setResources([...SYSTEM_RESOURCES.filter(r=>!deleted.includes(r.id)),...custom].filter(matches));},[id]);
- if(!subject||!unit)return <div className="notebook-page"><main><h1>Course not found.</h1><Link to="/directory">Open course directory</Link></main></div>;
- const getProg=(uid:string)=>userProgress.find(x=>x.unitId===uid)||{unitId:uid,status:UnitStatus.NOT_STARTED,pyqsCompleted:[]};const p=getProg(unit.id);
- const updateStatus=(status:UnitStatus)=>{const next=userProgress.filter(x=>x.unitId!==unit.id);setUserProgress([...next,{...p,status}]);if(profile){const today=new Date().toDateString(),last=profile.lastStudyDate?new Date(profile.lastStudyDate).toDateString():'';if(last!==today)setProfile({...profile,streak:(profile.streak||0)+1,lastStudyDate:new Date().toISOString()});}};
- const togglePyq=(year:string)=>{setUserProgress([...userProgress.filter(x=>x.unitId!==unit.id),{...p,pyqsCompleted:p.pyqsCompleted.includes(year)?p.pyqsCompleted.filter(y=>y!==year):[...p.pyqsCompleted,year]}]);};
- const roman=(n:number)=>['I','II','III','IV','V','VI','VII','VIII','IX','X'][n-1]||String(n);
- const raw=(unit as any).sourceText as string|undefined;const outline=raw?deriveOutline(raw):unit.topics;
- const nodes=learningNodes(subject),unitNodes=nodes.filter((n:any)=>n.unitId===unit.id),summary=learningSummary(nodes,study),method=subjectMethod(subject);
- const topic=unit.topics[recallIndex]||'';const tid=topicId(unit.id,recallIndex);const state=study.topics[tid]||{};
- const confidence=(value:'low'|'medium'|'high')=>setStudy(old=>({...old,topics:{...old.topics,[tid]:{...old.topics[tid],confidence:value}}}));
- const checkTopic=(i:number)=>{const k=unitNodes[i].id;setStudy(old=>({...old,topics:{...old.topics,[k]:{...old.topics[k],status:old.topics[k]?.status==='done'?'not-started':'done'}}}));};
- const log=()=>setStudy(old=>recordRevision(old,tid,old.topics[tid]?.confidence||'low'));
- const print=()=>{document.body.classList.add('printing-notebook');window.print();document.body.classList.remove('printing-notebook');};
- return <div className="notebook-page"><EditionNav/><ResourceViewerModal isOpen={!!viewResource} onClose={()=>setViewResource(null)} resource={viewResource}/><main className="notebook-layout"><header className="notebook-top"><Link to="/">← Your desk</Link><span>{subject.year} / {subject.semester?`SEMESTER ${String(subject.semester).padStart(2,'0')}`:'FOUNDATION'}</span><Link to="/study">Revision ↗</Link></header><section className="notebook-masthead"><div><p>{subject.code} · {subject.credits} CREDITS · LOCAL</p><h1>{subject.name}<b>.</b></h1><span>{subject.units.length} units · {method.label}</span></div><div className={`atlas-emblem ${method.key}`} style={{background:method.color}} aria-hidden="true"><span>{method.key==='math'?'∫':method.key==='code'?'{ }':method.key==='circuit'?'Ω':method.key==='draw'?'△':method.key==='science'?'λ':'§'}</span><small>{method.verb}</small></div></section><div className="notebook-source"><a href={subject.source} target="_blank" rel="noopener noreferrer">Official syllabus PDF ↗</a><button onClick={print}>Print course</button><button onClick={()=>{const u=new URL(window.location.href);u.hash=`/subject/${encodeURIComponent(subject.id)}?unit=${encodeURIComponent(unit.id)}`;if(!navigator.clipboard){setCopied('Copy unavailable. Bookmark this URL.');return;}navigator.clipboard.writeText(u.href).then(()=>setCopied('Copied')).catch(()=>setCopied('Copy failed. Bookmark this URL.'));}}>Copy unit link</button><span role="status">{copied}</span></div><section className="atlas-ledger"><div><b>{summary.covered}<small>/{summary.total}</small></b><span>covered by you</span></div><div><b>{summary.attempted}</b><span>topics attempted</span></div><div><b>{summary.due}</b><span>due again</span></div><p>Reading and practice are separate. No automatic mastery or exam-readiness score.</p></section><section className="atlas-method"><header><p>HOW TO WORK THIS SUBJECT</p><h2>{method.verb}<i>.</i></h2></header><ol>{method.steps.map((x:string,i:number)=><li key={x}><b>0{i+1}.</b><span>{x}</span></li>)}</ol><small>Preparation guidance, not an official assessment rubric. Choose the task from your course materials.</small></section><nav aria-label="Jump to unit" className="notebook-unit-tabs">{subject.units.map(u=><button key={u.id} aria-label={`Unit ${u.unit_number}`} aria-pressed={unit.id===u.id} onClick={()=>setParams({unit:u.id})}>{roman(u.unit_number)}<span>.</span></button>)}</nav><div className="notebook-workspace"><article className="notebook-leaf"><span className="notebook-folio">{roman(unit.unit_number)}.</span><p className="notebook-page-label">UNIT {String(unit.unit_number).padStart(2,'0')} / {String(subject.units.length).padStart(2,'0')}</p><h2>{unit.title}</h2><div className="notebook-status" aria-label="Unit progress">{[{value:UnitStatus.NOT_STARTED,label:'Start'},{value:UnitStatus.IN_PROGRESS,label:'Study'},{value:UnitStatus.REVISION,label:'Revision'},{value:UnitStatus.MASTERED,label:'Done'}].map(x=><button key={x.value} aria-label={`${x.label}: ${unit.title}`} aria-pressed={p.status===x.value} onClick={()=>updateStatus(x.value)}>{x.label}</button>)}</div><p className="notebook-honesty">Unit status and topic checks are your own marks, not test scores.</p><nav className="notebook-modes" aria-label="Notebook mode">{['Topics','Earlier records'].map(x=><button key={x} aria-pressed={mode===x} onClick={()=>setMode(x)}>{x}</button>)}</nav>{mode==='Topics'?<section className="notebook-reading" key={unit.id+mode}><h3>Topic atlas</h3>{raw&&<p className="notebook-honesty">Source-boundary outline, not an official micro-topic taxonomy. Earlier whole-unit histories stay separate. Child coverage and attempts start unfilled.</p>}<div className="atlas-topic-list">{unitNodes.map((n:any,i:number)=>{const st=study.topics[n.id]||{};return <article key={n.id}><div className="notebook-topic"><button aria-label={`Mark topic ${i+1} covered`} aria-pressed={st.status==='done'} onClick={()=>checkTopic(i)}>{st.status==='done'?'✓':''}</button><div><p>{n.text}</p><small>{st.status==='done'?'Covered by you':'Not marked covered'} · {st.lastAttempt?`Last attempt ${st.lastAttempt}`:'No attempt recorded'}</small></div></div><Link to={`/study?course=${encodeURIComponent(subject.id)}&topic=${encodeURIComponent(n.id)}`}>Work this topic ↗</Link>{st.nextReview&&<small>Next return: {st.nextReview}</small>}</article>})}</div>{raw&&<details><summary>Preserved official unit paragraph</summary><p className="notebook-original">{raw}</p></details>}</section>:<section className="notebook-practice" key={unit.id+mode}><label>Practice entry<select value={recallIndex} onChange={e=>{setRecallIndex(Number(e.target.value));setFlipped(false);}}>{unit.topics.map((_,i)=><option key={i} value={i}>Entry {i+1} of {unit.topics.length}</option>)}</select></label><h3>Earlier revision records</h3><p>Original confidence-based records are retained here. They are not practice attempts or verified learning evidence. Use Work this topic to create a new attempt.</p><p className="notebook-practice-topic">{topic}</p><div className="notebook-confidence">{['low','medium','high'].map(v=><button key={v} aria-pressed={(state.confidence||'low')===v} onClick={()=>confidence(v as any)}>{v}</button>)}</div><label>Last-revised date<input type="date" value={state.lastRevised||''} onChange={e=>{const day=e.target.value;if(!day||validDay(day))setStudy(old=>({...old,topics:{...old.topics,[tid]:{...old.topics[tid],lastRevised:day||undefined}}}));}}/></label><p className="notebook-honesty">{state.lastRevised?`Last: ${state.lastRevised} · Next: ${nextRevision(state.lastRevised,state.confidence||'low')}`:'Not revised yet. Confidence defaults to low until you choose.'}</p><button className="notebook-log" onClick={log}>Log revision today</button></section>}<div className="notebook-leaf-bottom"><span>{p.status===UnitStatus.MASTERED?'MARKED DONE BY YOU':'ONE ENTRY AT A TIME'}</span><span>{roman(unit.unit_number)}.</span></div></article><aside className="notebook-margin"><section className="atlas-start"><p>FROM READING TO WORK</p><h3>{method.label}.</h3><p>{method.prompt}</p><Link to={`/study?course=${encodeURIComponent(subject.id)}&topic=${encodeURIComponent(unitNodes[0]?.id||'')}`}>Open session studio ↗</Link><small>Bring a question and a comparison reference. A syllabus line alone cannot check your answer.</small></section><section className="notebook-pyq"><h3>Practice stamps</h3><p>Record your own PYQ practice. No papers attached; these years are not mapped to this syllabus pattern.</p><div>{['2022','2023','2024'].map(y=><button key={y} aria-label={`PYQ ${y}`} aria-pressed={p.pyqsCompleted.includes(y)} onClick={()=>togglePyq(y)}>{y}{p.pyqsCompleted.includes(y)?' ✓':''}</button>)}</div></section><MaterialShelf course={subject} text={unitNodes.map((n:any)=>n.text).join(' ')}/><p className="notebook-honesty">AI tutor is not available in this release.</p></aside></div><section className="notebook-print-only"><h1>{subject.name}</h1>{subject.units.map(u=><article key={u.id}><h2>Unit {u.unit_number}: {u.title}</h2><p>{(u as any).sourceText||u.topics.join('\n')}</p></article>)}</section><footer className="notebook-footer"><Link to="/">Back to your desk ←</Link><span>YOUR NOTEBOOK · SAVED IN THIS BROWSER</span></footer></main></div>;
-}
+import ComingSoonModal from '../components/ComingSoonModal';
+
+const SubjectDetail: React.FC = () => {
+  const { id } = useParams();
+  const subject = SUBJECTS.find(s => s.id === id);
+  const [showChat, setShowChat] = useState(false);
+  const [chatInput, setChatInput] = useState('');
+  const [chatHistory, setChatHistory] = useState<{role: 'user' | 'ai', text: string}[]>([
+    {role: 'ai', text: `Hello! I'm your AI Tutor for ${subject?.name || 'this subject'}. Ask me anything about Unit 1 or specific concepts.`}
+  ]);
+  
+  const chatEndRef = useRef<HTMLDivElement>(null);
+
+  const { userProgress, setUserProgress, profile, setProfile } = useData();
+
+  // Resource State
+  const [subjectResources, setSubjectResources] = useState<ResourceItem[]>([]);
+  const [viewResource, setViewResource] = useState<ResourceItem | null>(null);
+
+  // Coming Soon State
+  const [comingSoon, setComingSoon] = useState<string | null>(null);
+
+  useEffect(() => {
+    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [chatHistory, showChat]);
+
+  // Load Resources for this subject
+  useEffect(() => {
+      const fetchResources = async () => {
+          if (!subject) return;
+
+          const relevantSystem = SYSTEM_RESOURCES.filter(r =>
+              subject.code.startsWith(r.subject) || r.subject === 'GLOBAL'
+          );
+
+          let relevantCustom: ResourceItem[] = [];
+          try {
+              const savedCustomRaw = localStorage.getItem('sppu_custom_resources');
+              if (savedCustomRaw) {
+                  const allCustom: ResourceItem[] = JSON.parse(savedCustomRaw);
+                  relevantCustom = allCustom.filter(r =>
+                      subject.code.startsWith(r.subject) || r.subject === 'GLOBAL'
+                  );
+              }
+          } catch(e) {}
+
+          let finalSystem = relevantSystem;
+          try {
+              const deletedIdsRaw = localStorage.getItem('sppu_deleted_system_ids');
+              if (deletedIdsRaw) {
+                  const deletedIds: string[] = JSON.parse(deletedIdsRaw);
+                  finalSystem = relevantSystem.filter(r => !deletedIds.includes(r.id));
+              }
+          } catch(e) {}
+
+          setSubjectResources([...finalSystem, ...relevantCustom]);
+      };
+
+      fetchResources();
+  }, [subject]);
+
+  if (!subject) return <div className="p-20 text-center text-white font-display">SUBJECT_NOT_FOUND</div>;
+
+  const getProg = (uId: string) => userProgress.find(p => p.unitId === uId) || { unitId: uId, status: UnitStatus.NOT_STARTED, pyqsCompleted: [] };
+
+  const updateStatus = (uId: string, status: UnitStatus) => {
+    const idx = userProgress.findIndex(p => p.unitId === uId);
+    let next: typeof userProgress = [];
+    if (idx > -1) {
+        next = [...userProgress];
+        next[idx] = { ...next[idx], status };
+    } else {
+        next = [...userProgress, { unitId: uId, status, pyqsCompleted: [] }];
+    }
+    setUserProgress(next);
+
+    // Update Streak logic in profile
+    if (profile) {
+        const today = new Date().toDateString();
+        const lastDate = profile.lastStudyDate ? new Date(profile.lastStudyDate).toDateString() : '';
+
+        if (lastDate !== today) {
+            setProfile({
+                ...profile,
+                streak: (profile.streak || 0) + 1,
+                lastStudyDate: new Date().toISOString()
+            });
+        }
+    }
+  };
+
+  const togglePyq = (uId: string, year: string) => {
+    const idx = userProgress.findIndex(p => p.unitId === uId);
+    let next: typeof userProgress = [];
+    if (idx > -1) {
+        next = [...userProgress];
+        const currentPyqs = next[idx].pyqsCompleted || [];
+        const isCompleted = currentPyqs.includes(year);
+        next[idx] = {
+            ...next[idx],
+            pyqsCompleted: isCompleted
+                ? currentPyqs.filter(y => y !== year)
+                : [...currentPyqs, year]
+        };
+    } else {
+        next = [...userProgress, { unitId: uId, status: UnitStatus.NOT_STARTED, pyqsCompleted: [year] }];
+    }
+    setUserProgress(next);
+  };
+
+  const handleChatSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if(!chatInput.trim()) return;
+    setChatHistory(prev => [...prev, { role: 'user', text: chatInput }]);
+    const userQ = chatInput;
+    setChatInput('');
+    setTimeout(() => {
+        let response = "That's a great question. Based on the syllabus, this concept is covered in Unit 2. It usually carries 6-8 marks in the End-Sem exam.";
+        if (userQ.toLowerCase().includes('syllabus')) response = "The syllabus covers 5-6 units depending on the subject. You can check the timeline on the left.";
+        setChatHistory(prev => [...prev, { role: 'ai', text: response }]);
+    }, 1000);
+  };
+
+  return (
+    <div className="animate-in fade-in slide-in-from-right-4 duration-500 relative pb-20">
+      
+      <ResourceViewerModal isOpen={!!viewResource} onClose={() => setViewResource(null)} resource={viewResource} />
+      <ComingSoonModal isOpen={!!comingSoon} onClose={() => setComingSoon(null)} feature={comingSoon || ''} />
+
+      <div className="mb-12 lg:mb-20">
+        <Link to="/" className="inline-flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-white uppercase tracking-widest transition-colors mb-8">
+          <ArrowLeft size={14} /> Back to Dashboard
+        </Link>
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 lg:gap-12">
+          <div className="max-w-4xl">
+            <span className="text-[#E11D48] text-[10px] font-bold tracking-[0.25em] uppercase mb-4 block flex items-center gap-2">
+              <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E11D48] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E11D48]"></span>
+              </span>
+              {subject.code} • {subject.credits} Credits • <HardDrive size={10} className="inline mr-1" /> Local
+            </span>
+            <h1 className="text-4xl lg:text-8xl font-display font-bold text-white leading-[0.9] tracking-tighter text-balance">
+              {subject.name}
+            </h1>
+          </div>
+          <div className="flex gap-4 w-full lg:w-auto shrink-0">
+            <button 
+              onClick={() => setComingSoon('Syllabus Database')}
+              className="flex-1 lg:flex-none px-8 py-4 rounded-xl border border-white/10 text-[10px] font-bold uppercase tracking-[0.2em] text-white hover:bg-white hover:text-black transition-all"
+            >
+              Syllabus PDF
+            </button>
+            <button 
+              onClick={() => setComingSoon('Assessment Engine')}
+              className="flex-1 lg:flex-none px-8 py-4 rounded-xl bg-[#E11D48] text-white text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-[#be123c] transition-all shadow-xl shadow-red-900/20"
+            >
+              Quick Test
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
+        {/* Timeline / Unit List */}
+        <div className="lg:col-span-8 relative">
+          <div className="absolute left-6 top-8 bottom-8 w-px bg-white/5"></div>
+          
+          <div className="space-y-8">
+            {subject.units.map((unit, i) => {
+              const p = getProg(unit.id);
+              const isActive = p.status !== UnitStatus.NOT_STARTED;
+              const isMastered = p.status === UnitStatus.MASTERED;
+              const completedPyqs = p.pyqsCompleted || [];
+
+              return (
+                <div key={unit.id} className="relative pl-16 group">
+                  {/* Timeline Node */}
+                  <div className={`absolute left-[1.1rem] top-8 w-5 h-5 rounded-full border-[3px] transition-all duration-300 z-10 bg-[#030303] ${
+                    isMastered ? 'border-[#E11D48] bg-[#E11D48] shadow-[0_0_15px_#E11D48]' : isActive ? 'border-white bg-white' : 'border-white/10'
+                  }`}></div>
+
+                  <div className="bg-[#0a0a0a] p-8 rounded-3xl border border-white/5 hover:border-white/10 transition-all">
+                    <div className="flex flex-col sm:flex-row justify-between items-start mb-8 gap-6 sm:gap-0">
+                      <div>
+                        <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1 block">Unit 0{unit.unit_number}</span>
+                        <h3 className={`text-2xl font-display font-bold mt-1 transition-colors tracking-tight ${isMastered ? 'text-[#E11D48]' : 'text-white'}`}>{unit.title}</h3>
+                      </div>
+                      
+                      <div className="flex bg-white/5 p-1 rounded-xl">
+                        {[
+                            { status: UnitStatus.NOT_STARTED, icon: Circle, label: 'Start' },
+                            { status: UnitStatus.IN_PROGRESS, icon: Timer, label: 'Study' },
+                            { status: UnitStatus.MASTERED, icon: CheckCircle2, label: 'Done' }
+                        ].map((item) => {
+                             const isSelected = p.status === item.status;
+                             return (
+                                <button
+                                    key={item.status}
+                                    onClick={() => updateStatus(unit.id, item.status)}
+                                    className={`relative px-4 py-2 rounded-lg flex items-center gap-2 transition-all duration-300 ${
+                                        isSelected 
+                                        ? 'bg-white text-black shadow-lg' 
+                                        : 'text-slate-500 hover:text-white hover:bg-white/5'
+                                    }`}
+                                >
+                                    <item.icon size={14} className={isSelected ? 'text-black' : 'text-current'} strokeWidth={2.5} />
+                                    <span className={`text-[10px] font-bold uppercase tracking-wider ${isSelected ? 'block' : 'hidden lg:block'}`}>
+                                        {item.label}
+                                    </span>
+                                </button>
+                             );
+                        })}
+                      </div>
+                    </div>
+
+                    {/* Topics List */}
+                    {unit.topics && (
+                       <div className="mb-8 p-6 rounded-2xl bg-white/5 border border-white/5">
+                         <h4 className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">
+                           <List size={12} /> Key Topics
+                         </h4>
+                         <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-3">
+                           {unit.topics.map((t, idx) => (
+                             <li key={idx} className="text-sm text-slate-300 flex items-start gap-3">
+                               <span className="w-1 h-1 rounded-full bg-[#E11D48] mt-2 shrink-0"></span>
+                               <span className="leading-relaxed font-medium">{t}</span>
+                             </li>
+                           ))}
+                         </ul>
+                       </div>
+                    )}
+
+                    {/* Functional PYQ Tracker */}
+                    <div className="flex flex-col gap-3">
+                       <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest flex items-center gap-2">
+                          <FileQuestion size={12} /> PYQ Tracker
+                       </span>
+                       <div className="grid grid-cols-3 gap-3">
+                         {['2022', '2023', '2024'].map(year => {
+                           const isSolved = completedPyqs.includes(year);
+                           return (
+                             <button
+                               key={year}
+                               onClick={() => togglePyq(unit.id, year)}
+                               className={`group px-4 py-3 rounded-xl border flex items-center justify-between transition-all duration-300 ${
+                                 isSolved
+                                   ? 'bg-[#E11D48]/10 border-[#E11D48]/30 text-[#E11D48]'
+                                   : 'bg-white/5 border-white/5 text-slate-400 hover:bg-white/10 hover:border-white/20 hover:text-white'
+                               }`}
+                             >
+                                <span className="text-[11px] font-bold font-mono tracking-wider">{year}</span>
+                                {isSolved ? (
+                                   <Check size={12} strokeWidth={3} />
+                                ) : (
+                                   <div className="w-3 h-3 rounded-full border border-white/20 group-hover:border-white/50"></div>
+                                )}
+                             </button>
+                           );
+                         })}
+                       </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Sidebar */}
+        <div className="lg:col-span-4 space-y-6">
+           <div className="p-8 rounded-3xl bg-gradient-to-br from-[#E11D48]/10 to-transparent border border-[#E11D48]/20 text-center relative overflow-hidden">
+              <div className="relative z-10">
+                <BrainCircuit size={32} className="mx-auto text-[#E11D48] mb-6" />
+                <h3 className="text-xl font-display font-bold text-white mb-2 tracking-tight">AI Assistant</h3>
+                <p className="text-sm text-slate-400 mb-8 font-medium leading-relaxed">Ask questions about {subject.name} and get instant answers sourced from approved textbooks.</p>
+                <button 
+                    onClick={() => setComingSoon('AI Study Assistant')}
+                    className="w-full py-4 rounded-xl bg-white text-black font-bold uppercase text-[10px] tracking-[0.25em] hover:scale-[1.02] transition-transform shadow-lg shadow-white/10"
+                >
+                    Open Neural Chat
+                </button>
+              </div>
+           </div>
+
+           <div className="p-8 rounded-3xl bg-[#0a0a0a] border border-white/5 min-h-[300px]">
+              <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-6 px-1 flex items-center justify-between">
+                Recommended Resources
+                <Link to="/resources" className="text-white hover:text-[#E11D48] transition-colors flex items-center gap-1">
+                   <ArrowUpRight size={10} />
+                </Link>
+              </h4>
+              
+              <div className="space-y-4">
+                {subjectResources.length > 0 ? (
+                    subjectResources.map(resource => {
+                        const isYoutube = getYouTubeID(resource.url);
+                        return (
+                            <div 
+                                key={resource.id} 
+                                onClick={() => setViewResource(resource)}
+                                className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 hover:bg-white/10 transition-colors cursor-pointer group border border-transparent hover:border-white/10"
+                            >
+                                <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
+                                    isYoutube || resource.type === 'video' 
+                                    ? 'bg-red-500/10 text-red-500 group-hover:bg-red-500/20' 
+                                    : 'bg-white/5 text-white/40 group-hover:text-white'
+                                }`}>
+                                    {isYoutube || resource.type === 'video' ? <PlayCircle size={20} /> : <FileText size={20} />}
+                                </div>
+                                <div className="flex-1 overflow-hidden">
+                                    <p className="text-sm font-bold text-white truncate mb-0.5">{resource.title}</p>
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-[9px] font-bold uppercase tracking-wider text-slate-500">{resource.category}</span>
+                                        <span className="w-1 h-1 rounded-full bg-slate-700"></span>
+                                        <span className="text-[9px] font-bold uppercase tracking-wider text-slate-500">{resource.author}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    })
+                ) : (
+                    <div className="flex flex-col items-center justify-center h-48 border border-dashed border-white/10 rounded-2xl text-center p-4">
+                         <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-3">
+                            <Search size={20} className="text-slate-600" />
+                         </div>
+                         <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">No Resources Found</p>
+                         <Link to="/resources" className="text-[10px] text-[#E11D48] mt-2 font-mono hover:underline">
+                             Add to Vault -&gt;
+                         </Link>
+                    </div>
+                )}
+              </div>
+           </div>
+        </div>
+      </div>
+
+      {/* AI Chat Overlay */}
+      {showChat && (
+        <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md animate-in fade-in duration-300">
+            <div className="bg-[#0a0a0a] border border-white/10 w-full max-w-lg rounded-3xl overflow-hidden flex flex-col h-[80vh] sm:h-[650px] shadow-2xl relative">
+                <div className="p-5 border-b border-white/10 flex justify-between items-center bg-[#0a0a0a]">
+                    <div className="flex items-center gap-3">
+                        <BrainCircuit size={18} className="text-[#E11D48]" />
+                        <span className="font-bold text-sm text-white uppercase tracking-widest">AI Tutor Node</span>
+                    </div>
+                    <button onClick={() => setShowChat(false)} className="p-2 hover:bg-white/10 rounded-full transition-colors"><X size={18} /></button>
+                </div>
+                
+                <div className="flex-1 overflow-y-auto p-6 space-y-6">
+                    {chatHistory.map((msg, idx) => (
+                        <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                            <div className={`max-w-[85%] p-5 text-sm leading-relaxed ${
+                                msg.role === 'user' 
+                                ? 'bg-white text-black rounded-2xl rounded-tr-sm font-bold' 
+                                : 'bg-white/10 text-slate-200 rounded-2xl rounded-tl-sm font-medium'
+                            }`}>
+                                {msg.text}
+                            </div>
+                        </div>
+                    ))}
+                    <div ref={chatEndRef}></div>
+                </div>
+
+                <form onSubmit={handleChatSubmit} className="p-5 border-t border-white/10 bg-[#0a0a0a]">
+                    <div className="relative">
+                        <input 
+                            type="text" 
+                            value={chatInput}
+                            onChange={(e) => setChatInput(e.target.value)}
+                            placeholder="Ask a doubt..."
+                            className="w-full bg-white/5 border border-white/10 rounded-2xl pl-6 pr-14 py-4 text-sm text-white focus:border-white/20 outline-none transition-all placeholder:text-slate-600 font-medium"
+                        />
+                        <button type="submit" className="absolute right-2 top-1/2 -translate-y-1/2 p-2.5 bg-[#E11D48] rounded-xl text-white hover:scale-105 transition-transform">
+                            <Send size={16} />
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default SubjectDetail;

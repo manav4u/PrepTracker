@@ -1,13 +1,409 @@
-import '../task-pins.css';import EditionNav from '../components/EditionNav';
-import React,{useState} from 'react';
-import {useData} from '../context/DataContext';
-import {CATALOG} from '../lib/catalog';
-import {Task} from '../types';
-import {dueLabel,validDay,calendarExport} from '../lib/dates.mjs';
-export default function TodoList(){
- const{tasks,setTasks,profile}=useData();const[edit,setEdit]=useState<string|null>(null),[text,setText]=useState(''),[day,setDay]=useState(''),[category,setCategory]=useState<Task['category']>('GENERAL'),[error,setError]=useState(''),[courseId,setCourseId]=useState('');
- const reset=()=>{setEdit(null);setText('');setDay('');setCategory('GENERAL');setCourseId('');setError('');};
- const save=(e:React.FormEvent)=>{e.preventDefault();if(!text.trim()||(day&&!validDay(day))){setError('Enter a title and a valid date, or leave the date blank.');return;}if(edit)setTasks(old=>old.map(t=>t.id===edit?{...t,text:text.trim(),dueDate:day||undefined,courseId:courseId||undefined,category}:t));else setTasks(old=>[...old,{id:crypto.randomUUID(),text:text.trim(),dueDate:day||undefined,courseId:courseId||undefined,category,completed:false,priority:'NORMAL',createdAt:new Date().toISOString()}]);reset();};
- const exportCal=()=>{const url=URL.createObjectURL(new Blob([calendarExport(tasks)],{type:'text/calendar;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='preptracker-deadlines.ics';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
- return <div className="task-pins"><EditionNav/><main><header className="pins-heading"><p>THE STUDY EDITION / YOUR OWN DATES</p><h1>Pin it.<br/><i>Then do it.</i></h1><div><span>{String(tasks.filter(t=>!t.completed).length).padStart(2,'0')}</span><p>OPEN LOOPS<br/>ON YOUR BOARD</p></div></header><p className="pins-disclosure">Exam dates, lab work and assignments are entered by you, not an official timetable. Calendar export creates all-day events. It does not subscribe you to updates or send reminders from this closed page.</p><div className="pins-layout"><form onSubmit={save} className="pins-form"><span className="pins-tape"/><p className="pins-eyebrow">A PLACE TO PUT IT DOWN</p><h2>{edit?'Edit your pin.':'A new pin.'}</h2><label>Title<input required maxLength={300} value={text} onChange={e=>setText(e.target.value)} placeholder="What's on your mind?"/></label><div className="pins-form-row"><label>Date (optional)<input type="date" value={day} onChange={e=>setDay(e.target.value)}/></label><label>Kind<select aria-label="Kind" value={category} onChange={e=>setCategory(e.target.value as Task['category'])}><option value="GENERAL">Study task</option><option value="EXAM">Exam</option><option value="LAB">Lab work</option><option value="SUBMISSION">Assignment / submission</option></select></label></div><label>Related course (optional)<select aria-label="Related course (optional)" value={courseId} onChange={e=>setCourseId(e.target.value)}><option value="">No course link</option>{CATALOG.filter(c=>profile?.selectedSubjects.includes(c.id)).map(c=><option key={c.id} value={c.id}>{c.name}</option>)}</select></label>{error&&<p role="alert">{error}</p>}<div className="pins-submit"><button>{edit?'Save changes':'Pin task + '}</button>{edit&&<button type="button" onClick={reset}>Cancel</button>}</div><p className="pins-local">Saved in this browser. Give it a date when you have one.</p></form><section className="pins-board"><div className="pins-board-heading"><h2>Your pinboard.</h2><button onClick={exportCal} disabled={!tasks.some(t=>!t.completed&&validDay(t.dueDate))}>Export dates (.ics) ↗</button></div>{!tasks.length&&<div className="pins-empty"><span>＋</span><h3>A little room to think.</h3><p>No tasks yet. Start with the one thing you don't want to forget.</p></div>}<div className="pins-grid">{[...tasks].sort((a,b)=>Number(a.completed)-Number(b.completed)||(a.dueDate||'9999').localeCompare(b.dueDate||'9999')).map((t,i)=><article key={t.id} style={{animationDelay:`${Math.min(i,8)*65}ms`}} className={`pin-card tone-${i%3} ${t.completed?'pin-complete':''}`}><span className="pin-dot"/><p className="pin-meta">{t.category} · {t.completed?'Completed':dueLabel(t.dueDate)}</p><h3>{t.text}</h3>{t.dueDate&&<p className="pin-date">{t.dueDate} · entered by you</p>}{t.courseId&&<p className="pin-course">{CATALOG.find(c=>c.id===t.courseId)?.name||'Linked course'}</p>}<div className="pin-actions"><button aria-pressed={t.completed} onClick={()=>setTasks(old=>old.map(x=>x.id===t.id?{...x,completed:!x.completed}:x))}>{t.completed?'Reopen ↺':'Mark complete ✓'}</button><button onClick={()=>{setEdit(t.id);setText(t.text);setDay(t.dueDate||'');setCategory(t.category);setCourseId(t.courseId||'');window.scrollTo(0,0);}}>Edit</button><button aria-label={`Delete ${t.text}`} onClick={()=>{if(confirm('Delete this task?')){setTasks(old=>old.filter(x=>x.id!==t.id));if(edit===t.id)reset();}}}>Delete</button></div></article>)}</div></section></div></main></div>;
-}
+import React, { useState, useEffect, useRef } from 'react';
+import { 
+  Plus, 
+  Trash2, 
+  CheckCircle2, 
+  Circle, 
+  AlertCircle, 
+  Calendar, 
+  Tag, 
+  Filter, 
+  CheckSquare, 
+  LayoutList,
+  Flame,
+  Clock,
+  Briefcase,
+  BookOpen,
+  FlaskConical,
+  X,
+  Check,
+  ChevronDown,
+  Loader2
+} from 'lucide-react';
+import { useData } from '../context/DataContext';
+import { Task, Priority, TaskCategory as Category } from '../types';
+
+// --- CONSTANTS ---
+const CATEGORY_CONFIG: Record<Category, { color: string, icon: any, label: string }> = {
+  EXAM: { color: 'text-red-400', icon: Flame, label: 'Exam Prep' },
+  LAB: { color: 'text-cyan-400', icon: FlaskConical, label: 'Lab Work' },
+  SUBMISSION: { color: 'text-yellow-400', icon: Briefcase, label: 'Submission' },
+  GENERAL: { color: 'text-slate-400', icon: BookOpen, label: 'General' }
+};
+
+const PRIORITY_CONFIG: Record<Priority, { color: string, border: string, glow: string }> = {
+  CRITICAL: { color: 'text-[#E11D48]', border: 'border-[#E11D48]', glow: 'shadow-[0_0_15px_rgba(225,29,72,0.15)]' },
+  NORMAL: { color: 'text-blue-400', border: 'border-blue-500/50', glow: '' },
+  LOW: { color: 'text-slate-400', border: 'border-slate-700', glow: '' }
+};
+
+// --- MICRO COMPONENTS ---
+
+const CustomSelect = <T extends string>({ 
+  label, 
+  value, 
+  onChange, 
+  options 
+}: { 
+  label: string, 
+  value: T, 
+  onChange: (val: T) => void, 
+  options: { value: T, label: string, icon?: any, color?: string }[] 
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const selectedOption = options.find(o => o.value === value);
+
+  return (
+    <div className="space-y-2 relative" ref={containerRef}>
+      <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">{label}</label>
+      <button
+        type="button"
+        onClick={() => setIsOpen(!isOpen)}
+        className={`w-full bg-white/5 border rounded-xl px-4 py-3 flex items-center justify-between transition-all duration-300 ${
+            isOpen ? 'border-[#E11D48] bg-white/[0.07] shadow-[0_0_15px_rgba(225,29,72,0.1)]' : 'border-white/10 hover:border-white/20'
+        }`}
+      >
+        <div className="flex items-center gap-3">
+            {selectedOption?.icon && <selectedOption.icon size={14} className={selectedOption.color} />}
+            {selectedOption?.color && !selectedOption.icon && <div className={`w-2 h-2 rounded-full ${selectedOption.color}`} />}
+            <span className={`text-xs font-bold uppercase tracking-wider ${selectedOption?.color && !selectedOption.icon ? 'text-slate-300' : (selectedOption?.icon ? 'text-slate-300' : '')}`}>
+                {selectedOption?.label}
+            </span>
+        </div>
+        <ChevronDown size={14} className={`text-slate-500 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#E11D48]' : ''}`} />
+      </button>
+
+      {isOpen && (
+        <div className="absolute top-[calc(100%+8px)] left-0 w-full bg-[#0a0a0a] border border-white/10 rounded-xl shadow-2xl z-50 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+            {options.map((opt) => (
+                <button
+                    key={opt.value}
+                    type="button"
+                    onClick={() => { onChange(opt.value); setIsOpen(false); }}
+                    className="w-full text-left px-4 py-3 hover:bg-white/5 transition-colors flex items-center justify-between group border-b border-white/5 last:border-0"
+                >
+                    <div className="flex items-center gap-3">
+                         {opt.icon && <opt.icon size={14} className={opt.color || 'text-slate-500'} />}
+                         {opt.color && !opt.icon && <div className={`w-2 h-2 rounded-full ${opt.color}`} />}
+                         <span className={`text-xs font-bold uppercase tracking-wider ${value === opt.value ? 'text-white' : 'text-slate-400 group-hover:text-slate-200'}`}>
+                             {opt.label}
+                         </span>
+                    </div>
+                    {value === opt.value && <Check size={12} className="text-[#E11D48]" />}
+                </button>
+            ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+
+// --- MAIN COMPONENT ---
+
+const TodoList: React.FC = () => {
+  // State
+  const { tasks, setTasks } = useData();
+  const [loading, setLoading] = useState(false);
+  const [inputText, setInputText] = useState('');
+  const [inputPriority, setInputPriority] = useState<Priority>('NORMAL');
+  const [inputCategory, setInputCategory] = useState<Category>('GENERAL');
+  const [inputDate, setInputDate] = useState('');
+  const [filter, setFilter] = useState<'ALL' | 'ACTIVE' | 'COMPLETED'>('ALL');
+
+  // Handlers
+  const addTask = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!inputText.trim()) return;
+
+    const newTask: Task = {
+      id: Math.random().toString(36).substr(2, 9),
+      text: inputText,
+      completed: false,
+      priority: inputPriority,
+      category: inputCategory,
+      dueDate: inputDate || '',
+      createdAt: new Date().toISOString()
+    };
+
+    setTasks(prev => [newTask, ...prev]);
+    setInputText('');
+  };
+
+  const toggleTask = (id: string) => {
+    setTasks(prev => prev.map(t => t.id === id ? { ...t, completed: !t.completed } : t));
+  };
+
+  const deleteTask = (id: string) => {
+    setTasks(prev => prev.filter(t => t.id !== id));
+  };
+
+  const clearCompleted = () => {
+    setTasks(prev => prev.filter(t => !t.completed));
+  };
+
+  // Metrics
+  const completedCount = tasks.filter(t => t.completed).length;
+  const totalCount = tasks.length;
+  const progress = totalCount === 0 ? 0 : Math.round((completedCount / totalCount) * 100);
+
+  // Filtering
+  const filteredTasks = tasks.filter(t => {
+    if (filter === 'ACTIVE') return !t.completed;
+    if (filter === 'COMPLETED') return t.completed;
+    return true;
+  }).sort((a, b) => {
+    // Sort: Critical Active First, then Normal, then Low, then Completed
+    if (a.completed === b.completed) {
+        const pMap = { CRITICAL: 3, NORMAL: 2, LOW: 1 };
+        // Safety check for priority
+        const pA = pMap[a.priority] || 1;
+        const pB = pMap[b.priority] || 1;
+        return pB - pA;
+    }
+    return a.completed ? 1 : -1;
+  });
+
+  // Dropdown Options Configuration
+  const priorityOptions = [
+    { value: 'CRITICAL', label: 'Critical', color: 'bg-[#E11D48]' },
+    { value: 'NORMAL', label: 'Normal', color: 'bg-blue-400' },
+    { value: 'LOW', label: 'Low', color: 'bg-slate-500' }
+  ];
+
+  const categoryOptions = Object.entries(CATEGORY_CONFIG).map(([key, config]) => ({
+      value: key as Category,
+      label: config.label,
+      icon: config.icon,
+      color: config.color
+  }));
+
+  return (
+    <div className="min-h-full animate-in fade-in slide-in-from-bottom-4 duration-700 pb-20">
+      
+      {/* HEADER HUD */}
+      <header className="mb-12 border-b border-white/5 pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div>
+           <div className="flex items-center gap-2 text-[#E11D48] mb-2">
+                <CheckSquare size={16} />
+                <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em]">Local Task Management</span>
+            </div>
+            <h1 className="text-5xl lg:text-7xl font-display font-bold text-white tracking-tighter leading-none">
+                Task <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-500 to-slate-700">List</span>
+            </h1>
+        </div>
+        
+        {/* Progress Unit */}
+        <div className="w-full md:w-64 bg-[#0a0a0a] border border-white/10 p-4 rounded-2xl relative overflow-hidden">
+            <div className="flex justify-between items-end mb-2 relative z-10">
+                <span className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Efficiency</span>
+                <span className="text-2xl font-display font-bold text-white">{progress}%</span>
+            </div>
+            <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden relative z-10">
+                <div 
+                    className={`h-full bg-[#E11D48] shadow-[0_0_10px_#E11D48] transition-all duration-700 ease-out ${loading ? 'animate-pulse' : ''}`}
+                    style={{ width: `${progress}%` }}
+                ></div>
+            </div>
+            {/* Background noise */}
+            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+        </div>
+      </header>
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+        
+        {/* INPUT CONSOLE */}
+        <div className="lg:col-span-4 space-y-6">
+            <div className="bg-[#050505] border border-white/10 rounded-3xl p-6 lg:p-8 sticky top-8">
+                <div className="flex items-center gap-2 mb-6 text-white/50">
+                    <LayoutList size={18} />
+                    <h3 className="text-xs font-bold uppercase tracking-widest">Add New Task</h3>
+                </div>
+
+                <form onSubmit={addTask} className="space-y-5">
+                    
+                    {/* Text Input */}
+                    <div className="space-y-2">
+                        <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Task Title</label>
+                        <input 
+                            type="text" 
+                            value={inputText}
+                            onChange={(e) => setInputText(e.target.value)}
+                            placeholder="Ex: Complete Unit 3 PYQs..."
+                            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#E11D48] focus:bg-white/[0.07] outline-none transition-all placeholder:text-slate-600 font-medium"
+                            autoFocus
+                        />
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-4">
+                        {/* Custom Dropdowns */}
+                        <CustomSelect 
+                            label="Priority Vector"
+                            value={inputPriority}
+                            onChange={(v) => setInputPriority(v as Priority)}
+                            options={priorityOptions}
+                        />
+
+                        <CustomSelect 
+                            label="Category"
+                            value={inputCategory}
+                            onChange={(v) => setInputCategory(v as Category)}
+                            options={categoryOptions}
+                        />
+                    </div>
+
+                    {/* Date Input */}
+                    <div className="space-y-2">
+                        <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Dead-Line (Optional)</label>
+                        <div className="relative group">
+                            <Calendar size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-[#E11D48] transition-colors" />
+                            <input 
+                                type="date" 
+                                value={inputDate}
+                                onChange={(e) => setInputDate(e.target.value)}
+                                className="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-xs font-mono text-slate-300 focus:border-[#E11D48] outline-none transition-colors uppercase"
+                            />
+                        </div>
+                    </div>
+
+                    <button 
+                        type="submit"
+                        disabled={!inputText}
+                        className="w-full py-4 bg-[#E11D48] hover:bg-[#be123c] disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold uppercase tracking-[0.2em] rounded-xl transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(225,29,72,0.2)] hover:shadow-[0_0_30px_rgba(225,29,72,0.4)]"
+                    >
+                        <Plus size={16} /> Add Task
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        {/* TASK MATRIX (List) */}
+        <div className="lg:col-span-8">
+            
+            {/* Controls */}
+            <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+                <div className="flex bg-[#0a0a0a] border border-white/10 p-1 rounded-xl">
+                    {(['ALL', 'ACTIVE', 'COMPLETED'] as const).map((f) => (
+                        <button
+                            key={f}
+                            onClick={() => setFilter(f)}
+                            className={`px-4 py-2 rounded-lg text-[10px] font-bold uppercase tracking-widest transition-all ${
+                                filter === f 
+                                ? 'bg-white text-black shadow-lg' 
+                                : 'text-slate-500 hover:text-white hover:bg-white/5'
+                            }`}
+                        >
+                            {f}
+                        </button>
+                    ))}
+                </div>
+
+                {completedCount > 0 && (
+                    <button 
+                        onClick={clearCompleted}
+                        className="px-4 py-2 text-[10px] font-bold text-red-500 hover:bg-red-500/10 border border-transparent hover:border-red-500/20 rounded-xl uppercase tracking-widest flex items-center gap-2 transition-all"
+                    >
+                        <Trash2 size={12} /> Clear Completed
+                    </button>
+                )}
+            </div>
+
+            {/* List */}
+            <div className="space-y-4">
+                {loading ? (
+                    <div className="py-20 text-center">
+                        <Loader2 size={48} className="mx-auto text-[#E11D48] animate-spin mb-4" />
+                        <p className="text-slate-500 text-sm font-mono uppercase tracking-widest">Accessing Local Drive...</p>
+                    </div>
+                ) : filteredTasks.length === 0 ? (
+                    <div className="py-20 text-center border border-dashed border-white/10 rounded-3xl bg-white/[0.01]">
+                        <CheckCircle2 size={48} className="mx-auto text-slate-700 mb-4" />
+                        <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">No Active Tasks</p>
+                    </div>
+                ) : (
+                    filteredTasks.map(task => {
+                        // Safety Checks for Configs
+                        const catConfig = CATEGORY_CONFIG[task.category] || CATEGORY_CONFIG['GENERAL'];
+                        const priConfig = PRIORITY_CONFIG[task.priority] || PRIORITY_CONFIG['NORMAL'];
+                        const CategoryIcon = catConfig.icon;
+
+                        return (
+                            <div 
+                                key={task.id}
+                                className={`
+                                    group relative bg-[#0a0a0a] border rounded-2xl p-5 transition-all duration-300 
+                                    hover:translate-x-1 flex items-start gap-5
+                                    ${task.completed ? 'opacity-50 border-white/5' : `hover:border-white/20 ${priConfig.border} ${priConfig.glow}`}
+                                `}
+                            >
+                                {/* Checkbox Node */}
+                                <button 
+                                    onClick={() => toggleTask(task.id)}
+                                    className={`
+                                        mt-1 w-6 h-6 rounded-full border flex items-center justify-center shrink-0 transition-all
+                                        ${task.completed 
+                                            ? 'bg-green-500 border-green-500 text-black' 
+                                            : 'bg-transparent border-white/20 hover:border-white text-transparent'
+                                        }
+                                    `}
+                                >
+                                    <Check size={14} strokeWidth={3} />
+                                </button>
+
+                                <div className="flex-1 min-w-0">
+                                    <div className="flex flex-wrap items-center gap-2 mb-2">
+                                        {/* Priority Badge */}
+                                        <span className={`text-[9px] font-bold border px-1.5 py-0.5 rounded uppercase tracking-wider ${priConfig.color} border-current opacity-80`}>
+                                            {task.priority || 'NORMAL'}
+                                        </span>
+                                        
+                                        {/* Category Badge */}
+                                        <span className={`text-[9px] font-bold flex items-center gap-1 uppercase tracking-wider ${catConfig.color}`}>
+                                            <CategoryIcon size={10} />
+                                            {catConfig.label}
+                                        </span>
+
+                                        {/* Date Badge */}
+                                        {task.dueDate && (
+                                            <span className="text-[9px] font-mono text-slate-500 flex items-center gap-1 uppercase tracking-wider ml-auto">
+                                                <Clock size={10} />
+                                                {new Date(task.dueDate).toLocaleDateString()}
+                                            </span>
+                                        )}
+                                    </div>
+
+                                    <p className={`text-sm font-medium leading-relaxed ${task.completed ? 'text-slate-500 line-through decoration-slate-700' : 'text-slate-200'}`}>
+                                        {task.text}
+                                    </p>
+                                </div>
+
+                                <button 
+                                    onClick={() => deleteTask(task.id)}
+                                    className="opacity-0 group-hover:opacity-100 p-2 text-slate-600 hover:text-red-500 transition-all rounded-lg hover:bg-white/5"
+                                >
+                                    <X size={16} />
+                                </button>
+                            </div>
+                        );
+                    })
+                )}
+            </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default TodoList;

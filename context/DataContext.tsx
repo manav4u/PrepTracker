@@ -1,21 +1,9 @@
 
-import React, { createContext, useContext, useState, useEffect, useRef, useCallback, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { Profile, UserProgress, Task, ResourceItem } from '../types';
 import { SYSTEM_RESOURCES } from '../constants';
-import { migrateLearning } from '../lib/learning.mjs';
-import { KEYS } from '../lib/backup.mjs';
-import {persistStudy} from '../lib/study-storage.mjs';
 
-export type PlanEntry={id:string;topicId:string;courseId:string;label:string;date:string;minutes:number;reason:string;status:'planned'|'done'|'skipped'};
-export type RecallOutcome='again'|'hint'|'solo';
-export type TopicState={status?:'not-started'|'studying'|'done';confidence?:'low'|'medium'|'high';lastRevised?:string;lastAttempt?:string;outcome?:RecallOutcome;nextReview?:string|null};
-export type ComparisonReference={kind:'user'|'reviewed';label:string;text:string;url?:string};
-export type AttemptRecord={id:string;topicId:string;courseId:string;unitId:string;goal:string;answer:string;paper:boolean;outcome:RecallOutcome;reference:ComparisonReference;day:string;at:string;review:string|null;before:TopicState|null};
-export type StudyState={schemaVersion?:2;attempts?:AttemptRecord[];marksConfig?:{semester:1|2;workshop:'workshop'|'design'};plan?:PlanEntry[];budget?:{minutes:number;sessionMinutes:number};topics:Record<string,TopicState>;events:{id:string;topicId:string;day:string;at:string;kind:'revision';confidence:'low'|'medium'|'high'}[]};
 interface DataContextType {
-  study: StudyState;
-  commitStudy: React.Dispatch<React.SetStateAction<StudyState>>;
-  setStudy: React.Dispatch<React.SetStateAction<StudyState>>;
   profile: Profile | null;
   setProfile: (profile: Profile) => void;
   userProgress: UserProgress[];
@@ -30,20 +18,9 @@ interface DataContextType {
 const DataContext = createContext<DataContextType | undefined>(undefined);
 
 export const DataProvider = ({ children }: { children: ReactNode }) => {
-  const [study,setStudyState]=useState<StudyState>(()=>{try{return migrateLearning(JSON.parse(localStorage.getItem(KEYS.study)||'{"topics":{},"events":[]}'));}catch{return {topics:{},events:[]};}});
-  const studyRef=useRef(study);
-  const [studyError,setStudyError]=useState('');
-  const commitStudy=useCallback<React.Dispatch<React.SetStateAction<StudyState>>>((action)=>{
-    const next=typeof action==='function'?action(studyRef.current):action;
-    persistStudy(localStorage,next);
-    studyRef.current=next;
-    setStudyState(next);
-    setStudyError('');
-  },[]);
-  const setStudy=useCallback<React.Dispatch<React.SetStateAction<StudyState>>>((action)=>{try{commitStudy(action);}catch(e){setStudyError(e instanceof Error?e.message:'Could not save study changes.');}},[commitStudy]);
   const [profile, setProfileState] = useState<Profile | null>(() => {
     try {
-      const saved = localStorage.getItem(KEYS.profile);
+      const saved = localStorage.getItem('sppu_profile');
       return saved ? JSON.parse(saved) : null;
     } catch (e) {
       console.error("Failed to parse profile from local storage", e);
@@ -53,7 +30,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
 
   const [userProgress, setUserProgressState] = useState<UserProgress[]>(() => {
     try {
-      const saved = localStorage.getItem(KEYS.progress);
+      const saved = localStorage.getItem('sppu_progress');
       return saved ? JSON.parse(saved) : [];
     } catch (e) {
         console.error("Failed to parse progress from local storage", e);
@@ -63,7 +40,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
 
   const [tasks, setTasksState] = useState<Task[]>(() => {
     try {
-      const saved = localStorage.getItem(KEYS.tasks);
+      const saved = localStorage.getItem('sppu_tasks');
       return saved ? JSON.parse(saved) : [];
     } catch (e) {
         console.error("Failed to parse tasks from local storage", e);
@@ -73,7 +50,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
 
   const [customResources, setCustomResources] = useState<ResourceItem[]>(() => {
     try {
-      const saved = localStorage.getItem(KEYS.resources);
+      const saved = localStorage.getItem('sppu_custom_resources');
       return saved ? JSON.parse(saved) : [];
     } catch (e) {
         console.error("Failed to parse custom resources from local storage", e);
@@ -83,7 +60,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
 
   const [deletedResourceIds, setDeletedResourceIds] = useState<string[]>(() => {
     try {
-      const saved = localStorage.getItem(KEYS.hiddenResourceIds);
+      const saved = localStorage.getItem('sppu_deleted_system_ids');
       return saved ? JSON.parse(saved) : [];
     } catch (e) {
         console.error("Failed to parse deleted resource ids from local storage", e);
@@ -99,23 +76,23 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
 
   // Persistence Effects
   useEffect(() => {
-    if (profile) localStorage.setItem(KEYS.profile, JSON.stringify(profile));
+    if (profile) localStorage.setItem('sppu_profile', JSON.stringify(profile));
   }, [profile]);
 
   useEffect(() => {
-    localStorage.setItem(KEYS.progress, JSON.stringify(userProgress));
+    localStorage.setItem('sppu_progress', JSON.stringify(userProgress));
   }, [userProgress]);
 
   useEffect(() => {
-    localStorage.setItem(KEYS.tasks, JSON.stringify(tasks));
+    localStorage.setItem('sppu_tasks', JSON.stringify(tasks));
   }, [tasks]);
 
   useEffect(() => {
-    localStorage.setItem(KEYS.resources, JSON.stringify(customResources));
+    localStorage.setItem('sppu_custom_resources', JSON.stringify(customResources));
   }, [customResources]);
 
   useEffect(() => {
-    localStorage.setItem(KEYS.hiddenResourceIds, JSON.stringify(deletedResourceIds));
+    localStorage.setItem('sppu_deleted_system_ids', JSON.stringify(deletedResourceIds));
   }, [deletedResourceIds]);
 
 
@@ -143,7 +120,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <DataContext.Provider value={{study,setStudy,commitStudy,
+    <DataContext.Provider value={{
       profile,
       setProfile,
       userProgress,
@@ -154,7 +131,6 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
       addResource,
       deleteResources
     }}>
-      {studyError&&<p className="study-storage-error" role="alert">{studyError}</p>}
       {children}
     </DataContext.Provider>
   );
