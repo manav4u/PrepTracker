@@ -1,0 +1,3 @@
+import test from 'node:test';import assert from 'node:assert/strict';import{writeLocal,writeLocalBatch}from'../lib/local-write.mjs';
+test('failed local write does not publish a next state',()=>{assert.throws(()=>writeLocal({setItem(){throw Error('quota')}},'tasks',[]),/previous data is unchanged/)});
+test('batch resource removal rolls back first write if second fails',()=>{const data=new Map([['custom','old'],['hidden','old-hidden']]);const storage={getItem:k=>data.get(k)||null,setItem(k,v){if(k==='hidden'&&v!=='old-hidden')throw Error('quota');data.set(k,v)},removeItem:k=>data.delete(k)};assert.throws(()=>writeLocalBatch(storage,[['custom',[]],['hidden',['id']]]));assert.equal(data.get('custom'),'old');assert.equal(data.get('hidden'),'old-hidden')});

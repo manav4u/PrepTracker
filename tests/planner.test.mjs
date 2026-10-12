@@ -5,3 +5,5 @@ test('budget, linked deadlines, weak topics and completed exclusion',()=>{const 
 test('Done does not exclude genuinely due revision; fresh Done stays out',()=>{const s={topics:{a:{status:'done',lastRevised:'2026-10-01',confidence:'low'},b:{status:'done',lastRevised:'2026-10-10',confidence:'high'},c:{status:'done'}},events:[]};const p=generatePlan(topics,s,[],{start:'2026-10-10'});assert.deepEqual(p.map(x=>x.topicId),['a']);assert.equal(p[0].reason,'Revision due');});
 
 test('covered source topics return for actual practice, not invented cache-only attempts',()=>{const state={topics:{a:{status:'done',nextReview:'2026-10-10'},b:{status:'done',lastAttempt:'2026-01-01',nextReview:'2026-10-10'}},attempts:[{topicId:'a',outcome:'solo'}]};const p=generatePlan(topics,state,[],{start:'2026-10-10'});assert.ok(p.some(x=>x.topicId==='a'&&x.reason==='Practice return due'));assert.ok(!p.some(x=>x.topicId==='b'));});
+
+test('an explicitly cleared return does not revive an old revision date',()=>{const state={topics:{a:{status:'done',lastRevised:'2026-01-01',nextReview:null}},attempts:[]};assert.deepEqual(generatePlan(topics.slice(0,1),state,[],{start:'2026-10-10'}),[])});
