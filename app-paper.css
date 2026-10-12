@@ -44,3 +44,7 @@
 .link-cabinet .cabinet-heading{position:relative}
 .progress-map .progress-method nav button,.progress-map .progress-method nav a{background:var(--grain),linear-gradient(180deg,#fffdf7,#f6eedb)!important;border:1px solid var(--paper-rule);border-left:5px solid var(--paper-green-deep);color:var(--paper-ink)}
 .progress-map .evidence-badge{background:transparent!important;color:var(--paper-green-deep);border:1.5px solid var(--paper-green-deep);border-radius:3px}
+.pins-more,.cabinet-more{display:block;margin:26px auto 0;font:600 14px "DM Sans",Arial;color:var(--paper-green-deep);background:none;border:0;border-bottom:2px solid var(--paper-green-deep);padding:4px 0;cursor:pointer}
+.pins-more:focus-visible,.cabinet-more:focus-visible{outline:2px solid var(--paper-green-deep);outline-offset:4px}
+@media(max-width:400px){.marks-fields input{font-size:21px;padding-inline:7px 4px}}
+@media(max-width:400px){.marks-fields{align-items:end}.marks-fields label{font-size:10px;letter-spacing:.04em}}

@@ -9,7 +9,8 @@ import ResourceViewerModal from "../components/ResourceViewerModal";
 import { useData } from "../context/DataContext";
 export default function Resources() {
   const { profile, resources, addResource, deleteResources } = useData();
-  const [tab, setTab] = useState("all"),
+  const [shown, setShown] = useState(36),
+    [tab, setTab] = useState("all"),
     [query, setQuery] = useState(""),
     [select, setSelect] = useState(false),
     [ids, setIds] = useState<Set<string>>(new Set()),
@@ -159,7 +160,7 @@ export default function Resources() {
               <button
                 aria-pressed={tab === t}
                 key={t}
-                onClick={() => setTab(t)}
+                onClick={() => { setTab(t); setShown(36); }}
               >
                 {t}
               </button>
@@ -204,7 +205,7 @@ export default function Resources() {
           </section>
         )}
         <div className="cabinet-grid">
-          {list.map((r, i) => (
+          {list.slice(0, shown).map((r, i) => (
             <button
               key={r.id}
               className={`cabinet-card tone-${i % 3} ${ids.has(r.id) ? "selected" : ""}`}
@@ -241,6 +242,11 @@ export default function Resources() {
             </button>
           ))}
         </div>
+        {list.length > shown && (
+          <button className="cabinet-more" onClick={() => setShown((n) => n + 36)}>
+            Show {Math.min(36, list.length - shown)} more ({list.length - shown} left)
+          </button>
+        )}
         <ResourceViewerModal
           isOpen={!!view}
           resource={view}

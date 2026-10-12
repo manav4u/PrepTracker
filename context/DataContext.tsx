@@ -66,8 +66,9 @@ export type StudyState = {
     topicId: string;
     day: string;
     at: string;
-    kind: "revision";
-    confidence: "low" | "medium" | "high";
+    kind: "revision" | "quick-log";
+    confidence?: "low" | "medium" | "high";
+    compared?: false;
   }[];
 };
 interface DataContextType {

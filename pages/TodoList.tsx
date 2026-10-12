@@ -8,7 +8,8 @@ import { Task } from "../types";
 import { dueLabel, validDay, calendarExport } from "../lib/dates.mjs";
 export default function TodoList() {
   const { tasks, setTasks, profile } = useData();
-  const [edit, setEdit] = useState<string | null>(null),
+  const [shown, setShown] = useState(30),
+    [edit, setEdit] = useState<string | null>(null),
     [text, setText] = useState(""),
     [day, setDay] = useState(""),
     [category, setCategory] = useState<Task["category"]>("GENERAL"),
@@ -213,6 +214,7 @@ export default function TodoList() {
                     Number(a.completed) - Number(b.completed) ||
                     (a.dueDate || "9999").localeCompare(b.dueDate || "9999"),
                 )
+                .slice(0, shown)
                 .map((t, i) => (
                   <article
                     key={t.id}
@@ -276,6 +278,11 @@ export default function TodoList() {
                   </article>
                 ))}
             </div>
+            {tasks.length > shown && (
+              <button className="pins-more" onClick={() => setShown((n) => n + 30)}>
+                Show {Math.min(30, tasks.length - shown)} more ({tasks.length - shown} left)
+              </button>
+            )}
           </section>
         </div>
       </main>
