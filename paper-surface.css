@@ -80,3 +80,13 @@
 .cabinet-drawers button[aria-pressed=true]::after{content:"";position:absolute;top:12px;right:14px;width:28px;height:24px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 26' fill='none' stroke='%23304934' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M2.5 14.5C6 15.8 8.4 18.4 11.2 23.4C15 14.2 21 7 28 2.6'/></svg>") no-repeat center/contain;pointer-events:none}
 @media(prefers-reduced-motion:no-preference){.cabinet-drawers button[aria-pressed=true]::after{animation:tick-in .5s .1s cubic-bezier(.5,.1,.2,1) backwards}}
 @keyframes tick-in{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+/* Planner empty week and study stage marks. */
+.hand-week{display:block;width:min(100%,360px);height:auto;margin:0 auto 14px;overflow:visible;color:var(--paper-green-deep);opacity:.8}
+.hand-stroke-week{stroke-width:1.4}
+.studio-steps{border:var(--paper-edge)!important;border-left:var(--paper-spine)!important;background:var(--paper-sheet)!important;box-shadow:var(--paper-lift)!important;border-radius:3px 12px 4px 10px}
+.studio-steps b{font-family:"Libre Baskerville",Georgia,serif;font-weight:400;color:var(--paper-green-deep)}
+.studio-steps span{position:relative}
+.studio-steps span[aria-current=step]::after{content:"";position:absolute;left:-2px;right:-2px;bottom:-7px;height:9px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 9' preserveAspectRatio='none' fill='none' stroke='%23304934' stroke-width='1.8' stroke-linecap='round'><path vector-effect='non-scaling-stroke' d='M1.5 5.6C20 2.6 38 6.6 58 3.8S88 3 98.5 5'/></svg>") no-repeat center/100% 100%;pointer-events:none}
+.hand-week path{transform-box:fill-box;transform-origin:center}
+.hand-week path:nth-child(1){transform:rotate(-1.6deg)}.hand-week path:nth-child(2){transform:rotate(1.1deg) translateY(1px)}.hand-week path:nth-child(3){transform:rotate(-.8deg) translateY(-1px)}.hand-week path:nth-child(4){transform:rotate(1.7deg)}.hand-week path:nth-child(5){transform:rotate(-1.2deg) translateY(1px)}.hand-week path:nth-child(6){transform:rotate(.9deg) translateY(-1px)}.hand-week path:nth-child(7){transform:rotate(-1.9deg)}
+.hand-week-num{fill:var(--paper-green-deep);font:italic 400 13px "Libre Baskerville",Georgia,serif;opacity:.75}
