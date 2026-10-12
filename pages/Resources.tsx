@@ -168,8 +168,38 @@ export default function Resources() {
         {!list.length && (
           <section className="cabinet-empty">
             <span>∅</span>
-            <h2>An empty drawer.</h2>
-            <p>No matching resources. Change your search or keep a new link.</p>
+            {query ? (
+              <>
+                <h2>Nothing matches that search.</h2>
+                <p>Clear the search box or try fewer words.</p>
+              </>
+            ) : tab === "solved pyqs" ? (
+              <>
+                <h2>No solved papers kept yet.</h2>
+                <p>
+                  PrepTracker does not ship past papers or answer keys, and it
+                  does not claim any paper matches your exam pattern. If you
+                  have a paper and a solution you trust, keep the link here
+                  and it will sit in this drawer.
+                </p>
+                <button className="cabinet-empty-add" onClick={() => { setError(""); setAdd(true); }}>Keep a paper link +</button>
+              </>
+            ) : tab === "textbooks" ? (
+              <>
+                <h2>No textbooks kept yet.</h2>
+                <p>
+                  Check your course page for reviewed readings that overlap a
+                  topic. Your own textbook links, a library PDF or an open
+                  book, belong in this drawer.
+                </p>
+                <button className="cabinet-empty-add" onClick={() => { setError(""); setAdd(true); }}>Keep a textbook link +</button>
+              </>
+            ) : (
+              <>
+                <h2>An empty drawer.</h2>
+                <p>Nothing kept here yet. Keep a new link and it will show up in this drawer.</p>
+              </>
+            )}
           </section>
         )}
         <div className="cabinet-grid">
