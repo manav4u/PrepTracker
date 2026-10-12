@@ -90,3 +90,7 @@
 .hand-week path{transform-box:fill-box;transform-origin:center}
 .hand-week path:nth-child(1){transform:rotate(-1.6deg)}.hand-week path:nth-child(2){transform:rotate(1.1deg) translateY(1px)}.hand-week path:nth-child(3){transform:rotate(-.8deg) translateY(-1px)}.hand-week path:nth-child(4){transform:rotate(1.7deg)}.hand-week path:nth-child(5){transform:rotate(-1.2deg) translateY(1px)}.hand-week path:nth-child(6){transform:rotate(.9deg) translateY(-1px)}.hand-week path:nth-child(7){transform:rotate(-1.9deg)}
 .hand-week-num{fill:var(--paper-green-deep);font:italic 400 13px "Libre Baskerville",Georgia,serif;opacity:.75}
+/* Directory: card already on the shelf. */
+.library-on-shelf{display:flex;align-items:center;gap:8px;margin:10px 0 0;font:italic 400 14px "Libre Baskerville",Georgia,serif;color:var(--paper-green-deep)}
+.hand-tick{width:20px;height:17px;overflow:visible;color:var(--paper-green-deep);flex:none}
+.hand-tick .hand-stroke{stroke-width:2.2}

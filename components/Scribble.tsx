@@ -75,3 +75,11 @@ export function HandWeek() {
     </svg>
   );
 }
+
+export function HandTick() {
+  return (
+    <svg className="hand-tick" viewBox="0 0 30 26" aria-hidden="true" focusable="false">
+      <path className="hand-stroke" pathLength={1} d="M2.5 14.5 C6 15.8 8.4 18.4 11.2 23.4 C15 14.2 21 7 28 2.6" />
+    </svg>
+  );
+}
