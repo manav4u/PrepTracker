@@ -48,4 +48,4 @@ import "./cycle-three.css";
 import "./edition-type.css";
 import './desk-sketch.css';
 import './card-craft.css';
-import './app-paper.css';
+import './paper-surface.css';
