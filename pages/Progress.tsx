@@ -1,4 +1,5 @@
 import DeskSketch from "../components/DeskSketch";
+import { HandUnderline } from "../components/Scribble";
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import EditionNav from "../components/EditionNav";
@@ -217,7 +218,12 @@ export default function Progress() {
             <div className="progress-map-heading">
               <div>
                 <p>YOUR SELECTED COURSE</p>
-                <h2>Every square is a topic.</h2>
+                <h2>
+                  <span className="hand-word">
+                    Every square is a topic.
+                    <HandUnderline kind="heading" />
+                  </span>
+                </h2>
                 <label className="quiet-progress-course">
                   Course
                   <select

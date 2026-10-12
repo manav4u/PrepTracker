@@ -1,4 +1,5 @@
 import DeskSketch from "../components/DeskSketch";
+import { HandUnderline } from "../components/Scribble";
 import "../marks-ledger.css";
 import EditionNav from "../components/EditionNav";
 import TheoryMarks from "../components/TheoryMarks";
@@ -193,7 +194,12 @@ const CalculatorPage: React.FC = () => {
             </details>
             {saveError && <p role="alert">{saveError}</p>}
             <div className="marks-row-heading">
-              <h2>Your marks ledger.</h2>
+              <h2>
+                <span className="hand-word">
+                  Your marks ledger.
+                  <HandUnderline kind="heading" />
+                </span>
+              </h2>
               <button
                 onClick={() => {
                   if (confirm("Clear all entered marks in this browser?"))
