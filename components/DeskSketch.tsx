@@ -1,3 +1,4 @@
+import Arr from './Arr';
 import React,{useEffect,useRef} from 'react';
 import '../desk-sketch.css';
 export default function DeskSketch({kind,status,to}:{kind:'plan'|'pins'|'marks'|'links'|'progress'|'care'|'course'|'study';status?:string;to?:string}){
@@ -12,5 +13,5 @@ export default function DeskSketch({kind,status,to}:{kind:'plan'|'pins'|'marks'|
  {kind==='care'&&<><path className="sketch-card" d="M34 50h123v90H34Z"/><path d="M35 69h120M53 60h2M65 60h2M78 60h2"/><path d="M61 91h68M62 105h51M62 119h61"/><text x="59" y="169">this browser</text><path className="sketch-stroke" d="M170 102Q219 76 255 100" markerEnd="url(#arrow-care)"/><path className="sketch-card" d="M272 41h67l28 28v98h-95Z"/><path d="M340 42v28h26M291 95h52M291 109h41M291 123h52"/><text x="280" y="192">your backup</text><text className="sketch-note" x="116" y="218">keep a copy before you turn the page</text><path d="M307 17l2 12M324 13l-5 15M292 17l9 12"/></>}
  {kind==='course'&&<><path className="sketch-card" d="M152 75h107v62H152Z"/><text x="172" y="112">one topic</text><path className="sketch-stroke" d="M152 90Q109 36 53 54M152 117Q98 161 45 151M259 92Q293 30 343 51M259 121Q301 167 350 155"/><circle cx="48" cy="53" r="23"/><circle cx="44" cy="155" r="23"/><circle cx="348" cy="52" r="23"/><circle cx="353" cy="158" r="23"/><text x="30" y="58">read</text><text x="26" y="160">try</text><text x="329" y="56">check</text><text x="330" y="162">return</text><text className="sketch-note" x="107" y="202">the syllabus, piece by piece</text></>}
  {kind==='study'&&<><circle cx="90" cy="93" r="43"/><circle cx="296" cy="93" r="43"/><text x="58" y="99">attempt</text><text x="263" y="99">compare</text><path className="sketch-stroke" d="M137 83Q198 36 246 82" markerEnd="url(#arrow-study)"/><path className="sketch-stroke" d="M255 126Q201 189 137 126" markerEnd="url(#arrow-study)"/><path d="M76 25l6 14M94 18l-2 17M109 23l-8 13"/><text x="161" y="205">return</text><text className="sketch-note" x="169" y="28">real work. real reference.</text></>}
- </svg>{status&&to&&<button type="button" className="sketch-status" onClick={go}><i aria-hidden="true"/>{status}<b aria-hidden="true"> ↓</b></button>}</div>
+ </svg>{status&&to&&<button type="button" className="sketch-status" onClick={go}><i aria-hidden="true"/>{status}<b aria-hidden="true"><Arr d="down"/></b></button>}</div>
 }

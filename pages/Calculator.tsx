@@ -1,3 +1,4 @@
+import Arr from '../components/Arr';
 import DeskSketch from "../components/DeskSketch";
 import { HandTick, HandUnderline } from "../components/Scribble";
 import "../marks-ledger.css";
@@ -206,7 +207,7 @@ const CalculatorPage: React.FC = () => {
                     setMarks({}); setRejected({});
                 }}
               >
-                Clear marks ↺
+                Clear marks<Arr d="redo"/>
               </button>
             </div>
             {!filteredSubjects.length && (
@@ -343,14 +344,14 @@ const CalculatorPage: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Official FE scheme, pp2-3 ↗
+                Official FE scheme, pp2-3<Arr d="ne"/>
               </a>
               <a
                 href="http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Grade rules handbook ↗
+                Grade rules handbook<Arr d="ne"/>
               </a>
             </div>
             {summary.isComplete && sgpa < 5 && (

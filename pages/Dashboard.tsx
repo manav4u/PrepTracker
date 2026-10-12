@@ -1,3 +1,4 @@
+import Arr from '../components/Arr';
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import EditionNav from "../components/EditionNav";
@@ -120,7 +121,7 @@ export default function Dashboard() {
                     </small>
                   </Link>
                 ))}
-                <Link to="/directory">Search the full course library ↗</Link>
+                <Link to="/directory">Search the full course library<Arr d="ne"/></Link>
               </div>
             )}
           </div>
@@ -137,7 +138,7 @@ export default function Dashboard() {
                 <h2>No paper date yet.</h2>
                 <p>Add your exam date and this spot counts down to it, with the topic to open next.</p>
                 <span className="hand-cta">
-                  <Link to="/tasks">Add a paper date ↗</Link>
+                  <Link to="/tasks">Add a paper date<Arr d="ne"/></Link>
                   <HandArrow />
                 </span>
               </section>
@@ -155,11 +156,11 @@ export default function Dashboard() {
               </p>
               <div className="pd-tonight-actions">
                 {nextNode ? (
-                  <Link to={courseLink(nextNode)}>Next topic: {nextNode.text} ↗</Link>
+                  <Link to={courseLink(nextNode)}>Next topic: {nextNode.text}<Arr d="ne"/></Link>
                 ) : (
                   <span>Every topic is marked covered.</span>
                 )}
-                <Link to="/planner">Open plan ↗</Link>
+                <Link to="/planner">Open plan<Arr d="ne"/></Link>
               </div>
             </section>
           );
@@ -329,7 +330,7 @@ export default function Dashboard() {
                   className="pd-primary"
                   to={model.next ? courseLink(model.next) : "/directory"}
                 >
-                  {model.next ? "Open this unit" : "Open your courses"} ↗
+                  {model.next ? "Open this unit" : "Open your courses"}<Arr d="ne"/>
                 </Link>
               </section>
             </>
@@ -341,14 +342,14 @@ export default function Dashboard() {
                 will appear here without sample progress.
               </p>
               <Link className="pd-primary" to="/directory">
-                Choose courses ↗
+                Choose courses<Arr d="ne"/>
               </Link>
             </div>
           )}
         </section>
         <header className="pd-sectiontitle">
           <h2>Your courses.</h2>
-          <Link to="/directory">Manage courses ↗</Link>
+          <Link to="/directory">Manage courses<Arr d="ne"/></Link>
         </header>
         <div className="pd-cards">
           {model.shelves.map((s: any, i: number) => {
@@ -407,7 +408,7 @@ export default function Dashboard() {
                     {s.covered}/{s.total} covered
                   </span>
                   <Link to={`/subject/${encodeURIComponent(s.course.id)}`}>
-                    Open course ↗
+                    Open course<Arr d="ne"/>
                   </Link>
                 </footer>
               </article>
@@ -418,7 +419,7 @@ export default function Dashboard() {
           <section className="pd-panel pd-folio">
             <header>
               <span className="pd-kicker">Paper calendar / your dates</span>
-              <Link to="/tasks">Set dates ↗</Link>
+              <Link to="/tasks">Set dates<Arr d="ne"/></Link>
             </header>
             <h3>The papers ahead.</h3>
             {model.papers.length ? (
@@ -453,7 +454,7 @@ export default function Dashboard() {
                     })}
                   </p>
                   <Link to={`/subject/${encodeURIComponent(paper.courseId)}`}>
-                    Open paper's course ↗
+                    Open paper's course<Arr d="ne"/>
                   </Link>
                 </div>
                 <p className="pd-note">
@@ -468,7 +469,7 @@ export default function Dashboard() {
                   No upcoming linked exam dates. Add an Exam task, select its
                   course, and enter the paper date.
                 </p>
-                <Link to="/tasks">Add a paper date ↗</Link>
+                <Link to="/tasks">Add a paper date<Arr d="ne"/></Link>
                 <p className="pd-note">
                   Past dates and unlinked exams remain in Tasks.
                 </p>
@@ -478,7 +479,7 @@ export default function Dashboard() {
           <section className="pd-panel">
             <header>
               <span className="pd-kicker">Today's plan</span>
-              <Link to="/planner">Open plan ↗</Link>
+              <Link to="/planner">Open plan<Arr d="ne"/></Link>
             </header>
             <h3>A place to begin.</h3>
             {model.planned.length ? (
@@ -500,19 +501,19 @@ export default function Dashboard() {
                   coverage record.
                 </p>
                 <Link className="pd-link" to="/planner">
-                  Make room in your plan ↗
+                  Make room in your plan<Arr d="ne"/>
                 </Link>
               </>
             )}
             {model.planned.length > 4 && (
               <Link className="pd-link" to="/planner">
-                {model.planned.length - 4} more sessions ↗
+                {model.planned.length - 4} more sessions<Arr d="ne"/>
               </Link>
             )}
             <div className="pd-taskbox">
               <header>
                 <h4>Pending tasks / {pending.length}</h4>
-                <Link to="/tasks">All tasks ↗</Link>
+                <Link to="/tasks">All tasks<Arr d="ne"/></Link>
               </header>
               {pending.slice(0, 3).map((t) => (
                 <Link className="pd-task" key={t.id} to="/tasks">
@@ -535,7 +536,7 @@ export default function Dashboard() {
           <section className="pd-panel">
             <header>
               <span className="pd-kicker">Revision return slips</span>
-              <Link to="/study">Revision page ↗</Link>
+              <Link to="/study">Revision page<Arr d="ne"/></Link>
             </header>
             <h3>Come back to these.</h3>
             <div className="pd-slips">
@@ -550,7 +551,7 @@ export default function Dashboard() {
                   <small>
                     {n.course.name} · Unit {n.unit.unit_number}
                   </small>
-                  <b>Read detail ↗</b>
+                  <b>Read detail<Arr d="ne"/></b>
                 </button>
               ))}
             </div>
@@ -562,7 +563,7 @@ export default function Dashboard() {
             )}
             {model.returns.length > 5 && (
               <Link className="pd-link" to="/study">
-                {model.returns.length - 5} more returns ↗
+                {model.returns.length - 5} more returns<Arr d="ne"/>
               </Link>
             )}
             <p className="pd-note">
@@ -604,16 +605,16 @@ export default function Dashboard() {
         <section className="pd-panel pd-materials">
           <header>
             <span className="pd-kicker">On your shelf</span>
-            <Link to="/resources">All resources ↗</Link>
+            <Link to="/resources">All resources<Arr d="ne"/></Link>
           </header>
           <h3>Keep the useful things close.</h3>
           <div className="pd-resources">
-            <Link to="/directory">Official syllabus library ↗</Link>
+            <Link to="/directory">Official syllabus library<Arr d="ne"/></Link>
             <Link to="/resources">
-              Saved course materials / {resources.length} ↗
+              Saved course materials / {resources.length}<Arr d="ne"/>
             </Link>
-            <Link to="/calculator">Marks calculator ↗</Link>
-            <Link to="/settings">Backup & restore ↗</Link>
+            <Link to="/calculator">Marks calculator<Arr d="ne"/></Link>
+            <Link to="/settings">Backup & restore<Arr d="ne"/></Link>
           </div>
           <div className="pd-assistant">
             <div>
@@ -628,7 +629,7 @@ export default function Dashboard() {
         </section>
         <footer className="pd-footer">
           <span>Saved in this browser · no account sync</span>
-          <Link to="/settings">Keep a backup ↗</Link>
+          <Link to="/settings">Keep a backup<Arr d="ne"/></Link>
         </footer>
       </main>
       <dialog
@@ -701,7 +702,7 @@ export default function Dashboard() {
                     : courseLink(picked.node)
                 }
               >
-                Open course unit ↗
+                Open course unit<Arr d="ne"/>
               </Link>
             </>
           )}

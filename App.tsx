@@ -1,3 +1,4 @@
+import Arr from './components/Arr';
 const Planner = React.lazy(() => import('./pages/Planner'));
 const Progress = React.lazy(() => import('./pages/Progress'));
 const Study = React.lazy(() => import('./pages/Study'));
@@ -97,6 +98,6 @@ export default function App() {
     <Route path="/tasks" element={ready ? <TodoList /> : <Navigate to="/landing" />} />
     <Route path="/calculator" element={ready ? <CalculatorPage /> : <Navigate to="/landing" />} />
     <Route path="/settings" element={ready ? <SettingsPage /> : <Navigate to="/landing" />} />
-    <Route path="*" element={<div className="library-page"><main className="library-add"><h1>Page not found.</h1><p>This address is not part of your exam desk.</p><Link to="/">Go to your desk ↗</Link><Link to="/directory">Browse Courses ↗</Link></main></div>} />
+    <Route path="*" element={<div className="library-page"><main className="library-add"><h1>Page not found.</h1><p>This address is not part of your exam desk.</p><Link to="/">Go to your desk<Arr d="ne"/></Link><Link to="/directory">Browse Courses<Arr d="ne"/></Link></main></div>} />
   </Routes></React.Suspense></ErrorBoundary>;
 }

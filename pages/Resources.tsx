@@ -1,3 +1,4 @@
+import Arr from '../components/Arr';
 import DeskSketch from "../components/DeskSketch";
 import { CATALOG } from "../lib/catalog";
 import "../link-cabinet.css";
@@ -226,7 +227,7 @@ export default function Resources() {
             >
               <div>
                 <span>
-                  {getYouTubeID(r.url) || r.type === "video" ? "▶" : "↗"}
+                  {getYouTubeID(r.url) || r.type === "video" ? <Arr d="play" lead/> : <Arr d="ne" lead/>}
                 </span>
                 <small>
                   {r.category} / {r.subject}
@@ -238,7 +239,7 @@ export default function Resources() {
                 {r.isSystem ? "SYSTEM REFERENCE" : "YOUR SAVED LINK"} ·{" "}
                 {r.author}
               </p>
-              <footer>{select ? "SELECT / REMOVE" : "OPEN RESOURCE ↗"}</footer>
+              <footer>{select ? "SELECT / REMOVE" : <>OPEN RESOURCE<Arr d="ne"/></>}</footer>
             </button>
           ))}
         </div>

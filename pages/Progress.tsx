@@ -1,3 +1,4 @@
+import Arr from '../components/Arr';
 import DeskSketch from "../components/DeskSketch";
 import { HandUnderline } from "../components/Scribble";
 import React, { useState, useRef } from "react";
@@ -138,7 +139,7 @@ export default function Progress() {
           <span>
             Pick a topic to see your recorded work and what to try next.
           </span>
-        <DeskSketch kind="progress" to=".progress-course-bands button" status="Pick a course to see its path"/></header><section className="progress-course-bands" aria-label="Coverage by course">{maps.map((m:any,i:number)=><button key={m.course.id} onClick={()=>{setCid(m.course.id);setTid('');setLens('coverage');setFilter('all');}} aria-pressed={active?.course.id===m.course.id}><span>{String(i+1).padStart(2,'0')}</span><div><strong>{m.course.name}</strong><i><em style={{width:`${m.summary.total?m.summary.covered/m.summary.total*100:0}%`}}/></i><small>{m.summary.covered} / {m.summary.total} covered by you</small></div><b>↗</b></button>)}</section>
+        <DeskSketch kind="progress" to=".progress-course-bands button" status="Pick a course to see its path"/></header><section className="progress-course-bands" aria-label="Coverage by course">{maps.map((m:any,i:number)=><button key={m.course.id} onClick={()=>{setCid(m.course.id);setTid('');setLens('coverage');setFilter('all');}} aria-pressed={active?.course.id===m.course.id}><span>{String(i+1).padStart(2,'0')}</span><div><strong>{m.course.name}</strong><i><em style={{width:`${m.summary.total?m.summary.covered/m.summary.total*100:0}%`}}/></i><small>{m.summary.covered} / {m.summary.total} covered by you</small></div><b><Arr d="ne"/></b></button>)}</section>
         <details className="quiet-progress-totals">
           <summary>Your totals across courses</summary>
           <section className="progress-ledger" aria-label="Progress ledger">
@@ -193,14 +194,14 @@ export default function Progress() {
                 >
                   <b>0{i + 1}.</b>
                   {s.title}
-                  <span>→</span>
+                  <span><Arr d="right"/></span>
                 </button>
               ))}
             </nav>
             <div className="method-explanation" key={step} aria-live="polite">
               <h3>{stages[step].title}</h3>
               <p>{stages[step].body}</p>
-              <Link to={stages[step].route}>{stages[step].action} ↗</Link>
+              <Link to={stages[step].route}>{stages[step].action}<Arr d="ne"/></Link>
             </div>
           </section>
         </details>
@@ -211,7 +212,7 @@ export default function Progress() {
               No invented activity. Choose a course with source topics and the
               map will have a place to start.
             </p>
-            <Link to="/directory">Choose courses ↗</Link>
+            <Link to="/directory">Choose courses<Arr d="ne"/></Link>
           </section>
         ) : (
           <>
@@ -361,7 +362,7 @@ export default function Progress() {
                             : "not marked covered"}
                         </small>
                       </div>
-                      <span>↗</span>
+                      <span><Arr d="ne"/></span>
                     </button>
                   ))}
                   {!visible.length && (
@@ -392,7 +393,7 @@ export default function Progress() {
                   className="progress-work-link"
                   to={`/study?course=${encodeURIComponent(active.course.id)}&topic=${encodeURIComponent(node.id)}`}
                 >
-                  {method.verb} this topic ↗
+                  {method.verb} this topic<Arr d="ne"/>
                 </Link>
                 <Link
                   className="progress-coverage-toggle"
@@ -401,7 +402,7 @@ export default function Progress() {
                   {study.topics[node.id]?.status === "done"
                     ? "✓ Covered by you"
                     : "Still to cover"}{" "}
-                  · Open course to change ↗
+                  · Open course to change<Arr d="ne"/>
                 </Link>
                 <p className="progress-small">
                   Coverage changes belong in Courses. This page shows your
@@ -429,7 +430,7 @@ export default function Progress() {
                                 ? "✓"
                                 : a.outcome === "hint"
                                   ? "?"
-                                  : "↺"}
+                                  : <Arr d="redo" lead/>}
                             </small>
                           </button>
                         ))}
@@ -489,7 +490,7 @@ export default function Progress() {
             Your history stays local. No automatic mastery, grades, study
             minutes or exam prediction.
           </p>
-          <Link to="/settings">Keep a backup ↗</Link>
+          <Link to="/settings">Keep a backup<Arr d="ne"/></Link>
         </footer>
       </main>
     </div>

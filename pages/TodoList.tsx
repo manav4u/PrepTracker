@@ -1,3 +1,4 @@
+import Arr from '../components/Arr';
 import DeskSketch from "../components/DeskSketch";
 import { HandCircle } from "../components/Scribble";
 import "../task-pins.css";
@@ -195,7 +196,7 @@ export default function TodoList() {
                   !tasks.some((t) => !t.completed && validDay(t.dueDate))
                 }
               >
-                Export dates (.ics) ↗
+                Export dates (.ics)<Arr d="ne"/>
               </button>
             </div>
             {!tasks.length && (
@@ -261,7 +262,7 @@ export default function TodoList() {
                           )
                         }
                       >
-                        {t.completed ? "Reopen ↺" : "Mark complete ✓"}
+                        {t.completed ? <>Reopen<Arr d="redo"/></> : "Mark complete ✓"}
                       </button>
                       <button
                         onClick={() => {

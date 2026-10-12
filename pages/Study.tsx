@@ -1,3 +1,4 @@
+import Arr from '../components/Arr';
 import DeskSketch from "../components/DeskSketch";
 import "../studio.css";
 import "../quiet-study.css";
@@ -264,7 +265,7 @@ export default function Study({
           className="studio-legacy-return"
           onClick={() => setLegacy(false)}
         >
-          ← Return to study sheet
+          <Arr d="left" lead/>Return to study sheet
         </button>
         <LegacyStudy embedded={embedded} />
       </>
@@ -276,7 +277,7 @@ export default function Study({
         <main>
           <h1>Your revision space.</h1>
           <p>Add a course before starting a session.</p>
-          <Link to="/directory">Choose courses ↗</Link>
+          <Link to="/directory">Choose courses<Arr d="ne"/></Link>
         </main>
       </div>
     );
@@ -295,7 +296,7 @@ export default function Study({
         {embedded ? (
           <header className="studio-embedded-heading">
             <span>YOUR STUDY SHEET</span>
-            <button onClick={close}>← Back to desk</button>
+            <button onClick={close}><Arr d="left" lead/>Back to desk</button>
           </header>
         ) : (
           <header className="studio-heading">
@@ -431,7 +432,7 @@ export default function Study({
                     }}
                   >
                     {" "}
-                    {embedded ? "Back to desk" : "Another task"} →
+                    {embedded ? "Back to desk" : "Another task"}<Arr d="right"/>
                   </button>
                 </div>
               </section>
@@ -466,7 +467,7 @@ export default function Study({
                     setStage(2);
                   }}
                 >
-                  Start the attempt →
+                  Start the attempt<Arr d="right"/>
                 </button>
               </section>
             ) : stage === 2 ? (
@@ -512,7 +513,7 @@ export default function Study({
                       setStage(1);
                     }}
                   >
-                    ← Edit task
+                    <Arr d="left" lead/>Edit task
                   </button>
                   <button
                     className="studio-primary"
@@ -522,7 +523,7 @@ export default function Study({
                       setStage(3);
                     }}
                   >
-                    Compare my work →
+                    Compare my work<Arr d="right"/>
                   </button>
                 </div>
               </section>
@@ -657,7 +658,7 @@ export default function Study({
                       setCompared(false);
                     }}
                   >
-                    ← Edit attempt
+                    <Arr d="left" lead/>Edit attempt
                   </button>
                   <button
                     className="studio-primary"
@@ -692,7 +693,7 @@ export default function Study({
                 <Link
                   to={`/subject/${encodeURIComponent(course.id)}?unit=${encodeURIComponent(node.unitId)}`}
                 >
-                  Open subject & materials ↗
+                  Open subject & materials<Arr d="ne"/>
                 </Link>
               </section>
             </details>
@@ -771,7 +772,7 @@ export default function Study({
                   setLegacy(true);
                 }}
               >
-                Earlier confidence records ({study.events.length}) ↗
+                Earlier confidence records ({study.events.length})<Arr d="ne"/>
               </button>
               <p className="studio-note">
                 Old revision records remain unchanged. They are not upgraded
@@ -782,8 +783,8 @@ export default function Study({
         </div>
         {!embedded && (
           <footer>
-            <Link to="/">← Back to desk</Link>
-            <Link to="/settings">Back up your work ↗</Link>
+            <Link to="/"><Arr d="left" lead/>Back to desk</Link>
+            <Link to="/settings">Back up your work<Arr d="ne"/></Link>
           </footer>
         )}
       </main>

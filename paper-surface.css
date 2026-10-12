@@ -101,3 +101,9 @@
 .progress-course-bands>button{position:relative}
 .progress-course-bands>button[aria-pressed=true]>span:first-child{position:relative;display:inline-block}
 .progress-course-bands>button[aria-pressed=true]>span:first-child::before{content:"";position:absolute;inset:-8px -5px -7px -6px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60' preserveAspectRatio='none' fill='none' stroke='%23304934' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path vector-effect='non-scaling-stroke' d='M22 9C44 2 84 6 94 20C101 32 86 54 50 56C20 58 3 46 5 30C7 14 30 5 60 4C74 3.5 82 5.5 88 8'/></svg>") no-repeat center/100% 100%;pointer-events:none}
+
+/* Drawn arrows (components/Arr.tsx): follow text colour, no emoji fallback. */
+.arr{display:inline-block;width:.95em;height:.95em;vertical-align:-.14em;margin-left:.32em;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none;overflow:visible}
+.arr-lead{margin-left:0;margin-right:.4em}
+.arr-play{fill:currentColor;stroke-width:1}
+.arr:only-child,.topic-square .arr{margin:0}
