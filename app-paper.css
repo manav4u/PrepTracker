@@ -37,3 +37,10 @@
 .studio-page .studio-method>section{background:var(--grain),linear-gradient(180deg,#fffdf7,#f8f1e0)!important;border-left:5px solid var(--paper-green-deep)}
 .progress-map .progress-heading,.library-page .library-disclosure,.link-cabinet .cabinet-heading{padding-left:30px}
 .progress-method button{background:var(--grain),linear-gradient(180deg,#fffdf7,#f6eedb);border:1px solid var(--paper-rule);border-left:5px solid var(--paper-green-deep);color:var(--paper-ink)}
+/* Tactile objects for in-app screens: ink stamp and tape, decorative only, never over text. */
+.paper-stamp{display:inline-block;padding:5px 11px;border:2px solid var(--paper-green-deep);border-radius:3px;color:var(--paper-green-deep);font:700 12px/1 "DM Sans",Arial;letter-spacing:.2em;transform:rotate(-3deg);background:var(--paper-paper);text-shadow:1.5px 1px 0 #2f6b4a55;box-shadow:1.5px 1px 0 #2f6b4a44;margin-top:14px;align-self:flex-start;width:max-content}
+.studio-page .studio-heading .studio-stamp{display:block;font-style:normal}
+.paper-tape{position:absolute;top:-13px;left:42px;width:92px;height:25px;transform:rotate(-3deg);background:linear-gradient(90deg,#e6dcc0e6,#efe6cdd9);box-shadow:0 1px 2px #5a3e1a30;clip-path:polygon(0 8%,3% 0,6% 10%,9% 0,12% 8%,100% 0,100% 100%,96% 92%,93% 100%,90% 90%,87% 100%,84% 92%,0 100%);pointer-events:none}
+.link-cabinet .cabinet-heading{position:relative}
+.progress-map .progress-method nav button,.progress-map .progress-method nav a{background:var(--grain),linear-gradient(180deg,#fffdf7,#f6eedb)!important;border:1px solid var(--paper-rule);border-left:5px solid var(--paper-green-deep);color:var(--paper-ink)}
+.progress-map .evidence-badge{background:transparent!important;color:var(--paper-green-deep);border:1.5px solid var(--paper-green-deep);border-radius:3px}

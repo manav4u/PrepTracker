@@ -96,6 +96,7 @@ export default function Resources() {
       <EditionNav />
       <main>
         <header className="cabinet-heading">
+          <i className="paper-tape" aria-hidden="true" />
           <p>THE EXAM EDITION / YOUR SAVED LINKS</p>
           <h1>
             Your reference
