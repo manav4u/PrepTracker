@@ -149,3 +149,16 @@
 .ob-heading h1{margin-top:8px}
 .ob-chips{flex-wrap:nowrap;overflow:hidden}.ob-chip{min-width:0;flex:0 1 auto}.ob-chip strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.ob-chip em{flex:none}
 .ob-chip:not(:nth-child(2)){flex:none}
+.ob-years strong,.ob-choice h3{display:inline-block;max-width:100%}
+.ob-chip{transform-origin:center}
+@media(prefers-reduced-motion:no-preference){
+ .ob.leaving .ob-chip{animation:ob-fold .62s cubic-bezier(.6,0,.9,.5) forwards}
+ .ob.leaving .ob-chip:nth-child(2){animation-delay:.04s}.ob.leaving .ob-chip:nth-child(3){animation-delay:.08s}.ob.leaving .ob-chip:nth-child(4){animation-delay:.12s}
+ .ob.leaving .ob-sheet>*:not(.ob-chips):not(.ob-steps){animation:ob-sink .5s cubic-bezier(.6,0,.9,.5) forwards}
+ .ob.leaving .ob-sheet{animation:ob-away .7s .12s cubic-bezier(.55,0,.9,.4) forwards}
+}
+@keyframes ob-fold{to{transform:translateY(10px) scale(.2);opacity:0}}
+@keyframes ob-sink{to{opacity:0;transform:translateY(16px)}}
+@keyframes ob-away{to{transform:translateY(40px) scale(.94);opacity:0}}
+.ob{overflow-x:clip}
+.ob-chips{flex-wrap:wrap;overflow:visible}.ob-chip{flex:none;max-width:100%}.ob-chip strong{white-space:normal;overflow:visible}
