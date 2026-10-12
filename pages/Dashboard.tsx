@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import EditionNav from "../components/EditionNav";
+import { HandArrow, HandUnderline } from "../components/Scribble";
 import { CATALOG } from "../lib/catalog";
 import { useData } from "../context/DataContext";
 import useLocalDay from "../hooks/useLocalDay";
@@ -88,7 +89,12 @@ export default function Dashboard() {
               {profile.name ? `${profile.name}'s desk` : "Your desk"} /{" "}
               {fmt(today, { weekday: "long", day: "numeric", month: "long" })}
             </p>
-            <h1>Before the paper.</h1>
+            <h1>
+              <span className="hand-word">
+                Before the paper.
+                <HandUnderline kind="title" />
+              </span>
+            </h1>
           </div>
           <div className="pd-search">
             <label htmlFor="desk-search">Find a course or topic</label>
@@ -130,7 +136,10 @@ export default function Dashboard() {
                 <p className="pd-kicker">Next paper</p>
                 <h2>No paper date yet.</h2>
                 <p>Add your exam date and this spot counts down to it, with the topic to open next.</p>
-                <Link to="/tasks">Add a paper date ↗</Link>
+                <span className="hand-cta">
+                  <Link to="/tasks">Add a paper date ↗</Link>
+                  <HandArrow />
+                </span>
               </section>
             );
           return (
@@ -163,7 +172,10 @@ export default function Dashboard() {
           <h2>
             Your syllabus,
             <br />
-            coming together.
+            <span className="hand-word">
+              coming together.
+              <HandUnderline kind="heading" />
+            </span>
           </h2>
           <div className="pd-summary">
             <div className="pd-ledger">

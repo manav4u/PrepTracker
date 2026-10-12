@@ -50,3 +50,21 @@
 .pins-more:focus-visible,.cabinet-more:focus-visible{outline:2px solid var(--paper-green-deep);outline-offset:4px}
 @media(max-width:400px){.marks-fields input{font-size:21px;padding-inline:7px 4px}}
 @media(max-width:400px){.marks-fields{align-items:end}.marks-fields label{font-size:10px;letter-spacing:.04em}}
+/* Hand-drawn ink: green, uneven, vector. Decorative only. */
+.hand-word{position:relative;display:inline-block;white-space:nowrap}
+.hand-underline{position:absolute;left:-1%;bottom:-.2em;width:102%;height:.2em;min-height:9px;overflow:visible;pointer-events:none;color:var(--paper-green-deep)}
+.hand-underline-title{bottom:-.14em}
+.hand-stroke{fill:none;stroke:currentColor;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:0}
+.hand-stroke-thin{stroke-width:1.2;opacity:.55}
+.hand-cta{position:relative;display:inline-flex;align-items:center;gap:6px}
+.hand-arrow{width:62px;height:24px;overflow:visible;color:var(--paper-green-deep);margin-top:6px;pointer-events:none}
+@media(prefers-reduced-motion:no-preference){
+ .hand-stroke{stroke-dashoffset:1;animation:hand-draw .9s .25s cubic-bezier(.5,.1,.2,1) forwards}
+ .hand-stroke-thin{animation-delay:.65s;animation-duration:.6s}
+ .hand-stroke-head{animation-delay:1s;animation-duration:.35s}
+}
+@keyframes hand-draw{to{stroke-dashoffset:0}}
+@media(max-width:700px){.hand-word{white-space:normal}.hand-arrow{display:none}}
+/* Desk fixes found in review: next-unit card had no padding, next-paper card kept a hard black frame. */
+.pd-next{padding:26px 30px 24px;border-top:0;margin-top:24px}
+.paper-desk .pd-tonight{background:var(--paper-sheet);border:var(--paper-edge);border-left:var(--paper-spine);box-shadow:var(--paper-lift);border-radius:3px 12px 4px 10px;padding:20px 24px 18px 26px}
