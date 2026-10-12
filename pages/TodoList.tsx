@@ -1,4 +1,5 @@
 import DeskSketch from "../components/DeskSketch";
+import { HandCircle } from "../components/Scribble";
 import "../task-pins.css";
 import EditionNav from "../components/EditionNav";
 import React, { useState } from "react";
@@ -228,7 +229,18 @@ export default function TodoList() {
                     </p>
                     <h3>{t.text}</h3>
                     {t.dueDate && (
-                      <p className="pin-date">{t.dueDate} · entered by you</p>
+                      <p className="pin-date">
+                        {!t.completed &&
+                        ["Due today", "Overdue"].includes(dueLabel(t.dueDate)) ? (
+                          <span className="hand-ring">
+                            {t.dueDate}
+                            <HandCircle />
+                          </span>
+                        ) : (
+                          t.dueDate
+                        )}{" "}
+                        · entered by you
+                      </p>
                     )}
                     {t.courseId && (
                       <p className="pin-course">

@@ -32,3 +32,21 @@ export function HandArrow() {
     </svg>
   );
 }
+
+/* Loose pen loop that overshoots where it closes, like a real circling stroke. */
+export function HandCircle() {
+  return (
+    <svg className="hand-circle" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path className="hand-stroke" pathLength={1} d="M18 6.5 C42 0.8 82 2.4 93.5 14 C100 22 88 35.5 52 37 C22 38.2 3.2 30.4 3.6 19.5 C4 9.6 25 3.2 56 2.8 C70 2.6 79 4.4 85 7.4" />
+    </svg>
+  );
+}
+
+export function HandArrowDown() {
+  return (
+    <svg className="hand-arrow-down" viewBox="0 0 30 46" aria-hidden="true" focusable="false">
+      <path className="hand-stroke" pathLength={1} d="M5 3.5 C21 8.5 25 22 15.5 40" />
+      <path className="hand-stroke hand-stroke-head" pathLength={1} d="M8.5 31.5 C11 34.5 13.6 38 15.4 41.2 C18.8 38.4 22.4 36.2 26.2 34.6" />
+    </svg>
+  );
+}

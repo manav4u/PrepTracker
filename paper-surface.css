@@ -68,3 +68,15 @@
 /* Desk fixes found in review: next-unit card had no padding, next-paper card kept a hard black frame. */
 .pd-next{padding:26px 30px 24px;border-top:0;margin-top:24px}
 .paper-desk .pd-tonight{background:var(--paper-sheet);border:var(--paper-edge);border-left:var(--paper-spine);box-shadow:var(--paper-lift);border-radius:3px 12px 4px 10px;padding:20px 24px 18px 26px}
+/* Per-screen ink with meaning. */
+.hand-ring{position:relative;display:inline-block;padding:1px 7px;margin:-1px 5px -1px -7px}
+.hand-circle{position:absolute;inset:-6px -6px;width:calc(100% + 12px);height:calc(100% + 12px);overflow:visible;color:var(--paper-green-deep);pointer-events:none}
+.care-identity h2{position:relative}
+.margin-note{position:absolute;right:2px;top:6px;font:italic 400 15px/1.2 "Libre Baskerville",Georgia,serif;color:var(--paper-green-deep);transform:rotate(-3deg);white-space:nowrap}
+.hand-arrow-down{position:absolute;right:26px;top:26px;width:22px;height:34px;overflow:visible;color:var(--paper-green-deep)}
+@media(max-width:700px){.margin-note{display:none}}
+@media(min-width:900px){.edition-care .care-heading>span{display:none}}
+.cabinet-drawers button{position:relative}
+.cabinet-drawers button[aria-pressed=true]::after{content:"";position:absolute;top:12px;right:14px;width:28px;height:24px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 26' fill='none' stroke='%23304934' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M2.5 14.5C6 15.8 8.4 18.4 11.2 23.4C15 14.2 21 7 28 2.6'/></svg>") no-repeat center/contain;pointer-events:none}
+@media(prefers-reduced-motion:no-preference){.cabinet-drawers button[aria-pressed=true]::after{animation:tick-in .5s .1s cubic-bezier(.5,.1,.2,1) backwards}}
+@keyframes tick-in{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
