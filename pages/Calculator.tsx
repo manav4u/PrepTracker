@@ -1,5 +1,5 @@
 import DeskSketch from "../components/DeskSketch";
-import { HandUnderline } from "../components/Scribble";
+import { HandTick, HandUnderline } from "../components/Scribble";
 import "../marks-ledger.css";
 import EditionNav from "../components/EditionNav";
 import TheoryMarks from "../components/TheoryMarks";
@@ -220,6 +220,11 @@ const CalculatorPage: React.FC = () => {
               <article className="marks-row" key={s.id}>
                 <div className="marks-row-title">
                   <span>{String(i + 1).padStart(2, "0")}.</span>
+                  {summarizeMarks([s], marks).completedSubjects === 1 && (
+                    <span className="marks-done" role="img" aria-label="All marks entered for this course">
+                      <HandTick />
+                    </span>
+                  )}
                   <div>
                     <p>
                       {s.code} · {s.credits} credits
