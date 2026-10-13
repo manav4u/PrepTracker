@@ -13,7 +13,7 @@
 
 ## 🚀 Live Demo
 
-**[Launch PrepTracker](https://manav4u.github.io/PrepTracker/)**
+**[Launch PrepTracker](https://preptracker.manavdev.site/)**
 
 ---
 
