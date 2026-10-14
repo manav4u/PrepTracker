@@ -29,7 +29,7 @@ Built with an **"Industrial Elite"** design philosophy, the interface prioritize
 
 *   **Precision Tracking:** Forget guessing your progress. We've digitized the entire SPPU syllabus into interactive modules. Mark units as "Pending," "In Progress," or "Mastered" and visualize your velocity.
 *   **Curated Resource Vault:** Instant access to high-quality notes, video lectures, and textbooks specific to your current semester subjects.
-*   **Privacy First:** Your data belongs to you. PrepTracker uses **Local Storage** exclusively. No cloud accounts, no tracking, no data mining.
+*   **Privacy First:** Your progress stays on your device. Syllabus progress, tasks, and custom resources are saved in **Local Storage** - no cloud accounts or sign-ups. The site itself loads Google Analytics for basic visit statistics.
 *   **Task Command:** A robust Todo system with priority sorting to manage assignments, lab work, and exam prep alongside your daily life.
 
 ## ✨ Key Features
@@ -58,12 +58,12 @@ Built with an **"Industrial Elite"** design philosophy, the interface prioritize
 
 This project is built using modern web technologies to ensure speed, scalability, and maintainability.
 
-*   **Frontend Framework:** [React 18](https://reactjs.org/)
+*   **Frontend Framework:** [React 19](https://react.dev/)
 *   **Language:** [TypeScript](https://www.typescriptlang.org/) for type safety and robust code.
 *   **Build Tool:** [Vite](https://vitejs.dev/) for lightning-fast development and optimized production builds.
 *   **Styling:** [Tailwind CSS](https://tailwindcss.com/) with a custom configuration for the "Industrial Elite" theme.
 *   **Animations:** [Framer Motion](https://www.framer.com/motion/) for fluid UI interactions.
-*   **Routing:** [React Router v6](https://reactrouter.com/) (HashRouter for GitHub Pages compatibility).
+*   **Routing:** [React Router v7](https://reactrouter.com/) (HashRouter for GitHub Pages compatibility).
 *   **Icons:** [Lucide React](https://lucide.dev/) for clean, consistent iconography.
 *   **State Management:** React Context API + Custom Hooks.
 *   **Persistence:** `localStorage` API for client-side data retention.
