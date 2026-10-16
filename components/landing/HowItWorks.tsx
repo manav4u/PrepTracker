@@ -30,7 +30,7 @@ const HowItWorks: React.FC = () => {
             whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ type: 'spring', stiffness: 120, damping: 20 }}
-            className="text-xs font-mono tracking-[0.2em] uppercase text-[#E11D48]"
+            className="text-xs font-mono tracking-[0.2em] uppercase text-[#BE123C]"
           >
             How it works
           </motion.p>
@@ -53,7 +53,7 @@ const HowItWorks: React.FC = () => {
                 transition={{ type: 'spring', stiffness: 110, damping: 18, delay: reduce ? 0 : 0.12 + i * 0.08 }}
                 className="flex gap-6 py-7 border-t border-black/[0.08] last:border-b"
               >
-                <span className="font-mono text-sm font-semibold text-[#E11D48] pt-1" aria-hidden="true">
+                <span className="font-mono text-sm font-semibold text-[#BE123C] pt-1" aria-hidden="true">
                   {s.num}
                 </span>
                 <div>
