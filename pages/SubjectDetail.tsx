@@ -18,8 +18,7 @@ import {
   Link as LinkIcon,
   Search,
   ArrowUpRight,
-  HardDrive
-} from 'lucide-react';
+  HardDrive, ChevronDown} from 'lucide-react';
 import { SUBJECTS, SYSTEM_RESOURCES, getYouTubeID } from '../constants';
 import { UnitStatus, ResourceItem } from '../types';
 import { useData } from '../context/DataContext';
@@ -33,6 +32,7 @@ const SubjectDetail: React.FC = () => {
   // Resource State
   const [subjectResources, setSubjectResources] = useState<ResourceItem[]>([]);
   const [viewResource, setViewResource] = useState<ResourceItem | null>(null);
+  const [collapsedUnits, setCollapsedUnits] = useState<Record<string, boolean>>({});
 
   // Coming Soon State
 
@@ -181,6 +181,7 @@ const SubjectDetail: React.FC = () => {
               const isActive = p.status !== UnitStatus.NOT_STARTED;
               const isMastered = p.status === UnitStatus.MASTERED;
               const completedPyqs = p.pyqsCompleted || [];
+              const isCollapsed = collapsedUnits[unit.id] ?? isMastered;
 
               return (
                 <div key={unit.id} className="relative pl-16 group">
@@ -191,10 +192,19 @@ const SubjectDetail: React.FC = () => {
 
                   <div className="bg-[#0a0a0a] p-8 rounded-3xl border border-white/5 hover:border-white/10 transition-all">
                     <div className="flex flex-col sm:flex-row justify-between items-start mb-8 gap-6 sm:gap-0">
-                      <div>
-                        <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1 block">Unit 0{unit.unit_number}</span>
-                        <h2 className={`text-2xl font-display font-bold mt-1 transition-colors tracking-tight ${isMastered ? 'text-[#E11D48]' : 'text-white'}`}>{unit.title}</h2>
-                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setCollapsedUnits(prev => ({ ...prev, [unit.id]: !isCollapsed }))}
+                        aria-expanded={!isCollapsed}
+                        aria-label={`${isCollapsed ? 'Expand' : 'Collapse'} unit ${unit.unit_number}: ${unit.title}`}
+                        className="text-left flex items-start gap-3 group/title"
+                      >
+                        <span>
+                          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1 block">Unit 0{unit.unit_number}</span>
+                          <h2 className={`text-2xl font-display font-bold mt-1 transition-colors tracking-tight ${isMastered ? 'text-[#E11D48]' : 'text-white group-hover/title:text-[#E11D48]'}`}>{unit.title}</h2>
+                        </span>
+                        <ChevronDown size={20} className={`mt-2 shrink-0 text-slate-500 transition-transform duration-300 ${isCollapsed ? '-rotate-90' : ''}`} />
+                      </button>
                       
                       <div className="flex bg-white/5 p-1 rounded-xl">
                         {[
@@ -226,6 +236,7 @@ const SubjectDetail: React.FC = () => {
                       </div>
                     </div>
 
+                    {!isCollapsed && (<>
                     {/* Topics List */}
                     {unit.topics && (
                        <div className="mb-8 p-6 rounded-2xl bg-white/5 border border-white/5">
@@ -287,6 +298,7 @@ const SubjectDetail: React.FC = () => {
                          })}
                        </div>
                     </div>
+                    </>)}
                   </div>
                 </div>
               );
