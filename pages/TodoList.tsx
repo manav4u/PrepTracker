@@ -286,7 +286,7 @@ const TodoList: React.FC = () => {
             <div className="bg-[#050505] border border-white/10 rounded-3xl p-6 lg:p-8 sticky top-8">
                 <div className="flex items-center gap-2 mb-6 text-white/50">
                     <LayoutList size={18} />
-                    <h3 className="text-xs font-bold uppercase tracking-widest">Add New Task</h3>
+                    <h2 className="text-xs font-bold uppercase tracking-widest">Add New Task</h2>
                 </div>
 
                 <form onSubmit={addTask} className="space-y-5">
@@ -416,6 +416,8 @@ const TodoList: React.FC = () => {
                                 {/* Checkbox Node */}
                                 <button 
                                     onClick={() => toggleTask(task.id)}
+                                    aria-label={task.completed ? `Mark not done: ${task.text}` : `Mark done: ${task.text}`}
+                                    aria-pressed={task.completed}
                                     className={`
                                         mt-1 w-6 h-6 rounded-full border flex items-center justify-center shrink-0 transition-all
                                         ${task.completed 

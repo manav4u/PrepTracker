@@ -25,19 +25,20 @@ import { useData } from './context/DataContext';
 import ErrorBoundary from './components/ErrorBoundary';
 import GlobalSearch from './components/GlobalSearch';
 
-const NavItem = ({ to, icon: Icon, active, label }: { to: string, icon: any, active: boolean, label: string }) => (
+const NavItem = ({ to, icon: Icon, active, label, short }: { to: string, icon: any, active: boolean, label: string, short?: string }) => (
   <Link
     to={to}
     aria-label={label}
     title={label}
     aria-current={active ? 'page' : undefined}
-    className={`relative group flex items-center justify-center w-12 h-12 lg:w-14 lg:h-14 rounded-2xl lg:rounded-3xl transition-all duration-300 ${
+    className={`relative group flex flex-col lg:flex-row items-center justify-center gap-0.5 lg:gap-0 w-12 h-12 lg:w-14 lg:h-14 rounded-2xl lg:rounded-3xl transition-all duration-300 ${
       active
         ? 'bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.3)] scale-110'
         : 'text-white/40 hover:text-white hover:bg-white/5'
     }`}
   >
-    <Icon size={22} strokeWidth={active ? 2.5 : 2} />
+    <Icon size={20} strokeWidth={active ? 2.5 : 2} className="lg:w-[22px] lg:h-[22px]" />
+    <span aria-hidden="true" className="lg:hidden text-[7px] font-bold uppercase tracking-widest leading-none">{short || label}</span>
     {active && (
       <span className="absolute -bottom-2 lg:top-1/2 lg:-right-2 w-1 h-1 lg:w-1.5 lg:h-1.5 bg-[#E11D48] rounded-full shadow-[0_0_10px_#E11D48]"></span>
     )}
@@ -122,11 +123,11 @@ export default function App() {
                         </div>
 
                         <nav className="flex flex-row lg:flex-col w-full justify-evenly lg:gap-6 items-center">
-                        <NavItem label="Dashboard" to="/" icon={LayoutGrid} active={location.pathname === '/'} />
-                        <NavItem label="Resources" to="/resources" icon={Library} active={location.pathname === '/resources'} />
-                        <NavItem label="Tasks" to="/tasks" icon={ListTodo} active={location.pathname === '/tasks'} />
-                        <NavItem label="SGPA calculator" to="/calculator" icon={Calculator} active={location.pathname === '/calculator'} />
-                        <NavItem label="Settings" to="/settings" icon={Settings} active={location.pathname === '/settings'} />
+                        <NavItem label="Dashboard" to="/" short="Home" icon={LayoutGrid} active={location.pathname === '/'} />
+                        <NavItem label="Resources" to="/resources" short="Library" icon={Library} active={location.pathname === '/resources'} />
+                        <NavItem label="Tasks" to="/tasks" short="Tasks" icon={ListTodo} active={location.pathname === '/tasks'} />
+                        <NavItem label="SGPA calculator" to="/calculator" short="SGPA" icon={Calculator} active={location.pathname === '/calculator'} />
+                        <NavItem label="Settings" to="/settings" short="Settings" icon={Settings} active={location.pathname === '/settings'} />
                         </nav>
 
                         <div className="hidden lg:flex mt-4 pt-8 border-t border-white/5 w-full flex-col items-center gap-6">

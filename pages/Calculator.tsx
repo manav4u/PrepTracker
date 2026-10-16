@@ -145,7 +145,7 @@ const CalculatorPage: React.FC = () => {
             <div className="p-6 border-b border-white/10 flex justify-between items-center bg-white/[0.02]">
               <div className="flex items-center gap-2 text-white">
                 <Cpu size={16} />
-                <h3 className="font-bold text-xs font-mono uppercase tracking-[0.2em]">Enter Marks</h3>
+                <h2 className="font-bold text-xs font-mono uppercase tracking-[0.2em]">Enter Marks</h2>
               </div>
               {confirmClear ? (
                 <div className="flex items-center gap-2">
@@ -194,7 +194,7 @@ const CalculatorPage: React.FC = () => {
                         <span className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest">
                           {s.code} / {s.credits} credits
                         </span>
-                        <h4 className="text-sm font-bold text-white leading-tight mt-1">{s.name}</h4>
+                        <h3 className="text-sm font-bold text-white leading-tight mt-1">{s.name}</h3>
                       </div>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

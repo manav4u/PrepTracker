@@ -121,7 +121,6 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ item, onClick, isSelectionM
         <button
             type="button"
             onClick={onClick}
-            aria-label={isSelectionMode ? `${isSelected ? 'Deselect' : 'Select'} resource: ${item.title}` : `Open resource: ${item.title}`}
             aria-pressed={isSelectionMode ? isSelected : undefined}
             className={`group relative border rounded-xl p-6 transition-all duration-300 overflow-hidden flex flex-col h-full cursor-pointer hover:-translate-y-1 text-left w-full ${
                 isSelected 
@@ -166,11 +165,11 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ item, onClick, isSelectionM
                 </div>
             </div>
 
-            <h3 className={`text-lg font-display font-bold mb-2 leading-tight transition-colors line-clamp-2 ${
+            <p className={`text-lg font-display font-bold mb-2 leading-tight transition-colors line-clamp-2 ${
                 isSelected ? 'text-[#E11D48]' : 'text-white group-hover:text-[#E11D48]'
             }`}>
                 {item.title}
-            </h3>
+            </p>
 
             <div className={`mt-auto pt-6 border-t flex items-center justify-between ${isSelected ? 'border-[#E11D48]/30' : 'border-white/5'}`}>
                 <span className="text-[10px] font-mono text-slate-500 uppercase flex items-center gap-2">
