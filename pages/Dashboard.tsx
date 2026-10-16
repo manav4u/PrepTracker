@@ -8,7 +8,6 @@ import { ChevronRight, Sparkles, CalendarDays, TrendingUp, Activity } from 'luci
 import { useData } from '../context/DataContext';
 import { currentStreak, lastDays } from '../lib/activity';
 import { subjectExamList, nextExamIndex } from '../lib/exams';
-import ComingSoonModal from '../components/ComingSoonModal';
 
 const SHORT_NAMES: Record<string, string> = {
   'm1': 'M1',
@@ -150,8 +149,6 @@ const ProgressGraphCard = ({ data, labels, total }: { data: number[], labels: st
 
 const Dashboard: React.FC = () => {
   const { profile, userProgress } = useData();
-  // Coming Soon Modal State
-  const [comingSoon, setComingSoon] = useState<string | null>(null);
 
   if (!profile) return null;
 
@@ -216,8 +213,6 @@ const Dashboard: React.FC = () => {
   return (
     <div className="space-y-12 lg:space-y-20 animate-in fade-in slide-in-from-bottom-8 duration-700">
       
-      <ComingSoonModal isOpen={!!comingSoon} onClose={() => setComingSoon(null)} feature={comingSoon || ''} />
-
       {/* HUD Header */}
       <section className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         <div className="lg:col-span-2 rounded-3xl bg-[#0a0a0a] border border-white/5 p-8 lg:p-10 relative overflow-hidden group flex flex-col justify-between">
@@ -230,7 +225,7 @@ const Dashboard: React.FC = () => {
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E11D48]"></span>
                 </span>
                 <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-[#E11D48]">
-                    System Active
+                    Overview
                 </span>
             </div>
             <h1 className="text-5xl lg:text-6xl font-display font-bold text-white mb-2 leading-[0.9] tracking-tighter">
@@ -282,7 +277,7 @@ const Dashboard: React.FC = () => {
 
       {/* Footer / Deadlines */}
       <section className="grid grid-cols-1 lg:grid-cols-3 gap-10 pt-10 border-t border-white/5">
-        <div className="lg:col-span-1">
+        <div className="lg:col-span-3 max-w-2xl">
           <div className="flex items-center gap-3 mb-8">
             <CalendarDays size={18} className="text-[#E11D48]" />
             <h3 className="text-lg font-display font-bold text-white tracking-tight">Exam Timeline</h3>
@@ -318,32 +313,6 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
         
-        <div className="lg:col-span-2">
-            <h3 className="text-lg font-display font-bold text-white mb-8 flex items-center gap-3 tracking-tight">
-               <span className="text-[#E11D48]"><Sparkles size={18} /></span>
-               AI Study Assistant
-            </h3>
-            <div className="relative overflow-hidden rounded-3xl bg-[#0a0a0a] border border-white/5 p-8 lg:p-12 group">
-               <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-b from-[#E11D48]/10 to-transparent blur-[120px] rounded-full translate-x-1/3 -translate-y-1/2"></div>
-               
-               <div className="relative z-10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-8">
-                  <div className="max-w-lg">
-                     <h4 className="text-3xl font-display font-bold text-white mb-3 tracking-tight">Need help with a topic?</h4>
-                     <p className="text-sm text-slate-400 leading-relaxed font-medium">
-                        Ask our AI Tutor for instant, syllabus-aligned explanations of complex topics.
-                        Optimized for Engineering Physics and Mathematics.
-                     </p>
-                  </div>
-                  <button 
-                    onClick={() => setComingSoon('AI Study Assistant')}
-                    className="shrink-0 px-8 py-4 rounded-xl bg-white text-black font-bold uppercase text-[10px] tracking-[0.25em] hover:scale-105 transition-transform flex items-center gap-3 shadow-[0_0_40px_rgba(255,255,255,0.15)]"
-                  >
-                     <Sparkles size={14} />
-                     Initialize
-                  </button>
-               </div>
-            </div>
-        </div>
       </section>
     </div>
   );

@@ -270,7 +270,7 @@ const SettingsPage: React.FC = () => {
                     <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em]">Settings</span>
                 </div>
                 <h1 className="text-5xl lg:text-7xl font-display font-bold text-white tracking-tighter leading-none">
-                    System <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-500 to-slate-700">Settings</span>
+                    Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-500 to-slate-700">Settings</span>
                 </h1>
             </div>
             <div className="flex items-center gap-3">
