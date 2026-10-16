@@ -225,7 +225,7 @@ const Dashboard: React.FC = () => {
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E11D48]"></span>
                 </span>
                 <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-[#E11D48]">
-                    Overview
+                    Hi, {profile.name}
                 </span>
             </div>
             <h1 className="text-5xl lg:text-6xl font-display font-bold text-white mb-2 leading-[0.9] tracking-tighter">
