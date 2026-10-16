@@ -97,7 +97,7 @@ export default function App() {
 
                     {/* Mobile search overlay */}
                     {mobileSearchOpen && (
-                    <div className="lg:hidden fixed inset-0 z-[70] bg-[#030303]/95 backdrop-blur-xl p-6 animate-in fade-in duration-200">
+                    <div role="dialog" aria-modal="true" aria-label="Search" className="lg:hidden fixed inset-0 z-[70] bg-[#030303]/95 backdrop-blur-xl p-6 animate-in fade-in duration-200">
                         <div className="flex justify-end mb-6">
                         <button
                         type="button"
