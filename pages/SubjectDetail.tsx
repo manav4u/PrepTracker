@@ -25,7 +25,6 @@ import { SUBJECTS, SYSTEM_RESOURCES, getYouTubeID } from '../constants';
 import { UnitStatus, ResourceItem } from '../types';
 import { useData } from '../context/DataContext';
 import ResourceViewerModal from '../components/ResourceViewerModal';
-import ComingSoonModal from '../components/ComingSoonModal';
 
 const SubjectDetail: React.FC = () => {
   const { id } = useParams();
@@ -45,7 +44,6 @@ const SubjectDetail: React.FC = () => {
   const [viewResource, setViewResource] = useState<ResourceItem | null>(null);
 
   // Coming Soon State
-  const [comingSoon, setComingSoon] = useState<string | null>(null);
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -152,7 +150,6 @@ const SubjectDetail: React.FC = () => {
     <div className="animate-in fade-in slide-in-from-right-4 duration-500 relative pb-20">
       
       <ResourceViewerModal isOpen={!!viewResource} onClose={() => setViewResource(null)} resource={viewResource} />
-      <ComingSoonModal isOpen={!!comingSoon} onClose={() => setComingSoon(null)} feature={comingSoon || ''} />
 
       <div className="mb-12 lg:mb-20">
         <Link to="/" className="inline-flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-white uppercase tracking-widest transition-colors mb-8">
@@ -170,20 +167,6 @@ const SubjectDetail: React.FC = () => {
             <h1 className="text-4xl lg:text-8xl font-display font-bold text-white leading-[0.9] tracking-tighter text-balance">
               {subject.name}
             </h1>
-          </div>
-          <div className="flex gap-4 w-full lg:w-auto shrink-0">
-            <button 
-              onClick={() => setComingSoon('Syllabus Database')}
-              className="flex-1 lg:flex-none px-8 py-4 rounded-xl border border-white/10 text-[10px] font-bold uppercase tracking-[0.2em] text-white hover:bg-white hover:text-black transition-all"
-            >
-              Syllabus PDF
-            </button>
-            <button 
-              onClick={() => setComingSoon('Assessment Engine')}
-              className="flex-1 lg:flex-none px-8 py-4 rounded-xl bg-[#E11D48] text-white text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-[#be123c] transition-all shadow-xl shadow-red-900/20"
-            >
-              Quick Test
-            </button>
           </div>
         </div>
       </div>
@@ -296,20 +279,6 @@ const SubjectDetail: React.FC = () => {
 
         {/* Sidebar */}
         <div className="lg:col-span-4 space-y-6">
-           <div className="p-8 rounded-3xl bg-gradient-to-br from-[#E11D48]/10 to-transparent border border-[#E11D48]/20 text-center relative overflow-hidden">
-              <div className="relative z-10">
-                <BrainCircuit size={32} className="mx-auto text-[#E11D48] mb-6" />
-                <h3 className="text-xl font-display font-bold text-white mb-2 tracking-tight">AI Assistant</h3>
-                <p className="text-sm text-slate-400 mb-8 font-medium leading-relaxed">Ask questions about {subject.name} and get instant answers sourced from approved textbooks.</p>
-                <button 
-                    onClick={() => setComingSoon('AI Study Assistant')}
-                    className="w-full py-4 rounded-xl bg-white text-black font-bold uppercase text-[10px] tracking-[0.25em] hover:scale-[1.02] transition-transform shadow-lg shadow-white/10"
-                >
-                    Open Neural Chat
-                </button>
-              </div>
-           </div>
-
            <div className="p-8 rounded-3xl bg-[#0a0a0a] border border-white/5 min-h-[300px]">
               <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-6 px-1 flex items-center justify-between">
                 Recommended Resources

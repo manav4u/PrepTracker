@@ -91,7 +91,7 @@ const ResourceViewerModal: React.FC<ResourceViewerModalProps> = ({ isOpen, onClo
                         <div className="absolute top-0 left-0 right-0 z-20 p-6 bg-gradient-to-b from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex justify-between items-start pointer-events-none">
                             <div className="translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                                 <h3 className="text-lg font-bold text-white drop-shadow-lg">{resource.title}</h3>
-                                <p className="text-[10px] text-[#E11D48] font-mono font-bold mt-1 tracking-widest uppercase">Streaming from Secure Vault Node</p>
+                                <p className="text-[10px] text-[#E11D48] font-mono font-bold mt-1 tracking-widest uppercase">Embedded from the source site</p>
                             </div>
                             <button onClick={onClose} className="pointer-events-auto p-3 bg-white/10 backdrop-blur-xl rounded-full hover:bg-white/20 text-white transition-all hover:scale-110 active:scale-95">
                                 <X size={24} />
@@ -133,7 +133,7 @@ const ResourceViewerModal: React.FC<ResourceViewerModalProps> = ({ isOpen, onClo
                             <div className="flex items-start gap-3 bg-yellow-500/5 border border-yellow-500/10 p-4 rounded-xl text-left w-full">
                                 <AlertTriangle size={20} className="text-yellow-500 shrink-0 mt-0.5" />
                                 <p className="text-xs text-yellow-200/80 leading-relaxed font-medium">
-                                    You are leaving the secure PrepTracker Vault environment. We cannot verify the integrity of external nodes. Proceed with caution.
+                                    This link opens another website in a new tab. PrepTracker does not control its content.
                                 </p>
                             </div>
 

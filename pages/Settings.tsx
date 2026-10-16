@@ -336,8 +336,8 @@ const SettingsPage: React.FC = () => {
                                     {profile.name || 'UNKNOWN'}
                                 </h3>
                                 <div className="flex items-center gap-2 mt-1">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
-                                    <span className="text-[8px] font-bold text-slate-500 uppercase tracking-widest">Device Authorized</span>
+                                    <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                                    <span className="text-[8px] font-bold text-slate-500 uppercase tracking-widest">Saved on this device</span>
                                 </div>
                             </div>
 
@@ -470,7 +470,7 @@ const SettingsPage: React.FC = () => {
 
         <div className="mt-12 text-center">
             <p className="text-[9px] font-mono text-slate-600 uppercase tracking-widest flex items-center justify-center gap-2">
-                PrepTracker Local OS v3.1.0 • Built for SPPU 2024 Pattern
+                PrepTracker • Built for the SPPU 2024 Pattern
             </p>
         </div>
       </div>
