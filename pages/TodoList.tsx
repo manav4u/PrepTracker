@@ -20,7 +20,8 @@ import {
   X,
   Check,
   ChevronDown,
-  Loader2
+  Loader2,
+  Pencil
 } from 'lucide-react';
 import { useData } from '../context/DataContext';
 import { Task, Priority, TaskCategory as Category } from '../types';
@@ -125,6 +126,16 @@ const TodoList: React.FC = () => {
   const [inputDate, setInputDate] = useState('');
   const [inputUnit, setInputUnit] = useState('');
   const [filter, setFilter] = useState<'ALL' | 'ACTIVE' | 'COMPLETED'>('ALL');
+  const [editingUnitTaskId, setEditingUnitTaskId] = useState<string | null>(null);
+
+  const updateTaskUnit = (id: string, unitId: string) => {
+    setTasks(prev => prev.map(t => {
+      if (t.id !== id) return t;
+      const { unitId: _drop, ...rest } = t;
+      return unitId ? { ...rest, unitId } : rest;
+    }));
+    setEditingUnitTaskId(null);
+  };
 
   // Handlers
   const addTask = async (e: React.FormEvent) => {
@@ -429,10 +440,32 @@ const TodoList: React.FC = () => {
                                             {catConfig.label}
                                         </span>
 
-                                        {task.unitId && unitLabel(task.unitId) && (
-                                            <Link to={`/subject/${unitLabel(task.unitId)!.subjectId}`} className="text-[9px] font-bold uppercase tracking-wider text-slate-400 hover:text-white border border-white/10 rounded px-1.5 py-0.5">
-                                                {unitLabel(task.unitId)!.text}
-                                            </Link>
+                                        {editingUnitTaskId === task.id ? (
+                                            <div className="w-64 max-w-full" onClick={(e) => e.stopPropagation()}>
+                                                <CustomSelect
+                                                    label="Linked unit"
+                                                    value={task.unitId || ''}
+                                                    onChange={(v) => updateTaskUnit(task.id, v)}
+                                                    options={unitOptions}
+                                                />
+                                            </div>
+                                        ) : (
+                                            <>
+                                                {task.unitId && unitLabel(task.unitId) && (
+                                                    <Link to={`/subject/${unitLabel(task.unitId)!.subjectId}`} className="text-[9px] font-bold uppercase tracking-wider text-slate-400 hover:text-white border border-white/10 rounded px-1.5 py-0.5">
+                                                        {unitLabel(task.unitId)!.text}
+                                                    </Link>
+                                                )}
+                                                <button
+                                                    type="button"
+                                                    onClick={() => setEditingUnitTaskId(task.id)}
+                                                    aria-label={task.unitId ? `Change linked unit for task: ${task.text}` : `Link a unit to task: ${task.text}`}
+                                                    title={task.unitId ? 'Change linked unit' : 'Link a unit'}
+                                                    className="lg:opacity-0 lg:group-hover:opacity-100 focus-visible:opacity-100 text-slate-500 hover:text-white border border-transparent hover:border-white/10 rounded p-0.5 transition-all"
+                                                >
+                                                    <Pencil size={10} />
+                                                </button>
+                                            </>
                                         )}
 
                                         {/* Date Badge */}
