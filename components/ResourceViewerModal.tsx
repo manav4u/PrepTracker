@@ -124,7 +124,7 @@ const ResourceViewerModal: React.FC<ResourceViewerModalProps> = ({ isOpen, onClo
                             </div>
                             
                             <div>
-                                <h4 className="text-2xl font-display font-bold text-white mb-2">Initiate External Link Jump?</h4>
+                                <h4 className="text-2xl font-display font-bold text-white mb-2">Open external link?</h4>
                                 <p className="text-sm text-slate-400 font-mono break-all bg-black/50 p-4 rounded-xl border border-white/5 mx-auto max-w-sm">
                                     {resource.url}
                                 </p>

@@ -105,7 +105,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
 
             const selectedIds = [choices.maths, choices.programming, choices.science, choices.circuit, choices.core];
             const newProfile: Profile = {
-                name: name || 'Operator',
+                name: name || 'Student',
                 theme: 'dark',
                 selectedSubjects: selectedIds,
                 setupComplete: true,
@@ -134,7 +134,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
       <div className="fixed inset-0 bg-black flex flex-col items-center justify-center cursor-none z-50">
          <div className="w-64 space-y-4">
             <div className="flex justify-between items-end text-xs font-mono text-[#E11D48] mb-1">
-                <span>SYSTEM_INIT</span>
+                <span>Setup</span>
                 <span>{bootProgress}%</span>
             </div>
             <div className="h-0.5 bg-white/10 w-full overflow-hidden">
@@ -187,7 +187,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
                            <div className="absolute inset-0 border-t border-[#E11D48] rounded-full animate-spin"></div>
                            <div className="absolute inset-2 border-b border-white/20 rounded-full animate-[spin_3s_linear_infinite_reverse]"></div>
                         </div>
-                        <h1 className="text-3xl font-display font-bold text-white mb-2 tracking-tight">Identity Configuration</h1>
+                        <h1 className="text-3xl font-display font-bold text-white mb-2 tracking-tight">Your profile</h1>
                         <p className="text-slate-500 font-mono text-[10px] uppercase tracking-[0.2em]">Local Access</p>
                     </div>
 
