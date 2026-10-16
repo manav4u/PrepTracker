@@ -63,7 +63,8 @@ const checks: Record<Field, (x: unknown) => boolean> = {
         PRIORITY.includes(v.priority as string) &&
         CATEGORY.includes(v.category as string) &&
         str(v.createdAt) &&
-        (v.dueDate === undefined || str(v.dueDate))
+        (v.dueDate === undefined || str(v.dueDate)) &&
+        (v.unitId === undefined || str(v.unitId))
     ),
   resources: (x) =>
     rows(

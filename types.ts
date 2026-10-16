@@ -81,5 +81,6 @@ export interface Task {
   priority: Priority;
   category: TaskCategory;
   dueDate?: string;
+  unitId?: string; // optional link to a syllabus unit
   createdAt: string;
 }

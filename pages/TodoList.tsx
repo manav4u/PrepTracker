@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { SUBJECTS } from '../constants';
 import { 
   Plus, 
   Trash2, 
@@ -78,7 +80,7 @@ const CustomSelect = <T extends string>({
         <div className="flex items-center gap-3">
             {selectedOption?.icon && <selectedOption.icon size={14} className={selectedOption.color} />}
             {selectedOption?.color && !selectedOption.icon && <div className={`w-2 h-2 rounded-full ${selectedOption.color}`} />}
-            <span className={`text-xs font-bold uppercase tracking-wider ${selectedOption?.color && !selectedOption.icon ? 'text-slate-300' : (selectedOption?.icon ? 'text-slate-300' : '')}`}>
+            <span className={`truncate text-left text-xs font-bold uppercase tracking-wider ${selectedOption?.color && !selectedOption.icon ? 'text-slate-300' : (selectedOption?.icon ? 'text-slate-300' : '')}`}>
                 {selectedOption?.label}
             </span>
         </div>
@@ -86,7 +88,7 @@ const CustomSelect = <T extends string>({
       </button>
 
       {isOpen && (
-        <div className="absolute top-[calc(100%+8px)] left-0 w-full bg-[#0a0a0a] border border-white/10 rounded-xl shadow-2xl z-50 overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+        <div className="absolute top-[calc(100%+8px)] left-0 w-full bg-[#0a0a0a] border border-white/10 rounded-xl shadow-2xl z-50 max-h-64 overflow-y-auto animate-in fade-in zoom-in-95 duration-200">
             {options.map((opt) => (
                 <button
                     key={opt.value}
@@ -115,12 +117,13 @@ const CustomSelect = <T extends string>({
 
 const TodoList: React.FC = () => {
   // State
-  const { tasks, setTasks } = useData();
+  const { tasks, setTasks, profile } = useData();
   const [loading, setLoading] = useState(false);
   const [inputText, setInputText] = useState('');
   const [inputPriority, setInputPriority] = useState<Priority>('NORMAL');
   const [inputCategory, setInputCategory] = useState<Category>('GENERAL');
   const [inputDate, setInputDate] = useState('');
+  const [inputUnit, setInputUnit] = useState('');
   const [filter, setFilter] = useState<'ALL' | 'ACTIVE' | 'COMPLETED'>('ALL');
 
   // Handlers
@@ -135,11 +138,13 @@ const TodoList: React.FC = () => {
       priority: inputPriority,
       category: inputCategory,
       dueDate: inputDate || '',
+      ...(inputUnit ? { unitId: inputUnit } : {}),
       createdAt: new Date().toISOString()
     };
 
     setTasks(prev => [newTask, ...prev]);
     setInputText('');
+    setInputUnit('');
   };
 
   const toggleTask = (id: string) => {
@@ -182,6 +187,20 @@ const TodoList: React.FC = () => {
     { value: 'NORMAL', label: 'Normal', color: 'bg-blue-400' },
     { value: 'LOW', label: 'Low', color: 'bg-slate-500' }
   ];
+
+  const unitOptions = [
+    { value: '', label: 'No unit' },
+    ...SUBJECTS.filter(s => profile?.selectedSubjects?.includes(s.id)).flatMap(s =>
+      s.units.map(u => ({ value: u.id, label: `${s.code.replace(/-[A-Z]+$/, '')} · Unit ${u.unit_number}: ${u.title}` }))
+    )
+  ];
+  const unitLabel = (id: string) => {
+    for (const s of SUBJECTS) {
+      const u = s.units.find(x => x.id === id);
+      if (u) return { subjectId: s.id, text: `${s.code.replace(/-[A-Z]+$/, '')} · Unit ${u.unit_number}` };
+    }
+    return null;
+  };
 
   const categoryOptions = Object.entries(CATEGORY_CONFIG).map(([key, config]) => ({
       value: key as Category,
@@ -266,6 +285,13 @@ const TodoList: React.FC = () => {
                             options={categoryOptions}
                         />
                     </div>
+
+                    <CustomSelect
+                        label="Linked Unit (Optional)"
+                        value={inputUnit}
+                        onChange={(v) => setInputUnit(v)}
+                        options={unitOptions}
+                    />
 
                     {/* Date Input */}
                     <div className="space-y-2">
@@ -377,6 +403,12 @@ const TodoList: React.FC = () => {
                                             <CategoryIcon size={10} />
                                             {catConfig.label}
                                         </span>
+
+                                        {task.unitId && unitLabel(task.unitId) && (
+                                            <Link to={`/subject/${unitLabel(task.unitId)!.subjectId}`} className="text-[9px] font-bold uppercase tracking-wider text-slate-400 hover:text-white border border-white/10 rounded px-1.5 py-0.5">
+                                                {unitLabel(task.unitId)!.text}
+                                            </Link>
+                                        )}
 
                                         {/* Date Badge */}
                                         {task.dueDate && (
