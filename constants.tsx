@@ -324,13 +324,8 @@ export const SUBJECTS: Subject[] = [
 ];
 
 export const SYSTEM_RESOURCES: ResourceItem[] = [
-    { id: 'sys_1', type: 'pdf', title: 'Maths-I Unit 1 Handwritten Notes', author: 'Dr. Deshmukh', downloads: '1.4k', subject: 'BSC-101', category: 'notes', url: 'https://drive.google.com', isSystem: true },
-    { id: 'sys_2', type: 'video', title: 'Calculus Visualization', author: '3Blue1Brown', downloads: '920', subject: 'BSC-101', category: 'lecture streams', url: 'https://www.youtube.com/watch?v=WUvTyaaNkzM', isSystem: true },
-    { id: 'sys_3', type: 'pdf', title: 'Quantum Mechanics Lab Spec', author: 'Physics Dept', downloads: '2.1k', subject: 'BSC-102', category: 'notes', url: 'https://drive.google.com', isSystem: true },
-    { id: 'sys_4', type: 'book', title: 'Electrical Engineering PYQs', author: 'EliteAlumni', downloads: '1.8k', subject: 'ESC-101', category: 'solved pyqs', url: 'https://drive.google.com', isSystem: true },
-    { id: 'sys_5', type: 'video', title: 'Mechanical Energy Conversion', author: 'Tikles Academy', downloads: '3.4k', subject: 'ESC-104', category: 'lecture streams', url: 'https://www.youtube.com/watch?v=zhL5DCizj5c', isSystem: true },
-    { id: 'sys_6', type: 'pdf', title: 'In-Sem 2023 Solved Papers', author: 'PrepTeam', downloads: '5k+', subject: 'GLOBAL', category: 'solved pyqs', url: 'https://drive.google.com', isSystem: true },
-    { id: 'sys_7', type: 'book', title: 'Higher Engineering Mathematics', author: 'B.S. Grewal', downloads: '12k', subject: 'BSC-101', category: 'textbooks', url: 'https://drive.google.com', isSystem: true }
+    { id: 'sys_2', type: 'video', title: 'Calculus Visualization', author: '3Blue1Brown', downloads: '', subject: 'BSC-101', category: 'lecture streams', url: 'https://www.youtube.com/watch?v=WUvTyaaNkzM', isSystem: true },
+    { id: 'sys_5', type: 'video', title: 'Mechanical Energy Conversion', author: 'Tikles Academy', downloads: '', subject: 'ESC-104', category: 'lecture streams', url: 'https://www.youtube.com/watch?v=zhL5DCizj5c', isSystem: true },
 ];
 
 export const EXAM_DATES: ExamDate[] = [

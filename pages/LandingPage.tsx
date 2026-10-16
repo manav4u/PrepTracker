@@ -134,10 +134,10 @@ const LandingPage: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">Precision Syllabus Tracking.</h2>
             <p className="text-slate-400 text-lg leading-relaxed mb-8">
               Forget scrolling through PDFs. We've digitized the entire SPPU 2024 syllabus into interactive modules.
-              Mark units as "Pending," "In Progress," or "Mastered" and visualize your completion rate in real-time.
+              Mark units as "Pending," "In Progress," or "Mastered" and see your completion rate update as you tick.
             </p>
             <ul className="space-y-4">
-              {['Unit-wise Breakdown', 'Real-time Velocity Metrics', 'Revision Status Indicators'].map((item, i) => (
+              {['Unit-wise Breakdown', 'Live Completion Percentage', 'Revision Status Indicators'].map((item, i) => (
                 <li key={i} className="flex items-center gap-3 text-slate-300">
                   <div className="w-1.5 h-1.5 bg-[#E11D48] rounded-full"></div>
                   {item}

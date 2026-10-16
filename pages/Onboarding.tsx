@@ -168,7 +168,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
         <header className="p-8 flex justify-between items-center opacity-50">
             <div className="flex items-center gap-2">
                 <div className={`w-2 h-2 bg-white rounded-full ${stage === 'processing' ? 'animate-ping' : 'animate-pulse'}`}></div>
-                <span className="font-mono text-[10px] uppercase tracking-widest">Setup Wizard v3.1 (Local)</span>
+                <span className="font-mono text-[10px] uppercase tracking-widest">Setup</span>
             </div>
             <Hexagon size={20} />
         </header>
@@ -188,7 +188,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
                            <div className="absolute inset-2 border-b border-white/20 rounded-full animate-[spin_3s_linear_infinite_reverse]"></div>
                         </div>
                         <h1 className="text-3xl font-display font-bold text-white mb-2 tracking-tight">Identity Configuration</h1>
-                        <p className="text-slate-500 font-mono text-[10px] uppercase tracking-[0.2em]">Secure Local Access v9.1</p>
+                        <p className="text-slate-500 font-mono text-[10px] uppercase tracking-[0.2em]">Local Access</p>
                     </div>
 
                     {/* Input Container */}

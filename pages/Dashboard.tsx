@@ -280,7 +280,7 @@ const Dashboard: React.FC = () => {
         <div className="flex items-end justify-between mb-8 px-1">
           <div>
             <h2 className="text-3xl font-display font-bold text-white mb-1 tracking-tight">Active Courses</h2>
-            <p className="text-slate-500 text-xs font-bold tracking-[0.2em] uppercase">Real-time Syllabus Tracking</p>
+            <p className="text-slate-500 text-xs font-bold tracking-[0.2em] uppercase">Syllabus Tracking</p>
           </div>
           <button className="text-[10px] font-bold text-slate-500 hover:text-white uppercase tracking-[0.2em] transition-colors flex items-center gap-2 px-4 py-2 rounded-full border border-white/5 hover:bg-white/5">
             View All <ChevronRight size={12} />

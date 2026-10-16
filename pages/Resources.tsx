@@ -170,13 +170,8 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ item, onClick, isSelectionM
             <div className={`mt-auto pt-6 border-t flex items-center justify-between ${isSelected ? 'border-[#E11D48]/30' : 'border-white/5'}`}>
                 <span className="text-[10px] font-mono text-slate-500 uppercase flex items-center gap-2">
                     <span className={`w-1.5 h-1.5 rounded-full transition-colors ${item.isSystem ? 'bg-slate-700 group-hover:bg-[#E11D48]' : 'bg-green-500'}`}></span> 
-                    AUTH: {item.author}
+                    {item.isSystem ? `By ${item.author}` : 'Added by you'}
                 </span>
-                {item.isSystem && (
-                    <span className="text-[10px] font-mono font-bold text-slate-400 flex items-center gap-1.5 bg-black/30 px-2 py-1 rounded border border-white/5">
-                        <Download size={10} /> {item.downloads}
-                    </span>
-                )}
             </div>
         </div>
     );
@@ -377,7 +372,7 @@ const Resources: React.FC = () => {
             <div className="space-y-4">
                 <div className="flex items-center gap-3 text-[#E11D48] mb-2">
                     <Database size={16} />
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em]">Resource Library v9.0</span>
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em]">Resource Library</span>
                 </div>
                 <h1 className="text-6xl lg:text-8xl font-display font-bold text-white tracking-tighter leading-[0.85]">
                     The <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-500">Vault</span>
@@ -387,15 +382,7 @@ const Resources: React.FC = () => {
             {/* System Status Indicators */}
             <div className="flex gap-4 lg:gap-8">
                 <div className="text-right">
-                    <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mb-1">Encryption</p>
-                    <p className="text-xs font-bold text-white font-mono">AES-256</p>
-                </div>
-                <div className="text-right">
-                    <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mb-1">Uptime</p>
-                    <p className="text-xs font-bold text-[#E11D48] font-mono">99.9%</p>
-                </div>
-                <div className="text-right">
-                    <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mb-1">Nodes</p>
+                    <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mb-1">Items</p>
                     <p className="text-xs font-bold text-white font-mono">{resources.length}</p>
                 </div>
             </div>
