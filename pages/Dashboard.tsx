@@ -21,8 +21,10 @@ const SHORT_NAMES: Record<string, string> = {
   'graph': 'EG'
 };
 
-const StatPill = ({ label, value, sub, active = false, gradient = false, icon: Icon = Activity }: any) => (
-  <div className={`p-6 rounded-3xl flex flex-col justify-between h-36 lg:h-40 transition-all duration-300 group hover:-translate-y-1 ${
+const StatPill = ({ label, value, sub, active = false, gradient = false, icon: Icon = Activity, to }: any) => {
+  const Wrap: any = to ? Link : 'div';
+  return (
+  <Wrap {...(to ? { to } : {})} className={`p-6 rounded-3xl flex flex-col justify-between h-36 lg:h-40 transition-all duration-300 group hover:-translate-y-1 ${
     gradient 
       ? 'bg-gradient-to-br from-[#E11D48] to-[#9f1239] shadow-[0_10px_40px_-10px_rgba(225,29,72,0.4)] border-none' 
       : active 
@@ -43,8 +45,9 @@ const StatPill = ({ label, value, sub, active = false, gradient = false, icon: I
         gradient ? 'text-white/80' : active ? 'text-black/50' : 'text-slate-500'
       }`}>{sub}</p>
     </div>
-  </div>
-);
+  </Wrap>
+  );
+};
 
 const ProgressGraphCard = ({ data, labels }: { data: number[], labels: string[] }) => {
     // Ensure we have data points to render
@@ -196,9 +199,17 @@ const Dashboard: React.FC = () => {
 
   const upcomingExams = sortedExams.filter(e => e.date.getTime() > Date.now());
   const nextExam = upcomingExams[0];
-  const daysToNextExam = nextExam 
-    ? Math.ceil((nextExam.date.getTime() - Date.now()) / (1000 * 60 * 60 * 24)) 
-    : 0;
+  // Days to exam comes from the date the student sets in Settings. The built-in subject dates
+  // are last cycle's schedule, so they are not used for this number.
+  const examStart = profile.examStartDate ? new Date(`${profile.examStartDate}T00:00:00`) : null;
+  const startOfToday = new Date(); startOfToday.setHours(0, 0, 0, 0);
+  const examDiff = examStart && !isNaN(examStart.getTime())
+    ? Math.round((examStart.getTime() - startOfToday.getTime()) / 86400000)
+    : null;
+  const examValue = examDiff === null ? '--' : examDiff > 0 ? `${examDiff}d` : examDiff === 0 ? 'Today' : 'Now';
+  const examSub = examDiff === null ? 'Set exam date' : examDiff >= 0 && examStart
+    ? `Starts ${examStart.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}`
+    : 'Exams started';
 
   // Streak Validation Logic
   const getValidStreak = () => {
@@ -270,7 +281,7 @@ const Dashboard: React.FC = () => {
            {/* Dynamic Graph Replacement for Forecast */}
            <ProgressGraphCard data={graphData} labels={graphLabels} />
            
-           <StatPill label="Days to Exam" value={`${daysToNextExam}d`} sub={nextExam ? nextExam.code : 'No Exams'} icon={CalendarDays} />
+           <StatPill label="Days to Exam" value={examValue} sub={examSub} icon={CalendarDays} to={examDiff === null ? '/settings' : undefined} />
            <StatPill label="Study Streak" value={validStreak} sub="Day Streak" icon={TrendingUp} active={validStreak > 2} />
         </div>
       </section>

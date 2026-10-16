@@ -315,6 +315,16 @@ const SettingsPage: React.FC = () => {
                                 className="w-full bg-transparent border-b border-white/20 py-2 text-xl font-mono text-slate-300 focus:border-[#E11D48] focus:outline-none transition-colors placeholder:text-white/10"
                             />
                         </div>
+                        <div className="space-y-2">
+                            <label htmlFor="exam-start" className="text-[9px] font-mono text-slate-500 uppercase tracking-widest block">First exam date (for Days to Exam)</label>
+                            <input
+                                id="exam-start"
+                                type="date"
+                                value={profile.examStartDate || ''}
+                                onChange={(e) => update('examStartDate', e.target.value || undefined)}
+                                className="w-full bg-transparent border-b border-white/20 py-2 text-xl font-mono text-slate-300 focus:border-[#E11D48] focus:outline-none transition-colors [color-scheme:dark]"
+                            />
+                        </div>
                      </div>
 
                      {/* Visual ID Card Preview */}
