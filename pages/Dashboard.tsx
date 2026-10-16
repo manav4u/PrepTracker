@@ -6,6 +6,7 @@ import SubjectCard from '../components/SubjectCard';
 import { UnitStatus } from '../types';
 import { ChevronRight, Sparkles, CalendarDays, TrendingUp, Activity } from 'lucide-react';
 import { useData } from '../context/DataContext';
+import { currentStreak, lastDays } from '../lib/activity';
 import ComingSoonModal from '../components/ComingSoonModal';
 
 const SHORT_NAMES: Record<string, string> = {
@@ -49,9 +50,8 @@ const StatPill = ({ label, value, sub, active = false, gradient = false, icon: I
   );
 };
 
-const ProgressGraphCard = ({ data, labels }: { data: number[], labels: string[] }) => {
-    // Ensure we have data points to render
-    const hasData = data.length > 0;
+const ProgressGraphCard = ({ data, labels, total }: { data: number[], labels: string[], total: number }) => {
+    const hasData = total > 0;
 
     // Y-Axis Padding Logic: 
     // Map 0% -> 85 (Bottom with padding)
@@ -73,7 +73,7 @@ const ProgressGraphCard = ({ data, labels }: { data: number[], labels: string[] 
     return (
         <div className="p-6 rounded-3xl bg-[#0a0a0a] border border-white/5 flex flex-col justify-between h-36 lg:h-40 relative overflow-hidden group hover:border-white/20 transition-all">
             <div className="flex justify-between items-start z-10">
-                <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-slate-500">Study Activity</span>
+                <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-slate-500">Last 7 days</span>
                 <div className="flex items-center gap-2">
                     <span className="relative flex h-1.5 w-1.5">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E11D48] opacity-75"></span>
@@ -131,7 +131,7 @@ const ProgressGraphCard = ({ data, labels }: { data: number[], labels: string[] 
                 </div>
             ) : (
                 <div className="flex-1 flex items-center justify-center">
-                    <p className="text-[10px] font-mono text-slate-600">NO_SIGNAL</p>
+                    <p className="text-[10px] font-mono text-slate-600 uppercase tracking-widest">No study yet</p>
                 </div>
             )}
             
@@ -212,32 +212,15 @@ const Dashboard: React.FC = () => {
     : 'Exams started';
 
   // Streak Validation Logic
-  const getValidStreak = () => {
-      if (!profile.lastStudyDate) return 0;
-      
-      const lastStudy = new Date(profile.lastStudyDate);
-      const today = new Date();
-      
-      // Reset hours to compare dates only
-      lastStudy.setHours(0,0,0,0);
-      today.setHours(0,0,0,0);
-      
-      const diffTime = Math.abs(today.getTime() - lastStudy.getTime());
-      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      
-      // Streak breaks if more than 1 day passed (i.e. missed yesterday)
-      if (diffDays > 1) return 0;
-      
-      return profile.streak;
-  };
-
-  const validStreak = getValidStreak();
+  const validStreak = currentStreak(profile);
 
   // Graph Data Preparation
   // Ensure we display something even if 0
-  const graphData = filtered.slice(0, 5).map(s => getSubjectProgress(s.id).percentage);
-  // Using SHORT_NAMES for better visual fit
-  const graphLabels = filtered.slice(0, 5).map(s => SHORT_NAMES[s.id] || s.code.split('-')[1] || s.code.slice(0,3));
+  const week = lastDays(profile, 7);
+  const weekMax = Math.max(3, ...week.counts);
+  const graphData = week.counts.map(c => Math.round((c / weekMax) * 100));
+  const graphLabels = week.labels;
+  const weekTotal = week.counts.reduce((a, b) => a + b, 0);
 
   return (
     <div className="space-y-12 lg:space-y-20 animate-in fade-in slide-in-from-bottom-8 duration-700">
@@ -279,7 +262,7 @@ const Dashboard: React.FC = () => {
            <StatPill label="Units Mastered" value={totalMastered} sub={`/ ${totalUnits} Units`} gradient={true} icon={Sparkles} />
            
            {/* Dynamic Graph Replacement for Forecast */}
-           <ProgressGraphCard data={graphData} labels={graphLabels} />
+           <ProgressGraphCard data={graphData} labels={graphLabels} total={weekTotal} />
            
            <StatPill label="Days to Exam" value={examValue} sub={examSub} icon={CalendarDays} to={examDiff === null ? '/settings' : undefined} />
            <StatPill label="Study Streak" value={validStreak} sub="Day Streak" icon={TrendingUp} active={validStreak > 2} />

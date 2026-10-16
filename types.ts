@@ -55,6 +55,7 @@ export interface Profile {
   group?: 'A' | 'B'; 
   streak: number;
   lastStudyDate: string; // ISO date string
+  activity?: Record<string, number>; // study actions per local day, last 60 days
   examStartDate?: string; // YYYY-MM-DD, set by the student
 }
 
