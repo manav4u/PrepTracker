@@ -270,6 +270,7 @@ const AddResourceModal = ({ isOpen, onClose, onAdd, userSubjects }: { isOpen: bo
 const Resources: React.FC = () => {
   const { profile, resources, addResource, deleteResources } = useData();
   const [activeTab, setActiveTab] = useState('all');
+  const [subjectFilter, setSubjectFilter] = useState('ALL');
   const [searchQuery, setSearchQuery] = useState('');
   
   // State for Dynamic Subjects
@@ -343,7 +344,10 @@ const Resources: React.FC = () => {
   const filteredResources = resources.filter(res => {
     const matchesTab = activeTab === 'all' || res.category.includes(activeTab) || (activeTab === 'notes (pdf)' && res.type === 'pdf') || (activeTab === 'textbooks' && res.type === 'book');
     const matchesSearch = res.title.toLowerCase().includes(searchQuery.toLowerCase()) || res.subject.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesTab && matchesSearch;
+    const matchesSubject =
+      subjectFilter === 'ALL' ||
+      (subjectFilter === 'GENERAL' ? res.subject === 'GENERAL' || res.subject === 'GLOBAL' : res.subject === subjectFilter || subjectFilter.startsWith(res.subject));
+    return matchesTab && matchesSearch && matchesSubject;
   });
 
   return (
@@ -454,6 +458,23 @@ const Resources: React.FC = () => {
                 ))}
             </div>
          </div>
+      </div>
+
+      {/* Subject filter */}
+      <div className="flex overflow-x-auto no-scrollbar gap-2 mb-8 -mt-6" role="group" aria-label="Filter by subject">
+        {[{ label: 'All subjects', value: 'ALL' }, ...userSubjectOptions].map((o) => (
+          <button
+            key={o.value}
+            type="button"
+            aria-pressed={subjectFilter === o.value}
+            onClick={() => setSubjectFilter(o.value)}
+            className={`px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.12em] whitespace-nowrap border transition-all ${
+              subjectFilter === o.value ? 'bg-[#E11D48]/10 border-[#E11D48]/40 text-[#E11D48]' : 'border-white/10 text-slate-500 hover:text-white hover:bg-white/5'
+            }`}
+          >
+            {o.value === 'ALL' || o.value === 'GENERAL' ? o.label : o.value}
+          </button>
+        ))}
       </div>
 
       {/* Data Grid */}
