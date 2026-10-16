@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import HeroV2 from '../components/landing/HeroV2';
 import TrustStrip from '../components/landing/TrustStrip';
+import ProblemSection from '../components/landing/ProblemSection';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import {
@@ -65,6 +66,8 @@ const LandingPage: React.FC = () => {
       <HeroV2 />
 
       <TrustStrip />
+
+      <ProblemSection />
 
       {/* Feature: Syllabus Command */}
       <section id="syllabus" className="py-24 px-6 border-t border-white/5 bg-[#050505]">
