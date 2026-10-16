@@ -328,6 +328,32 @@ const SettingsPage: React.FC = () => {
                         </div>
                      </div>
 
+                     {/* Per-subject exam dates (drive the dashboard timeline) */}
+                     <div className="space-y-4">
+                        <div>
+                            <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest block">Exam date per subject</label>
+                            <p className="text-[10px] text-slate-600 font-mono mt-1">These build your dashboard exam timeline. Leave blank if the timetable is not out yet.</p>
+                        </div>
+                        <div className="space-y-3">
+                            {SUBJECTS.filter(su => profile.selectedSubjects?.includes(su.id)).map(su => (
+                                <div key={su.id} className="flex items-center justify-between gap-4 border-b border-white/5 pb-3">
+                                    <span className="text-xs font-bold text-slate-300 truncate">{su.name}</span>
+                                    <input
+                                        type="date"
+                                        aria-label={`Exam date for ${su.name}`}
+                                        value={(profile.examDates || {})[su.id] || ''}
+                                        onChange={(e) => {
+                                            const d = { ...(profile.examDates || {}) };
+                                            if (e.target.value) d[su.id] = e.target.value; else delete d[su.id];
+                                            update('examDates', d);
+                                        }}
+                                        className="bg-transparent border-b border-white/20 py-1 text-sm font-mono text-slate-300 focus:border-[#E11D48] focus:outline-none transition-colors [color-scheme:dark]"
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                     </div>
+
                      {/* Visual ID Card Preview */}
                      <div className="relative w-full aspect-[1.58/1] rounded-2xl bg-[#020202] overflow-hidden border border-white/10 group shadow-2xl hover:scale-[1.02] transition-transform duration-500">
                         {/* Background Effects */}
