@@ -5,8 +5,6 @@ import {
   Library,
   Calculator,
   Settings,
-  Bell,
-  Search,
   Hexagon,
   Menu,
   ListTodo,
@@ -23,10 +21,14 @@ import LandingPage from './pages/LandingPage';
 import { UnitStatus } from './types';
 import { useData } from './context/DataContext';
 import ErrorBoundary from './components/ErrorBoundary';
+import GlobalSearch from './components/GlobalSearch';
 
-const NavItem = ({ to, icon: Icon, active }: { to: string, icon: any, active: boolean }) => (
+const NavItem = ({ to, icon: Icon, active, label }: { to: string, icon: any, active: boolean, label: string }) => (
   <Link
     to={to}
+    aria-label={label}
+    title={label}
+    aria-current={active ? 'page' : undefined}
     className={`relative group flex items-center justify-center w-12 h-12 lg:w-14 lg:h-14 rounded-2xl lg:rounded-3xl transition-all duration-300 ${
       active
         ? 'bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.3)] scale-110'
@@ -75,7 +77,7 @@ export default function App() {
                         </div>
                         <span className="font-bold tracking-widest uppercase text-xs text-white">PrepTracker</span>
                         </div>
-                        <Link to="/settings" className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-white/10">
+                        <Link to="/settings" aria-label="Settings" className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-white/10">
                         <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${profile.name}`} alt="User" />
                         </Link>
                     </div>
@@ -90,11 +92,11 @@ export default function App() {
                         </div>
 
                         <nav className="flex flex-row lg:flex-col w-full justify-evenly lg:gap-6 items-center">
-                        <NavItem to="/" icon={LayoutGrid} active={location.pathname === '/'} />
-                        <NavItem to="/resources" icon={Library} active={location.pathname === '/resources'} />
-                        <NavItem to="/tasks" icon={ListTodo} active={location.pathname === '/tasks'} />
-                        <NavItem to="/calculator" icon={Calculator} active={location.pathname === '/calculator'} />
-                        <NavItem to="/settings" icon={Settings} active={location.pathname === '/settings'} />
+                        <NavItem label="Dashboard" to="/" icon={LayoutGrid} active={location.pathname === '/'} />
+                        <NavItem label="Resources" to="/resources" icon={Library} active={location.pathname === '/resources'} />
+                        <NavItem label="Tasks" to="/tasks" icon={ListTodo} active={location.pathname === '/tasks'} />
+                        <NavItem label="SGPA calculator" to="/calculator" icon={Calculator} active={location.pathname === '/calculator'} />
+                        <NavItem label="Settings" to="/settings" icon={Settings} active={location.pathname === '/settings'} />
                         </nav>
 
                         <div className="hidden lg:flex mt-4 pt-8 border-t border-white/5 w-full flex-col items-center gap-6">
@@ -107,10 +109,7 @@ export default function App() {
                                 Local Storage Active
                             </div>
                         </div>
-                        <button className="w-12 h-12 rounded-full bg-gradient-to-br from-white/5 to-white/0 border border-white/5 flex items-center justify-center hover:border-white/20 transition-all text-white/50 hover:text-white group">
-                            <Bell size={20} className="group-hover:rotate-12 transition-transform" />
-                        </button>
-                        <Link to="/settings" className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-white/10 hover:ring-white/40 transition-all hover:scale-110">
+                        <Link to="/settings" aria-label="Settings" className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-white/10 hover:ring-white/40 transition-all hover:scale-110">
                             <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${profile.name}`} alt="User" />
                         </Link>
                         </div>
@@ -129,14 +128,7 @@ export default function App() {
                         </div>
 
                         <div className="flex items-center gap-4">
-                            <div className="relative group">
-                                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 group-focus-within:text-white transition-colors" size={18} />
-                                <input
-                                type="text"
-                                placeholder="Search anything..."
-                                className="bg-white/5 border border-white/5 rounded-full pl-12 pr-6 py-3 text-xs font-medium w-64 focus:w-80 focus:bg-white/10 focus:border-white/10 outline-none transition-all placeholder:text-white/20"
-                                />
-                            </div>
+                            <GlobalSearch selectedSubjects={profile.selectedSubjects || []} />
                         </div>
                         </div>
 

@@ -228,6 +228,9 @@ const SubjectDetail: React.FC = () => {
                                 <button
                                     key={item.status}
                                     onClick={() => updateStatus(unit.id, item.status)}
+                                    aria-label={`Mark unit as ${item.label}`}
+                                    aria-pressed={isSelected}
+                                    title={item.label}
                                     className={`relative px-4 py-2 rounded-lg flex items-center gap-2 transition-all duration-300 ${
                                         isSelected 
                                         ? 'bg-white text-black shadow-lg' 
