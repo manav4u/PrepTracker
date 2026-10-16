@@ -48,7 +48,7 @@ const LandingPage: React.FC = () => {
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
             <a href="#syllabus" className="hover:text-white transition-colors">Syllabus</a>
-            <a href="#vault" className="hover:text-white transition-colors">Vault</a>
+            <a href="#vault" className="hover:text-white transition-colors">Resources</a>
             <a href="#tasks" className="hover:text-white transition-colors">Tasks</a>
           </div>
           <Link
@@ -178,7 +178,7 @@ const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Feature: The Vault */}
+      {/* Feature: Resource Library */}
       <section id="vault" className="py-24 px-6 border-t border-white/5 bg-[#030303]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
@@ -217,9 +217,9 @@ const LandingPage: React.FC = () => {
             <div className="w-12 h-12 bg-blue-600/10 rounded-lg flex items-center justify-center text-blue-500 mb-6">
               <Database size={24} />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">The Resource Vault.</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">The Resource Library.</h2>
             <p className="text-slate-400 text-lg leading-relaxed mb-8">
-              Stop hunting for study materials in random WhatsApp groups. The Vault aggregates high-quality notes,
+              Stop hunting for study materials in random WhatsApp groups. The Library collects high-quality notes,
               previous year question papers (PYQs), and decoded answers into one centralized repository.
             </p>
             <ul className="space-y-4">

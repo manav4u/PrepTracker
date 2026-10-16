@@ -124,7 +124,7 @@ export default function App() {
                         <div className="flex items-center gap-4 text-sm font-medium text-white/40">
                             <span>{new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</span>
                             <span className="w-1 h-1 rounded-full bg-white/20"></span>
-                            <span className="text-[#E11D48]">Engineering Cycle</span>
+                            <span className="text-[#E11D48]">First Year Engineering</span>
                         </div>
 
                         <div className="flex items-center gap-4">

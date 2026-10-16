@@ -296,7 +296,7 @@ const TodoList: React.FC = () => {
                     <div className="grid grid-cols-2 gap-4">
                         {/* Custom Dropdowns */}
                         <CustomSelect 
-                            label="Priority Vector"
+                            label="Priority"
                             value={inputPriority}
                             onChange={(v) => setInputPriority(v as Priority)}
                             options={priorityOptions}
@@ -319,7 +319,7 @@ const TodoList: React.FC = () => {
 
                     {/* Date Input */}
                     <div className="space-y-2">
-                        <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Dead-Line (Optional)</label>
+                        <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Due date (optional)</label>
                         <div className="relative group">
                             <Calendar size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-[#E11D48] transition-colors" />
                             <input 
@@ -378,7 +378,7 @@ const TodoList: React.FC = () => {
                 {loading ? (
                     <div className="py-20 text-center">
                         <Loader2 size={48} className="mx-auto text-[#E11D48] animate-spin mb-4" />
-                        <p className="text-slate-500 text-sm font-mono uppercase tracking-widest">Accessing Local Drive...</p>
+                        <p className="text-slate-500 text-sm font-mono uppercase tracking-widest">Loading tasks...</p>
                     </div>
                 ) : filteredTasks.length === 0 ? (
                     <div className="py-20 text-center border border-dashed border-white/10 rounded-3xl bg-white/[0.01]">

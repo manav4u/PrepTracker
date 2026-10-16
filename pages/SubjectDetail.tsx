@@ -7,10 +7,8 @@ import {
   CheckCircle2, 
   Circle, 
   PlayCircle, 
-  BrainCircuit,
   List,
   X,
-  Send,
   Timer,
   Check,
   FileQuestion,
@@ -30,14 +28,6 @@ import ResourceViewerModal from '../components/ResourceViewerModal';
 const SubjectDetail: React.FC = () => {
   const { id } = useParams();
   const subject = SUBJECTS.find(s => s.id === id);
-  const [showChat, setShowChat] = useState(false);
-  const [chatInput, setChatInput] = useState('');
-  const [chatHistory, setChatHistory] = useState<{role: 'user' | 'ai', text: string}[]>([
-    {role: 'ai', text: `Hello! I'm your AI Tutor for ${subject?.name || 'this subject'}. Ask me anything about Unit 1 or specific concepts.`}
-  ]);
-  
-  const chatEndRef = useRef<HTMLDivElement>(null);
-
   const { userProgress, setUserProgress, profile, setProfile } = useData();
 
   // Resource State
@@ -46,9 +36,6 @@ const SubjectDetail: React.FC = () => {
 
   // Coming Soon State
 
-  useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [chatHistory, showChat]);
 
   // Load Resources for this subject
   useEffect(() => {
@@ -142,19 +129,6 @@ const SubjectDetail: React.FC = () => {
         next = [...userProgress, { unitId: uId, status: UnitStatus.NOT_STARTED, pyqsCompleted: [year] }];
     }
     setUserProgress(next);
-  };
-
-  const handleChatSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if(!chatInput.trim()) return;
-    setChatHistory(prev => [...prev, { role: 'user', text: chatInput }]);
-    const userQ = chatInput;
-    setChatInput('');
-    setTimeout(() => {
-        let response = "That's a great question. Based on the syllabus, this concept is covered in Unit 2. It usually carries 6-8 marks in the End-Sem exam.";
-        if (userQ.toLowerCase().includes('syllabus')) response = "The syllabus covers 5-6 units depending on the subject. You can check the timeline on the left.";
-        setChatHistory(prev => [...prev, { role: 'ai', text: response }]);
-    }, 1000);
   };
 
   return (
@@ -358,7 +332,7 @@ const SubjectDetail: React.FC = () => {
                          </div>
                          <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">No Resources Found</p>
                          <Link to="/resources" className="text-[10px] text-[#E11D48] mt-2 font-mono hover:underline">
-                             Add to Vault -&gt;
+                             Add a resource
                          </Link>
                     </div>
                 )}
@@ -367,50 +341,6 @@ const SubjectDetail: React.FC = () => {
         </div>
       </div>
 
-      {/* AI Chat Overlay */}
-      {showChat && (
-        <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md animate-in fade-in duration-300">
-            <div className="bg-[#0a0a0a] border border-white/10 w-full max-w-lg rounded-3xl overflow-hidden flex flex-col h-[80vh] sm:h-[650px] shadow-2xl relative">
-                <div className="p-5 border-b border-white/10 flex justify-between items-center bg-[#0a0a0a]">
-                    <div className="flex items-center gap-3">
-                        <BrainCircuit size={18} className="text-[#E11D48]" />
-                        <span className="font-bold text-sm text-white uppercase tracking-widest">AI Tutor Node</span>
-                    </div>
-                    <button onClick={() => setShowChat(false)} className="p-2 hover:bg-white/10 rounded-full transition-colors"><X size={18} /></button>
-                </div>
-                
-                <div className="flex-1 overflow-y-auto p-6 space-y-6">
-                    {chatHistory.map((msg, idx) => (
-                        <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                            <div className={`max-w-[85%] p-5 text-sm leading-relaxed ${
-                                msg.role === 'user' 
-                                ? 'bg-white text-black rounded-2xl rounded-tr-sm font-bold' 
-                                : 'bg-white/10 text-slate-200 rounded-2xl rounded-tl-sm font-medium'
-                            }`}>
-                                {msg.text}
-                            </div>
-                        </div>
-                    ))}
-                    <div ref={chatEndRef}></div>
-                </div>
-
-                <form onSubmit={handleChatSubmit} className="p-5 border-t border-white/10 bg-[#0a0a0a]">
-                    <div className="relative">
-                        <input 
-                            type="text" 
-                            value={chatInput}
-                            onChange={(e) => setChatInput(e.target.value)}
-                            placeholder="Ask a doubt..."
-                            className="w-full bg-white/5 border border-white/10 rounded-2xl pl-6 pr-14 py-4 text-sm text-white focus:border-white/20 outline-none transition-all placeholder:text-slate-600 font-medium"
-                        />
-                        <button type="submit" className="absolute right-2 top-1/2 -translate-y-1/2 p-2.5 bg-[#E11D48] rounded-xl text-white hover:scale-105 transition-transform">
-                            <Send size={16} />
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-      )}
     </div>
   );
 };

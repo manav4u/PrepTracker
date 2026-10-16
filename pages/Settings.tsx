@@ -111,7 +111,7 @@ const SettingsPage: React.FC = () => {
       if (modalConfig.type === 'RESET') {
           const newProfile = { ...profile, setupComplete: false };
           setProfile(newProfile);
-          showToast("Configuration Reset", 'success');
+          showToast("Subject selection reset", 'success');
       } 
       else if (modalConfig.type === 'FORMAT') {
           // ACTIVATE LOCKOUT MODE
@@ -245,7 +245,7 @@ const SettingsPage: React.FC = () => {
       {/* Confirmation Dialog */}
       <ConfirmModal 
         isOpen={modalConfig.isOpen}
-        title={modalConfig.type === 'RESET' ? 'Re-Initialize System' : modalConfig.type === 'RESTORE' ? 'Replace saved data?' : 'Format Local Drive'}
+        title={modalConfig.type === 'RESET' ? 'Change subjects?' : modalConfig.type === 'RESTORE' ? 'Replace saved data?' : 'Erase all data?'}
         description={modalConfig.type === 'RESET' 
             ? 'This will reset your subject selection configuration. Your progress in individual units will remain, but you will need to run the onboarding sequence again.'
             : modalConfig.type === 'RESTORE' && preview
@@ -267,7 +267,7 @@ const SettingsPage: React.FC = () => {
             <div>
                 <div className="flex items-center gap-2 text-[#E11D48] mb-2">
                     <Terminal size={16} />
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em]">Local System Settings</span>
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em]">Settings</span>
                 </div>
                 <h1 className="text-5xl lg:text-7xl font-display font-bold text-white tracking-tighter leading-none">
                     System <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-500 to-slate-700">Settings</span>
@@ -291,7 +291,7 @@ const SettingsPage: React.FC = () => {
                 
                 <h2 className="text-xl font-display font-bold text-white mb-8 flex items-center gap-3">
                     <HardDrive size={20} className="text-[#E11D48]" />
-                    Operator Identity
+                    Your profile
                 </h2>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -373,13 +373,13 @@ const SettingsPage: React.FC = () => {
                 <div className="flex justify-between items-start mb-8">
                     <h2 className="text-xl font-display font-bold text-white flex items-center gap-3">
                         <Terminal size={20} className="text-[#E11D48]" />
-                        Active Modules
+                        Your subjects
                     </h2>
                     <button 
                         onClick={initiateReset}
                         className="px-4 py-2 rounded-lg bg-white/5 hover:bg-[#E11D48] text-slate-400 hover:text-white text-[10px] font-bold uppercase tracking-widest transition-all flex items-center gap-2 border border-white/5"
                     >
-                        <RotateCcw size={12} /> Re-Initialize
+                        <RotateCcw size={12} /> Change subjects
                     </button>
                 </div>
 
@@ -471,7 +471,7 @@ const SettingsPage: React.FC = () => {
                         onClick={initiateFormat}
                         className="relative z-10 mt-6 w-full py-3 bg-red-500/10 text-red-500 border border-red-500/20 font-bold uppercase text-[10px] tracking-[0.2em] rounded-lg hover:bg-red-500 hover:text-white transition-all flex items-center justify-center gap-2"
                     >
-                        <Trash2 size={14} /> Format Local Drive
+                        <Trash2 size={14} /> Erase all data
                     </button>
                 </div>
             </section>

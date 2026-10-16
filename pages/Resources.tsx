@@ -379,7 +379,7 @@ const Resources: React.FC = () => {
                     <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em]">Resource Library</span>
                 </div>
                 <h1 className="text-6xl lg:text-8xl font-display font-bold text-white tracking-tighter leading-[0.85]">
-                    The <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-500">Vault</span>
+                    The <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-500">Library</span>
                 </h1>
             </div>
             
