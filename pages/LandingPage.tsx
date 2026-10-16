@@ -5,6 +5,7 @@ import ProblemSection from '../components/landing/ProblemSection';
 import FeaturesBento from '../components/landing/FeaturesBento';
 import HowItWorks from '../components/landing/HowItWorks';
 import FaqSection from '../components/landing/FaqSection';
+import FinalCta from '../components/landing/FinalCta';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import {
@@ -38,10 +39,7 @@ const LandingPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#030303] text-slate-300 font-sans selection:bg-[#E11D48] selection:text-white overflow-x-hidden">
-
-      {/* Grid Background */}
-      <div className="fixed inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none z-0"></div>
+    <div className="min-h-screen bg-[#F7F5F2] text-[#141419] font-sans selection:bg-[#E11D48] selection:text-white overflow-x-hidden">
 
       {/* Navbar */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-[#F7F5F2]/85 backdrop-blur-md border-b border-black/5 py-4' : 'bg-transparent py-6'}`}>
@@ -77,39 +75,21 @@ const LandingPage: React.FC = () => {
       <HowItWorks />
 
       <FaqSection />
-
-      {/* CTA Section */}
-      <section className="py-32 px-6 relative overflow-hidden">
-         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#E11D48]/20 pointer-events-none"></div>
-         <div className="max-w-4xl mx-auto text-center relative z-10">
-            <h2 className="text-5xl md:text-6xl font-bold text-white mb-8 tracking-tighter">Ready for exam season?</h2>
-            <p className="text-xl text-slate-400 mb-12 max-w-2xl mx-auto">
-               Built for SPPU first years. Set up in under a minute.
-               <br />
-               No account required. Data stays on your device.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-6">
-                <Link
-                to="/onboarding"
-                className="inline-flex items-center justify-center gap-3 px-10 py-5 bg-white text-black rounded-lg font-bold uppercase tracking-wider hover:bg-slate-200 transition-all hover:scale-105 shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)]"
-                >
-                  <Zap size={20} className="fill-black" /> Launch PrepTracker
-                </Link>
-            </div>
-         </div>
-      </section>
-
+      <FinalCta />
       {/* Footer */}
-      <footer className="py-12 px-6 border-t border-white/5 bg-[#030303]">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-slate-500 text-sm">
-           <div className="flex items-center gap-2">
-              <div className="w-5 h-5 bg-[#E11D48] rounded flex items-center justify-center text-white text-[10px] font-bold">PT</div>
-              <span className="font-semibold text-slate-300">PrepTracker</span>
-           </div>
-           <div className="text-slate-500 text-xs font-mono">Your data never leaves this browser.</div>
-           <div className="font-mono text-xs">
-              © 2026 • Local-First Architecture
-           </div>
+      <footer className="px-6 pb-10 pt-4 border-t border-black/[0.08] bg-[#F7F5F2]">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-[#5A5A66]">
+          <div className="flex items-center gap-2.5">
+            <div className="w-6 h-6 bg-[#E11D48] rounded flex items-center justify-center text-white text-[10px] font-bold font-mono">PT</div>
+            <span className="font-bold text-[#141419] tracking-tight">PrepTracker</span>
+          </div>
+          <nav aria-label="Footer" className="flex items-center gap-6">
+            <a href="#syllabus" className="hover:text-[#141419] transition-colors">Syllabus</a>
+            <a href="#vault" className="hover:text-[#141419] transition-colors">Resources</a>
+            <a href="#tasks" className="hover:text-[#141419] transition-colors">Tasks</a>
+            <a href="https://github.com/manav4u/PrepTracker" target="_blank" rel="noreferrer" className="hover:text-[#141419] transition-colors">Source</a>
+          </nav>
+          <div className="text-xs text-[#8A8A94]">SPPU FE, 2024 pattern · Free · Your data stays in this browser</div>
         </div>
       </footer>
     </div>
