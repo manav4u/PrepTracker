@@ -55,6 +55,7 @@ export interface Profile {
   group?: 'A' | 'B'; 
   streak: number;
   lastStudyDate: string; // ISO date string
+  examStartDate?: string; // YYYY-MM-DD, set by the student
 }
 
 export interface ResourceItem {
