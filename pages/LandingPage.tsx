@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import HeroV2 from '../components/landing/HeroV2';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import {
@@ -38,86 +39,29 @@ const LandingPage: React.FC = () => {
       <div className="fixed inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none z-0"></div>
 
       {/* Navbar */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-[#030303]/80 backdrop-blur-md border-b border-white/5 py-4' : 'bg-transparent py-6'}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-[#F7F5F2]/85 backdrop-blur-md border-b border-black/5 py-4' : 'bg-transparent py-6'}`}>
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 bg-[#E11D48] rounded flex items-center justify-center text-white font-bold font-mono">
               PT
             </div>
-            <span className="font-bold text-white tracking-tight">PrepTracker</span>
+            <span className="font-bold text-[#141419] tracking-tight">PrepTracker</span>
           </div>
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
-            <a href="#syllabus" className="hover:text-white transition-colors">Syllabus</a>
-            <a href="#vault" className="hover:text-white transition-colors">Resources</a>
-            <a href="#tasks" className="hover:text-white transition-colors">Tasks</a>
+          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-[#141419]/60">
+            <a href="#syllabus" className="hover:text-[#141419] transition-colors">Syllabus</a>
+            <a href="#vault" className="hover:text-[#141419] transition-colors">Resources</a>
+            <a href="#tasks" className="hover:text-[#141419] transition-colors">Tasks</a>
           </div>
           <Link
             to="/onboarding"
-            className="px-5 py-2 bg-white text-black text-xs font-bold uppercase tracking-wider rounded hover:bg-slate-200 transition-colors"
+            className="px-5 py-2.5 bg-[#141419] text-white text-xs font-bold tracking-wide rounded-full hover:bg-black transition-colors"
           >
             Launch App
           </Link>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6">
-        <div className="max-w-7xl mx-auto text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-[10px] font-mono uppercase tracking-widest text-[#E11D48] mb-8"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E11D48] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E11D48]"></span>
-            </span>
-            Free • SPPU 2024 Pattern
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-5xl md:text-8xl font-bold text-white tracking-tighter leading-tight mb-8"
-          >
-            Engineer Your <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-500">Academic Success.</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-2xl mx-auto text-lg md:text-xl text-slate-400 font-light mb-12 leading-relaxed"
-          >
-            The syllabus tracker for SPPU first year.
-            Tick units as you study, pull up real notes and PYQs, and keep exam deadlines in one place.
-            Free. No account.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <Link
-              to="/onboarding"
-              className="w-full sm:w-auto px-8 py-4 bg-[#E11D48] text-white font-bold rounded-lg hover:bg-[#be123c] transition-all flex items-center justify-center gap-2 group"
-            >
-              Start Tracking <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <a
-              href="#syllabus"
-              className="w-full sm:w-auto px-8 py-4 bg-white/5 text-white border border-white/10 font-bold rounded-lg hover:bg-white/10 transition-all flex items-center justify-center gap-2"
-            >
-              Explore Features
-            </a>
-          </motion.div>
-        </div>
-      </section>
+      <HeroV2 />
 
       {/* Feature: Syllabus Command */}
       <section id="syllabus" className="py-24 px-6 border-t border-white/5 bg-[#050505]">
