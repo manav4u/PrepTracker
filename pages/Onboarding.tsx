@@ -78,7 +78,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
             setTimeout(() => setStage('identity'), 800);
             return 100;
           }
-          return prev + Math.floor(Math.random() * 15) + 5;
+          return Math.min(100, prev + Math.floor(Math.random() * 15) + 5);
         });
       }, 150);
       return () => clearInterval(interval);
@@ -131,7 +131,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
 
   if (stage === 'boot') {
     return (
-      <div className="fixed inset-0 bg-black flex flex-col items-center justify-center cursor-none z-50">
+      <div className="fixed inset-0 bg-black flex flex-col items-center justify-center z-50">
          <div className="w-64 space-y-4">
             <div className="flex justify-between items-end text-xs font-mono text-[#E11D48] mb-1">
                 <span>Setup</span>
@@ -188,7 +188,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
                            <div className="absolute inset-2 border-b border-white/20 rounded-full animate-[spin_3s_linear_infinite_reverse]"></div>
                         </div>
                         <h1 className="text-3xl font-display font-bold text-white mb-2 tracking-tight">Your profile</h1>
-                        <p className="text-slate-500 font-mono text-[10px] uppercase tracking-[0.2em]">Local Access</p>
+                        <p className="text-slate-500 font-mono text-[10px] uppercase tracking-[0.2em]">Saved only on this device</p>
                     </div>
 
                     {/* Input Container */}
@@ -197,7 +197,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
                         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[2px] bg-[#E11D48] blur-[8px]"></div>
 
                         <label className="flex items-center gap-2 text-[9px] font-mono text-[#E11D48] mb-6 uppercase tracking-[0.2em] font-bold">
-                           <ShieldCheck size={12} /> Personal Identification
+                           <ShieldCheck size={12} /> Your name
                         </label>
 
                         <div className="relative mb-8">
@@ -206,7 +206,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
                                value={name}
                                onChange={(e) => setName(e.target.value)}
                                placeholder="YOUR NAME"
-                               className="w-full bg-transparent border-b border-white/10 py-3 text-2xl lg:text-3xl font-display font-bold text-center text-white focus:border-[#E11D48] focus:outline-none transition-all placeholder:text-white/5 uppercase tracking-wide"
+                               className="w-full bg-transparent border-b border-white/10 py-3 text-2xl lg:text-3xl font-display font-bold text-center text-white focus:border-[#E11D48] focus:outline-none transition-all placeholder:text-white/30 uppercase tracking-wide"
                                autoFocus
                            />
                            <div className="absolute bottom-0 left-0 w-full h-[1px] bg-[#E11D48] scale-x-0 group-focus-within:scale-x-100 transition-transform duration-500"></div>
@@ -238,7 +238,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
                 <div className="w-full animate-in fade-in zoom-in-95 duration-500 slide-in-from-right-8 pb-10">
                      <div className="mb-10 text-center lg:text-left">
                         <span className="inline-block px-3 py-1 rounded-full border border-[#E11D48]/30 bg-[#E11D48]/10 text-[#E11D48] text-[10px] font-bold uppercase tracking-widest mb-4">
-                            Syllabus Configuration (2024 Pattern)
+                            Your subjects - SPPU 2024 pattern
                         </span>
                         <h2 className="text-4xl font-display font-bold mb-2">Select Your Subjects</h2>
                         <p className="text-slate-500 text-sm">Customize your dashboard for the current semester.</p>
@@ -292,6 +292,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
 
                      </div>
 
+                     <p className="text-center text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-4">5 subjects - you can change them later in Settings</p>
                      <button
                         onClick={handleFinish}
                         className="w-full py-6 bg-[#E11D48] text-white font-bold uppercase tracking-[0.2em] rounded-xl hover:bg-[#be123c] transition-all shadow-[0_0_40px_-10px_#E11D48] hover:shadow-[0_0_60px_-10px_#E11D48] flex items-center justify-center gap-3 group"
@@ -319,7 +320,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
                     <div className="text-center space-y-6">
                         <div>
                             <h2 className="text-2xl font-display font-bold text-white mb-2 uppercase tracking-widest animate-pulse">
-                                System Initialization
+                                Saving your setup
                             </h2>
                             <p className="text-[10px] font-mono text-[#E11D48] uppercase tracking-[0.2em]">
                                 {processLog}
@@ -336,19 +337,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
                              </div>
                         </div>
 
-                        {/* Terminal Log Output Simulation */}
-                        <div className="bg-[#050505] border border-white/5 rounded-xl p-4 text-left h-24 overflow-hidden relative">
-                            <div className="absolute top-0 left-0 w-full h-8 bg-gradient-to-b from-[#050505] to-transparent z-10 pointer-events-none"></div>
-                            <div className="space-y-1.5 font-mono text-[9px] text-slate-500 opacity-70">
-                                <p>&gt; MOUNT_LOCAL_DRIVE: OK</p>
-                                <p>&gt; CORE_SERVICES: STARTED</p>
-                                <p>&gt; VERIFYING_INTEGRITY: PASSED</p>
-                                {processPercent > 20 && <p>&gt; DATA_VECTORS: CALCULATED</p>}
-                                {processPercent > 50 && <p className="text-[#E11D48]"> &gt; WRITING_CONFIG: {Math.round(processPercent)}%</p>}
-                                {processPercent > 80 && <p>&gt; PRE_CACHING: DONE</p>}
-                                <p className="animate-pulse">_</p>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             )}
