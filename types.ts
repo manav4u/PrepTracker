@@ -19,6 +19,8 @@ export interface Subject {
   name: string;
   code: string;
   credits: number;
+  theoryCredits: number; // credits for the theory head (CCE 30 + end-sem 70)
+  termWorkCredits: number; // credits for the term work head (25 marks)
   units: Unit[];
   common?: boolean;
   examDate?: string; // ISO String for the specific paper date

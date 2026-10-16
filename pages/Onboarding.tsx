@@ -276,7 +276,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
                         <BinaryChoice 
                             label="Circuit Theory Module"
                             titleA="Basic Electronics" codeA="ESC-101"
-                            titleB="Basic Electrical" codeB="ESE-102"
+                            titleB="Basic Electrical" codeB="ESC-102"
                             selected={choices.circuit === 'elect' ? 'A' : 'B'}
                             onSelect={(v: string) => setChoices({...choices, circuit: v === 'A' ? 'elect' : 'elec'})}
                         />

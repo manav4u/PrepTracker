@@ -2,6 +2,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { Profile, UserProgress, Task, ResourceItem } from '../types';
 import { SYSTEM_RESOURCES } from '../constants';
+import { MarksMap, cleanMarks } from '../lib/grading';
 
 interface DataContextType {
   profile: Profile | null;
@@ -10,6 +11,8 @@ interface DataContextType {
   setUserProgress: (progress: UserProgress[]) => void;
   tasks: Task[];
   setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
+  marks: MarksMap;
+  setMarks: React.Dispatch<React.SetStateAction<MarksMap>>;
   resources: ResourceItem[];
   addResource: (resource: ResourceItem) => void;
   deleteResources: (ids: string[]) => void;
@@ -45,6 +48,16 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
     } catch (e) {
         console.error("Failed to parse tasks from local storage", e);
         return [];
+    }
+  });
+
+  const [marks, setMarks] = useState<MarksMap>(() => {
+    try {
+      const saved = localStorage.getItem('sppu_calculator_marks');
+      return saved ? cleanMarks(JSON.parse(saved)) : {};
+    } catch (e) {
+      console.error("Failed to parse calculator marks from local storage", e);
+      return {};
     }
   });
 
@@ -88,6 +101,10 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
   }, [tasks]);
 
   useEffect(() => {
+    localStorage.setItem('sppu_calculator_marks', JSON.stringify(marks));
+  }, [marks]);
+
+  useEffect(() => {
     localStorage.setItem('sppu_custom_resources', JSON.stringify(customResources));
   }, [customResources]);
 
@@ -127,6 +144,8 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
       setUserProgress,
       tasks,
       setTasks,
+      marks,
+      setMarks,
       resources,
       addResource,
       deleteResources
