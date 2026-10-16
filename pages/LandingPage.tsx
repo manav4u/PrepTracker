@@ -4,6 +4,7 @@ import TrustStrip from '../components/landing/TrustStrip';
 import ProblemSection from '../components/landing/ProblemSection';
 import FeaturesBento from '../components/landing/FeaturesBento';
 import HowItWorks from '../components/landing/HowItWorks';
+import FaqSection from '../components/landing/FaqSection';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import {
@@ -74,6 +75,8 @@ const LandingPage: React.FC = () => {
       <FeaturesBento />
 
       <HowItWorks />
+
+      <FaqSection />
 
       {/* CTA Section */}
       <section className="py-32 px-6 relative overflow-hidden">
