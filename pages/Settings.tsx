@@ -300,6 +300,7 @@ const SettingsPage: React.FC = () => {
                             <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest block">Your Name</label>
                             <input 
                                 type="text" 
+                                aria-label="Your name"
                                 value={profile.name}
                                 onChange={(e) => update('name', e.target.value)}
                                 className="w-full bg-transparent border-b border-white/20 py-2 text-2xl font-display font-bold text-white focus:border-[#E11D48] focus:outline-none transition-colors placeholder:text-white/10"
@@ -463,7 +464,7 @@ const SettingsPage: React.FC = () => {
                     <div className="absolute inset-0 bg-red-900/5 group-hover:bg-red-900/10 transition-colors"></div>
                     <div className="relative z-10">
                         <h3 className="text-lg font-bold text-red-500 mb-2 flex items-center gap-2"><AlertTriangle size={16} /> Danger Zone</h3>
-                        <p className="text-xs text-red-400/60 font-mono leading-relaxed">
+                        <p className="text-xs text-red-300 font-mono leading-relaxed">
                             Irreversible action. Wipes all data from this device.
                         </p>
                     </div>
