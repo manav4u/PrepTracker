@@ -73,7 +73,7 @@ const LandingPage: React.FC = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E11D48] opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E11D48]"></span>
             </span>
-            System Online • SPPU 2024 Pattern
+            Free • SPPU 2024 Pattern
           </motion.div>
 
           <motion.h1
@@ -92,9 +92,9 @@ const LandingPage: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="max-w-2xl mx-auto text-lg md:text-xl text-slate-400 font-light mb-12 leading-relaxed"
           >
-            The definitive operating system for engineering students.
-            Manage syllabus coverage, access curated resources, and track critical deadlines.
-            Zero fluff. Pure efficiency.
+            The syllabus tracker for SPPU first year.
+            Tick units as you study, pull up real notes and PYQs, and keep exam deadlines in one place.
+            Free. No account.
           </motion.p>
 
           <motion.div
@@ -107,7 +107,7 @@ const LandingPage: React.FC = () => {
               to="/onboarding"
               className="w-full sm:w-auto px-8 py-4 bg-[#E11D48] text-white font-bold rounded-lg hover:bg-[#be123c] transition-all flex items-center justify-center gap-2 group"
             >
-              Initialize System <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              Start Tracking <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <a
               href="#syllabus"
@@ -133,7 +133,7 @@ const LandingPage: React.FC = () => {
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">Precision Syllabus Tracking.</h2>
             <p className="text-slate-400 text-lg leading-relaxed mb-8">
-              Forget scrolling through PDFs. We've digitized the entire SPPU 2024 syllabus into interactive modules.
+              Forget scrolling through PDFs. We've digitized the entire first-year SPPU 2024 syllabus into interactive modules.
               Mark units as "Pending," "In Progress," or "Mastered" and see your completion rate update as you tick.
             </p>
             <ul className="space-y-4">
@@ -192,10 +192,10 @@ const LandingPage: React.FC = () => {
             <div className="relative bg-[#0a0a0a] border border-white/10 rounded-xl p-6 shadow-2xl">
                <div className="grid grid-cols-2 gap-4">
                   {[
-                    { icon: FileText, label: "PYQ Papers", count: "2019-2023" },
+                    { icon: FileText, label: "PYQ Papers", count: "2019 & 2024" },
                     { icon: BookOpen, label: "Notes", count: "All Units" },
-                    { icon: Code2, label: "Lab Manuals", count: "Verified" },
-                    { icon: ExternalLink, label: "Reference", count: "Standard" }
+                    { icon: Code2, label: "Tutorials", count: "Interactive" },
+                    { icon: ExternalLink, label: "Video Lectures", count: "Full Courses" }
                   ].map((item, i) => (
                     <div key={i} className="p-4 bg-white/5 border border-white/5 rounded-lg hover:border-white/20 transition-colors group">
                       <item.icon className="text-blue-500 mb-3 group-hover:scale-110 transition-transform" size={24} />
@@ -219,11 +219,11 @@ const LandingPage: React.FC = () => {
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">The Resource Library.</h2>
             <p className="text-slate-400 text-lg leading-relaxed mb-8">
-              Stop hunting for study materials in random WhatsApp groups. The Library collects high-quality notes,
-              previous year question papers (PYQs), and decoded answers into one centralized repository.
+              Stop hunting for study materials in random WhatsApp groups. The Library collects real notes,
+              previous year question papers (PYQs), and video lectures for every first-year subject in one place.
             </p>
             <ul className="space-y-4">
-              {['One-click Downloads', 'Subject-specific Sorting', 'Verified Content Only'].map((item, i) => (
+              {['Direct links to the source', 'Filter by subject', 'Every link verified'].map((item, i) => (
                 <li key={i} className="flex items-center gap-3 text-slate-300">
                   <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
                   {item}
@@ -252,7 +252,7 @@ const LandingPage: React.FC = () => {
               our priority-based task system. Never miss a submission date again.
             </p>
             <ul className="space-y-4">
-              {['High/Medium/Low Priority Tags', 'Deadline Countdown', 'Subject Association'].map((item, i) => (
+              {['High/Medium/Low Priority Tags', 'Due-date tracking', 'Link tasks to syllabus units'].map((item, i) => (
                 <li key={i} className="flex items-center gap-3 text-slate-300">
                   <div className="w-1.5 h-1.5 bg-yellow-500 rounded-full"></div>
                   {item}
@@ -304,9 +304,9 @@ const LandingPage: React.FC = () => {
       <section className="py-32 px-6 relative overflow-hidden">
          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#E11D48]/20 pointer-events-none"></div>
          <div className="max-w-4xl mx-auto text-center relative z-10">
-            <h2 className="text-5xl md:text-6xl font-bold text-white mb-8 tracking-tighter">Ready to Deploy?</h2>
+            <h2 className="text-5xl md:text-6xl font-bold text-white mb-8 tracking-tighter">Ready for exam season?</h2>
             <p className="text-xl text-slate-400 mb-12 max-w-2xl mx-auto">
-               Join thousands of students optimizing their engineering journey.
+               Built for SPPU first years. Set up in under a minute.
                <br />
                No account required. Data stays on your device.
             </p>
@@ -328,13 +328,9 @@ const LandingPage: React.FC = () => {
               <div className="w-5 h-5 bg-[#E11D48] rounded flex items-center justify-center text-white text-[10px] font-bold">PT</div>
               <span className="font-semibold text-slate-300">PrepTracker</span>
            </div>
-           <div className="flex gap-6">
-              <span className="hover:text-white cursor-pointer transition-colors">Privacy</span>
-              <span className="hover:text-white cursor-pointer transition-colors">Terms</span>
-              <span className="hover:text-white cursor-pointer transition-colors">Contact</span>
-           </div>
+           <div className="text-slate-500 text-xs font-mono">Your data never leaves this browser.</div>
            <div className="font-mono text-xs">
-              © 2024 • Local-First Architecture
+              © 2026 • Local-First Architecture
            </div>
         </div>
       </footer>
