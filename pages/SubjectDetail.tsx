@@ -196,7 +196,6 @@ const SubjectDetail: React.FC = () => {
                         type="button"
                         onClick={() => setCollapsedUnits(prev => ({ ...prev, [unit.id]: !isCollapsed }))}
                         aria-expanded={!isCollapsed}
-                        aria-label={`Unit 0${unit.unit_number}: ${unit.title} - ${isCollapsed ? 'expand' : 'collapse'}`}
                         className="text-left flex items-start gap-3 group/title"
                       >
                         <span>
