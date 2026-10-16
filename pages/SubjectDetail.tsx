@@ -86,16 +86,22 @@ const SubjectDetail: React.FC = () => {
 
   if (!subject) return <div className="p-20 text-center text-white font-display">SUBJECT_NOT_FOUND</div>;
 
+  const totalTopics = subject.units.reduce((n, u) => n + (u.topics?.length || 0), 0);
+  const coveredTopics = subject.units.reduce((n, u) => n + (userProgress.find(p => p.unitId === u.id)?.topicsDone || []).filter(t => (u.topics || []).includes(t)).length, 0);
+  const coveredPct = totalTopics ? Math.round((coveredTopics / totalTopics) * 100) : 0;
+
   const getProg = (uId: string) => userProgress.find(p => p.unitId === uId) || { unitId: uId, status: UnitStatus.NOT_STARTED, pyqsCompleted: [] };
 
   const updateStatus = (uId: string, status: UnitStatus) => {
     const idx = userProgress.findIndex(p => p.unitId === uId);
     let next: typeof userProgress = [];
+    const unitTopics = subject.units.find(u => u.id === uId)?.topics || [];
+    const patch = status === UnitStatus.MASTERED ? { topicsDone: [...unitTopics] } : status === UnitStatus.NOT_STARTED ? { topicsDone: [] as string[] } : {};
     if (idx > -1) {
         next = [...userProgress];
-        next[idx] = { ...next[idx], status };
+        next[idx] = { ...next[idx], status, ...patch };
     } else {
-        next = [...userProgress, { unitId: uId, status, pyqsCompleted: [] }];
+        next = [...userProgress, { unitId: uId, status, pyqsCompleted: [], ...patch }];
     }
     setUserProgress(next);
 
@@ -111,6 +117,26 @@ const SubjectDetail: React.FC = () => {
                 lastStudyDate: new Date().toISOString()
             });
         }
+    }
+  };
+
+  const toggleTopic = (uId: string, topic: string, allTopics: string[]) => {
+    const idx = userProgress.findIndex(p => p.unitId === uId);
+    const cur = idx > -1 ? userProgress[idx] : { unitId: uId, status: UnitStatus.NOT_STARTED, pyqsCompleted: [] as string[], topicsDone: [] as string[] };
+    const done = cur.topicsDone || [];
+    const nowDone = done.includes(topic);
+    const topicsDone = nowDone ? done.filter(t => t !== topic) : [...done, topic];
+    let status = cur.status;
+    if (topicsDone.length === allTopics.length) status = UnitStatus.MASTERED;
+    else if (topicsDone.length > 0) status = UnitStatus.IN_PROGRESS;
+    else if (status === UnitStatus.MASTERED) status = UnitStatus.IN_PROGRESS;
+    const row = { ...cur, status, topicsDone };
+    const next = idx > -1 ? userProgress.map((p, i) => (i === idx ? row : p)) : [...userProgress, row];
+    setUserProgress(next);
+    if (!nowDone && profile) {
+      const today = new Date().toDateString();
+      const lastDate = profile.lastStudyDate ? new Date(profile.lastStudyDate).toDateString() : '';
+      if (lastDate !== today) setProfile({ ...profile, streak: (profile.streak || 0) + 1, lastStudyDate: new Date().toISOString() });
     }
   };
 
@@ -167,6 +193,15 @@ const SubjectDetail: React.FC = () => {
             <h1 className="text-4xl lg:text-8xl font-display font-bold text-white leading-[0.9] tracking-tighter text-balance">
               {subject.name}
             </h1>
+            <div className="mt-8 max-w-md" data-testid="subject-progress">
+              <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2">
+                <span>Syllabus covered</span>
+                <span className="text-white font-mono">{coveredTopics}/{totalTopics} topics • {coveredPct}%</span>
+              </div>
+              <div className="h-2 rounded-full bg-white/5 overflow-hidden" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={coveredPct} aria-label="Syllabus covered">
+                <div className="h-full rounded-full bg-[#E11D48] transition-all duration-500" style={{ width: `${coveredPct}%` }} />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -228,15 +263,28 @@ const SubjectDetail: React.FC = () => {
                     {unit.topics && (
                        <div className="mb-8 p-6 rounded-2xl bg-white/5 border border-white/5">
                          <h4 className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">
-                           <List size={12} /> Key Topics
+                           <List size={12} /> Key Topics <span className="ml-auto font-mono text-slate-500">{(p.topicsDone || []).filter(x => unit.topics.includes(x)).length}/{unit.topics.length}</span>
                          </h4>
                          <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-3">
-                           {unit.topics.map((t, idx) => (
-                             <li key={idx} className="text-sm text-slate-300 flex items-start gap-3">
-                               <span className="w-1 h-1 rounded-full bg-[#E11D48] mt-2 shrink-0"></span>
-                               <span className="leading-relaxed font-medium">{t}</span>
-                             </li>
-                           ))}
+                           {unit.topics.map((t, idx) => {
+                             const done = (p.topicsDone || []).includes(t);
+                             return (
+                               <li key={idx}>
+                                 <button
+                                   type="button"
+                                   role="checkbox"
+                                   aria-checked={done}
+                                   onClick={() => toggleTopic(unit.id, t, unit.topics)}
+                                   className={`w-full text-left text-sm flex items-start gap-3 p-2 -m-2 rounded-lg transition-colors hover:bg-white/5 ${done ? 'text-slate-500' : 'text-slate-300'}`}
+                                 >
+                                   <span className={`mt-0.5 w-4 h-4 rounded border shrink-0 flex items-center justify-center transition-all ${done ? 'bg-[#E11D48] border-[#E11D48]' : 'border-white/20'}`}>
+                                     {done && <Check size={10} strokeWidth={3.5} className="text-white" />}
+                                   </span>
+                                   <span className={`leading-relaxed font-medium ${done ? 'line-through decoration-white/20' : ''}`}>{t}</span>
+                                 </button>
+                               </li>
+                             );
+                           })}
                          </ul>
                        </div>
                     )}

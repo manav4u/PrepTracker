@@ -37,6 +37,7 @@ export interface UserProgress {
   unitId: string;
   status: UnitStatus;
   pyqsCompleted: string[]; 
+  topicsDone?: string[];
 }
 
 export interface ExamDate {

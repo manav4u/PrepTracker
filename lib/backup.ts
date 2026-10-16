@@ -52,7 +52,7 @@ const checks: Record<Field, (x: unknown) => boolean> = {
       typeof x.streak === 'number' &&
       str(x.lastStudyDate)),
   progress: (x) =>
-    rows(x, (v) => str(v.unitId) && UNIT_STATUS.includes(v.status as string) && strs(v.pyqsCompleted)),
+    rows(x, (v) => str(v.unitId) && UNIT_STATUS.includes(v.status as string) && strs(v.pyqsCompleted) && (v.topicsDone === undefined || strs(v.topicsDone))),
   tasks: (x) =>
     rows(
       x,
