@@ -1,4 +1,5 @@
 
+import { recordStudy } from '../lib/activity';
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { 
@@ -105,19 +106,7 @@ const SubjectDetail: React.FC = () => {
     }
     setUserProgress(next);
 
-    // Update Streak logic in profile
-    if (profile) {
-        const today = new Date().toDateString();
-        const lastDate = profile.lastStudyDate ? new Date(profile.lastStudyDate).toDateString() : '';
-
-        if (lastDate !== today) {
-            setProfile({
-                ...profile,
-                streak: (profile.streak || 0) + 1,
-                lastStudyDate: new Date().toISOString()
-            });
-        }
-    }
+    if (profile) setProfile(recordStudy(profile));
   };
 
   const toggleTopic = (uId: string, topic: string, allTopics: string[]) => {
@@ -133,11 +122,7 @@ const SubjectDetail: React.FC = () => {
     const row = { ...cur, status, topicsDone };
     const next = idx > -1 ? userProgress.map((p, i) => (i === idx ? row : p)) : [...userProgress, row];
     setUserProgress(next);
-    if (!nowDone && profile) {
-      const today = new Date().toDateString();
-      const lastDate = profile.lastStudyDate ? new Date(profile.lastStudyDate).toDateString() : '';
-      if (lastDate !== today) setProfile({ ...profile, streak: (profile.streak || 0) + 1, lastStudyDate: new Date().toISOString() });
-    }
+    if (!nowDone && profile) setProfile(recordStudy(profile));
   };
 
   const togglePyq = (uId: string, year: string) => {
