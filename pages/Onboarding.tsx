@@ -90,11 +90,11 @@ const Onboarding: React.FC<OnboardingProps> = () => {
     
     // Simulate complex processing steps
     const steps = [
-        { pct: 10, log: "MOUNTING LOCAL DRIVE..." },
-        { pct: 30, log: "CONFIGURING SUBJECTS..." },
-        { pct: 60, log: "SAVING PREFERENCES..." },
-        { pct: 85, log: "OPTIMIZING DASHBOARD..." },
-        { pct: 100, log: "SYSTEM READY." }
+        { pct: 10, log: "Saving your profile..." },
+        { pct: 30, log: "Setting up your subjects..." },
+        { pct: 60, log: "Saving preferences..." },
+        { pct: 85, log: "Building your dashboard..." },
+        { pct: 100, log: "Ready." }
     ];
 
     let currentStep = 0;
@@ -144,11 +144,11 @@ const Onboarding: React.FC<OnboardingProps> = () => {
                 ></div>
             </div>
             <div className="h-8 overflow-hidden">
-                <p className="font-mono text-[10px] text-slate-500 leading-relaxed opacity-70">
-                    {bootProgress < 30 && "> MOUNTING VOLUMES..."}
-                    {bootProgress >= 30 && bootProgress < 60 && "> ESTABLISHING LOCAL CACHE..."}
-                    {bootProgress >= 60 && bootProgress < 90 && "> LOADING PREPTRACKER CORE..."}
-                    {bootProgress >= 90 && "> READY."}
+                <p className="font-mono text-[10px] text-slate-500 leading-relaxed">
+                    {bootProgress < 30 && "Saving your profile..."}
+                    {bootProgress >= 30 && bootProgress < 60 && "Setting up your subjects..."}
+                    {bootProgress >= 60 && bootProgress < 90 && "Building your dashboard..."}
+                    {bootProgress >= 90 && "Ready."}
                 </p>
             </div>
          </div>
