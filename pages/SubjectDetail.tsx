@@ -193,7 +193,7 @@ const SubjectDetail: React.FC = () => {
                     <div className="flex flex-col sm:flex-row justify-between items-start mb-8 gap-6 sm:gap-0">
                       <div>
                         <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1 block">Unit 0{unit.unit_number}</span>
-                        <h3 className={`text-2xl font-display font-bold mt-1 transition-colors tracking-tight ${isMastered ? 'text-[#E11D48]' : 'text-white'}`}>{unit.title}</h3>
+                        <h2 className={`text-2xl font-display font-bold mt-1 transition-colors tracking-tight ${isMastered ? 'text-[#E11D48]' : 'text-white'}`}>{unit.title}</h2>
                       </div>
                       
                       <div className="flex bg-white/5 p-1 rounded-xl">
@@ -229,9 +229,9 @@ const SubjectDetail: React.FC = () => {
                     {/* Topics List */}
                     {unit.topics && (
                        <div className="mb-8 p-6 rounded-2xl bg-white/5 border border-white/5">
-                         <h4 className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">
+                         <h3 className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">
                            <List size={12} /> Key Topics <span className="ml-auto font-mono text-slate-500">{(p.topicsDone || []).filter(x => unit.topics.includes(x)).length}/{unit.topics.length}</span>
-                         </h4>
+                         </h3>
                          <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-3">
                            {unit.topics.map((t, idx) => {
                              const done = (p.topicsDone || []).includes(t);
@@ -268,6 +268,8 @@ const SubjectDetail: React.FC = () => {
                              <button
                                key={year}
                                onClick={() => togglePyq(unit.id, year)}
+                               aria-label={`${year} question paper, ${unit.title}: ${isSolved ? 'solved' : 'not solved'}`}
+                               aria-pressed={isSolved}
                                className={`group px-4 py-3 rounded-xl border flex items-center justify-between transition-all duration-300 ${
                                  isSolved
                                    ? 'bg-[#E11D48]/10 border-[#E11D48]/30 text-[#E11D48]'
@@ -295,12 +297,12 @@ const SubjectDetail: React.FC = () => {
         {/* Sidebar */}
         <div className="lg:col-span-4 space-y-6">
            <div className="p-8 rounded-3xl bg-[#0a0a0a] border border-white/5 min-h-[300px]">
-              <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-6 px-1 flex items-center justify-between">
+              <h3 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-6 px-1 flex items-center justify-between">
                 Recommended Resources
                 <Link to="/resources" aria-label="Open the resource library" className="text-white hover:text-[#E11D48] transition-colors flex items-center gap-1">
                    <ArrowUpRight size={10} />
                 </Link>
-              </h4>
+              </h3>
               
               <div className="space-y-4">
                 {subjectResources.length > 0 ? (
@@ -311,7 +313,6 @@ const SubjectDetail: React.FC = () => {
                                 type="button"
                                 key={resource.id}
                                 onClick={() => setViewResource(resource)}
-                                aria-label={`Open resource: ${resource.title}`}
                                 className="w-full text-left flex items-center gap-4 p-4 rounded-2xl bg-white/5 hover:bg-white/10 transition-colors cursor-pointer group border border-transparent hover:border-white/10"
                             >
                                 <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors ${

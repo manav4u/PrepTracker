@@ -39,9 +39,9 @@ const StatPill = ({ label, value, sub, active = false, gradient = false, icon: I
       <Icon size={16} className={gradient ? 'text-white' : active ? 'text-black' : 'text-[#E11D48]'} />
     </div>
     <div>
-      <h3 className={`text-4xl lg:text-5xl font-display font-bold tracking-tighter mb-2 ${
+      <p className={`text-4xl lg:text-5xl font-display font-bold tracking-tighter mb-2 ${
         gradient ? 'text-white' : active ? 'text-black' : 'text-white'
-      }`}>{value}</h3>
+      }`}>{value}</p>
       <p className={`text-[10px] lg:text-[11px] font-bold uppercase tracking-widest ${
         gradient ? 'text-white/80' : active ? 'text-black/50' : 'text-slate-500'
       }`}>{sub}</p>
