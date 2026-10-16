@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ReactNode, Component } from 'react';
+import React from 'react';
 import { Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
 import {
   LayoutGrid,
@@ -9,8 +9,6 @@ import {
   Search,
   Hexagon,
   Menu,
-  AlertTriangle,
-  RefreshCw,
   ListTodo,
   HardDrive
 } from 'lucide-react';
@@ -24,65 +22,7 @@ import TodoList from './pages/TodoList';
 import LandingPage from './pages/LandingPage';
 import { UnitStatus } from './types';
 import { useData } from './context/DataContext';
-
-// --- ERROR BOUNDARY COMPONENT ---
-interface ErrorBoundaryProps {
-  children?: ReactNode;
-}
-
-interface ErrorBoundaryState {
-  hasError: boolean;
-}
-
-class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
-  state: ErrorBoundaryState = { hasError: false };
-
-  static getDerivedStateFromError(error: any) {
-    return { hasError: true };
-  }
-
-  componentDidCatch(error: any, errorInfo: any) {
-    console.error("CRITICAL APP CRASH:", error, errorInfo);
-  }
-
-  handleHardReset = () => {
-    // Only clear session storage to avoid wiping local data backup if unnecessary
-    sessionStorage.clear();
-    // Potentially clear specific corrupt keys from local storage if known,
-    // but avoid full clear to preserve 'sppu_profile' etc. if they are valid.
-    window.location.reload();
-  };
-
-  render() {
-    if (this.state.hasError) {
-      return (
-        <div className="min-h-screen bg-[#030303] text-white flex flex-col items-center justify-center p-6 text-center relative overflow-hidden">
-             {/* Background Grid */}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none"></div>
-
-            <div className="relative z-10 max-w-md w-full bg-[#0a0a0a] border border-red-900/30 p-8 rounded-3xl shadow-2xl">
-                <div className="w-16 h-16 bg-red-500/10 rounded-full flex items-center justify-center mx-auto mb-6 text-red-500">
-                    <AlertTriangle size={32} />
-                </div>
-                <h1 className="text-3xl font-display font-bold text-white mb-2">System Failure</h1>
-                <p className="text-slate-400 text-sm mb-8 leading-relaxed font-mono">
-                    The application encountered a non-recoverable data error.
-                </p>
-                <button
-                    onClick={this.handleHardReset}
-                    className="w-full py-4 bg-red-600 text-white font-bold uppercase tracking-[0.2em] rounded-xl hover:bg-red-700 transition-all shadow-[0_0_20px_rgba(220,38,38,0.4)] flex items-center justify-center gap-3"
-                >
-                    <RefreshCw size={18} /> Execute Reset
-                </button>
-                <p className="mt-6 text-[10px] text-slate-600 uppercase tracking-widest">Error Code: RENDER_PROCESS_TERMINATED</p>
-            </div>
-        </div>
-      );
-    }
-
-    return this.props.children;
-  }
-}
+import ErrorBoundary from './components/ErrorBoundary';
 
 const NavItem = ({ to, icon: Icon, active }: { to: string, icon: any, active: boolean }) => (
   <Link
@@ -112,7 +52,7 @@ export default function App() {
   const isSetupComplete = profile && profile.setupComplete;
 
   return (
-    <ErrorBoundary>
+    <ErrorBoundary scope="app">
         <Routes>
             {/* PUBLIC ROUTES */}
             <Route path="/landing" element={isSetupComplete ? <Navigate to="/" /> : <LandingPage />} />
@@ -201,6 +141,7 @@ export default function App() {
                         </div>
 
                         <div className="max-w-[1600px] mx-auto h-full">
+                        <ErrorBoundary scope="page" resetKey={location.pathname}>
                         <Routes>
                             <Route path="/" element={<Dashboard />} />
                             <Route path="/subject/:id" element={<SubjectDetail />} />
@@ -209,6 +150,7 @@ export default function App() {
                             <Route path="/calculator" element={<CalculatorPage />} />
                             <Route path="/settings" element={<SettingsPage />} />
                         </Routes>
+                        </ErrorBoundary>
                         </div>
                     </main>
 

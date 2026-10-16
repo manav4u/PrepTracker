@@ -16,6 +16,8 @@ export const SUBJECTS: Subject[] = [
     name: 'Engineering Mathematics-I',
     code: 'BSC-101-BES',
     credits: 4,
+    theoryCredits: 3,
+    termWorkCredits: 1,
     examDate: '2026-06-03T14:00:00',
     units: [
       { 
@@ -45,6 +47,8 @@ export const SUBJECTS: Subject[] = [
     name: 'Fundamentals of Programming Languages',
     code: 'ESC-105-COM',
     credits: 3,
+    theoryCredits: 2,
+    termWorkCredits: 1,
     examDate: '2026-06-19T14:00:00',
     units: [
       { 
@@ -74,6 +78,8 @@ export const SUBJECTS: Subject[] = [
     name: 'Engineering Physics',
     code: 'BSC-102-BES',
     credits: 4,
+    theoryCredits: 3,
+    termWorkCredits: 1,
     examDate: '2026-06-05T14:00:00',
     units: [
       { 
@@ -103,6 +109,8 @@ export const SUBJECTS: Subject[] = [
     name: 'Engineering Chemistry',
     code: 'BSC-103-BES',
     credits: 4,
+    theoryCredits: 3,
+    termWorkCredits: 1,
     examDate: '2026-06-08T14:00:00',
     units: [
       { 
@@ -132,6 +140,8 @@ export const SUBJECTS: Subject[] = [
     name: 'Basic Electronics Engineering',
     code: 'ESC-101-ETC',
     credits: 3,
+    theoryCredits: 2,
+    termWorkCredits: 1,
     examDate: '2026-06-10T14:00:00',
     units: [
       { 
@@ -159,8 +169,10 @@ export const SUBJECTS: Subject[] = [
   {
     id: 'elec',
     name: 'Basic Electrical Engineering',
-    code: 'ESE-102-ELE',
+    code: 'ESC-102-ELE',
     credits: 3,
+    theoryCredits: 2,
+    termWorkCredits: 1,
     examDate: '2026-06-12T14:00:00',
     units: [
       { 
@@ -190,6 +202,8 @@ export const SUBJECTS: Subject[] = [
     name: 'Engineering Mechanics',
     code: 'ESC-104-CVL',
     credits: 3,
+    theoryCredits: 2,
+    termWorkCredits: 1,
     examDate: '2026-06-17T14:00:00',
     units: [
       { 
@@ -219,6 +233,8 @@ export const SUBJECTS: Subject[] = [
     name: 'Engineering Graphics',
     code: 'ESC-103-MEC',
     credits: 3,
+    theoryCredits: 2,
+    termWorkCredits: 1,
     examDate: '2026-06-15T14:00:00',
     units: [
       { 
@@ -248,6 +264,8 @@ export const SUBJECTS: Subject[] = [
     name: 'Engineering Mathematics-II',
     code: 'BSC-151-BES',
     credits: 4,
+    theoryCredits: 3,
+    termWorkCredits: 1,
     examDate: '2026-06-22T14:00:00',
     units: [
       {
@@ -277,6 +295,8 @@ export const SUBJECTS: Subject[] = [
     name: 'Programming and Problem Solving',
     code: 'PCC-151-ITT',
     credits: 3,
+    theoryCredits: 2,
+    termWorkCredits: 1,
     examDate: '2026-06-24T14:00:00',
     units: [
       {
