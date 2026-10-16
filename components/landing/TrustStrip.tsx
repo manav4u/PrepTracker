@@ -31,7 +31,7 @@ const TrustStrip: React.FC = () => {
             >
               <div className="text-4xl md:text-5xl font-bold tracking-tight">{s.value}</div>
               <div className="mt-1.5 text-sm font-semibold">{s.label}</div>
-              <div className="mt-0.5 text-xs text-[#141419]/50">{s.note}</div>
+              <div className="mt-0.5 text-xs text-[#5A5A66]">{s.note}</div>
             </motion.div>
           ))}
         </div>

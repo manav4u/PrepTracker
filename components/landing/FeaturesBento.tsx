@@ -62,7 +62,7 @@ const FeaturesBento: React.FC = () => {
           whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ type: 'spring', stiffness: 120, damping: 20 }}
-          className="text-xs font-mono tracking-[0.2em] uppercase text-[#E11D48]"
+          className="text-xs font-mono tracking-[0.2em] uppercase text-[#BE123C]"
         >
           The fix
         </motion.p>
@@ -87,7 +87,7 @@ const FeaturesBento: React.FC = () => {
               className={`${c.span} scroll-mt-28 rounded-3xl bg-white border border-black/[0.06] p-7 md:p-8 flex flex-col overflow-hidden shadow-[0_1px_2px_rgba(20,20,25,0.04)] hover:shadow-[0_12px_32px_-12px_rgba(20,20,25,0.15)] hover:-translate-y-0.5 transition-all duration-300`}
             >
               {c.icon ? (
-                <div className="w-11 h-11 rounded-xl bg-[#E11D48]/10 text-[#E11D48] flex items-center justify-center" aria-hidden="true">
+                <div className="w-11 h-11 rounded-xl bg-[#E11D48]/10 text-[#BE123C] flex items-center justify-center" aria-hidden="true">
                   {c.icon}
                 </div>
               ) : null}

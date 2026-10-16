@@ -12,7 +12,7 @@ const FinalCta: React.FC = () => {
         whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-100px' }}
         transition={{ type: 'spring', stiffness: 90, damping: 18 }}
-        className="max-w-6xl mx-auto rounded-[2.5rem] bg-[#E11D48] text-white px-8 py-16 md:px-16 md:py-24 relative overflow-hidden"
+        className="max-w-6xl mx-auto rounded-[2.5rem] bg-[#BE123C] text-white px-8 py-16 md:px-16 md:py-24 relative overflow-hidden"
       >
         <div
           aria-hidden="true"
@@ -22,7 +22,7 @@ const FinalCta: React.FC = () => {
           <h2 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05]">
             Walk in knowing exactly what's left.
           </h2>
-          <p className="mt-6 text-lg md:text-xl text-white/85 leading-relaxed">
+          <p className="mt-6 text-lg md:text-xl text-white leading-relaxed">
             Free. No account. Set up in under a minute, and your data never leaves this browser.
           </p>
           <div className="mt-10">

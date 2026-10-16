@@ -40,7 +40,7 @@ const FaqSection: React.FC = () => {
           whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ type: 'spring', stiffness: 120, damping: 20 }}
-          className="text-xs font-mono tracking-[0.2em] uppercase text-[#E11D48]"
+          className="text-xs font-mono tracking-[0.2em] uppercase text-[#BE123C]"
         >
           Fair questions
         </motion.p>
@@ -71,7 +71,7 @@ const FaqSection: React.FC = () => {
                   aria-expanded={isOpen}
                   className="w-full flex items-center justify-between gap-6 py-6 text-left group"
                 >
-                  <span className="text-base md:text-lg font-semibold tracking-tight group-hover:text-[#E11D48] transition-colors">
+                  <span className="text-base md:text-lg font-semibold tracking-tight group-hover:text-[#BE123C] transition-colors">
                     {f.q}
                   </span>
                   <motion.span
