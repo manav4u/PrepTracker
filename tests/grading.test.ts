@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { gradeForPercent, estimate, cleanMarks, theoryGrade, termWorkGrade } from '../lib/grading.ts';
+import { gradeForPercent, estimate, cleanMarks, theoryGrade, termWorkGrade, failingHeads, roundToHalf } from '../lib/grading.ts';
 
 // Official SPPU 2024-25 rules, Table 2.
 test('grade band edges', () => {
@@ -54,11 +54,23 @@ test('a failing head counts as zero points', () => {
   assert.equal(e.sgpa, 0);
 });
 
-test('cleanMarks drops out-of-range and non-integer values', () => {
+test('half marks are valid, other fractions and out-of-range are dropped', () => {
   assert.deepEqual(cleanMarks({ a: { inSem: 31, endSem: 70, termWork: 2.5 }, b: 'x', c: { inSem: 30 } }), {
-    a: { endSem: 70 },
+    a: { endSem: 70, termWork: 2.5 },
     c: { inSem: 30 },
   });
+  assert.deepEqual(cleanMarks({ a: { inSem: 12.3, endSem: -1 } }), {});
   assert.deepEqual(cleanMarks(null), {});
   assert.deepEqual(cleanMarks([]), {});
+});
+
+test('failingHeads counts only graded heads under 40 percent', () => {
+  const courses = [{ id: 'a', theoryCredits: 3, termWorkCredits: 1 }];
+  assert.equal(failingHeads(courses, { a: { inSem: 10, endSem: 20, termWork: 5 } }), 2);
+  assert.equal(failingHeads(courses, { a: { inSem: 10 } }), 0);
+});
+
+test('roundToHalf', () => {
+  assert.equal(roundToHalf(22.3), 22.5);
+  assert.equal(roundToHalf(22.2), 22);
 });

@@ -10,6 +10,8 @@ import {
   MAX_END_SEM,
   MAX_TERM_WORK,
   estimate,
+  failingHeads,
+  roundToHalf,
   termWorkGrade,
   theoryGrade,
   Grade,
@@ -59,7 +61,7 @@ const MarkInput = ({
         inputMode="numeric"
         min={0}
         max={max}
-        step={1}
+        step={0.5}
         value={value ?? ''}
         onChange={(e) => onChange(e.target.value)}
         className="w-20 bg-transparent text-2xl font-mono text-white text-center border-b border-white/10 focus:border-[#E11D48] outline-none py-1 transition-colors placeholder:text-white/10 tabular-nums"
@@ -85,9 +87,9 @@ const CalculatorPage: React.FC = () => {
       if (trimmed === '') {
         delete current[field];
       } else {
-        const n = parseInt(trimmed, 10);
-        if (Number.isNaN(n)) return prev;
-        current[field] = Math.min(FIELD_MAX[field], Math.max(0, n));
+        const n = parseFloat(trimmed);
+        if (!Number.isFinite(n)) return prev;
+        current[field] = Math.min(FIELD_MAX[field], Math.max(0, roundToHalf(n)));
       }
       const next = { ...prev };
       if (Object.keys(current).length) next[courseId] = current;
@@ -96,10 +98,9 @@ const CalculatorPage: React.FC = () => {
     });
   };
 
-  const est = estimate(
-    courses.map((c) => ({ id: c.id, theoryCredits: c.theoryCredits, termWorkCredits: c.termWorkCredits })),
-    marks
-  );
+  const graded = courses.map((c) => ({ id: c.id, theoryCredits: c.theoryCredits, termWorkCredits: c.termWorkCredits }));
+  const est = estimate(graded, marks);
+  const failing = failingHeads(graded, marks);
   const sgpaText = est.sgpa === null ? '--' : est.sgpa.toFixed(2);
 
   return (
@@ -284,9 +285,10 @@ const CalculatorPage: React.FC = () => {
                   Only the heads you entered are counted. Fill the rest for the full-semester number.
                 </p>
               )}
-              {est.sgpa !== null && est.sgpa < 4 && (
+              {failing > 0 && (
                 <p className="mt-6 text-xs text-red-400 leading-relaxed">
-                  Any head under 40 percent is an F, which counts as zero points.
+                  {failing} {failing === 1 ? 'head is' : 'heads are'} under 40 percent. That is an F: zero points, and
+                  the course has to be cleared again.
                 </p>
               )}
             </div>

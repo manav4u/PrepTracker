@@ -40,8 +40,10 @@ export interface GradedCourse {
   termWorkCredits: number;
 }
 
+// Colleges award half marks, so accept whole and half marks.
+export const roundToHalf = (n: number) => Math.round(n * 2) / 2;
 const validMark = (v: unknown, max: number): v is number =>
-  typeof v === 'number' && Number.isInteger(v) && v >= 0 && v <= max;
+  typeof v === 'number' && Number.isFinite(v) && v >= 0 && v <= max && roundToHalf(v) === v;
 
 export const cleanMarks = (raw: unknown): MarksMap => {
   const out: MarksMap = {};
@@ -56,6 +58,16 @@ export const cleanMarks = (raw: unknown): MarksMap => {
     if (Object.keys(next).length) out[id] = next;
   }
   return out;
+};
+
+export const failingHeads = (courses: GradedCourse[], marks: MarksMap): number => {
+  let n = 0;
+  for (const c of courses) {
+    const m = marks[c.id];
+    if (c.theoryCredits > 0 && theoryGrade(m)?.letter === 'F') n++;
+    if (c.termWorkCredits > 0 && termWorkGrade(m)?.letter === 'F') n++;
+  }
+  return n;
 };
 
 export interface Estimate {
