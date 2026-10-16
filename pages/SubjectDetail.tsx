@@ -115,10 +115,12 @@ const SubjectDetail: React.FC = () => {
   const togglePyq = (uId: string, year: string) => {
     const idx = userProgress.findIndex(p => p.unitId === uId);
     let next: typeof userProgress = [];
+    let marked = false;
     if (idx > -1) {
         next = [...userProgress];
         const currentPyqs = next[idx].pyqsCompleted || [];
         const isCompleted = currentPyqs.includes(year);
+        marked = !isCompleted;
         next[idx] = {
             ...next[idx],
             pyqsCompleted: isCompleted
@@ -126,9 +128,12 @@ const SubjectDetail: React.FC = () => {
                 : [...currentPyqs, year]
         };
     } else {
+        marked = true;
         next = [...userProgress, { unitId: uId, status: UnitStatus.NOT_STARTED, pyqsCompleted: [year] }];
     }
     setUserProgress(next);
+    // Finishing a PYQ set is real study work: count it like ticking a topic.
+    if (marked && profile) setProfile(recordStudy(profile));
   };
 
   return (
