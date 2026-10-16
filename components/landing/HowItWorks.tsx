@@ -83,7 +83,7 @@ const HowItWorks: React.FC = () => {
               loading="lazy"
             />
           </div>
-          <p className="mt-5 text-center text-xs font-mono text-[#8A8A94]">
+          <p className="mt-5 text-center text-xs font-mono text-[#6E6E78]">
             The real app, mid-semester
           </p>
         </motion.div>

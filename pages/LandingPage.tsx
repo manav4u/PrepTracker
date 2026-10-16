@@ -89,7 +89,7 @@ const LandingPage: React.FC = () => {
             <a href="#tasks" className="hover:text-[#141419] transition-colors">Tasks</a>
             <a href="https://github.com/manav4u/PrepTracker" target="_blank" rel="noreferrer" className="hover:text-[#141419] transition-colors">Source</a>
           </nav>
-          <div className="text-xs text-[#8A8A94]">SPPU FE, 2024 pattern · Free · Your data stays in this browser</div>
+          <div className="text-xs text-[#6E6E78]">SPPU FE, 2024 pattern · Free · Your data stays in this browser</div>
         </div>
       </footer>
     </div>
