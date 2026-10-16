@@ -292,7 +292,7 @@ const SubjectDetail: React.FC = () => {
            <div className="p-8 rounded-3xl bg-[#0a0a0a] border border-white/5 min-h-[300px]">
               <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-6 px-1 flex items-center justify-between">
                 Recommended Resources
-                <Link to="/resources" className="text-white hover:text-[#E11D48] transition-colors flex items-center gap-1">
+                <Link to="/resources" aria-label="Open the resource library" className="text-white hover:text-[#E11D48] transition-colors flex items-center gap-1">
                    <ArrowUpRight size={10} />
                 </Link>
               </h4>

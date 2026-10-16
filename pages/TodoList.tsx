@@ -324,6 +324,7 @@ const TodoList: React.FC = () => {
                             <Calendar size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-[#E11D48] transition-colors" />
                             <input 
                                 type="date" 
+                                aria-label="Due date"
                                 value={inputDate}
                                 onChange={(e) => setInputDate(e.target.value)}
                                 className="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-xs font-mono text-slate-300 focus:border-[#E11D48] outline-none transition-colors uppercase"

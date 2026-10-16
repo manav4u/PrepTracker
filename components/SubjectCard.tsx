@@ -61,7 +61,7 @@ const SubjectCard: React.FC<SubjectCardProps> = ({ subject, progress, masteredCo
                      <p className="text-[10px] font-bold uppercase tracking-widest text-slate-600 mb-1 group-hover:text-[#E11D48] transition-colors">Current Focus</p>
                      <p className="text-sm text-white font-bold truncate">{activeUnitTitle}</p>
                 </div>
-                <span className="text-2xl font-display font-bold text-white/20 group-hover:text-white transition-colors">
+                <span className="text-2xl font-display font-bold text-white/50 group-hover:text-white transition-colors">
                     {Math.round((masteredCount / totalUnits) * 100)}%
                 </span>
             </div>

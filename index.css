@@ -53,3 +53,7 @@ summary:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Brand red is #E11D48 on buttons and fills. For small text on the near-black background it is 4.2 to 4.4:1,
+   so text uses a slightly lighter red that passes 4.5:1. */
+.text-\[\#E11D48\] { color: #F43F5E; }
