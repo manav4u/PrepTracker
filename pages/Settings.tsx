@@ -4,6 +4,7 @@ import { User, RotateCcw, Trash2, Terminal, AlertTriangle, Upload, Download, Har
 import { SUBJECTS } from '../constants';
 import { useData } from '../context/DataContext';
 import { BackupData, MAX_BYTES, Preview, createBackup, hasRollback, parseBackup, readState, restoreBackup, rollbackRestore, wipeAll } from '../lib/backup';
+import { useModalA11y } from '../components/useModalA11y';
 
 const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? '' : 's'}`;
 
@@ -30,10 +31,11 @@ const Toast = ({ message, type, onClose }: { message: string, type: 'success' | 
 };
 
 const ConfirmModal = ({ isOpen, title, description, onConfirm, onCancel, isDanger = false }: any) => {
+    const dialogRef = useModalA11y(isOpen, onCancel);
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
+        <div role="dialog" aria-modal="true" aria-label={title} ref={dialogRef} className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
             <div className={`w-full max-w-md bg-[#050505] border rounded-3xl p-8 shadow-2xl scale-100 animate-in zoom-in-95 duration-200 ${
                 isDanger ? 'border-red-500/30' : 'border-white/10'
             }`}>

@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { useModalA11y } from './useModalA11y';
 import { X, Globe, Youtube, MonitorPlay, ExternalLink, AlertTriangle, ArrowUpRight } from 'lucide-react';
 import { ResourceItem } from '../types';
 import { getYouTubeID } from '../constants';
@@ -12,6 +13,7 @@ interface ResourceViewerModalProps {
 
 const ResourceViewerModal: React.FC<ResourceViewerModalProps> = ({ isOpen, onClose, resource }) => {
     const [playVideo, setPlayVideo] = useState(false);
+    const dialogRef = useModalA11y(isOpen, onClose);
 
     // Reset state when resource changes
     useEffect(() => {
@@ -23,7 +25,8 @@ const ResourceViewerModal: React.FC<ResourceViewerModalProps> = ({ isOpen, onClo
     const youtubeId = getYouTubeID(resource.url);
 
     return (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md animate-in fade-in duration-300">
+        <div role="dialog" aria-modal="true" aria-label={resource.title} className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md animate-in fade-in duration-300">
+            <div ref={dialogRef} className="contents">
             <div className={`w-full ${playVideo && youtubeId ? 'max-w-6xl bg-black border-none' : 'max-w-lg bg-[#0a0a0a] border border-white/10'} rounded-3xl overflow-hidden shadow-2xl relative animate-in zoom-in-95 duration-300 flex flex-col`}>
                 
                 {/* Header (Only show full header for non-video to keep cinema mode immersive) */}
@@ -157,6 +160,7 @@ const ResourceViewerModal: React.FC<ResourceViewerModalProps> = ({ isOpen, onClo
                         </div>
                     </div>
                 )}
+            </div>
             </div>
         </div>
     );

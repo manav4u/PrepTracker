@@ -4,6 +4,7 @@ import { Search, Video, FileText, Download, FolderOpen, ArrowUpRight, Database, 
 import { SUBJECTS, getYouTubeID } from '../constants';
 import { ResourceItem } from '../types';
 import ResourceViewerModal from '../components/ResourceViewerModal';
+import { useModalA11y } from '../components/useModalA11y';
 import { useData } from '../context/DataContext';
 
 // --- TYPES ---
@@ -17,9 +18,10 @@ interface SelectOption {
 // --- COMPONENTS ---
 
 const DeleteConfirmModal = ({ isOpen, onClose, onConfirm, count }: { isOpen: boolean, onClose: () => void, onConfirm: () => void, count: number }) => {
+    const dialogRef = useModalA11y(isOpen, onClose);
     if (!isOpen) return null;
     return (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
+        <div role="dialog" aria-modal="true" aria-label="Confirm deletion" ref={dialogRef} className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
             <div className="w-full max-w-sm bg-[#0a0a0a] border border-red-500/30 rounded-3xl p-6 shadow-2xl scale-100 animate-in zoom-in-95 duration-200">
                 <div className="flex items-center gap-3 mb-4 text-red-500">
                     <AlertTriangle size={24} />
@@ -116,9 +118,12 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ item, onClick, isSelectionM
     const isYoutube = getYouTubeID(item.url);
 
     return (
-        <div 
+        <button
+            type="button"
             onClick={onClick}
-            className={`group relative border rounded-xl p-6 transition-all duration-300 overflow-hidden flex flex-col h-full cursor-pointer hover:-translate-y-1 ${
+            aria-label={isSelectionMode ? `${isSelected ? 'Deselect' : 'Select'} resource: ${item.title}` : `Open resource: ${item.title}`}
+            aria-pressed={isSelectionMode ? isSelected : undefined}
+            className={`group relative border rounded-xl p-6 transition-all duration-300 overflow-hidden flex flex-col h-full cursor-pointer hover:-translate-y-1 text-left w-full ${
                 isSelected 
                 ? 'bg-[#E11D48]/10 border-[#E11D48] shadow-[0_0_20px_rgba(225,29,72,0.15)]' 
                 : 'bg-white/[0.02] border-white/5 hover:border-[#E11D48]/50 hover:bg-white/[0.04] hover:shadow-xl hover:shadow-[#E11D48]/5'
@@ -173,12 +178,13 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ item, onClick, isSelectionM
                     {item.isSystem ? `By ${item.author}` : 'Added by you'}
                 </span>
             </div>
-        </div>
+        </button>
     );
 };
 
 const AddResourceModal = ({ isOpen, onClose, onAdd, userSubjects }: { isOpen: boolean, onClose: () => void, onAdd: any, userSubjects: SelectOption[] }) => {
     const [form, setForm] = useState({ title: '', url: '', category: 'notes', subject: '' });
+    const dialogRef = useModalA11y(isOpen, onClose);
 
     if (!isOpen) return null;
 
@@ -200,7 +206,7 @@ const AddResourceModal = ({ isOpen, onClose, onAdd, userSubjects }: { isOpen: bo
     ];
 
     return (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
+        <div role="dialog" aria-modal="true" aria-label="Add new resource" ref={dialogRef} className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
             <div className="w-full max-w-lg bg-[#0a0a0a] border border-white/10 rounded-3xl p-8 shadow-2xl scale-100 animate-in zoom-in-95 duration-200 relative">
                 <button onClick={onClose} className="absolute top-6 right-6 text-slate-500 hover:text-white transition-colors">
                     <X size={20} />

@@ -307,10 +307,12 @@ const SubjectDetail: React.FC = () => {
                     subjectResources.map(resource => {
                         const isYoutube = getYouTubeID(resource.url);
                         return (
-                            <div 
-                                key={resource.id} 
+                            <button
+                                type="button"
+                                key={resource.id}
                                 onClick={() => setViewResource(resource)}
-                                className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 hover:bg-white/10 transition-colors cursor-pointer group border border-transparent hover:border-white/10"
+                                aria-label={`Open resource: ${resource.title}`}
+                                className="w-full text-left flex items-center gap-4 p-4 rounded-2xl bg-white/5 hover:bg-white/10 transition-colors cursor-pointer group border border-transparent hover:border-white/10"
                             >
                                 <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
                                     isYoutube || resource.type === 'video' 
@@ -327,7 +329,7 @@ const SubjectDetail: React.FC = () => {
                                         <span className="text-[9px] font-bold uppercase tracking-wider text-slate-500">{resource.author}</span>
                                     </div>
                                 </div>
-                            </div>
+                            </button>
                         )
                     })
                 ) : (
