@@ -2,11 +2,13 @@ import React from 'react';
 import { Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
 import {
   LayoutGrid,
+  Search,
   Library,
   Calculator,
   Settings,
   Hexagon,
   Menu,
+  X,
   ListTodo,
   HardDrive
 } from 'lucide-react';
@@ -45,6 +47,7 @@ const NavItem = ({ to, icon: Icon, active, label }: { to: string, icon: any, act
 export default function App() {
   const { profile, setProfile } = useData();
   const location = useLocation();
+  const [mobileSearchOpen, setMobileSearchOpen] = React.useState(false);
 
   // ROUTING LOGIC:
   // 1. If no profile/setup -> Show Landing Page by default.
@@ -77,10 +80,37 @@ export default function App() {
                         </div>
                         <span className="font-bold tracking-widest uppercase text-xs text-white">PrepTracker</span>
                         </div>
+                        <div className="flex items-center gap-2">
+                        <button
+                        type="button"
+                        onClick={() => setMobileSearchOpen(true)}
+                        aria-label="Search"
+                        className="w-8 h-8 rounded-full flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-colors"
+                        >
+                        <Search size={18} />
+                        </button>
                         <Link to="/settings" aria-label="Settings" className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-white/10">
                         <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${profile.name}`} alt="User" />
                         </Link>
+                        </div>
                     </div>
+
+                    {/* Mobile search overlay */}
+                    {mobileSearchOpen && (
+                    <div className="lg:hidden fixed inset-0 z-[70] bg-[#030303]/95 backdrop-blur-xl p-6 animate-in fade-in duration-200">
+                        <div className="flex justify-end mb-6">
+                        <button
+                        type="button"
+                        onClick={() => setMobileSearchOpen(false)}
+                        aria-label="Close search"
+                        className="w-10 h-10 rounded-full flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-colors"
+                        >
+                        <X size={22} />
+                        </button>
+                        </div>
+                        <GlobalSearch selectedSubjects={profile.selectedSubjects || []} overlay onNavigate={() => setMobileSearchOpen(false)} />
+                    </div>
+                    )}
 
                     {/* Adaptive Navigation Dock */}
                     <aside className="fixed z-50 transition-all duration-500
