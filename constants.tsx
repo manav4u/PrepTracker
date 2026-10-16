@@ -324,8 +324,57 @@ export const SUBJECTS: Subject[] = [
 ];
 
 export const SYSTEM_RESOURCES: ResourceItem[] = [
+    // --- Global (all FE subjects) ---
+    { id: 'sys_pyq_sppu', type: 'link', title: 'FE question papers, 2019 & 2024 patterns', author: 'Study Media', downloads: '', subject: 'GLOBAL', category: 'solved pyqs', url: 'https://www.studymedia.in/fe/pyqs/', isSystem: true },
+    { id: 'sys_pyq_archive', type: 'link', title: 'FE Sem 1 question paper archive', author: 'SPPU Question Papers', downloads: '', subject: 'GLOBAL', category: 'solved pyqs', url: 'https://www.sppuquestionpapers.com/be/first-year-fe-engineering/semester-1', isSystem: true },
+
+    // --- M1: Engineering Mathematics-I (BSC-101) ---
     { id: 'sys_2', type: 'video', title: 'Calculus Visualization', author: '3Blue1Brown', downloads: '', subject: 'BSC-101', category: 'lecture streams', url: 'https://www.youtube.com/watch?v=WUvTyaaNkzM', isSystem: true },
-    { id: 'sys_5', type: 'video', title: 'Mechanical Energy Conversion', author: 'Tikles Academy', downloads: '', subject: 'ESC-104', category: 'lecture streams', url: 'https://www.youtube.com/watch?v=zhL5DCizj5c', isSystem: true },
+    { id: 'sys_m1_eigen', type: 'video', title: 'Eigenvectors and eigenvalues, visually', author: '3Blue1Brown', downloads: '', subject: 'BSC-101', category: 'lecture streams', url: 'https://www.youtube.com/watch?v=PFDu9oVAE-g', isSystem: true },
+    { id: 'sys_m1_notes', type: 'link', title: 'M1 unit-wise notes (2024 pattern)', author: 'Study Media', downloads: '', subject: 'BSC-101', category: 'notes', url: 'https://www.studymedia.in/fe/engineering-mathematics-1/', isSystem: true },
+
+    // --- M2: Engineering Mathematics-II (BSC-151) ---
+    { id: 'sys_m2_de', type: 'video', title: "Differential equations, a tourist's guide", author: '3Blue1Brown', downloads: '', subject: 'BSC-151', category: 'lecture streams', url: 'https://www.youtube.com/watch?v=p_di4Zn4wz4', isSystem: true },
+    { id: 'sys_m2_fourier', type: 'video', title: 'But what is a Fourier series?', author: '3Blue1Brown', downloads: '', subject: 'BSC-151', category: 'lecture streams', url: 'https://www.youtube.com/watch?v=r6sGWTCMz2k', isSystem: true },
+    { id: 'sys_m2_notes', type: 'link', title: 'M2 unit-wise notes (2024 pattern)', author: 'Study Media', downloads: '', subject: 'BSC-151', category: 'notes', url: 'https://www.studymedia.in/fe/engineering-mathematics-2/', isSystem: true },
+
+    // --- FPL: Fundamentals of Programming Languages, C (ESC-105) ---
+    { id: 'sys_fpl_fcc', type: 'video', title: 'C Programming full course', author: 'freeCodeCamp.org', downloads: '', subject: 'ESC-105', category: 'lecture streams', url: 'https://www.youtube.com/watch?v=KJgsSFOSQv0', isSystem: true },
+    { id: 'sys_fpl_neso', type: 'video', title: 'C Programming lecture series', author: 'Neso Academy', downloads: '', subject: 'ESC-105', category: 'lecture streams', url: 'https://www.youtube.com/playlist?list=PLBlnK6fEyqRggZZgYpPMUxdY1CYkZtARR', isSystem: true },
+    { id: 'sys_fpl_programiz', type: 'link', title: 'Learn C, interactive tutorial', author: 'Programiz', downloads: '', subject: 'ESC-105', category: 'notes', url: 'https://www.programiz.com/c-programming', isSystem: true },
+    { id: 'sys_fpl_notes', type: 'link', title: 'FPL unit-wise notes (2024 pattern)', author: 'Study Media', downloads: '', subject: 'ESC-105', category: 'notes', url: 'https://www.studymedia.in/fe/fpl-notes-2024-sppu/', isSystem: true },
+
+    // --- PPS: Programming and Problem Solving, Python (PCC-151) ---
+    { id: 'sys_pps_fcc', type: 'video', title: 'Python full course for beginners', author: 'freeCodeCamp.org', downloads: '', subject: 'PCC-151', category: 'lecture streams', url: 'https://www.youtube.com/watch?v=rfscVS0vtbw', isSystem: true },
+    { id: 'sys_pps_docs', type: 'book', title: 'The Python Tutorial (official)', author: 'Python.org', downloads: '', subject: 'PCC-151', category: 'textbooks', url: 'https://docs.python.org/3/tutorial/', isSystem: true },
+    { id: 'sys_pps_programiz', type: 'link', title: 'Learn Python, interactive tutorial', author: 'Programiz', downloads: '', subject: 'PCC-151', category: 'notes', url: 'https://www.programiz.com/python-programming', isSystem: true },
+    { id: 'sys_pps_notes', type: 'link', title: 'PPS unit-wise notes (2024 pattern)', author: 'Study Media', downloads: '', subject: 'PCC-151', category: 'notes', url: 'https://www.studymedia.in/fe/problem-solving-and-programming-2024/', isSystem: true },
+
+    // --- Engineering Physics (BSC-102) ---
+    { id: 'sys_phy_ekeeda', type: 'video', title: 'Engineering Physics lecture series', author: 'Ekeeda', downloads: '', subject: 'BSC-102', category: 'lecture streams', url: 'https://www.youtube.com/playlist?list=PLm_MSClsnwm_xDK55XxYkj3SHVkFsYsHm', isSystem: true },
+    { id: 'sys_phy_notes', type: 'link', title: 'Physics unit-wise notes (2024 pattern)', author: 'Study Media', downloads: '', subject: 'BSC-102', category: 'notes', url: 'https://www.studymedia.in/fe/engineering-physics-notes/', isSystem: true },
+
+    // --- Engineering Chemistry (BSC-103) ---
+    { id: 'sys_chem_ekeeda', type: 'video', title: 'Engineering Chemistry lecture series', author: 'Ekeeda', downloads: '', subject: 'BSC-103', category: 'lecture streams', url: 'https://www.youtube.com/playlist?list=PLm_MSClsnwm9p_yaZ8zIW1LxkK7_n98gD', isSystem: true },
+    { id: 'sys_chem_notes', type: 'link', title: 'Chemistry unit-wise notes', author: 'Study Media', downloads: '', subject: 'BSC-103', category: 'notes', url: 'https://www.studymedia.in/fe/engineering-chemistry', isSystem: true },
+
+    // --- Basic Electronics Engineering / BXE (ESC-101) ---
+    { id: 'sys_bxe_analog', type: 'video', title: 'Analog Electronics lecture series', author: 'Neso Academy', downloads: '', subject: 'ESC-101', category: 'lecture streams', url: 'https://www.youtube.com/playlist?list=PLBlnK6fEyqRiw-GZRqfnlVIBz9dxrqHJS', isSystem: true },
+    { id: 'sys_bxe_digital', type: 'video', title: 'Digital Electronics lecture series', author: 'Neso Academy', downloads: '', subject: 'ESC-101', category: 'lecture streams', url: 'https://www.youtube.com/playlist?list=PLBlnK6fEyqRjMH3mWf6kwqiTbT798eAOm', isSystem: true },
+    { id: 'sys_bxe_notes', type: 'link', title: 'BXE unit-wise notes', author: 'Study Media', downloads: '', subject: 'ESC-101', category: 'notes', url: 'https://www.studymedia.in/fe/basic-electronics-engineering/', isSystem: true },
+
+    // --- Basic Electrical Engineering / BEE (ESC-102) ---
+    { id: 'sys_bee_pathshala', type: 'video', title: 'Basic Electrical Engineering lectures', author: "Engineer's Ki Pathshala", downloads: '', subject: 'ESC-102', category: 'lecture streams', url: 'https://www.youtube.com/playlist?list=PL9RcWoqXmzaLTYUdnzKhF4bYug3GjGcEc', isSystem: true },
+    { id: 'sys_bee_mindset', type: 'video', title: 'Electrical Engineering Basics', author: 'The Engineering Mindset', downloads: '', subject: 'ESC-102', category: 'lecture streams', url: 'https://www.youtube.com/playlist?list=PLWv9VM947MKi_7yJ0_FCfzTBXpQU-Qd3K', isSystem: true },
+    { id: 'sys_bee_notes', type: 'link', title: 'BEE unit-wise notes', author: 'Study Media', downloads: '', subject: 'ESC-102', category: 'notes', url: 'https://www.studymedia.in/fe/basic-electrical-engineering-notes/', isSystem: true },
+
+    // --- Engineering Mechanics (ESC-104) ---
+    { id: 'sys_mech_hanson', type: 'video', title: 'Online Statics Course', author: 'Jeff Hanson', downloads: '', subject: 'ESC-104', category: 'lecture streams', url: 'https://www.youtube.com/playlist?list=PLRqDfxcafc23LXGoItpkYMKtUdHaQwSDC', isSystem: true },
+    { id: 'sys_mech_notes', type: 'link', title: 'Mechanics unit-wise notes (2024 pattern)', author: 'Study Media', downloads: '', subject: 'ESC-104', category: 'notes', url: 'https://www.studymedia.in/fe/engineering-mechanics-2024-pattern/', isSystem: true },
+
+    // --- Engineering Graphics (ESC-103) ---
+    { id: 'sys_graph_pathshala', type: 'video', title: 'Engineering Graphics complete course', author: "Engineer's Ki Pathshala", downloads: '', subject: 'ESC-103', category: 'lecture streams', url: 'https://www.youtube.com/playlist?list=PL9RcWoqXmzaJT-fliqTSwUjWU4zCX_H2A', isSystem: true },
+    { id: 'sys_graph_notes', type: 'link', title: 'Graphics unit-wise notes (2024 pattern)', author: 'Study Media', downloads: '', subject: 'ESC-103', category: 'notes', url: 'https://www.studymedia.in/fe/engineering-graphics-2024-pattern/', isSystem: true },
 ];
 
 export const EXAM_DATES: ExamDate[] = [
