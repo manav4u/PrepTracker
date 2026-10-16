@@ -21,3 +21,9 @@ root.render(
     </HashRouter>
   </React.StrictMode>
 );
+
+if ('serviceWorker' in navigator && (import.meta as any).env?.PROD) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  });
+}
