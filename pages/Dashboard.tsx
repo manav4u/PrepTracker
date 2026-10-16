@@ -7,6 +7,7 @@ import { UnitStatus } from '../types';
 import { ChevronRight, Sparkles, CalendarDays, TrendingUp, Activity } from 'lucide-react';
 import { useData } from '../context/DataContext';
 import { currentStreak, lastDays } from '../lib/activity';
+import { subjectExamList, nextExamIndex } from '../lib/exams';
 import ComingSoonModal from '../components/ComingSoonModal';
 
 const SHORT_NAMES: Record<string, string> = {
@@ -186,21 +187,11 @@ const Dashboard: React.FC = () => {
   const totalMastered = filtered.reduce((a, s) => a + getSubjectProgress(s.id).mastered, 0);
   const totalUnits = filtered.reduce((a, s) => a + s.units.length, 0);
 
-  // Exam Schedule
-  const sortedExams = filtered
-    .filter(s => s.examDate)
-    .map(s => ({
-      name: s.name,
-      code: s.code,
-      date: new Date(s.examDate!),
-      id: s.id
-    }))
-    .sort((a, b) => a.date.getTime() - b.date.getTime());
-
-  const upcomingExams = sortedExams.filter(e => e.date.getTime() > Date.now());
-  const nextExam = upcomingExams[0];
-  // Days to exam comes from the date the student sets in Settings. The built-in subject dates
-  // are last cycle's schedule, so they are not used for this number.
+  // Exam timeline: only dates the student set themselves in Settings (built-in
+  // schedules go stale every cycle, so PrepTracker never invents exam dates).
+  const timelineExams = subjectExamList(profile, SUBJECTS);
+  const nextIdx = nextExamIndex(timelineExams);
+  // Days to exam comes from the date the student sets in Settings.
   const examStart = profile.examStartDate ? new Date(`${profile.examStartDate}T00:00:00`) : null;
   const startOfToday = new Date(); startOfToday.setHours(0, 0, 0, 0);
   const examDiff = examStart && !isNaN(examStart.getTime())
@@ -298,30 +289,31 @@ const Dashboard: React.FC = () => {
           </div>
           
           <div className="space-y-3">
-            {upcomingExams.length > 0 ? upcomingExams.map((exam, i) => (
-              <Link to={`/subject/${exam.id}`} key={i} className="group flex items-center gap-5 p-3 rounded-2xl hover:bg-white/5 transition-all cursor-pointer border border-transparent hover:border-white/5">
+            {timelineExams.length > 0 ? timelineExams.map((exam, i) => (
+              <Link to={`/subject/${exam.subjectId}`} key={exam.subjectId} className={`group flex items-center gap-5 p-3 rounded-2xl hover:bg-white/5 transition-all cursor-pointer border border-transparent hover:border-white/5 ${i !== nextIdx && nextIdx !== -1 && i < nextIdx ? 'opacity-40' : ''}`}>
                 {/* Date Ticket */}
                 <div className="w-14 h-14 rounded-xl bg-[#0a0a0a] border border-white/10 flex flex-col items-center justify-center shrink-0 group-hover:border-[#E11D48] transition-colors">
                   <span className="text-[9px] font-bold uppercase tracking-widest text-slate-500">{exam.date.toLocaleString('default', { month: 'short' })}</span>
                   <span className="text-xl font-display font-bold text-white leading-none mt-0.5">{exam.date.getDate()}</span>
                 </div>
-                
+
                 {/* Details */}
                 <div className="flex-1 min-w-0">
                    <div className="flex justify-between items-center mb-1">
                       <p className="text-sm font-bold text-white truncate pr-2 group-hover:text-[#E11D48] transition-colors">{exam.name}</p>
-                      {i === 0 && <span className="w-2 h-2 rounded-full bg-[#E11D48] shadow-[0_0_10px_#E11D48]"></span>}
+                      {i === nextIdx && <span className="w-2 h-2 rounded-full bg-[#E11D48] shadow-[0_0_10px_#E11D48]"></span>}
                    </div>
                    <div className="flex items-center gap-3">
                       <span className="text-[10px] font-mono text-slate-500 bg-white/5 px-1.5 py-0.5 rounded border border-white/5">{exam.code}</span>
-                      <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider flex items-center gap-1">10:00 AM</span>
+                      {nextIdx !== -1 && i < nextIdx && <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider">Done</span>}
                    </div>
                 </div>
               </Link>
             )) : (
-              <div className="p-6 rounded-2xl border border-dashed border-white/10 text-center">
-                 <p className="text-xs font-medium text-slate-500 uppercase tracking-widest">No Active Schedules</p>
-              </div>
+              <Link to="/settings" className="block p-6 rounded-2xl border border-dashed border-white/10 text-center hover:border-[#E11D48]/40 transition-colors group">
+                 <p className="text-xs font-medium text-slate-500 uppercase tracking-widest group-hover:text-slate-300">No exam dates set</p>
+                 <p className="text-[10px] font-mono text-[#E11D48] mt-2 uppercase tracking-widest">Set them in Settings</p>
+              </Link>
             )}
           </div>
         </div>

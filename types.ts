@@ -23,7 +23,6 @@ export interface Subject {
   termWorkCredits: number; // credits for the term work head (25 marks)
   units: Unit[];
   common?: boolean;
-  examDate?: string; // ISO String for the specific paper date
 }
 
 export interface PYQ {
@@ -40,12 +39,6 @@ export interface UserProgress {
   topicsDone?: string[];
 }
 
-export interface ExamDate {
-  name: string;
-  date: string; 
-  subjectId?: string;
-}
-
 export interface Profile {
   name: string;
   prn?: string;
@@ -57,6 +50,7 @@ export interface Profile {
   lastStudyDate: string; // ISO date string
   activity?: Record<string, number>; // study actions per local day, last 60 days
   examStartDate?: string; // YYYY-MM-DD, set by the student
+  examDates?: Record<string, string>; // subjectId -> YYYY-MM-DD, set by the student
 }
 
 export interface ResourceItem {
