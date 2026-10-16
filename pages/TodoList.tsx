@@ -151,12 +151,36 @@ const TodoList: React.FC = () => {
     setTasks(prev => prev.map(t => t.id === id ? { ...t, completed: !t.completed } : t));
   };
 
+  const [undo, setUndo] = useState<{ removed: Task[]; label: string } | null>(null);
+  const undoTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const offerUndo = (removed: Task[], label: string) => {
+    if (removed.length === 0) return;
+    if (undoTimer.current) clearTimeout(undoTimer.current);
+    setUndo({ removed, label });
+    undoTimer.current = setTimeout(() => setUndo(null), 7000);
+  };
+
+  useEffect(() => () => { if (undoTimer.current) clearTimeout(undoTimer.current); }, []);
+
   const deleteTask = (id: string) => {
+    const removed = tasks.filter(t => t.id === id);
     setTasks(prev => prev.filter(t => t.id !== id));
+    offerUndo(removed, 'Task deleted');
   };
 
   const clearCompleted = () => {
+    const removed = tasks.filter(t => t.completed);
     setTasks(prev => prev.filter(t => !t.completed));
+    offerUndo(removed, removed.length === 1 ? '1 task cleared' : `${removed.length} tasks cleared`);
+  };
+
+  const undoRemove = () => {
+    if (!undo) return;
+    const back = undo.removed;
+    setTasks(prev => [...back.filter(b => !prev.some(p => p.id === b.id)), ...prev]);
+    setUndo(null);
+    if (undoTimer.current) clearTimeout(undoTimer.current);
   };
 
   // Metrics
@@ -426,7 +450,8 @@ const TodoList: React.FC = () => {
 
                                 <button 
                                     onClick={() => deleteTask(task.id)}
-                                    className="opacity-0 group-hover:opacity-100 p-2 text-slate-600 hover:text-red-500 transition-all rounded-lg hover:bg-white/5"
+                                    aria-label={`Delete task: ${task.text}`}
+                                    className="lg:opacity-0 lg:group-hover:opacity-100 focus-visible:opacity-100 p-2 text-slate-600 hover:text-red-500 transition-all rounded-lg hover:bg-white/5"
                                 >
                                     <X size={16} />
                                 </button>
@@ -437,6 +462,12 @@ const TodoList: React.FC = () => {
             </div>
         </div>
       </div>
+      {undo && (
+        <div role="status" className="fixed bottom-28 left-4 right-4 lg:bottom-8 lg:left-auto lg:right-8 lg:w-80 z-[60] bg-[#0a0a0a] border border-white/10 rounded-2xl px-4 py-3 flex items-center justify-between shadow-2xl animate-in slide-in-from-bottom-4 fade-in duration-300">
+          <span className="text-xs font-bold text-slate-300">{undo.label}</span>
+          <button onClick={undoRemove} className="text-[10px] font-bold uppercase tracking-widest text-[#E11D48] hover:text-white px-3 py-2 rounded-lg hover:bg-white/5">Undo</button>
+        </div>
+      )}
     </div>
   );
 };
