@@ -3,17 +3,20 @@ import React, { useRef, useState, useEffect } from 'react';
 import { User, RotateCcw, Trash2, Terminal, AlertTriangle, Upload, Download, HardDrive, Check, AlertOctagon, Loader2, ScanLine, Save } from 'lucide-react';
 import { SUBJECTS } from '../constants';
 import { useData } from '../context/DataContext';
+import { BackupData, MAX_BYTES, Preview, createBackup, hasRollback, parseBackup, readState, restoreBackup, rollbackRestore, wipeAll } from '../lib/backup';
+
+const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? '' : 's'}`;
 
 // --- MICRO-COMPONENTS ---
 
 const Toast = ({ message, type, onClose }: { message: string, type: 'success' | 'error', onClose: () => void }) => {
     useEffect(() => {
-        const timer = setTimeout(onClose, 3000);
+        const timer = setTimeout(onClose, 6000);
         return () => clearTimeout(timer);
     }, [onClose]);
 
     return (
-        <div className="fixed bottom-8 right-8 z-50 animate-in slide-in-from-right-10 fade-in duration-300">
+        <div role="status" className="fixed bottom-28 left-4 right-4 lg:bottom-8 lg:left-auto lg:right-8 z-[60] animate-in slide-in-from-bottom-4 fade-in duration-300">
             <div className={`flex items-center gap-4 px-6 py-4 rounded-xl border backdrop-blur-xl shadow-2xl ${
                 type === 'success' 
                 ? 'bg-green-500/10 border-green-500/20 text-green-400' 
@@ -69,21 +72,23 @@ const ConfirmModal = ({ isOpen, title, description, onConfirm, onCancel, isDange
 // --- MAIN COMPONENT ---
 
 const SettingsPage: React.FC = () => {
-  const { profile, setProfile, clearAllData, refreshData } = useData();
+  const { profile, setProfile } = useData();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [dragActive, setDragActive] = useState(false);
 
-  if (!profile) return null;
-  
   // State for Micro-interactions
   const [toast, setToast] = useState<{ message: string, type: 'success' | 'error' } | null>(null);
   const [isBusy, setIsBusy] = useState<{ active: boolean, message: string }>({ active: false, message: '' });
   
   // Modal State Logic
-  const [modalConfig, setModalConfig] = useState<{ isOpen: boolean, type: 'RESET' | 'FORMAT' | null }>({
+  const [modalConfig, setModalConfig] = useState<{ isOpen: boolean, type: 'RESET' | 'FORMAT' | 'RESTORE' | null }>({
       isOpen: false, type: null
   });
+  const [preview, setPreview] = useState<Preview | null>(null);
+  const [canUndo] = useState(() => hasRollback(localStorage));
+
+  if (!profile) return null;
 
   const showToast = (msg: string, type: 'success' | 'error' = 'success') => {
       setToast({ message: msg, type });
@@ -98,7 +103,7 @@ const SettingsPage: React.FC = () => {
 
   const initiateReset = () => setModalConfig({ isOpen: true, type: 'RESET' });
   const initiateFormat = () => setModalConfig({ isOpen: true, type: 'FORMAT' });
-  const closeModal = () => setModalConfig({ isOpen: false, type: null });
+  const closeModal = () => { setModalConfig({ isOpen: false, type: null }); if (modalConfig.type === 'RESTORE') setPreview(null); };
 
   const handleModalConfirm = () => {
       closeModal();
@@ -111,13 +116,21 @@ const SettingsPage: React.FC = () => {
       else if (modalConfig.type === 'FORMAT') {
           // ACTIVATE LOCKOUT MODE
           setIsBusy({ active: true, message: 'WIPING DATA...' });
-          
-          // Critical Operation: Hard Reset sequence
           setTimeout(() => {
-             clearAllData();
-             // Force reload to root to prevent hash router ghosts
+             wipeAll(localStorage);
+             window.location.hash = '#/';
              window.location.reload();
-          }, 1500);
+          }, 600);
+      }
+      else if (modalConfig.type === 'RESTORE' && preview) {
+          try {
+              restoreBackup(localStorage, preview.data as BackupData);
+              setIsBusy({ active: true, message: 'RESTORING...' });
+              setTimeout(() => window.location.reload(), 500);
+          } catch (e: any) {
+              showToast(e?.message || 'Restore failed. Your data was not changed.', 'error');
+          }
+          setPreview(null);
       }
   };
 
@@ -125,30 +138,7 @@ const SettingsPage: React.FC = () => {
 
   const exportData = () => {
       try {
-          const rawProfile = localStorage.getItem('sppu_profile');
-          const rawProgress = localStorage.getItem('sppu_user_progress');
-          const rawMarks = localStorage.getItem('sppu_calculator_marks');
-          const rawResources = localStorage.getItem('sppu_custom_resources');
-          const rawTasks = localStorage.getItem('sppu_tasks');
-
-          const payload = {
-              profile: rawProfile ? JSON.parse(rawProfile) : null,
-              progress: rawProgress ? JSON.parse(rawProgress) : [],
-              marks: rawMarks ? JSON.parse(rawMarks) : {},
-              resources: rawResources ? JSON.parse(rawResources) : [],
-              tasks: rawTasks ? JSON.parse(rawTasks) : []
-          };
-
-          const backup = {
-              metadata: {
-                  version: "3.1.0",
-                  timestamp: new Date().toISOString(),
-                  type: "SPPU_PREPTRACKER_LOCAL_BACKUP",
-                  agent: navigator.userAgent
-              },
-              data: payload
-          };
-
+          const backup = createBackup(localStorage);
           const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
           const url = URL.createObjectURL(blob);
           const a = document.createElement('a');
@@ -158,78 +148,47 @@ const SettingsPage: React.FC = () => {
           a.click();
           document.body.removeChild(a);
           URL.revokeObjectURL(url);
-          
-          showToast("Backup Package Generated", 'success');
-      } catch (err) {
+          showToast("Backup downloaded", 'success');
+      } catch (err: any) {
           console.error("Export Error:", err);
-          showToast("Export Failed: Internal Data Error", 'error');
+          showToast(err?.message || "Export failed", 'error');
       }
   };
 
+  // Step 1: read and check the file. Nothing is written until the user confirms the preview.
   const validateAndRestore = (content: string) => {
-      // ACTIVATE LOCKOUT MODE
-      setIsBusy({ active: true, message: 'CHECKING BACKUP...' });
+      try {
+          const p = parseBackup(content, readState(localStorage));
+          setPreview(p);
+          setModalConfig({ isOpen: true, type: 'RESTORE' });
+      } catch (e: any) {
+          console.error(e);
+          showToast(e?.message || 'Could not read that backup.', 'error');
+      }
+  };
 
-      setTimeout(() => {
-        try {
-            const parsed = JSON.parse(content);
-            let restored = false;
+  const undoRestore = () => {
+      try {
+          rollbackRestore(localStorage);
+          setIsBusy({ active: true, message: 'UNDOING RESTORE...' });
+          setTimeout(() => window.location.reload(), 500);
+      } catch (e: any) {
+          showToast(e?.message || 'Could not undo.', 'error');
+      }
+  };
 
-            // Helper to check critical profile structure to prevent app crash
-            const isValidProfile = (p: any) => p && Array.isArray(p.selectedSubjects) && typeof p.name === 'string';
-
-            // STRATEGY 1: New Standard (Metadata wrapped)
-            if (parsed.metadata && parsed.data) {
-                const { profile: p, progress, marks, resources, tasks } = parsed.data;
-                if (isValidProfile(p)) {
-                    localStorage.setItem('sppu_profile', JSON.stringify(p));
-                    if (progress) localStorage.setItem('sppu_user_progress', JSON.stringify(progress));
-                    if (marks) localStorage.setItem('sppu_calculator_marks', JSON.stringify(marks));
-                    if (resources) localStorage.setItem('sppu_custom_resources', JSON.stringify(resources));
-                    if (tasks) localStorage.setItem('sppu_tasks', JSON.stringify(tasks));
-                    restored = true;
-                }
-            } 
-            // STRATEGY 2: Legacy/Raw Object
-            else if (parsed.profile) {
-                 const p = typeof parsed.profile === 'string' ? JSON.parse(parsed.profile) : parsed.profile;
-                 
-                 if (isValidProfile(p)) {
-                     localStorage.setItem('sppu_profile', JSON.stringify(p));
-                     if (parsed.progress) localStorage.setItem('sppu_user_progress', typeof parsed.progress === 'string' ? parsed.progress : JSON.stringify(parsed.progress));
-                     if (parsed.marks) localStorage.setItem('sppu_calculator_marks', typeof parsed.marks === 'string' ? parsed.marks : JSON.stringify(parsed.marks));
-                     if (parsed.resources) localStorage.setItem('sppu_custom_resources', typeof parsed.resources === 'string' ? parsed.resources : JSON.stringify(parsed.resources));
-                     if (parsed.tasks) localStorage.setItem('sppu_tasks', typeof parsed.tasks === 'string' ? parsed.tasks : JSON.stringify(parsed.tasks));
-                     restored = true;
-                 }
-            }
-
-            if (restored) {
-                setIsBusy({ active: true, message: 'RESTARTING APP...' });
-                refreshData();
-                setTimeout(() => {
-                    setIsBusy({ active: false, message: '' });
-                    showToast("Backup Restored", 'success');
-                    window.location.reload();
-                }, 1000);
-            } else {
-                setIsBusy({ active: false, message: '' });
-                showToast("Error: Invalid Backup Structure", 'error');
-            }
-        } catch (e) {
-            console.error(e);
-            setIsBusy({ active: false, message: '' });
-            showToast("Error: Corrupt File Data", 'error');
-        }
-      }, 1000);
+  const readFile = (file: File) => {
+      if (file.size > MAX_BYTES) { showToast('That file is over 5 MB.', 'error'); return; }
+      const reader = new FileReader();
+      reader.onload = (ev) => validateAndRestore(String(ev.target?.result ?? ''));
+      reader.onerror = () => showToast('Could not read that file.', 'error');
+      reader.readAsText(file);
   };
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
       const file = e.target.files?.[0];
       if (!file) return;
-      const reader = new FileReader();
-      reader.onload = (ev) => validateAndRestore(ev.target?.result as string);
-      reader.readAsText(file);
+      readFile(file);
       // Reset input
       if (fileInputRef.current) fileInputRef.current.value = '';
   };
@@ -251,9 +210,7 @@ const SettingsPage: React.FC = () => {
       if (e.dataTransfer.files && e.dataTransfer.files[0]) {
           const file = e.dataTransfer.files[0];
           if (file.type === "application/json" || file.name.endsWith('.json')) {
-              const reader = new FileReader();
-              reader.onload = (ev) => validateAndRestore(ev.target?.result as string);
-              reader.readAsText(file);
+              readFile(file);
           } else {
               showToast("Invalid File Type. JSON Required.", 'error');
           }
@@ -288,10 +245,12 @@ const SettingsPage: React.FC = () => {
       {/* Confirmation Dialog */}
       <ConfirmModal 
         isOpen={modalConfig.isOpen}
-        title={modalConfig.type === 'RESET' ? 'Re-Initialize System' : 'Format Local Drive'}
+        title={modalConfig.type === 'RESET' ? 'Re-Initialize System' : modalConfig.type === 'RESTORE' ? 'Replace saved data?' : 'Format Local Drive'}
         description={modalConfig.type === 'RESET' 
             ? 'This will reset your subject selection configuration. Your progress in individual units will remain, but you will need to run the onboarding sequence again.'
-            : 'CRITICAL WARNING: This action will permanently wipe all academic records, subject progress, and user identity from this device. This process is irreversible.'
+            : modalConfig.type === 'RESTORE' && preview
+            ? `${plural(preview.counts.courses, 'course')}, ${plural(preview.counts.units, 'unit record')}, ${plural(preview.counts.tasks, 'task')}, ${plural(preview.counts.resources, 'custom resource')}, marks for ${plural(preview.counts.marksCourses, 'course')}. This replaces the data saved in this browser. A copy of your current data is kept so you can undo.${preview.warnings.length ? ' Note: ' + preview.warnings.join(' ') : ''}`
+            : 'This permanently wipes your progress, tasks, marks, links and name from this browser. It cannot be undone. Download a backup first if you might want anything back.'
         }
         onConfirm={handleModalConfirm}
         onCancel={closeModal}
@@ -435,7 +394,7 @@ const SettingsPage: React.FC = () => {
                            <Save size={16} /> Data Portability
                         </h3>
                         <p className="text-xs text-slate-500 font-mono leading-relaxed mb-6">
-                            Export your entire state to a local JSON file.
+                            Save your progress, tasks, marks and links to a JSON file. Restoring shows what will change first and keeps an undo copy.
                         </p>
                         
                         <div className="space-y-4">
@@ -478,6 +437,14 @@ const SettingsPage: React.FC = () => {
                             >
                               <Download size={12} /> Download Backup
                             </button>
+                            {canUndo && (
+                              <button
+                                onClick={undoRestore}
+                                className="w-full py-3 bg-transparent border border-white/10 text-slate-300 font-bold uppercase text-[10px] tracking-[0.2em] rounded-lg hover:bg-white/5 transition-all flex items-center justify-center gap-2"
+                              >
+                                <RotateCcw size={12} /> Undo last restore
+                              </button>
+                            )}
                         </div>
                     </div>
                 </div>
