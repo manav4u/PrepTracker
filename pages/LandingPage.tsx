@@ -104,19 +104,25 @@ const LandingPage: React.FC = () => {
         <FinalCta />
       </main>
       {/* Footer */}
-      <footer data-footer className="px-6 pb-10 pt-4 border-t border-black/[0.08] bg-[#F7F5F2]">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-[#5A5A66]">
-          <div className="flex items-center gap-2.5">
-            <LogoMark size={22} />
-            <span className="font-brand font-bold text-[#141419] tracking-[-0.015em]">PrepTracker</span>
+      <footer data-footer className="relative px-6 pt-14 md:pt-20 pb-10 border-t border-black/[0.08] bg-[#F7F5F2] overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-sm text-[#5A5A66]">
+            <nav aria-label="Footer" className="flex items-center gap-6">
+              <a href="#syllabus" className="hover:text-[#141419] transition-colors">Syllabus</a>
+              <a href="#vault" className="hover:text-[#141419] transition-colors">Resources</a>
+              <a href="#tasks" className="hover:text-[#141419] transition-colors">Tasks</a>
+              <a href="https://github.com/manav4u/PrepTracker" target="_blank" rel="noreferrer" className="hover:text-[#141419] transition-colors">Source</a>
+            </nav>
+            <div className="text-xs text-[#6E6E78]">SPPU FE, 2024 pattern · Free · Your data stays in this browser</div>
           </div>
-          <nav aria-label="Footer" className="flex items-center gap-6">
-            <a href="#syllabus" className="hover:text-[#141419] transition-colors">Syllabus</a>
-            <a href="#vault" className="hover:text-[#141419] transition-colors">Resources</a>
-            <a href="#tasks" className="hover:text-[#141419] transition-colors">Tasks</a>
-            <a href="https://github.com/manav4u/PrepTracker" target="_blank" rel="noreferrer" className="hover:text-[#141419] transition-colors">Source</a>
-          </nav>
-          <div className="text-xs text-[#6E6E78]">SPPU FE, 2024 pattern · Free · Your data stays in this browser</div>
+          {/* Statement lockup: the document signs its own name */}
+          <div className="mt-16 md:mt-24 flex items-end gap-[0.08em]">
+            <span className="w-[0.62em] shrink-0 text-[13vw] md:text-[10.5rem]" aria-hidden="true">
+              <LogoMark size={999} className="w-full h-auto block translate-y-[0.06em]" />
+            </span>
+            <span className="font-brand font-bold tracking-[-0.035em] leading-[0.82] text-[#141419] text-[13vw] md:text-[10.5rem]">PrepTracker</span>
+          </div>
+          <p className="mt-6 md:mt-8 font-mono text-[11px] uppercase tracking-[0.34em] text-[#D61A40]">Plan&nbsp;&nbsp;Focus&nbsp;&nbsp;Progress</p>
         </div>
       </footer>
     </div>
