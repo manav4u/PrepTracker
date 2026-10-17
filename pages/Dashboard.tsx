@@ -67,7 +67,7 @@ const StreakCard = ({ streak, counts, labels, style }: any) => {
       <div className="relative flex flex-col md:flex-row md:items-end md:justify-between gap-2">
         <div className="order-2 md:order-1">
           <p className="text-4xl lg:text-5xl font-display font-bold tracking-tighter text-[#17171c] leading-none mb-1.5">{streak}</p>
-          <p className="text-[10px] lg:text-[11px] font-bold uppercase tracking-widest text-[#6f685b] whitespace-nowrap">Day Streak</p>
+          <p className="text-[10px] lg:text-[11px] font-bold uppercase tracking-widest text-[#4a443a] whitespace-nowrap">Day Streak</p>
         </div>
         <div className="order-1 md:order-2 flex items-end gap-[5px] pb-0.5 self-end md:self-auto">
           {counts.map((c: number, i: number) => (
