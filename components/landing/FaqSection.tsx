@@ -88,7 +88,7 @@ const FaqSection: React.FC = () => {
       <div className="max-w-3xl mx-auto">
         <p className="fq-head font-mono text-[11px] uppercase tracking-[0.28em] text-[#BE123C]">Fair questions</p>
         <h2 className="fq-head mt-4 text-3xl md:text-5xl font-bold tracking-[-0.025em] leading-[1.08]">
-          Asked before, answered straight.
+          Free means free. Offline means offline.
         </h2>
         <div className="fq-list mt-12">
           {faqs.map((f, i) => {
