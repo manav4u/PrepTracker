@@ -12,18 +12,87 @@ import './landing-v2.css';
    Every rendered node carries data-placeholder so the set is
    greppable: [data-placeholder="testimonial"].
    ============================================================ */
-const QUOTES = {
+type Tile = {
+  q: string;
+  name: string;
+  tag: string;
+  size: string;
+  fill: string;
+  hl?: { t: string; c: string };
+  sc?: { t: string; c: string };
+  circ?: { t: string; c: string };
+  dd?: ({ k: 'tape'; st: React.CSSProperties } | { k: 'star' | 'squig'; st: React.CSSProperties; c: string })[];
+};
+
+const QUOTES: { pull: { q: string; mark: string; name: string; tag: string }; clusterA: Tile[]; clusterB: Tile[] } = {
   pull: {
     q: 'I used to open three PDFs and a spreadsheet to figure out what to study. Now I open one tab and the decision is already made.',
     mark: 'one tab',
     name: 'Aditi',
     tag: 'sem 5',
   },
-  notes: [
-    { n: '01', q: 'Eleven days out, and I already know what Tuesday looks like.', name: 'Rohan', tag: 'sem 3' },
-    { n: '02', q: 'Streak at 11. I have never kept anything alive for 11 days.', name: 'Karan', tag: 'sem 7' },
-    { n: '03', q: 'The syllabus finally looks finite. That alone lowered my blood pressure.', name: 'Sneha', tag: 'sem 3' },
+  clusterA: [
+    { q: 'I stopped rewriting my timetable every Sunday. The list just meets me in the morning.', name: 'Priya', tag: 'sem 5', size: 't-tall', fill: 't-cream',
+      hl: { t: 'meets me in the morning', c: 'hl-y' }, dd: [{ k: 'tape', st: { left: 18 } }] },
+    { q: 'Streak at 11. I have never kept anything alive for 11 days.', name: 'Karan', tag: 'sem 7', size: 't-wide t-big', fill: 't-red',
+      sc: { t: '11 days', c: 'rgba(247,245,242,.9)' }, dd: [{ k: 'star', st: { top: -7, right: -6, width: 24, transform: 'rotate(12deg)' }, c: '#F7F5F2' }] },
+    { q: 'Two minutes to set up. I spent longer choosing a pen.', name: 'Ishita', tag: 'sem 3', size: '', fill: 't-ink',
+      dd: [{ k: 'star', st: { bottom: -6, right: -5, width: 20, transform: 'rotate(-8deg)' }, c: '#F63C49' }] },
+    { q: 'Eleven days out, and I already know what Tuesday looks like.', name: 'Rohan', tag: 'sem 3', size: '', fill: 't-ink',
+      circ: { t: 'Tuesday', c: '#F63C49' }, dd: [{ k: 'squig', st: { bottom: 36, right: 12, width: 38, transform: 'rotate(-6deg)' }, c: '#F63C49' }] },
+    { q: 'PYQs next to the units they belong to. Whoever thought of that, thank you.', name: 'Neha', tag: 'sem 7', size: '', fill: 't-cream',
+      sc: { t: 'thank you', c: '#D61A40' } },
+    { q: 'Offline in the reading hall, no account, no ads. It respects the grind.', name: 'Dev', tag: 'sem 7', size: '', fill: 't-cream',
+      dd: [{ k: 'tape', st: { right: 16, left: 'auto', transform: 'rotate(6deg)' } }] },
   ],
+  clusterB: [
+    { q: 'It is the first app that tells me what is left instead of what I should feel guilty about.', name: 'Vikram', tag: 'sem 5', size: 't-tall', fill: 't-cream',
+      hl: { t: 'what is left', c: 'hl-y' } },
+    { q: 'The syllabus finally looks finite. That alone lowered my blood pressure.', name: 'Sneha', tag: 'sem 3', size: '', fill: 't-cream',
+      circ: { t: 'finite', c: '#D61A40' } },
+    { q: 'The countdown used to scare me. Now it just plans for me.', name: 'Rahul', tag: 'sem 1', size: 't-wide t-big', fill: 't-ink',
+      sc: { t: 'plans for me', c: '#F63C49' }, dd: [{ k: 'star', st: { top: -7, right: -6, width: 22, transform: 'rotate(-10deg)' }, c: '#F63C49' }] },
+    { q: 'Ticked one unit, watched the bar move, felt weirdly calm. Then ticked another.', name: 'Arjun', tag: 'sem 1', size: '', fill: 't-red',
+      sc: { t: 'weirdly calm', c: 'rgba(247,245,242,.9)' }, dd: [{ k: 'star', st: { top: -7, right: -5, width: 18, transform: 'rotate(14deg)' }, c: '#F7F5F2' }] },
+    { q: 'I know exactly what is left. That sentence used to be a joke.', name: 'Anaya', tag: 'sem 3', size: '', fill: 't-cream',
+      hl: { t: 'exactly what is left', c: 'hl-y' } },
+    { q: 'My group chat still argues about portions. I just open one tab.', name: 'Tanvi', tag: 'sem 5', size: '', fill: 't-cream',
+      sc: { t: 'one tab', c: '#D61A40' }, dd: [{ k: 'tape', st: { left: 16 } }] },
+  ],
+};
+
+const DD_SVG: Record<'star' | 'squig', (c: string) => React.ReactNode> = {
+  star: (c) => (
+    <svg viewBox="0 0 40 40" fill="none"><path d="M20 4 L23.5 16 L36 20 L23.5 24 L20 36 L16.5 24 L4 20 L16.5 16 Z" stroke={c} strokeWidth="3" strokeLinejoin="round" /></svg>
+  ),
+  squig: (c) => (
+    <svg viewBox="0 0 60 20" fill="none"><path d="M4 12 C 12 4, 20 18, 28 10 C 36 2, 44 18, 56 8" stroke={c} strokeWidth="3" strokeLinecap="round" /></svg>
+  ),
+};
+
+const tileDoodles = (t: Tile) =>
+  (t.dd || []).map((d, i) =>
+    d.k === 'tape' ? (
+      <span key={i} className="tape" style={d.st}></span>
+    ) : (
+      <span key={i} className="dd" style={d.st}>{DD_SVG[d.k](d.c)}</span>
+    )
+  );
+
+const tileQuote = (t: Tile) => {
+  let deco: { t: string; node: React.ReactNode } | null = null;
+  if (t.hl) deco = { t: t.hl.t, node: <span className={`hl ${t.hl.c}`}>{t.hl.t}</span> };
+  else if (t.sc) deco = { t: t.sc.t, node: (
+    <span className="scu">{t.sc.t}<svg viewBox="0 0 100 12" preserveAspectRatio="none" fill="none"><path d="M2 8 C 20 3, 40 11, 60 6 C 75 3, 88 9, 98 6" stroke={t.sc.c} strokeWidth="3.5" strokeLinecap="round" /></svg></span>
+  ) };
+  else if (t.circ) deco = { t: t.circ.t, node: (
+    <span className="circ">{t.circ.t}<svg viewBox="0 0 100 46" preserveAspectRatio="none" fill="none"><path d="M50 5 C 80 3, 97 11, 95 24 C 93 37, 70 43, 46 41 C 20 39, 3 31, 6 19 C 9 8, 30 4, 52 6" stroke={t.circ.c} strokeWidth="3.5" strokeLinecap="round" /></svg></span>
+  ) };
+  if (!deco) return t.q;
+  const parts = t.q.split(deco.t);
+  return parts.map((p, i) => (
+    <React.Fragment key={i}>{p}{i < parts.length - 1 ? deco!.node : null}</React.Fragment>
+  ));
 };
 
 const VIEWS = [
@@ -316,7 +385,7 @@ const LandingPage: React.FC = () => {
           </div>
         </section>
 
-        {/* 7. TESTIMONIALS - typographic editorial: one pull quote, margin notes.
+        {/* 7. TESTIMONIALS - editorial pull quote + endless marquee of note cards.
             PLACEHOLDER SECTION: every quote below is DEMO copy. The owner chose to
             ship it on production for now and will replace it with real, collected
             quotes. Every node carries data-placeholder="testimonial". Edit the
@@ -324,20 +393,30 @@ const LandingPage: React.FC = () => {
         <section className="sec testi" aria-label="What students say">
           <p className="eyebrow reveal">Word of mouth</p>
           <h2 className="reveal">In their <em>own words.</em></h2>
-          <div className="t-wrap">
-            <figure className="pull reveal" data-placeholder="testimonial">
-              <blockquote>
-                <span className="qm">&ldquo;</span>{pullParts[0]}<mark>{QUOTES.pull.mark}</mark>{pullParts[1]}<span className="qm">&rdquo;</span>
-              </blockquote>
-              <figcaption><b>{QUOTES.pull.name}</b> &middot; {QUOTES.pull.tag}</figcaption>
-            </figure>
-            {QUOTES.notes.map((t, i) => (
-              <figure key={t.n} className={`note note-${'abc'[i]} reveal`} data-placeholder="testimonial">
-                <span className="n-no">{t.n}</span>
-                <blockquote>{t.q}</blockquote>
-                <figcaption>{t.name} &middot; {t.tag}</figcaption>
-              </figure>
-            ))}
+          <figure className="pull reveal" data-placeholder="testimonial">
+            <blockquote>
+              <span className="qm">&ldquo;</span>{pullParts[0]}<mark>{QUOTES.pull.mark}</mark>{pullParts[1]}<span className="qm">&rdquo;</span>
+            </blockquote>
+            <figcaption><b>{QUOTES.pull.name}</b> &middot; {QUOTES.pull.tag}</figcaption>
+          </figure>
+          <div className="mq">
+            <div className="mq-track">
+              {[false, true].map((dup) => (
+                <div key={dup ? 'dup' : 'main'} className={`mq-set${dup ? ' dup' : ''}`} aria-hidden={dup ? true : undefined}>
+                  {[QUOTES.clusterA, QUOTES.clusterB].map((cluster, ci) => (
+                    <div className="bento" key={ci}>
+                      {cluster.map((t) => (
+                        <figure key={t.name} className={`bt ${t.size} ${t.fill}`} data-placeholder="testimonial">
+                          {tileDoodles(t)}
+                          <blockquote>{tileQuote(t)}</blockquote>
+                          <figcaption><b>{t.name}</b><span>{t.tag}</span></figcaption>
+                        </figure>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
