@@ -56,7 +56,7 @@ const ProgressGraphCard = ({ data, labels, total }: { data: number[], labels: st
     // Y-Axis Padding Logic: 
     // Map 0% -> 85 (Bottom with padding)
     // Map 100% -> 15 (Top with padding)
-    const mapY = (val: number) => 74 - (val * 0.44);
+    const mapY = (val: number) => 68 - (val * 0.40);
 
     const mapX = (i: number) => 6 + (i / (data.length - 1 || 1)) * 88;
 
@@ -87,15 +87,24 @@ const ProgressGraphCard = ({ data, labels, total }: { data: number[], labels: st
                                 <stop offset="0%" stopColor="#F63C49" stopOpacity="0.4" />
                                 <stop offset="100%" stopColor="#F63C49" stopOpacity="0" />
                             </linearGradient>
+                            <linearGradient id="edgefade" x1="0" x2="1" y1="0" y2="0">
+                                <stop offset="0%" stopColor="white" stopOpacity="0" />
+                                <stop offset="7%" stopColor="white" stopOpacity="1" />
+                                <stop offset="93%" stopColor="white" stopOpacity="1" />
+                                <stop offset="100%" stopColor="white" stopOpacity="0" />
+                            </linearGradient>
+                            <mask id="fillfade" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
+                                <rect x="0" y="0" width="100" height="100" fill="url(#edgefade)" />
+                            </mask>
                          </defs>
                          
                          {/* Grid Lines */}
-                         <line x1="0" y1="30" x2="100" y2="30" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" strokeDasharray="2 2" />
-                         <line x1="0" y1="52" x2="100" y2="52" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" strokeDasharray="2 2" />
-                         <line x1="0" y1="74" x2="100" y2="74" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" strokeDasharray="2 2" />
+                         <line x1="0" y1="28" x2="100" y2="28" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" strokeDasharray="2 2" />
+                         <line x1="0" y1="48" x2="100" y2="48" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" strokeDasharray="2 2" />
+                         <line x1="0" y1="68" x2="100" y2="68" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" strokeDasharray="2 2" />
 
                          {/* Area Fill */}
-                         <path d={fillPath} fill="url(#grad)" className="transition-all duration-700 ease-in-out" />
+                         <path d={fillPath} fill="url(#grad)" mask="url(#fillfade)" className="transition-all duration-700 ease-in-out" />
                          
                          {/* Stroke Line */}
                          <polyline 
