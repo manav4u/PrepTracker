@@ -58,11 +58,15 @@ const ProgressGraphCard = ({ data, labels, total }: { data: number[], labels: st
     // Map 100% -> 15 (Top with padding)
     const mapY = (val: number) => 85 - (val * 0.7); 
 
-    const mapX = (i: number) => 4 + (i / (data.length - 1 || 1)) * 92;
+    const points = data.map((val, i) => {
+        const x = (i / (data.length - 1 || 1)) * 100;
+        return `${x},${mapY(val)}`;
+    }).join(' ');
 
-    const points = data.map((val, i) => `${mapX(i)},${mapY(val)}`).join(' ');
-
-    const fillPath = `M ${mapX(0)},100 ${data.map((val, i) => `L ${mapX(i)},${mapY(val)}`).join(' ')} L ${mapX(data.length - 1)},100 Z`;
+    const fillPath = `M 0,100 ${data.map((val, i) => {
+        const x = (i / (data.length - 1 || 1)) * 100;
+        return `L ${x},${mapY(val)}`;
+    }).join(' ')} L 100,100 Z`;
 
     return (
         <div className="p-6 rounded-3xl surface-1 flex flex-col justify-between h-36 lg:h-40 relative overflow-hidden group hover:border-white/20 transition-all animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500" style={{ animationDelay: '90ms' }}>
@@ -78,7 +82,7 @@ const ProgressGraphCard = ({ data, labels, total }: { data: number[], labels: st
             </div>
             
             {hasData ? (
-                <div className="absolute left-6 right-6 top-14 bottom-8">
+                <div className="absolute inset-0 w-full h-full">
                     <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
                          <defs>
                             <linearGradient id="grad" x1="0" x2="0" y1="0" y2="1">
