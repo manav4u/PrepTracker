@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
+import ChapterMark, { stampChapterMarks } from './ChapterMark';
 import { gsap, reduceMotion } from '../../lib/scroll';
 
 const features = [
@@ -46,6 +47,7 @@ const FeatureStack: React.FC = () => {
 
   useGSAP(() => {
     if (reduceMotion()) return;
+    stampChapterMarks();
     const mm = gsap.matchMedia();
     mm.add('(min-width: 768px)', () => {
       const cards = gsap.utils.toArray<HTMLElement>('.fs-card');
@@ -94,8 +96,9 @@ const FeatureStack: React.FC = () => {
 
   return (
     <section ref={root} aria-label="What PrepTracker gives you" className="relative bg-[#F7F5F2] px-4 md:px-6 py-24 md:py-32">
+      <p aria-hidden="true" className="hidden xl:block absolute right-8 top-28 font-mono text-[10px] uppercase tracking-[0.34em] text-[#D61A40] [writing-mode:vertical-rl]">every unit, one checkbox</p>
       <div className="max-w-6xl mx-auto">
-        <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[#D61A40]">The fix</p>
+        <div className="mb-2"><ChapterMark n="02" label="The fix" /></div>
         <h2 className="mt-4 text-3xl md:text-5xl font-bold tracking-[-0.025em] leading-[1.08] text-[#141419] max-w-3xl">
           Everything you need to see the whole board.
         </h2>

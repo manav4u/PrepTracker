@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
+import ChapterMark, { stampChapterMarks } from './ChapterMark';
 import { gsap, reduceMotion } from '../../lib/scroll';
 
 const beats = [
@@ -15,6 +16,7 @@ const ProblemScene: React.FC = () => {
 
   useGSAP(() => {
     if (reduceMotion()) return;
+    stampChapterMarks();
     const mm = gsap.matchMedia();
     mm.add('(min-width: 768px)', () => {
       const tl = gsap.timeline({
@@ -58,7 +60,7 @@ const ProblemScene: React.FC = () => {
       />
       {/* Desktop: pinned kinetic beats */}
       <div className="relative max-w-5xl mx-auto h-full hidden md:flex flex-col justify-center">
-        <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[#F63C49] mb-10">The real problem</p>
+        <div className="mb-10"><ChapterMark n="01" label="The real problem" dark /></div>
         <div className="relative min-h-[16rem]">
           {beats.map((b) => (
             <div key={b.kicker} className="ps-line absolute inset-x-0 top-0">
@@ -76,7 +78,7 @@ const ProblemScene: React.FC = () => {
       </div>
       {/* Mobile / fallback: stacked, static */}
       <div className="relative max-w-3xl mx-auto md:hidden">
-        <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[#F63C49] mb-10">The real problem</p>
+        <div className="mb-10"><ChapterMark n="01" label="The real problem" dark /></div>
         <div className="space-y-12">
           {beats.map((b) => (
             <div key={b.kicker}>
