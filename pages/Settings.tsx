@@ -314,7 +314,7 @@ const SettingsPage: React.FC = () => {
                                 type="text" 
                                 value={profile.prn || ''}
                                 onChange={(e) => update('prn', e.target.value)}
-                                placeholder="NOT_SET"
+                                placeholder="Not set"
                                 className="w-full bg-transparent border-b border-white/20 py-2 text-xl font-mono text-slate-300 focus:border-[#F63C49] focus:outline-none transition-colors placeholder:text-white/10"
                             />
                         </div>

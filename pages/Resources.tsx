@@ -440,7 +440,7 @@ const Resources: React.FC = () => {
                     type="text" 
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="SEARCH_RESOURCES..."
+                    placeholder="Search resources..."
                     className="w-full bg-transparent border-none py-4 text-sm font-mono text-white placeholder:text-slate-600 focus:outline-none uppercase tracking-wider"
                 />
                 <Command size={16} className="text-slate-600" />

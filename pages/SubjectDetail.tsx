@@ -72,7 +72,7 @@ const SubjectDetail: React.FC = () => {
       fetchResources();
   }, [subject]);
 
-  if (!subject) return <div className="p-20 text-center text-white font-display">SUBJECT_NOT_FOUND</div>;
+  if (!subject) return <div className="p-20 text-center text-white font-display">Subject not found</div>;
 
   const totalTopics = subject.units.reduce((n, u) => n + (u.topics?.length || 0), 0);
   const coveredTopics = subject.units.reduce((n, u) => n + (userProgress.find(p => p.unitId === u.id)?.topicsDone || []).filter(t => (u.topics || []).includes(t)).length, 0);

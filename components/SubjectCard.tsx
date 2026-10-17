@@ -8,15 +8,16 @@ interface SubjectCardProps {
   subject: Subject;
   progress: number;
   masteredCount: number;
+  style?: React.CSSProperties;
 }
 
-const SubjectCard: React.FC<SubjectCardProps> = ({ subject, progress, masteredCount }) => {
+const SubjectCard: React.FC<SubjectCardProps> = ({ subject, progress, masteredCount, style }) => {
   const totalUnits = subject.units.length;
   const activeUnitIdx = Math.min(masteredCount, totalUnits - 1);
   const activeUnitTitle = subject.units[activeUnitIdx]?.title || 'Revision Phase';
 
   return (
-    <Link to={`/app/subject/${subject.id}`} className="group relative flex flex-col justify-between h-[280px] rounded-3xl surface-1 overflow-hidden hover:border-[#F63C49]/30 transition-all duration-500 hover:shadow-2xl hover:shadow-[#F63C49]/10">
+    <Link to={`/app/subject/${subject.id}`} className="group relative flex flex-col justify-between h-[280px] rounded-3xl surface-1 overflow-hidden animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500 hover:border-[#F63C49]/30 transition-all duration-500 hover:shadow-2xl hover:shadow-[#F63C49]/10" style={style}>
       
       {/* Dynamic Gradient Glow - Restored */}
       <div className="absolute -top-24 -right-24 w-64 h-64 bg-[#D61A40] opacity-0 blur-[100px] rounded-full group-hover:opacity-25 group-hover:scale-125 transition-all duration-700 ease-in-out pointer-events-none"></div>

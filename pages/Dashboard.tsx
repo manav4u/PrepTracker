@@ -22,10 +22,10 @@ const SHORT_NAMES: Record<string, string> = {
   'graph': 'EG'
 };
 
-const StatPill = ({ label, value, sub, active = false, gradient = false, icon: Icon = Activity, to }: any) => {
+const StatPill = ({ label, value, sub, active = false, gradient = false, icon: Icon = Activity, to, style }: any) => {
   const Wrap: any = to ? Link : 'div';
   return (
-  <Wrap {...(to ? { to } : {})} className={`p-6 rounded-3xl flex flex-col justify-between h-36 lg:h-40 transition-all duration-300 group hover:-translate-y-1 ${
+  <Wrap {...(to ? { to } : {})} style={style} className={`p-6 rounded-3xl flex flex-col justify-between h-36 lg:h-40 transition-all duration-300 group hover:-translate-y-1 animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500 ${
     gradient
       ? 'bg-gradient-to-br from-[#F63C49] to-[#9f1239] shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_14px_44px_-12px_rgba(246,60,73,0.5)] border border-white/10'
       : active
@@ -65,7 +65,7 @@ const ProgressGraphCard = ({ data, labels, total }: { data: number[], labels: st
     const fillPath = `M ${mapX(0)},100 ${data.map((val, i) => `L ${mapX(i)},${mapY(val)}`).join(' ')} L ${mapX(data.length - 1)},100 Z`;
 
     return (
-        <div className="p-6 rounded-3xl surface-1 flex flex-col justify-between h-36 lg:h-40 relative overflow-hidden group hover:border-white/20 transition-all">
+        <div className="p-6 rounded-3xl surface-1 flex flex-col justify-between h-36 lg:h-40 relative overflow-hidden group hover:border-white/20 transition-all animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500" style={{ animationDelay: '90ms' }}>
             <div className="flex justify-between items-start z-10">
                 <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-slate-500">Last 7 days</span>
                 <div className="flex items-center gap-2">
@@ -107,16 +107,6 @@ const ProgressGraphCard = ({ data, labels, total }: { data: number[], labels: st
                             className="drop-shadow-[0_0_8px_rgba(246,60,73,0.5)] transition-all duration-700 ease-in-out"
                          />
                          
-                         {/* Data Points */}
-                         {data.map((val, i) => (
-                                <circle
-                                    key={i}
-                                    cx={mapX(i)}
-                                    cy={mapY(val)}
-                                    r="2"
-                                    className="fill-[#0b0b0d] stroke-[#F63C49] stroke-[1px] transition-all duration-700 ease-in-out"
-                                />
-                         ))}
                     </svg>
                 </div>
             ) : (
@@ -235,13 +225,13 @@ const Dashboard: React.FC = () => {
         </div>
 
         <div className="lg:col-span-2 grid grid-cols-2 gap-4 lg:gap-6">
-           <StatPill label="Units Mastered" value={totalMastered} sub={`/ ${totalUnits} Units`} gradient={true} icon={Sparkles} />
+           <StatPill label="Units Mastered" value={totalMastered} sub={`/ ${totalUnits} Units`} gradient={true} icon={Sparkles} style={{ animationDelay: '60ms' }} />
            
            {/* Dynamic Graph Replacement for Forecast */}
            <ProgressGraphCard data={graphData} labels={graphLabels} total={weekTotal} />
            
-           <StatPill label="Days to Exam" value={examValue} sub={examSub} icon={CalendarDays} to={examDiff === null ? '/app/settings' : undefined} />
-           <StatPill label="Study Streak" value={validStreak} sub="Day Streak" icon={TrendingUp} active={validStreak > 2} />
+           <StatPill label="Days to Exam" value={examValue} sub={examSub} icon={CalendarDays} to={examDiff === null ? '/app/settings' : undefined} style={{ animationDelay: '120ms' }} />
+           <StatPill label="Study Streak" value={validStreak} sub="Day Streak" icon={TrendingUp} active={validStreak > 2} style={{ animationDelay: '180ms' }} />
         </div>
       </section>
 
@@ -256,9 +246,9 @@ const Dashboard: React.FC = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
-          {filtered.map(sub => {
+          {filtered.map((sub, i) => {
             const { percentage, mastered } = getSubjectProgress(sub.id);
-            return <SubjectCard key={sub.id} subject={sub} progress={percentage} masteredCount={mastered} />;
+            return <SubjectCard key={sub.id} subject={sub} progress={percentage} masteredCount={mastered} style={{ animationDelay: `${i * 70}ms` }} />;
           })}
         </div>
       </section>
@@ -273,7 +263,7 @@ const Dashboard: React.FC = () => {
           
           <div className="space-y-3">
             {timelineExams.length > 0 ? timelineExams.map((exam, i) => (
-              <Link to={`/app/subject/${exam.subjectId}`} key={exam.subjectId} className={`group flex items-center gap-5 p-3 rounded-2xl hover:bg-white/5 transition-all cursor-pointer border border-transparent hover:border-white/5 ${i !== nextIdx && nextIdx !== -1 && i < nextIdx ? 'opacity-40' : ''}`}>
+              <Link to={`/app/subject/${exam.subjectId}`} key={exam.subjectId} style={{ animationDelay: `${i * 50}ms` }} className={`group animate-in fade-in slide-in-from-bottom-2 fill-mode-both duration-500 flex items-center gap-5 p-3 rounded-2xl hover:bg-white/5 transition-all cursor-pointer border border-transparent hover:border-white/5 ${i !== nextIdx && nextIdx !== -1 && i < nextIdx ? 'opacity-40' : ''}`}>
                 {/* Date Ticket */}
                 <div className="w-14 h-14 rounded-xl surface-2 flex flex-col items-center justify-center shrink-0 group-hover:border-[#F63C49] transition-colors">
                   <span className="text-[9px] font-bold uppercase tracking-widest text-slate-500">{exam.date.toLocaleString('default', { month: 'short' })}</span>
