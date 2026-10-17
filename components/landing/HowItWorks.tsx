@@ -30,18 +30,25 @@ const HowItWorks: React.FC = () => {
       // Scrubbed activation: each step lights up in turn; phone drifts with it
       const items = gsap.utils.toArray<HTMLElement>('.hw-step');
       items.forEach((el) => {
+        const title = el.querySelector('.hw-title');
+        const body = el.querySelector('.hw-body');
+        const setState = (active: boolean) => {
+          if (title) (title as HTMLElement).style.color = active ? '#141419' : '#4A4A52';
+          if (body) (body as HTMLElement).style.color = active ? '#5A5A66' : '#6E6E78';
+        };
+        setState(false);
         gsap.fromTo(
-          el,
-          { autoAlpha: 0.22 },
+          { t: 0 },
+          { t: 0 },
           {
-            autoAlpha: 1, ease: 'none',
-            scrollTrigger: { trigger: el, start: 'top 62%', end: 'top 38%', scrub: true },
+            t: 1, ease: 'none',
+            scrollTrigger: {
+              trigger: el, start: 'top 62%', end: 'bottom 34%', scrub: true,
+              onToggle: (self) => setState(self.isActive),
+              onUpdate: (self) => setState(self.isActive),
+            },
           }
         );
-        gsap.to(el, {
-          autoAlpha: 0.22, ease: 'none', immediateRender: false,
-          scrollTrigger: { trigger: el, start: 'bottom 34%', end: 'bottom 12%', scrub: true },
-        });
       });
       gsap.fromTo(
         '.hw-phone',
@@ -96,8 +103,8 @@ const HowItWorks: React.FC = () => {
                   <p className="font-mono text-[11px] font-semibold tracking-[0.2em] text-[#BE123C]" aria-hidden="true">
                     {s.num}
                   </p>
-                  <h3 className="mt-2 text-xl md:text-2xl font-bold tracking-[-0.02em]">{s.title}</h3>
-                  <p className="mt-2 text-[#5A5A66] leading-relaxed max-w-md">{s.body}</p>
+                  <h3 className="hw-title mt-2 text-xl md:text-2xl font-bold tracking-[-0.02em] text-[#141419]">{s.title}</h3>
+                  <p className="hw-body mt-2 leading-relaxed max-w-md text-[#5A5A66]">{s.body}</p>
                 </li>
               ))}
             </ol>

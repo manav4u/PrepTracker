@@ -61,7 +61,7 @@ const HeroScene: React.FC = () => {
       />
       <div className="relative max-w-6xl mx-auto">
         <div className="hs-copy text-center max-w-4xl mx-auto">
-          <p className="hs-kicker font-mono text-[11px] uppercase tracking-[0.28em] text-[#6E6E78]">
+          <p className="hs-kicker font-mono text-[11px] uppercase tracking-[0.28em] text-[#5A5A66]">
             SPPU First Year &middot; 2024 Pattern
           </p>
           <h1
@@ -87,7 +87,7 @@ const HeroScene: React.FC = () => {
             >
               Start tracking
             </Link>
-            <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#6E6E78]">
+            <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#5A5A66]">
               Free &middot; no account &middot; a minute to set up
             </span>
           </div>
@@ -104,7 +104,7 @@ const HeroScene: React.FC = () => {
               fetchPriority="high"
             />
           </div>
-          <p className="hs-meta mt-4 text-center font-mono text-[11px] uppercase tracking-[0.2em] text-[#6E6E78]">
+          <p className="hs-meta mt-4 text-center font-mono text-[11px] uppercase tracking-[0.2em] text-[#5A5A66]">
             The real dashboard &middot; your data never leaves this browser
           </p>
         </div>

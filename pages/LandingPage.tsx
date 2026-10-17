@@ -9,7 +9,6 @@ import FinalCta from '../components/landing/FinalCta';
 import { useGSAP } from '@gsap/react';
 import { gsap, reduceMotion } from '../lib/scroll';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import {
   ArrowRight,
   Terminal,
@@ -29,7 +28,6 @@ import {
 } from 'lucide-react';
 
 const LandingPage: React.FC = () => {
-  const { scrollYProgress } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useGSAP(() => {
@@ -38,9 +36,9 @@ const LandingPage: React.FC = () => {
     if (!footer) return;
     gsap.fromTo(
       footer,
-      { yPercent: -14, autoAlpha: 0.7 },
+      { yPercent: -14 },
       {
-        yPercent: 0, autoAlpha: 1, ease: 'none',
+        yPercent: 0, ease: 'none',
         scrollTrigger: { trigger: footer, start: 'top bottom', end: 'top 55%', scrub: 1 },
       }
     );
@@ -61,12 +59,12 @@ const LandingPage: React.FC = () => {
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-[#F7F5F2]/85 backdrop-blur-md border-b border-black/5 py-4' : 'bg-transparent py-6'}`}>
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-[#E11D48] rounded flex items-center justify-center text-white font-bold font-mono">
+            <div className="w-8 h-8 bg-[#BE123C] rounded flex items-center justify-center text-white font-bold font-mono">
               PT
             </div>
             <span className="font-bold text-[#141419] tracking-tight">PrepTracker</span>
           </div>
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-[#141419]/60">
+          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-[#52525B]">
             <a href="#syllabus" className="hover:text-[#141419] transition-colors">Syllabus</a>
             <a href="#vault" className="hover:text-[#141419] transition-colors">Resources</a>
             <a href="#tasks" className="hover:text-[#141419] transition-colors">Tasks</a>
@@ -96,7 +94,7 @@ const LandingPage: React.FC = () => {
       <footer data-footer className="px-6 pb-10 pt-4 border-t border-black/[0.08] bg-[#F7F5F2]">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-[#5A5A66]">
           <div className="flex items-center gap-2.5">
-            <div className="w-6 h-6 bg-[#E11D48] rounded flex items-center justify-center text-white text-[10px] font-bold font-mono">PT</div>
+            <div className="w-6 h-6 bg-[#BE123C] rounded flex items-center justify-center text-white text-[10px] font-bold font-mono">PT</div>
             <span className="font-bold text-[#141419] tracking-tight">PrepTracker</span>
           </div>
           <nav aria-label="Footer" className="flex items-center gap-6">
