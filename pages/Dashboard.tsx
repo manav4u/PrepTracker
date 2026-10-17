@@ -60,7 +60,7 @@ const StreakCard = ({ streak, counts, labels, style }: any) => {
       <div className="absolute inset-0 rounded-3xl shadow-[inset_0_1px_0_rgba(255,255,255,0.07)] pointer-events-none"></div>
       <div className="relative flex justify-between items-start">
         <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-[#F63C49]">Study Streak</span>
-        <span className="flex items-center justify-center w-7 h-7 -mt-1 -mr-1 rounded-lg bg-[#F63C49]/15 ring-1 ring-[#F63C49]/30 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)]">
+        <span className="hidden sm:flex items-center justify-center w-7 h-7 -mt-1 -mr-1 rounded-lg bg-[#F63C49]/15 ring-1 ring-[#F63C49]/30 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)]">
           <Flame size={13} className="text-[#F63C49]" />
         </span>
       </div>
@@ -73,7 +73,7 @@ const StreakCard = ({ streak, counts, labels, style }: any) => {
           {counts.map((c: number, i: number) => (
             <div key={i} className="flex flex-col items-center gap-1">
               <span className={`rounded-full ${i === todayIdx ? 'w-2 h-2' : 'w-1.5 h-1.5'} ${c > 0 ? 'bg-[#F63C49] shadow-[0_0_8px_rgba(246,60,73,0.8)]' : 'bg-white/5 ring-1 ring-white/15'}`}></span>
-              <span className={`text-[8px] font-mono font-bold uppercase ${i === todayIdx ? 'text-white/70' : 'text-slate-600'}`}>{labels[i]}</span>
+              <span className={`hidden sm:block text-[8px] font-mono font-bold uppercase ${i === todayIdx ? 'text-white/70' : 'text-slate-600'}`}>{labels[i]}</span>
             </div>
           ))}
         </div>
