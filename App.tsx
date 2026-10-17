@@ -25,6 +25,20 @@ import ErrorBoundary from './components/ErrorBoundary';
 import LogoMark from './components/LogoMark';
 import GlobalSearch from './components/GlobalSearch';
 
+const NotFound = () => (
+  <div className="min-h-screen bg-[#030303] text-slate-200 flex flex-col items-center justify-center gap-8 px-6 text-center">
+    <LogoMark size={40} />
+    <div>
+      <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#F63C49] mb-4">404</p>
+      <h1 className="text-3xl font-bold text-white tracking-tight">This page does not exist.</h1>
+    </div>
+    <div className="flex items-center gap-4">
+      <Link to="/" className="px-6 py-3 rounded-full border border-white/15 text-sm font-bold text-white/80 hover:text-white hover:border-white/40 transition-colors">Landing</Link>
+      <Link to="/app" className="px-6 py-3 rounded-full bg-[#D61A40] text-sm font-bold text-white hover:bg-[#F63C49] transition-colors">Open the app</Link>
+    </div>
+  </div>
+);
+
 const NavItem = ({ to, icon: Icon, active, label, short }: { to: string, icon: any, active: boolean, label: string, short?: string }) => (
   <Link
     to={to}
@@ -61,14 +75,14 @@ export default function App() {
     <ErrorBoundary scope="app">
         <Routes>
             {/* PUBLIC ROUTES */}
-            <Route path="/landing" element={isSetupComplete ? <Navigate to="/" /> : <LandingPage />} />
-            <Route path="/onboarding" element={isSetupComplete ? <Navigate to="/" /> : <Onboarding />} />
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/landing" element={<Navigate to="/" replace />} />
+            <Route path="/onboarding" element={isSetupComplete ? <Navigate to="/app" replace /> : <Onboarding />} />
 
             {/* APP ROUTES (Protected by Setup Check) */}
-            <Route path="*" element={
+            <Route path="/app/*" element={
                 !isSetupComplete ? (
-                    // Redirect root to landing if not setup
-                     location.pathname === '/' ? <LandingPage /> : <Navigate to="/landing" />
+                    <Navigate to="/onboarding" replace />
                 ) : (
                     // APP SHELL
                     <div className="flex flex-col lg:flex-row min-h-screen bg-[#030303] text-slate-200 selection:bg-[#D61A40] selection:text-white overflow-hidden">
@@ -90,7 +104,7 @@ export default function App() {
                         >
                         <Search size={18} />
                         </button>
-                        <Link to="/settings" aria-label="Settings" className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-white/10">
+                        <Link to="/app/settings" aria-label="Settings" className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-white/10">
                         <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${profile.name}`} alt="User" />
                         </Link>
                         </div>
@@ -123,11 +137,11 @@ export default function App() {
                         </div>
 
                         <nav className="flex flex-row lg:flex-col w-full justify-evenly lg:gap-6 items-center">
-                        <NavItem label="Dashboard" to="/" short="Home" icon={LayoutGrid} active={location.pathname === '/'} />
-                        <NavItem label="Resources" to="/resources" short="Library" icon={Library} active={location.pathname === '/resources'} />
-                        <NavItem label="Tasks" to="/tasks" short="Tasks" icon={ListTodo} active={location.pathname === '/tasks'} />
-                        <NavItem label="SGPA calculator" to="/calculator" short="SGPA" icon={Calculator} active={location.pathname === '/calculator'} />
-                        <NavItem label="Settings" to="/settings" short="Settings" icon={Settings} active={location.pathname === '/settings'} />
+                        <NavItem label="Dashboard" to="/app" short="Home" icon={LayoutGrid} active={location.pathname === '/app'} />
+                        <NavItem label="Resources" to="/app/resources" short="Library" icon={Library} active={location.pathname === '/app/resources'} />
+                        <NavItem label="Tasks" to="/app/tasks" short="Tasks" icon={ListTodo} active={location.pathname === '/app/tasks'} />
+                        <NavItem label="SGPA calculator" to="/app/calculator" short="SGPA" icon={Calculator} active={location.pathname === '/app/calculator'} />
+                        <NavItem label="Settings" to="/app/settings" short="Settings" icon={Settings} active={location.pathname === '/app/settings'} />
                         </nav>
 
                         <div className="hidden lg:flex mt-4 pt-8 border-t border-white/5 w-full flex-col items-center gap-6">
@@ -140,7 +154,7 @@ export default function App() {
                                 Local Storage Active
                             </div>
                         </div>
-                        <Link to="/settings" aria-label="Settings" className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-white/10 hover:ring-white/40 transition-all hover:scale-110">
+                        <Link to="/app/settings" aria-label="Settings" className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-white/10 hover:ring-white/40 transition-all hover:scale-110">
                             <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${profile.name}`} alt="User" />
                         </Link>
                         </div>
@@ -167,11 +181,12 @@ export default function App() {
                         <ErrorBoundary scope="page" resetKey={location.pathname}>
                         <Routes>
                             <Route path="/" element={<Dashboard />} />
-                            <Route path="/subject/:id" element={<SubjectDetail />} />
-                            <Route path="/resources" element={<Resources />} />
-                            <Route path="/tasks" element={<TodoList />} />
-                            <Route path="/calculator" element={<CalculatorPage />} />
-                            <Route path="/settings" element={<SettingsPage />} />
+                            <Route path="subject/:id" element={<SubjectDetail />} />
+                            <Route path="resources" element={<Resources />} />
+                            <Route path="tasks" element={<TodoList />} />
+                            <Route path="calculator" element={<CalculatorPage />} />
+                            <Route path="settings" element={<SettingsPage />} />
+                            <Route path="*" element={<Navigate to="/app" replace />} />
                         </Routes>
                         </ErrorBoundary>
                         </div>
@@ -183,6 +198,7 @@ export default function App() {
                     </div>
                 )
             } />
+            <Route path="*" element={<NotFound />} />
         </Routes>
     </ErrorBoundary>
   );

@@ -283,7 +283,7 @@ const Dashboard: React.FC = () => {
           
           <div className="space-y-3">
             {timelineExams.length > 0 ? timelineExams.map((exam, i) => (
-              <Link to={`/subject/${exam.subjectId}`} key={exam.subjectId} className={`group flex items-center gap-5 p-3 rounded-2xl hover:bg-white/5 transition-all cursor-pointer border border-transparent hover:border-white/5 ${i !== nextIdx && nextIdx !== -1 && i < nextIdx ? 'opacity-40' : ''}`}>
+              <Link to={`/app/subject/${exam.subjectId}`} key={exam.subjectId} className={`group flex items-center gap-5 p-3 rounded-2xl hover:bg-white/5 transition-all cursor-pointer border border-transparent hover:border-white/5 ${i !== nextIdx && nextIdx !== -1 && i < nextIdx ? 'opacity-40' : ''}`}>
                 {/* Date Ticket */}
                 <div className="w-14 h-14 rounded-xl bg-[#0a0a0a] border border-white/10 flex flex-col items-center justify-center shrink-0 group-hover:border-[#F63C49] transition-colors">
                   <span className="text-[9px] font-bold uppercase tracking-widest text-slate-500">{exam.date.toLocaleString('default', { month: 'short' })}</span>
@@ -303,7 +303,7 @@ const Dashboard: React.FC = () => {
                 </div>
               </Link>
             )) : (
-              <Link to="/settings" className="block p-6 rounded-2xl border border-dashed border-white/10 text-center hover:border-[#F63C49]/40 transition-colors group">
+              <Link to="/app/settings" className="block p-6 rounded-2xl border border-dashed border-white/10 text-center hover:border-[#F63C49]/40 transition-colors group">
                  <p className="text-xs font-medium text-slate-500 uppercase tracking-widest group-hover:text-slate-300">No exam dates set</p>
                  <p className="text-[10px] font-mono text-[#F63C49] mt-2 uppercase tracking-widest">Set them in Settings</p>
               </Link>

@@ -1,9 +1,9 @@
 // Offline shell. Navigation is network-first so a new deploy is picked up as soon as the student is online.
 // Hashed build assets never change, so they are cache-first. Nothing else is cached.
-const CACHE = 'preptracker-shell-v1';
+const CACHE = 'preptracker-shell-v2';
 
 self.addEventListener('install', (e) => {
-  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(['/', '/manifest.webmanifest', '/icon-192.png'])).then(() => self.skipWaiting()));
+  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(['./', './app', './manifest.webmanifest', './icon-192.png'])).then(() => self.skipWaiting()));
 });
 
 self.addEventListener('activate', (e) => {
@@ -23,10 +23,10 @@ self.addEventListener('fetch', (e) => {
       fetch(req)
         .then((res) => {
           const copy = res.clone();
-          caches.open(CACHE).then((c) => c.put('/', copy));
+          caches.open(CACHE).then((c) => c.put('./', copy));
           return res;
         })
-        .catch(() => caches.match('/'))
+        .catch(() => caches.match('./'))
     );
     return;
   }

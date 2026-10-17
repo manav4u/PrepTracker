@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import LogoMark from '../components/LogoMark';
+import { useData } from '../context/DataContext';
 import { useGSAP } from '@gsap/react';
 import { gsap, reduceMotion } from '../lib/scroll';
 import './landing-v2.css';
@@ -107,6 +108,9 @@ const STRIP = ['Every subject as units & topics', 'Previous-year questions', 'Da
 
 const LandingPage: React.FC = () => {
   const [view, setView] = useState(0);
+  const { profile } = useData();
+  const isSetup = !!profile?.setupComplete;
+  const ctaTo = isSetup ? '/app' : '/onboarding';
   const pullParts = QUOTES.pull.q.split(QUOTES.pull.mark);
 
   // Sliding pill under the active view tab: re-measured on tab change,
@@ -253,7 +257,7 @@ const LandingPage: React.FC = () => {
   return (
     <div className="lp2">
       <nav id="lp2-nav" aria-label="Main">
-        <Link className="brand" to="/landing" aria-label="PrepTracker home">
+        <Link className="brand" to="/" aria-label="PrepTracker home">
           <LogoMark size={27} />
           <b>PrepTracker</b>
         </Link>
@@ -262,7 +266,7 @@ const LandingPage: React.FC = () => {
           <a className="nav-link" href="#features" data-sec="features">Features</a>
           <a className="nav-link" href="#how" data-sec="how">How it works</a>
         </div>
-        <Link className="nav-cta" id="lp2-navCta" to="/onboarding">Start</Link>
+        <Link className="nav-cta" id="lp2-navCta" to={ctaTo}>{isSetup ? 'Open app' : 'Start'}</Link>
       </nav>
 
       <main>
@@ -275,7 +279,7 @@ const LandingPage: React.FC = () => {
               </h1>
               <p className="sub">PrepTracker breaks the syllabus into units and topics, counts the days to your exam, and tells you what to study today.</p>
               <div className="cta-row">
-                <Link className="cta-main" to="/onboarding">Start tracking
+                <Link className="cta-main" to={ctaTo}>{isSetup ? 'Open PrepTracker' : 'Start tracking'}
                   <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </Link>
                 <p className="fud">Free &middot; No account &middot; Data stays in your browser</p>
@@ -470,7 +474,7 @@ const LandingPage: React.FC = () => {
             <LogoMark variant="white" size={560} className="fp-ghost" />
             <h2>Walk in knowing<br />what&rsquo;s <em style={{ color: '#fff', textDecoration: 'underline', textUnderlineOffset: '10px', textDecorationThickness: '4px' }}>left.</em></h2>
             <p className="subf">Two minutes to set up. Then the app counts the days, the units and the topics. You just study.</p>
-            <Link className="cta-white" to="/onboarding">Start tracking
+            <Link className="cta-white" to={ctaTo}>{isSetup ? 'Open PrepTracker' : 'Start tracking'}
               <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="#D61A40" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </Link>
             <p className="fud">Free &middot; No account &middot; Data stays in your browser</p>
@@ -502,7 +506,7 @@ const LandingPage: React.FC = () => {
               </div>
               <nav className="foot-col" aria-label="Product">
                 <h3>Product</h3>
-                <Link to="/onboarding">Open the app</Link>
+                <Link to={ctaTo}>Open the app</Link>
                 <a href="#features">Features</a>
                 <a href="#how">How it works</a>
               </nav>

@@ -142,7 +142,7 @@ const SubjectDetail: React.FC = () => {
       <ResourceViewerModal isOpen={!!viewResource} onClose={() => setViewResource(null)} resource={viewResource} />
 
       <div className="mb-12 lg:mb-20">
-        <Link to="/" className="inline-flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-white uppercase tracking-widest transition-colors mb-8">
+        <Link to="/app" className="inline-flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-white uppercase tracking-widest transition-colors mb-8">
           <ArrowLeft size={14} /> Back to Dashboard
         </Link>
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 lg:gap-12">
@@ -310,7 +310,7 @@ const SubjectDetail: React.FC = () => {
            <div className="p-8 rounded-3xl bg-[#0a0a0a] border border-white/5 min-h-[300px]">
               <h3 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-6 px-1 flex items-center justify-between">
                 Recommended Resources
-                <Link to="/resources" aria-label="Open the resource library" className="text-white hover:text-[#F63C49] transition-colors flex items-center gap-1">
+                <Link to="/app/resources" aria-label="Open the resource library" className="text-white hover:text-[#F63C49] transition-colors flex items-center gap-1">
                    <ArrowUpRight size={10} />
                 </Link>
               </h3>
@@ -350,7 +350,7 @@ const SubjectDetail: React.FC = () => {
                             <Search size={20} className="text-slate-600" />
                          </div>
                          <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">No Resources Found</p>
-                         <Link to="/resources" className="text-[10px] text-[#F63C49] mt-2 font-mono hover:underline">
+                         <Link to="/app/resources" className="text-[10px] text-[#F63C49] mt-2 font-mono hover:underline">
                              Add a resource
                          </Link>
                     </div>

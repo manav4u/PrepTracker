@@ -4,6 +4,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Legacy hash-route redirect: the app lived under /#/... before moving to real paths.
+      // Map any saved or shared hash link to its new URL, then let the app boot.
+      (function () {
+        var h = location.hash;
+        if (!h || h.charAt(1) !== '/') return;
+        var p = h.slice(1);
+        if (p === '/') p = '/app';
+        else if (p === '/landing') p = '/';
+        else if (p.indexOf('/app') !== 0 && p !== '/onboarding') p = '/app' + p;
+        var base = location.pathname.replace(/index\.html$/, '');
+        if (base.charAt(base.length - 1) !== '/') base += '/';
+        history.replaceState(null, '', base + p.slice(1) + location.search);
+      })();
+    </script>
     <meta name="google-site-verification" content="AcckUvi06ITWMeVvurL4iPfRUDu84uArHnRtNlY-ccc" />
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWDXVCDCP8"></script>
