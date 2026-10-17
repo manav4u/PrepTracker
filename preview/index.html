@@ -76,16 +76,24 @@
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.2}}
   @media (prefers-reduced-motion: reduce){.try .live{animation:none}}
   .switchwrap{display:flex;justify-content:center}
-  .switcher{display:inline-flex;position:relative;margin-top:18px;background:#fff;
-    border:1px solid var(--hair);border-radius:999px;padding:5px;box-shadow:0 10px 30px -18px rgba(20,20,25,.25)}
-  .sw-pill{position:absolute;z-index:1;top:5px;bottom:5px;left:5px;width:60px;
-    background:var(--ink);border-radius:999px;box-shadow:0 8px 18px -8px rgba(20,20,25,.55);
+  .switcher{display:inline-flex;position:relative;margin-top:18px;
+    background:linear-gradient(180deg,#fff 0%,#f6f4f1 100%);
+    border:1px solid rgba(20,20,25,.08);border-radius:999px;padding:6px;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.9),inset 0 -1px 0 rgba(20,20,25,.04),
+      0 1px 2px rgba(20,20,25,.06),0 6px 16px -6px rgba(20,20,25,.10),0 18px 40px -18px rgba(20,20,25,.18)}
+  .sw-pill{position:absolute;z-index:1;top:6px;bottom:6px;left:6px;width:60px;
+    background:linear-gradient(180deg,#26262e 0%,#141419 55%,#101015 100%);border-radius:999px;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.14),inset 0 -1px 0 rgba(0,0,0,.5),
+      0 1px 2px rgba(20,20,25,.28),0 6px 14px -4px rgba(20,20,25,.45),0 14px 30px -10px rgba(20,20,25,.35);
     transition:left .48s cubic-bezier(.32,1.3,.42,1),width .48s cubic-bezier(.32,1.3,.42,1)}
+  .sw-pill::after{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+    background:linear-gradient(115deg,rgba(255,255,255,.12),rgba(255,255,255,0) 45%)}
   .switcher button{position:relative;z-index:2;border:0;background:none;cursor:pointer;border-radius:999px;
-    font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;
-    color:var(--mut);padding:13px 28px;transition:color .3s}
-  .switcher button:hover:not(.on){color:var(--ink)}
-  .switcher button.on{color:#fff}
+    font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--mut);padding:13px 28px;transition:color .3s,background-color .3s,text-shadow .3s}
+  .switcher button:hover:not(.on){color:var(--ink);background:rgba(20,20,25,.05)}
+  .switcher button.on{color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+  .switcher button:focus-visible{outline:2px solid var(--red);outline-offset:2px}
   @media (prefers-reduced-motion: reduce){.sw-pill{transition:none}}
 
   /* product window - Modyfi/Craft: large, tilted, layered, bleeding off the bottom edge */
