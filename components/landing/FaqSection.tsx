@@ -86,7 +86,7 @@ const FaqSection: React.FC = () => {
   return (
     <section ref={root} aria-label="Frequently asked questions" className="relative bg-[#F7F5F2] text-[#141419] px-6 py-24 md:py-32">
       <div className="max-w-3xl mx-auto">
-        <p className="fq-head font-mono text-[11px] uppercase tracking-[0.28em] text-[#BE123C]">Fair questions</p>
+        <p className="fq-head font-mono text-[11px] uppercase tracking-[0.28em] text-[#D61A40]">Fair questions</p>
         <h2 className="fq-head mt-4 text-3xl md:text-5xl font-bold tracking-[-0.025em] leading-[1.08]">
           Free means free. Offline means offline.
         </h2>
@@ -102,11 +102,11 @@ const FaqSection: React.FC = () => {
                   aria-expanded={isOpen}
                   className="w-full flex items-center justify-between gap-6 py-6 text-left group"
                 >
-                  <span className="text-base md:text-lg font-semibold tracking-[-0.01em] transition-all duration-300 group-hover:text-[#BE123C] group-hover:translate-x-1">
+                  <span className="text-base md:text-lg font-semibold tracking-[-0.01em] transition-all duration-300 group-hover:text-[#D61A40] group-hover:translate-x-1">
                     {f.q}
                   </span>
                   <span
-                    className="fq-icon shrink-0 w-8 h-8 rounded-full border border-black/10 flex items-center justify-center text-[#5A5A66] transition-colors group-hover:border-[#BE123C]/40 group-hover:text-[#BE123C]"
+                    className="fq-icon shrink-0 w-8 h-8 rounded-full border border-black/10 flex items-center justify-center text-[#5A5A66] transition-colors group-hover:border-[#D61A40]/40 group-hover:text-[#D61A40]"
                     data-i={i}
                     style={{ transform: isOpen ? 'rotate(45deg)' : 'none' }}
                     aria-hidden="true"

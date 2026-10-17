@@ -60,7 +60,13 @@ const LandingPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#F7F5F2] text-[#141419] font-sans selection:bg-[#E11D48] selection:text-white overflow-x-hidden">
+    <div className="min-h-screen bg-[#F7F5F2] text-[#141419] font-sans selection:bg-[#D61A40] selection:text-white overflow-x-hidden">
+      {/* Paper grain: fixed feTurbulence noise, multiply, pointer-events-none. Sits above sections, below nav/dock. */}
+      <div
+        aria-hidden="true"
+        className="fixed inset-0 z-[5] pointer-events-none opacity-[0.05] mix-blend-multiply"
+        style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E\")" }}
+      />
 
       {/* Navbar */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-[#F7F5F2]/85 backdrop-blur-md border-b border-black/5 py-4' : 'bg-transparent py-6'}`}>

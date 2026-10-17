@@ -88,19 +88,19 @@ const HowItWorks: React.FC = () => {
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20">
         <div>
           <div className="hw-head lg:sticky lg:top-32 relative z-10 -mx-3 px-3 pb-8 bg-[#F7F5F2]">
-            <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[#BE123C]">From zero to tracked</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[#D61A40]">From zero to tracked</p>
             <h2 className="mt-4 text-3xl md:text-5xl font-bold tracking-[-0.025em] leading-[1.08]">
               Set up in a minute. Useful the same day.
             </h2>
           </div>
           <div className="hw-steps relative mt-14 pl-8">
             <div className="absolute left-0 top-1 bottom-1 w-px bg-black/10" aria-hidden="true">
-              <div className="hw-rail-fill absolute inset-0 bg-[#BE123C]" />
+              <div className="hw-rail-fill absolute inset-0 bg-[#D61A40]" />
             </div>
             <ol className="space-y-14">
               {steps.map((s) => (
                 <li key={s.num} className="hw-step">
-                  <p className="font-mono text-[11px] font-semibold tracking-[0.2em] text-[#BE123C]" aria-hidden="true">
+                  <p className="font-mono text-[11px] font-semibold tracking-[0.2em] text-[#D61A40]" aria-hidden="true">
                     {s.num}
                   </p>
                   <h3 className="hw-title mt-2 text-xl md:text-2xl font-bold tracking-[-0.02em] text-[#141419]">{s.title}</h3>
@@ -114,7 +114,7 @@ const HowItWorks: React.FC = () => {
           <div className="lg:sticky lg:top-40">
             <div
               aria-hidden="true"
-              className="hw-glow absolute -inset-8 rounded-[3rem] bg-[#E11D48]/[0.07] blur-2xl"
+              className="hw-glow absolute -inset-8 rounded-[3rem] bg-[#F63C49]/[0.07] blur-2xl"
             />
             <div className="hw-phone relative mx-auto w-full max-w-[20rem] rounded-[2.2rem] overflow-hidden ring-1 ring-black/10 shadow-[0_32px_64px_-24px_rgba(20,20,25,0.35)] will-change-transform">
               <img
