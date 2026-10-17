@@ -163,23 +163,58 @@
 
   /* ---------- 8. FINAL CTA + FOOTER (footer.design: Northeast Tomato) ---------- */
   .final{padding:40px 40px 0;max-width:1400px;margin:0 auto}
-  .final-panel{background:var(--red);border-radius:28px;color:#fff;text-align:center;
-    padding:110px 40px 100px;position:relative;overflow:hidden}
+  .final-panel{background:linear-gradient(155deg,#F8505C 0%,#E01E38 42%,#A50F33 100%);border-radius:28px;color:#fff;text-align:center;
+    padding:120px 40px 110px;position:relative;overflow:hidden}
+  .final-panel::before{content:"";position:absolute;inset:0;background-image:url("favicon.svg");
+    background-size:180px;opacity:.3;mix-blend-mode:overlay;pointer-events:none}
+  .final-panel::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(110% 80% at 50% 0%,rgba(255,255,255,.16),transparent 52%),
+               radial-gradient(130% 120% at 50% 118%,rgba(64,2,14,.42),transparent 56%)}
+  .fp-rules{position:absolute;inset:0;pointer-events:none;
+    background:repeating-linear-gradient(0deg,transparent 0 52px,rgba(255,255,255,.05) 52px 53px)}
+  .fp-ghost{position:absolute;right:-130px;bottom:-190px;width:560px;height:548px;opacity:.09;
+    transform:rotate(-10deg);pointer-events:none}
+  .final-panel>*:not(.fp-ghost):not(.fp-rules){position:relative;z-index:2}
   .final-panel h2{color:#fff;font-size:clamp(40px,5.4vw,84px)}
   .final-panel .subf{margin:22px auto 0;font-size:16px;line-height:1.7;color:rgba(255,255,255,.75);max-width:440px}
   .cta-white{display:inline-flex;align-items:center;gap:12px;background:#fff;color:var(--ink);
     text-decoration:none;font-family:var(--sat);font-weight:700;font-size:17px;padding:19px 36px;
-    border-radius:999px;margin-top:38px;transition:transform .22s ease}
+    border-radius:999px;margin-top:38px;transition:transform .22s ease;
+    box-shadow:0 14px 34px rgba(88,3,18,.38),inset 0 1px 0 rgba(255,255,255,.7)}
   .cta-white:hover{transform:translateY(-2px)}
   .cta-white svg{width:16px;height:16px}
   .final-panel .fud{color:rgba(255,255,255,.6);margin-top:16px}
-  footer{padding:64px 40px 44px;max-width:1400px;margin:0 auto;
-    display:flex;align-items:flex-end;justify-content:space-between;gap:30px;flex-wrap:wrap}
-  .foot-brand{display:flex;align-items:center;gap:12px}
-  .foot-brand svg{width:30px;height:30px}
-  .foot-brand b{font-family:var(--sat);font-weight:700;font-size:24px;letter-spacing:-.015em}
-  .foot-links{display:flex;gap:26px}
-  .foot-note{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+  footer{padding-bottom:44px}
+  .ticker{overflow:hidden;background:var(--ink);margin-top:40px;padding:16px 0}
+  .ticker-track{display:flex;align-items:center;gap:36px;width:max-content;
+    animation:tick 26s linear infinite;font-family:var(--mono);font-size:11px;
+    letter-spacing:.24em;text-transform:uppercase;color:rgba(247,245,242,.85);white-space:nowrap}
+  .ticker-track i{color:var(--red-hi);font-style:normal}
+  @keyframes tick{to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion: reduce){.ticker-track{animation:none}}
+  .foot-main{max-width:1400px;margin:0 auto;padding:72px 40px 0}
+  .foot-lockup{font-family:var(--grot);font-weight:700;font-size:clamp(52px,11vw,176px);
+    letter-spacing:-.035em;line-height:1;margin:0 0 56px;color:var(--ink)}
+  .foot-lockup .fl{display:inline-block;transform:translateY(48px);opacity:0;
+    transition:transform .7s cubic-bezier(.2,.7,.2,1),opacity .7s ease}
+  .foot-lockup.in .fl{transform:none;opacity:1}
+  .foot-lockup .rd{color:var(--red)}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;
+    padding-top:44px;border-top:1px solid var(--hair)}
+  .foot-about svg{width:34px;height:34px}
+  .foot-about p{margin:16px 0 0;font-size:15px;line-height:1.7;color:var(--mut);max-width:340px}
+  .foot-about .foot-sign{font-family:var(--mono);font-size:10px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--ink);margin-top:20px}
+  .foot-col{display:block;padding:0;background:none;border:none;position:static;max-width:none;margin:0}
+  .foot-col h3{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--mut);margin:0 0 16px;font-weight:400}
+  .foot-col a{display:block;color:var(--ink);text-decoration:none;font-size:15px;padding:5px 0;
+    transition:color .2s;letter-spacing:-.005em}
+  .foot-col a:hover{color:var(--red)}
+  .foot-bar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:56px;
+    padding-top:22px;border-top:1px solid var(--hair);font-family:var(--mono);font-size:10px;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+  .foot-bar .foot-sign2{color:var(--red)}
 
   @media(max-width:900px){
     .sec{padding:80px 20px}
@@ -189,7 +224,9 @@
     .step::after{display:none}
     .cta-band{flex-direction:column;align-items:flex-start;padding:52px 28px}
     .final{padding:24px 20px 0}
-    footer{padding:48px 20px 36px}
+    .foot-main{padding:56px 20px 0}
+    .foot-grid{grid-template-columns:1fr;gap:30px}
+    .scribble{top:-14px}
     .docs{height:520px}
     .doc1{left:0}.doc2{left:12%}.doc3{right:0}
   }
@@ -211,14 +248,14 @@
 <body>
 
 <nav>
-  <a class="brand" href="#">
+  <a class="brand" href="https://preptracker.manavdev.site/">
     <svg viewBox="0 0 149 146" aria-hidden="true"><path id="mark" fill="url(#lg)" d=""/><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F63C49"/><stop offset="1" stop-color="#D61A40"/></linearGradient></defs></svg>
     <b>PrepTracker</b>
   </a>
   <div class="nav-right">
-    <a class="nav-link" href="#">How it works</a>
-    <a class="nav-link" href="#">Features</a>
-    <a class="nav-cta" href="#">Start tracking</a>
+    <a class="nav-link" href="https://preptracker.manavdev.site/">How it works</a>
+    <a class="nav-link" href="https://preptracker.manavdev.site/">Features</a>
+    <a class="nav-cta" href="https://preptracker.manavdev.site/">Start tracking</a>
   </div>
 </nav>
 
@@ -233,7 +270,7 @@
       <p class="sub">PrepTracker breaks the syllabus into units and topics, counts the days to your exam, and tells you what to study today.</p>
     </div>
     <div class="cta-col">
-      <a class="cta-main" href="#">Start tracking
+      <a class="cta-main" href="https://preptracker.manavdev.site/">Start tracking
         <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <p class="fud">Free &middot; No account &middot; Data stays in your browser</p>
@@ -297,7 +334,7 @@
 </section>
 
 <!-- 5. FEATURE SHOWCASE - ayzz Ep.07: shown not told; ThrillX: headlines for scanners -->
-<section class="sec feat" aria-label="Features">
+<section class="sec feat" id="features" aria-label="Features">
   <p class="eyebrow reveal">The fix</p>
   <h2 class="reveal">Everything the syllabus hides, <em>laid out.</em></h2>
 
@@ -339,7 +376,7 @@
 </section>
 
 <!-- 6. HOW IT WORKS - ayzz Perfect Structure: 3 steps -->
-<section class="sec hiw" aria-label="How it works">
+<section class="sec hiw" id="how" aria-label="How it works">
   <p class="eyebrow reveal">How it works</p>
   <h2 class="reveal">Set up once. <em>Tracked every day.</em></h2>
   <div class="steps">
@@ -368,7 +405,7 @@
       <h2>Your syllabus won&rsquo;t <em>track itself.</em></h2>
       <p class="fud" style="margin-top:14px">Free &middot; No account &middot; Data stays in your browser</p>
     </div>
-    <a class="cta-main" href="#">Start tracking
+    <a class="cta-main" href="https://preptracker.manavdev.site/">Start tracking
       <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
   </div>
@@ -377,25 +414,49 @@
 <!-- 8. FINAL CTA + FOOTER - footer.design: Northeast Tomato (giant red panel + utility row) -->
 <section class="final" aria-label="Final call to action">
   <div class="final-panel reveal">
+    <div class="fp-rules"></div>
+    <svg class="fp-ghost" viewBox="0 0 149 146" aria-hidden="true"><path class="markg" fill="#fff" d=""/></svg>
     <h2>Walk in knowing<br>what&rsquo;s <em style="color:#fff;text-decoration:underline;text-underline-offset:10px;text-decoration-thickness:4px">left.</em></h2>
     <p class="subf">Two minutes to set up. Then the app counts the days, the units and the topics &mdash; you just study.</p>
-    <a class="cta-white" href="#">Start tracking
+    <a class="cta-white" href="https://preptracker.manavdev.site/">Start tracking
       <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="#D61A40" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
     <p class="fud">Free &middot; No account &middot; Data stays in your browser</p>
   </div>
 </section>
-<footer>
-  <div class="foot-brand">
-    <svg viewBox="0 0 149 146" aria-hidden="true"><path class="mark2" fill="url(#lg2)" d=""/><defs><linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F63C49"/><stop offset="1" stop-color="#D61A40"/></linearGradient></defs></svg>
-    <b>PrepTracker</b>
+<footer aria-label="Footer">
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Every topic accounted for</span><i>&#183;</i><span>Every day counted</span><i>&#183;</i><span>Free &amp; open source</span><i>&#183;</i><span>No account</span><i>&#183;</i><span>Data stays in your browser</span><i>&#183;</i>
+      <span>Every topic accounted for</span><i>&#183;</i><span>Every day counted</span><i>&#183;</i><span>Free &amp; open source</span><i>&#183;</i><span>No account</span><i>&#183;</i><span>Data stays in your browser</span><i>&#183;</i>
+    </div>
   </div>
-  <div class="foot-links">
-    <a class="nav-link" href="#">How it works</a>
-    <a class="nav-link" href="#">Features</a>
-    <a class="nav-link" href="#">Start tracking</a>
+  <div class="foot-main">
+    <p class="foot-lockup reveal-fl" aria-label="PrepTracker"><span class="fl">P</span><span class="fl">r</span><span class="fl">e</span><span class="fl">p</span><span class="fl">T</span><span class="fl">r</span><span class="fl">a</span><span class="fl">c</span><span class="fl">k</span><span class="fl">e</span><span class="fl">r</span><span class="fl rd">.</span></p>
+    <div class="foot-grid">
+      <div class="foot-about">
+        <svg viewBox="0 0 149 146" aria-hidden="true"><path class="mark2" fill="url(#lg2)" d=""/><defs><linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F63C49"/><stop offset="1" stop-color="#D61A40"/></linearGradient></defs></svg>
+        <p>The exam desk. Syllabus progress, study resources and tasks in one place &mdash; free, open source, and private by design.</p>
+        <p class="foot-sign">Built by a student, for students</p>
+      </div>
+      <nav class="foot-col" aria-label="Product">
+        <h3>Product</h3>
+        <a href="https://preptracker.manavdev.site/">Open the app</a>
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+      </nav>
+      <nav class="foot-col" aria-label="Project">
+        <h3>Project</h3>
+        <a href="https://github.com/manav4u/PrepTracker">Source on GitHub</a>
+        <a href="https://github.com/manav4u/PrepTracker/issues">Report an issue</a>
+      </nav>
+    </div>
+    <div class="foot-bar">
+      <span>&copy; 2026 PrepTracker</span>
+      <span class="foot-sign2">See you in the exam hall.</span>
+      <span>Free &middot; No ads &middot; No tracking</span>
+    </div>
   </div>
-  <p class="foot-note">Built by a student, for students</p>
 </footer>
 
 </main>
@@ -411,7 +472,9 @@ function setOn(i){btns.forEach((b,j)=>{b.classList.toggle('on',i===j);b.setAttri
 btns.forEach((b,i)=>b.addEventListener('click',()=>setOn(i)));
 addEventListener('resize',()=>moveThumb(sw.querySelector('button.on')));
 addEventListener('load',()=>moveThumb(btns[0]));
-document.querySelector('.mark2').setAttribute('d',document.getElementById('mark').getAttribute('d'));
+const MP=document.getElementById('mark').getAttribute('d');
+document.querySelectorAll('.mark2,.markg').forEach(p=>p.setAttribute('d',MP));
+[...document.querySelectorAll('.foot-lockup .fl')].forEach((el,i)=>el.style.transitionDelay=(i*0.05)+'s');
 </script>
 <script src="gsap.min.js"></script>
 <script>
@@ -435,7 +498,7 @@ if(!reduced){
 }
 // scroll reveals
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.18});
-document.querySelectorAll('.reveal').forEach(el=>{if(reduced){el.classList.add('in')}else{io.observe(el)}});
+document.querySelectorAll('.reveal,.reveal-fl').forEach(el=>{if(reduced){el.classList.add('in')}else{io.observe(el)}});
 </script>
 </body>
 </html>
