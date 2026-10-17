@@ -151,15 +151,31 @@
   .step::after{content:'';position:absolute;top:52px;right:-26px;width:26px;height:1px;background:var(--hair)}
   .step:last-child::after{display:none}
 
-  /* ---------- 7. SECONDARY CTA ---------- */
-  .cta-band{background:var(--ink);color:var(--paper);border-radius:24px;
-    padding:72px 56px;display:flex;align-items:center;justify-content:space-between;gap:40px;
-    position:relative;overflow:hidden}
-  .cta-band::before{content:'';position:absolute;width:520px;height:520px;border-radius:50%;
-    background:rgba(246,60,73,.16);filter:blur(110px);top:-260px;right:-120px;pointer-events:none}
-  .cta-band h2{color:var(--paper)}
-  .cta-band .fud{color:rgba(247,245,242,.55)}
-  .cta-band .cta-main{flex-shrink:0}
+
+  /* ---------- 7. TESTIMONIALS (ayzz Ep.07 proof treatment + Supahero: one giant quote, editorial index) ---------- */
+  .testi .feat-q{margin:64px 0 0;max-width:960px}
+  .feat-q blockquote{font-weight:700;letter-spacing:-.03em;line-height:1.12;
+    font-size:clamp(28px,4vw,58px);margin:0}
+  .feat-q blockquote .qm{color:var(--red)}
+  .feat-q mark{background:linear-gradient(transparent 58%,rgba(246,60,73,.28) 58%,rgba(246,60,73,.28) 94%,transparent 94%);
+    color:inherit;padding:0 .04em}
+  .feat-q figcaption{margin-top:26px;font-family:var(--mono);font-size:11px;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--mut)}
+  .feat-q figcaption b{color:var(--ink);font-weight:400}
+  .q-index{margin-top:88px;border-top:1px solid var(--hair)}
+  .q-row{display:flex;gap:32px;align-items:baseline;padding:34px 0;border-bottom:1px solid var(--hair)}
+  .q-row .qn{font-family:var(--mono);font-size:12px;color:var(--red);flex-shrink:0;letter-spacing:.1em}
+  .q-row blockquote{margin:0;font-size:clamp(17px,1.7vw,22px);font-weight:500;letter-spacing:-.012em;
+    line-height:1.5;max-width:640px}
+  .q-row figcaption{margin-left:auto;flex-shrink:0;font-family:var(--mono);font-size:10px;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--mut);text-align:right}
+  .q-row figcaption b{display:block;color:var(--ink);font-weight:400;margin-bottom:4px}
+  .q-row:nth-child(even) blockquote{margin-left:auto;text-align:left}
+  @media(max-width:900px){
+    .q-row{flex-direction:column;gap:12px;padding:28px 0}
+    .q-row figcaption{margin-left:0;text-align:left}
+    .q-row figcaption b{display:inline;margin-right:8px}
+  }
 
   /* ---------- 8. FINAL CTA + FOOTER (footer.design: Northeast Tomato) ---------- */
   .final{padding:40px 40px 0;max-width:1400px;margin:0 auto}
@@ -222,7 +238,6 @@
     .feat-copy{flex:none}
     .steps{grid-template-columns:1fr}
     .step::after{display:none}
-    .cta-band{flex-direction:column;align-items:flex-start;padding:52px 28px}
     .final{padding:24px 20px 0}
     .foot-main{padding:56px 20px 0}
     .foot-grid{grid-template-columns:1fr;gap:30px}
@@ -376,6 +391,17 @@
 </section>
 
 <!-- 6. HOW IT WORKS - ayzz Perfect Structure: 3 steps -->
+<!-- 7. TESTIMONIALS - ref: ayzz Ep.07 proof treatment + Supahero (Arc) single-quote statement
+     PLACEHOLDER SECTION: every quote below is DEMO copy approved by the owner for preview only.
+     None of this may ship to production until replaced with real, collected quotes.
+     Each rendered quote carries data-placeholder="testimonial". Edit the single TESTIMONIALS
+     array in the script below to swap. -->
+<section class="sec testi" aria-label="What students say">
+  <p class="eyebrow reveal">Word of mouth</p>
+  <h2 class="reveal">Students keep <em>the receipts.</em></h2>
+  <div id="quotes"></div>
+</section>
+
 <section class="sec hiw" id="how" aria-label="How it works">
   <p class="eyebrow reveal">How it works</p>
   <h2 class="reveal">Set up once. <em>Tracked every day.</em></h2>
@@ -398,18 +424,6 @@
   </div>
 </section>
 
-<!-- 7. SECONDARY CTA - cta.gallery mid-page band -->
-<section class="sec" aria-label="Start tracking">
-  <div class="cta-band reveal">
-    <div>
-      <h2>Your syllabus won&rsquo;t <em>track itself.</em></h2>
-      <p class="fud" style="margin-top:14px">Free &middot; No account &middot; Data stays in your browser</p>
-    </div>
-    <a class="cta-main" href="https://preptracker.manavdev.site/">Start tracking
-      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-  </div>
-</section>
 
 <!-- 8. FINAL CTA + FOOTER - footer.design: Northeast Tomato (giant red panel + utility row) -->
 <section class="final" aria-label="Final call to action">
@@ -475,6 +489,50 @@ addEventListener('load',()=>moveThumb(btns[0]));
 const MP=document.getElementById('mark').getAttribute('d');
 document.querySelectorAll('.mark2,.markg').forEach(p=>p.setAttribute('d',MP));
 [...document.querySelectorAll('.foot-lockup .fl')].forEach((el,i)=>el.style.transitionDelay=(i*0.05)+'s');
+</script>
+<script>
+/* ============================================================
+   PLACEHOLDER TESTIMONIALS - DEMO DATA, PREVIEW ONLY.
+   The owner approved demo quotes for the preview build.
+   REPLACE with real, collected quotes before any production
+   merge. Every rendered node carries data-placeholder so the
+   set is greppable: [data-placeholder="testimonial"].
+   ============================================================ */
+const TESTIMONIALS=[
+ {q:'I used to open three PDFs and a spreadsheet to figure out what to study. Now I open one tab and the decision is already made.',
+  mark:'one tab',name:'Aditi K.',tag:'Mechanical',featured:true},
+ {q:'The days-left counter sounds like a small thing. It quietly changed how I plan my week.',
+  name:'Rohan M.',tag:'Computer'},
+ {q:'I ticked off topics between lectures. When revision started, I could see I was not as behind as I felt.',
+  name:'Sneha P.',tag:'Electronics'},
+ {q:'All my resource links live in one place now. No more digging through group chats for that one PDF.',
+  name:'Karan S.',tag:'Civil'}
+];
+(function(){
+ const box=document.getElementById('quotes');
+ const esc=t=>t;
+ TESTIMONIALS.forEach((t,i)=>{
+  if(t.featured){
+   const parts=t.q.split(t.mark);
+   box.insertAdjacentHTML('beforeend',
+    '<figure class="feat-q reveal" data-placeholder="testimonial"><blockquote>'+
+    '<span class="qm">&ldquo;</span>'+parts[0]+'<mark>'+t.mark+'</mark>'+parts[1]+'<span class="qm">&rdquo;</span></blockquote>'+
+    '<figcaption><b>'+t.name+'</b> &middot; '+t.tag+'</figcaption></figure>');
+  }else{
+   const n=String(i).padStart(2,'0');
+   box.insertAdjacentHTML('beforeend',
+    '<div class="q-index-wrap"></div>'); // placeholder no-op removed below
+  }
+ });
+ // build the index rows (all non-featured)
+ const rows=TESTIMONIALS.filter(t=>!t.featured).map((t,i)=>
+  '<figure class="q-row reveal" data-placeholder="testimonial">'+
+  '<span class="qn">'+String(i+1).padStart(2,'0')+'</span>'+
+  '<blockquote>'+t.q+'</blockquote>'+
+  '<figcaption><b>'+t.name+'</b>'+t.tag+'</figcaption></figure>').join('');
+ box.querySelectorAll('.q-index-wrap').forEach(n=>n.remove());
+ box.insertAdjacentHTML('beforeend','<div class="q-index">'+rows+'</div>');
+})();
 </script>
 <script src="gsap.min.js"></script>
 <script>
