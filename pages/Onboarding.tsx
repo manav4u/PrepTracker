@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Hexagon, Zap, Cpu, CheckCircle2, ScanFace, ShieldCheck, HardDrive } from 'lucide-react';
+import { ArrowRight, Zap, Cpu, CheckCircle2, ScanFace, ShieldCheck, HardDrive } from 'lucide-react';
+import LogoMark from '../components/LogoMark';
 import { Profile } from '../types';
 import { useData } from '../context/DataContext';
 
@@ -170,7 +171,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
                 <div className={`w-2 h-2 bg-white rounded-full ${stage === 'processing' ? 'animate-ping' : 'animate-pulse'}`}></div>
                 <span className="font-mono text-[10px] uppercase tracking-widest">Setup</span>
             </div>
-            <Hexagon size={20} />
+            <LogoMark size={20} />
         </header>
 
         {/* Content Container */}
