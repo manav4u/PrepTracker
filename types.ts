@@ -51,6 +51,8 @@ export interface Profile {
   activity?: Record<string, number>; // study actions per local day, last 60 days
   examStartDate?: string; // YYYY-MM-DD, set by the student
   examDates?: Record<string, string>; // subjectId -> YYYY-MM-DD, set by the student
+  year?: 'FE' | 'SE'; // academic year, set in onboarding (default FE for existing profiles)
+  branch?: 'computer' | 'it' | 'entc' | 'mech' | 'civil'; // engineering branch, SE onwards
 }
 
 export interface ResourceItem {

@@ -1,7 +1,7 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import { User, RotateCcw, Trash2, Terminal, AlertTriangle, Upload, Download, HardDrive, Check, AlertOctagon, Loader2, ScanLine, Save } from 'lucide-react';
-import { SUBJECTS } from '../constants';
+import { subjectsFor } from '../lib/curriculum';
 import { useData } from '../context/DataContext';
 import { BackupData, MAX_BYTES, Preview, createBackup, hasRollback, parseBackup, readState, restoreBackup, rollbackRestore, wipeAll } from '../lib/backup';
 import { useModalA11y } from '../components/useModalA11y';
@@ -219,6 +219,7 @@ const SettingsPage: React.FC = () => {
       }
   };
 
+  const SUBJECTS = subjectsFor(profile);
   const selectedSubjectsList = SUBJECTS.filter(s => profile.selectedSubjects.includes(s.id));
 
   return (

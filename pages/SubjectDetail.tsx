@@ -19,15 +19,17 @@ import {
   Search,
   ArrowUpRight,
   HardDrive, ChevronDown} from 'lucide-react';
-import { SUBJECTS, SYSTEM_RESOURCES, getYouTubeID } from '../constants';
+import { SYSTEM_RESOURCES, getYouTubeID } from '../constants';
+import { subjectsFor } from '../lib/curriculum';
 import { UnitStatus, ResourceItem } from '../types';
 import { useData } from '../context/DataContext';
 import ResourceViewerModal from '../components/ResourceViewerModal';
 
 const SubjectDetail: React.FC = () => {
   const { id } = useParams();
-  const subject = SUBJECTS.find(s => s.id === id);
   const { userProgress, setUserProgress, profile, setProfile } = useData();
+  const SUBJECTS = subjectsFor(profile);
+  const subject = SUBJECTS.find(s => s.id === id);
 
   // Resource State
   const [subjectResources, setSubjectResources] = useState<ResourceItem[]>([]);

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { SUBJECTS } from '../constants';
+import { subjectsFor } from '../lib/curriculum';
 import {
   Plus,
   Trash2,
@@ -114,6 +114,7 @@ const CustomSelect = <T extends string>({
 const TodoList: React.FC = () => {
   // State
   const { tasks, setTasks, profile } = useData();
+  const SUBJECTS = subjectsFor(profile);
   const [loading, setLoading] = useState(false);
   const [inputText, setInputText] = useState('');
   const [inputPriority, setInputPriority] = useState<Priority>('NORMAL');

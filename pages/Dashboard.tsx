@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { SUBJECTS } from '../constants';
+import { subjectsFor } from '../lib/curriculum';
 import { UnitStatus } from '../types';
 import { CalendarDays, Flame } from 'lucide-react';
 import { useData } from '../context/DataContext';
@@ -59,6 +59,8 @@ const Dashboard: React.FC = () => {
   const { profile, userProgress } = useData();
 
   if (!profile) return null;
+
+  const SUBJECTS = subjectsFor(profile);
 
   const selectedIds = profile.selectedSubjects || [];
 

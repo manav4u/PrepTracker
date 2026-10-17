@@ -1,7 +1,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Search, Video, FileText, Download, FolderOpen, ArrowUpRight, Database, Command, Hash, Plus, X, Globe, Youtube, ExternalLink, Link as LinkIcon, AlertTriangle, Play, MonitorPlay, ChevronDown, Layers, Check, Trash2, CheckSquare, Square, MousePointer2 } from 'lucide-react';
-import { SUBJECTS, getYouTubeID } from '../constants';
+import { getYouTubeID } from '../constants';
+import { subjectsFor } from '../lib/curriculum';
 import { ResourceItem } from '../types';
 import ResourceViewerModal from '../components/ResourceViewerModal';
 import { useModalA11y } from '../components/useModalA11y';
@@ -255,6 +256,7 @@ const AddResourceModal = ({ isOpen, onClose, onAdd, userSubjects }: { isOpen: bo
 
 const Resources: React.FC = () => {
   const { profile, resources, addResource, deleteResources } = useData();
+  const SUBJECTS = subjectsFor(profile);
   const [activeTab, setActiveTab] = useState('all');
   const [subjectFilter, setSubjectFilter] = useState('ALL');
   const [searchQuery, setSearchQuery] = useState('');

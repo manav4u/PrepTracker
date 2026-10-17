@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { ArrowRight, Zap, Cpu } from 'lucide-react';
 import LogoMark from '../components/LogoMark';
 import { Profile } from '../types';
+import { SE_COMPUTER_SUBJECTS } from '../data/curriculum';
 import { useData } from '../context/DataContext';
 
 interface OnboardingProps {}
@@ -40,7 +41,9 @@ const ChoiceRow = ({ index, label, titleA, codeA, titleB, codeB, selected, onSel
 const Onboarding: React.FC<OnboardingProps> = () => {
   const { setProfile } = useData();
   // Stages: 'boot' -> 'identity' -> 'matrix' -> 'processing'
-  const [stage, setStage] = useState<'boot' | 'identity' | 'matrix' | 'processing'>('boot');
+  const [stage, setStage] = useState<'boot' | 'identity' | 'scope' | 'matrix' | 'processing'>('boot');
+  const [year, setYear] = useState<'FE' | 'SE' | null>(null);
+  const [branch, setBranch] = useState<string | null>(null);
   const [bootProgress, setBootProgress] = useState(0);
   const [name, setName] = useState('');
   
@@ -91,14 +94,18 @@ const Onboarding: React.FC<OnboardingProps> = () => {
         if (currentStep >= steps.length) {
             clearInterval(interval);
 
-            const selectedIds = [choices.maths, choices.programming, choices.science, choices.circuit, choices.core];
+            const selectedIds = year === 'SE'
+                ? SE_COMPUTER_SUBJECTS.map(sub => sub.id)
+                : [choices.maths, choices.programming, choices.science, choices.circuit, choices.core];
             const newProfile: Profile = {
                 name: name || 'Student',
                 theme: 'dark',
                 selectedSubjects: selectedIds,
                 setupComplete: true,
                 streak: 0,
-                lastStudyDate: new Date().toISOString()
+                lastStudyDate: new Date().toISOString(),
+                ...(year ? { year } : {}),
+                ...(year === 'SE' && branch ? { branch: branch as Profile['branch'] } : {})
             };
 
             setTimeout(() => {
@@ -189,7 +196,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
                     </div>
 
                     <button
-                        onClick={() => name.length > 0 && setStage('matrix')}
+                        onClick={() => name.length > 0 && setStage('scope')}
                         disabled={name.length === 0}
                         className="group flex items-center gap-3 px-8 py-4 bg-white text-black rounded-xl text-xs font-bold uppercase tracking-[0.2em] disabled:opacity-30 disabled:cursor-not-allowed transition-all hover:bg-slate-200 shadow-[0_0_20px_rgba(255,255,255,0.1)]"
                     >
@@ -198,11 +205,91 @@ const Onboarding: React.FC<OnboardingProps> = () => {
                 </div>
             )}
 
+            {stage === 'scope' && (
+                <div className="w-full animate-in fade-in slide-in-from-right-8 duration-500 pb-10">
+                    <div className="mb-8">
+                        <div className="flex items-baseline gap-3 mb-6">
+                            <span className="text-xs font-mono font-bold text-[#F63C49]">02</span>
+                            <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-400">Your year</span>
+                        </div>
+                        <h2 className="text-4xl font-display font-bold mb-2 tracking-tighter">Which year are you in?</h2>
+                        <p className="text-slate-500 text-sm">PrepTracker loads the official syllabus for your year and branch.</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
+                        {([['FE', 'First Year', 'Common for all branches'], ['SE', 'Second Year', 'Branch-specific syllabus']] as const).map(([v, title, sub]) => (
+                            <button
+                                key={v}
+                                onClick={() => { setYear(v); if (v === 'FE') setBranch(null); }}
+                                className={`p-5 rounded-xl border text-left transition-all duration-300 ${
+                                    year === v ? 'border-[#F63C49] bg-[#F63C49]/10 shadow-[0_0_24px_-8px_rgba(246,60,73,0.5)]' : 'border-white/10 hover:border-white/25 bg-white/[0.02]'
+                                }`}
+                            >
+                                <span className={`block text-base font-bold mb-1 ${year === v ? 'text-white' : 'text-slate-300'}`}>{title}</span>
+                                <span className="block text-[10px] font-mono uppercase tracking-widest text-slate-500">{sub}</span>
+                            </button>
+                        ))}
+                    </div>
+
+                    {year === 'SE' && (
+                        <div className="mb-10 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                            <div className="flex items-baseline gap-3 mb-4">
+                                <span className="text-xs font-mono font-bold text-[#F63C49]">03</span>
+                                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-400">Your branch</span>
+                            </div>
+                            <div className="border-t border-white/10">
+                                {([
+                                    ['computer', 'Computer Engineering', true],
+                                    ['it', 'Information Technology', false],
+                                    ['entc', 'Electronics and Telecom', false],
+                                    ['mech', 'Mechanical Engineering', false],
+                                    ['civil', 'Civil Engineering', false],
+                                ] as const).map(([v, title, ready], i) => (
+                                    <button
+                                        key={v}
+                                        disabled={!ready}
+                                        onClick={() => setBranch(v)}
+                                        className={`w-full flex items-center gap-4 py-4 border-b border-white/5 text-left transition-colors ${
+                                            ready ? 'hover:bg-white/[0.02] cursor-pointer' : 'opacity-40 cursor-not-allowed'
+                                        }`}
+                                    >
+                                        <span className="text-xs font-mono font-bold text-slate-600 w-7 shrink-0">B{i + 1}</span>
+                                        <span className={`flex-1 text-sm font-bold ${branch === v ? 'text-[#F63C49]' : 'text-white'}`}>{title}</span>
+                                        {ready
+                                            ? <span className={`w-4 h-4 rounded-full border-2 shrink-0 ${branch === v ? 'border-[#F63C49] bg-[#F63C49]' : 'border-white/25'}`}></span>
+                                            : <span className="text-[9px] font-mono uppercase tracking-widest text-slate-600 shrink-0">Syllabus being added</span>}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
+                    {year === 'FE' && (
+                        <button
+                            onClick={() => setStage('matrix')}
+                            className="group flex items-center gap-3 px-8 py-4 bg-white text-black rounded-xl text-xs font-bold uppercase tracking-[0.2em] transition-all hover:bg-slate-200"
+                        >
+                            Choose subjects <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                        </button>
+                    )}
+                    {year === 'SE' && (
+                        <button
+                            onClick={handleFinish}
+                            disabled={branch !== 'computer'}
+                            className="w-full py-5 bg-[#D61A40] text-white font-bold uppercase tracking-[0.2em] rounded-xl hover:bg-[#B3123B] transition-all shadow-[0_0_40px_-10px_#F63C49] disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+                        >
+                            <Zap size={18} className="fill-white" />
+                            Start PrepTracker
+                        </button>
+                    )}
+                </div>
+            )}
+
             {stage === 'matrix' && (
                 <div className="w-full animate-in fade-in slide-in-from-right-8 duration-500 pb-10">
                      <div className="mb-8">
                         <div className="flex items-baseline gap-3 mb-6">
-                            <span className="text-xs font-mono font-bold text-[#F63C49]">02</span>
+                            <span className="text-xs font-mono font-bold text-[#F63C49]">03</span>
                             <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-400">Semester setup</span>
                         </div>
                         <h2 className="text-4xl font-display font-bold mb-2 tracking-tighter">Pick your five subjects</h2>

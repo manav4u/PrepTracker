@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { SUBJECTS } from '../constants';
+import { subjectsFor } from '../lib/curriculum';
 import { RotateCcw, Activity, Cpu, Info } from 'lucide-react';
 import { useData } from '../context/DataContext';
 import {
@@ -78,6 +78,7 @@ const CalculatorPage: React.FC = () => {
   const [confirmClear, setConfirmClear] = useState(false);
 
   if (!profile) return null;
+  const SUBJECTS = subjectsFor(profile);
   const selectedIds = profile.selectedSubjects || [];
   const courses = SUBJECTS.filter((s) => selectedIds.includes(s.id));
 

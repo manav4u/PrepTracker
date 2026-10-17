@@ -1,7 +1,7 @@
 import React, { useMemo, useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search, X } from 'lucide-react';
-import { SUBJECTS } from '../constants';
+import { subjectsFor } from '../lib/curriculum';
 import { useData } from '../context/DataContext';
 
 interface Hit { key: string; title: string; sub: string; to: string; group: 'Syllabus' | 'Tasks' | 'Resources'; }
@@ -12,7 +12,8 @@ const GlobalSearch: React.FC<{ selectedSubjects: string[]; overlay?: boolean; on
   const [active, setActive] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
-  const { tasks, resources } = useData();
+  const { tasks, resources, profile } = useData();
+  const SUBJECTS = subjectsFor(profile);
 
   const hits = useMemo<Hit[]>(() => {
     const term = q.trim().toLowerCase();
