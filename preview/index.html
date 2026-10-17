@@ -210,16 +210,16 @@
   .mq-set{display:flex;gap:16px;margin-right:16px}
   .bento{display:grid;grid-template-columns:repeat(4,280px);grid-template-rows:repeat(2,172px);
     gap:16px;grid-auto-flow:dense}
-  .bt{border-radius:16px;padding:18px 20px 14px;display:flex;flex-direction:column;
+  .bt{position:relative;border-radius:16px;padding:18px 20px 14px;display:flex;flex-direction:column;
     box-shadow:0 1px 2px rgba(20,20,25,.04),0 16px 30px -22px rgba(20,20,25,.2)}
   .bt.t-tall{grid-row:span 2}
   .bt.t-wide{grid-column:span 2}
   .bt blockquote{margin:0;font-family:var(--sat);font-weight:500;letter-spacing:-.01em;line-height:1.45;
-    font-size:15px;flex:1}
-  .bt.t-tall blockquote{font-size:18px}
-  .bt.t-wide blockquote{font-size:21px;line-height:1.4}
+    font-size:17px;flex:1}
+  .bt.t-tall blockquote{font-size:22px;line-height:1.38}
+  .bt.t-wide blockquote{font-size:23px;line-height:1.36}
   .bt.t-big blockquote{font-family:var(--grot);font-weight:700;font-size:27px;line-height:1.2;
-    letter-spacing:-.02em;display:flex;align-items:center}
+    letter-spacing:-.02em;margin:auto 0}
   .bt figcaption{margin-top:14px;padding-top:9px;border-top:1px solid var(--hair);
     display:flex;justify-content:space-between;align-items:baseline;gap:10px;
     font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase}
@@ -232,6 +232,19 @@
   .t-red{background:linear-gradient(160deg,var(--red),var(--red-deep));color:#fff;border:1px solid rgba(179,18,59,.5)}
   .t-red figcaption{border-top-color:rgba(255,255,255,.28);color:rgba(255,255,255,.75)}
   .t-red figcaption b{color:#fff;font-weight:400}
+  .bt .dd{position:absolute;pointer-events:none}
+  .bt .dd svg{display:block;width:100%;height:auto}
+  .hl{padding:.02em .2em;border-radius:7px 13px 5px 14px;box-decoration-break:clone;
+    -webkit-box-decoration-break:clone;display:inline-block;transform:rotate(-.5deg)}
+  .hl-y{background:rgba(255,205,54,.5)}
+  .hl-r{background:rgba(214,26,64,.16)}
+  .scu{position:relative;white-space:nowrap}
+  .scu svg{position:absolute;left:-2%;bottom:-.32em;width:104%;height:.34em}
+  .circ{position:relative;padding:0 .1em;white-space:nowrap}
+  .circ svg{position:absolute;left:-.28em;top:50%;transform:translateY(-52%);width:calc(100% + .56em);height:1.5em}
+  .tape{position:absolute;top:-9px;width:64px;height:19px;background:rgba(247,245,242,.8);
+    border:1px solid rgba(20,20,25,.07);border-radius:2px;transform:rotate(-5deg);
+    box-shadow:0 1px 3px rgba(20,20,25,.1);pointer-events:none}
   @media (prefers-reduced-motion: reduce){
     .mq-track{animation:none;width:auto;flex-wrap:wrap;justify-content:center}
     .mq-set{margin:0 8px 16px}
@@ -243,10 +256,10 @@
     .mq-set{gap:12px;margin-right:12px}
     .bento{grid-template-columns:repeat(4,196px);grid-template-rows:repeat(2,138px);gap:12px}
     .bt{padding:14px 16px 10px;border-radius:14px}
-    .bt blockquote{font-size:13px}
-    .bt.t-tall blockquote{font-size:14.5px}
-    .bt.t-wide blockquote{font-size:16px}
-    .bt.t-big blockquote{font-size:19px}
+    .bt blockquote{font-size:14px}
+    .bt.t-tall blockquote{font-size:16.5px}
+    .bt.t-wide blockquote{font-size:18px}
+    .bt.t-big blockquote{font-size:20px}
     .bt figcaption{margin-top:10px;padding-top:7px;font-size:8px;letter-spacing:.14em}
   }
 
@@ -632,25 +645,53 @@ const QUOTES={
  pull:{q:'I used to open three PDFs and a spreadsheet to figure out what to study. Now I open one tab and the decision is already made.',
    mark:'one tab',name:'Aditi',tag:'sem 5'},
  clusterA:[
-  {q:'I stopped rewriting my timetable every Sunday. The list just meets me in the morning.',name:'Priya',tag:'sem 5',size:'t-tall',fill:'t-cream'},
-  {q:'Streak at 11. I have never kept anything alive for 11 days.',name:'Karan',tag:'sem 7',size:'t-wide t-big',fill:'t-red'},
-  {q:'Two minutes to set up. I spent longer choosing a pen.',name:'Ishita',tag:'sem 3',size:'',fill:'t-ink'},
-  {q:'Eleven days out, and I already know what Tuesday looks like.',name:'Rohan',tag:'sem 3',size:'',fill:'t-cream'},
-  {q:'PYQs next to the units they belong to. Whoever thought of that, thank you.',name:'Neha',tag:'sem 7',size:'',fill:'t-cream'},
-  {q:'Offline in the reading hall, no account, no ads. It respects the grind.',name:'Dev',tag:'sem 7',size:'',fill:'t-ink'}
+  {q:'I stopped rewriting my timetable every Sunday. The list just meets me in the morning.',name:'Priya',tag:'sem 5',size:'t-tall',fill:'t-cream',
+   hl:{t:'meets me in the morning',c:'hl-y'},dd:[{k:'tape',st:'left:18px'}]},
+  {q:'Streak at 11. I have never kept anything alive for 11 days.',name:'Karan',tag:'sem 7',size:'t-wide t-big',fill:'t-red',
+   sc:{t:'11 days',c:'rgba(247,245,242,.9)'},dd:[{k:'star',st:'top:12px;right:14px;width:30px;transform:rotate(12deg)',c:'#F7F5F2'}]},
+  {q:'Two minutes to set up. I spent longer choosing a pen.',name:'Ishita',tag:'sem 3',size:'',fill:'t-ink',
+   dd:[{k:'star',st:'bottom:34px;right:12px;width:20px;transform:rotate(-8deg)',c:'#F63C49'}]},
+  {q:'Eleven days out, and I already know what Tuesday looks like.',name:'Rohan',tag:'sem 3',size:'',fill:'t-cream',
+   hl:{t:'Tuesday',c:'hl-r'},dd:[{k:'squig',st:'bottom:36px;right:12px;width:38px;transform:rotate(-6deg)',c:'#D61A40'}]},
+  {q:'PYQs next to the units they belong to. Whoever thought of that, thank you.',name:'Neha',tag:'sem 7',size:'',fill:'t-cream',
+   sc:{t:'thank you',c:'#D61A40'}},
+  {q:'Offline in the reading hall, no account, no ads. It respects the grind.',name:'Dev',tag:'sem 7',size:'',fill:'t-ink',
+   dd:[{k:'tape',st:'right:16px;left:auto;transform:rotate(6deg)'}]},
  ],
  clusterB:[
-  {q:'It is the first app that tells me what is left instead of what I should feel guilty about.',name:'Vikram',tag:'sem 5',size:'t-tall',fill:'t-cream'},
-  {q:'The syllabus finally looks finite. That alone lowered my blood pressure.',name:'Sneha',tag:'sem 3',size:'',fill:'t-cream'},
-  {q:'The countdown used to scare me. Now it just plans for me.',name:'Rahul',tag:'sem 1',size:'t-wide t-big',fill:'t-ink'},
-  {q:'Ticked one unit, watched the bar move, felt weirdly calm. Then ticked another.',name:'Arjun',tag:'sem 1',size:'',fill:'t-red'},
-  {q:'I know exactly what is left. That sentence used to be a joke.',name:'Anaya',tag:'sem 3',size:'',fill:'t-cream'},
-  {q:'My group chat still argues about portions. I just open one tab.',name:'Tanvi',tag:'sem 5',size:'',fill:'t-cream'}
+  {q:'It is the first app that tells me what is left instead of what I should feel guilty about.',name:'Vikram',tag:'sem 5',size:'t-tall',fill:'t-cream',
+   hl:{t:'what is left',c:'hl-y'},dd:[{k:'arrow',st:'top:14px;right:14px;width:44px;transform:rotate(24deg)',c:'#D61A40'}]},
+  {q:'The syllabus finally looks finite. That alone lowered my blood pressure.',name:'Sneha',tag:'sem 3',size:'',fill:'t-cream',
+   circ:{t:'finite',c:'#D61A40'}},
+  {q:'The countdown used to scare me. Now it just plans for me.',name:'Rahul',tag:'sem 1',size:'t-wide t-big',fill:'t-ink',
+   sc:{t:'plans for me',c:'#F63C49'},dd:[{k:'star',st:'top:12px;right:14px;width:26px;transform:rotate(-10deg)',c:'#F63C49'}]},
+  {q:'Ticked one unit, watched the bar move, felt weirdly calm. Then ticked another.',name:'Arjun',tag:'sem 1',size:'',fill:'t-red',
+   sc:{t:'weirdly calm',c:'rgba(247,245,242,.9)'},dd:[{k:'star',st:'bottom:36px;right:12px;width:18px;transform:rotate(14deg)',c:'#F7F5F2'}]},
+  {q:'I know exactly what is left. That sentence used to be a joke.',name:'Anaya',tag:'sem 3',size:'',fill:'t-cream',
+   hl:{t:'exactly what is left',c:'hl-y'},dd:[{k:'arrow',st:'bottom:38px;right:14px;width:34px;transform:rotate(150deg)',c:'#D61A40'}]},
+  {q:'My group chat still argues about portions. I just open one tab.',name:'Tanvi',tag:'sem 5',size:'',fill:'t-cream',
+   sc:{t:'one tab',c:'#D61A40'},dd:[{k:'tape',st:'left:16px'}]},
  ]};
+const DD={
+ star:c=>'<svg viewBox="0 0 40 40" fill="none"><path d="M20 4 L23.5 16 L36 20 L23.5 24 L20 36 L16.5 24 L4 20 L16.5 16 Z" stroke="'+c+'" stroke-width="3" stroke-linejoin="round"/></svg>',
+ arrow:c=>'<svg viewBox="0 0 60 44" fill="none"><path d="M6 6 C 22 30, 38 34, 50 30 M50 30 L40 27 M50 30 L46 40" stroke="'+c+'" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+ squig:c=>'<svg viewBox="0 0 60 20" fill="none"><path d="M4 12 C 12 4, 20 18, 28 10 C 36 2, 44 18, 56 8" stroke="'+c+'" stroke-width="3" stroke-linecap="round"/></svg>',
+ tape:()=>'<svg viewBox="0 0 64 19" fill="none"></svg>'
+};
 (function(){
  const box=document.getElementById('quotes'),p=QUOTES.pull,parts=p.q.split(p.mark);
+ const SCU=(t,c)=>'<span class="scu">'+t+'<svg viewBox="0 0 100 12" preserveAspectRatio="none" fill="none"><path d="M2 8 C 20 3, 40 11, 60 6 C 75 3, 88 9, 98 6" stroke="'+c+'" stroke-width="3.5" stroke-linecap="round"/></svg></span>';
+ const CIRC=(t,c)=>'<span class="circ">'+t+'<svg viewBox="0 0 100 46" preserveAspectRatio="none" fill="none"><path d="M50 5 C 80 3, 97 11, 95 24 C 93 37, 70 43, 46 41 C 20 39, 3 31, 6 19 C 9 8, 30 4, 52 6" stroke="'+c+'" stroke-width="3.5" stroke-linecap="round"/></svg></span>';
+ const deco=t=>{let h=t.q;
+  if(t.hl)h=h.split(t.hl.t).join('<span class="hl '+t.hl.c+'">'+t.hl.t+'</span>');
+  if(t.sc)h=h.split(t.sc.t).join(SCU(t.sc.t,t.sc.c));
+  if(t.circ)h=h.split(t.circ.t).join(CIRC(t.circ.t,t.circ.c));
+  return h;};
+ const doodles=t=>(t.dd||[]).map(d=>d.k==='tape'
+  ?'<span class="tape" style="'+d.st+'"></span>'
+  :'<span class="dd" style="'+d.st+'">'+DD[d.k](d.c)+'</span>').join('');
  const tile=t=>'<figure class="bt '+t.size+' '+t.fill+'" data-placeholder="testimonial">'+
-  '<blockquote>'+t.q+'</blockquote>'+
+  doodles(t)+'<blockquote>'+deco(t)+'</blockquote>'+
   '<figcaption><b>'+t.name+'</b><span>'+t.tag+'</span></figcaption></figure>';
  const cluster=list=>'<div class="bento">'+list.map(tile).join('')+'</div>';
  const set=dup=>'<div class="mq-set'+(dup?' dup':'')+'"'+(dup?' aria-hidden="true"':'')+'>'+
