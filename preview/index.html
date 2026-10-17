@@ -183,24 +183,49 @@
 
 
   /* ---------- 7. TESTIMONIALS (ayzz Ep.07 proof treatment + Supahero: one giant quote, editorial index) ---------- */
-  .testi .feat-q{margin:64px 0 0;max-width:960px}
+  .t-grid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:64px;align-items:center;margin-top:56px}
+  .feat-q{margin:0}
   .feat-q blockquote{font-weight:700;letter-spacing:-.03em;line-height:1.12;
-    font-size:clamp(28px,4vw,58px);margin:0}
+    font-size:clamp(28px,3.6vw,52px);margin:0}
   .feat-q blockquote .qm{color:var(--red)}
   .feat-q mark{background:linear-gradient(transparent 58%,rgba(246,60,73,.28) 58%,rgba(246,60,73,.28) 94%,transparent 94%);
     color:inherit;padding:0 .04em}
   .feat-q figcaption{margin-top:26px;font-family:var(--mono);font-size:11px;letter-spacing:.24em;
     text-transform:uppercase;color:var(--mut)}
   .feat-q figcaption b{color:var(--ink);font-weight:400}
-  .q-index{margin-top:88px;border-top:1px solid var(--hair)}
-  .q-row{display:flex;gap:32px;align-items:baseline;padding:34px 0;border-bottom:1px solid var(--hair)}
-  .q-row .qn{font-family:var(--mono);font-size:12px;color:var(--red);flex-shrink:0;letter-spacing:.1em}
-  .q-row blockquote{margin:0;font-size:clamp(17px,1.7vw,22px);font-weight:500;letter-spacing:-.012em;
-    line-height:1.5;max-width:640px}
-  .q-row figcaption{margin-left:auto;flex-shrink:0;font-family:var(--mono);font-size:10px;
-    letter-spacing:.2em;text-transform:uppercase;color:var(--mut);text-align:right}
-  .q-row figcaption b{display:block;color:var(--ink);font-weight:400;margin-bottom:4px}
-  .q-row:nth-child(even) blockquote{margin-left:auto;text-align:left}
+
+  /* the receipt: proof, not decoration - mono, dashed, tilted, red-ink note */
+  .receipt{background:#fff;border:1px solid var(--hair);padding:26px 26px 24px;margin:0;
+    transform:rotate(2deg);box-shadow:0 34px 70px -34px rgba(20,20,25,.42);font-family:var(--mono)}
+  .r-head{margin:0;text-align:center;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--mut)}
+  .r-name{margin:10px 0 0;text-align:center;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
+  .receipt ul{list-style:none;margin:18px 0 0;padding:16px 0;border-top:1px dashed #C9C5BE;
+    border-bottom:1px dashed #C9C5BE;display:grid;gap:11px}
+  .receipt li{display:flex;justify-content:space-between;gap:16px;font-size:11.5px;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+  .receipt li b{color:var(--ink);font-weight:700}
+  .r-status{margin:16px 0 0;text-align:center;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--red)}
+  .r-note{margin:12px 0 0;text-align:center;font-family:'Caveat',cursive;font-weight:600;
+    font-size:27px;line-height:1.1;color:var(--red);transform:rotate(-2deg)}
+
+  /* the other three: cards with a face, a name and a stat */
+  .q-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:80px}
+  .q-card{background:#fff;border:1px solid var(--hair);border-radius:22px;padding:26px;margin:0;
+    display:flex;flex-direction:column;gap:20px;transition:transform .25s ease,box-shadow .25s ease}
+  .q-card:hover{transform:translateY(-4px);box-shadow:0 24px 50px -30px rgba(20,20,25,.3)}
+  .q-card figcaption{display:flex;align-items:center;gap:13px}
+  .avatar{width:42px;height:42px;border-radius:50%;background:var(--ink);color:#fff;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;letter-spacing:.06em}
+  .q-card:nth-child(2) .avatar{background:var(--red)}
+  .who b{display:block;font-weight:700;font-size:15px;letter-spacing:-.01em;color:var(--ink)}
+  .who i{display:block;font-style:normal;margin-top:3px;font-family:var(--mono);font-size:9.5px;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+  .q-card blockquote{margin:0;flex:1;font-size:16.5px;line-height:1.55;font-weight:500;
+    letter-spacing:-.01em;color:var(--ink)}
+  .chip{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);
+    font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);
+    border:1px solid var(--hair);border-radius:999px;padding:8px 13px}
+  .chip::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--red)}
   @media(max-width:1100px){
     .foot-grid{grid-template-columns:1fr 1fr}
     .foot-about{grid-column:1/-1}
@@ -211,9 +236,9 @@
   }
 
   @media(max-width:900px){
-    .q-row{flex-direction:column;gap:12px;padding:28px 0}
-    .q-row figcaption{margin-left:0;text-align:left}
-    .q-row figcaption b{display:inline;margin-right:8px}
+    .t-grid{grid-template-columns:1fr;gap:48px;margin-top:44px}
+    .receipt{max-width:400px;margin:0 auto;transform:rotate(1.4deg)}
+    .q-cards{grid-template-columns:1fr;gap:16px;margin-top:64px}
   }
 
   /* ---------- 8. FINAL CTA + FOOTER (footer.design: Northeast Tomato) ---------- */
@@ -572,38 +597,40 @@ document.querySelectorAll('.mark2,.markg').forEach(p=>p.setAttribute('d',MP));
    ============================================================ */
 const TESTIMONIALS=[
  {q:'I used to open three PDFs and a spreadsheet to figure out what to study. Now I open one tab and the decision is already made.',
-  mark:'one tab',name:'Aditi K.',tag:'Mechanical',featured:true},
- {q:'The days-left counter sounds like a small thing. It quietly changed how I plan my week.',
-  name:'Rohan M.',tag:'Computer'},
- {q:'I ticked off topics between lectures. When revision started, I could see I was not as behind as I felt.',
-  name:'Sneha P.',tag:'Electronics'},
- {q:'All my resource links live in one place now. No more digging through group chats for that one PDF.',
-  name:'Karan S.',tag:'Civil'}
+  mark:'one tab',name:'Aditi K.',tag:'Mechanical',featured:true,
+  stats:[['Units ticked','1 / 15'],['Topics done','10'],['Day streak','4'],['Days left','11']],
+  note:'first time I have felt ahead'},
+ {q:'Eleven days out, and I already know what Tuesday looks like.',
+  name:'Rohan M.',tag:'Computer',chip:'Streak 6'},
+ {q:'I tick topics between lectures, on the bus, wherever. Revision stopped being scary because I could see I was not actually behind.',
+  name:'Sneha P.',tag:'Electronics',chip:'23 topics done'},
+ {q:'Everything I need sits in one place now. Question papers, my progress, the countdown. I stopped digging through group chats for that one PDF in week one, and I have not opened a spreadsheet since.',
+  name:'Karan S.',tag:'Civil',chip:'3 subjects tracked'}
 ];
 (function(){
  const box=document.getElementById('quotes');
- const esc=t=>t;
- TESTIMONIALS.forEach((t,i)=>{
-  if(t.featured){
-   const parts=t.q.split(t.mark);
-   box.insertAdjacentHTML('beforeend',
-    '<figure class="feat-q reveal" data-placeholder="testimonial"><blockquote>'+
-    '<span class="qm">&ldquo;</span>'+parts[0]+'<mark>'+t.mark+'</mark>'+parts[1]+'<span class="qm">&rdquo;</span></blockquote>'+
-    '<figcaption><b>'+t.name+'</b> &middot; '+t.tag+'</figcaption></figure>');
-  }else{
-   const n=String(i).padStart(2,'0');
-   box.insertAdjacentHTML('beforeend',
-    '<div class="q-index-wrap"></div>'); // placeholder no-op removed below
-  }
- });
- // build the index rows (all non-featured)
- const rows=TESTIMONIALS.filter(t=>!t.featured).map((t,i)=>
-  '<figure class="q-row reveal" data-placeholder="testimonial">'+
-  '<span class="qn">'+String(i+1).padStart(2,'0')+'</span>'+
+ const f=TESTIMONIALS.find(t=>t.featured),parts=f.q.split(f.mark);
+ const rows=f.stats.map(r=>'<li><span>'+r[0]+'</span><b>'+r[1]+'</b></li>').join('');
+ box.insertAdjacentHTML('beforeend',
+  '<div class="t-grid">'+
+  '<figure class="feat-q reveal" data-placeholder="testimonial"><blockquote>'+
+  '<span class="qm">&ldquo;</span>'+parts[0]+'<mark>'+f.mark+'</mark>'+parts[1]+'<span class="qm">&rdquo;</span></blockquote>'+
+  '<figcaption><b>'+f.name+'</b> &middot; '+f.tag+'</figcaption></figure>'+
+  '<aside class="receipt reveal" data-placeholder="testimonial" aria-label="Study receipt for '+f.name+'">'+
+  '<p class="r-head">PrepTracker &middot; study receipt</p>'+
+  '<p class="r-name">'+f.name+'</p>'+
+  '<ul>'+rows+'</ul>'+
+  '<p class="r-status">Status: on track</p>'+
+  '<p class="r-note">'+f.note+'</p>'+
+  '</aside></div>');
+ const cards=TESTIMONIALS.filter(t=>!t.featured).map(t=>{
+  const init=t.name.split(' ').map(w=>w[0]).join('').replace('.','');
+  return '<figure class="q-card reveal" data-placeholder="testimonial">'+
+  '<figcaption><span class="avatar">'+init+'</span>'+
+  '<span class="who"><b>'+t.name+'</b><i>'+t.tag+'</i></span></figcaption>'+
   '<blockquote>'+t.q+'</blockquote>'+
-  '<figcaption><b>'+t.name+'</b>'+t.tag+'</figcaption></figure>').join('');
- box.querySelectorAll('.q-index-wrap').forEach(n=>n.remove());
- box.insertAdjacentHTML('beforeend','<div class="q-index">'+rows+'</div>');
+  '<span class="chip">'+t.chip+'</span></figure>'}).join('');
+ box.insertAdjacentHTML('beforeend','<div class="q-cards">'+cards+'</div>');
 })();
 </script>
 <script src="gsap.min.js"></script>
