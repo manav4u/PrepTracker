@@ -78,10 +78,15 @@
   .switchwrap{display:flex;justify-content:center}
   .switcher{display:inline-flex;position:relative;margin-top:18px;background:#fff;
     border:1px solid var(--hair);border-radius:999px;padding:5px;box-shadow:0 10px 30px -18px rgba(20,20,25,.25)}
+  .sw-pill{position:absolute;z-index:1;top:5px;bottom:5px;left:5px;width:60px;
+    background:var(--ink);border-radius:999px;box-shadow:0 8px 18px -8px rgba(20,20,25,.55);
+    transition:left .48s cubic-bezier(.32,1.3,.42,1),width .48s cubic-bezier(.32,1.3,.42,1)}
   .switcher button{position:relative;z-index:2;border:0;background:none;cursor:pointer;border-radius:999px;
     font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;
-    color:var(--mut);padding:13px 28px;transition:color .25s,background-color .25s}
-  .switcher button.on{color:#fff;background:var(--ink)}
+    color:var(--mut);padding:13px 28px;transition:color .3s}
+  .switcher button:hover:not(.on){color:var(--ink)}
+  .switcher button.on{color:#fff}
+  @media (prefers-reduced-motion: reduce){.sw-pill{transition:none}}
 
   /* product window - Modyfi/Craft: large, tilted, layered, bleeding off the bottom edge */
   .stage{position:relative;margin-top:44px;height:clamp(420px,56vh,610px)}
@@ -93,8 +98,9 @@
     box-shadow:0 60px 110px -30px rgba(20,20,25,.42)}
   .screen{position:relative;height:clamp(430px,54vh,620px)}
   .screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;
-    opacity:0;transition:opacity .45s ease;transform:scale(1.015)}
-  .screen img.on{opacity:1;transform:scale(1)}
+    opacity:0;transition:opacity .55s cubic-bezier(.22,.8,.3,1),transform .55s cubic-bezier(.22,.8,.3,1);
+    transform:scale(1.02) translateY(10px)}
+  .screen img.on{opacity:1;transform:scale(1) translateY(0)}
 
   /* credibility strip - ThrillX lesson 5, honest form: verifiable product facts */
   .strip{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);
@@ -630,8 +636,21 @@ document.getElementById('mark').setAttribute('d',
 // switcher: segmented pill + crossfading real screenshots
 const sw=document.querySelector('.switcher'),
       btns=[...sw.querySelectorAll('button')],imgs=[...document.querySelectorAll('#screen img')];
-function setOn(i){btns.forEach((b,j)=>{b.classList.toggle('on',i===j);b.setAttribute('aria-selected',i===j);imgs[j].classList.toggle('on',i===j);});}
+const pill=document.createElement('span');pill.className='sw-pill';pill.setAttribute('aria-hidden','true');
+sw.prepend(pill);
+let swi=0;
+function movePill(instant){
+  const b=btns[swi];
+  if(instant){pill.style.transition='none';}
+  pill.style.left=b.offsetLeft+'px';pill.style.width=b.offsetWidth+'px';
+  if(instant){void pill.offsetHeight;pill.style.transition='';}
+}
+function setOn(i){swi=i;btns.forEach((b,j)=>{b.classList.toggle('on',i===j);b.setAttribute('aria-selected',i===j);imgs[j].classList.toggle('on',i===j);});movePill(false);}
 btns.forEach((b,i)=>b.addEventListener('click',()=>setOn(i)));
+movePill(true);
+if(document.fonts&&document.fonts.ready){document.fonts.ready.then(()=>movePill(true));}
+addEventListener('load',()=>movePill(true));
+addEventListener('resize',()=>movePill(true));
 const MP=document.getElementById('mark').getAttribute('d');
 document.querySelectorAll('.mark2,.markg').forEach(p=>p.setAttribute('d',MP));
 [...document.querySelectorAll('.foot-lockup .fl')].forEach((el,i)=>el.style.transitionDelay=(i*0.05)+'s');
