@@ -211,6 +211,10 @@ const Dashboard: React.FC = () => {
       <section className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         <div className="lg:col-span-2 rounded-3xl surface-1 p-8 lg:p-10 relative overflow-hidden group flex flex-col justify-between">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+          {/* Decorative spark (shape from shapes.gallery, recolored brand red) */}
+          <svg viewBox="0 0 256 256" aria-hidden="true" className="absolute -top-6 -right-6 w-44 h-44 lg:w-52 lg:h-52 text-[#F63C49] opacity-[0.16] pointer-events-none select-none">
+            <path fill="currentColor" d="M4.688 136C68.373 136 120 187.627 120 251.312q-.001 2.356-.095 4.688H0V136.096q2.332-.095 4.688-.096m246.624 0q2.356.001 4.688.096V256H136.095a118 118 0 0 1-.095-4.688C136 187.627 187.627 136 251.312 136M119.905 0q.094 2.332.095 4.688C120 68.373 68.373 120 4.687 120q-2.355-.001-4.687-.095V0ZM256 119.905q-2.332.094-4.688.095C187.627 120 136 68.373 136 4.687q.001-2.355.095-4.687H256Z"/>
+          </svg>
           
           <div className="relative z-10">
             <div className="flex items-center gap-3 mb-8">
