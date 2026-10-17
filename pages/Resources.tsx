@@ -122,61 +122,42 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ item, onClick, isSelectionM
             type="button"
             onClick={onClick}
             aria-pressed={isSelectionMode ? isSelected : undefined}
-            className={`group relative border rounded-xl p-6 transition-all duration-300 overflow-hidden flex flex-col h-full cursor-pointer hover:-translate-y-1 text-left w-full ${
-                isSelected 
-                ? 'bg-[#F63C49]/10 border-[#F63C49] shadow-[0_0_20px_rgba(246,60,73,0.15)]' 
-                : 'surface-1 hover:border-[#F63C49]/50 hover:shadow-xl hover:shadow-[#F63C49]/5'
+            className={`group relative w-full flex items-center gap-4 pl-4 pr-3 py-3 rounded-xl border transition-all duration-200 text-left cursor-pointer ${
+                isSelected
+                ? 'bg-[#F63C49]/10 border-[#F63C49]/60'
+                : 'border-transparent hover:border-white/10 hover:bg-white/[0.03]'
             }`}
         >
-            {/* Hover Scan Effect - disabled if selected or in selection mode */}
-            {!isSelectionMode && (
-                <div className="pointer-events-none absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#F63C49] to-transparent -translate-x-full group-hover:animate-[scan_1.5s_ease-in-out_infinite]"></div>
-            )}
-
-            <div className="flex justify-between items-start mb-6">
-                <div className="flex items-center gap-3">
-                    <div className={`p-2.5 rounded-lg border ${
-                        item.type === 'video' || isYoutube
-                        ? 'bg-red-500/10 border-red-500/20 text-red-500' 
-                        : 'bg-cyan-500/10 border-cyan-500/20 text-cyan-500'
-                    }`}>
-                        {isYoutube ? <Youtube size={16} /> : item.type === 'video' ? <Video size={16} /> : <FileText size={16} />}
-                    </div>
-                    <div className="flex flex-col">
-                        <span className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mb-0.5">{item.category}</span>
-                        <span className="text-[10px] font-bold text-white bg-white/10 px-1.5 py-0.5 rounded w-fit">{item.subject}</span>
-                    </div>
-                </div>
-
-                <div className="flex items-center gap-2">
-                    {isSelectionMode ? (
-                        <div className={`w-5 h-5 rounded-md border flex items-center justify-center transition-all ${
-                            isSelected 
-                            ? 'bg-[#D61A40] border-[#F63C49] text-white' 
-                            : 'bg-transparent border-white/30 text-transparent hover:border-[#F63C49]/50'
-                        }`}>
-                            <Check size={12} strokeWidth={4} />
-                        </div>
-                    ) : (
-                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:translate-x-1">
-                            <ArrowUpRight size={16} className="text-white" />
-                        </div>
-                    )}
-                </div>
-            </div>
-
-            <p className={`text-lg font-display font-bold mb-2 leading-tight transition-colors line-clamp-2 ${
-                isSelected ? 'text-[#F63C49]' : 'text-white group-hover:text-[#F63C49]'
+            <div className={`w-9 h-9 rounded-lg border flex items-center justify-center shrink-0 ${
+                item.type === 'video' || isYoutube
+                ? 'bg-[#F63C49]/10 border-[#F63C49]/20 text-[#F63C49]'
+                : 'bg-white/5 border-white/10 text-slate-400'
             }`}>
-                {item.title}
-            </p>
-
-            <div className={`mt-auto pt-6 border-t flex items-center justify-between ${isSelected ? 'border-[#F63C49]/30' : 'border-white/5'}`}>
-                <span className="text-[10px] font-mono text-slate-500 uppercase flex items-center gap-2">
-                    <span className={`w-1.5 h-1.5 rounded-full transition-colors ${item.isSystem ? 'bg-slate-700 group-hover:bg-[#D61A40]' : 'bg-green-500'}`}></span> 
-                    {item.isSystem ? `By ${item.author}` : 'Added by you'}
-                </span>
+                {isYoutube ? <Youtube size={14} /> : item.type === 'video' ? <Video size={14} /> : <FileText size={14} />}
             </div>
+
+            <div className="flex-1 min-w-0">
+                <p className={`text-sm font-semibold leading-snug truncate transition-colors ${
+                    isSelected ? 'text-[#F63C49]' : 'text-slate-100 group-hover:text-white'
+                }`}>
+                    {item.title}
+                </p>
+                <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mt-0.5 truncate">
+                    {item.category} <span className="text-slate-700">/</span> {item.isSystem ? `By ${item.author}` : 'Added by you'}
+                </p>
+            </div>
+
+            {isSelectionMode ? (
+                <div className={`w-5 h-5 rounded-md border flex items-center justify-center shrink-0 transition-all ${
+                    isSelected
+                    ? 'bg-[#D61A40] border-[#F63C49] text-white'
+                    : 'bg-transparent border-white/30 text-transparent hover:border-[#F63C49]/50'
+                }`}>
+                    <Check size={12} strokeWidth={4} />
+                </div>
+            ) : (
+                <ArrowUpRight size={15} className="shrink-0 text-slate-600 group-hover:text-[#F63C49] transition-colors" />
+            )}
         </button>
     );
 };
@@ -355,6 +336,26 @@ const Resources: React.FC = () => {
     return matchesTab && matchesSearch && matchesSubject;
   });
 
+  // Group the index by subject, following the user's subject order, GENERAL/GLOBAL last
+  const subjectName = (code: string) => SUBJECTS.find(x => x.code === code || x.code.replace(/-[A-Z]+$/, '') === code)?.name;
+  const groupOrder = (profile?.selectedSubjects || [])
+    .map(id => SUBJECTS.find(x => x.id === id)?.code)
+    .filter(Boolean) as string[];
+  const groupKeys = Array.from(new Set(filteredResources.map(r => r.subject)));
+  groupKeys.sort((a, b) => {
+    const rank = (k: string) => {
+      if (k === 'GENERAL' || k === 'GLOBAL') return 999;
+      const i = groupOrder.indexOf(k);
+      return i === -1 ? 500 : i;
+    };
+    return rank(a) - rank(b) || a.localeCompare(b);
+  });
+  const indexGroups = groupKeys.map(k => ({
+    key: k,
+    label: k === 'GENERAL' || k === 'GLOBAL' ? 'General' : (subjectName(k) ? `${k} · ${subjectName(k)}` : k),
+    items: filteredResources.filter(r => r.subject === k)
+  }));
+
   return (
     <div className="min-h-full animate-in fade-in duration-700 pb-20">
       
@@ -375,73 +376,34 @@ const Resources: React.FC = () => {
         count={selectedIds.size}
       />
 
-      {/* Cinematic Header */}
-      <header className="mb-12 lg:mb-16 border-b border-white/5 pb-8">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-            <div className="space-y-4">
-                <div className="flex items-center gap-3 text-[#F63C49] mb-2">
-                    <Database size={16} />
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em]">Resource Library</span>
-                </div>
-                <h1 className="text-6xl lg:text-8xl font-display font-bold text-white tracking-tighter leading-[0.85]">
-                    The <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-500">Library</span>
-                </h1>
-            </div>
-            
-            {/* System Status Indicators */}
-            <div className="flex gap-4 lg:gap-8">
-                <div className="text-right">
-                    <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mb-1">Items</p>
-                    <p className="text-xs font-bold text-white font-mono">{resources.length}</p>
-                </div>
-            </div>
+      {/* Compact working header */}
+      <header className="flex items-end justify-between gap-6 mb-8">
+        <div>
+          <div className="flex items-center gap-2 text-[#F63C49] mb-2">
+            <Database size={13} />
+            <span className="text-[9px] font-mono font-bold uppercase tracking-[0.3em]">Resource Library</span>
+          </div>
+          <h1 className="text-4xl lg:text-5xl font-display font-bold text-white tracking-tighter leading-none">Library</h1>
+        </div>
+        <div className="text-right">
+          <span className="block text-2xl lg:text-3xl font-display font-bold text-white leading-none">{resources.length}</span>
+          <span className="block text-[9px] font-mono text-slate-500 uppercase tracking-widest mt-1">Items</span>
         </div>
       </header>
 
-      {/* Control Deck */}
-      <div className="sticky top-24 lg:top-8 z-30 bg-[#030303]/80 backdrop-blur-xl border border-white/5 rounded-2xl p-2 mb-8 shadow-2xl transition-all">
-         <div className="flex flex-col lg:flex-row gap-4 items-center">
-            
-            {/* Selection Mode Controls */}
-            {isSelectionMode ? (
-                <div className="w-full lg:w-auto flex items-center gap-2 bg-[#F63C49]/10 rounded-xl p-1 pr-2 border border-[#F63C49]/30">
-                    <div className="px-3 py-2 text-[#F63C49] font-bold text-xs uppercase tracking-widest flex items-center gap-2">
-                        <CheckSquare size={16} />
-                        {selectedIds.size} Selected
-                    </div>
-                    <div className="h-6 w-px bg-[#F63C49]/20"></div>
-                    <button 
-                        onClick={handleBulkDelete}
-                        disabled={selectedIds.size === 0}
-                        className="px-4 py-2 bg-[#D61A40] text-white rounded-lg text-[10px] font-bold uppercase tracking-widest hover:bg-red-600 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 transition-all shadow-lg shadow-red-900/20"
-                    >
-                        <Trash2 size={12} /> Delete
-                    </button>
-                    <button 
-                        onClick={() => { setIsSelectionMode(false); setSelectedIds(new Set()); }}
-                        className="px-4 py-2 hover:bg-white/10 text-slate-400 hover:text-white rounded-lg text-[10px] font-bold uppercase tracking-widest transition-all"
-                    >
-                        Cancel
-                    </button>
-                </div>
-            ) : (
-                <button 
-                    onClick={() => setIsSelectionMode(true)}
-                    className="w-full lg:w-auto px-6 py-4 lg:py-0 h-[52px] rounded-xl border border-white/10 text-slate-400 hover:text-white hover:bg-white/5 font-bold uppercase text-[10px] tracking-widest flex items-center justify-center gap-2 transition-all shrink-0 hover:border-white/20"
-                >
-                    <MousePointer2 size={16} /> Select
-                </button>
-            )}
+      {/* Control bar: search + tabs + select, slim and sticky */}
+      <div className="sticky top-24 lg:top-8 z-30 bg-[#030303]/85 backdrop-blur-xl border border-white/5 rounded-2xl p-2 mb-4 shadow-2xl">
+         <div className="flex flex-col lg:flex-row gap-2 items-stretch lg:items-center">
 
             {/* CLI Search */}
             <div className="flex-1 w-full bg-black/50 rounded-xl border border-white/10 flex items-center px-4 group focus-within:border-[#F63C49]/50 transition-colors">
                 <span className="text-[#F63C49] font-mono mr-3 text-lg">{'>'}</span>
-                <input 
-                    type="text" 
+                <input
+                    type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search resources..."
-                    className="w-full bg-transparent border-none py-4 text-sm font-mono text-white placeholder:text-slate-600 focus:outline-none uppercase tracking-wider"
+                    className="w-full bg-transparent border-none py-3 text-sm font-mono text-white placeholder:text-slate-600 focus:outline-none uppercase tracking-wider"
                 />
                 <Command size={16} className="text-slate-600" />
             </div>
@@ -452,9 +414,9 @@ const Resources: React.FC = () => {
                     <button
                         key={tab}
                         onClick={() => setActiveTab(tab)}
-                        className={`px-4 py-3 rounded-lg text-[10px] font-bold uppercase tracking-[0.15em] whitespace-nowrap transition-all border border-transparent ${
-                            activeTab === tab 
-                            ? 'bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.2)]' 
+                        className={`px-3.5 py-2.5 rounded-lg text-[9px] font-bold uppercase tracking-[0.15em] whitespace-nowrap transition-all border border-transparent ${
+                            activeTab === tab
+                            ? 'bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.2)]'
                             : 'text-slate-500 hover:text-white hover:bg-white/5 hover:border-white/10'
                         }`}
                     >
@@ -462,18 +424,49 @@ const Resources: React.FC = () => {
                     </button>
                 ))}
             </div>
+
+            {/* Selection Mode Controls */}
+            {isSelectionMode ? (
+                <div className="w-full lg:w-auto flex items-center gap-2 bg-[#F63C49]/10 rounded-xl p-1 pr-2 border border-[#F63C49]/30 shrink-0">
+                    <div className="px-3 py-2 text-[#F63C49] font-bold text-[10px] uppercase tracking-widest flex items-center gap-2">
+                        <CheckSquare size={14} />
+                        {selectedIds.size} Selected
+                    </div>
+                    <div className="h-6 w-px bg-[#F63C49]/20"></div>
+                    <button
+                        onClick={handleBulkDelete}
+                        disabled={selectedIds.size === 0}
+                        className="px-3.5 py-2 bg-[#D61A40] text-white rounded-lg text-[9px] font-bold uppercase tracking-widest hover:bg-red-600 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 transition-all"
+                    >
+                        <Trash2 size={11} /> Delete
+                    </button>
+                    <button
+                        onClick={() => { setIsSelectionMode(false); setSelectedIds(new Set()); }}
+                        className="px-3.5 py-2 hover:bg-white/10 text-slate-400 hover:text-white rounded-lg text-[9px] font-bold uppercase tracking-widest transition-all"
+                    >
+                        Cancel
+                    </button>
+                </div>
+            ) : (
+                <button
+                    onClick={() => setIsSelectionMode(true)}
+                    className="w-full lg:w-auto px-4 py-2.5 rounded-xl border border-white/10 text-slate-400 hover:text-white hover:bg-white/5 font-bold uppercase text-[9px] tracking-widest flex items-center justify-center gap-2 transition-all shrink-0 hover:border-white/20"
+                >
+                    <MousePointer2 size={13} /> Select
+                </button>
+            )}
          </div>
       </div>
 
       {/* Subject filter */}
-      <div className="flex overflow-x-auto no-scrollbar gap-2 mb-8 -mt-6" role="group" aria-label="Filter by subject">
+      <div className="flex overflow-x-auto no-scrollbar gap-2 mb-6" role="group" aria-label="Filter by subject">
         {[{ label: 'All subjects', value: 'ALL' }, ...userSubjectOptions].map((o) => (
           <button
             key={o.value}
             type="button"
             aria-pressed={subjectFilter === o.value}
             onClick={() => setSubjectFilter(o.value)}
-            className={`px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.12em] whitespace-nowrap border transition-all ${
+            className={`px-3.5 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-[0.12em] whitespace-nowrap border transition-all ${
               subjectFilter === o.value ? 'bg-[#F63C49]/10 border-[#F63C49]/40 text-[#F63C49]' : 'border-white/10 text-slate-500 hover:text-white hover:bg-white/5'
             }`}
           >
@@ -482,35 +475,51 @@ const Resources: React.FC = () => {
         ))}
       </div>
 
-      {/* Data Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-         {/* Add New Node Card */}
-         <button 
-            onClick={() => setIsAddModalOpen(true)}
-            className="group relative rounded-xl border border-dashed border-white/10 bg-white/[0.01] hover:bg-white/[0.05] hover:border-[#F63C49]/50 transition-all flex flex-col items-center justify-center p-8 h-[220px] gap-4"
-         >
-             <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center text-slate-500 group-hover:text-[#F63C49] group-hover:bg-[#F63C49]/10 transition-all duration-500">
-                 <Plus size={32} />
-             </div>
-             <p className="text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-white transition-colors">Add Resource</p>
-         </button>
+      {/* Add row */}
+      <button
+        onClick={() => setIsAddModalOpen(true)}
+        className="group w-full mb-8 rounded-xl border border-dashed border-white/10 hover:border-[#F63C49]/50 bg-white/[0.01] hover:bg-white/[0.03] transition-all flex items-center justify-center gap-3 py-3.5"
+      >
+        <Plus size={15} className="text-slate-500 group-hover:text-[#F63C49] transition-colors" />
+        <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500 group-hover:text-white transition-colors">Add Resource</span>
+      </button>
 
-         {filteredResources.map((item) => (
-             <ResourceCard 
-                key={item.id} 
-                item={item} 
-                onClick={() => {
-                    if (isSelectionMode) {
-                        toggleSelection(item.id);
-                    } else {
-                        setViewResource(item);
-                    }
-                }}
-                isSelectionMode={isSelectionMode}
-                isSelected={selectedIds.has(item.id)}
-            />
-         ))}
-      </div>
+      {/* The Index: grouped by subject */}
+      {filteredResources.length === 0 ? (
+        <div className="py-16 text-center border border-dashed border-white/10 rounded-2xl bg-white/[0.01]">
+          <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">No resources match</p>
+          <p className="text-slate-600 text-xs mt-1">Try another search, tab, or subject.</p>
+        </div>
+      ) : (
+        <div className="space-y-8">
+          {indexGroups.map(g => (
+            <section key={g.key}>
+              <div className="flex items-center gap-3 mb-2 px-1">
+                <span className="text-[9px] font-mono font-bold uppercase tracking-[0.3em] text-slate-400">{g.label}</span>
+                <span className="text-[9px] font-mono text-slate-600">{g.items.length}</span>
+                <div className="flex-1 h-px bg-white/5"></div>
+              </div>
+              <div className="space-y-1">
+                {g.items.map((item) => (
+                  <ResourceCard
+                    key={item.id}
+                    item={item}
+                    onClick={() => {
+                        if (isSelectionMode) {
+                            toggleSelection(item.id);
+                        } else {
+                            setViewResource(item);
+                        }
+                    }}
+                    isSelectionMode={isSelectionMode}
+                    isSelected={selectedIds.has(item.id)}
+                  />
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
