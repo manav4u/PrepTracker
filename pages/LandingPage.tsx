@@ -6,6 +6,8 @@ import FeatureStack from '../components/landing/FeatureStack';
 import HowItWorks from '../components/landing/HowItWorks';
 import FaqSection from '../components/landing/FaqSection';
 import FinalCta from '../components/landing/FinalCta';
+import { useGSAP } from '@gsap/react';
+import { gsap, reduceMotion } from '../lib/scroll';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import {
@@ -29,6 +31,20 @@ import {
 const LandingPage: React.FC = () => {
   const { scrollYProgress } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
+
+  useGSAP(() => {
+    if (reduceMotion()) return;
+    const footer = document.querySelector('[data-footer]');
+    if (!footer) return;
+    gsap.fromTo(
+      footer,
+      { yPercent: -14, autoAlpha: 0.7 },
+      {
+        yPercent: 0, autoAlpha: 1, ease: 'none',
+        scrollTrigger: { trigger: footer, start: 'top bottom', end: 'top 55%', scrub: 1 },
+      }
+    );
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -77,7 +93,7 @@ const LandingPage: React.FC = () => {
       <FaqSection />
       <FinalCta />
       {/* Footer */}
-      <footer className="px-6 pb-10 pt-4 border-t border-black/[0.08] bg-[#F7F5F2]">
+      <footer data-footer className="px-6 pb-10 pt-4 border-t border-black/[0.08] bg-[#F7F5F2]">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-[#5A5A66]">
           <div className="flex items-center gap-2.5">
             <div className="w-6 h-6 bg-[#E11D48] rounded flex items-center justify-center text-white text-[10px] font-bold font-mono">PT</div>
