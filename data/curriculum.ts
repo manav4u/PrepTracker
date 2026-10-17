@@ -504,3 +504,169 @@ export const SE_ENTC_SUBJECTS: Subject[] = [
     ]
   },
 ];
+
+// Second Year Mechanical Engineering, 2024 pattern (NEP), effective AY 2025-26.
+// Source: official SPPU curriculum document (R25, dated 18.08.2025); two
+// independent college mirrors byte-identical (md5 match), unipune library copy
+// not directly reachable at build time. Verbatim text in docs/raw/SE-Mechanical-2024-pattern.txt.
+// Note: MDM-271-MEC (AI and ML) is assessed by CCE 50 marks only, no end-sem.
+export const SE_MECH_SUBJECTS: Subject[] = [
+  {
+    id: 'sm',
+    name: 'Solid Mechanics',
+    code: 'PCC-201-MEC',
+    credits: 3,
+    theoryCredits: 3,
+    termWorkCredits: 0,
+    units: [
+      { id: 'sm-u1', unit_number: 1, title: 'Simple Stresses and Strains',
+        topics: ['Types of loads and stresses', "Hooke's law, Poisson's ratio, elastic constants", 'Stress-strain diagrams for ductile and brittle materials', 'Determinate and indeterminate members, composite bars', 'Thermal stresses'] },
+      { id: 'sm-u2', unit_number: 2, title: 'Shear Force and Bending Moment Diagrams',
+        topics: ['SFD and BMD for determinate beams', 'Concentrated, distributed, varying loads and couples', 'Load-shear-moment relationships', 'Maximum bending moment and point of contraflexure'] },
+      { id: 'sm-u3', unit_number: 3, title: 'Bending and Shear Stresses',
+        topics: ['Theory of simple bending and flexural formula', 'Moment of inertia of common sections', 'Bending stress distribution', 'Transverse shear stress distribution', "Slope and deflection by Macaulay's method"] },
+      { id: 'sm-u4', unit_number: 4, title: 'Torsion and Buckling',
+        topics: ['Torsion formulae and assumptions', 'Stepped and composite shafts', 'Torque transmission on strength and rigidity', "Buckling of columns, Euler's theory and limitations"] },
+      { id: 'sm-u5', unit_number: 5, title: 'Principal Stresses and Theories of Failure',
+        topics: ['Transformation of plane stress', "Principal stresses: analytical method and Mohr's circle", 'Combined normal and shear stresses', 'Maximum principal stress and shear stress theories', 'Distortion energy and strain energy theories'] },
+    ]
+  },
+  {
+    id: 'td',
+    name: 'Engineering Thermodynamics',
+    code: 'PCC-202-MEC',
+    credits: 3,
+    theoryCredits: 3,
+    termWorkCredits: 0,
+    units: [
+      { id: 'td-u1', unit_number: 1, title: 'Fundamentals and First Law of Thermodynamics',
+        topics: ['Basic definitions, zeroth law, state postulate', 'Point and path functions, quasi-static process', 'Thermocouples: types and working', 'First law for flow and non-flow processes', 'Steady flow energy equation and applications'] },
+      { id: 'td-u2', unit_number: 2, title: 'Ideal Gas Equations and Second Law',
+        topics: ["Boyle's, Charles's and Avogadro's laws", 'Constant pressure, volume, isothermal, adiabatic, polytropic processes', 'Heat, work and internal energy calculations', 'Heat engine, refrigerator, heat pump: efficiency and COP', 'Kelvin-Planck and Clausius statements, PMM-II'] },
+      { id: 'td-u3', unit_number: 3, title: 'Entropy and Availability',
+        topics: ['Clausius inequality', 'Reversibility and irreversibility', 'Entropy as a property, entropy of ideal gas', 'Available and unavailable energy', 'Availability of non-flow and steady-flow systems'] },
+      { id: 'td-u4', unit_number: 4, title: 'Pure Substances and Vapour Power Cycle',
+        topics: ['Formation and properties of steam, steam tables', 'p-v, T-s and Mollier charts', 'Dryness fraction, separating and throttling calorimeter', 'Carnot and Rankine cycles', 'Effect of superheat and pressures, modified Rankine cycle'] },
+      { id: 'td-u5', unit_number: 5, title: 'Steam Generators and Boiler Draught',
+        topics: ['IBR act, fire tube and water tube boilers', 'Cornish, locomotive, Babcock and Wilcox, LaMont boilers', 'Boiler mountings and accessories', 'Equivalent evaporation, boiler efficiency, heat balance', 'Natural, forced and induced draught, chimney design'] },
+    ]
+  },
+  {
+    id: 'emm',
+    name: 'Engineering Materials and Metallurgy',
+    code: 'PCC-203-MEC',
+    credits: 3,
+    theoryCredits: 3,
+    termWorkCredits: 0,
+    units: [
+      { id: 'emm-u1', unit_number: 1, title: 'Crystal Structures and Testing Techniques',
+        topics: ['Crystal structures, Miller indices, imperfections, diffusion', 'Destructive testing: impact, cupping', 'Non-destructive testing: eddy current, ultrasonic, X-ray radiography', 'Optical and electron microscopy: SEM, TEM, XRD', 'Macroscopy: sulphur printing, spark test'] },
+      { id: 'emm-u2', unit_number: 2, title: 'Phase Diagrams and Iron-Carbon Diagram',
+        topics: ['Solid solutions and Hume-Rothery rules', 'Solidification: nucleation and crystal growth', 'Cooling curves and types of phase diagrams', 'Gibbs phase rule', 'Iron-carbon equilibrium diagram and invariant reactions'] },
+      { id: 'emm-u3', unit_number: 3, title: 'Heat Treatments',
+        topics: ['TTT and CCT diagrams', 'Retained austenite', 'Annealing, normalizing, hardening, tempering', 'Austempering, martempering, sub-zero treatment, hardenability', 'Surface hardening: flame, induction, carburizing, nitriding'] },
+      { id: 'emm-u4', unit_number: 4, title: 'Ferrous Materials',
+        topics: ['Carbon steels: classification, composition, applications', 'Alloy steels and effect of alloying elements', 'Stainless and tool steels, sensitization', 'IS, AISI, SAE designations', 'Cast irons: white, gray, SG, malleable'] },
+      { id: 'emm-u5', unit_number: 5, title: 'Non-Ferrous Materials',
+        topics: ['Copper alloys: brasses and bronzes', 'Aluminium alloys: LM5, duralumin, Y-alloy', 'Nickel alloys: Invar, Inconel', 'Titanium and bearing alloys, age hardening', 'Materials for additive manufacturing'] },
+    ]
+  },
+  {
+    id: 'm3mec',
+    name: 'Engineering Mathematics-III',
+    code: 'MDM-221-MEC',
+    credits: 3,
+    theoryCredits: 3,
+    termWorkCredits: 0,
+    units: [
+      { id: 'm3mec-u1', unit_number: 1, title: 'Linear Differential Equations and Applications',
+        topics: ['LDE of nth order, complementary function, particular integral', 'Variation of parameters', 'Cauchy and Legendre equations', 'Simultaneous differential equations', 'Mass-spring systems: free, forced, damped, undamped'] },
+      { id: 'm3mec-u2', unit_number: 2, title: 'Statistics and Probability',
+        topics: ['Central tendency, dispersion, moments, skewness, kurtosis', "Karl Pearson and Spearman's rank correlation", 'Regression analysis', 'Central limit theorem', 'Binomial, Poisson, normal distributions', 'Chi-square and t-tests'] },
+      { id: 'm3mec-u3', unit_number: 3, title: 'Numerical Solution of Algebraic and Transcendental Equations',
+        topics: ['Bisection, secant, regula-falsi methods', 'Newton-Raphson and successive approximation', 'Convergence and stability', 'Gauss elimination with partial pivoting', 'LU decomposition', 'Jacobi and Gauss-Seidel methods'] },
+      { id: 'm3mec-u4', unit_number: 4, title: 'Numerical Interpolation and Solution of ODE',
+        topics: ['Finite differences, Newton and Lagrange interpolation', 'Numerical differentiation', 'Trapezoidal and Simpson rules, truncation error', 'Euler and modified Euler methods', 'Runge-Kutta 4th order, predictor-corrector methods'] },
+      { id: 'm3mec-u5', unit_number: 5, title: 'Vector Calculus',
+        topics: ['Gradient, divergence, curl, directional derivative', 'Solenoidal and irrotational fields', 'Line, surface and volume integrals', "Green's lemma", "Gauss's divergence theorem", "Stokes' theorem"] },
+    ]
+  },
+  {
+    id: 'fm',
+    name: 'Fluid Mechanics',
+    code: 'PCC-251-MEC',
+    credits: 3,
+    theoryCredits: 3,
+    termWorkCredits: 0,
+    units: [
+      { id: 'fm-u1', unit_number: 1, title: 'Fundamental Principles',
+        topics: ['Fluid properties: density, viscosity, surface tension, compressibility', "Pascal's law and hydrostatic law", 'Pressure measurement: piezometer, barometer, manometers', 'Total pressure and center of pressure on submerged surfaces', 'Buoyancy, flotation and stability'] },
+      { id: 'fm-u2', unit_number: 2, title: 'Fluid Kinematics and Dynamics',
+        topics: ['Types of flows, velocity and acceleration fields', 'Continuity equation in 1D and 3D', 'Stream function and velocity potential, flow net', "Euler's equation and Bernoulli's theorem", 'Flow measurement: venturimeter, orifice meter, pitot tube', 'Orifices, notches and weirs'] },
+      { id: 'fm-u3', unit_number: 3, title: 'Internal Flow',
+        topics: ['Laminar flow through pipes and parallel plates', 'Couette flow', 'Turbulent velocity profile', 'Major and minor losses', "Moody's chart", 'Compounding of pipes, siphons, power transmission'] },
+      { id: 'fm-u4', unit_number: 4, title: 'External Flow',
+        topics: ['Boundary layer formation and thicknesses', 'Boundary layer separation and control', 'Drag and lift concepts', 'Types of drag, drag and lift coefficients', 'Aerofoil, bluff and streamlined bodies'] },
+      { id: 'fm-u5', unit_number: 5, title: 'Dimensional Analysis',
+        topics: ['Systems of dimensions and homogeneity', 'Buckingham-Pi theorem', 'Dimensionless numbers and significance', 'Similitude and model testing', 'Model laws and applications'] },
+    ]
+  },
+  {
+    id: 'mp',
+    name: 'Manufacturing Processes-I',
+    code: 'PCC-252-MEC',
+    credits: 3,
+    theoryCredits: 3,
+    termWorkCredits: 0,
+    units: [
+      { id: 'mp-u1', unit_number: 1, title: 'Theory of Metal Cutting',
+        topics: ['Lathe and milling operations', 'Chip formation and types of chips', 'Orthogonal and oblique cutting, Merchant theory', 'Cutting forces and power estimation', 'Tool materials, signature, wear', "Taylor's tool life equation"] },
+      { id: 'mp-u2', unit_number: 2, title: 'Metal Casting Technology',
+        topics: ['Patterns: materials, types, allowances', 'Molding sands and core making', 'Melting furnaces, pouring and gating systems', 'Casting defects and remedies', 'Die, centrifugal, investment and continuous casting', 'Solidification and riser design'] },
+      { id: 'mp-u3', unit_number: 3, title: 'Metal Forming Technology',
+        topics: ['Bulk deformation processes and defects', 'Rolling: types, force, torque and power', 'Open, closed and impression die forging', 'Forging load estimation', 'Sheet metal operations and press working', 'Progressive die design basics'] },
+      { id: 'mp-u4', unit_number: 4, title: 'Joining Technology',
+        topics: ['Soldering, brazing and welding symbols', 'Electrodes, flux coatings, weld defects and inspection', 'Arc welding: MIG, TIG', 'Resistance welding: spot, seam', 'Gas welding and solid state welding', 'Laser, plasma, electron beam, ultrasonic welding'] },
+      { id: 'mp-u5', unit_number: 5, title: 'Finishing and Fine Finishing Processes',
+        topics: ['Grinding machines and wheel designation', 'Grit, grade, structure, dressing, truing, balancing', 'Surface finish measurement', 'Honing and lapping', 'Magnetic abrasive, ultrasonic and abrasive flow finishing'] },
+    ]
+  },
+  {
+    id: 'at',
+    name: 'Applied Thermodynamics',
+    code: 'PCC-253-MEC',
+    credits: 3,
+    theoryCredits: 3,
+    termWorkCredits: 0,
+    units: [
+      { id: 'at-u1', unit_number: 1, title: 'IC Engine Fundamentals and Air Cycles',
+        topics: ['Engine classification, construction and nomenclature', 'Valve timing diagrams', 'Otto, diesel and dual cycles: efficiency and MEP', 'Fuel-air and actual cycles', 'Losses and cycle comparison'] },
+      { id: 'at-u2', unit_number: 2, title: 'Combustion in IC Engines and Fuel Technology',
+        topics: ['Fuel injection in SI and CI engines', 'Combustion in SI and CI engines', 'Knocking and combustion chambers', 'Biofuels, hydrogen, LPG, CNG, ethanol blends', 'Octane and cetane numbers, additives'] },
+      { id: 'at-u3', unit_number: 3, title: 'Engine Performance, Testing and Emission Control',
+        topics: ['Indicated, brake and friction power measurement', "Willan's line and Morse test", 'Heat balance sheet and performance curves', 'Supercharging and turbocharging', 'Emissions: CO, HC, NOx, PM', 'EGR, SCR, DPF, TWC, BS-VI and Euro 6'] },
+      { id: 'at-u4', unit_number: 4, title: 'Engine Systems and Recent Trends',
+        topics: ['Battery coil and magneto ignition', 'Electronic ignition: CDI, TCI', 'Air and liquid cooling systems', 'Lubrication objectives and methods', 'Engine management systems and ECU', 'HCCI and digital twins in IC engines'] },
+      { id: 'at-u5', unit_number: 5, title: 'Positive Displacement Compressors',
+        topics: ['Single stage reciprocating compressor', 'Volumetric and isothermal efficiency', 'Effect of clearance, free air delivery', 'Multistaging and optimum intermediate pressure', 'Intercooler, aftercooler, capacity control', 'Rotary compressors: roots, vane, screw, scroll'] },
+    ]
+  },
+  {
+    id: 'aiml',
+    name: 'Artificial Intelligence and Machine Learning',
+    code: 'MDM-271-MEC',
+    credits: 2,
+    theoryCredits: 2,
+    termWorkCredits: 0,
+    units: [
+      { id: 'aiml-u1', unit_number: 1, title: 'Introduction to AIML and Feature Extraction',
+        topics: ['Approaches to AI and ML: supervised, unsupervised, reinforcement', 'Dataset elements and data types', 'Statistical feature extraction, PCA', 'Feature selection: ranking, decision trees, information gain', 'Greedy forward and backward selection, multicollinearity'] },
+      { id: 'aiml-u2', unit_number: 2, title: 'ML Algorithms: Classification and Regression',
+        topics: ['Linear, multi-variable, polynomial and logistic regression', 'Naive Bayes, k-NN, SVM', 'Decision trees, random forest, bagging and boosting', 'K-means and hierarchical clustering', 'Bias-variance trade-off'] },
+      { id: 'aiml-u3', unit_number: 3, title: 'Feature Engineering, ML Models and Evaluation',
+        topics: ['Model selection, tuning and regularization', 'ML pipeline, bootstrap sampling', 'Grid search, randomized search, k-fold cross-validation', 'Data collection and pre-processing', 'Accuracy, precision, recall, confusion matrix', 'Type 1 and Type 2 errors'] },
+      { id: 'aiml-u4', unit_number: 4, title: 'Reinforcement and Deep Learning',
+        topics: ['Perceptron, activation and loss functions, gradient descent', 'RL framework, exploration vs exploitation', 'Markov decision process, Q-learning, SARSA', 'CNNs: convolution, pooling, padding, architectures', 'Transfer learning and computer vision applications'] },
+    ]
+  },
+];

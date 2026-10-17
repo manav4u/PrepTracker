@@ -1,0 +1,2116 @@
+                सावित्रीबाई फुले पण
+                                  ु े विद्यापीठ
+
+
+
+Savitribai Phule Pune University, Pune,
+         Maharashtra, India
+    Faculty of Science and Technology
+
+
+
+
+National Education Policy (NEP)-2020 Compliant
+                  Curriculum
+  Second Year Engineering (2024 Pattern)
+           Civil Engineering
+       (With effect from Academic Year 2025-26)
+
+
+
+
+                             1
+                                                    CONTENTS
+                                      Description                                  Page No.
+Preface by Board of Studies                                                           04
+Program Specific Outcomes (PSO’s) & Program Educational Objectives (PEO’s)            05
+Knowledge and Attitude Profile (WK)                                                   06
+Program Outcomes (PO’s)                                                               07
+General Rules and Guidelines                                                          08
+Curriculum Structure - Semester III                                                    11
+Curriculum Structure - Semester IV                                                    12
+Semester III Courses                                                                  13
+PCC - Mechanic of Structures                                                          14
+PCC - Surveying                                                                       16
+PCC - Building Construction & Materials                                               19
+Building Construction & Materials Lab                                                 22
+Mechanic of Structures Lab                                                            23
+Open Elective-I                                                              From the Given Basket
+MDM –I Engineering Mathematics III                                                    24
+Entrepreneurship / Economics/ Management- Economics for Civil Engineers               26
+Value Education- Universal Human Values and Professional Ethics                       28
+Field Project- Field Survey Project                                                   30
+Semester IV Courses                                                                   32
+PCC - Fluid Mechanics                                                                 33
+PCC - Structural Analysis                                                             35
+PCC - Concrete Technology                                                             37
+Concrete Technology Lab                                                               39
+Fluid Mechanics Lab                                                                   40
+Open Elective-II                                                             From the Given Basket
+MDM –II Engineering Geology                                                           41
+Vocational Skill Course –Application of Python                                        44
+Ability Enhancement - Modern Indian Language (Marathi)                                48
+
+Entrepreneurship / Economics/ Management-- Project Management                         51
+
+Value Education- Environment Awareness                                                53
+
+
+
+
+                                                       2
+                                         Nomenclature
+AEC Ability Enhancement Course
+AICTE All India Council for Technical Education
+CEP   Community Engagement Project
+EEM Entrepreneurship / Economics/ Management
+MDM Multidisciplinary Minor
+MOOC Massive Open Online Course
+NEP   National Educational Policy
+NPTEL National Programme on Technology Enhanced Learning
+OE    Open Elective
+PCC   Program Core Course
+PO’S  Program Outcomes
+PEO’S Programme Educational Objectives
+PSO’S Program Specific Outcomes
+SWAYAM Study Webs of Active-Learning for Young Aspiring Minds\\
+VEC Value Education Course
+VSE   Vocational and Skill Enhancement Course
+WK    Knowledge and Attitude Profile
+FP    Field Project
+
+
+
+
+                                                 3
+                                      Preface by Board of Studies
+Dear Students and Teachers,
+
+We, the members of Board of Studies Civil Engineering, are very happy to present the Second Year Civil
+Engineering syllabus effective from the Academic Year 2025-26. The present curriculum will be implemented for
+the Second Year of Civil Engineering from the Academic Year 2025-26. Subsequently this will be carried forward
+for TE and BE in A.Y. 2026-27, 2027-28, respectively.
+Civil Engineering is a dynamic discipline that lies at the intersection of engineering, design and environmental
+stewardship. It provides the foundation for the planning, design, construction and maintenance of infrastructure
+systems that support modern society. This curriculum is designed to provide students with a comprehensive
+understanding of the fundamental principles, theories and practices of Civil Engineering, while also preparing
+them to address the challenges of an ever-evolving built environment and sustainable development.
+The revised syllabus falls in line with the objectives of NEP-2020, Savitribai Phule Pune University(SPPU),
+AICTE New Delhi, UGC and various accreditation agencies by keeping an eye on the technological
+developments, innovations and industry requirements. Learners are now getting sufficient time for self-learning
+either through online courses or additional projects for enhancing their knowledge and skill sets. Learners can be
+advised to take up online courses, on successful completion they are required to submit certification for the same.
+This will definitely help learners to facilitate their enhanced learning based on their interest.
+This curriculum is the result of extensive consultation with academic experts, industry professionals and alumni
+to ensure relevance and excellence. It is designed not only to meet the current industry standards but also to
+prepare students for higher studies and research in the field of Civil Engineering.
+We hope that this curriculum will inspire students to become competent professionals, responsible citizens and
+contributors to the technological advancement of society.
+
+
+
+  Dr. Sunil B. Thakare
+       Chairman
+Board of Studies, SPPU, Pune
+
+                                  Members, Board of Studies-Civil Engineering
+                         Dr. Ganesh A. Hinge                Dr. Pratibha M. Alandkar
+                         Dr. Uttam R. Awari                 Dr. Jyotiba B. Gurav
+                         Dr. Vilas K. Patil                 Dr. Deepa Joshi
+                         Dr. Manoj P. Wagh                  Dr. Hanumant T. Dhumal
+                         Dr. Wasudev N. Deulkar             Er. Yusuf A. S. Inamdar
+                         Dr. Vinaykumar C. H.               Er. Ramesh D. Raskar
+
+
+
+
+                                                        4
+                   Curriculum for Second Year - Civil Engineering (2024 Pattern)
+
+                                     Program Specific Outcomes (PSO’s)
+
+PSO 1: Application of Core Civil Engineering Principles
+Graduates will be able to apply fundamental concepts of structural analysis, geotechnical engineering,
+transportation systems, water resources engineering, and environmental engineering to design and develop
+sustainable and efficient civil infrastructure.
+
+
+PSO 2: Proficiency in Modern Tools and Techniques
+Graduates will be proficient in using modern tools & Software’s for planning, analysis, design, and execution of
+Civil Engineering projects in compliance with safety, environmental, and ethical standards.
+
+
+PSO 3: Problem Solving and Project Execution Skills
+Graduates will demonstrate the ability to identify, analyze, and solve real-world Civil Engineering problems and
+effectively manage construction projects, incorporating principles of design thinking, innovations, and lifelong
+learning.
+                                Program Educational Objectives (PEO’s)
+
+Program Educational Objectives (PEOs): Program Educational Objectives are broad statements that describe the
+career and professional accomplishments that the program is preparing graduates to achieve.
+
+
+PEO1 : Core Competency and Professional Excellence
+Graduates will establish themselves as successful Civil Engineering professionals by applying their technical
+knowledge, problem-solving abilities, and ethical values in planning, designing, and executing infrastructure
+projects that meet societal needs.
+
+
+PEO2 : Higher Education and Lifelong Learning
+Graduates will pursue advanced education, research, or professional development to stay current with emerging
+trends, technologies, and practices in Civil Engineering and related interdisciplinary fields.
+
+
+PEO3 : Leadership and Social Responsibility
+Graduates will demonstrate leadership, teamwork, effective communication, and a commitment to sustainable
+development by engaging in projects that contribute to environmental conservation and the betterment of society.
+
+                                                          5
+               Curriculum for Second Year - Civil Engineering (2024 Pattern)
+
+                              Knowledge and Attitude Profile (WK)
+
+A Knowledge and Attitude Profile (KAP), often represented as WK (Knowledge and Attitude Profile) in
+some contexts, is a framework or assessment tool used to evaluate an individual’s knowledge and
+attitudes related to a specific area, topic, or domain.
+
+             WK1        A systematic, theory-based understanding of the natural sciences applicable to
+                        the discipline and awareness of relevant social sciences.
+             WK2        Conceptually-based mathematics, numerical analysis, data analysis, statistics
+                        and formal aspects of computer and information science to support detailed
+                        analysis and modelling applicable to the discipline.
+             WK3        A systematic, theory-based formulation of engineering fundamentals required
+                        in the engineering discipline.
+             WK4        Engineering specialist knowledge that provides theoretical frameworks and
+                        bodies of knowledge for the accepted practice areas in the engineering
+                        discipline; much is at the forefront of the discipline.
+             WK5        Knowledge, including efficient resource use, environmental impacts,
+                        Whole-life cost, re-use of resources, net zero carbon, and similar concepts,
+                        that supports engineering design and operations in a practice area.
+             WK6        Knowledge of engineering practice (technology) in the practice areas in the
+                        engineering discipline.
+             WK7        Knowledge of the role of engineering in society and identified issues in
+                        engineering practice in the discipline, such as the professional responsibility of
+                        an engineer to public safety and sustainable development.
+             WK8        Engagement with selected knowledge in the current research literature of the
+                        discipline, awareness of the power of critical thinking and creative approaches
+                        to evaluate emerging issues.
+             WK9        Ethics, inclusive behavior and conduct. Knowledge of professional ethics,
+                        responsibilities, and norms of engineering practice. Awareness of the need for
+                        diversity by reason of ethnicity, gender, age, physical ability etc. with mutual
+                        understanding and respect, and of inclusive attitudes.
+
+       Reference: Self-Assessment Report (SAR) Format Undergraduate Engineering Programs
+       Graduate Attributes and Professional Competencies Version 4.0 (GAPCV4.0) - (August 2024)
+       Page 55.
+
+
+
+
+                                                     6
+                  Curriculum for Second Year - Civil Engineering (2024 Pattern)
+
+                                        Program Outcomes (PO’s)
+Program Outcomes are statements that describe what students are expected to know and be able to do upon
+graduating from the program. These relate to the skills, knowledge, attitude and behavior that students acquire
+through the program. On successful completion of Civil Engineering, graduating students/graduates will be able
+to:
+ PO1     Engineering               Engineering Knowledge: Apply knowledge of mathematics, natural science,
+         knowledge                 computing, engineering fundamentals and an engineering specialization as specified
+                                   in WK1 to WK4 respectively to develop the solution of complex engineering
+                                   problems.
+ PO2     Problem analysis          Problem Analysis: Identify, formulate, review research literature and analyze
+                                   complex engineering problems reaching substantiated conclusions with
+                                   consideration for sustainable development. (WK1 to WK4)
+ PO3     Design / Development      Design/Development of Solutions: Design creative solutions for complex
+         of Solutions              engineering problems and design/develop systems/components/processes to meet
+                                   identified needs with consideration for the public health and safety, whole-life cost,
+                                   net zero carbon, culture, society and environment as required. (WK5)
+ PO4     Conduct Investigations    Conduct investigations of complex engineering problems using research-based
+         of Complex Problems       knowledge including design of experiments, modelling, analysis & interpretation of
+                                   data to provide valid conclusions. (WK8).
+ PO5     Engineering Tool Usage    Create, select and apply appropriate techniques, resources and modern engineering
+                                   & IT tools, including prediction and modelling recognizing their limitations to solve
+                                   complex engineering problems. (WK2 and WK6)
+ PO6     The Engineer and The      Analyze and evaluate societal and environmental aspects while solving complex
+         World                     engineering problems for its impact on sustainability with reference to economy,
+                                   health, safety, legal framework, culture and environment. (WK1, WK5, and WK7).
+ PO7     Ethics                    Apply ethical principles and commit to professional ethics, human values, diversity
+                                   and inclusion; adhere to national & international laws. (WK9)
+ PO8     Individual and            Function effectively as an individual, and as a member or leader in
+         Collaborative Teamwork    diverse/multi-disciplinary teams.
+ PO9     Communication             Communicate effectively and inclusively within the engineering
+                                   community and society at large, such as being able to comprehend and write
+                                   effective reports and design documentation, make effective presentations
+                                   considering cultural, language, and learning differences
+ PO10    Project Management        Apply knowledge and understanding of engineering management principles and
+         and Finance               economic decision-making and apply these to one’s own work, as a member and
+                                   leader in a team, and to manage projects and in multidisciplinary environments.
+ PO11    Life-Long Learning        Recognize the need for, and have the preparation and ability for i) independent and
+                                   life-long learning ii) adaptability to new and emerging technologies and iii) critical
+                                   thinking in the broadest context of technological change. (WK8)
+
+
+Reference: Self-Assessment Report (SAR) Format Undergraduate Engineering Programs Graduate Attributes and
+Professional Competencies Version 4.0 (GAPC V4.0) - (August 2024) Page 56
+
+
+
+
+                                                         7
+                                    General Rules and Guidelines
+
+ Course Outcomes (CO): Course Outcomes are narrower statements that describe what students are expected to
+ know and are able to do at the end of each course. These relate to the skills, knowledge and behavior that
+ students acquire in their progress through the course.
+ Assessment: Assessment is one or more processes, carried out by the institution, that identify, collect and
+ prepare data to evaluate the achievement of Program Educational Objectives and Program Outcomes.
+ Evaluation: Evaluation is one or more processes, done by the Evaluation Team, for interpreting the data and
+ evidence accumulated through assessment practices. Evaluation determines the extent to which Program
+ Educational Objectives or Program Outcomes are being achieved, and results in decisions and actions to
+ improve the program
+
+                                       Guidelines for Examination Scheme
+ Examination:
+ The examination consists of two parts, Comprehensive Continuous Evaluation (CCE) and End-Semester
+ Examination (ESE).
+                           Part I : Comprehensive Continuous Evaluation (CCE)
+ a.​ Comprehensive Continuous Evaluation (CCE) of 30 marks based on all units of course, to be scheduled &
+     conducted at institute level. Comprehensive Continuous Evaluation (CCE) consists of parameters &
+     weightage as mentioned below:
+     Sr.                                                                                   Marking
+                       Parameters                    Marks              Based on
+     No                                                                                    Scheme
+      1    Unit Test                             12 Marks          Units 1 & Unit 2     6 Marks per Unit
+      2    Assignments / Case Study              12 Marks          Units 3 & Unit 4     6 Marks per Unit
+           Seminar Presentation /Open Book                                              6 Marks per Unit
+      3                                          06 Marks          Unit 5
+           Test/Quiz
+
+b. CCE of 15 marks based on all the Units of course syllabus to be scheduled and conducted at institute
+level. To design a CCE scheme for a theory subject of 15 marks with the specified parameters, the
+allocation of marks and the structure can be detailed as follows:
+
+    Sr.               Parameters                     Marks                 Coverage of Units
+     1 Unit Test                                    10 Marks    Units 1 & Unit 2 (5 Marks/Unit)
+     2 Seminar Presentation / Open Book Test/       05 Marks    Units 3 & Unit 4
+        Assignments/Case Studies
+
+                                                1.​ Unit Test
+                Format: Questions to be designed as per Bloom’s Taxonomy guidelines to assess various
+                cognitive levels (Remember, Understand, Apply, Analyze, Evaluate, Create).
+   Unit Test
+                Implementation: Schedule the test after completing Units 1 and 2. Ensure the question
+                paper is balanced and covers key concepts and applications.
+
+
+                                                      8
+            Evaluation and Feedback: Evaluate promptly and provide constructive feedback on
+            strengths and areas for improvement.
+                                        Sample Question Distribution
+                ●​ Remembering (2 Marks): Define key terms related to [Topic from Units 1 and 2].
+                ●​ Understanding (2 Marks): Explain the principle of [Concept] in [Context].
+                ●​ Applying (2 Marks): Demonstrate how [Concept] can be used in [Scenario].
+                ●​ Analyzing (3 Marks): Compare & contrast [Two related concepts] from Units 1
+                    and 2.
+                ●​ Evaluating (3 Marks): Evaluate the effectiveness of [Theory / Model] in
+                    [Situation].
+                                     2.​ Assignments / Case Study
+               Format: Problem-solving tasks, theoretical questions, practical exercises, or case
+               studies that require in-depth analysis and application of concepts.
+               Implementation: Distribute the assignments or case study after covering Units 3 &
+Assignments
+               4.
+/ Case Study
+               Provide clear guidelines and a rubric for evaluation.
+               Evaluation and Feedback: Assess the quality of submissions based on the provided
+               rubric. Offer feedback to help students understand their performance.
+                        3. Seminar Presentation /Open Book Test/Quiz
+             Format: Presentation on a topic from Unit 5, followed by a Q & A session.
+             Deliverables: Presentation slides, a summary report in 2 to 3 pages and performance
+             during the presentation.
+  Seminar    Implementation: Schedule the seminar presentations at the end of the course.
+Presentation Provide clear guidelines and a rubric for evaluation.
+             Evaluation and Feedback: Evaluate based on content, delivery and engagement during
+             the Q & A session. Provide feedback on presentation skills and comprehension of the
+             topic.
+ Open Book Format: Analytical and application-based questions to assess depth of understanding.
+     Test    Implementation: Schedule the open book test at the end of the course, ensuring it
+             covers critical aspects of Unit 5.
+             Evaluation and Feedback: Evaluate based on the depth of analysis and application of
+             concepts.
+     Quiz    Format: Quizzes can help your students practice existing knowledge while
+             stimulating interest in learning about new topic in that course. You can set your
+             quizzes to be completed individually or in small groups.
+             Implementation: Online tools and software can be used to create quiz. Each quiz is
+             made up of a variety of question types including multiple choice, missing words, true
+             or false etc.
+             Evaluation and Feedback: Evaluate promptly and provide constructive feedback on
+             strengths and areas for improvement.
+
+
+
+
+                                                 9
+                                        Schedule for conducting CCE
+                         Duration                          Deliverable
+                        Week 1-4       Units 1 and 2
+                        Week 5         Unit Test
+                        Week 6-8       Units 3 and 4
+                        Week 9         Assignments / Case Study
+                        Week 10-12     Unit 5
+                        Week 13        Seminar Presentations / Open Book Test / Quiz
+
+                                   Part II: End-Semester Examination (ESE)
+ End-Semester Examination (ESE) of 70 marks theory examination based on all the unit of course scheduled by
+ the university. Question papers will be sent by the University through QPD (Question Paper Delivery).
+ University will schedule and conduct ESE at the end of the semester.
+
+                                         Format and Implementation
+ Question Paper Design: Below structure is to be followed to design an End-Semester Examination (ESE) for a
+ theory subject of 70 marks on all 5 units of the syllabus with questions set as per Bloom’s Taxonomy guidelines
+ and 14 marks allocated per unit.
+
+ Balanced Coverage: Ensure balanced coverage of all units with questions that assess different cognitive levels
+ of Bloom’s Taxonomy: Remember, Understand, Apply, Analyze, Evaluate, and Create.
+
+ The questions should be structured to cover:
+  ●​ Remembering: Basic recall of facts and concepts.
+  ●​ Understanding: Explanation of ideas or concepts.
+  ●​ Applying: Use of information in new situations.
+  ●​ Analyzing: Drawing connections among ideas.
+  ●​ Evaluating: Justifying a decision or course of action.
+  ●​ Creating: Producing new or original work (if applicable).
+Detailed Scheme for 70 Marks: Unit-Wise Allocation (14 Marks per Unit): Each unit will have a
+combination of questions designed to assess different cognitive levels. By following this scheme, you can
+ensure a comprehensive and fair assessment of students’ understanding and application of the course
+material, adhering to Bloom’s Taxonomy guidelines for cognitive skills evaluation.
+
+Detailed Scheme for 35 Marks: Unit-Wise Allocation (08 Marks for Unit 1, 09 Marks for Unit 2, Unit 3 and
+Unit 4) : Each unit will have a combination of questions designed to assess different cognitive levels. By
+following this scheme, you can ensure a comprehensive and fair assessment of students’ understanding and
+application of the course material, adhering to Bloom’s Taxonomy guidelines for cognitive skills evaluation.
+
+
+
+
+                                                      10
+                                     NEP 2020 Compliant Curriculum Structure
+                         Second Year Engineering (SPPU 2024 Pattern)
+                                                  Civil Engineering
+                                                           Level 5.0
+                                                                     Teaching
+                                                                                        Examination
+                                                                      Scheme                                                        Credits
+                                                                                            Scheme and
+                                                                     (Hrs./week
+                                                                          )                 Marks
+    Course          Course                    Course
+     Code            Type                     Name                   Th Tu Pr CC End                              Pr O Th Tu Pr Tot
+                                                                                                         Ter
+                                                                     eo to act E* -Se                    m        ac ra eor tor ac al
+                                                                     ry ria ica   m                      wor      tic l y   ial tic
+                                                                        l   l                            k        al            al
+
+                                                       Semester III
+                  Program Core        Mechanics of Structures
+PCC-201-CVL                                                          3      -       -   30    70          -       -       -    3      -   -       3
+                  Course
+                  Program Core        Surveying
+PCC-202-CVL                                                          3      -       -   30    70          -       -       -    3      -   -       3
+                  Course
+
+PCC-203-CVL       Program Core        Building Construction and
+                                                                3           -       -   30    70          -           -   -    3      -   -       3
+                  Course              Materials
+
+PCC-204-CVL       Program Core        Building Construction and
+                                                                     -      -       2    -        -       25   25         -    -      -   1       1
+                  Course Lab          Materials Lab
+
+PCC-205-CVL       Program Core        Mechanics of Structures        -      -       2    -     -          25      -       25   -      -   1       1
+                  Course Lab          Lab
+                  Open Elective       *Open Elective - I
+                                                                     2      -       -   15    35          -       -       -    2      -       -   2
+
+MDM-221- CVL      Multidisciplinary Engineering Mathematics          3      -       -   30    70          -           -   -    3      -   -       3
+                  Minor             -III
+
+                  Entrepreneurship    Economics for Civil
+EEM-231-CVL       / Economics/        Engineers                      1      -       2    -    -           25      -       -    1     -    1       2
+                  Management
+                  Value               Universal Human Values
+VEC-232-CVL       Education           and Professional Ethics        2      -       -   15    35          -       -       -    2      -   -       2
+                  Course
+FP-241-CVL        Field Project       Field Survey Project           -      -       4    -        -       25   50         -    -      -   2       2
+                                                                     17     -   10      150   350        100   75 25           17    -    5       22
+                          Total                                           27 Hrs.                     700 Marks                     22 Credits
+
+
+*Note: Students can opt for Open Electives offered by different faculty like Arts, Science, Commerce,
+Management, Humanities or Inter-Disciplinary studies.
+
+   ●​ Example – Open Elective I - Financial Accounting, Digital Finance and Digital Marketing can be opted
+      from Commerce and Management faculty.
+   ●​ Elective II - Project Management, Business Analytical and Financial Management can be opted from
+      Inter-Disciplinary studies, Commerce and Management faculty respectively.
+
+
+
+                                                                11
+                                 NEP 2020 Compliant Curriculum Structure
+                   Second Year Engineering (SPPU 2024 Pattern)
+                                Civil Engineering
+                                                           Level 5.0
+                                                                   Teaching
+                                                                                      Examination
+                                                                    Scheme                                                  Credits
+                                                                                          Scheme and
+                                                                   (Hrs./week
+                                                                        )                 Marks
+    Course          Course                    Course
+     Code            Type                     Name                 Th Tu Pr CC End Ter                    Pr O Th Tu Pr Tot
+                                                                   eo tor act E* -Se m                    act ra eor tor ac al
+                                                                   ry ial ica    m   wor                  ica l y    ial tic
+                                                                          l          k                    l              al
+
+                                                       Semester IV
+                Program Core         Fluid Mechanics
+PCC-251-CVL     Course                                             3      -       -   30    70     -      -       -    3     -    -      3
+                Program Core         Structural Analysis
+PCC-252-CVL     Course                                             3      -       -   30    70     -      -       -    3     -    -      3
+                Program Core         Concrete Technology
+PCC-253-CVL     Course                                             3      -       -   30    70     -      -       -    3     -    -      3
+PCC-254-CVL     Program Core         Concrete Technology Lab       -      -       2    -     -    25      -       25   -     -    1      1
+                Course Lab
+PCC-255-CVL     Program Core         Fluid Mechanics Lab           -      -       2    -     -     -      -       25   -     -    1      1
+                Course Lab
+                Open Elective        *Open Elective - II
+                                                                   2      -       -   15    35        -   -       -    2     -    -      2
+
+MDM-271-CVL     Multidisciplinary    Engineering Geology
+                Minor                                              2      -       -   30    70    -           -   -    2     -    -      2
+VSEC- 281-CVL   Vocational and       Application of Python
+                Skill                                              -      -       2    -     -    25      -       25   -     -    1      1
+                Enhancement
+AEC-282-CVL     Ability              Modern Indian Language
+                Enhancement          (Marathi)                     -      1       2    -     -    50      -       -    -     1    1      2
+EEM-283-CVL     Entrepreneurship /   Project Management
+                Economics/                                         1      -       2    -     -    25      -       -    1     -    1      2
+                Management
+VEC-284-CVL     Value Education      Environment Awareness
+                                                                   2      -       -   15    35        -   -       -    2     -    -      2
+
+                                                                   16     1   10      150   350   125     -       75   16    1    5      22
+                         Total
+                                                                        27 Hrs.              700 Marks                      22 Credits
+
+*Note: Students can opt for Open Electives offered by different faculty like Arts, Science, Commerce,
+Management, Humanities or Inter-Disciplinary studies.
+
+   ●​ Example – Open Elective I - Financial Accounting, Digital Finance and Digital Marketing can be opted
+      from Commerce and Management faculty.
+   ●​ Elective II - Project Management, Business Analytical and Financial Management can be opted from
+      Inter-Disciplinary studies, Commerce and Management faculty respectively.
+
+
+
+                                                              12
+SAVITRIBAI PHULE PUNE UNIVERSITY (SPPU),
+
+       PUNE, MAHARASHTRA, INDIA
+
+
+
+
+      SE - CIVIL ENGINEERING
+
+
+              Semester - III
+
+
+
+
+                    13
+                                   Savitribai Phule Pune University
+                                  SE (Civil Engineering) 2024 Pattern
+
+Course Code: PCC-201-CVL
+Course Name: Mechanics of Structures
+    Teaching Scheme                      Credit                          Examination Scheme
+  Theory: 3 hours / week                    03                        CCE                         30 marks
+                                                                      ESE                         70 marks
+
+Prerequisite: Engineering Mechanics
+Companion Course: Mechanics of Structures Lab
+Course Objectives:
+  1.​ Analysis of simple and compound stresses and strains, including thermal effects and indeterminate
+      structures.
+  2.​ Construction and interpretation of shear force and bending moment diagrams.
+  3.​ Understanding bending and shear stresses in beams.
+  4.​ Understand the torsional effects in shafts and determination of principal stresses & strains in beams
+  5.​ Evaluation of strength of columns under axial loading & Determination of slope and deflection in
+      beams.
+Course Outcomes :
+On completion of the course, learner will be able to:
+   1.​ Understand stress-strain behavior, apply Hooke’s law, and analyze axial stresses, strains and
+       deformations in structures.
+   2.​ Analyze shear force & bending moment under various loading conditions.
+   3.​ Analyze bending & shear stresses in beams.
+   4.​ Apply torsion theory to circular shafts & determine principal stresses in beams.
+   5.​ Analyze axially loaded columns and determine slope and deflection of beams.
+                                          COURSE CONTENTS
+
+    Unit I                          Simple Stresses and Strains                                 (08 hours)
+
+Simple Stresses & Strains: Concepts, Types, Stress-Strain Diagram (elastic, plastic, brittle materials),
+Concept of axial stresses (compression, tension), strains (linear, lateral, shear, volumetric), Elastic
+constants and their relations, Stresses and strains due to change in temperature, Stresses, strains, and
+deformations in determinate and indeterminate structures for homogeneous and composite sections under
+concentrated loads and temperature changes.
+   Unit II                      Shear Force and Bending Moment                                  (08 hours)
+Concept of shear force and bending moment, Relationship between shear force, bending moment, and
+intensity of loading, Shear force and bending moment diagrams for determinate beams under different
+loadings (concentrated, uniformly distributed, uniformly varying loads, and couples), Point of
+Contra-flexure & inflexion.
+                                                    14
+   Unit III                    Bending and Shear Stresses in Beams                               (08 hours)
+
+Bending Stresses in Beams: Theory of simple bending, assumptions, derivation of flexure formula,
+Bending stress distribution diagrams and Moment of Resistance of cross-sections
+Shear Stresses in Beams: Concept of shear, complementary shear, derivation of shear stress formula, Shear
+stress distribution for various cross-sections, maximum and average shear stress for circular and
+rectangular sections.
+
+   Unit IV                    Torsion, Principal Stresses and Strains                            (08 hours)
+
+Torsion of Circular Shafts: Theory of torsion, assumptions, derivation of torsion formula, Stresses, strains
+and deformations in determinate and indeterminate shafts of solid and hollow sections under twisting
+moments, Power transmitted by shafts.
+Principal Stresses and Strains: Concept of principal planes and principal stresses, Normal and shear
+stresses on an oblique plane, magnitude and orientation of principal stresses, maximum shear stress.
+
+   Unit V           Axially Loaded Columns, Slope and Deflection of Beams                        (08 hours)
+
+Axially Loaded Columns: Concept of critical load and buckling, Euler’s formula for buckling load with
+hinged ends, Equivalent length for various end conditions, Rankine’s formula, safe load on column,
+limitations of Euler’s formula.
+Direct and bending stresses for eccentrically loaded short columns, Structural components under eccentric
+loading (retaining walls, dams, chimneys), Effect of lateral force and self-weight, resultant stress diagrams
+for axial loads, uni-axial and bi-axial bending, Concept of core of section for solid and hollow rectangular
+and circular sections.Slope and deflection of determinate beams by Macaulay’s method.
+
+                                       LEARNING RESOURCES
+
+Text Books
+1. Mechanics of Structures Vol. I &II by S. B. Junnarkar and Dr. H. J. Shah, Charotar Publishing House
+Pvt Ltd.
+2. Strength of Materials by R. Subramanian, Oxford University Press.
+3. Strength of Materials by S. S. Ratan, Tata McGraw Hill.
+4. Strength of Materials by B. C. Punmia, Ashok Kumar Jain & Arun Kumar Jain, Laxmi Publications.
+Reference Books
+1. Elements of Strength of Materials by Timoshenko and Young, East-West Press Ltd.
+2. Mechanics of Materials by Beer and Johnston, McGraw Hill Publication.
+3. Introduction to Mechanics of Solids by E.P. Popov, Prantice Hall Publication.
+4. Mechanics of Materials by Gere & Timoshenko, CBC Publisher.
+5. Elementary Structural Analysis by Norris, Wilbur and Utku, Tata McGraw Hill Publisher.
+6. Intermediate Structural Analysis by R. C. Hibbler, Pearson Education Publishers
+
+
+
+                                                     15
+                                     Savitribai Phule Pune University
+                                    SE (Civil Engineering) 2024 Pattern
+
+Course Code: PCC-202-CVL
+Course Name: Surveying
+
+     Teaching Scheme                       Credit                            Examination Scheme
+  Theory: 3 hours / week                      03                     CCE                              30 marks
+                                                                     ESE                              70 marks
+Prerequisite: Basic Introduction to Civil Engineering
+Companion Course: Field Survey Project
+Course Objectives:
+  1.​ To learn the fundamental concepts and instruments used for compass, plane table surveying and
+      leveling.
+  2.​ To study concepts of leveling, methods of leveling and contouring.
+  3.​ To learn the essentials of theodolite and theodolite traversing.
+  4.​ To study tachometry and tachometric contouring.
+  5.​ To study various types of curves and methods of setting out of curves.
+  6.​ To study modern instruments like EDM and total station.
+Course Outcomes: On completion of the course, learner will be able to:
+  1.​ Understand the concept of linear & angular measurements.
+  2.​ Demonstrate the knowledge of leveling for determination of reduced levels of various points on the
+      earth surface.
+  3.​ Demonstrate the use of theodolite for the measurement of horizontal and vertical angles.
+  4.​ Apply the knowledge of tacheometric method of surveying for the preparation of contour map of a
+      given area by conducting tacheometric survey.
+  5.​ Apply various methods of curve setting for setting out the horizontal & vertical curves for highway
+      or railway alignment.
+                                           COURSE CONTENTS
+
+    Unit I           Distance Measurements and Angle Measurement                                     (08 hours)
+
+Introduction, definition, object of survey, primary division of surveying, classification of surveys, uses of
+surveys, principles of surveying, units of measurement (linear and angular measure), scale and R.F.
+Introduction to instruments required for measuring distance and marking of stations. Direct ranging.
+Survey stations, selection of stations, base line, check line, tie line and offsets. Booking field notes, field
+work: equipment, reconnaissance, and reference sketches.
+Introduction of modern instruments and techniques used in surveying such as drone surveying, laser
+scanners, space based position survey (SBPS) etc.
+Compass traversing: introduction, open traverse, closed traverse, the prismatic compass, methods of
+using prismatic compass, bearing of lines, meridians: true, magnetic, arbitrary and grid, designation of
+
+                                                       16
+bearings: whole circle bearing (WCB) and quadrantal or reduced bearing (RB) system, concept of fore
+and back bearings, local attraction, dip of the needle, magnetic declination.
+Plane table surveying: introduction, list of accessories, orientation, setting up of plane table, methods of
+plane tabling: radiation, intersection, traversing and resection. Advantages and disadvantages of plane
+tabling. Introduction to DGPS equipment and its application.
+   Unit II                              Levelling                                                 (08 hours)
+Object and use of levelling, definitions of terms used in levelling, different types of levels: dumpy level,
+auto level, and digital level, laser level. Levelling staff. Temporary adjustment of level, types of levelling
+operations; simple levelling, differential levelling, fly levelling, longitudinal profile levelling,
+cross-sectional levelling, checks in levelling. Curvature and refraction correction. Reciprocal levelling.
+Methods of calculation of reduced level: the collimation system and rise and fall system. Permanent
+adjustment of level: two peg test only.
+   Unit III                        Theodolite Traversing                                          (08 hours)
+
+Study of 20” vernier transit theodolite, definitions of terms, fundamental lines (axes) of theodolite,
+conditions of adjustments, temporary adjustments of theodolite, measurement of horizontal angle by
+repetition and reiteration method. Measurement of vertical angle. Concept of direct angles, deflection
+angles. Setting out an angle, prolonging a line. Computation of latitude and departure. Balancing of
+traverse: omitted measurements.
+
+   Unit IV            Tacheometry Survey and Total Station Survey                                 (08 hours)
+
+Tachometry: introduction, instruments used in tacheometry, principle of tachometry, theory of stadia
+tacheometry, determination of tacheometric constants. Methods of tacheometry: fixed hair method- when
+line of sight is horizontal or inclined and staff is held vertically. Numerical. Contouring: definition of
+contours, uses of contour maps, characteristics of contours, methods of contouring, and interpolation of
+contours. Tachometric contour survey. Total station survey: introduction, parts of a total station, methods
+of observation: radiation method, resection method, Remote Distance Measurement (RDM), Remote
+Elevation Measurement (REM) Advancement in Total Station: Robotic Total station (RTS), Prism less or
+Laser based Total Station, Smart Stations, Applications of Total Station.
+Introduction to Drone Survey and its applications.
+
+   Unit V                                  Curves                                                 (08 hours)
+Introduction, different forms of curves. Definitions and explanation of different terms: degree of curve,
+relation between radius and degree of curve, super elevation, centrifugal ratio. Types of horizontal curves.
+Notations used with circular curves. Properties of a simple circular curve. Horizontal curve setting by- a)
+offsets from chord produced and b) Rankine’s method of deflection angles. Field procedure for setting out
+the curve (by deflection angle) by one and two theodolite methods. Compound curve- calculation of data
+and setting out in the field. Transition curves: objectives of providing transition curves, requirement of
+ideal transition curve. Notations used with combined curves. Vertical curves: definition, gradient, rate of
+change of grade, length of vertical curve, types of vertical curves.
+
+
+                                                     17
+                                      LEARNING RESOURCES
+
+Text Books
+1.​ Surveying and Levelling, R. Subramanian, Oxford Publication.
+2.​ Surveying Vol. I, Dr. B. C. Punmia, Ashok K. Jain, Arun K. Jain, Laxmi Publication.
+3.​ Surveying, Vol. I, S. K. Duggal, Tata Mc-Graw Hill.
+4.​ Surveying and Levelling, Vol. I and Vol. II, T. P. Kanetkar and S. V. Kulkarni, Pune Vidyarthi Griha
+    Prakashan.
+5.​ Plane Surveying & Higher Surveying, Dr. A. M. Chandra, New Age International Publishers New
+    Delhi.
+Reference Books
+1.​ Plane surveying, A. M. Chandra, New Age International Publishers New Delhi.
+2.​ Surveying and Levelling, N. N. Basak, Tata Mc-Graw Hill.
+3.​ Surveying Vol. I, Dr. K. R. Arora, Standard Book House.
+
+
+
+
+                                                    18
+                                 Savitribai Phule Pune University
+                                SE (Civil Engineering) 2024 Pattern
+
+Course Code: PCC-203-CVL
+Course Name: Building Construction and Materials
+
+  Teaching Scheme                   Credit                          Examination Scheme
+Theory: 3 hours / week                03                          CCE                         30 marks
+                                                                  ESE                         70 marks
+Prerequisite: Basic & Engineering Science Course
+Companion Course: Building Construction and Materials Lab
+Course Objectives:
+   1.​ To understand fundamental concepts of building construction technology.
+   2.​ To study building components, traditional and modern construction techniques.
+   3.​ To study different conventional building materials with an emphasis on sustainability.
+   4.​ To study green building planning and sustainable materials.
+   5.​ To learn building bye-laws, regulations and drawing norms, standards with respect to UDCPR,
+       Maharashtra State.
+Course Outcomes :
+On completion of the course, learner will be able to:
+   1.​ Understand Building Construction Technology – Demonstrate knowledge of fundamental building
+       construction concepts, including structural and non-structural components.
+   2.​ Explain Conventional Building Materials techniques.
+   3.​ Summarize Modern Construction Techniques.
+   4.​ Apply Green Building Concepts – Integrate principles of green building planning and sustainable
+       materials into construction projects.
+   5.​ Describe Building Bye-laws & Regulations – Interpret and apply building bye-laws, regulations,
+       and drawing standards, particularly in line with UDCPR, Maharashtra State.
+
+                                       COURSE CONTENTS
+
+  Unit I                    Introduction to Building Technology                             (08 hours)
+
+Definition and scope of building technology, fundamentals of building construction, classification of
+buildings as per NBC (National Building Code).Type of structures: load bearing & framed structures and
+their requirements, type of loads and their effects. Building components and their functions:
+    a.​ foundation, types of foundations and their suitability,
+    b.​ wall construction techniques: masonry,
+    c.​ framed structures components: footing, column, beam, lintels, arches, slabs, precast panels,
+    d.​ flooring and roofing: types and methods,
+    e.​ openings: doors and windows with types and installation
+
+
+                                                   19
+ Unit II              Conventional Building Materials and Techniques                         (08 hours)
+Conventional Building Materials- Properties, Types and Uses -Stone, Brick, Cement, Concrete, Concrete
+Blocks, Flooring Materials-Tiles, Roofing Materials, Mortars and Plasters, Admixtures, Pigments,
+Timber-types, Products and its Applications in construction, Steel and Aluminum as Structural Materials,
+Plumbing Materials, Sanitary Wares, Electrical Materials and Appliances, Finishing Materials-Paints,
+Varnishes, Coatings, Claddings.
+Conventional Building Techniques- Load-Bearing Construction, Brick Masonry Construction, Stone
+Masonry Construction, Timber Construction, Bamboo Construction, Mud and Clay Construction, Lime
+Plaster and Mortar Construction, Thatch and Bamboo Roofing. Types and Purpose of Formwork and
+Scaffolding, Construction Site Safety Practices.
+
+ Unit III                     Modern Construction Techniques                                 (08 hours)
+Modern Construction Process and Stages-Reinforced Cement Concrete (RCC) Construction, Concrete
+Frame Construction, Prefabrication Construction e.g. Airports, Seaports, Steel Frame Construction,
+Modular Construction, 3D printing in buildings, Dry Construction Techniques for Sustainability,
+Automation in the Construction Sector, its Applications and Case Studies.
+
+ Unit IV            Green Building planning and Sustainable Materials                        (08 hours)
+Concept of Green Buildings and Green Ratings (LEED, GRIHA, IGBC), Green Construction-Concept of
+Green Roof, Importance of Sustainability in Construction, Passive Solar Design and Bioclimatic
+Architecture, Thermal Insulation. Eco-friendly Materials: Bamboo, Recycled Aggregates, Fly Ash Bricks,
+AAC Blocks, Green Concrete and Geopolymer Concrete, Use of Industrial and Agricultural Waste
+Materials, Energy-Efficient Building Materials, Energy Efficiency-Policies of Solar PV in Smart Domains
+(RPO, REC, Carbon Credit).
+
+ Unit V                       Building Bye-Laws and Drawings                                 (08 hours)
+Necessity of Bye-Laws, UDCPR (Unified Development Control and Promotion Regulations for
+Maharashtra State)-Plot Sizes, Road Width, Open Spaces, Marginal Distances, Building Line, Control
+Line, Room Sizes, Area Calculations-Built-up Area, Carpet Area, Floor Space Index (F.S.I.), Transfer
+Development Rights (TDR), Norms for Ventilation, Lighting, Vertical Circulation, Sanitation, Parking
+Spaces of Vehicles, Land Use Planning (Utilization of Space, Zoning).
+Introduction of building drawing: Principles of Building Planning and Principles of Architectural
+Design-Function, Utility, Aesthetics, Selection of Scales for various Drawings, Dimensioning,
+Abbreviations and Symbols as per IS 962. Norms and Standards of Residential Building and Public
+Building, Planning Strategy includes Line Plan, Detailed Plan, Elevation, and Section (Teach Students to
+Draw Residential and Public Building Drawings).
+
+                                     LEARNING RESOURCES
+
+Text Books
+   1.​ Building Construction – B.C. Punmia, Ashok Kumar Jain.
+   2.​ Building Materials by S.V.Deodhar, Khanna Publication.
+
+                                                  20
+   3.​ Building Drawing with an Integrated Approach to Build Environment Sixth Edition (English,
+       Paperback, S Y Patki, M G Shah, C M Kale).
+Reference Books
+   1.​ Building Materials – S.K. Duggal.
+   2.​ Construction Materials & Their Applications – Rangwala.
+   3.​ Sustainable Building Materials – J. Khatib.
+   4.​ Handbook on Green Building Design & Construction – Charles Kibert.
+   5.​ National Building Code (Latest Edition).
+   6.​ UDCPR Updated To 30.1.2024.
+   7.​ Model Building Bye-Laws 2016.
+
+
+
+
+                                                 21
+                                     Savitribai Phule Pune University
+                                    SE (Civil Engineering) 2024 Pattern
+
+Course Code: PCC-204-CVL
+Course Name: Building Construction and Materials Lab
+
+                  Teaching Scheme                             Credit              Examination Scheme
+Practical: 2 hours / week                                         01             TW             25 marks
+                                                                                 PR             25 marks
+ List of Laboratory Assignments
+1.​ Students shall prepare drawings of at least four types of masonry.
+2.​ Students shall prepare drawings of at least two types of lintels or arches.
+3.​ Draw sketches using computer software at least two types of doors.
+4.​ Draw sketches using computer software at least two types of windows.
+5.​ Floor Plan/ Typical floor plan with construction notes, schedule of openings, of any type of building,
+     Plan, Elevation and Section (Full Imperial sheet)
+6.​ Develop typical floor plan drawing exercise as completed in assignment number 5 using computer
+     software and Printout of the same.
+7.​ Site Visit : Any on-going Construction Site (visit report should contain: details of the project, stage of
+     construction, sketches of components with cross section & dimensions, materials used and site plan,
+     etc.)
+                                      OR
+ Site Visit: Green Building, Salient features like materials used/technology etc, benefits, planning concepts
+of Green Building (site selection, orientation, sun path and wind diagram etc.)
+8. Collection of advertisements of modern construction materials and tools used in construction and prepare
+report on the same.
+
+Note: These are the following computer software list which can be used for assignments no. 3,4 and 6
+LibreCAD, FreeCAD, SketchUp or AutoCAD.
+
+
+
+
+                                                      22
+                                  Savitribai Phule Pune University
+                                 SE (Civil Engineering) 2024 Pattern
+
+Course Code: PCC-205-CVL
+Course Name: Mechanics of Structures Lab
+
+                 Teaching Scheme                          Credit          Examination Scheme
+Practical: 2 hours / week                                   01            TW        25 marks
+                                                                          OR        25 marks
+                                         LIST OF PRACTICALS
+List of term work consisting of following
+A. Lab Work (Any eight)
+   1.​ Tension test on Mild and TMT steel.
+   2.​ Tension test on Polymer Bar / FRP Rebar Material.
+   3.​ Shear (Single & Double) test on mild steel.
+   4.​ Torsion test on mild steel.
+   5.​ Impact (Izod & Charpy) test on mild steel, aluminum, brass.
+   6.​ Compression test on timber (parallel & perpendicular to grains).
+   7.​ Bending test on timber and MS Plate.
+   8.​ Abrasion test of flooring tiles.
+   9.​ Compressive strength test on bricks/ aerated / AAC blocks.
+   10.​Flexural strength of flooring tiles.
+B. Assignment Work
+   1.​ One assignment on each unit.
+   2.​ Market survey of structural materials including its costing.
+C. Computational Work
+       The above assignments to be solved using computational methods.
+
+
+
+
+                                                   23
+                                     Savitribai Phule Pune University
+                                    SE (Civil Engineering) 2024 Pattern
+
+Course Code: MDM-221-CVL
+Course Name: Engineering Mathematics - III
+
+   Teaching Scheme                    Credit                              Examination Scheme
+Theory: 3 hours / week                   03                           CCE                             30 marks
+                                                                      ESE                             70 marks
+Prerequisite: Differential & Integral calculus, Differential equations of first order & first degree, Fourier
+series, Collection, Classification and Representation of data and Vector algebra.
+Companion Course,if any.
+Course Objectives:
+To familiarize the students with concepts and techniques in Ordinary differential equations, Statistical
+methods, Probability theory, Numerical Methods and Vector calculus. The aim is to equip them with the
+techniques to understand advanced level mathematics and its applications that would enhance analytical
+thinking power, useful in their disciplines.
+Course Outcomes :
+On successful completion of this course, students will be able to:
+CO1: SOLVE higher order linear differential equations and its applications to model and analyze bending
+of beams and whirling of shafts.
+CO2: APPLY Statistical methods like correlation, regression in analyzing and interpreting experimental
+data applicable to reliability engineering and probability theory in testing and quality control.
+CO3: SOLVE Algebraic & Transcendental equations and System of linear equations using numerical
+techniques.
+CO4: OBTAIN Interpolating polynomials, numerical differentiation and integration, numerical solutions of
+ordinary differential equations used in modern scientific computing applicable to Civil engineering.
+CO5: PERFORM Vector differentiation & integration, ANALYZE the vector fields and APPLY to fluid
+flow problems.
+                                           COURSE CONTENTS
+  Unit I            Linear Differential Equations (LDE) and Applications                             (08 hours)
+
+LDE of nth order with constant coefficients, Complementary Function, Particular Integral, General method,
+Short cut methods, Method of Variation of parameters, Cauchy’s and Legendre’s DE, Simultaneous DE.
+Modelling of problems on bending of beams and whirling of shafts.
+
+  Unit II                           Statistics and Probability                                       (08 hours)
+Statistics: Measures of central tendency, Measures of dispersion, Coefficient of variation, Moments,
+Skewness and Kurtosis, Correlation and Regression, Reliability of Regression estimates.
+Probability: Introduction, Probability density function, Probability distributions: Binomial, Poisson, Normal
+and Test of hypothesis: Chi-square test and t- test.
+
+
+                                                      24
+ Unit III        Numerical Methods for solving Algebraic and Transcendental                         (08 hours)
+                                            Equations
+Numerical Solution of Algebraic and Transcendental equations: Bisection, Secant, Regula-Falsi,
+Newton–Raphson and Successive Approximation Methods, Convergence and Stability.
+Numerical Solutions of System of linear equations: Gauss elimination with partial pivoting, LU
+Decomposition, Jacobi and Gauss-Seidel Methods.
+ Unit IV                  Numerical Interpolation and Solution of ODE                               (08 hours)
+Interpolation: Finite Differences, Newton’s and Lagrange’s Interpolation formulae, Numerical
+Differentiation.
+Numerical Integration: Trapezoidal and Simpson’s rules, Bound of truncation error.
+Solution of Ordinary differential equations (ODE): Euler’s, Modified Euler’s, Runge-Kutta 4th order
+methods and Predictor-Corrector methods
+  Unit V                                 Vector Calculus                                            (08 hours)
+Vector differentiation, Gradient, Divergence, Curl, Directional derivative, Solenoidal & Irrotational fields,
+Vector identities. Line, surface and volume integrals, Green’s theorem, Gauss’s Divergence theorem and
+Stokes’ theorem.
+                                         LEARNING RESOURCES
+Text Books
+   1.​ Higher Engineering Mathematics – B. V. Ramana (Tata McGraw-Hill)
+   2.​ Higher Engineering Mathematics – B.S. Grewal (Khanna Publication, Delhi)
+
+Reference Books.
+   1.​Erwin Kreyszig, “Advanced Engineering Mathematics,” 10th Edition, by Wiley India, 2006.
+   2. Michael D. Greenberg, “Advanced Engineering Mathematics, 2nd Edition, Pearson Education, 1998.
+   3. Peter V. O'Neil, “Advanced Engineering Mathematics”, 8th Edition, Cengage Learning, 2023.
+   4. Shepley L. Ross, “Differential Equations”, 3rd Edition, Wiley India, 2018.
+   5. Sheldon M. Ross, “Introduction to Probability and Statistics for Engineers and Scientists”, 6th
+   Edition, Elsevier Academic Press, 2021.
+
+e-Books
+   1.​ https://archive.org/details/higher-engineering-mathematics-bs-grewal
+   2.​ https://wp.kntu.ac.ir/dfard/ebook/em/Advanced%20Engineering%20Mathematics%2010
+       th%20Edition.pdf
+   3.​ https://minerva.it.manchester.ac.uk/~saralees/statbook3.pdf
+   4.​ https://plcsitemiz.files.wordpress.com/2009/04/the-laplace-transform-theory-andapplications.pdf
+Links to online SWAYAM/NPTEL Courses
+    1.​ NPTEL        Course      “Transform     Calculus    And  its   applications   in  differential
+        equations”https://nptel.ac.in/courses/111/105/111105123/
+    2.​ NPTEL Course on “Numerical Methods”https://nptel.ac.in/courses/111/107/111107105/
+MOOC/NPTEL/YouTube Links:
+1. https://archive.nptel.ac.in/courses/122/107/122107037/
+2. https://archive.nptel.ac.in/courses/111/105/111105041/
+3. https://archive.nptel.ac.in/courses/111/107/111107107/
+4. https://archive.nptel.ac.in/courses/111/106/1111061
+                                                     25
+                                   Savitribai Phule Pune University
+                                  SE (Civil Engineering) 2024 Pattern
+
+Course Code: EEM-231-CVL
+Course Name: Economics for Civil Engineers
+
+   Teaching Scheme                Credit                            Examination Scheme
+ Theory: 1 hours / week              02                    ​            ​ TW                 25 Marks
+Practical: 2 hours / week
+
+Prerequisite: Civil engineering fundamentals, economics, financial principles and contract management
+Companion Course: if any
+Course Objectives:
+1.​ To provide students with a comprehensive understanding of economic principles and financial
+    management in the context of civil engineering projects.
+2.​ To equip students with the skills necessary to analyze, evaluate and make decisions regarding the
+    financial aspects of construction projects.
+
+Course Outcomes:
+On completion of the course, learner will be able to:
+1.​ Understand the fundamental economic principles and their application in the construction industry.
+2.​ Analyze the financial aspects of construction projects using financial statements and key metrics.
+3.​ Evaluate the feasibility of construction projects by applying costing concepts and techniques.
+4.​ Apply economic decision-making tools, such as capital budgeting techniques, to assess construction
+    projects and understand the importance of taxation.
+                                          COURSE CONTENTS
+
+         Unit I                    Fundamentals of Construction Economics                       (03 hours)
+Introduction to Construction Economics, Scope and importance of economics in construction, Developed
+and Developing Economies. New Economic Policy, Basic economic principles -supply, demand,
+equilibrium, Economic cycles and their impact on the construction industry, Market Structure & Pricing
+Mechanisms, Cost-price relationships in construction projects, Macroeconomic and microeconomics,
+Factors Affecting Construction, Government regulations and policies on construction economics,
+Sustainability and Green Economics in Construction.
+
+         Unit II                   Financial Management in Construction                         (03 hours)
+Basic concept of finance in the construction sector, Structure of Indian Financial System. Long Term and
+short term sources of finance, financial market and sources of finance to construction project, Goal of
+financial management in construction, Financial Statements: Balance Sheet, Profit & Loss Statement,
+Break-Even Analysis, Cash Flow Statement. Financial institutions in India, Housing finance institutions
+and their role in development of the construction sector, Earnings Before Interest and Taxes (EBIT)-
+concept and use in the construction sector, Simple Numerical on calculation of EBIT and leverage ratio.
+                                                    26
+        Unit III                                 Contract Costing                                 (03 hours)
+Contract-definition, types of Civil Engineering contract, Cost Concepts in Construction, Types of costs -
+fixed, variable, direct, indirect, Segregation of cost into fixed and variable cost, Balance
+Depreciation-definition, types and simple numerical of calculation of depreciation. Public Sector
+Economics & Infrastructure Development-Public Private Partnership, Infrastructure Financing &
+budgeting. Escalation clause with case study.
+        Unit IV                          Capital Budgeting and Taxation                           (03 hours)
+Budget, types of budgets in construction, preparation of budget for construction company, time value of
+money concept, Interest rate and their types, simple numerical on calculation of interest rates, Working
+capital-definition and types, essential of working capital, Numerical of working capital estimation. Project
+Appraisal & its types. Capital Budgeting Techniques.
+Tax-Definition and Necessity of tax in construction development, Structure of Indian Taxation System,
+Types of tax-direct, indirect, Difference between VAT and GST, advantages and disadvantages of GST,
+Property tax- Types, calculation of property tax.
+                                Assignments for Term work Assessment
+   1.​ Report on risk assessment and mitigation in a civil engineering case (e.g., dam or flyover)
+   2.​ Conduct a lifecycle cost analysis for a building project with sustainable alternatives
+   3.​ Prepare a detailed cost estimate for a small civil project (e.g., road paving or culvert construction)
+   4.​ Compare two project alternatives using NPV and IRR methods
+   5.​ Case study: Analyze the economic feasibility of a small-scale infrastructure project (e.g.,
+       Community Bridge or water supply system).
+   6.​ Write a brief report on case : Delayed residential project penalized under RERA.
+   7.​ Report on Real-world case study of project failures due to poor economic planning.
+                                        LEARNING RESOURCES
+Text Books
+   1.​ Engineering Economics Management, Dr. Vilas Kulkarni and Hardik Bavishi, S. Chand Publication
+   2.​ Laws for Engineers, Vandana Bhatt and Pinky Vyas, Pro Care Publisher
+   3.​ Indian Economy, Gaurav Datt and Ashwani Mahajan, S. Chand Publication
+   4.​ Industrial Organization & Engineering Economics, T. R. Banga and S. C. Sharma, Khanna
+       Publisher
+   5.​ Engineering Economics – R. Panneerselvam – PHI learning Pvt. Ltd.
+Reference Books
+   1.​ Engineering Economy, Theusen G. J. and Fabrycky W. J., 9th Edition, Prentice-Hall, Inc., New
+       Delhi
+   2.​ Finance for Engineers: Evaluation and Funding of Capital Projects, Crundwell F. K., Springer,
+       London.
+   3.​ Construction Project Management: Theory and practice, Jha K.N., 2nd Edition, Pearson India
+       Education Services Pvt. Ltd.
+   4.​ Financial Management, Khan and Jain, Tata McGraw-Hill Education
+   5.​ Construction Management and Accounts, Singh H, Tata McGraw Hill, New Delhi.
+   6.​ Engineering Economy, Leland T. Blank and. Anthony Tarquin, McGraw Hill.
+
+                                                     27
+                                     Savitribai Phule Pune University
+                                    SE (Civil Engineering) 2024 Pattern
+Course Code: VEC 232 CVL
+Course Name: Universal Human Values and Professional Ethics
+
+Teaching Scheme                          Credit                             Examination Scheme
+
+Theory : 02 Hours/Week                     02                         CCE                              15 marks
+                                                                      ESE                              35 marks
+Prerequisite, if any: Student Induction Program (SIP)
+Companion Course, if any
+Course Objectives:
+The course aims to:
+1.​ To help the students develop a holistic, humane world-vision, and appreciate the essential
+    complementarity between values and skills to ensure mutual happiness and prosperity
+2.​ To elaborate on ‘Self-exploration’ as the process for Value Education
+3.​ To facilitate the understanding of harmony at various levels starting from self and going towards family
+    and society.
+4.​ To elaborate on the salient aspects of harmony in nature and the entire existence.
+5.​ To explain how the Right understanding forms the basis of Universal human values and definitiveness of
+    Ethical human conduct.
+6.​ To provide the vision for a holistic way of living and facilitate transition from chaotic life to an orderly
+    life.
+Course Outcomes:
+On completion of the course, learner will be able to:
+     1.​ Recognize the concept of self-exploration as the process of value education and see they have the
+          potential to explore on their own right.
+     2.​ Explore the human being as the coexistence of self and body to see their real needs / basic
+          aspirations clearly.
+     3.​ Explain the relationship between one self and the other self as the essential part of relationship and
+          harmony in the family.
+     4.​ Interpret the interconnectedness, harmony and mutual fulfilment inherent in nature and the entire
+          existence.
+     5.​ Draw ethical conclusions in the light of Right understanding facilitating the development of holistic
+          technologies production systems and management models.
+                                            COURSE CONTENTS
+   Unit I                           Introduction to Value Education                                  (06 hours)
+
+  (i)​Understanding Value Education
+  (ii)​ Self-exploration as the Process for Value Education
+  (iii)​Continuous Happiness and Prosperity - the Basic Human Aspirations and their Fulfilment
+  (iv)​Right Understanding, Relationship and Physical Facility
+  (v)​ Happiness and Prosperity - Current Scenario
+                                                       28
+ (vi)​Method to Fulfil the Basic Human Aspirations
+Unit II                          Harmony in the Human Being                                        (06 hours)
+
+ (i)​Understanding Human being as the Co-existence of the Self and the Body
+ (ii)​ Distinguishing between the Needs of the Self and the Body
+ (iii)​The Body as an Instrument of the Self
+ (iv)​Understanding Harmony in the Self
+ (v)​Harmony of the Self with the Body
+ (vi)​Programme to Ensure self-regulation and Health
+Unit III                       Harmony in the Family and Society                                   (06 hours)
+
+ (i)​ Harmony in the Family - the Basic Unit of Human Interaction "Trust’ - the Foundational
+        Value in Relationship
+ (ii)​ ’Respect’ - as the Right Evaluation
+ (iii)​Values in Human-to-Human Relationship
+ (iv)​ Understanding Harmony in the Society
+ (v)​ Vision for the Universal Human Order
+Unit IV                               Harmony in the Nature                                  (06 hours)
+
+ (i)​Understanding Harmony in the Nature
+ (ii)​ Interconnectedness, self-regulation and Mutual Fulfilment among the Four Orders of Nature
+ (iii)​Realizing Existence as Coexistence at All Levels
+ (iv)​The Holistic Perception of Harmony in Existence
+ (v)​Professional Ethics in the light of Right Understanding
+ (vi)​Strategies for Transition towards Value-based Life and Profession
+                                        LEARNING RESOURCES
+Text Books
+   1.​ A Foundation Course in Human Values and Professional Ethics, RR Gaur, R Asthana, GP Bagaria, 3rd
+       revised edition, UHV Publications, 2023, ISBN: 978-81-957703-7-3 (Printed Copy), 978-81- 957703-6-6
+       (e-book)
+   2.​ Teachers’ Manual for A Foundation Course in Human Values and Professional Ethics, RR Gaur, R Asthana,
+       GP Bagaria, 3rd revised edition, UHV Publications, 2023, ISBN: 978-81-957703-5-9 (Printed Copy),
+       978-81-957703-0-4 (e-Book)
+
+Reference Books
+   1.​ P. L. Dhar, R. R. Gaur, 1990, Science and Humanism, Commonwealth Publishers.
+   2.​ A. Nagaraj, 1999, Jeevan Vidya: Ek Parichaya, Jeevan Vidya Prakashan, Amarkantak
+   3.​ B. P. Banerjee, 2005, Foundations of Ethics and Management, Excel Books.
+   4.​ A. N. Tripathy, 2003, Human Values, New Age International Publishers.
+   5.​ E. G. Seebauer & Robert L. Berry, 2000, Fundamentals of Ethics for Scientists & Engineers , Oxford
+       University Press
+   6.​ B. L. Bajpai, 2004, Indian Ethos and Modern Management, New Royal Book Co., Lucknow. Reprinted 2008.
+   7.​ M. Govindrajran, S Natrajan & V.S. Senthil Kumar, Engineering Ethics and Human Values, East- ern
+       Economy Edition, Prentice Hall of India Ltd.
+   8.​ M. K. Gandhi, “The Story of my Experiments with Truth”, Discovery Publisher
+                                                     29
+                                    Savitribai Phule Pune University
+                                   SE (Civil Engineering) 2024 Pattern
+
+Course Code: FP-241-CVL
+Course Name: Field Survey Project
+
+    Teaching Scheme                    Credit                            Examination Scheme
+ Practical: 4 hours / week               02                         TW                       25 marks
+                                                                    PR                       50 marks
+                                   List of Practical for Field Survey Project
+
+ Field project 1: a) Measurement of magnetic bearings of sides of a polygon, using prismatic compass and
+ calculations of correction for local attraction and true bearings. b) Determination of elevation difference
+ between any two points in an area using Auto level by taking at least three change points. c) Determination
+ of distance between two points by Radiation & Intersection method of plane table survey.
+ Field project 2: Measurement of horizontal and vertical angle, horizontal, vertical and Sloping distance,
+ percentage Gradient using Total Station.
+ Field project 3: Finding horizontal distance and elevation using a Tachometric method and determination of
+ height of the building using Total Station.( Use Remote Elevation Measurement (REM) function).
+ Field project 4: Determination of horizontal distance and difference in elevation between two consecutive
+ points using Total Station (Use Remote Distance Measurement (RDM) function) and Line out of building
+ using Total Station.
+ Field project 5: Conduct a topographic survey using DGPS Equipment to determine the coordinates,
+ elevation and features of a given site.
+ Field project 6: Road project using Auto level for minimum length of 200 mts including fixing of
+ alignment, profile leveling, cross-sectioning, plotting of Longitudinal section and Cross Section. (One full
+ imperial sheet including plan, Longitudinal section and any three typical Cross-sections).
+ Field project 7: Tacheometric contouring project on hilly area with at least two instrument stations about 60
+ m to 100 m apart and generating contours using both methods, manual as well as using any suitable software
+ such as Autodesk land desktop, Auto-civil, Foresight etc. (minimum contour interval 1 meter). (Use
+ Drone/Total Station for linear and angular observations).
+
+
+
+                                 Proposed Equipment for Course Content
+
+  Sr.           Topic                              Course Content                               Proposed
+  No.                                                                                          Equipment
+  1.       Introduction and    1.​ Study of Auto level and Digital level in construction        Auto Level
+           type of Leveling        industry.                                                   Digital Level
+                               2.​ Establishing the Benchmark using Back sight &
+                                   Foresight.
+                               3.​ Performing Line leveling.
+
+                                                     30
+                          4.​ Calculating cut & fill with respect to known TBM.
+                          5.​ Storing the digital data of measured levels and
+                                process, analyze and adjust the level error in Digital
+                                level
+2.      Theodolite        It should be replaced or addition with new technology of       Total Station /
+      Surveying and       “Electronic Total Station (ETS)”                                Leica Total
+      Introduction to          1.​ Establishing the coordinate system and measure           Station
+      Geodetic survey              the X,Y,Z of area with ETS
+                               2.​ Study of various station set up methods,
+                                   Surveying, Layout and other land/topographic
+                                   surveying applications
+                               3.​ Perform the traverse and adjustment done with
+                                   Transit & Compass rule
+                               4.​ Understand the measurement using IR or Prism
+                                   mode and RL/DR or Reflector less mode
+                               5.​ Transferring the data from field to office in CSV,
+                                   XML, DXF etc. formats and work in AutoCAD
+                                   or any Civil 3D software
+3.   Modern Surveying     Use of Global Navigation Satellite System of Dual              GNSS receiver /
+      technique using     frequency receiver to survey in geodetic coordinate             Leica GNSS
+          GNSS            system                                                            receiver
+                               1.​ Perform the Real Time Kinematics survey using
+                                   well established CORS network in Maharashtra
+                               2.​ Measure the points and get the data in
+                                   Latitude/Longitude and East/North
+                               3.​ Establish and fix the boundary survey,
+                                   Topographic survey, As-built survey, Layout and
+                                   other surveying related programs using GNSS
+                                   receiver
+                               4.​ Transferring the data in CSV, DXF, XML, KML
+                                   and other user defined data formats.
+4.   Modern Surveying       Conduct a topographic survey using DGPS Equipment                DGPS
+        technique for       to determine the coordinates, elevation and features of        Equipment
+     topographic survey     a given site.
+         using DGPS
+         Equipment.
+
+
+
+
+                                                 31
+SAVITRIBAI PHULE PUNE UNIVERSITY (SPPU) ,
+
+       PUNE, MAHARASHTRA, INDIA
+
+
+
+
+        SE- Civil Engineering
+
+
+             Semester - IV
+
+
+
+
+                    32
+                                      Savitribai Phule Pune University
+                                     SE (Civil Engineering) 2024 Pattern
+
+Course Code: PCC-251-CVL
+Course: Fluid Mechanics
+
+     Teaching Scheme                       Credit                            Examination Scheme
+  Theory: 3 hours / week                     03                     CCE                                  30 marks
+                                                                    ESE                                  70 marks
+Prerequisite: Engineering Mathematics and Engineering Mechanics
+Companion Course: Fluid mechanics Lab
+Course Objectives:
+   1.​ To study fluid properties, fluid statics.
+   2.​ To study fluid kinematics.
+   3.​ To study & apply fluid dynamics equations.
+   4.​ To calculate different types of losses in pipes.
+   5.​ To study open channel flow with reference to energy-depth relationship and uniform flow.
+
+Course Outcomes
+On completion of the course, learner will be able to:
+   1.​ Understand fluid properties and concepts of fluid statics and solve problems based on practical
+       applications.
+   2.​ Understand fundamentals of fluid kinematics and apply it to solve fluid flow problems.
+   3.​ Solve fluid flow problems using Bernoulli’s equation.
+   4.​ Calculate major and minor losses in the pipe network.
+   5.​ Apply the knowledge of uniform flow and depth-energy to solve problems on open channel flow.
+                                           COURSE CONTENTS
+      Unit I               Properties of Fluids and Fluid Statics                                      (08 hours)
+Properties of fluids: basic definitions - fluid, fluid mechanics, ideal fluids, real fluids, mass density, specific
+weight, specific volume, specific gravity; viscosity- dynamic and kinematic, classification of fluids based on
+newton’s law of viscosity (rheological diagram), surface tension, capillarity, vapour pressure, compressibility
+and elasticity.
+Fluid statics: pressure and its measurement, fluid pressure at a point, pascal’s law, hydrostatic law; concept of
+atmospheric, absolute, gauge and negative pressure; pressure measuring devices. Total pressure, intensity of
+pressure, center of pressure. Pressure on horizontal, vertical, inclined and curved surfaces.
+   Unit II                            Fluid Kinematics                                                 (08 hours)
+Eulerian and Lagrangian approach, velocity and acceleration, and their components in Cartesian co-ordinates,
+Classification of flows, streamline, stream tube, path line, streak line, control volume. Equation of continuity
+for 3-D flow in Cartesian coordinates, components of rotation, velocity potential, stream function, flow net
+and it’s use.
+
+                                                        33
+   Unit III                           Fluid Dynamics                                                (08 hours)
+
+Forces acting on fluid mass in motion, Euler’s equation of motion along a streamline and its integration to get
+Bernoulli’s equation and its limitations, Modified Bernoulli’s equation, concept of HGL and TEL, Application
+of Bernoulli’s equation: Venturimeter, Orifice meter, Rota-meter and Pitot tube.
+
+   Unit IV                         Flow Through Pipes                                               (08 hours)
+
+Characteristics of laminar flow, laminar flow through a circular pipe: Hagen Poiseuille equation,
+Hazen-Williams formula. Characteristics of turbulent flow, Darcy-Weisbach Equation, Moody’s diagram,
+Major and minor losses of energy in pipes, flow through pipes in simple and compound pipe,pipes in series,
+parallel,Dupit’s equation, Introduction to pipe network and design: Hardy cross method.
+
+   Unit V                          Open Channel Flow                                                (08 hours)
+Introduction to Open channel flow:
+Classification of channels, channel flows and geometric elements of channel, Velocity distribution in open
+channel flow and hydraulic jump.
+Uniform flow in open channels: Uniform flow formulae:
+Chezy’s and Manning's formulae; Factors affecting Manning's roughness coefficient. Most efficient channel
+sections: rectangular, trapezoidal. Depth-Energy Relationships in Open Channel Flow: Specific energy and
+Specific force diagram, Depth discharge Diagram, Critical depth, Conditions for occurrence of critical flow;
+Froude's number, flow classification based on it, Introduction to channel transition.
+                                          LEARNING RESOURCES
+Text Books
+1. A Text Book on Fluid Mechanics and Hydraulic Machines by Dr. R. K. Bansal Pub: Laxmi Publications
+(P),Ltd. New Delhi
+2. A Text Book of Fluid Mechanics and Hydraulic Machines- by Dr. R K Rajput Pub: S Chand and Co Ltd.
+New Delhi
+3. A Text Book on Fluid Mechanics and Hydraulic Machines by Sukumar Pati Pub: McGraw Hill, New Delhi
+Reference Books
+1. Hydraulics and Fluid Mechanics including Hydraulic Machine by Dr P. N. Modi & S. M. Seth Pub:
+Standard book house, Delhi
+2. Flow in Open Channels by K Subramanya, Tata McGraw Hill, New Delhi
+3. Engineering Fluid Mechanics by R. J. Garde and A. J. Mirajgaonkar, SCITECH Publications( India )Pvt.
+Ltd, Chennai
+4. Fluid Mechanics and its Applications, Vijay Gupta, Santosh K Gupta, New Age international pvt. Ltd, New
+Delhi,
+5. Fluid Mechanics, Fundamentals and applications by Yunus. A Cengel and John. M Cimbala, Mc Graw Hill
+International, New Delhi.
+6. Fluid Mechanics by Streeter, Wylie and Bedford , McGraw Hill International, New Delhi.
+7. Open Channel Hydraulics by Ven Tee Chow,McGraw- Hill Book Company- Koga.
+
+
+                                                      34
+                                     Savitribai Phule Pune University
+                                    SE (Civil Engineering) 2024 Pattern
+
+Course Code: PCC-252-CVL
+Course: Structural Analysis
+
+    Teaching Scheme                      Credit                              Examination Scheme
+
+  Theory: 3 hours / week                   03                          CCE                            30 marks
+                                                                       ESE                            70 marks
+
+Prerequisite, if any: Fundamentals Mathematics , Engineering Mechanics and Mechanics of Structures
+
+Companion Course, if any
+Course Objectives:
+1.​ This course aims to develop a solid understanding of the fundamental concepts of structural forms and
+    indeterminacy, enabling students to classify structures and determine their degrees of freedom.
+2.​ It introduces the analysis of statically indeterminate beams, frames, and trusses using methods such as
+    consistent deformation and unit load method, considering various effects like external loads, support
+    settlements, temperature changes, and fabrication errors.
+3.​ The course covers approximate methods for analyzing multi-storey , two-bay rigid frames using Cantilever
+    and Portal methods.
+4.​ This will explore classical techniques such as the slope-deflection method and moment distribution method
+    for analyzing indeterminate beams and frames, including sway and non-sway conditions.
+5.​ This will introduce matrix-based analysis using the stiffness method, focusing on structural and member
+    approaches for analyzing beams and rigid frames with limited degrees of indeterminacy.
+Course Outcomes
+Upon successful completion of this course, students will be able to:
+1.​ Classify different types of structures and determine static and kinematic indeterminacy of beams, frames,
+    and trusses.
+2.​ Analyze statically indeterminate beams, frames, and trusses using the consistent deformation method and
+    unit load method for various loading and support conditions.
+3.​ Apply approximate methods such as Cantilever and Portal methods to analyze multi-storey, two-bay rigid
+    frames.
+4.​ Apply slope-deflection and moment distribution methods to analyze indeterminate beams and rigid jointed
+    frames, including both sway and non-sway conditions.
+5.​ Apply the stiffness method (structure approach) to analyze beams and rigid frames using matrix formulation
+    for systems with up to three degrees of indeterminacy.
+                                           COURSE CONTENTS
+
+  Unit I        Fundamentals of Structure and Analysis of Redundant Beams                           (08 hours)
+Types and classification of structures based on structural forms, concept of indeterminacy: static and kinematic
+indeterminacy.
+Analysis of propped cantilever, fixed beam and continuous beams within determinacy up to second degree by
+consistent deformation method.
+                                                      35
+  Unit II                        Analysis of Redundant Frames                                        (08 hours)
+Analysis of redundant trusses by unit load method for external loading ,lack of fit, sinking of support and
+temperature changes (indeterminacy up to second degree).
+Approximate methods of analysis of upto two-storied two-bay, 2-D rigid jointed frames by Cantilever and
+Portal method.
+ Unit III                           Slope-Deflection Method                                          (08 hours)
+
+Slope-deflection equations, equilibrium equation of slope-deflection method, application of slope deflection
+method to beams with and without joint translation and rotation, yielding of support, application to non-sway
+rigid jointed rectangular portal frames, shear force and bending moment diagram. Sway analysis of rigid
+jointed portal frames (Involving not more than three unknowns).
+
+  Unit IV                         Moment Distribution Method                                         (08 hours)
+
+Stiffness factor, carry over factor, distribution factor, application of moment distribution method to beams with
+and without joint translation and yielding of support. Application to non- sway rigid jointed rectangular portal
+frames, shear force and bending moment diagram.
+Sway analysis of rigid jointed portal frames (Involving not more than three unknowns).
+
+  Unit V                                 Stiffness Method                                            (08 hours)
+Fundamental concepts of matrix methods: flexibility and stiffness. Stiffness method of analysis: Structure
+approach & Member approach. Application to beams by structure approach (Involving not more than three
+unknowns). Application to rigid jointed portal frames by structure approach (Involving not more than three
+unknowns).
+                                         LEARNING RESOURCES
+
+Text Books
+   1.​ Theory of Structures by S.Ramamrutham and R.Narayan, Dhanpat Rai Publishing Company (P) Ltd.
+   2.​ Structural Analysis-I & II by S. S. Bhavikatti, Vikas Publishing House Pvt. Ltd.
+   3.​ Mechanics of Structures Vol. II (Theory and AnalysisofStructures) by Dr. H. J. Shahand S.B.Junnarkar
+   Charotar Publishing House Pvt .Ltd.
+   4.​ Structural Analysis: A Matrix Approach by G.S.Pandit and S.P.Gupta, Tata McGraw Hill Education
+   Pvt. Limited.
+Reference Books
+   1.​ Intermediate Structural Analysis by C.K.Wang,Tata McGraw Hill Education Pvt.Ltd.
+   2.​ Basic Structural Analysis by C.S.Reddy,Tata McGraw Hill EducationPvt.Ltd.
+   3.​ Structural Analysis by R.C.Hibbler ,Pearson Education.
+   4.​ Structural Analysis by Aslam Kassimali, Cengage Learning India Private Limited
+   5.​ Matrix Analysis of Framed Structures by William Weaver Jr. and James M.Gere, Springer
+
+
+
+                                                       36
+                                     Savitribai Phule Pune University
+                                    SE (Civil Engineering) 2024 Pattern
+
+Course Code: PCC-253-CVL
+Course: Concrete Technology
+
+     Teaching Scheme                     Credit                             Examination Scheme
+
+  Theory: 3 hours / week                   03                         CCE                              30 marks
+                                                                      ESE                              70 marks
+Prerequisite: Engineering Chemistry
+
+Companion Course: Concrete Technology Lab
+
+Course Objectives
+To introduce students to the fundamental concepts of concrete technology, including the properties of
+constituent materials, behavior of fresh and hardened concrete, and concrete mix design. The course also aims
+to develop understanding of durability concerns, deterioration mechanisms, and modern concrete types, thereby
+enabling students to apply this knowledge in construction practices and future professional roles.
+
+Course Outcomes
+   1.​ Describe the composition, properties, and functions of various ingredients of concrete.
+   2.​ Understand standard tests on fresh and hardened concrete and interpret results related to workability,
+       strength, and durability.
+   3.​ Design concrete mixes using IS 10262 for various applications, including performance based
+       requirements.
+   4.​ Analyze durability concerns in concrete and recommend suitable preventive or mitigation measures.
+   5.​ Compare and evaluate advanced concrete, sustainable materials, and smart technologies for modern
+       construction.
+                                           COURSE CONTENTS
+
+Unit I                       Fundamentals of Concrete Technology                                     (06 hours)
+Introduction to concrete and its importance. Cement: Raw materials, manufacturing, composition, types,
+hydration, and properties. Aggregates: Types, properties, quality control, and recycled aggregates. Water:
+Quality requirements and its role. Admixtures: Types, functions, and modern admixtures. Fibers: Types, and
+functions.
+
+Unit II                    Properties of Fresh and Hardened Concrete                                 (06 hours)
+
+Workability and factors affecting workability. Tests on fresh concrete: Slump, compaction factor, Vee-Bee,
+flow table test. Setting time and bleeding of concrete. Strength development: Compressive, tensile, flexural
+strength. Factors affecting strength and durability. Microstructure of hardened concrete. Permeability of
+concrete. Non-destructive testing of concrete: Rebound hammer, ultrasonic pulse velocity, penetration
+resistance, pull-out test.
+
+                                                      37
+Unit III                               Concrete Mix Design                                         (06 hours)
+
+Principles of mix design. Design mix, nominal mix, methods of concrete mix design. Batching, mixing,
+transportation, placement, compaction, curing. IS 10262 method of concrete mix design. Case studies of
+concrete failure due to improper mix design. Introduction and mix design of High Strength Concrete, Ultra
+High Performance concrete (UHPC)
+
+Unit IV                      Durability and Sustainability of Concrete                             (06 hours)
+
+Importance of durability. Causes and mechanisms of deterioration: Sulphate attack, chloride ingress,
+alkali-silica reaction. Corrosion of reinforcement: Mechanism and prevention. Permeability, porosity, and water
+absorption. Sustainable concrete: Use of recycled aggregates, industrial by-products, and green cements.
+Introduction to life cycle analysis of concrete
+
+Unit V                           Advanced and Special Concretes                                    (06 hours)
+
+High performance concrete, self-compacting concrete, fiber reinforced concrete. Lightweight concrete,
+pervious concrete, high density concrete. 3D printed concrete and digital fabrication techniques. Smart
+concrete: Self-healing concrete, sensor embedded concrete. Nano technology in concrete. Green concrete.
+Composite concrete.
+
+                                          LEARNING RESOURCES
+
+Text Books
+1. Concrete Technology, Adam M. Neville, J. J. Brooks, Pearson Education
+2. Concrete Technology, M. Gambhir, Tata McGraw-Hill Publishing Company
+Reference Books
+1.​      Properties of Concrete, A. M. Neville, Pearson Education.
+2.​      Concrete: Microstructure, Properties, and Materials, P. Kumar Mehta and Paulo J.M. Monteiro,
+         McGraw Hill Education.
+
+
+
+
+                                                      38
+                                      Savitribai Phule Pune University
+                                     SE (Civil Engineering) 2024 Pattern
+Course Code: PCC-254-CVL
+Course Name: Concrete Technology Lab
+
+             Teaching Scheme                              Credit                    Examination Scheme
+Practical: 2 hours / week                                    01                  TW               25 marks
+                                                                                 OR               25 marks
+                                             LIST OF PRACTICALS
+
+1) Tests on cement
+Determination of fineness, standard consistency, initial and final setting time and soundness of cement.
+Compressive strength of cement.
+2) Tests on aggregates
+Determination of specific gravity, water absorption, and sieve analysis of fine and coarse aggregates.
+Combined grading of fine and coarse aggregates. Alkali aggregate reaction.
+3) Concrete mix design by IS code method and casting of Blocks as per Mix Design.
+4) Tests on concrete
+a)Fresh concrete
+ ●​ Slump cone, compaction factor, Vee-Bee test for standard concrete
+ ●​ Slump flow, L-Box, and V-funnel tests for self-compacting concrete
+b)Hardened concrete
+ ●​ Compressive strength, in-direct tensile strength and flexural strength of concrete
+ ●​ In-direct tensile strength and flexural strength of fiber reinforced concrete
+c)Durability tests on concrete
+Rapid chloride penetration test, total chloride content, water permeability test, shrinkage test on concrete.
+d)Non-destructive tests on concrete
+Rebound hammer test, ultrasonic pulse velocity test.
+5) Technical visits
+Visit to one or more of the following: (a) Cement manufacturing plant, (b) Ready-mix concrete (RMC) plant,
+(c) Construction site involving advanced concreting practices, (d) Technical exhibitions (related to materials or
+construction).
+
+
+
+
+                                                        39
+                                    Savitribai Phule Pune University
+                                   SE (Civil Engineering) 2024 Pattern
+
+Course Code: PCC-255-CVL
+Course: Fluid Mechanics Lab
+
+    Teaching Scheme                     Credit                           Examination Scheme
+ Practical: 2 hours / week                 01                    TW                      25 marks
+
+
+                                            LIST OF PRACTICALS
+
+The Term work shall consist of the following
+   A)​ Experiments B) Assignments and C) Site visit
+
+A) Any five experiments from Sr. No. 1- 8 and any three experiments from Sr. No. 9-12.
+
+1. Measurement of viscosity of fluid by using Viscometer.
+2. Drawing flow net by Electrical Analogy method / Study of flow pattern using Heleshaw’s apparatus.
+3. Experimental verification of Bernoulli’s theorem with reference to loss of energy.
+4. Calibration of Venturimeter / Orificemeter.
+5. Determination of Darcy-Weisbach friction factor (f) for a given pipe and study of variation off with
+Reynolds Number (Re).
+6. Study of Uniform Flow Formulae for Open channel.
+7. Velocity Distribution in Open Channel Flow.
+8. Calibration of Rectangular / Triangular Notch.
+9. Measurement of Pressure using different Pressure Measuring Devices (including pressure transducers).
+10. Determination of Minor Losses in pipes.
+11. Study of pressure distribution around Aerofil / Cylinder by wind tunnel.
+12. Determination of Stability of Floating Bodies using Ship Model.
+13. Study of hydraulic jump as energy dissipator.
+
+B) Assignments:
+Analysis of pipe network using Hardy Cross Method (minimum two loops) – both by hand calculations and
+using any Computer Language / Software Solution.
+
+C) Site visit to any Hydraulic Structures / Flow Measuring Devices/ Hydraulic Research center.
+
+
+
+
+                                                     40
+                                      Savitribai Phule Pune University
+                                     SE (Civil Engineering) 2024 Pattern
+
+Course Code: MDM-271-CVL
+Course: Engineering Geology
+
+      Teaching Scheme                     Credit                              Examination Scheme
+  Theory: 2 hours / week                     02                         CCE                              30 marks
+                                                                        ESE                             rrr.​marks
+Prerequisite: Geography and Basic Civil Engg.
+Companion Course, if any.
+Course Objectives:
+  1.​ To give the basics knowledge of Geology that is required for constructing various Civil Engineering
+      Structures, basic Geology, Geological Hazardous and Environmental Geology.
+  2.​ To focus on the core activities of engineering geologists – site characterization and geologic hazard
+      identification and mitigation. Planning and construction of major Engineering projects.
+
+Course Outcomes:
+After successful completion of course, students will be able to:
+  1.​ Explain about the basic concepts of engineering geology, important rocks, and minerals both in lab and
+      on the fields and their inherent characteristics and their uses in engineering constructions as well as other
+      industry.
+  2.​ Exploring the importance of Surveying with reference to modern technologies and also to understand the
+      fundamentals of surface water and Groundwater regime for sustainable of life.
+  3.​ Recognize effect of plate tectonics, structural geology and their significance and utility in engineering
+      activities. Incorporate the various methods of survey, to evaluate and interpret geological nature of the
+      rocks present at the foundations of the dams, percolation tanks, tunnels and to infer site / alignment/ level
+      free from geological defects.
+  4.​ Assess the Importance of geological nature of the site, precautions and treatments to improve the site
+      conditions for dams, reservoir, tunnels and highways.
+  5.​ Explain geological hazards and importance.
+
+                                            COURSE CONTENTS
+Unit I                                      Rock Science                                                (06 hours)
+  a       Introduction to Applied Engineering Geology in Engineering Industry.
+  b      Mineral Definition, types of minerals, Industrial minerals etc.
+         ​       Computer Industry: copper, aluminium, quartz etc.
+         ​       Medicine Industry: magnesium, calcium, zinc, iron, copper, sodium, potassium etc.
+         ​       Electronics Industry: tungsten, copper, aluminium, arsenic, barite and lead etc.
+  c       Petrology: Rocks Definition, Types, Importance of Rocks, Application in Civil Industry and other
+          industries too. Economic zones in India.
+         ​       Civil Industry: limestone, granite, marble, basalt, slate, quartzite etc.
+         ​       Medicine Industry: schist, quartz, rhodonite, kaolinite, bentonite, barium, &pumice etc.
+         ​       Computer Industry: Quartz and other rocks containing silicon are used in computers to make
+         semi-conductors, which are the core of computer chips.
+                                                        41
+           ​      Electronics Industry:Sulphides, Quartz, Clays etc.
+Unit II                        Remote Sensing and GIS, Hydrogeology                                     (06 hours)
+    a      Remote Sensing (RS): Concepts, Remote Sensing platforms, types of Sensors, Fundamentals of
+           EMR, Resolutions, tools of Visual Interpretation, Applications.
+    b      Geographical Information System (GIS):Introduction, Definition, Components, GIS data types,
+           Application of GIS in Engineering, Highlights the modern and future trends of GIS, case study of
+           Smart Cities planning using GIS.
+    c      Hydrogeology: Fundamentals of hydro-Geology, Groundwater, Water table, depth zones,
+           Hydrogeological properties of rock, Aquifers and its types, Artificial recharge of groundwater,
+           Methods of conservation of groundwater, Watershed development and management Indian Knowledge
+           System for Hydrology; Ancient and modern techniques for groundwater prospecting, case study
+           highlighting success of watershed management.
+Unit III             Structural Geology and Preliminary Geological Exploration                          (06 hours)
+    a      Structural Geology:Plate tectonics and Mountain building activity. Outcrop, dip and strike,
+           unconformity and overlap. Study of major geological structures: faults, folds, joints and their types.
+           Recognition and significance of the above structures in civil engineering.
+    b      Preliminary Geological Exploration:Preliminary Geological Exploration: reconnaissance survey,
+           surface, and subsurface geological investigations: Direct methods like test & trial pits, pilot trenches,
+           and drilling. Drilling activities: planning, inspection/observations, precautions, limitations, and
+           logging of the core data. Indirect methods like Resistivity, seismic survey and its significance and
+           limitations.
+Unit IV               Preliminary Geological Investigation of Dam Tunnel and                           (06 hours)
+                                            Highways
+    a      Dams
+           Types of dams and their foundation requirement PGI For dam site
+              ●​ Selection of dam sites: Geological and geotechnical factors
+              ●​ Types of dams and their foundation requirement (Rock and soil permeability, seepage control
+                  and grout curtain techniques)
+              ●​ Reservoir-induced seismicity and stability of slopes around reservoirs
+    b      Tunnel
+           Tunnelling and Underground Excavations
+              ●​ Geological and geotechnical investigations for tunnels
+              ●​ Rock mass classification systems (RMR, Q-system)
+              ●​ Methods of tunnelling: Drill & blast, TBM, and NATM
+              ●​ Geological hazards in tunnelling: Water ingress, rock bursting, and squeezing ground
+              ●​ Case studies of tunnel failures and lessons learned
+    c      Highways
+           Engineering Geology for Highways
+              ●​ Geotechnical considerations in highway alignment and design
+              ●​ Slope stability and landslide mitigation for roadways
+              ●​ Geological mapping and remote sensing applications in highway construction
+              ●​ Use of geo-synthetics in road engineering
+Unit V                                        Geohazards                                                (06 hours)
+a          Definition, and types.
+                                                         42
+b       Causes, Effects, Precautions and case studies. (Floods, Earthquakes, Landslides)
+LEARNING RESOURCES
+
+Text Books
+   1.​ Text Book of Engineering Geology by R.B. Gupte, 2001, P.V.G. Publications, Pune.
+   2.​ A Text Book of Engineering Geology by N. ChennaKesavulu. 2010, Mc Millan India Ltd.
+   3.​ Engineering Geology, Parbin Singh.
+Reference Books
+    1.​ Principles of Engineering Geology by S.K.Garg.1999, Khanna Publ, New Delhi.
+    2.​ Principles of Engineering Geology by D. Venkat Reddy. 2010, Vikas Publishers.
+    3.​ Structural Geology, M. P. Billings, Pearson India Pvt. Ltd.
+
+e-Books
+             1.​ MITopencourseware
+                 (https://ocw.mit.edu/courses/12-001-introduction-to-geology-fall-2013/pages/lecture-n
+                 otes-and-slides/
+             2.​ https://ocw.mit.edu/courses/earth-atmospheric-and-planetary-sciences/12-103-science-
+                 and-policy-of-natural-hazards-spring-2010/lecture-notes/
+
+Links to online SWAYAM/NPTELCourses
+             1.​ NPTEL- Earth Science for Civil Engineering-
+                 https://archive.nptel.ac.in/courses/105/104/105104152/
+
+
+
+
+                                                       43
+                                    Savitribai Phule Pune University
+                                   SE (Civil Engineering) 2024 Pattern
+
+Course Code: VSEC-281-CVL
+Course: Vocational Skill Course: Applications of Python
+
+    Teaching Scheme                      Credit                           Examination Scheme
+
+ Practical: 2 hours / week                 01                     TW                                  25 marks
+                                                                  OR                                  25 marks
+
+Prerequisite: Fundamentals of Python
+
+Companion Course, if any
+
+Course Objectives:
+The objective of this course is to equip learners with practical programming skills in Python, specifically
+tailored to solve real-world problems in civil engineering. The course aims to bridge the gap between
+theoretical civil engineering concepts and modern computational tools, enhancing learners’ employability and
+technical competence in the field.
+
+Course Outcomes
+On completion of the course, learner will be able to:
+   1.​ Apply Python programming to problems in Mechanics of Structures, Fluid Mechanics, and
+       Concrete Technology by computing structural responses, analyzing fluid flow parameters, and
+       performing statistical and graphical analysis of material properties.
+   2.​ Develop Python-based estimators and validation tools in Building Construction and Materials to
+       calculate quantities of materials, verify building dimensions, and simulate construction-related
+       calculations based on IS codes and best practices.
+   3.​ Use Python for surveying computations and plotting by implementing algorithms for traverse
+       adjustment, contour generation, and curve setting-out, and for economic analysis in Civil Engineering
+       Economics through break-even analysis, NPV calculation, and simulation methods.
+   4.​ Automate project planning and predictive modeling in Project Management and General
+       Applications by generating Gantt charts, identifying critical paths, and building regression models to
+       forecast key civil engineering parameters like strength, deflection, and pressure loss.
+                                          COURSE CONTENTS
+
+   Part A                          Exercise 1: Revision                                  (04 hours)
+
+Revision: Introduction to python: Script Model Programming, Understanding Python variables, basic
+Operators, Numeric data types, string data type and string operations, defining list and list slicing, List
+manipulation using in build methods, Use of Tuple data type, Dictionary manipulation. Python Program Flow
+
+                                                     44
+Control, functions, and packages: Conditional blocks using if, else and elif, Simple for loops in python, for
+loop using ranges, string, list and dictionaries, Use of loops in python. Programming using string, list and
+dictionary in build functions. Functions, Understanding Packages, Lambda function, modules, and external
+packages. NumPy and Matplotlib: Arrays, Array indexing, Matplotlib -Plotting, subplots and images Python
+file operation: Reading config files in python, writing log files in python, Understanding read and Write
+functions. Programming using file operations. Library, Package, Module.
+
+   Part B                                           Applications of Python
+
+
+Any two exercises from each A to H.
+
+A. Exercise in Mechanics of Structures:
+   1.​ Calculate bending moments and shear forces at multiple points along a simply supported beam
+       subjected to multiple concentrated and uniformly distributed loads, then summarize the results in a
+       formatted table.
+   2.​ Generate a stress-strain curve for an elastic material up to yield strain using loops.
+   3.​ Calculation of strain energy
+   4.​ Buckling load on column using Euler’s theory
+   5.​ Compute Deflection at Points on Beam using Macaulay’s Method
+B. Exercise in Building Construction and Materials:
+   1.​ Design a program to estimate the number of bricks, mortar, and volume of masonry for a given wall
+       using IS specifications.
+   2.​ Calculate the total material requirement through multiple rooms and estimate total flooring and wall
+       area.
+   3.​ Validate given building plan against minimum room dimensions
+   4.​ Estimate number of risers, treads, and total concrete volume for staircase
+C. Exercise in Economics for Civil Engineers:
+   1.​ Plot break-even points for 3 different construction materials
+   2.​ Generate NPV at multiple discount rates and analyze
+   3.​ Perform Monte Carlo simulations
+   4.​ Cost-Benefit Analysis for Multiple Projects
+D. Exercise in Surveying:
+   1.​ Contour Plotter using CSV Data: prepare the elevation data in csv format and use matplotlib or any
+       suitable library to plot contour
+   2.​ Develop a program to adjust a compass traverse by correcting for local attraction and computing the
+       true bearings and coordinates of traverse stations.
+   3.​ Implement Bowditch’s method to adjust a closed traverse measured with a theodolite, ensuring the
+       sum of latitudes and departures equals zero.
+   4.​ Create a program to compute horizontal distances and elevations using the principle of stadia
+       tacheometry, fixed hair method
+   5.​ Implement calculations for designing simple circular curves and generate setting out data using
+       deflection angles.
+
+                                                      45
+E. Exercise in Concrete Technology:
+   1.​ Statistical Analysis of Cement and Aggregate Properties including sieve analysis: Analyze data (e.g.,
+       specific gravity, sieve analysis, strength tests etc.) using Python's numpy and scipy for mean, standard
+       deviation, and classify materials.
+   2.​ Python programming to design mix design for concrete: Steps of Mix design using IS10262:2019
+   3.​ Simulation of Admixture Effects on Workability: Create a small program to model how different
+       dosages of admixtures affect workability parameters (slump, flow) based on lab data (Can use
+       regression using library).
+   4.​ Stress-Strain Curve Plotter: Use Python to plot and analyze stress-strain curves from compression tests
+       to find modulus of elasticity, peak stress, and toughness.
+F. Exercise in Fluid Mechanics:
+    1.​ Calculate surface tension, capillary rise for various fluid heights and tube radii.
+    2.​ Calculate discharge for varying pressure drops and throat diameters using Bernoulli’s principle [Loop
+        over pressure drops ΔP and throat diameters d. Use Bernoulli and continuity to find velocity and
+        discharge.]
+    3.​ Turbulent flow through pipe in series
+    4.​ Turbulent flow through pipe in parallel
+    5.​ Calculate Reynolds and Froude numbers for different velocities and characteristic lengths.
+    6.​ Calculate friction factor for a range of Reynolds numbers (laminar + turbulent) and total head loss in
+        pipes with minor losses.
+    7.​ Create a grid with streamlines and equipotential lines crossing at right angles
+G. Exercise in Project Management:
+   1.​ Plot a simple Gantt chart using matplotlib for project activities with start and duration. [Visualize
+       project schedule showing start times and durations of activities. Can use Loops for data processing,
+       matplotlib for plotting horizontal bar charts]
+   2.​ Calculate early/late start/finish times, float, and identify critical path. [Loops and dictionaries for
+       dependency handling]
+   3.​ Calculate expected time and variance for project activities using optimistic, pessimistic, and most
+       likely times.
+   4.​ Classify items into A, B, and C categories based on annual consumption value.
+   5.​ Calculate the minimum crashing cost to reduce project duration.
+H. General:
+   1.​ Predict the strength of concrete using mix design parameters and linear regression
+   2.​ Estimate pressure drop (ΔP) in a pipe based on input parameters like fluid velocity, diameter, viscosity,
+       and pipe length using a regression model.
+   3.​ Predict the maximum deflection in a simply supported beam using regression, based on load, span,
+       material properties, and cross-section.
+                                         LEARNING RESOURCES
+
+                                                       46
+Text Books
+   1.​ Supercharged Python: Take your code to the next level, Overland 2.
+   2.​ Learning Python, Mark Lutz, O'reilly
+Reference Books
+   1.​ Python Programming: A Modern Approach, Vamsi Kurama, Pearson
+   2.​ Python Programming A Modular Approach with Graphics, Database, Mobile, and Web Applications,
+       Sheetal Taneja, Naveen Kumar, Pearson 3.
+   3.​ Programming with Python, A User‘s Book, Michael Dawson, Cengage Learning, India Edition
+   4.​ Think Python, Allen Downey, Green Tea Press
+e-Books
+   1.​ Python for Civil and Structural Engineers, Lora V,
+   2.​ Introduction to Python for Civil Engineers: a Beginner’s Guide, by Amir Hossein
+       Roodpeyma (Author), Reza Arghand (Author), Ziba Hosseini (Author)
+   3.​ a production rate of any equipment available on site.
+   4.​ Assignments on each unit.
+   Links to online SWAYAM/NPTEL Courses: Programming in python- NPTEL
+   https://onlinecourses.swayam2.ac.in/cec22_cs20/preview
+
+
+
+
+                                                    47
+                               Savitribai Phule Pune University
+                              SE (Civil Engineering) 2024 Pattern
+
+Course Code: AEC-282-CVL
+Course: Modern Indian Language (Marathi)
+
+    Teaching Scheme               Credit                            Examination Scheme
+ Tutorial : 1 hours / week           1                    TW                   50 marks
+ Practical :2 hours / week           1
+
+Course Objectives:
+
+
+
+
+                                    COURSE CONTENTS
+
+                               Unit I&II (07 hours & 8 hours)
+
+
+
+
+                              Unit III & IV (07 hours & 8 hours)
+
+
+
+
+                                              48
+                                          LEARNING RESOURCES
+Text Books
+
+
+
+
+                             Guidelines Term Work conduction and Evaluation
+Implementation Guidelines
+1. Subject teacher should frame minimum 08 assignments-based covering on all four units.
+2. Scaffolding: Start with simpler tasks and gradually increase complexity. Provide necessary
+vocabulary and grammatical structures beforehand.
+3. Differentiation: Offer varied levels of support for students with different proficiency.
+4. Pair Work & Group Work: Encourage collaborative learning and peer correction.
+5. Feedback: Provide constructive feedback on all assignments, focusing on both accuracy and fluency.
+6. Authentic Materials: Use real-world Marathi materials (simple songs, short videos, advertisements) as
+much as possible.
+7. Cultural Context: Integrate cultural aspects into the assignments (e.g., describing a Marathi festival, a
+famous personality).
+8. Fun & Engaging: Make the activities enjoyable to keep students motivated. Use games and competitive
+elements where appropriate.
+9. Technology Integration: Use online dictionaries, translation tools (with caution), and Marathi typing tools.
+10. These assignments can be adapted based on the students’ proficiency level and the specific learning
+objectives of the Marathi course.
+                                        Suggested List of Assignments
+1. "Samvad Sadara Kara" (Present a Dialogue): Role-Playing Everyday Scenarios: Objective is to practice
+conversational Marathi, understanding social cues. In pairs or small groups, students create and perform a
+short dialogue based on a given scenario.
+2. Vartamanpatra Vachan" (Newspaper Reading): (Columns like Sports, political, finance, edito-rial,
+education, international news etc) in the daily Marathi newspapers, summarize and present in the practical. A
+summary should be added as part of the journal.
+                                                        49
+3. Creative writing: Write blogs and posts on social media up to 200 words on recent development in their
+field of study
+4. “Mala He Sangayche Aahe" (I Want to Say This): Students are expected to show the objects and describe it
+to the class in Marathi. They should mention its color, size, use, why it’s important to them, etc.
+5. Professional letter / report writing
+(a) Write a letter to the principal/director for organizing NSS camp in nearby village. Preparation of the
+budget, permission letters and report submission in the University
+(b) Write a letter for internship sponsorship to any organization.
+6. Book Review – Students are expected to read any novel, fiction or literature book of their choice and write
+a review on post it on social media of their choice.
+7. Participation in Competitions (in college/out side the college) debate, declamation, elocution –A Report
+should be submitted
+8. Group Activity: Road show, skit play, one-act play
+9. Participation in One-Act-Play - Participation in Purushottam karandam, Firodia karandak, Dajikaka Gadgil
+Karandak and Shreetej Karandak.
+10. Marathi Film Review – Watch the Marathi movie widely available on an OTT (Over-The-Top)
+platform , broadcaster in Television or availle on YouTube and write a review.
+
+
+
+
+                                                     50
+                                     Savitribai Phule Pune University
+                                    SE (Civil Engineering) 2024 Pattern
+
+Course Code: EEM-283-CVL
+Course: Project Management
+
+    Teaching Scheme                       Credit                           Examination Scheme
+ Theory : 1 hours / week                    02                     TW                     25 marks
+ Practical :2 hours / week
+
+Prerequisite: Fundamentals of management, Indian construction industry, construction materials
+Companion Course, if any
+Course Objectives:
+   1.​ Describe the various concepts involved in project management.
+   2.​ Explain scientific methods of planning and management.
+   3.​ Segregate the materials as per their annual usage and explain process to find production rate of
+       construction equipment
+   4.​ Demonstrates methods of manpower planning and use various project monitoring methods
+   5.​ Differentiate and apply methods of project selection
+
+Course Outcomes:
+On completion of the course, learner will be able to:
+   1.​ Describe project life cycle and the domains of project management.
+   2.​ Explain networking methods and their applications in planning and management.
+   3.​ Categorize the materials as per their annual usage and also calculate production rate of construction
+       equipment.
+   4.​ Demonstrates resource allocation techniques and apply it for manpower planning.
+   5.​ Apply the methods of project selection and recommend the best economical project.
+                                           COURSE CONTENTS
+
+Unit I                       Introduction to Project Management                                      (03 hours)
+Importance, objectives & functions of management, principles of management, categories of project, project
+failure, project life cycle concept and cost components, project management book of knowledge
+(PMBOK)-different domain areas, project management institute and certified project management
+professionals (PMP), Importance of organizational structure in management- authority / responsibility
+relationship
+Unit II                       Project Planning and Scheduling                                        (03 hours)
+WBS – Work breakdown structure, Gantt / Bar chart & its limitations, network planning, network analysis, C.
+P. M.- Activity on Arrow (A.O.A.), critical path and type of floats, precedence network analysis (A.O.N),
+
+                                                      51
+types of Precedence Relationship, P. E. R.T. Analysis
+Unit III                   Project Resources and Site Planning                                       (03 hours)
+Objectives of materials management – primary and secondary, material procurement procedures, record
+keeping- use of excel sheets, ERP software, inventory control-ABC analysis, EOQ technique, introduction to
+equipment management-productivity studies, site layout and planning, safety norms-measures and precautions
+on site, implementation of safety programs
+Unit IV                Project Monitoring, Control and Appraisal                                     (03 hours)
+Resource allocation-resource smoothening and leveling, network crashing – time- cost relationship -resource
+optimization, project monitoring - methods, updating and earned value analysis, introduction to use of project
+management software’s-MS project / Primavera.Types of appraisals such as political, social, environmental,
+technical, financial and economical, study of project feasibility report and detailed project report (DPR), role
+of project management consultants
+
+                                  Assignments for Termwork Assessment
+
+ 1.Activities to be conducted shall be from the following list
+   a)​ Quiz on each unit.
+   b)​ Presentation on any topic from each unit.
+ 2. Application of MS project / Primavera software for scheduling of a small construction project with min.
+  25 activities.
+ 3. Visit any construction site, prepare site layout of it and understand material purchasing, record keeping,
+  storage etc. done on site. Write a report.
+ 4. Assignment on each unit.(Min. 3 questions on each unit).
+ 5. A case study report on Material Management by using ERP.
+                                         LEARNING RESOURCES
+Text Books
+   1.​ Project planning and Control with PERT and CPM, Dr. B.C. Punmia and K.K. Khadelwal, Firewall
+       Media, Laxmi publication New Delhi
+   2.​ Project management Principles and Techniques, B.B. Goel, Deep and Deep publisher.
+   3.​ Construction Engineering and Management, Dr S. Seetharaman, Umesh publication
+Reference Books
+   1.​ Construction Project Management-Planning, Scheduling and Controlling, K. K. Chitkara, Tata
+       McGraw Hill Publishing Company, New Delhi.
+   2.​ Construction Management and Planning, B. Sengupta and H. Guha, Tata McGraw Hill Publishing
+       Company, New Delhi
+   3.​ Construction planning, equipment and methods, Robert L Peurifoy, Mc Graw Hill publication
+   4.​ The Essentials of Project Management, Dennis Lock, Gower Publishing Ltd. UK
+   5.​ Total Quality Management, Dr. S. Rajaram and Dr. M. Sivakumar, Biztantra publication
+
+
+
+                                                        52
+                                     Savitribai Phule Pune University
+                                    SE (Civil Engineering) 2024 Pattern
+
+Course Code: VEC-284-CVL
+Course: Environmental Awareness
+
+    Teaching Scheme                      Credit                            Examination Scheme
+ Theory: 2 hours /week                      02                 CCE                                   15 marks
+                                                               ESE                                   35 marks
+Prerequisite: Basic Biology and Geography
+Companion Course, if any
+Course Objectives:
+      1.​ To explain concepts of sustainable development, components of the environment, and analyze
+          ecosystem dynamics including biotic and abiotic factors, food chains, food webs, and energy flow.
+      2.​ To identify and evaluate conservation methods for renewable and nonrenewable resources, and to
+          understand the value of biodiversity with current conservation efforts at national and local levels.
+      3.​ To provide a comprehensive understanding of environmental pollution, its monitoring and control
+          technologies, and examine real-world environmental issues through scientific theory and field-based
+          examples.
+      4.​ To understand the evolution of environmental policies and laws, and explore the interrelationship
+          between environment and development within a regulatory and sustainability context
+Course Outcomes:
+ On completion of the course, learner will be able to:
+   1.​ Apply an integrative and sustainable approach to environmental issues, including understanding
+       organism roles in ecosystem energy transfers.
+   2.​ Differentiate renewable and nonrenewable resources, assess personal resource consumption, and
+       identify biodiversity threats with strategies for conservation policy.
+   3.​ Understand environmental pollution, related scientific principles, relevant laws, and identify violations
+       by industries.
+   4.​ Analyze human impacts on the environment, assess conservation challenges, and apply research skills
+       to address real-world environmental issues.
+                                            COURSE CONTENTS
+
+    Unit I           Fundamentals of Environmental Studies and Natural Resources                      (6 hours)
+Introduction to Environmental Studies: Multidisciplinary nature, components of the environment (atmosphere,
+hydrosphere, lithosphere, biosphere), scope and importance, sustainability and sustainable development.
+Ecosystems: Structure and function, energy flow (food chains, food webs, ecological succession), case studies:
+forest, grassland, desert, and aquatic ecosystems (ponds, lakes, rivers, oceans, estuaries).Natural
+Resources:Land use change, land degradation, soil erosion, desertification; deforestation and its impacts
+
+                                                      53
+(mining, dams); water use and over-exploitation, floods, droughts, inter/intra-state water conflicts; air
+circulation, precipitation; renewable and non-renewable energy, alternate sources, energy needs.
+   Unit II                        Biodiversity and its Conservation                                 (06 hours)
+Levels of Biodiversity: Genetic, species, and ecosystem diversity; biogeographic zones of India; global
+biodiversity hotspots; India as a mega-biodiversity nation. Biodiversity in India:Endangered and endemic
+species; threats to biodiversity – habitat loss, poaching, invasive species, man-wildlife conflict.Conservation
+and Value of Biodiversity:In-situ and ex-situ conservation methods; biodiversity and ecosystem services –
+ecological, economic, social, ethical, aesthetic, and informational value.
+   Unit III                 Environmental Pollution and Climate Issues                              (06 hours)
+Types, causes, effects, and control of pollution: air, water, soil, chemical, noiseNuclear hazards and health
+risks, Solid waste management: urban and industrial wasteCase studies on pollutionClimate change, global
+warming, ozone depletion, acid rain – impacts on human health and agricultureEnvironmental laws:
+Environment Protection Act, Air and Water Acts, Wildlife Protection Act, Forest Conservation
+ActInternational agreements: Montreal Protocol, Kyoto Protocol, Convention on Biological Diversity (CBD),
+Chemical Weapons Convention (CWC)Nature reserves, tribal rights, human-wildlife conflicts.
+   Unit IV                   Human and Social Aspects of Environment                                (06 hours)
+Human population growth and its impact on environment and health,Carbon footprint and environmental
+ethics,Resettlement and rehabilitation of displaced populations – case studies,Disaster management: floods,
+earthquakes, cyclones, landslides,Environmental movements: Chipko, Silent Valley, Bishnois of
+Rajasthan,Role of religions and cultures in conservation,Environmental communication and public awareness –
+case studies (e.g., CNG in Delhi).
+
+                                        LEARNING RESOURCES
+
+Text Books and Reference Books:
+     1.​ Environmental Studies by Erach Bharucha, Universities Press
+     2.​ Environmental Science by P.D. Sharma, Rastogi Publications
+     3.​ A Textbook of Environmental Studies by Suresh K. Dhameja, S. Chand Publishing
+     4.​ Environmental Studies by Anubha Kaushik and C.P. Kaushik, New Age International Publishers
+     5.​ Environmental Studies: From Crisis to Cure by R. Rajagopalan, Oxford University Press
+     6.​ Textbook of Environmental Science and Technology by M. Anji Reddy, SciTech Publications
+    Note: Comprehensive Continuous Evaluation (CCE) of 15 marks based on all the Units of course syllabus
+  to be scheduled and conducted at institute level. To design a Comprehensive Continuous Evaluation (CCE)
+  scheme for a theory subject of 15 marks with the specified parameters, the allocation of marks and the
+  structure can be detailed as follows:
+ Sr. No.       Parameter                                      Marks         Coverage of Units
+ 1             Unit Test                                      10            Units 1 & Unit 2 (5
+                                                                            Marks/Unit)
+ 2             Seminar Presentation / Open Book Test/ 05                    Units 3 & Unit 4
+               Assignments / Case Study
+
+
+                                                      54
+
