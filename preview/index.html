@@ -97,6 +97,103 @@
   .next{padding:90px 40px;text-align:center;font-family:var(--mono);font-size:11px;
     letter-spacing:.28em;text-transform:uppercase;color:var(--mut)}
 
+
+  /* ---------- section shell ---------- */
+  .sec{padding:96px 40px;max-width:1400px;margin:0 auto}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--red);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+  .eyebrow::before{content:'';width:26px;height:1px;background:var(--red)}
+  h2{font-weight:700;letter-spacing:-.035em;line-height:1.02;font-size:clamp(34px,4.4vw,68px)}
+  h2 em{font-style:normal;color:var(--red)}
+  .lead{margin-top:18px;font-size:16.5px;line-height:1.7;color:var(--mut);max-width:520px}
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,1,.36,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- 4. PROBLEM (ayzz Ep.07: visual-led) ---------- */
+  .problem{position:relative}
+  .docs{position:relative;margin-top:48px;height:400px}
+  .doc{position:absolute;background:#fff;border:1px solid var(--hair);border-radius:10px;
+    box-shadow:0 24px 60px -28px rgba(20,20,25,.35);padding:22px 24px;width:min(420px,72vw)}
+  .doc .fname{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--mut);
+    display:flex;align-items:center;gap:8px;margin-bottom:16px}
+  .doc .fname svg{width:13px;height:13px;flex-shrink:0}
+  .barl{height:8px;border-radius:4px;background:rgba(20,20,25,.10);margin-bottom:9px}
+  .barl.short{width:58%}.barl.mid{width:82%}.barl.red{background:rgba(214,26,64,.28)}
+  .doc1{left:4%;top:26px;transform:rotate(-4deg)}
+  .doc2{left:31%;top:88px;transform:rotate(2.5deg);z-index:2}
+  .doc3{right:5%;top:14px;transform:rotate(-1.5deg)}
+  .scribble{position:absolute;z-index:3;left:50%;top:8px;transform:translateX(-58%) rotate(-3deg);
+    font-family:var(--sat);font-weight:700;font-style:italic;font-size:clamp(20px,2.4vw,30px);
+    color:var(--red);white-space:nowrap}
+  .scribble svg{display:block;margin:2px auto 0;width:180px;height:14px}
+
+  /* ---------- 5. FEATURES (shown, not told) ---------- */
+  .feat{border-top:1px solid var(--hair)}
+  .feat-row{display:flex;align-items:center;gap:64px;padding:84px 0;border-bottom:1px solid var(--hair)}
+  .feat-row:last-child{border-bottom:0}
+  .feat-row.flip{flex-direction:row-reverse}
+  .feat-copy{flex:0 0 380px}
+  .feat-num{font-family:var(--grot);font-weight:700;font-size:15px;color:var(--red);letter-spacing:.06em}
+  .feat-copy h3{font-weight:700;letter-spacing:-.03em;line-height:1.06;font-size:clamp(26px,2.6vw,40px);margin-top:12px}
+  .feat-copy p{margin-top:14px;font-size:15.5px;line-height:1.7;color:var(--mut)}
+  .feat-shot{flex:1;border-radius:14px;overflow:hidden;background:#0B0B0E;
+    border:1px solid rgba(20,20,25,.18);box-shadow:0 30px 80px -36px rgba(20,20,25,.5)}
+  .feat-shot img{display:block;width:100%}
+
+  /* ---------- 6. HOW IT WORKS ---------- */
+  .hiw{border-top:1px solid var(--hair)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:56px}
+  .step{background:#fff;border:1px solid var(--hair);border-radius:18px;padding:34px 30px 38px;position:relative}
+  .step .n{font-family:var(--grot);font-weight:700;font-size:64px;letter-spacing:-.04em;line-height:1;color:var(--ink)}
+  .step .n i{font-style:normal;color:var(--red)}
+  .step h4{font-family:var(--sat);font-weight:700;font-size:19px;margin-top:20px;letter-spacing:-.01em}
+  .step p{margin-top:10px;font-size:14.5px;line-height:1.65;color:var(--mut)}
+  .step::after{content:'';position:absolute;top:52px;right:-26px;width:26px;height:1px;background:var(--hair)}
+  .step:last-child::after{display:none}
+
+  /* ---------- 7. SECONDARY CTA ---------- */
+  .cta-band{background:var(--ink);color:var(--paper);border-radius:24px;
+    padding:72px 56px;display:flex;align-items:center;justify-content:space-between;gap:40px;
+    position:relative;overflow:hidden}
+  .cta-band::before{content:'';position:absolute;width:520px;height:520px;border-radius:50%;
+    background:rgba(246,60,73,.16);filter:blur(110px);top:-260px;right:-120px;pointer-events:none}
+  .cta-band h2{color:var(--paper)}
+  .cta-band .fud{color:rgba(247,245,242,.55)}
+  .cta-band .cta-main{flex-shrink:0}
+
+  /* ---------- 8. FINAL CTA + FOOTER (footer.design: Northeast Tomato) ---------- */
+  .final{padding:40px 40px 0;max-width:1400px;margin:0 auto}
+  .final-panel{background:var(--red);border-radius:28px;color:#fff;text-align:center;
+    padding:110px 40px 100px;position:relative;overflow:hidden}
+  .final-panel h2{color:#fff;font-size:clamp(40px,5.4vw,84px)}
+  .final-panel .subf{margin:22px auto 0;font-size:16px;line-height:1.7;color:rgba(255,255,255,.75);max-width:440px}
+  .cta-white{display:inline-flex;align-items:center;gap:12px;background:#fff;color:var(--ink);
+    text-decoration:none;font-family:var(--sat);font-weight:700;font-size:17px;padding:19px 36px;
+    border-radius:999px;margin-top:38px;transition:transform .22s ease}
+  .cta-white:hover{transform:translateY(-2px)}
+  .cta-white svg{width:16px;height:16px}
+  .final-panel .fud{color:rgba(255,255,255,.6);margin-top:16px}
+  footer{padding:64px 40px 44px;max-width:1400px;margin:0 auto;
+    display:flex;align-items:flex-end;justify-content:space-between;gap:30px;flex-wrap:wrap}
+  .foot-brand{display:flex;align-items:center;gap:12px}
+  .foot-brand svg{width:30px;height:30px}
+  .foot-brand b{font-family:var(--sat);font-weight:700;font-size:24px;letter-spacing:-.015em}
+  .foot-links{display:flex;gap:26px}
+  .foot-note{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+
+  @media(max-width:900px){
+    .sec{padding:80px 20px}
+    .feat-row,.feat-row.flip{flex-direction:column;gap:30px;padding:56px 0}
+    .feat-copy{flex:none}
+    .steps{grid-template-columns:1fr}
+    .step::after{display:none}
+    .cta-band{flex-direction:column;align-items:flex-start;padding:52px 28px}
+    .final{padding:24px 20px 0}
+    footer{padding:48px 20px 36px}
+    .docs{height:520px}
+    .doc1{left:0}.doc2{left:12%}.doc3{right:0}
+  }
+
   @media(max-width:900px){
     nav{padding:14px 20px}
     .nav-link{display:none}
@@ -129,7 +226,6 @@
 <section class="hero" aria-label="Hero">
   <div class="copyband">
     <div class="copy-left">
-      <p class="kicker">For SPPU engineering students</p>
       <h1 aria-label="Know exactly what's left before your exam.">
         <span class="mask" aria-hidden="true"><span class="line">Know exactly</span></span>
         <span class="mask" aria-hidden="true"><span class="line">what&rsquo;s <em>left.</em></span></span>
@@ -175,7 +271,133 @@
   <span>SGPA calculator</span>
   <span>Works offline</span>
 </section>
-<section class="next"><p>Concept sample &mdash; hero only.</p></section>
+
+<!-- 4. PROBLEM - ayzz Ep.07: visual-led problem -->
+<section class="sec problem" aria-label="The problem">
+  <p class="eyebrow reveal">The problem</p>
+  <h2 class="reveal">The syllabus is a pile of PDFs.<br>The exam date <em>doesn&rsquo;t move.</em></h2>
+  <p class="lead reveal">So you reread the same unit twice, guess what&rsquo;s important, and find out what you skipped &mdash; in the exam hall.</p>
+  <div class="docs reveal" aria-hidden="true">
+    <div class="scribble">where do I even start?
+      <svg viewBox="0 0 180 14" fill="none"><path d="M3 10 C 40 3, 90 12, 177 6" stroke="#D61A40" stroke-width="2.4" stroke-linecap="round"/></svg>
+    </div>
+    <div class="doc doc1">
+      <p class="fname"><svg viewBox="0 0 24 24" fill="none" stroke="#5A5A66" stroke-width="2"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg> unit3_notes_FINAL.pdf</p>
+      <div class="barl mid"></div><div class="barl"></div><div class="barl short"></div><div class="barl mid"></div><div class="barl"></div><div class="barl short"></div>
+    </div>
+    <div class="doc doc2">
+      <p class="fname"><svg viewBox="0 0 24 24" fill="none" stroke="#5A5A66" stroke-width="2"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg> syllabus.pdf</p>
+      <div class="barl"></div><div class="barl mid"></div><div class="barl red mid"></div><div class="barl short"></div><div class="barl"></div><div class="barl mid"></div><div class="barl short"></div>
+    </div>
+    <div class="doc doc3">
+      <p class="fname"><svg viewBox="0 0 24 24" fill="none" stroke="#5A5A66" stroke-width="2"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg> imp_questions_maybes.pdf</p>
+      <div class="barl mid"></div><div class="barl short"></div><div class="barl"></div><div class="barl mid"></div><div class="barl short"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. FEATURE SHOWCASE - ayzz Ep.07: shown not told; ThrillX: headlines for scanners -->
+<section class="sec feat" aria-label="Features">
+  <p class="eyebrow reveal">The fix</p>
+  <h2 class="reveal">Everything the syllabus hides, <em>laid out.</em></h2>
+
+  <div class="feat-row reveal">
+    <div class="feat-copy">
+      <p class="feat-num">01</p>
+      <h3>Your whole exam, on one screen</h3>
+      <p>Progress across every subject, the days left, and today&rsquo;s streak &mdash; the numbers you used to guess, counted for you.</p>
+    </div>
+    <div class="feat-shot"><img src="full-dash.png" alt="The PrepTracker dashboard with progress, days to exam and streak."></div>
+  </div>
+
+  <div class="feat-row flip reveal">
+    <div class="feat-copy">
+      <p class="feat-num">02</p>
+      <h3>Every unit, every topic, one tick at a time</h3>
+      <p>Each subject broken into its real units and topics. Tick them off as you study and watch the unit flip to mastered.</p>
+    </div>
+    <div class="feat-shot"><img src="full-subject.png" alt="A subject broken into units and topics with progress."></div>
+  </div>
+
+  <div class="feat-row reveal">
+    <div class="feat-copy">
+      <p class="feat-num">03</p>
+      <h3>Wake up to today&rsquo;s list</h3>
+      <p>No planning session every morning. Open the app and the day&rsquo;s tasks are already there, sized to the days left.</p>
+    </div>
+    <div class="feat-shot"><img src="full-tasks.png" alt="The tasks view with today's study tasks."></div>
+  </div>
+
+  <div class="feat-row flip reveal">
+    <div class="feat-copy">
+      <p class="feat-num">04</p>
+      <h3>Question papers where you study</h3>
+      <p>Previous-year papers and resources sit next to the units they belong to &mdash; not in a drive folder you never open.</p>
+    </div>
+    <div class="feat-shot"><img src="full-library.png" alt="The library of previous-year question papers."></div>
+  </div>
+</section>
+
+<!-- 6. HOW IT WORKS - ayzz Perfect Structure: 3 steps -->
+<section class="sec hiw" aria-label="How it works">
+  <p class="eyebrow reveal">How it works</p>
+  <h2 class="reveal">Set up once. <em>Tracked every day.</em></h2>
+  <div class="steps">
+    <div class="step reveal">
+      <p class="n">01<i>.</i></p>
+      <h4>Pick your subjects</h4>
+      <p>Your branch&rsquo;s subjects are already in the app, each with its real units and topics. Select yours and you&rsquo;re done.</p>
+    </div>
+    <div class="step reveal">
+      <p class="n">02<i>.</i></p>
+      <h4>Tick topics as you study</h4>
+      <p>Finished a topic? Tick it. That one habit is the entire system &mdash; the app does every calculation after that.</p>
+    </div>
+    <div class="step reveal">
+      <p class="n">03<i>.</i></p>
+      <h4>See what&rsquo;s left, every morning</h4>
+      <p>Progress, streaks and the countdown update themselves. You always know exactly what&rsquo;s left before the exam.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7. SECONDARY CTA - cta.gallery mid-page band -->
+<section class="sec" aria-label="Start tracking">
+  <div class="cta-band reveal">
+    <div>
+      <h2>Your syllabus won&rsquo;t <em>track itself.</em></h2>
+      <p class="fud" style="margin-top:14px">Free &middot; No account &middot; Data stays in your browser</p>
+    </div>
+    <a class="cta-main" href="#">Start tracking
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- 8. FINAL CTA + FOOTER - footer.design: Northeast Tomato (giant red panel + utility row) -->
+<section class="final" aria-label="Final call to action">
+  <div class="final-panel reveal">
+    <h2>Walk in knowing<br>what&rsquo;s <em style="color:#fff;text-decoration:underline;text-underline-offset:10px;text-decoration-thickness:4px">left.</em></h2>
+    <p class="subf">Two minutes to set up. Then the app counts the days, the units and the topics &mdash; you just study.</p>
+    <a class="cta-white" href="#">Start tracking
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="#D61A40" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <p class="fud">Free &middot; No account &middot; Data stays in your browser</p>
+  </div>
+</section>
+<footer>
+  <div class="foot-brand">
+    <svg viewBox="0 0 149 146" aria-hidden="true"><path class="mark2" fill="url(#lg2)" d=""/><defs><linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F63C49"/><stop offset="1" stop-color="#D61A40"/></linearGradient></defs></svg>
+    <b>PrepTracker</b>
+  </div>
+  <div class="foot-links">
+    <a class="nav-link" href="#">How it works</a>
+    <a class="nav-link" href="#">Features</a>
+    <a class="nav-link" href="#">Start tracking</a>
+  </div>
+  <p class="foot-note">Built by a student, for students</p>
+</footer>
+
 </main>
 
 <script>
@@ -189,6 +411,7 @@ function setOn(i){btns.forEach((b,j)=>{b.classList.toggle('on',i===j);b.setAttri
 btns.forEach((b,i)=>b.addEventListener('click',()=>setOn(i)));
 addEventListener('resize',()=>moveThumb(sw.querySelector('button.on')));
 addEventListener('load',()=>moveThumb(btns[0]));
+document.querySelector('.mark2').setAttribute('d',document.getElementById('mark').getAttribute('d'));
 </script>
 <script src="gsap.min.js"></script>
 <script>
@@ -210,6 +433,9 @@ if(!reduced){
 }else{
   gsap.set(['.line','.kicker','.sub','.cta-main','.fud','.switcher','.window','.chip','.strip'],{clearProps:'all'});
 }
+// scroll reveals
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.18});
+document.querySelectorAll('.reveal').forEach(el=>{if(reduced){el.classList.add('in')}else{io.observe(el)}});
 </script>
 </body>
 </html>
