@@ -34,7 +34,7 @@ const StatPill = ({ label, value, sub, active = false, gradient = false, icon: I
   }`}>
     <div className="flex justify-between items-start">
       <span className={`text-[9px] uppercase tracking-[0.25em] font-bold ${
-        gradient ? 'text-white/80' : active ? 'text-black/50' : 'text-slate-500'
+        gradient ? 'text-white/80' : active ? 'text-black/70' : 'text-slate-500'
       }`}>{label}</span>
       <Icon size={16} className={gradient ? 'text-white' : active ? 'text-black' : 'text-[#F63C49]'} />
     </div>
@@ -43,7 +43,7 @@ const StatPill = ({ label, value, sub, active = false, gradient = false, icon: I
         gradient ? 'text-white' : active ? 'text-black' : 'text-white'
       }`}>{value}</p>
       <p className={`text-[10px] lg:text-[11px] font-bold uppercase tracking-widest ${
-        gradient ? 'text-white/80' : active ? 'text-black/50' : 'text-slate-500'
+        gradient ? 'text-white/80' : active ? 'text-black/70' : 'text-slate-500'
       }`}>{sub}</p>
     </div>
   </Wrap>
