@@ -253,7 +253,7 @@ const Dashboard: React.FC = () => {
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#D61A40]"></span>
                 </span>
                 <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-[#F63C49]">
-                    Hi, {profile.name}
+                    {(() => { const h = new Date().getHours(); const g = h < 5 ? 'Good night' : h < 12 ? 'Good morning' : h < 17 ? 'Good afternoon' : h < 21 ? 'Good evening' : 'Good night'; return `${g}, ${profile.name}`; })()}
                 </span>
             </div>
             <h1 className="text-5xl lg:text-6xl font-display font-bold text-white mb-2 leading-[0.9] tracking-tighter">
