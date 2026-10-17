@@ -170,194 +170,194 @@ const SubjectDetail: React.FC = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-        {/* Timeline / Unit List */}
-        <div className="lg:col-span-8 relative">
-          <div className="absolute left-6 top-8 bottom-8 w-px bg-white/5"></div>
-          
-          <div className="space-y-5">
-            {subject.units.map((unit, i) => {
-              const p = getProg(unit.id);
-              const isActive = p.status !== UnitStatus.NOT_STARTED;
-              const isMastered = p.status === UnitStatus.MASTERED;
-              const completedPyqs = p.pyqsCompleted || [];
-              const isCollapsed = collapsedUnits[unit.id] ?? isMastered;
+      {/* Chapters: editorial unit sections with oversized numerals */}
+      <div className="max-w-5xl space-y-5">
+        {subject.units.map((unit, i) => {
+          const p = getProg(unit.id);
+          const isActive = p.status !== UnitStatus.NOT_STARTED;
+          const isMastered = p.status === UnitStatus.MASTERED;
+          const completedPyqs = p.pyqsCompleted || [];
+          const isCollapsed = collapsedUnits[unit.id] ?? isMastered;
+          const topicsTotal = unit.topics?.length || 0;
+          const topicsDone = (p.topicsDone || []).filter(x => (unit.topics || []).includes(x)).length;
 
-              return (
-                <div key={unit.id} className="relative pl-16 group">
-                  {/* Timeline Node */}
-                  <div className={`absolute left-[1.1rem] top-8 w-5 h-5 rounded-full border-[3px] transition-all duration-300 z-10 bg-[#030303] ${
-                    isMastered ? 'border-[#F63C49] bg-[#D61A40] shadow-[0_0_15px_#F63C49]' : isActive ? 'border-white bg-white' : 'border-white/10'
-                  }`}></div>
+          return (
+            <section key={unit.id} className="relative flex gap-4 lg:gap-6 group">
+              {/* Chapter numeral */}
+              <div className="hidden sm:flex w-14 lg:w-20 shrink-0 justify-center pt-5">
+                <span className={`font-display font-bold leading-none tracking-tighter text-4xl lg:text-6xl transition-colors duration-300 ${
+                  isMastered ? 'text-[#F63C49]' : isActive ? 'text-white/30' : 'text-white/10'
+                }`}>
+                  {String(unit.unit_number).padStart(2, '0')}
+                </span>
+              </div>
 
-                  <div className="surface-1 p-5 lg:p-6 rounded-3xl hover:border-white/10 transition-all">
-                    <div className="flex flex-col sm:flex-row justify-between items-start mb-5 gap-4 sm:gap-0">
-                      <button
-                        type="button"
-                        onClick={() => setCollapsedUnits(prev => ({ ...prev, [unit.id]: !isCollapsed }))}
-                        aria-expanded={!isCollapsed}
-                        className="text-left flex items-start gap-3 group/title"
-                      >
-                        <span>
-                          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1 block">Unit 0{unit.unit_number}</span>
-                          <h2 className={`text-xl font-display font-bold mt-1 transition-colors tracking-tight ${isMastered ? 'text-[#F63C49]' : 'text-white group-hover/title:text-[#F63C49]'}`}>{unit.title}</h2>
-                        </span>
-                        <ChevronDown size={20} className={`mt-2 shrink-0 text-slate-500 transition-transform duration-300 ${isCollapsed ? '-rotate-90' : ''}`} />
-                      </button>
-                      
-                      <div className="flex bg-white/5 p-1 rounded-xl">
-                        {[
-                            { status: UnitStatus.NOT_STARTED, icon: Circle, label: 'Start' },
-                            { status: UnitStatus.IN_PROGRESS, icon: Timer, label: 'Study' },
-                            { status: UnitStatus.MASTERED, icon: CheckCircle2, label: 'Done' }
-                        ].map((item) => {
-                             const isSelected = p.status === item.status;
-                             return (
-                                <button
-                                    key={item.status}
-                                    onClick={() => updateStatus(unit.id, item.status)}
-                                    aria-label={`Mark unit as ${item.label}`}
-                                    aria-pressed={isSelected}
-                                    title={item.label}
-                                    className={`relative px-4 py-2 rounded-lg flex items-center gap-2 transition-all duration-300 ${
-                                        isSelected 
-                                        ? 'bg-white text-black shadow-lg' 
-                                        : 'text-slate-500 hover:text-white hover:bg-white/5'
-                                    }`}
-                                >
-                                    <item.icon size={14} className={isSelected ? 'text-black' : 'text-current'} strokeWidth={2.5} />
-                                    <span className={`text-[10px] font-bold uppercase tracking-wider ${isSelected ? 'block' : 'hidden lg:block'}`}>
-                                        {item.label}
-                                    </span>
-                                </button>
-                             );
-                        })}
-                      </div>
-                    </div>
+              <div className={`flex-1 surface-1 rounded-3xl overflow-hidden transition-all hover:border-white/15 ${isMastered ? 'border-[#F63C49]/20' : ''}`}>
+                {/* Unit header row */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-5 lg:px-6 lg:py-5">
+                  <button
+                    type="button"
+                    onClick={() => setCollapsedUnits(prev => ({ ...prev, [unit.id]: !isCollapsed }))}
+                    aria-expanded={!isCollapsed}
+                    className="text-left flex items-center gap-3 min-w-0 group/title"
+                  >
+                    <span className="sm:hidden font-display font-bold text-lg leading-none text-white/20">{String(unit.unit_number).padStart(2, '0')}</span>
+                    <span className="min-w-0">
+                      <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest block">
+                        Unit {unit.unit_number}{topicsTotal > 0 && <> <span className="text-slate-700">/</span> {topicsDone} of {topicsTotal} topics</>}
+                      </span>
+                      <h2 className={`text-lg lg:text-xl font-display font-bold mt-1 transition-colors tracking-tight ${isMastered ? 'text-[#F63C49]' : 'text-white group-hover/title:text-[#F63C49]'}`}>{unit.title}</h2>
+                    </span>
+                    <ChevronDown size={18} className={`shrink-0 text-slate-500 transition-transform duration-300 ${isCollapsed ? '-rotate-90' : ''}`} />
+                  </button>
 
-                    {!isCollapsed && (<>
-                    {/* Topics List */}
-                    {unit.topics && (
-                       <div className="mb-6 p-4 lg:p-5 rounded-2xl surface-2">
-                         <h3 className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">
-                           <List size={12} /> Key Topics <span className="ml-auto font-mono text-slate-500">{(p.topicsDone || []).filter(x => unit.topics.includes(x)).length}/{unit.topics.length}</span>
-                         </h3>
-                         <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-3">
-                           {unit.topics.map((t, idx) => {
-                             const done = (p.topicsDone || []).includes(t);
-                             return (
-                               <li key={idx}>
-                                 <button
-                                   type="button"
-                                   role="checkbox"
-                                   aria-checked={done}
-                                   onClick={() => toggleTopic(unit.id, t, unit.topics)}
-                                   className={`w-full text-left text-sm flex items-start gap-3 p-2 -m-2 rounded-lg transition-colors hover:bg-white/5 ${done ? 'text-slate-500' : 'text-slate-300'}`}
-                                 >
-                                   <span className={`mt-0.5 w-4 h-4 rounded border shrink-0 flex items-center justify-center transition-all ${done ? 'bg-[#D61A40] border-[#F63C49]' : 'border-white/20'}`}>
-                                     {done && <Check size={10} strokeWidth={3.5} className="text-white" />}
-                                   </span>
-                                   <span className={`leading-relaxed font-medium ${done ? 'line-through decoration-white/20' : ''}`}>{t}</span>
-                                 </button>
-                               </li>
-                             );
-                           })}
-                         </ul>
-                       </div>
-                    )}
-
-                    {/* Functional PYQ Tracker */}
-                    <div className="flex flex-col gap-3">
-                       <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest flex items-center gap-2">
-                          <FileQuestion size={12} /> PYQ Tracker
-                       </span>
-                       <div className="grid grid-cols-3 gap-3">
-                         {['2022', '2023', '2024'].map(year => {
-                           const isSolved = completedPyqs.includes(year);
-                           return (
-                             <button
-                               key={year}
-                               onClick={() => togglePyq(unit.id, year)}
-                               aria-label={`${year} question paper, ${unit.title}: ${isSolved ? 'solved' : 'not solved'}`}
-                               aria-pressed={isSolved}
-                               className={`group px-4 py-3 rounded-xl border flex items-center justify-between transition-all duration-300 ${
-                                 isSolved
-                                   ? 'bg-[#F63C49]/10 border-[#F63C49]/30 text-[#F63C49]'
-                                   : 'bg-white/5 border-white/5 text-slate-400 hover:bg-white/10 hover:border-white/20 hover:text-white'
-                               }`}
-                             >
-                                <span className="text-[11px] font-bold font-mono tracking-wider">{year}</span>
-                                {isSolved ? (
-                                   <Check size={12} strokeWidth={3} />
-                                ) : (
-                                   <div className="w-3 h-3 rounded-full border border-white/20 group-hover:border-white/50"></div>
-                                )}
-                             </button>
-                           );
-                         })}
-                       </div>
-                    </div>
-                    </>)}
+                  <div className="flex bg-white/5 p-1 rounded-xl shrink-0 self-start sm:self-center">
+                    {[
+                        { status: UnitStatus.NOT_STARTED, icon: Circle, label: 'Start' },
+                        { status: UnitStatus.IN_PROGRESS, icon: Timer, label: 'Study' },
+                        { status: UnitStatus.MASTERED, icon: CheckCircle2, label: 'Done' }
+                    ].map((item) => {
+                         const isSelected = p.status === item.status;
+                         return (
+                            <button
+                                key={item.status}
+                                onClick={() => updateStatus(unit.id, item.status)}
+                                aria-label={`Mark unit as ${item.label}`}
+                                aria-pressed={isSelected}
+                                title={item.label}
+                                className={`relative px-3.5 py-1.5 rounded-lg flex items-center gap-2 transition-all duration-300 ${
+                                    isSelected
+                                    ? 'bg-white text-black shadow-lg'
+                                    : 'text-slate-500 hover:text-white hover:bg-white/5'
+                                }`}
+                            >
+                                <item.icon size={13} className={isSelected ? 'text-black' : 'text-current'} strokeWidth={2.5} />
+                                <span className={`text-[9px] font-bold uppercase tracking-wider ${isSelected ? 'block' : 'hidden sm:block'}`}>
+                                    {item.label}
+                                </span>
+                            </button>
+                         );
+                    })}
                   </div>
                 </div>
-              );
-            })}
-          </div>
-        </div>
 
-        {/* Sidebar */}
-        <div className="lg:col-span-4 space-y-6">
-           <div className="p-5 lg:p-6 rounded-3xl surface-1 min-h-[280px]">
-              <h3 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-6 px-1 flex items-center justify-between">
-                Recommended Resources
-                <Link to="/app/resources" aria-label="Open the resource library" className="text-white hover:text-[#F63C49] transition-colors flex items-center gap-1">
-                   <ArrowUpRight size={10} />
-                </Link>
-              </h3>
-              
-              <div className="space-y-4">
-                {subjectResources.length > 0 ? (
-                    subjectResources.map(resource => {
-                        const isYoutube = getYouTubeID(resource.url);
-                        return (
-                            <button
-                                type="button"
-                                key={resource.id}
-                                onClick={() => setViewResource(resource)}
-                                className="w-full text-left flex items-center gap-4 p-4 rounded-2xl bg-white/5 hover:bg-white/10 transition-colors cursor-pointer group border border-transparent hover:border-white/10"
-                            >
-                                <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
-                                    isYoutube || resource.type === 'video' 
-                                    ? 'bg-red-500/10 text-red-500 group-hover:bg-red-500/20' 
-                                    : 'bg-white/5 text-white/40 group-hover:text-white'
-                                }`}>
-                                    {isYoutube || resource.type === 'video' ? <PlayCircle size={20} /> : <FileText size={20} />}
-                                </div>
-                                <div className="flex-1 overflow-hidden">
-                                    <p className="text-sm font-bold text-white truncate mb-0.5">{resource.title}</p>
-                                    <div className="flex items-center gap-2">
-                                        <span className="text-[9px] font-bold uppercase tracking-wider text-slate-500">{resource.category}</span>
-                                        <span className="w-1 h-1 rounded-full bg-slate-700"></span>
-                                        <span className="text-[9px] font-bold uppercase tracking-wider text-slate-500">{resource.author}</span>
-                                    </div>
-                                </div>
-                            </button>
-                        )
-                    })
-                ) : (
-                    <div className="flex flex-col items-center justify-center h-48 border border-dashed border-white/10 rounded-2xl text-center p-4">
-                         <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-3">
-                            <Search size={20} className="text-slate-600" />
-                         </div>
-                         <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">No Resources Found</p>
-                         <Link to="/app/resources" className="text-[10px] text-[#F63C49] mt-2 font-mono hover:underline">
-                             Add a resource
-                         </Link>
-                    </div>
+                {!isCollapsed && (
+                <div className="px-5 pb-5 lg:px-6 lg:pb-6 pt-0 grid grid-cols-1 lg:grid-cols-5 gap-5 border-t border-white/5">
+                  {/* Topics */}
+                  {unit.topics && (
+                     <div className="lg:col-span-3 pt-5">
+                       <h3 className="flex items-center gap-2 text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-3">
+                         <List size={11} /> Key Topics <span className="ml-auto font-mono text-slate-500">{topicsDone}/{topicsTotal}</span>
+                       </h3>
+                       <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2.5">
+                         {unit.topics.map((t, idx) => {
+                           const done = (p.topicsDone || []).includes(t);
+                           return (
+                             <li key={idx}>
+                               <button
+                                 type="button"
+                                 role="checkbox"
+                                 aria-checked={done}
+                                 onClick={() => toggleTopic(unit.id, t, unit.topics)}
+                                 className={`w-full text-left text-sm flex items-start gap-3 p-1.5 -m-1.5 rounded-lg transition-colors hover:bg-white/5 ${done ? 'text-slate-500' : 'text-slate-300'}`}
+                               >
+                                 <span className={`mt-0.5 w-4 h-4 rounded border shrink-0 flex items-center justify-center transition-all ${done ? 'bg-[#D61A40] border-[#F63C49]' : 'border-white/20'}`}>
+                                   {done && <Check size={10} strokeWidth={3.5} className="text-white" />}
+                                 </span>
+                                 <span className={`leading-relaxed font-medium ${done ? 'line-through decoration-white/20' : ''}`}>{t}</span>
+                               </button>
+                             </li>
+                           );
+                         })}
+                       </ul>
+                     </div>
+                  )}
+
+                  {/* PYQ strip */}
+                  <div className={`${unit.topics ? 'lg:col-span-2' : 'lg:col-span-5'} pt-5 flex flex-col`}>
+                     <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest flex items-center gap-2 mb-3">
+                        <FileQuestion size={11} /> PYQs solved
+                     </span>
+                     <div className="grid grid-cols-3 gap-2 content-start">
+                       {['2022', '2023', '2024'].map(year => {
+                         const isSolved = completedPyqs.includes(year);
+                         return (
+                           <button
+                             key={year}
+                             onClick={() => togglePyq(unit.id, year)}
+                             aria-label={`${year} question paper, ${unit.title}: ${isSolved ? 'solved' : 'not solved'}`}
+                             aria-pressed={isSolved}
+                             className={`group px-3 py-2.5 rounded-xl border flex items-center justify-between transition-all duration-300 ${
+                               isSolved
+                                 ? 'bg-[#F63C49]/10 border-[#F63C49]/30 text-[#F63C49]'
+                                 : 'bg-white/5 border-white/5 text-slate-400 hover:bg-white/10 hover:border-white/20 hover:text-white'
+                             }`}
+                           >
+                              <span className="text-[10px] font-bold font-mono tracking-wider">{year}</span>
+                              {isSolved ? (
+                                 <Check size={11} strokeWidth={3} />
+                              ) : (
+                                 <div className="w-2.5 h-2.5 rounded-full border border-white/20 group-hover:border-white/50"></div>
+                              )}
+                           </button>
+                         );
+                       })}
+                     </div>
+                  </div>
+                </div>
                 )}
               </div>
-           </div>
+            </section>
+          );
+        })}
+      </div>
+
+      {/* Resources: full-width index, matches Library */}
+      <div className="max-w-5xl mt-12">
+        <div className="flex items-center gap-3 mb-3 px-1">
+          <span className="text-[9px] font-mono font-bold uppercase tracking-[0.3em] text-slate-400">Resources for this subject</span>
+          <span className="text-[9px] font-mono text-slate-600">{subjectResources.length}</span>
+          <div className="flex-1 h-px bg-white/5"></div>
+          <Link to="/app/resources" aria-label="Open the resource library" className="text-slate-500 hover:text-[#F63C49] transition-colors">
+             <ArrowUpRight size={12} />
+          </Link>
         </div>
+        {subjectResources.length > 0 ? (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-1">
+            {subjectResources.map(resource => {
+                const isYoutube = getYouTubeID(resource.url);
+                return (
+                    <button
+                        type="button"
+                        key={resource.id}
+                        onClick={() => setViewResource(resource)}
+                        className="w-full text-left flex items-center gap-4 px-4 py-3 rounded-xl transition-colors cursor-pointer group border border-transparent hover:border-white/10 hover:bg-white/[0.03]"
+                    >
+                        <div className={`w-9 h-9 rounded-lg border flex items-center justify-center shrink-0 transition-colors ${
+                            isYoutube || resource.type === 'video'
+                            ? 'bg-[#F63C49]/10 border-[#F63C49]/20 text-[#F63C49]'
+                            : 'bg-white/5 border-white/10 text-slate-400'
+                        }`}>
+                            {isYoutube || resource.type === 'video' ? <PlayCircle size={14} /> : <FileText size={14} />}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                            <p className="text-sm font-semibold text-slate-100 truncate">{resource.title}</p>
+                            <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mt-0.5 truncate">{resource.category} <span className="text-slate-700">/</span> {resource.author}</p>
+                        </div>
+                        <ArrowUpRight size={14} className="shrink-0 text-slate-600 group-hover:text-[#F63C49] transition-colors" />
+                    </button>
+                )
+            })}
+          </div>
+        ) : (
+          <div className="flex flex-col items-center justify-center py-14 border border-dashed border-white/10 rounded-2xl text-center p-4">
+               <Search size={18} className="text-slate-600 mb-3" />
+               <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">No resources yet</p>
+               <Link to="/app/resources" className="text-[10px] text-[#F63C49] mt-2 font-mono hover:underline">
+                   Add one in the Library
+               </Link>
+          </div>
+        )}
       </div>
 
     </div>
