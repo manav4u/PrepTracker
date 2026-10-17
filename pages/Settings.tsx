@@ -259,248 +259,218 @@ const SettingsPage: React.FC = () => {
         isDanger={modalConfig.type === 'FORMAT'}
       />
 
-      {/* Background Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none -z-10"></div>
+      <div className="max-w-3xl mx-auto">
 
-      <div className="max-w-4xl mx-auto pt-8 lg:pt-12 px-4">
-        
-        {/* Header */}
-        <header className="mb-16 border-b border-white/5 pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        {/* Compact header */}
+        <header className="flex items-end justify-between gap-6 mb-10">
             <div>
                 <div className="flex items-center gap-2 text-[#F63C49] mb-2">
-                    <Terminal size={16} />
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em]">Settings</span>
+                    <Terminal size={13} />
+                    <span className="text-[9px] font-mono font-bold uppercase tracking-[0.3em]">System</span>
                 </div>
-                <h1 className="text-5xl lg:text-7xl font-display font-bold text-white tracking-tighter leading-none">
-                    Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-500 to-slate-700">Settings</span>
-                </h1>
+                <h1 className="text-4xl lg:text-5xl font-display font-bold text-white tracking-tighter leading-none">Settings</h1>
             </div>
-            <div className="flex items-center gap-3">
-                 <div className="px-4 py-2 rounded border border-white/10 bg-white/5 flex items-center gap-3">
-                    <div className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_10px_#22c55e] animate-pulse"></div>
-                    <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">Local Mode Active</span>
-                 </div>
+            <div className="px-3 py-1.5 rounded-full border border-white/10 bg-white/5 flex items-center gap-2 shrink-0">
+                <div className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_#22c55e]"></div>
+                <span className="text-[9px] font-mono text-slate-400 uppercase tracking-widest">Saved on this device</span>
             </div>
         </header>
 
-        <div className="space-y-8">
+        <div className="space-y-10">
 
-            {/* SECTION: OPERATOR IDENTITY */}
-            <section className="relative group surface-1 rounded-3xl p-8 overflow-hidden hover:border-white/20 transition-all">
-                <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
-                    <User size={120} strokeWidth={0.5} />
+            {/* GROUP: PROFILE */}
+            <section>
+                <div className="flex items-center gap-3 mb-3 px-1">
+                    <span className="text-[9px] font-mono font-bold uppercase tracking-[0.3em] text-slate-400">Profile</span>
+                    <div className="flex-1 h-px bg-white/5"></div>
                 </div>
-                
-                <h2 className="text-xl font-display font-bold text-white mb-8 flex items-center gap-3">
-                    <HardDrive size={20} className="text-[#F63C49]" />
-                    Your profile
-                </h2>
+                <div className="surface-1 rounded-2xl divide-y divide-white/5 overflow-hidden">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-6 px-5 py-4">
+                        <label className="text-[10px] font-mono text-slate-500 uppercase tracking-widest sm:w-40 shrink-0">Name</label>
+                        <input
+                            type="text"
+                            aria-label="Your name"
+                            value={profile.name}
+                            onChange={(e) => update('name', e.target.value)}
+                            className="flex-1 bg-white/[0.04] border border-white/10 rounded-lg px-3 py-2 text-sm font-bold text-white focus:border-[#F63C49] focus:outline-none transition-colors placeholder:text-white/20"
+                        />
+                    </div>
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-6 px-5 py-4">
+                        <label className="text-[10px] font-mono text-slate-500 uppercase tracking-widest sm:w-40 shrink-0">Student ID / PRN</label>
+                        <input
+                            type="text"
+                            value={profile.prn || ''}
+                            onChange={(e) => update('prn', e.target.value)}
+                            placeholder="Not set"
+                            className="flex-1 bg-white/[0.04] border border-white/10 rounded-lg px-3 py-2 text-sm font-mono text-slate-200 focus:border-[#F63C49] focus:outline-none transition-colors placeholder:text-white/20"
+                        />
+                    </div>
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-6 px-5 py-4">
+                        <label htmlFor="exam-start" className="text-[10px] font-mono text-slate-500 uppercase tracking-widest sm:w-40 shrink-0">First exam date</label>
+                        <input
+                            id="exam-start"
+                            type="date"
+                            value={profile.examStartDate || ''}
+                            onChange={(e) => update('examStartDate', e.target.value || undefined)}
+                            className="flex-1 bg-white/[0.04] border border-white/10 rounded-lg px-3 py-2 text-sm font-mono text-slate-200 focus:border-[#F63C49] focus:outline-none transition-colors [color-scheme:dark]"
+                        />
+                    </div>
+                </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                     <div className="space-y-6">
-                        <div className="space-y-2">
-                            <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest block">Your Name</label>
-                            <input 
-                                type="text" 
-                                aria-label="Your name"
-                                value={profile.name}
-                                onChange={(e) => update('name', e.target.value)}
-                                className="w-full bg-transparent border-b border-white/20 py-2 text-2xl font-display font-bold text-white focus:border-[#F63C49] focus:outline-none transition-colors placeholder:text-white/10"
-                            />
-                        </div>
-                        <div className="space-y-2">
-                            <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest block">Student ID / PRN</label>
-                            <input 
-                                type="text" 
-                                value={profile.prn || ''}
-                                onChange={(e) => update('prn', e.target.value)}
-                                placeholder="Not set"
-                                className="w-full bg-transparent border-b border-white/20 py-2 text-xl font-mono text-slate-300 focus:border-[#F63C49] focus:outline-none transition-colors placeholder:text-white/10"
-                            />
-                        </div>
-                        <div className="space-y-2">
-                            <label htmlFor="exam-start" className="text-[9px] font-mono text-slate-500 uppercase tracking-widest block">First exam date (for Days to Exam)</label>
+                <p className="text-[10px] text-slate-600 font-mono mt-4 mb-2 px-1">Exam date per subject - these build the dashboard countdown. Leave blank if the timetable is not out yet.</p>
+                <div className="surface-1 rounded-2xl divide-y divide-white/5 overflow-hidden">
+                    {SUBJECTS.filter(su => profile.selectedSubjects?.includes(su.id)).map(su => (
+                        <div key={su.id} className="flex items-center justify-between gap-4 px-5 py-3">
+                            <span className="text-xs font-bold text-slate-300 truncate">{su.name}</span>
                             <input
-                                id="exam-start"
                                 type="date"
-                                value={profile.examStartDate || ''}
-                                onChange={(e) => update('examStartDate', e.target.value || undefined)}
-                                className="w-full bg-transparent border-b border-white/20 py-2 text-xl font-mono text-slate-300 focus:border-[#F63C49] focus:outline-none transition-colors [color-scheme:dark]"
+                                aria-label={`Exam date for ${su.name}`}
+                                value={(profile.examDates || {})[su.id] || ''}
+                                onChange={(e) => {
+                                    const d = { ...(profile.examDates || {}) };
+                                    if (e.target.value) d[su.id] = e.target.value; else delete d[su.id];
+                                    update('examDates', d);
+                                }}
+                                className="bg-white/[0.04] border border-white/10 rounded-lg px-3 py-1.5 text-xs font-mono text-slate-200 focus:border-[#F63C49] focus:outline-none transition-colors [color-scheme:dark]"
                             />
                         </div>
-                     </div>
+                    ))}
+                </div>
 
-                     {/* Per-subject exam dates (drive the dashboard timeline) */}
-                     <div className="space-y-4">
-                        <div>
-                            <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest block">Exam date per subject</label>
-                            <p className="text-[10px] text-slate-600 font-mono mt-1">These build your dashboard exam timeline. Leave blank if the timetable is not out yet.</p>
+                {/* ID card preview */}
+                <div className="relative w-full max-w-md aspect-[1.58/1] rounded-2xl bg-[#020202] overflow-hidden border border-white/10 shadow-2xl mt-5 mx-auto">
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(246,60,73,0.1),transparent_70%)]"></div>
+                    <div className="relative z-10 p-6 flex flex-col justify-between h-full">
+                        <div className="flex justify-between items-start">
+                            <HardDrive size={22} className="text-[#F63C49]" />
+                            <span className="text-[8px] font-bold border border-white/20 px-1.5 py-0.5 rounded text-white/50 bg-white/5 uppercase tracking-widest">PrepTracker Local</span>
                         </div>
-                        <div className="space-y-3">
-                            {SUBJECTS.filter(su => profile.selectedSubjects?.includes(su.id)).map(su => (
-                                <div key={su.id} className="flex items-center justify-between gap-4 border-b border-white/5 pb-3">
-                                    <span className="text-xs font-bold text-slate-300 truncate">{su.name}</span>
-                                    <input
-                                        type="date"
-                                        aria-label={`Exam date for ${su.name}`}
-                                        value={(profile.examDates || {})[su.id] || ''}
-                                        onChange={(e) => {
-                                            const d = { ...(profile.examDates || {}) };
-                                            if (e.target.value) d[su.id] = e.target.value; else delete d[su.id];
-                                            update('examDates', d);
-                                        }}
-                                        className="bg-transparent border-b border-white/20 py-1 text-sm font-mono text-slate-300 focus:border-[#F63C49] focus:outline-none transition-colors [color-scheme:dark]"
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                     </div>
-
-                     {/* Visual ID Card Preview */}
-                     <div className="relative w-full aspect-[1.58/1] rounded-2xl bg-[#020202] overflow-hidden border border-white/10 group shadow-2xl hover:scale-[1.02] transition-transform duration-500">
-                        {/* Background Effects */}
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(246,60,73,0.1),transparent_70%)]"></div>
-                        
-                        {/* Content Container */}
-                        <div className="relative z-10 p-6 sm:p-8 flex flex-col justify-between h-full">
-                            <div className="flex justify-between items-start">
-                                <HardDrive size={24} className="text-[#F63C49]" />
-                                <div className="text-right">
-                                    <span className="text-[8px] font-bold border border-white/20 px-1.5 py-0.5 rounded text-white/50 bg-white/5 uppercase tracking-widest">PrepTracker Local</span>
-                                </div>
-                            </div>
-
-                            <div className="mt-2">
-                                <h3 className="text-2xl sm:text-3xl font-display font-bold text-white uppercase tracking-tight truncate">
-                                    {profile.name || 'UNKNOWN'}
-                                </h3>
-                                <div className="flex items-center gap-2 mt-1">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
-                                    <span className="text-[8px] font-bold text-slate-500 uppercase tracking-widest">Saved on this device</span>
-                                </div>
-                            </div>
-
-                            <div className="flex justify-between items-end">
-                                <div>
-                                    <span className="text-[8px] font-mono text-slate-500 uppercase tracking-widest block mb-0.5 opacity-70">PRN Identifier</span>
-                                    <p className="font-mono font-bold text-[#F63C49] tracking-[0.2em] text-sm sm:text-base">
-                                        {profile.prn || '0000000000'}
-                                    </p>
-                                </div>
-                                <div className="relative w-12 h-12 flex items-center justify-center opacity-30">
-                                     <ScanLine size={32} className="text-white" />
-                                </div>
+                        <div className="mt-2">
+                            <h3 className="text-2xl font-display font-bold text-white uppercase tracking-tight truncate">
+                                {profile.name || 'UNKNOWN'}
+                            </h3>
+                            <div className="flex items-center gap-2 mt-1">
+                                <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                                <span className="text-[8px] font-bold text-slate-500 uppercase tracking-widest">Saved on this device</span>
                             </div>
                         </div>
-                     </div>
+                        <div className="flex justify-between items-end">
+                            <div>
+                                <span className="text-[8px] font-mono text-slate-500 uppercase tracking-widest block mb-0.5 opacity-70">PRN Identifier</span>
+                                <p className="font-mono font-bold text-[#F63C49] tracking-[0.2em] text-sm">
+                                    {profile.prn || '0000000000'}
+                                </p>
+                            </div>
+                            <ScanLine size={30} className="text-white opacity-30" />
+                        </div>
+                    </div>
                 </div>
             </section>
 
-
-            {/* SECTION: ACADEMIC CONFIGURATION */}
-            <section className="surface-1 rounded-3xl p-8">
-                <div className="flex justify-between items-start mb-8">
-                    <h2 className="text-xl font-display font-bold text-white flex items-center gap-3">
-                        <Terminal size={20} className="text-[#F63C49]" />
-                        Your subjects
-                    </h2>
-                    <button 
+            {/* GROUP: SUBJECTS */}
+            <section>
+                <div className="flex items-center gap-3 mb-3 px-1">
+                    <span className="text-[9px] font-mono font-bold uppercase tracking-[0.3em] text-slate-400">Your subjects</span>
+                    <div className="flex-1 h-px bg-white/5"></div>
+                    <button
                         onClick={initiateReset}
-                        className="px-4 py-2 rounded-lg bg-white/5 hover:bg-[#D61A40] text-slate-400 hover:text-white text-[10px] font-bold uppercase tracking-widest transition-all flex items-center gap-2 border border-white/5"
+                        className="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-[#D61A40] text-slate-400 hover:text-white text-[9px] font-bold uppercase tracking-widest transition-all flex items-center gap-2 border border-white/5"
                     >
-                        <RotateCcw size={12} /> Change subjects
+                        <RotateCcw size={11} /> Change subjects
                     </button>
                 </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <div className="surface-1 rounded-2xl p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
                     {selectedSubjectsList.map(sub => (
-                        <div key={sub.id} className="p-4 rounded-xl border border-white/5 bg-white/[0.02] flex items-center gap-3">
-                            <div className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_5px_#22c55e]"></div>
-                            <div>
-                                <p className="text-xs font-bold text-white leading-tight">{sub.name}</p>
-                                <p className="text-[9px] font-mono text-slate-500 mt-1">{sub.code}</p>
+                        <div key={sub.id} className="px-3 py-2.5 rounded-lg bg-white/[0.03] border border-white/5 flex items-center gap-3">
+                            <div className="w-1.5 h-1.5 rounded-full bg-[#F63C49]"></div>
+                            <div className="min-w-0">
+                                <p className="text-xs font-bold text-white leading-tight truncate">{sub.name}</p>
+                                <p className="text-[9px] font-mono text-slate-500 mt-0.5">{sub.code}</p>
                             </div>
                         </div>
                     ))}
                 </div>
             </section>
 
-            {/* SECTION: DATA PORTABILITY */}
-            <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="surface-1 rounded-3xl p-8 flex flex-col justify-between">
-                    <div>
-                        <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
-                           <Save size={16} /> Data Portability
-                        </h3>
-                        <p className="text-xs text-slate-500 font-mono leading-relaxed mb-6">
-                            Save your progress, tasks, marks and links to a JSON file. Restoring shows what will change first and keeps an undo copy.
-                        </p>
-                        
-                        <div className="space-y-4">
-                            <div 
-                                onDragEnter={handleDrag} 
-                                onDragLeave={handleDrag} 
-                                onDragOver={handleDrag} 
-                                onDrop={handleDrop}
-                                onClick={() => fileInputRef.current?.click()}
-                                className={`
-                                    border border-dashed rounded-xl p-6 text-center transition-all cursor-pointer group
-                                    ${dragActive 
-                                        ? 'border-[#F63C49] bg-[#F63C49]/10 scale-[1.02]' 
-                                        : 'border-white/10 hover:border-white/30 hover:bg-white/5'
-                                    }
-                                `}
-                            >
-                                <div className="flex flex-col items-center gap-3 pointer-events-none">
-                                    <div className={`p-3 rounded-full transition-colors ${dragActive ? 'bg-[#F63C49]/20 text-[#F63C49]' : 'bg-white/5 text-slate-400'}`}>
-                                        <Upload size={20} />
-                                    </div>
-                                    <div>
-                                        <p className="text-sm font-bold text-white uppercase tracking-wider">
-                                            Restore Backup
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <input 
-                              type="file" 
-                              ref={fileInputRef} 
-                              onChange={handleFileSelect} 
-                              className="hidden" 
-                              accept=".json"
-                            />
-                            
-                            <button 
-                              onClick={exportData}
-                              className="w-full py-3 bg-white/5 border border-white/10 text-white font-bold uppercase text-[10px] tracking-[0.2em] rounded-lg hover:bg-white hover:text-black transition-all flex items-center justify-center gap-2"
-                            >
-                              <Download size={12} /> Download Backup
-                            </button>
-                            {canUndo && (
-                              <button
-                                onClick={undoRestore}
-                                className="w-full py-3 bg-transparent border border-white/10 text-slate-300 font-bold uppercase text-[10px] tracking-[0.2em] rounded-lg hover:bg-white/5 transition-all flex items-center justify-center gap-2"
-                              >
-                                <RotateCcw size={12} /> Undo last restore
-                              </button>
-                            )}
-                        </div>
-                    </div>
+            {/* GROUP: BACKUP AND DATA */}
+            <section>
+                <div className="flex items-center gap-3 mb-3 px-1">
+                    <span className="text-[9px] font-mono font-bold uppercase tracking-[0.3em] text-slate-400">Backup and data</span>
+                    <div className="flex-1 h-px bg-white/5"></div>
                 </div>
-
-                <div className="surface-1 border-red-500/20 rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden group">
-                    <div className="absolute inset-0 bg-red-900/5 group-hover:bg-red-900/10 transition-colors"></div>
-                    <div className="relative z-10">
-                        <h3 className="text-lg font-bold text-red-500 mb-2 flex items-center gap-2"><AlertTriangle size={16} /> Danger Zone</h3>
-                        <p className="text-xs text-red-300 font-mono leading-relaxed">
-                            Irreversible action. Wipes all data from this device.
-                        </p>
+                <div className="surface-1 rounded-2xl divide-y divide-white/5 overflow-hidden">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 px-5 py-4">
+                        <div className="flex-1">
+                            <p className="text-sm font-bold text-white">Download backup</p>
+                            <p className="text-[10px] text-slate-500 font-mono mt-0.5">Progress, tasks, marks and links as one JSON file.</p>
+                        </div>
+                        <button
+                            onClick={exportData}
+                            className="px-4 py-2.5 bg-white/5 border border-white/10 text-white font-bold uppercase text-[9px] tracking-[0.2em] rounded-lg hover:bg-white hover:text-black transition-all flex items-center justify-center gap-2 shrink-0"
+                        >
+                            <Download size={11} /> Download
+                        </button>
                     </div>
-                    <button 
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 px-5 py-4">
+                        <div className="flex-1">
+                            <p className="text-sm font-bold text-white">Restore backup</p>
+                            <p className="text-[10px] text-slate-500 font-mono mt-0.5">Shows what will change first, keeps an undo copy.</p>
+                        </div>
+                        <div
+                            onDragEnter={handleDrag}
+                            onDragLeave={handleDrag}
+                            onDragOver={handleDrag}
+                            onDrop={handleDrop}
+                            onClick={() => fileInputRef.current?.click()}
+                            className={`px-4 py-2.5 border border-dashed rounded-lg cursor-pointer transition-all flex items-center justify-center gap-2 shrink-0 text-[9px] font-bold uppercase tracking-[0.2em] ${
+                                dragActive
+                                    ? 'border-[#F63C49] bg-[#F63C49]/10 text-[#F63C49]'
+                                    : 'border-white/15 text-slate-400 hover:border-white/30 hover:text-white'
+                            }`}
+                        >
+                            <Upload size={11} /> Drop file or browse
+                        </div>
+                        <input
+                            type="file"
+                            ref={fileInputRef}
+                            onChange={handleFileSelect}
+                            className="hidden"
+                            accept=".json"
+                        />
+                    </div>
+                    {canUndo && (
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 px-5 py-4">
+                        <div className="flex-1">
+                            <p className="text-sm font-bold text-white">Undo last restore</p>
+                            <p className="text-[10px] text-slate-500 font-mono mt-0.5">Return to the data kept before the last restore.</p>
+                        </div>
+                        <button
+                            onClick={undoRestore}
+                            className="px-4 py-2.5 bg-transparent border border-white/10 text-slate-300 font-bold uppercase text-[9px] tracking-[0.2em] rounded-lg hover:bg-white/5 transition-all flex items-center justify-center gap-2 shrink-0"
+                        >
+                            <RotateCcw size={11} /> Undo
+                        </button>
+                    </div>
+                    )}
+                </div>
+            </section>
+
+            {/* GROUP: DANGER */}
+            <section>
+                <div className="flex items-center gap-3 mb-3 px-1">
+                    <span className="text-[9px] font-mono font-bold uppercase tracking-[0.3em] text-red-500">Danger</span>
+                    <div className="flex-1 h-px bg-red-500/10"></div>
+                </div>
+                <div className="surface-1 border-red-500/20 rounded-2xl px-5 py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+                    <div className="flex-1">
+                        <p className="text-sm font-bold text-red-500 flex items-center gap-2"><AlertTriangle size={14} /> Erase all data</p>
+                        <p className="text-[10px] text-red-300/70 font-mono mt-0.5">Irreversible. Wipes everything from this device. Download a backup first.</p>
+                    </div>
+                    <button
                         onClick={initiateFormat}
-                        className="relative z-10 mt-6 w-full py-3 bg-red-500/10 text-red-500 border border-red-500/20 font-bold uppercase text-[10px] tracking-[0.2em] rounded-lg hover:bg-red-500 hover:text-white transition-all flex items-center justify-center gap-2"
+                        className="px-4 py-2.5 bg-red-500/10 text-red-500 border border-red-500/20 font-bold uppercase text-[9px] tracking-[0.2em] rounded-lg hover:bg-red-500 hover:text-white transition-all flex items-center justify-center gap-2 shrink-0"
                     >
-                        <Trash2 size={14} /> Erase all data
+                        <Trash2 size={12} /> Erase
                     </button>
                 </div>
             </section>
@@ -508,8 +478,8 @@ const SettingsPage: React.FC = () => {
         </div>
 
         <div className="mt-12 text-center">
-            <p className="text-[9px] font-mono text-slate-600 uppercase tracking-widest flex items-center justify-center gap-2">
-                PrepTracker • Built for the SPPU 2024 Pattern
+            <p className="text-[9px] font-mono text-slate-600 uppercase tracking-widest">
+                PrepTracker - works fully offline, your data never leaves this browser
             </p>
         </div>
       </div>
