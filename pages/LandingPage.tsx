@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import HeroV2 from '../components/landing/HeroV2';
+import HeroScene from '../components/landing/HeroScene';
 import TrustStrip from '../components/landing/TrustStrip';
 import ProblemSection from '../components/landing/ProblemSection';
 import FeaturesBento from '../components/landing/FeaturesBento';
@@ -64,7 +64,7 @@ const LandingPage: React.FC = () => {
         </div>
       </nav>
 
-      <HeroV2 />
+      <HeroScene />
 
       <TrustStrip />
 
