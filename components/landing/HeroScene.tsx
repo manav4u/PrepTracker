@@ -168,7 +168,7 @@ const HeroScene: React.FC = () => {
             <div className="rounded-lg bg-white p-2.5 md:p-3.5 ring-1 ring-black/10 shadow-[0_48px_96px_-32px_rgba(20,20,25,0.4)]">
               <div className="rounded-md overflow-hidden ring-1 ring-black/10 bg-[#0B0B10]">
                 <img
-                  src="/landing/dash-desktop.png"
+                  src="/landing/dash-desktop.webp"
                   alt="The PrepTracker dashboard: overall progress, units mastered, days to exam and streak"
                   className="w-full h-auto block"
                   width={1440}
