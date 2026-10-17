@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { SUBJECTS } from '../constants';
 import { UnitStatus } from '../types';
-import { CalendarDays } from 'lucide-react';
+import { CalendarDays, Flame } from 'lucide-react';
 import { useData } from '../context/DataContext';
 import { currentStreak, lastDays } from '../lib/activity';
 import { subjectExamList, nextExamIndex } from '../lib/exams';
