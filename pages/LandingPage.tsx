@@ -109,6 +109,41 @@ const LandingPage: React.FC = () => {
   const [view, setView] = useState(0);
   const pullParts = QUOTES.pull.q.split(QUOTES.pull.mark);
 
+  // Sliding pill under the active view tab: re-measured on tab change,
+  // mount, font load and resize; first paint is instant, later moves slide.
+  const switcherRef = React.useRef<HTMLDivElement>(null);
+  const pillRef = React.useRef<HTMLSpanElement>(null);
+  const firstPill = React.useRef(true);
+  const movePill = (instant: boolean) => {
+    const sw = switcherRef.current;
+    const pill = pillRef.current;
+    if (!sw || !pill) return;
+    const b = sw.querySelectorAll('button')[view] as HTMLElement | undefined;
+    if (!b) return;
+    if (instant) pill.style.transition = 'none';
+    pill.style.left = `${b.offsetLeft}px`;
+    pill.style.width = `${b.offsetWidth}px`;
+    if (instant) {
+      void pill.offsetHeight;
+      pill.style.transition = '';
+    }
+  };
+  React.useLayoutEffect(() => {
+    movePill(firstPill.current);
+    firstPill.current = false;
+  });
+  React.useEffect(() => {
+    const sync = () => movePill(true);
+    window.addEventListener('resize', sync);
+    window.addEventListener('load', sync);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(sync);
+    return () => {
+      window.removeEventListener('resize', sync);
+      window.removeEventListener('load', sync);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   // Paper background while the landing is mounted; restore the app shell theme on unmount.
   useEffect(() => {
     const prevBg = document.body.style.backgroundColor;
@@ -250,7 +285,8 @@ const LandingPage: React.FC = () => {
 
           <div className="try reveal-x"><span className="live"></span>Try the app<span className="try-sub">four real views, captured inside it</span></div>
           <div className="switchwrap">
-            <div className="switcher" role="tablist" aria-label="Preview the app">
+            <div className="switcher" role="tablist" aria-label="Preview the app" ref={switcherRef}>
+              <span className="sw-pill" ref={pillRef} aria-hidden="true"></span>
               {VIEWS.map((v, i) => (
                 <button key={v.key} type="button" role="tab" aria-selected={view === i} className={view === i ? 'on' : ''} onClick={() => setView(i)}>{v.label}</button>
               ))}
