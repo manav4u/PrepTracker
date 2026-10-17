@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrepTracker — concept: The Countdown Wall</title>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B0B0E; --paper:#F7F5F2; --red:#E11D48; --red-deep:#D61A40;
+    --hair:rgba(247,245,242,.06); --mono:'Space Mono',monospace;
+    --grot:'Space Grotesk',sans-serif; --sat:'Satoshi',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{background:var(--ink);color:var(--paper);overflow-x:hidden}
+  body{font-family:var(--grot);min-height:160vh}
+  ::selection{background:var(--red);color:#fff}
+
+  /* faint instrument grid */
+  .grid{position:fixed;inset:0;pointer-events:none;z-index:0;
+    background-image:linear-gradient(to right,var(--hair) 1px,transparent 1px);
+    background-size:calc(100vw/12) 100%;}
+  .grid::after{content:'';position:absolute;inset:0;
+    background-image:linear-gradient(to bottom,var(--hair) 1px,transparent 1px);
+    background-size:100% 25vh;}
+
+  /* top bar */
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:40;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:22px 32px;font-family:var(--mono);font-size:10px;
+    letter-spacing:.26em;text-transform:uppercase;color:rgba(247,245,242,.55)}
+  .brand{display:flex;align-items:center;gap:12px;color:var(--paper)}
+  .brand svg{width:20px;height:20px}
+  .brand span{font-family:var(--sat);font-weight:700;font-size:13px;letter-spacing:-.01em;text-transform:none}
+
+  .hero{position:relative;height:100vh;overflow:hidden}
+
+  /* the giant countdown */
+  .count{position:absolute;top:6vh;right:-3vw;z-index:1;line-height:.78;
+    font-weight:700;font-size:46vw;letter-spacing:-.05em;user-select:none;
+    color:transparent;-webkit-text-stroke:1.5px rgba(247,245,242,.28)}
+  .count .fill{color:var(--red);-webkit-text-stroke:0}
+  .count-label{position:absolute;top:9vh;left:32px;z-index:3;
+    font-family:var(--mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;
+    color:rgba(247,245,242,.55);writing-mode:vertical-rl;transform:rotate(180deg)}
+
+  /* phone specimen */
+  .spec{position:absolute;z-index:2;top:16vh;right:14vw;width:min(42vw,600px);
+    transform:rotate(-5deg);will-change:transform}
+  .frame{border-radius:18px;overflow:hidden;border:1px solid rgba(247,245,242,.14);
+    box-shadow:0 60px 120px -30px rgba(0,0,0,.85),0 0 0 1px rgba(0,0,0,.6)}
+  .frame img{display:block;width:100%}
+  .spec-tag{position:absolute;left:-14px;top:-14px;background:var(--red);color:#fff;
+    font-family:var(--mono);font-size:10px;letter-spacing:.2em;padding:7px 12px;
+    text-transform:uppercase;z-index:3}
+
+  /* headline block — bottom left, baseline-locked */
+  .copy{position:absolute;left:32px;bottom:15vh;z-index:3;max-width:620px}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.3em;
+    text-transform:uppercase;color:var(--red);margin-bottom:20px}
+  h1{font-weight:700;letter-spacing:-.035em;line-height:.96;
+    font-size:clamp(40px,5.2vw,84px)}
+  h1 .mask{display:block;overflow:hidden}
+  h1 .line{display:block;will-change:transform}
+  h1 em{font-style:normal;color:var(--red)}
+  .sub{margin-top:22px;font-family:var(--mono);font-size:12px;line-height:1.9;
+    letter-spacing:.08em;text-transform:uppercase;color:rgba(247,245,242,.6);max-width:460px}
+  .cta-row{margin-top:30px;display:flex;align-items:center;gap:26px}
+  .cta{display:inline-block;background:var(--red);color:#fff;text-decoration:none;
+    font-family:var(--sat);font-weight:700;font-size:15px;padding:16px 30px;
+    border-radius:999px;transition:transform .25s ease,background .25s ease}
+  .cta:hover{background:var(--red-deep);transform:translateY(-2px)}
+  .ghost{font-family:var(--mono);font-size:11px;letter-spacing:.24em;
+    text-transform:uppercase;color:rgba(247,245,242,.55);text-decoration:none;
+    border-bottom:1px solid rgba(247,245,242,.25);padding-bottom:4px}
+
+  /* red ticker band */
+  .ticker{position:absolute;left:0;right:0;bottom:0;z-index:5;background:var(--red);
+    color:#0B0B0E;overflow:hidden;padding:12px 0;transform:translateY(100%)}
+  .ticker-inner{display:flex;width:max-content;animation:tick 22s linear infinite}
+  .ticker span{font-family:var(--mono);font-weight:700;font-size:12px;
+    letter-spacing:.22em;text-transform:uppercase;white-space:nowrap;padding:0 26px}
+  @keyframes tick{to{transform:translateX(-50%)}}
+
+  /* crosshair cursor (fine pointers only) */
+  .cross{position:fixed;z-index:60;pointer-events:none;left:0;top:0;
+    width:34px;height:34px;margin:-17px 0 0 -17px;opacity:0}
+  .cross::before,.cross::after{content:'';position:absolute;background:rgba(247,245,242,.6)}
+  .cross::before{left:50%;top:0;width:1px;height:100%}
+  .cross::after{top:50%;left:0;height:1px;width:100%}
+  .coords{position:fixed;z-index:60;pointer-events:none;font-family:var(--mono);
+    font-size:9px;letter-spacing:.14em;color:rgba(247,245,242,.5);opacity:0}
+  @media(pointer:fine){.cross.on,.coords.on{opacity:1}}
+
+  .next{position:relative;z-index:2;height:60vh;display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;
+    color:rgba(247,245,242,.4)}
+
+  @media(max-width:820px){
+    .count-label{display:none}
+    .count{font-size:64vw;top:10vh;right:-8vw}
+    .count-label{left:16px}
+    .spec{position:relative;top:auto;right:auto;width:82vw;margin:24vh auto 0;transform:rotate(-3deg)}
+    .copy{position:relative;left:0;bottom:auto;margin:8vh 20px 0;padding-bottom:14vh}
+    .topbar{padding:16px 20px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .ticker-inner{animation:none}
+  }
+</style>
+</head>
+<body>
+<div class="grid" aria-hidden="true"></div>
+<div class="cross" aria-hidden="true"></div>
+<div class="coords" aria-hidden="true">0000 · 0000</div>
+
+<div class="topbar">
+  <div class="brand">
+    <svg viewBox="0 0 149 146" aria-hidden="true"><path id="mark" fill="url(#lg)" d=""/><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F63C49"/><stop offset="1" stop-color="#D61A40"/></linearGradient></defs></svg>
+    <span>PrepTracker</span>
+  </div>
+  <div>M1 &middot; FPL &middot; PHY</div>
+</div>
+
+<main>
+<section class="hero" aria-label="Concept hero: the countdown wall">
+  <p class="count-label">M1 EXAM &middot; 28 OCT</p>
+  <div class="count" aria-hidden="true"><span id="d1">0</span><span id="d2" class="fill">0</span></div>
+
+  <div class="spec" id="spec">
+    <span class="spec-tag">Live dashboard</span>
+    <div class="frame"><img src="dash.png" alt="The PrepTracker dashboard: 11 days to exam, 9% overall progress, study streak 4."></div>
+  </div>
+
+  <div class="copy">
+    <p class="kicker">SPPU First Year &middot; 2024 Pattern</p>
+    <h1 aria-label="Know exactly what's left before your exam.">
+      <span class="mask" aria-hidden="true"><span class="line">Know exactly</span></span>
+      <span class="mask" aria-hidden="true"><span class="line">what&rsquo;s <em>left.</em></span></span>
+    </h1>
+    <p class="sub">Every unit, topic and day, counted. The number on your wall is the number in the app.</p>
+    <div class="cta-row">
+      <a class="cta" href="#">Start tracking</a>
+      <a class="ghost" href="#">How it works &darr;</a>
+    </div>
+  </div>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-inner" id="ticker">
+      <span>11 days to M1</span><span>&bull;</span><span>Streak 4</span><span>&bull;</span>
+      <span>Unit 1 mastered &middot; 7 topics</span><span>&bull;</span><span>Unit 2 in progress &middot; 3 topics</span><span>&bull;</span>
+      <span>9% overall</span><span>&bull;</span><span>M1 &middot; FPL &middot; PHY</span><span>&bull;</span>
+    </div>
+  </div>
+</section>
+<section class="next"><p>Concept sample &mdash; hero only. Nothing below yet.</p></section>
+</main>
+
+<script>
+document.getElementById('mark').setAttribute('d',
+'M 21.2 0.0 L 104.3 0.0 C 106.6 0.5 113.4 0.9 118.0 2.9 C 122.6 4.8 128.2 8.5 132.0 11.7 C 135.8 14.9 138.7 18.5 141.0 21.9 C 143.3 25.3 144.7 28.5 146.0 32.1 C 147.3 35.8 148.6 40.4 149.0 43.8 C 149.4 47.2 148.6 49.7 148.3 52.6 C 148.1 55.5 147.9 58.4 147.5 61.3 C 147.1 64.2 146.9 67.2 146.0 70.1 C 145.1 73.0 143.8 75.9 142.0 78.8 C 140.2 81.7 138.0 84.7 135.0 87.6 C 132.0 90.5 127.8 94.0 124.0 96.4 C 120.2 98.8 115.8 100.8 112.0 102.2 C 108.2 103.6 104.6 104.2 101.3 104.8 C 98.0 105.4 96.1 105.4 92.4 105.8 C 88.7 106.2 83.2 106.8 79.0 107.3 C 74.8 107.8 69.0 108.5 67.0 108.8 C 65.3 109.2 58.8 109.2 56.6 111.0 C 54.4 112.8 54.8 115.8 53.6 119.7 C 52.4 123.6 50.7 129.9 49.2 134.3 C 47.7 138.7 45.5 144.1 44.7 146.0 L 0.0 146.0 L 28.3 75.9 Q 37.2 63.5 53.6 62.8 L 100.6 62.8 Q 105.0 62.8 105.0 57.7 L 105.0 47.5 Q 105.0 42.3 100.6 42.3 L 3.9 42.3 Z');
+// duplicate ticker content for seamless loop
+const t=document.getElementById('ticker');t.innerHTML+=t.innerHTML;
+</script>
+<script src="gsap.min.js"></script>
+<script>
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!reduced){
+  // digit count-up 00 -> 11
+  const o={v:0},d1=document.getElementById('d1'),d2=document.getElementById('d2');
+  gsap.to(o,{v:11,duration:1.4,delay:.35,ease:'power3.out',onUpdate:()=>{
+    const n=Math.round(o.v);d1.textContent=Math.floor(n/10);d2.textContent=n%10;}});
+  // masked headline reveal
+  gsap.fromTo('.line',{yPercent:112},{yPercent:0,duration:1,ease:'power4.out',stagger:.1,delay:.55});
+  gsap.fromTo(['.kicker','.sub','.cta-row'],{y:20,autoAlpha:0},{y:0,autoAlpha:1,duration:.8,ease:'power3.out',stagger:.09,delay:.85});
+  // specimen settles
+  gsap.fromTo('#spec',{y:70,rotate:-9,autoAlpha:0},{y:0,rotate:-5,autoAlpha:1,duration:1.3,ease:'power3.out',delay:.4});
+  gsap.fromTo('.count-label',{autoAlpha:0},{autoAlpha:1,duration:.8,delay:1.2});
+  // ticker rises
+  gsap.to('.ticker',{y:0,duration:.7,ease:'power3.out',delay:1.15});
+  // cursor parallax on the specimen + crosshair (fine pointers)
+  if(matchMedia('(pointer:fine)').matches){
+    const spec=document.getElementById('spec'),cross=document.querySelector('.cross'),coords=document.querySelector('.coords');
+    cross.classList.add('on');coords.classList.add('on');
+    const qx=gsap.quickTo(cross,'x',{duration:.35,ease:'power3'}),qy=gsap.quickTo(cross,'y',{duration:.35,ease:'power3'});
+    addEventListener('mousemove',e=>{
+      qx(e.clientX);qy(e.clientY);
+      coords.style.transform=`translate(${e.clientX+14}px,${e.clientY+14}px)`;
+      coords.textContent=String(e.clientX).padStart(4,'0')+' \u00B7 '+String(e.clientY).padStart(4,'0');
+      const nx=(e.clientX/innerWidth-.5),ny=(e.clientY/innerHeight-.5);
+      gsap.to(spec,{rotationY:nx*7,rotationX:-ny*5,transformPerspective:1200,duration:.8,ease:'power2.out'});
+      gsap.to('.count',{x:nx*-22,y:ny*-12,duration:1,ease:'power2.out'});
+    });
+    // scroll beat: numeral drifts, specimen flattens
+    addEventListener('scroll',()=>{
+      const p=Math.min(scrollY/innerHeight,1);
+      gsap.to('.count',{yPercent:p*-18,duration:.4,overwrite:'auto'});
+      gsap.to(spec,{rotate:-5*(1-p),duration:.4,overwrite:'auto'});
+    },{passive:true});
+  }
+}else{
+  document.getElementById('d1').textContent='1';document.getElementById('d2').textContent='1';
+  gsap.set('.ticker',{y:0});
+}
+</script>
+</body>
+</html>
