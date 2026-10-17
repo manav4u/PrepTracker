@@ -1,16 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { SUBJECTS } from '../constants';
-import { 
-  Plus, 
-  Trash2, 
-  Circle, 
-  AlertCircle, 
-  Calendar, 
-  Tag, 
-  Filter, 
-  CheckSquare, 
-  LayoutList,
+import {
+  Plus,
+  Trash2,
+  Calendar,
+  CheckSquare,
   Flame,
   Clock,
   Briefcase,
@@ -20,7 +15,8 @@ import {
   Check,
   ChevronDown,
   Loader2,
-  Pencil
+  Pencil,
+  SlidersHorizontal
 } from 'lucide-react';
 import { useData } from '../context/DataContext';
 import { Task, Priority, TaskCategory as Category } from '../types';
@@ -243,263 +239,262 @@ const TodoList: React.FC = () => {
       color: config.color
   }));
 
+  // --- Horizon grouping ---
+  const todayStr = new Date().toISOString().slice(0, 10);
+  const horizonOf = (t: Task): 'overdue' | 'today' | 'upcoming' | 'anytime' => {
+    if (!t.dueDate) return 'anytime';
+    if (t.dueDate < todayStr) return 'overdue';
+    if (t.dueDate === todayStr) return 'today';
+    return 'upcoming';
+  };
+  const activeTasks = filteredTasks.filter(t => !t.completed);
+  const doneTasks = filteredTasks.filter(t => t.completed);
+  const HORIZONS: { key: 'overdue' | 'today' | 'upcoming' | 'anytime'; label: string; tone: string }[] = [
+    { key: 'overdue', label: 'Overdue', tone: 'text-[#F63C49]' },
+    { key: 'today', label: 'Today', tone: 'text-white' },
+    { key: 'upcoming', label: 'Upcoming', tone: 'text-slate-400' },
+    { key: 'anytime', label: 'Anytime', tone: 'text-slate-500' },
+  ];
+  const groups = HORIZONS.map(h => ({ ...h, items: activeTasks.filter(t => horizonOf(t) === h.key) })).filter(g => g.items.length > 0);
+  const showCompletedGroup = filter !== 'ACTIVE' && doneTasks.length > 0;
+
+  const [detailsOpen, setDetailsOpen] = useState(false);
+
+  const renderRow = (task: Task) => {
+    const catConfig = CATEGORY_CONFIG[task.category] || CATEGORY_CONFIG['GENERAL'];
+    const CategoryIcon = catConfig.icon;
+    const spine = task.priority === 'CRITICAL'
+      ? 'bg-[#F63C49] shadow-[0_0_10px_rgba(246,60,73,0.5)]'
+      : task.priority === 'LOW' ? 'bg-white/10' : 'bg-white/25';
+    const overdue = !task.completed && task.dueDate && task.dueDate < todayStr;
+    return (
+      <div
+        key={task.id}
+        className={`group relative surface-1 rounded-2xl pl-5 pr-3 py-3.5 transition-all duration-300 hover:border-white/15 flex items-center gap-3.5 ${task.completed ? 'opacity-45' : ''}`}
+      >
+        <span className={`absolute left-0 top-3 bottom-3 w-[3px] rounded-r-full ${spine}`}></span>
+
+        <button
+          onClick={() => toggleTask(task.id)}
+          aria-label={task.completed ? `Mark not done: ${task.text}` : `Mark done: ${task.text}`}
+          aria-pressed={task.completed}
+          className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 transition-all ${
+            task.completed
+              ? 'bg-[#F63C49] border-[#F63C49] text-white'
+              : 'bg-transparent border-white/25 hover:border-[#F63C49] text-transparent hover:text-[#F63C49]/40'
+          }`}
+        >
+          <Check size={12} strokeWidth={3.5} />
+        </button>
+
+        <div className="flex-1 min-w-0">
+          <p className={`text-sm font-medium leading-snug ${task.completed ? 'text-slate-500 line-through decoration-slate-700' : 'text-slate-100'}`}>
+            {task.text}
+          </p>
+          <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1">
+            <span className={`text-[9px] font-bold flex items-center gap-1 uppercase tracking-wider ${task.category === 'EXAM' ? 'text-[#F63C49]/80' : 'text-slate-500'}`}>
+              <CategoryIcon size={10} />
+              {catConfig.label}
+            </span>
+
+            {editingUnitTaskId === task.id ? (
+              <div className="w-64 max-w-full" onClick={(e) => e.stopPropagation()}>
+                <CustomSelect
+                  label="Linked unit"
+                  value={task.unitId || ''}
+                  onChange={(v) => updateTaskUnit(task.id, v)}
+                  options={unitOptions}
+                />
+              </div>
+            ) : (
+              <>
+                {task.unitId && unitLabel(task.unitId) && (
+                  <Link to={`/subject/${unitLabel(task.unitId)!.subjectId}`} className="text-[9px] font-bold uppercase tracking-wider text-slate-400 hover:text-white border border-white/10 rounded px-1.5 py-0.5 transition-colors">
+                    {unitLabel(task.unitId)!.text}
+                  </Link>
+                )}
+                <button
+                  type="button"
+                  onClick={() => setEditingUnitTaskId(task.id)}
+                  aria-label={task.unitId ? `Change linked unit for task: ${task.text}` : `Link a unit to task: ${task.text}`}
+                  title={task.unitId ? 'Change linked unit' : 'Link a unit'}
+                  className="lg:opacity-0 lg:group-hover:opacity-100 focus-visible:opacity-100 text-slate-600 hover:text-white rounded p-0.5 transition-all"
+                >
+                  <Pencil size={10} />
+                </button>
+              </>
+            )}
+
+            {task.dueDate && (
+              <span className={`text-[9px] font-mono flex items-center gap-1 uppercase tracking-wider ${overdue ? 'text-[#F63C49]' : 'text-slate-500'}`}>
+                <Clock size={10} />
+                {overdue ? 'Due ' : ''}{new Date(task.dueDate + 'T00:00:00').toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}
+              </span>
+            )}
+          </div>
+        </div>
+
+        <button
+          onClick={() => deleteTask(task.id)}
+          aria-label={`Delete task: ${task.text}`}
+          className="lg:opacity-0 lg:group-hover:opacity-100 focus-visible:opacity-100 p-2 text-slate-600 hover:text-[#F63C49] transition-all rounded-lg hover:bg-white/5"
+        >
+          <X size={15} />
+        </button>
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-full animate-in fade-in slide-in-from-bottom-4 duration-700 pb-20">
-      
-      {/* HEADER HUD */}
-      <header className="mb-12 border-b border-white/5 pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
-        <div>
-           <div className="flex items-center gap-2 text-[#F63C49] mb-2">
-                <CheckSquare size={16} />
-                <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em]">Local Task Management</span>
-            </div>
-            <h1 className="text-5xl lg:text-7xl font-display font-bold text-white tracking-tighter leading-none">
-                Task <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-500 to-slate-700">List</span>
-            </h1>
-        </div>
-        
-        {/* Progress Unit */}
-        <div className="w-full md:w-64 surface-1 p-4 rounded-2xl relative overflow-hidden">
-            <div className="flex justify-between items-end mb-2 relative z-10">
-                <span className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Tasks done</span>
-                <span className="text-right">
-                  <span className="text-2xl font-display font-bold text-white" data-testid="tasks-done">{totalCount === 0 ? '--' : `${completedCount}/${totalCount}`}</span>
-                  {totalCount > 0 && <span className="ml-2 text-[10px] font-mono text-slate-500">{progress}%</span>}
-                </span>
-            </div>
-            <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden relative z-10">
-                <div 
-                    className={`h-full bg-[#D61A40] shadow-[0_0_10px_#F63C49] transition-all duration-700 ease-out ${loading ? 'animate-pulse' : ''}`}
-                    style={{ width: `${progress}%` }}
-                ></div>
-            </div>
-            {/* Background noise */}
-            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-        </div>
-      </header>
+      <div className="max-w-3xl mx-auto">
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-        
-        {/* INPUT CONSOLE */}
-        <div className="lg:col-span-4 space-y-6">
-            <div className="surface-1 rounded-3xl p-6 lg:p-8 sticky top-8">
-                <div className="flex items-center gap-2 mb-6 text-white/50">
-                    <LayoutList size={18} />
-                    <h2 className="text-xs font-bold uppercase tracking-widest">Add New Task</h2>
+        {/* Working header: compact, progress inline */}
+        <header className="flex items-end justify-between gap-6 mb-8">
+          <div>
+            <div className="flex items-center gap-2 text-[#F63C49] mb-2">
+              <CheckSquare size={13} />
+              <span className="text-[9px] font-mono font-bold uppercase tracking-[0.3em]">Local Task Management</span>
+            </div>
+            <h1 className="text-4xl lg:text-5xl font-display font-bold text-white tracking-tighter leading-none">Tasks</h1>
+          </div>
+          <div className="text-right">
+            <span className="block text-2xl lg:text-3xl font-display font-bold text-white leading-none" data-testid="tasks-done">
+              {totalCount === 0 ? '--' : `${completedCount}/${totalCount}`}
+            </span>
+            <span className="block text-[9px] font-mono text-slate-500 uppercase tracking-widest mt-1">Done</span>
+            <div className="h-1 w-24 lg:w-28 bg-white/5 rounded-full overflow-hidden mt-2 ml-auto">
+              <div
+                className={`h-full bg-[#F63C49] shadow-[0_0_10px_rgba(246,60,73,0.6)] transition-all duration-700 ease-out ${loading ? 'animate-pulse' : ''}`}
+                style={{ width: `${progress}%` }}
+              ></div>
+            </div>
+          </div>
+        </header>
+
+        {/* Quick-add composer */}
+        <form onSubmit={addTask} className="mb-3">
+          <div className="surface-1 rounded-2xl pl-4 pr-2 py-2 flex items-center gap-2 focus-within:border-[#F63C49]/60 transition-colors">
+            <Plus size={16} className="text-slate-500 shrink-0" />
+            <input
+              type="text"
+              value={inputText}
+              onChange={(e) => setInputText(e.target.value)}
+              placeholder="Add a task, press Enter"
+              aria-label="Task title"
+              className="flex-1 min-w-0 bg-transparent py-2.5 text-sm text-white outline-none placeholder:text-slate-600 font-medium"
+              autoFocus
+            />
+            <button
+              type="button"
+              onClick={() => setDetailsOpen(v => !v)}
+              aria-expanded={detailsOpen}
+              aria-label="Task details: priority, category, unit, due date"
+              className={`p-2.5 rounded-xl transition-all ${detailsOpen ? 'text-[#F63C49] bg-[#F63C49]/10' : 'text-slate-500 hover:text-white hover:bg-white/5'}`}
+            >
+              <SlidersHorizontal size={15} />
+            </button>
+            <button
+              type="submit"
+              disabled={!inputText}
+              className="px-4 py-2.5 bg-[#D61A40] hover:bg-[#B3123B] disabled:opacity-40 disabled:cursor-not-allowed text-white text-[10px] font-bold uppercase tracking-[0.2em] rounded-xl transition-all shadow-[0_0_16px_rgba(246,60,73,0.25)]"
+            >
+              Add
+            </button>
+          </div>
+
+          {detailsOpen && (
+            <div className="surface-1 rounded-2xl p-5 mt-2 grid grid-cols-2 lg:grid-cols-4 gap-4 animate-in fade-in slide-in-from-top-2 duration-300">
+              <CustomSelect label="Priority" value={inputPriority} onChange={(v) => setInputPriority(v as Priority)} options={priorityOptions} />
+              <CustomSelect label="Category" value={inputCategory} onChange={(v) => setInputCategory(v as Category)} options={categoryOptions} />
+              <CustomSelect label="Unit" value={inputUnit} onChange={(v) => setInputUnit(v)} options={unitOptions} />
+              <div className="space-y-2">
+                <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Due</label>
+                <div className="relative group">
+                  <Calendar size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-[#F63C49] transition-colors" />
+                  <input
+                    type="date"
+                    aria-label="Due date"
+                    value={inputDate}
+                    onChange={(e) => setInputDate(e.target.value)}
+                    className="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-3 py-3 text-xs font-mono text-slate-300 focus:border-[#F63C49] outline-none transition-colors uppercase"
+                  />
                 </div>
-
-                <form onSubmit={addTask} className="space-y-5">
-                    
-                    {/* Text Input */}
-                    <div className="space-y-2">
-                        <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Task Title</label>
-                        <input 
-                            type="text" 
-                            value={inputText}
-                            onChange={(e) => setInputText(e.target.value)}
-                            placeholder="Ex: Complete Unit 3 PYQs..."
-                            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#F63C49] focus:bg-white/[0.07] outline-none transition-all placeholder:text-slate-600 font-medium"
-                            autoFocus
-                        />
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-4">
-                        {/* Custom Dropdowns */}
-                        <CustomSelect 
-                            label="Priority"
-                            value={inputPriority}
-                            onChange={(v) => setInputPriority(v as Priority)}
-                            options={priorityOptions}
-                        />
-
-                        <CustomSelect 
-                            label="Category"
-                            value={inputCategory}
-                            onChange={(v) => setInputCategory(v as Category)}
-                            options={categoryOptions}
-                        />
-                    </div>
-
-                    <CustomSelect
-                        label="Linked Unit (Optional)"
-                        value={inputUnit}
-                        onChange={(v) => setInputUnit(v)}
-                        options={unitOptions}
-                    />
-
-                    {/* Date Input */}
-                    <div className="space-y-2">
-                        <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Due date (optional)</label>
-                        <div className="relative group">
-                            <Calendar size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-[#F63C49] transition-colors" />
-                            <input 
-                                type="date" 
-                                aria-label="Due date"
-                                value={inputDate}
-                                onChange={(e) => setInputDate(e.target.value)}
-                                className="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-xs font-mono text-slate-300 focus:border-[#F63C49] outline-none transition-colors uppercase"
-                            />
-                        </div>
-                    </div>
-
-                    <button 
-                        type="submit"
-                        disabled={!inputText}
-                        className="w-full py-4 bg-[#D61A40] hover:bg-[#B3123B] disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold uppercase tracking-[0.2em] rounded-xl transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(246,60,73,0.2)] hover:shadow-[0_0_30px_rgba(246,60,73,0.4)]"
-                    >
-                        <Plus size={16} /> Add Task
-                    </button>
-                </form>
+              </div>
             </div>
+          )}
+        </form>
+
+        {/* Filter row */}
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+          <div className="flex surface-2 p-1 rounded-xl">
+            {(['ALL', 'ACTIVE', 'COMPLETED'] as const).map((f) => (
+              <button
+                key={f}
+                onClick={() => setFilter(f)}
+                className={`px-3.5 py-1.5 rounded-lg text-[9px] font-bold uppercase tracking-widest transition-all ${
+                  filter === f ? 'bg-white text-black shadow-lg' : 'text-slate-500 hover:text-white hover:bg-white/5'
+                }`}
+              >
+                {f}
+              </button>
+            ))}
+          </div>
+          {completedCount > 0 && (
+            <button
+              onClick={clearCompleted}
+              className="px-3 py-1.5 text-[9px] font-bold text-red-500 hover:bg-red-500/10 border border-transparent hover:border-red-500/20 rounded-xl uppercase tracking-widest flex items-center gap-2 transition-all"
+            >
+              <Trash2 size={11} /> Clear Completed
+            </button>
+          )}
         </div>
 
-        {/* TASK MATRIX (List) */}
-        <div className="lg:col-span-8">
-            
-            {/* Controls */}
-            <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-                <div className="flex surface-2 p-1 rounded-xl">
-                    {(['ALL', 'ACTIVE', 'COMPLETED'] as const).map((f) => (
-                        <button
-                            key={f}
-                            onClick={() => setFilter(f)}
-                            className={`px-4 py-2 rounded-lg text-[10px] font-bold uppercase tracking-widest transition-all ${
-                                filter === f 
-                                ? 'bg-white text-black shadow-lg' 
-                                : 'text-slate-500 hover:text-white hover:bg-white/5'
-                            }`}
-                        >
-                            {f}
-                        </button>
-                    ))}
+        {/* Queue */}
+        {loading ? (
+          <div className="py-20 text-center">
+            <Loader2 size={40} className="mx-auto text-[#F63C49] animate-spin mb-4" />
+            <p className="text-slate-500 text-sm font-mono uppercase tracking-widest">Loading tasks...</p>
+          </div>
+        ) : filteredTasks.length === 0 ? (
+          <div className="py-20 text-center border border-dashed border-white/10 rounded-3xl bg-white/[0.01]">
+            {/* Empty-state mark (shape from shapes.gallery, recolored brand red) */}
+            <svg viewBox="0 0 256 256" aria-hidden="true" className="mx-auto mb-4 w-14 h-14 text-[#F63C49] drop-shadow-[0_0_18px_rgba(246,60,73,0.35)]">
+              <path fill="currentColor" fillRule="evenodd" d="M192 0c35.346 0 64 28.654 64 64s-28.654 64-64 64c35.346 0 64 28.654 64 64s-28.654 64-64 64-64-28.654-64-64c0 35.346-28.654 64-64 64S0 227.346 0 192s28.654-64 64-64C28.654 128 0 99.346 0 64S28.654 0 64 0s64 28.654 64 64c0-35.346 28.654-64 64-64m-64 100c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28"/>
+            </svg>
+            <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">Nothing queued</p>
+            <p className="text-slate-600 text-xs mt-1">Add the next thing above.</p>
+          </div>
+        ) : (
+          <div>
+            {groups.map(g => (
+              <section key={g.key} className="mb-7">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className={`text-[9px] font-mono font-bold uppercase tracking-[0.3em] ${g.tone}`}>{g.label}</span>
+                  <span className="text-[9px] font-mono text-slate-600">{g.items.length}</span>
+                  <div className="flex-1 h-px bg-white/5"></div>
                 </div>
-
-                {completedCount > 0 && (
-                    <button 
-                        onClick={clearCompleted}
-                        className="px-4 py-2 text-[10px] font-bold text-red-500 hover:bg-red-500/10 border border-transparent hover:border-red-500/20 rounded-xl uppercase tracking-widest flex items-center gap-2 transition-all"
-                    >
-                        <Trash2 size={12} /> Clear Completed
-                    </button>
-                )}
-            </div>
-
-            {/* List */}
-            <div className="space-y-4">
-                {loading ? (
-                    <div className="py-20 text-center">
-                        <Loader2 size={48} className="mx-auto text-[#F63C49] animate-spin mb-4" />
-                        <p className="text-slate-500 text-sm font-mono uppercase tracking-widest">Loading tasks...</p>
-                    </div>
-                ) : filteredTasks.length === 0 ? (
-                    <div className="py-20 text-center border border-dashed border-white/10 rounded-3xl bg-white/[0.01]">
-                        {/* Empty-state mark (shape from shapes.gallery, recolored brand red) */}
-                        <svg viewBox="0 0 256 256" aria-hidden="true" className="mx-auto mb-4 w-14 h-14 text-[#F63C49] drop-shadow-[0_0_18px_rgba(246,60,73,0.35)]">
-                          <path fill="currentColor" fillRule="evenodd" d="M192 0c35.346 0 64 28.654 64 64s-28.654 64-64 64c35.346 0 64 28.654 64 64s-28.654 64-64 64-64-28.654-64-64c0 35.346-28.654 64-64 64S0 227.346 0 192s28.654-64 64-64C28.654 128 0 99.346 0 64S28.654 0 64 0s64 28.654 64 64c0-35.346 28.654-64 64-64m-64 100c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28"/>
-                        </svg>
-                        <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">No Active Tasks</p>
-                    </div>
-                ) : (
-                    filteredTasks.map(task => {
-                        // Safety Checks for Configs
-                        const catConfig = CATEGORY_CONFIG[task.category] || CATEGORY_CONFIG['GENERAL'];
-                        const priConfig = PRIORITY_CONFIG[task.priority] || PRIORITY_CONFIG['NORMAL'];
-                        const CategoryIcon = catConfig.icon;
-
-                        return (
-                            <div 
-                                key={task.id}
-                                className={`
-                                    group relative surface-1 rounded-2xl p-5 transition-all duration-300 
-                                    hover:translate-x-1 flex items-start gap-5
-                                    ${task.completed ? 'opacity-50 border-white/5' : `hover:border-white/20 ${priConfig.border} ${priConfig.glow}`}
-                                `}
-                            >
-                                {/* Checkbox Node */}
-                                <button 
-                                    onClick={() => toggleTask(task.id)}
-                                    aria-label={task.completed ? `Mark not done: ${task.text}` : `Mark done: ${task.text}`}
-                                    aria-pressed={task.completed}
-                                    className={`
-                                        mt-1 w-6 h-6 rounded-full border flex items-center justify-center shrink-0 transition-all
-                                        ${task.completed 
-                                            ? 'bg-green-500 border-green-500 text-black' 
-                                            : 'bg-transparent border-white/20 hover:border-white text-transparent'
-                                        }
-                                    `}
-                                >
-                                    <Check size={14} strokeWidth={3} />
-                                </button>
-
-                                <div className="flex-1 min-w-0">
-                                    <div className="flex flex-wrap items-center gap-2 mb-2">
-                                        {/* Priority Badge */}
-                                        <span className={`text-[9px] font-bold border px-1.5 py-0.5 rounded uppercase tracking-wider ${priConfig.color} border-current opacity-80`}>
-                                            {task.priority || 'NORMAL'}
-                                        </span>
-                                        
-                                        {/* Category Badge */}
-                                        <span className={`text-[9px] font-bold flex items-center gap-1 uppercase tracking-wider ${catConfig.color}`}>
-                                            <CategoryIcon size={10} />
-                                            {catConfig.label}
-                                        </span>
-
-                                        {editingUnitTaskId === task.id ? (
-                                            <div className="w-64 max-w-full" onClick={(e) => e.stopPropagation()}>
-                                                <CustomSelect
-                                                    label="Linked unit"
-                                                    value={task.unitId || ''}
-                                                    onChange={(v) => updateTaskUnit(task.id, v)}
-                                                    options={unitOptions}
-                                                />
-                                            </div>
-                                        ) : (
-                                            <>
-                                                {task.unitId && unitLabel(task.unitId) && (
-                                                    <Link to={`/subject/${unitLabel(task.unitId)!.subjectId}`} className="text-[9px] font-bold uppercase tracking-wider text-slate-400 hover:text-white border border-white/10 rounded px-1.5 py-0.5">
-                                                        {unitLabel(task.unitId)!.text}
-                                                    </Link>
-                                                )}
-                                                <button
-                                                    type="button"
-                                                    onClick={() => setEditingUnitTaskId(task.id)}
-                                                    aria-label={task.unitId ? `Change linked unit for task: ${task.text}` : `Link a unit to task: ${task.text}`}
-                                                    title={task.unitId ? 'Change linked unit' : 'Link a unit'}
-                                                    className="lg:opacity-0 lg:group-hover:opacity-100 focus-visible:opacity-100 text-slate-500 hover:text-white border border-transparent hover:border-white/10 rounded p-0.5 transition-all"
-                                                >
-                                                    <Pencil size={10} />
-                                                </button>
-                                            </>
-                                        )}
-
-                                        {/* Date Badge */}
-                                        {task.dueDate && (
-                                            <span className="text-[9px] font-mono text-slate-500 flex items-center gap-1 uppercase tracking-wider ml-auto">
-                                                <Clock size={10} />
-                                                {new Date(task.dueDate).toLocaleDateString()}
-                                            </span>
-                                        )}
-                                    </div>
-
-                                    <p className={`text-sm font-medium leading-relaxed ${task.completed ? 'text-slate-500 line-through decoration-slate-700' : 'text-slate-200'}`}>
-                                        {task.text}
-                                    </p>
-                                </div>
-
-                                <button 
-                                    onClick={() => deleteTask(task.id)}
-                                    aria-label={`Delete task: ${task.text}`}
-                                    className="lg:opacity-0 lg:group-hover:opacity-100 focus-visible:opacity-100 p-2 text-slate-600 hover:text-red-500 transition-all rounded-lg hover:bg-white/5"
-                                >
-                                    <X size={16} />
-                                </button>
-                            </div>
-                        );
-                    })
-                )}
-            </div>
-        </div>
+                <div className="space-y-2.5">
+                  {g.items.map(renderRow)}
+                </div>
+              </section>
+            ))}
+            {showCompletedGroup && (
+              <section className="mb-7">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-[9px] font-mono font-bold uppercase tracking-[0.3em] text-slate-500">Completed</span>
+                  <span className="text-[9px] font-mono text-slate-600">{doneTasks.length}</span>
+                  <div className="flex-1 h-px bg-white/5"></div>
+                </div>
+                <div className="space-y-2.5">
+                  {doneTasks.map(renderRow)}
+                </div>
+              </section>
+            )}
+          </div>
+        )}
       </div>
+
       {undo && (
         <div role="status" className="fixed bottom-28 left-4 right-4 lg:bottom-8 lg:left-auto lg:right-8 lg:w-80 z-[60] bg-[#0a0a0a] border border-white/10 rounded-2xl px-4 py-3 flex items-center justify-between shadow-2xl animate-in slide-in-from-bottom-4 fade-in duration-300">
           <span className="text-xs font-bold text-slate-300">{undo.label}</span>
