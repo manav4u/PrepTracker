@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import HeroScene from '../components/landing/HeroScene';
 import TrustStrip from '../components/landing/TrustStrip';
-import ProblemSection from '../components/landing/ProblemSection';
+import ProblemScene from '../components/landing/ProblemScene';
 import FeaturesBento from '../components/landing/FeaturesBento';
 import HowItWorks from '../components/landing/HowItWorks';
 import FaqSection from '../components/landing/FaqSection';
@@ -68,7 +68,7 @@ const LandingPage: React.FC = () => {
 
       <TrustStrip />
 
-      <ProblemSection />
+      <ProblemScene />
 
       <FeaturesBento />
 
