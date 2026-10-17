@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Zap, Cpu, CheckCircle2, ScanFace, ShieldCheck, HardDrive } from 'lucide-react';
+import { ArrowRight, Zap, Cpu } from 'lucide-react';
 import LogoMark from '../components/LogoMark';
 import { Profile } from '../types';
 import { useData } from '../context/DataContext';
@@ -9,43 +9,30 @@ interface OnboardingProps {}
 
 // --- MICRO COMPONENTS ---
 
-const BinaryChoice = ({ titleA, codeA, titleB, codeB, selected, onSelect, label }: any) => (
-  <div className="space-y-4">
-    <div className="flex items-center gap-4">
-        <div className="h-px bg-white/10 flex-1"></div>
-        <span className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">{label}</span>
-        <div className="h-px bg-white/10 flex-1"></div>
+const ChoiceRow = ({ index, label, titleA, codeA, titleB, codeB, selected, onSelect }: any) => (
+  <div className="py-6 border-b border-white/5">
+    <div className="flex items-baseline gap-3 mb-4">
+      <span className="text-xs font-mono font-bold text-[#F63C49]">{index}</span>
+      <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-400">{label}</span>
     </div>
-    <div className="grid grid-cols-2 gap-4">
-      <button
-        onClick={() => onSelect('A')}
-        className={`group relative p-6 border rounded-2xl text-left transition-all duration-500 overflow-hidden ${
-            selected === 'A' 
-            ? 'bg-white text-black border-white shadow-[0_0_30px_rgba(255,255,255,0.2)]' 
-            : 'bg-black border-white/10 text-slate-500 hover:border-white/30 hover:text-white'
-        }`}
-      >
-        <div className="relative z-10">
-            <span className={`text-[9px] font-bold uppercase tracking-widest block mb-2 ${selected === 'A' ? 'text-black/50' : 'text-slate-600'}`}>{codeA}</span>
-            <span className="text-lg font-bold font-display leading-none">{titleA}</span>
-        </div>
-        {selected === 'A' && <div className="absolute inset-0 bg-gradient-to-br from-white via-slate-200 to-slate-400 opacity-100 z-0"></div>}
-      </button>
-
-      <button
-        onClick={() => onSelect('B')}
-        className={`group relative p-6 border rounded-2xl text-left transition-all duration-500 overflow-hidden ${
-            selected === 'B' 
-            ? 'bg-white text-black border-white shadow-[0_0_30px_rgba(255,255,255,0.2)]' 
-            : 'bg-black border-white/10 text-slate-500 hover:border-white/30 hover:text-white'
-        }`}
-      >
-         <div className="relative z-10">
-            <span className={`text-[9px] font-bold uppercase tracking-widest block mb-2 ${selected === 'B' ? 'text-black/50' : 'text-slate-600'}`}>{codeB}</span>
-            <span className="text-lg font-bold font-display leading-none">{titleB}</span>
-         </div>
-         {selected === 'B' && <div className="absolute inset-0 bg-gradient-to-br from-white via-slate-200 to-slate-400 opacity-100 z-0"></div>}
-      </button>
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      {([['A', codeA, titleA], ['B', codeB, titleB]] as const).map(([v, code, title]) => (
+        <button
+          key={v}
+          onClick={() => onSelect(v)}
+          className={`flex items-center gap-3 p-4 rounded-xl border text-left transition-all duration-300 ${
+            selected === v
+              ? 'border-[#F63C49] bg-[#F63C49]/10 shadow-[0_0_24px_-8px_rgba(246,60,73,0.5)]'
+              : 'border-white/10 hover:border-white/25 bg-white/[0.02]'
+          }`}
+        >
+          <span className={`w-4 h-4 rounded-full border-2 shrink-0 transition-colors ${selected === v ? 'border-[#F63C49] bg-[#F63C49]' : 'border-white/25'}`}></span>
+          <span className="min-w-0">
+            <span className="block text-[9px] font-mono text-slate-500 mb-0.5">{code}</span>
+            <span className={`block text-sm font-bold truncate ${selected === v ? 'text-white' : 'text-slate-300'}`}>{title}</span>
+          </span>
+        </button>
+      ))}
     </div>
   </div>
 );
@@ -178,125 +165,91 @@ const Onboarding: React.FC<OnboardingProps> = () => {
         <main className="flex-1 flex flex-col items-center justify-center p-6 max-w-lg mx-auto w-full">
             
             {stage === 'identity' && (
-                <div className="w-full animate-in fade-in zoom-in-95 duration-700 slide-in-from-bottom-8">
-                    
-                    {/* Visual Icon */}
-                    <div className="text-center mb-10">
-                        <div className="w-24 h-24 bg-white/5 rounded-full mx-auto flex items-center justify-center border border-white/10 relative mb-8">
-                           <ScanFace size={40} className="text-[#F63C49] relative z-10" strokeWidth={1.5} />
-                           {/* Decorative Spinners */}
-                           <div className="absolute inset-0 border-t border-[#F63C49] rounded-full animate-spin"></div>
-                           <div className="absolute inset-2 border-b border-white/20 rounded-full animate-[spin_3s_linear_infinite_reverse]"></div>
+                <div className="w-full animate-in fade-in slide-in-from-bottom-8 duration-700">
+
+                    <div className="mb-10">
+                        <div className="flex items-baseline gap-3 mb-6">
+                            <span className="text-xs font-mono font-bold text-[#F63C49]">01</span>
+                            <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-400">Registration</span>
                         </div>
-                        <h1 className="text-3xl font-display font-bold text-white mb-2 tracking-tight">Your profile</h1>
+                        <h1 className="text-4xl lg:text-5xl font-display font-bold text-white tracking-tighter mb-3">What should we<br/>call you?</h1>
                         <p className="text-slate-500 font-mono text-[10px] uppercase tracking-[0.2em]">Saved only on this device</p>
                     </div>
 
-                    {/* Input Container */}
-                    <div className="surface-1 p-8 rounded-[2rem] relative overflow-hidden group">
-                        {/* Top Accent */}
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[2px] bg-[#D61A40] blur-[8px]"></div>
-
-                        <label className="flex items-center gap-2 text-[9px] font-mono text-[#F63C49] mb-6 uppercase tracking-[0.2em] font-bold">
-                           <ShieldCheck size={12} /> Your name
-                        </label>
-
-                        <div className="relative mb-8">
-                           <input
-                               type="text"
-                               value={name}
-                               onChange={(e) => setName(e.target.value)}
-                               placeholder="YOUR NAME"
-                               className="w-full bg-transparent border-b border-white/10 py-3 text-2xl lg:text-3xl font-display font-bold text-center text-white focus:border-[#F63C49] focus:outline-none transition-all placeholder:text-white/30 uppercase tracking-wide"
-                               autoFocus
-                           />
-                           <div className="absolute bottom-0 left-0 w-full h-[1px] bg-[#D61A40] scale-x-0 group-focus-within:scale-x-100 transition-transform duration-500"></div>
-                        </div>
-
-                        <div className="text-center space-y-2">
-                             <p className="text-xs text-white font-medium">What should we call you?</p>
-                             <p className="text-[10px] text-slate-500 leading-relaxed font-mono">
-                                Enter your Name or Username to personalize your dashboard.<br/>
-                                <span className="opacity-50">Data is stored securely on your local device.</span>
-                             </p>
-                        </div>
+                    <div className="mb-8">
+                        <input
+                            type="text"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            placeholder="YOUR NAME"
+                            className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-5 py-4 text-xl lg:text-2xl font-display font-bold text-white focus:border-[#F63C49] focus:outline-none focus:bg-white/[0.05] transition-all placeholder:text-white/20 uppercase tracking-wide"
+                            autoFocus
+                        />
+                        <p className="mt-3 text-[10px] text-slate-600 font-mono uppercase tracking-widest">Name or nickname - it personalizes your dashboard</p>
                     </div>
 
-                    {/* Action */}
-                    <div className="mt-8 flex justify-center">
-                        <button 
-                            onClick={() => name.length > 0 && setStage('matrix')}
-                            disabled={name.length === 0}
-                            className="group flex items-center gap-3 px-8 py-4 bg-white text-black rounded-xl text-xs font-bold uppercase tracking-[0.2em] disabled:opacity-30 disabled:cursor-not-allowed transition-all hover:bg-slate-200 hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.1)]"
-                        >
-                            Continue <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                        </button>
-                    </div>
+                    <button
+                        onClick={() => name.length > 0 && setStage('matrix')}
+                        disabled={name.length === 0}
+                        className="group flex items-center gap-3 px-8 py-4 bg-white text-black rounded-xl text-xs font-bold uppercase tracking-[0.2em] disabled:opacity-30 disabled:cursor-not-allowed transition-all hover:bg-slate-200 shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+                    >
+                        Continue <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                    </button>
                 </div>
             )}
 
             {stage === 'matrix' && (
-                <div className="w-full animate-in fade-in zoom-in-95 duration-500 slide-in-from-right-8 pb-10">
-                     <div className="mb-10 text-center lg:text-left">
-                        <span className="inline-block px-3 py-1 rounded-full border border-[#F63C49]/30 bg-[#F63C49]/10 text-[#F63C49] text-[10px] font-bold uppercase tracking-widest mb-4">
-                            Your subjects - SPPU 2024 pattern
-                        </span>
-                        <h2 className="text-4xl font-display font-bold mb-2">Select Your Subjects</h2>
-                        <p className="text-slate-500 text-sm">Customize your dashboard for the current semester.</p>
+                <div className="w-full animate-in fade-in slide-in-from-right-8 duration-500 pb-10">
+                     <div className="mb-8">
+                        <div className="flex items-baseline gap-3 mb-6">
+                            <span className="text-xs font-mono font-bold text-[#F63C49]">02</span>
+                            <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-400">Semester setup</span>
+                        </div>
+                        <h2 className="text-4xl font-display font-bold mb-2 tracking-tighter">Pick your five subjects</h2>
+                        <p className="text-slate-500 text-sm">One from each row. You can change them later in Settings.</p>
                      </div>
 
-                     <div className="space-y-8 mb-12">
-                        {/* Mathematics Choice */}
-                        <BinaryChoice
-                            label="Mathematics Module"
+                     <div className="border-t border-white/10 mb-10">
+                        <ChoiceRow
+                            index="A1" label="Mathematics"
                             titleA="Engineering Maths-I" codeA="BSC-101"
                             titleB="Engineering Maths-II" codeB="BSC-151"
                             selected={choices.maths === 'm1' ? 'A' : 'B'}
                             onSelect={(v: string) => setChoices({...choices, maths: v === 'A' ? 'm1' : 'm2'})}
                         />
-
-                        {/* Programming Choice */}
-                        <BinaryChoice
-                            label="Programming Module"
+                        <ChoiceRow
+                            index="A2" label="Programming"
                             titleA="FPL (C Programming)" codeA="ESC-105"
                             titleB="PPS (Python)" codeB="PCC-151"
                             selected={choices.programming === 'fpl' ? 'A' : 'B'}
                             onSelect={(v: string) => setChoices({...choices, programming: v === 'A' ? 'fpl' : 'pps'})}
                         />
-
-                        {/* Science Choice */}
-                        <BinaryChoice 
-                            label="Applied Science Module"
+                        <ChoiceRow
+                            index="A3" label="Applied Science"
                             titleA="Engineering Physics" codeA="BSC-102"
                             titleB="Engineering Chemistry" codeB="BSC-103"
                             selected={choices.science === 'phy' ? 'A' : 'B'}
                             onSelect={(v: string) => setChoices({...choices, science: v === 'A' ? 'phy' : 'chem'})}
                         />
-
-                        {/* Circuit Choice */}
-                        <BinaryChoice 
-                            label="Circuit Theory Module"
+                        <ChoiceRow
+                            index="A4" label="Circuit Theory"
                             titleA="Basic Electronics" codeA="ESC-101"
                             titleB="Basic Electrical" codeB="ESC-102"
                             selected={choices.circuit === 'elect' ? 'A' : 'B'}
                             onSelect={(v: string) => setChoices({...choices, circuit: v === 'A' ? 'elect' : 'elec'})}
                         />
-
-                        {/* Core Choice */}
-                        <BinaryChoice 
-                            label="Core Engineering Module"
+                        <ChoiceRow
+                            index="A5" label="Core Engineering"
                             titleA="Engg. Graphics" codeA="ESC-103"
                             titleB="Engg. Mechanics" codeB="ESC-104"
                             selected={choices.core === 'graph' ? 'A' : 'B'}
                             onSelect={(v: string) => setChoices({...choices, core: v === 'A' ? 'graph' : 'mech'})}
                         />
-
                      </div>
 
-                     <p className="text-center text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-4">5 subjects - you can change them later in Settings</p>
                      <button
                         onClick={handleFinish}
-                        className="w-full py-6 bg-[#D61A40] text-white font-bold uppercase tracking-[0.2em] rounded-xl hover:bg-[#B3123B] transition-all shadow-[0_0_40px_-10px_#F63C49] hover:shadow-[0_0_60px_-10px_#F63C49] flex items-center justify-center gap-3 group"
+                        className="w-full py-5 bg-[#D61A40] text-white font-bold uppercase tracking-[0.2em] rounded-xl hover:bg-[#B3123B] transition-all shadow-[0_0_40px_-10px_#F63C49] hover:shadow-[0_0_60px_-10px_#F63C49] flex items-center justify-center gap-3 group"
                      >
                         <Zap size={18} className="fill-white" />
                         Start PrepTracker
