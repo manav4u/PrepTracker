@@ -62,7 +62,7 @@ const ProblemScene: React.FC = () => {
         <div className="relative min-h-[16rem]">
           {beats.map((b) => (
             <div key={b.kicker} className="ps-line absolute inset-x-0 top-0">
-              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#8A8A94] mb-4">{b.kicker}</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#AFAFBA] mb-4">{b.kicker}</p>
               <p className="text-4xl lg:text-[3.4rem] font-bold tracking-[-0.025em] leading-[1.08] max-w-4xl">{b.line}</p>
             </div>
           ))}
@@ -80,7 +80,7 @@ const ProblemScene: React.FC = () => {
         <div className="space-y-12">
           {beats.map((b) => (
             <div key={b.kicker}>
-              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#8A8A94] mb-3">{b.kicker}</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#AFAFBA] mb-3">{b.kicker}</p>
               <p className="text-2xl font-bold tracking-[-0.02em] leading-[1.15]">{b.line}</p>
             </div>
           ))}
