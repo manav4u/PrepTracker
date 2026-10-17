@@ -17,23 +17,30 @@
   body{font-family:var(--grot)}
   ::selection{background:var(--red);color:#fff}
 
-  /* NAV - navbar.gallery: Cloudflare (#544), thin utility bar */
-  nav{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;
-    padding:16px 40px;background:rgba(247,245,242,.88);backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--hair)}
-  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
-  .brand svg{width:22px;height:22px;display:block}
-  .brand b{font-family:var(--sat);font-weight:700;font-size:15px;letter-spacing:-.01em}
-  .nav-right{display:flex;align-items:center;gap:26px}
-  .nav-link{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
-    color:var(--mut);text-decoration:none}
+  /* NAV - floating pill: centered, blur, soft shadow, scrollspy, CTA color swap, hides on scroll down */
+  nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:60;
+    display:flex;align-items:center;gap:28px;padding:9px 10px 9px 20px;
+    background:rgba(247,245,242,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border:1px solid var(--hair);border-radius:999px;
+    box-shadow:0 16px 44px -16px rgba(20,20,25,.25);
+    transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+  nav.hide{transform:translateX(-50%) translateY(-92px)}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+  .brand svg{width:27px;height:27px;display:block}
+  .brand b{font-family:var(--sat);font-weight:700;font-size:18px;letter-spacing:-.02em}
+  .nav-links{display:flex;align-items:center;gap:2px}
+  .nav-link{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--mut);text-decoration:none;padding:8px 13px;border-radius:999px;
+    transition:color .2s,background .2s}
   .nav-link:hover{color:var(--ink)}
-  .nav-cta{background:var(--red);color:#fff;text-decoration:none;font-family:var(--sat);
-    font-weight:700;font-size:13.5px;padding:10px 20px;border-radius:999px;transition:background .2s}
-  .nav-cta:hover{background:var(--red-deep)}
+  .nav-link.act{color:var(--ink);background:rgba(20,20,25,.07)}
+  .nav-cta{background:var(--ink);color:#F7F5F2;text-decoration:none;font-family:var(--sat);
+    font-weight:700;font-size:13.5px;padding:11px 24px;border-radius:999px;
+    transition:background .35s ease,color .35s ease}
+  .nav-cta.hot{background:var(--red);color:#fff}
 
   /* HERO - layout: Supahero "Modyfi" (copy band over full-width product canvas) */
-  .hero{position:relative;padding:72px 40px 0;max-width:1400px;margin:0 auto;overflow:hidden}
+  .hero{position:relative;padding:126px 40px 0;max-width:1400px;margin:0 auto;overflow:hidden}
   .copyband{display:block}
   .copy-left{max-width:760px}
   .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;
@@ -281,9 +288,11 @@
   }
 
   @media(max-width:900px){
-    nav{padding:14px 20px}
-    .nav-link{display:none}
-    .hero{padding:52px 20px 0}
+    nav{top:10px;left:12px;right:12px;transform:none;justify-content:space-between;
+      padding:8px 8px 8px 16px;gap:12px}
+    nav.hide{transform:translateY(-82px)}
+    .nav-links{display:none}
+    .hero{padding:104px 20px 0}
     .copyband{display:block}
     .try{justify-content:flex-start;flex-wrap:wrap;gap:8px 12px;letter-spacing:.22em}
     .try .try-sub{flex-basis:100%}
@@ -300,16 +309,17 @@
 </head>
 <body>
 
-<nav>
+<nav id="nav" aria-label="Main">
   <a class="brand" href="https://preptracker.manavdev.site/">
     <svg viewBox="0 0 149 146" aria-hidden="true"><path id="mark" fill="url(#lg)" d=""/><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F63C49"/><stop offset="1" stop-color="#D61A40"/></linearGradient></defs></svg>
     <b>PrepTracker</b>
   </a>
-  <div class="nav-right">
-    <a class="nav-link" href="https://preptracker.manavdev.site/">How it works</a>
-    <a class="nav-link" href="https://preptracker.manavdev.site/">Features</a>
-    <a class="nav-cta" href="https://preptracker.manavdev.site/">Start tracking</a>
+  <div class="nav-links">
+    <a class="nav-link" href="#problem" data-sec="problem">Problem</a>
+    <a class="nav-link" href="#features" data-sec="features">Features</a>
+    <a class="nav-link" href="#how" data-sec="how">How it works</a>
   </div>
+  <a class="nav-cta" id="navCta" href="https://preptracker.manavdev.site/">Start</a>
 </nav>
 
 <main>
@@ -364,7 +374,7 @@
 </section>
 
 <!-- 4. PROBLEM - ayzz Ep.07: visual-led problem -->
-<section class="sec problem" aria-label="The problem">
+<section class="sec problem" id="problem" aria-label="The problem">
   <p class="eyebrow reveal">The problem</p>
   <h2 class="reveal">It&rsquo;s 2 AM and the syllabus<br>still isn&rsquo;t <em>a plan.</em></h2>
   <p class="lead reveal">Nineteen days out, you have a folder of PDFs, four group chats, and no honest answer to one simple question: what exactly is left?</p>
@@ -604,6 +614,24 @@ if(!reduced){
 }else{
   gsap.set(['.line','.kicker','.sub','.cta-row','.fud','.switcher','.window','.strip'],{clearProps:'all'});
 }
+// nav: hide on scroll down, CTA turns red once hero CTA leaves view, scrollspy
+const navEl=document.getElementById('nav'),navCta=document.getElementById('navCta');
+let lastY=scrollY;
+addEventListener('scroll',()=>{
+  const y=scrollY;
+  navEl.classList.toggle('hide',y>lastY+4&&y>340);
+  if(y<lastY-4)navEl.classList.remove('hide');
+  lastY=y;
+},{passive:true});
+const heroCta=document.querySelector('.hero .cta-main');
+if(heroCta)new IntersectionObserver(es=>navCta.classList.toggle('hot',!es[0].isIntersecting),{threshold:0}).observe(heroCta);
+const spy=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(!e.isIntersecting)return;
+    document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('act'));
+    const link=document.querySelector('.nav-link[data-sec="'+e.target.id+'"]');
+    if(link)link.classList.add('act');});
+},{rootMargin:'-38% 0px -55% 0px'});
+['problem','features','how'].forEach(id=>{const el=document.getElementById(id);if(el)spy.observe(el)});
 // problem scene parallax (skipped under reduced motion)
 const scene=document.querySelector('.scene');
 if(scene&&!reduced){
