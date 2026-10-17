@@ -95,7 +95,7 @@ const FeatureStack: React.FC = () => {
   return (
     <section ref={root} aria-label="What PrepTracker gives you" className="relative bg-[#F7F5F2] px-4 md:px-6 py-24 md:py-32">
       <div className="max-w-6xl mx-auto">
-        <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[#BE123C]">The fix</p>
+        <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[#D61A40]">The fix</p>
         <h2 className="mt-4 text-3xl md:text-5xl font-bold tracking-[-0.025em] leading-[1.08] text-[#141419] max-w-3xl">
           Everything you need to see the whole board.
         </h2>
@@ -113,7 +113,7 @@ const FeatureStack: React.FC = () => {
             >
               <div className="fs-inner grid md:grid-cols-2 items-center gap-6 md:gap-10 p-7 md:p-12">
                 <div>
-                  <p className={`font-mono text-[11px] uppercase tracking-[0.22em] ${f.dark ? 'text-[#F43F5E]' : 'text-[#BE123C]'}`}>
+                  <p className={`font-mono text-[11px] uppercase tracking-[0.22em] ${f.dark ? 'text-[#F63C49]' : 'text-[#D61A40]'}`}>
                     {String(i + 1).padStart(2, '0')} &middot; {f.kicker}
                   </p>
                   <h3 className="mt-4 text-2xl md:text-4xl font-bold tracking-[-0.02em] leading-[1.1]">{f.title}</h3>

@@ -54,11 +54,11 @@ const ProblemScene: React.FC = () => {
     >
       <div
         aria-hidden="true"
-        className="absolute -top-40 left-1/2 -translate-x-1/2 w-[60rem] h-[30rem] rounded-full bg-[#E11D48]/10 blur-3xl pointer-events-none"
+        className="absolute -top-40 left-1/2 -translate-x-1/2 w-[60rem] h-[30rem] rounded-full bg-[#F63C49]/10 blur-3xl pointer-events-none"
       />
       {/* Desktop: pinned kinetic beats */}
       <div className="relative max-w-5xl mx-auto h-full hidden md:flex flex-col justify-center">
-        <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[#F43F5E] mb-10">The real problem</p>
+        <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[#F63C49] mb-10">The real problem</p>
         <div className="relative min-h-[16rem]">
           {beats.map((b) => (
             <div key={b.kicker} className="ps-line absolute inset-x-0 top-0">
@@ -69,14 +69,14 @@ const ProblemScene: React.FC = () => {
           <div className="ps-close absolute inset-x-0 top-0">
             <p className="text-4xl lg:text-[3.4rem] font-bold tracking-[-0.025em] leading-[1.08] max-w-4xl">
               None of this is a motivation problem.
-              <span className="text-[#E11D48]"> It&rsquo;s a visibility problem.</span>
+              <span className="text-[#F63C49]"> It&rsquo;s a visibility problem.</span>
             </p>
           </div>
         </div>
       </div>
       {/* Mobile / fallback: stacked, static */}
       <div className="relative max-w-3xl mx-auto md:hidden">
-        <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[#F43F5E] mb-10">The real problem</p>
+        <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[#F63C49] mb-10">The real problem</p>
         <div className="space-y-12">
           {beats.map((b) => (
             <div key={b.kicker}>
@@ -86,7 +86,7 @@ const ProblemScene: React.FC = () => {
           ))}
           <p className="text-2xl font-bold tracking-[-0.02em] leading-[1.15]">
             None of this is a motivation problem.
-            <span className="text-[#E11D48]"> It&rsquo;s a visibility problem.</span>
+            <span className="text-[#F63C49]"> It&rsquo;s a visibility problem.</span>
           </p>
         </div>
       </div>

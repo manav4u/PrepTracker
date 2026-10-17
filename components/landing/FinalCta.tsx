@@ -34,7 +34,7 @@ const FinalCta: React.FC = () => {
 
   return (
     <section ref={root} aria-label="Get started" className="relative bg-[#F7F5F2] px-4 md:px-6 pt-8 pb-24 md:pb-32 overflow-hidden">
-      <div className="fc-panel relative max-w-6xl mx-auto rounded-[2.5rem] bg-[#BE123C] text-white px-8 py-16 md:px-16 md:py-24 overflow-hidden will-change-transform">
+      <div className="fc-panel relative max-w-6xl mx-auto rounded-[2.5rem] bg-[linear-gradient(135deg,#F63C49_0%,#D61A40_100%)] text-white px-8 py-16 md:px-16 md:py-24 overflow-hidden will-change-transform">
         <div
           aria-hidden="true"
           className="fc-glow absolute -top-32 -right-32 w-96 h-96 rounded-full bg-white/10 blur-3xl pointer-events-none"

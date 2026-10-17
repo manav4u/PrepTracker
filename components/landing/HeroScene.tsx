@@ -63,7 +63,7 @@ const HeroScene: React.FC = () => {
     <div ref={root} className="hs-stage relative overflow-hidden px-6 pt-36 md:pt-44 pb-10 md:pb-16">
       <div
         aria-hidden="true"
-        className="hs-glow absolute -top-56 left-1/2 -translate-x-1/2 w-[62rem] h-[34rem] rounded-full bg-[#E11D48]/[0.08] blur-[120px] pointer-events-none"
+        className="hs-glow absolute -top-56 left-1/2 -translate-x-1/2 w-[62rem] h-[34rem] rounded-full bg-[#F63C49]/[0.08] blur-[120px] pointer-events-none"
       />
       <div className="relative max-w-6xl mx-auto">
         <div className="hs-copy text-center max-w-4xl mx-auto">
@@ -77,7 +77,7 @@ const HeroScene: React.FC = () => {
             {HEADLINE.split(' ').map((w, i) => (
               <span key={i} className="inline-block overflow-hidden align-top pb-[0.08em] -mb-[0.08em]" aria-hidden="true">
                 <span className="hs-word inline-block will-change-transform">
-                  {w === 'left' ? <span className="text-[#BE123C]">{w}</span> : w}
+                  {w === 'left' ? <span className="text-[#D61A40]">{w}</span> : w}
                   {'\u00A0'}
                 </span>
               </span>
