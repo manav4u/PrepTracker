@@ -33,8 +33,8 @@
   .nav-cta:hover{background:var(--red-deep)}
 
   /* HERO - layout: Supahero "Modyfi" (copy band over full-width product canvas) */
-  .hero{position:relative;padding:72px 40px 0;max-width:1400px;margin:0 auto}
-  .copyband{display:flex;align-items:flex-end;justify-content:space-between;gap:48px}
+  .hero{position:relative;padding:72px 40px 0;max-width:1400px;margin:0 auto;overflow:hidden}
+  .copyband{display:block}
   .copy-left{max-width:760px}
   .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;
     color:var(--red);margin-bottom:22px;display:flex;align-items:center;gap:10px}
@@ -44,7 +44,7 @@
   h1 .line{display:block;will-change:transform}
   h1 em{font-style:normal;color:var(--red)}
   .sub{margin-top:24px;font-size:17px;line-height:1.65;color:var(--mut);max-width:520px}
-  .cta-col{display:flex;flex-direction:column;align-items:flex-end;gap:14px;flex-shrink:0;padding-bottom:6px}
+  .cta-row{display:flex;align-items:center;gap:24px;margin-top:34px;flex-wrap:wrap}
   .cta-main{display:inline-flex;align-items:center;gap:12px;background:var(--red);color:#fff;
     text-decoration:none;font-family:var(--sat);font-weight:700;font-size:17px;padding:19px 36px;
     border-radius:999px;transition:transform .22s ease,background .22s ease;box-shadow:0 18px 40px -18px rgba(214,26,64,.55)}
@@ -52,39 +52,40 @@
   .cta-main svg{width:16px;height:16px}
   .fud{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
 
-  /* view switcher - Supahero "Craft" segmented pill */
-  .switcher{display:inline-flex;position:relative;margin-top:44px;background:#fff;
+  /* try-the-app label + view switcher - Supahero "Craft" segmented pill */
+  .try{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:56px;
+    font-family:var(--mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink)}
+  .try .live{width:8px;height:8px;border-radius:50%;background:var(--red);animation:pulse 1.7s ease-in-out infinite}
+  .try .try-sub{color:var(--mut);letter-spacing:.16em}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.2}}
+  @media (prefers-reduced-motion: reduce){.try .live{animation:none}}
+  .switchwrap{display:flex;justify-content:center}
+  .switcher{display:inline-flex;position:relative;margin-top:18px;background:#fff;
     border:1px solid var(--hair);border-radius:999px;padding:5px;box-shadow:0 10px 30px -18px rgba(20,20,25,.25)}
   .switcher button{position:relative;z-index:2;border:0;background:none;cursor:pointer;
     font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
-    color:var(--mut);padding:10px 22px;transition:color .25s}
+    color:var(--mut);padding:13px 28px;font-size:12px;transition:color .25s}
   .switcher button.on{color:#fff}
   .thumb{position:absolute;z-index:1;top:5px;left:5px;height:calc(100% - 10px);background:var(--ink);
     border-radius:999px;transition:left .35s cubic-bezier(.65,0,.35,1),width .35s cubic-bezier(.65,0,.35,1)}
 
-  /* product window */
-  .stage{position:relative;margin-top:34px}
-  .window{position:relative;border-radius:16px 16px 0 0;overflow:hidden;background:#0B0B0E;
-    border:1px solid rgba(20,20,25,.18);border-bottom:0;
-    box-shadow:0 -30px 90px -40px rgba(20,20,25,.45)}
+  /* product window - Modyfi/Craft: large, tilted, layered, bleeding off the bottom edge */
+  .stage{position:relative;margin-top:44px;height:clamp(420px,56vh,610px)}
+  .window-back{position:absolute;left:50%;top:30px;width:min(1120px,95%);height:88%;
+    transform:translateX(-48.5%) rotate(1.7deg);background:#16161C;border-radius:18px;opacity:.5;z-index:1}
+  .window{position:relative;z-index:2;width:min(1120px,95%);margin:0 auto;
+    transform:rotate(-1.3deg);border-radius:18px;overflow:hidden;background:#0B0B0E;
+    border:1px solid rgba(20,20,25,.18);
+    box-shadow:0 60px 110px -30px rgba(20,20,25,.42)}
   .window .bar{display:flex;align-items:center;gap:8px;padding:11px 16px;background:#16161C;
     border-bottom:1px solid rgba(255,255,255,.06)}
   .dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.14)}
   .bar .url{margin-left:12px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;
     color:rgba(255,255,255,.35)}
-  .screen{position:relative;height:min(62vw,660px)}
+  .screen{position:relative;height:clamp(430px,54vh,620px)}
   .screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;
     opacity:0;transition:opacity .45s ease;transform:scale(1.015)}
   .screen img.on{opacity:1;transform:scale(1)}
-  /* floating chips - real app values */
-  .chip{position:absolute;z-index:5;background:#fff;border:1px solid var(--hair);border-radius:12px;
-    padding:12px 18px;box-shadow:0 18px 44px -18px rgba(20,20,25,.35);will-change:transform}
-  .chip .k{font-family:var(--mono);font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--mut)}
-  .chip .v{font-family:var(--grot);font-weight:700;font-size:26px;letter-spacing:-.02em;margin-top:2px}
-  .chip .v i{font-style:normal;color:var(--red)}
-  .chip1{top:-26px;right:6%}
-  .chip2{top:34%;right:-30px}
-  .chip3{top:52%;left:-26px}
 
   /* credibility strip - ThrillX lesson 5, honest form: verifiable product facts */
   .strip{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);
@@ -283,12 +284,16 @@
     nav{padding:14px 20px}
     .nav-link{display:none}
     .hero{padding:52px 20px 0}
-    .copyband{flex-direction:column;align-items:flex-start;gap:30px}
-    .cta-col{align-items:flex-start}
+    .copyband{display:block}
+    .try{justify-content:flex-start;flex-wrap:wrap;gap:8px 12px;letter-spacing:.22em}
+    .try .try-sub{flex-basis:100%}
+    .switchwrap{justify-content:flex-start}
+    .stage{height:400px;margin-top:36px}
+    .window{width:128%;margin-left:-14%;transform:rotate(-1.6deg)}
+    .window-back{display:none}
+    .screen{height:330px}
     .switcher{margin-top:34px;max-width:100%;overflow-x:auto}
     .switcher button{padding:9px 15px;font-size:10px}
-    .chip2{right:-8px}.chip3{left:10px;top:56%}
-    .chip{padding:9px 13px}.chip .v{font-size:19px}
     .screen{height:78vw}
   }
 </style>
@@ -316,15 +321,17 @@
         <span class="mask" aria-hidden="true"><span class="line">what&rsquo;s <em>left.</em></span></span>
       </h1>
       <p class="sub">PrepTracker breaks the syllabus into units and topics, counts the days to your exam, and tells you what to study today.</p>
-    </div>
-    <div class="cta-col">
-      <a class="cta-main" href="https://preptracker.manavdev.site/">Start tracking
-        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <p class="fud">Free &middot; No account &middot; Data stays in your browser</p>
+      <div class="cta-row">
+        <a class="cta-main" href="https://preptracker.manavdev.site/">Start tracking
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <p class="fud">Free &middot; No account &middot; Data stays in your browser</p>
+      </div>
     </div>
   </div>
 
+  <div class="try reveal-x"><span class="live"></span>Try the app<span class="try-sub">four real views, captured inside it</span></div>
+  <div class="switchwrap">
   <div class="switcher" role="tablist" aria-label="Preview the app">
     <div class="thumb" id="thumb"></div>
     <button class="on" data-img="dash.png" role="tab" aria-selected="true">Dashboard</button>
@@ -332,11 +339,10 @@
     <button data-img="app-tasks.png" role="tab" aria-selected="false">Tasks</button>
     <button data-img="app-library.png" role="tab" aria-selected="false">Library</button>
   </div>
+  </div>
 
   <div class="stage" id="stage">
-    <div class="chip chip1"><div class="k">Day streak</div><div class="v"><i>4</i> days</div></div>
-    <div class="chip chip2"><div class="k">Syllabus done</div><div class="v">9<i>%</i></div></div>
-    <div class="chip chip3"><div class="k">Today</div><div class="v"><i>3</i> tasks</div></div>
+    <div class="window-back" aria-hidden="true"></div>
     <div class="window">
       <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">preptracker.manavdev.site</span></div>
       <div class="screen" id="screen">
@@ -585,20 +591,18 @@ const TESTIMONIALS=[
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 if(!reduced){
   gsap.fromTo('.line',{yPercent:112},{yPercent:0,duration:1,ease:'power4.out',stagger:.1,delay:.15});
-  gsap.fromTo(['.kicker','.sub','.cta-main','.fud'],{y:18,autoAlpha:0},{y:0,autoAlpha:1,duration:.8,ease:'power3.out',stagger:.08,delay:.35});
-  gsap.fromTo('.switcher',{y:16,autoAlpha:0},{y:0,autoAlpha:1,duration:.7,ease:'power3.out',delay:.75});
+  gsap.fromTo(['.kicker','.sub','.cta-row','.fud'],{y:18,autoAlpha:0},{y:0,autoAlpha:1,duration:.8,ease:'power3.out',stagger:.08,delay:.35});
+  gsap.fromTo(['.try','.switcher'],{y:16,autoAlpha:0},{y:0,autoAlpha:1,duration:.7,ease:'power3.out',delay:.75});
   gsap.fromTo('.window',{y:60,autoAlpha:0},{y:0,autoAlpha:1,duration:1.1,ease:'power3.out',delay:.85});
-  gsap.fromTo('.chip',{y:26,autoAlpha:0,scale:.92},{y:0,autoAlpha:1,scale:1,duration:.8,ease:'back.out(1.7)',stagger:.12,delay:1.25});
   gsap.fromTo('.strip',{autoAlpha:0},{autoAlpha:1,duration:.8,delay:1.5});
   if(matchMedia('(pointer:fine)').matches){
     addEventListener('mousemove',e=>{
       const nx=(e.clientX/innerWidth-.5),ny=(e.clientY/innerHeight-.5);
-      gsap.to('.chip',{x:nx*-14,y:ny*-9,duration:1,ease:'power2.out',stagger:.05});
       gsap.to('.window',{x:nx*6,duration:1.2,ease:'power2.out'});
     });
   }
 }else{
-  gsap.set(['.line','.kicker','.sub','.cta-main','.fud','.switcher','.window','.chip','.strip'],{clearProps:'all'});
+  gsap.set(['.line','.kicker','.sub','.cta-row','.fud','.switcher','.window','.strip'],{clearProps:'all'});
 }
 // problem scene parallax (skipped under reduced motion)
 const scene=document.querySelector('.scene');
