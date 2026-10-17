@@ -121,7 +121,7 @@ const HowItWorks: React.FC = () => {
             />
             <div className="hw-phone relative mx-auto w-full max-w-[20rem] rounded-[2.2rem] overflow-hidden ring-1 ring-black/10 shadow-[0_32px_64px_-24px_rgba(20,20,25,0.35)] will-change-transform">
               <img
-                src="/landing/subj-mobile.png"
+                src="/landing/subj-mobile.webp"
                 alt="PrepTracker on a phone: a subject's units with topics ticked off"
                 className="w-full h-auto block"
                 loading="lazy"

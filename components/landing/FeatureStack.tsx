@@ -10,7 +10,7 @@ const features = [
     kicker: 'Syllabus',
     title: 'The whole syllabus, as a checklist',
     body: 'Every unit of all 10 subjects with four honest states - not started, in progress, revision, mastered. Tick topics as you study and the bars move.',
-    img: '/landing/feat-checklist.png',
+    img: '/landing/feat-checklist.webp',
     alt: "A subject's units in PrepTracker with topics being ticked off",
   },
   {
@@ -19,7 +19,7 @@ const features = [
     kicker: 'Progress',
     title: 'Progress you can watch',
     body: 'Overall percentage, units mastered, days to your exam and your streak - one glance, no guessing.',
-    img: '/landing/dash-desktop.png',
+    img: '/landing/dash-desktop.webp',
     alt: 'The PrepTracker dashboard with overall progress and days to exam',
   },
   {
@@ -28,7 +28,7 @@ const features = [
     kicker: 'Resources',
     title: '30 verified resources, inside',
     body: 'Notes, lecture playlists, textbooks and solved PYQs next to the unit they test - every link checked. No more WhatsApp archaeology.',
-    img: '/landing/feat-library.png',
+    img: '/landing/feat-library.webp',
     alt: 'The PrepTracker resource library',
   },
   {
@@ -37,7 +37,7 @@ const features = [
     kicker: 'Tasks',
     title: 'A task list that knows your units',
     body: 'Plan the week and link a task to the exact unit it belongs to. Done is done, and the bar agrees. Works offline - everything stays on this device.',
-    img: '/landing/feat-tasks.png',
+    img: '/landing/feat-tasks.webp',
     alt: 'The PrepTracker task list linked to units',
   },
 ];
