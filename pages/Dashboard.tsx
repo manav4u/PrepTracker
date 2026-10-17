@@ -56,17 +56,15 @@ const ProgressGraphCard = ({ data, labels, total }: { data: number[], labels: st
     // Y-Axis Padding Logic: 
     // Map 0% -> 85 (Bottom with padding)
     // Map 100% -> 15 (Top with padding)
-    const mapY = (val: number) => 85 - (val * 0.7); 
+    const mapY = (val: number) => 74 - (val * 0.44);
 
-    const points = data.map((val, i) => {
-        const x = (i / (data.length - 1 || 1)) * 100;
-        return `${x},${mapY(val)}`;
-    }).join(' ');
+    const mapX = (i: number) => 6 + (i / (data.length - 1 || 1)) * 88;
 
-    const fillPath = `M 0,100 ${data.map((val, i) => {
-        const x = (i / (data.length - 1 || 1)) * 100;
-        return `L ${x},${mapY(val)}`;
-    }).join(' ')} L 100,100 Z`;
+    const points = data.map((val, i) => `${mapX(i)},${mapY(val)}`).join(' ');
+
+    // Fill spans the full tile width and height; flat shelves carry the
+    // endpoint levels to the edges while the line itself ends inside.
+    const fillPath = `M 0,${mapY(data[0])} ${data.map((val, i) => `L ${mapX(i)},${mapY(val)}`).join(' ')} L 100,${mapY(data[data.length - 1])} L 100,100 L 0,100 Z`;
 
     return (
         <div className="p-6 rounded-3xl surface-1 flex flex-col justify-between h-36 lg:h-40 relative overflow-hidden group hover:border-white/20 transition-all animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500" style={{ animationDelay: '90ms' }}>
@@ -92,9 +90,9 @@ const ProgressGraphCard = ({ data, labels, total }: { data: number[], labels: st
                          </defs>
                          
                          {/* Grid Lines */}
-                         <line x1="0" y1="15" x2="100" y2="15" stroke="rgba(255,255,255,0.03)" strokeWidth="0.5" strokeDasharray="2 2" />
-                         <line x1="0" y1="50" x2="100" y2="50" stroke="rgba(255,255,255,0.03)" strokeWidth="0.5" strokeDasharray="2 2" />
-                         <line x1="0" y1="85" x2="100" y2="85" stroke="rgba(255,255,255,0.03)" strokeWidth="0.5" strokeDasharray="2 2" />
+                         <line x1="0" y1="30" x2="100" y2="30" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" strokeDasharray="2 2" />
+                         <line x1="0" y1="52" x2="100" y2="52" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" strokeDasharray="2 2" />
+                         <line x1="0" y1="74" x2="100" y2="74" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" strokeDasharray="2 2" />
 
                          {/* Area Fill */}
                          <path d={fillPath} fill="url(#grad)" className="transition-all duration-700 ease-in-out" />
@@ -119,9 +117,12 @@ const ProgressGraphCard = ({ data, labels, total }: { data: number[], labels: st
                 </div>
             )}
             
+            {/* Label band scrim: fades the fill out under the day labels */}
+            {hasData && <div className="absolute bottom-0 inset-x-0 h-12 bg-gradient-to-t from-[#0b0b0d] via-[#0b0b0d]/80 to-transparent pointer-events-none z-[5]"></div>}
+
             <div className="flex justify-between items-end relative z-10 mt-auto px-1">
                  {labels.map((l, i) => (
-                     <span key={i} className="text-[7px] font-mono font-bold text-slate-500 uppercase w-full text-center truncate">{l}</span>
+                     <span key={i} className="text-[8px] font-mono font-bold text-slate-400 uppercase w-full text-center truncate">{l}</span>
                  ))}
             </div>
     
