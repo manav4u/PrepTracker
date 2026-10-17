@@ -29,7 +29,7 @@
   .brand svg{width:27px;height:27px;display:block}
   .brand b{font-family:var(--sat);font-weight:700;font-size:18px;letter-spacing:-.02em}
   .nav-links{display:flex;align-items:center;gap:2px}
-  .nav-link{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+  .nav-link{white-space:nowrap;font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
     color:var(--mut);text-decoration:none;padding:8px 13px;border-radius:999px;
     transition:color .2s,background .2s}
   .nav-link:hover{color:var(--ink)}
@@ -183,8 +183,6 @@
   .step .n i{font-style:normal;color:var(--red)}
   .step h4{font-family:var(--sat);font-weight:700;font-size:19px;margin-top:20px;letter-spacing:-.01em}
   .step p{margin-top:10px;font-size:14.5px;line-height:1.65;color:var(--mut)}
-  .step::after{content:'';position:absolute;top:52px;right:-26px;width:26px;height:1px;background:var(--hair)}
-  .step:last-child::after{display:none}
 
 
   /* ---------- 7. TESTIMONIALS (ayzz Ep.07 proof treatment + Supahero: one giant quote, editorial index) ---------- */
@@ -206,6 +204,15 @@
     letter-spacing:.2em;text-transform:uppercase;color:var(--mut);text-align:right}
   .q-row figcaption b{display:block;color:var(--ink);font-weight:400;margin-bottom:4px}
   .q-row:nth-child(even) blockquote{margin-left:auto;text-align:left}
+  @media(max-width:1100px){
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .foot-about{grid-column:1/-1}
+  }
+
+  @media(max-width:1023px){
+    .nav-links{display:none}
+  }
+
   @media(max-width:900px){
     .q-row{flex-direction:column;gap:12px;padding:28px 0}
     .q-row figcaption{margin-left:0;text-align:left}
@@ -256,7 +263,8 @@
   .foot-about p{margin:16px 0 0;font-size:15px;line-height:1.7;color:var(--mut);max-width:340px}
   .foot-about .foot-sign{font-family:var(--mono);font-size:10px;letter-spacing:.2em;
     text-transform:uppercase;color:var(--ink);margin-top:20px}
-  .foot-col{display:block;padding:0;background:none;border:none;position:static;max-width:none;margin:0}
+  .foot-col{display:block;padding:0;background:none;border:none;border-radius:0;box-shadow:none;
+    backdrop-filter:none;-webkit-backdrop-filter:none;position:static;max-width:none;margin:0;transform:none;top:auto;left:auto;gap:0}
   .foot-col h3{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;
     color:var(--mut);margin:0 0 16px;font-weight:400}
   .foot-col a{display:block;color:var(--ink);text-decoration:none;font-size:15px;padding:5px 0;
@@ -272,7 +280,7 @@
     .feat-row,.feat-row.flip{flex-direction:column;gap:30px;padding:56px 0}
     .feat-copy{flex:none}
     .steps{grid-template-columns:1fr}
-    .step::after{display:none}
+    .step p{font-size:15.5px;color:#3A3A42;line-height:1.7}
     .final{padding:24px 20px 0}
     .foot-main{padding:56px 20px 0}
     .foot-grid{grid-template-columns:1fr;gap:30px}
@@ -289,7 +297,7 @@
 
   @media(max-width:900px){
     nav{top:10px;left:12px;right:12px;transform:none;justify-content:space-between;
-      padding:8px 8px 8px 16px;gap:12px}
+      padding:8px 8px 8px 16px;gap:12px;max-width:none}
     nav.hide{transform:translateY(-82px)}
     .nav-links{display:none}
     .hero{padding:104px 20px 0}
@@ -419,7 +427,7 @@
     <div class="feat-copy">
       <p class="feat-num">01</p>
       <h3>Your whole exam, on one screen</h3>
-      <p>Progress across every subject, the days left, and today&rsquo;s streak &mdash; the numbers you used to guess, counted for you.</p>
+      <p>Progress across every subject, the days left, and today&rsquo;s streak. The numbers you used to guess, counted for you.</p>
     </div>
     <div class="feat-shot"><img src="full-dash.png" alt="The PrepTracker dashboard with progress, days to exam and streak."></div>
   </div>
@@ -446,7 +454,7 @@
     <div class="feat-copy">
       <p class="feat-num">04</p>
       <h3>Question papers where you study</h3>
-      <p>Previous-year papers and resources sit next to the units they belong to &mdash; not in a drive folder you never open.</p>
+      <p>Previous-year papers and resources sit next to the units they belong to, not in a drive folder you never open.</p>
     </div>
     <div class="feat-shot"><img src="full-library.png" alt="The library of previous-year question papers."></div>
   </div>
@@ -471,12 +479,12 @@
     <div class="step reveal">
       <p class="n">01<i>.</i></p>
       <h4>Pick your subjects</h4>
-      <p>Your branch&rsquo;s subjects are already in the app, each with its real units and topics. Select yours and you&rsquo;re done.</p>
+      <p>Choose your subjects in the app. Each one shows its units and topics laid out. Select yours and you&rsquo;re done.</p>
     </div>
     <div class="step reveal">
       <p class="n">02<i>.</i></p>
       <h4>Tick topics as you study</h4>
-      <p>Finished a topic? Tick it. That one habit is the entire system &mdash; the app does every calculation after that.</p>
+      <p>Finished a topic? Tick it. That one habit is the entire system. The app does every calculation after that.</p>
     </div>
     <div class="step reveal">
       <p class="n">03<i>.</i></p>
@@ -493,7 +501,7 @@
     <div class="fp-rules"></div>
     <svg class="fp-ghost" viewBox="0 0 149 146" aria-hidden="true"><path class="markg" fill="#fff" d=""/></svg>
     <h2>Walk in knowing<br>what&rsquo;s <em style="color:#fff;text-decoration:underline;text-underline-offset:10px;text-decoration-thickness:4px">left.</em></h2>
-    <p class="subf">Two minutes to set up. Then the app counts the days, the units and the topics &mdash; you just study.</p>
+    <p class="subf">Two minutes to set up. Then the app counts the days, the units and the topics. You just study.</p>
     <a class="cta-white" href="https://preptracker.manavdev.site/">Start tracking
       <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="#D61A40" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
@@ -503,8 +511,8 @@
 <footer aria-label="Footer">
   <div class="ticker" aria-hidden="true">
     <div class="ticker-track">
-      <span>Every topic accounted for</span><i>&#183;</i><span>Every day counted</span><i>&#183;</i><span>Free &amp; open source</span><i>&#183;</i><span>No account</span><i>&#183;</i><span>Data stays in your browser</span><i>&#183;</i>
-      <span>Every topic accounted for</span><i>&#183;</i><span>Every day counted</span><i>&#183;</i><span>Free &amp; open source</span><i>&#183;</i><span>No account</span><i>&#183;</i><span>Data stays in your browser</span><i>&#183;</i>
+      <span>Every topic accounted for</span><i>&#183;</i><span>Every day counted</span><i>&#183;</i><span>Know exactly what&#8217;s left</span><i>&#183;</i><span>Walk in ready</span><i>&#183;</i>
+      <span>Every topic accounted for</span><i>&#183;</i><span>Every day counted</span><i>&#183;</i><span>Know exactly what&#8217;s left</span><i>&#183;</i><span>Walk in ready</span><i>&#183;</i>
     </div>
   </div>
   <div class="foot-main">
@@ -512,7 +520,7 @@
     <div class="foot-grid">
       <div class="foot-about">
         <svg viewBox="0 0 149 146" aria-hidden="true"><path class="mark2" fill="url(#lg2)" d=""/><defs><linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F63C49"/><stop offset="1" stop-color="#D61A40"/></linearGradient></defs></svg>
-        <p>The exam desk. Syllabus progress, study resources and tasks in one place &mdash; free, open source, and private by design.</p>
+        <p>The exam desk. Syllabus progress, study resources and tasks in one place. Free, open source, and private by design.</p>
         <p class="foot-sign">Built by a student, for students</p>
       </div>
       <nav class="foot-col" aria-label="Product">
