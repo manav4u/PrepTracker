@@ -45,6 +45,12 @@ const LandingPage: React.FC = () => {
   });
 
   useEffect(() => {
+    const prev = document.body.style.backgroundColor;
+    document.body.style.backgroundColor = '#F7F5F2';
+    return () => { document.body.style.backgroundColor = prev; };
+  }, []);
+
+  useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -78,18 +84,20 @@ const LandingPage: React.FC = () => {
         </div>
       </nav>
 
-      <HeroScene />
+      <main>
+        <HeroScene />
 
-      <TrustStrip />
+        <TrustStrip />
 
-      <ProblemScene />
+        <ProblemScene />
 
-      <FeatureStack />
+        <FeatureStack />
 
-      <HowItWorks />
+        <HowItWorks />
 
-      <FaqSection />
-      <FinalCta />
+        <FaqSection />
+        <FinalCta />
+      </main>
       {/* Footer */}
       <footer data-footer className="px-6 pb-10 pt-4 border-t border-black/[0.08] bg-[#F7F5F2]">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-[#5A5A66]">

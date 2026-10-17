@@ -58,7 +58,7 @@ const ProblemScene: React.FC = () => {
       />
       {/* Desktop: pinned kinetic beats */}
       <div className="relative max-w-5xl mx-auto h-full hidden md:flex flex-col justify-center">
-        <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[#E11D48] mb-10">The real problem</p>
+        <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[#F43F5E] mb-10">The real problem</p>
         <div className="relative min-h-[16rem]">
           {beats.map((b) => (
             <div key={b.kicker} className="ps-line absolute inset-x-0 top-0">
@@ -76,7 +76,7 @@ const ProblemScene: React.FC = () => {
       </div>
       {/* Mobile / fallback: stacked, static */}
       <div className="relative max-w-3xl mx-auto md:hidden">
-        <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[#E11D48] mb-10">The real problem</p>
+        <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[#F43F5E] mb-10">The real problem</p>
         <div className="space-y-12">
           {beats.map((b) => (
             <div key={b.kicker}>

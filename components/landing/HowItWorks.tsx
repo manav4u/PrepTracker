@@ -87,7 +87,7 @@ const HowItWorks: React.FC = () => {
     <section ref={root} aria-label="How PrepTracker works" className="relative bg-[#F7F5F2] text-[#141419] px-6 py-24 md:py-36 overflow-hidden">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20">
         <div>
-          <div className="hw-head lg:sticky lg:top-32">
+          <div className="hw-head lg:sticky lg:top-32 relative z-10 -mx-3 px-3 pb-8 bg-[#F7F5F2]">
             <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[#BE123C]">How it works</p>
             <h2 className="mt-4 text-3xl md:text-5xl font-bold tracking-[-0.025em] leading-[1.08]">
               Set up in a minute. Useful the same day.

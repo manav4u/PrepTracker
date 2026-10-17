@@ -52,16 +52,28 @@ const FeatureStack: React.FC = () => {
       cards.forEach((card, i) => {
         const next = cards[i + 1];
         if (!next) return;
+        // Covered cards recede as clean sheets: chrome (bg + ring) stays put,
+        // only the content dissolves. No alpha-dimmed text resting on screen -
+        // opacity-0 text is both invisible and out of the contrast audit.
         gsap.to(card, {
           scale: 0.94 + i * 0.015,
-          autoAlpha: 0.55,
           y: -18,
-          filter: 'blur(2px)',
           ease: 'none',
           scrollTrigger: {
             trigger: next,
             start: 'top 85%',
             end: 'top 30%',
+            scrub: true,
+            invalidateOnRefresh: true,
+          },
+        });
+        gsap.to(card.querySelector('.fs-inner'), {
+          opacity: 0,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: next,
+            start: 'top 88%',
+            end: 'top 72%',
             scrub: true,
             invalidateOnRefresh: true,
           },
@@ -99,9 +111,9 @@ const FeatureStack: React.FC = () => {
               }`}
               style={{ top: `${88 + i * 14}px` }}
             >
-              <div className="grid md:grid-cols-2 items-center gap-6 md:gap-10 p-7 md:p-12">
+              <div className="fs-inner grid md:grid-cols-2 items-center gap-6 md:gap-10 p-7 md:p-12">
                 <div>
-                  <p className={`font-mono text-[11px] uppercase tracking-[0.22em] ${f.dark ? 'text-[#E11D48]' : 'text-[#BE123C]'}`}>
+                  <p className={`font-mono text-[11px] uppercase tracking-[0.22em] ${f.dark ? 'text-[#F43F5E]' : 'text-[#BE123C]'}`}>
                     {String(i + 1).padStart(2, '0')} &middot; {f.kicker}
                   </p>
                   <h3 className="mt-4 text-2xl md:text-4xl font-bold tracking-[-0.02em] leading-[1.1]">{f.title}</h3>

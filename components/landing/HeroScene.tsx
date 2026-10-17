@@ -45,10 +45,16 @@ const HeroScene: React.FC = () => {
         yPercent: 26, ease: 'none',
         scrollTrigger: { trigger: '.hs-stage', start: 'top bottom', end: 'bottom top', scrub: 1 },
       });
-      // Headline drifts slower than scroll for depth
+      // Headline drifts slower than scroll for depth, then dissolves.
+      // opacity only: keeps the h1 perceivable (axe page-has-heading-one) and
+      // avoids focus traps; the CTA row holds a link, so it hides fully.
       gsap.to('.hs-copy', {
-        yPercent: -8, autoAlpha: 0.25, ease: 'none',
-        scrollTrigger: { trigger: '.hs-stage', start: 'top top', end: '55% top', scrub: true },
+        yPercent: -8, opacity: 0, ease: 'none',
+        scrollTrigger: { trigger: '.hs-stage', start: 'top top', end: '+=600', scrub: true },
+      });
+      gsap.to(['.hs-cta', '.hs-meta'], {
+        autoAlpha: 0, ease: 'none',
+        scrollTrigger: { trigger: '.hs-stage', start: 'top top', end: '+=600', scrub: true },
       });
     });
   }, { scope: root });
