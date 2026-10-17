@@ -335,3 +335,172 @@ export const SE_IT_SUBJECTS: Subject[] = [
     ]
   },
 ];
+
+// Second Year Electronics and Telecommunication Engineering, 2024 pattern (NEP),
+// effective AY 2025-26. Source: official SPPU curriculum document (NEP-2020
+// compliant, R2 dated 21.07.2025). The unipune library copy was not directly
+// reachable at build time; the text was cross-verified byte-near-identical
+// across two independent college mirrors of the same official document.
+// Verbatim text preserved in docs/raw/SE-ENTC-2024-pattern.txt.
+export const SE_ENTC_SUBJECTS: Subject[] = [
+  {
+    id: 'ec',
+    name: 'Electronics Circuits',
+    code: 'PCC-201-ETC',
+    credits: 3,
+    theoryCredits: 3,
+    termWorkCredits: 0,
+    units: [
+      { id: 'ec-u1', unit_number: 1, title: 'MOSFET and Its Analysis',
+        topics: ['Enhancement MOSFET biasing and DC load line', 'AC equivalent circuit and parameters', 'Non-ideal characteristics: body effect, sub-threshold, breakdown', 'Common source amplifier and frequency response', 'Source follower vs common source', 'BJT vs MOSFET'] },
+      { id: 'ec-u2', unit_number: 2, title: 'MOSFET Circuits',
+        topics: ['MOSFET as a switch, CMOS inverter', 'Current sink, source and mirror', 'Four feedback topologies and effects of feedback', 'Voltage series and current series feedback amplifiers', 'Barkhausen criterion', 'RC phase shift and crystal oscillators'] },
+      { id: 'ec-u3', unit_number: 3, title: 'Operational Amplifiers and Linear Applications',
+        topics: ['Op-amp block diagram, parameters, AC and DC characteristics', 'Inverting and non-inverting amplifiers', 'Effect on Ri, Ro, gain and bandwidth', 'Voltage follower, summing and differential amplifiers', 'Practical integrator and differentiator', 'Precision half-wave and full-wave rectifiers'] },
+      { id: 'ec-u4', unit_number: 4, title: 'Op-Amp Non-Linear Applications',
+        topics: ['Comparator and Schmitt trigger', 'Square and triangular wave generators', 'PWM generator', 'Weighted resistor and R-2R DACs', 'SAR, flash and dual-slope ADCs'] },
+      { id: 'ec-u5', unit_number: 5, title: 'Voltage Regulators',
+        topics: ['Three-terminal regulators: fixed and variable', 'Linear regulator block diagram, IC 317 and IC 337', 'Current boosting and LDO', 'SMPS: block diagram and types', 'Buck and boost circuits'] },
+    ]
+  },
+  {
+    id: 'm3',
+    name: 'Engineering Mathematics-III',
+    code: 'PCC-202-ETC',
+    credits: 3,
+    theoryCredits: 3,
+    termWorkCredits: 0,
+    units: [
+      { id: 'm3-u1', unit_number: 1, title: 'Linear Differential Equations and Applications',
+        topics: ['LDE of nth order with constant coefficients', 'Complementary function and particular integral', 'Variation of parameters', 'Cauchy and Legendre equations', 'Simultaneous differential equations', 'Modeling of electrical circuits'] },
+      { id: 'm3-u2', unit_number: 2, title: 'Numerical Methods',
+        topics: ['Finite differences and interpolation: Newton, Lagrange', 'Numerical differentiation', 'Trapezoidal and Simpson rules, truncation error', 'Euler and modified Euler methods', 'Runge-Kutta 4th order', 'Predictor-corrector methods'] },
+      { id: 'm3-u3', unit_number: 3, title: 'Fourier and Z-Transforms',
+        topics: ['Complex exponential Fourier series', 'Fourier integral, sine and cosine integrals', 'Fourier transform and inverses', 'Z-transform definition and properties', 'ZT of standard sequences and inverses', 'Solution of difference equations'] },
+      { id: 'm3-u4', unit_number: 4, title: 'Vector Calculus',
+        topics: ['Gradient, divergence, curl, directional derivative', 'Solenoidal and irrotational fields, vector identities', 'Line, surface and volume integrals', "Green's lemma", "Gauss's divergence theorem", "Stokes' theorem and EM field applications"] },
+      { id: 'm3-u5', unit_number: 5, title: 'Statistics and Probability',
+        topics: ['Central tendency and dispersion, coefficient of variation', 'Moments, skewness, kurtosis', 'Correlation and regression', 'Probability density function', 'Binomial, Poisson, normal distributions', 'Chi-square test'] },
+    ]
+  },
+  {
+    id: 'deetc',
+    name: 'Digital Electronics',
+    code: 'PCC-203-ETC',
+    credits: 3,
+    theoryCredits: 3,
+    termWorkCredits: 0,
+    units: [
+      { id: 'deetc-u1', unit_number: 1, title: 'Combinational Logic Design',
+        topics: ['Logic function representations, K-map SOP and POS', "Minimization up to 4 variables, don't care conditions", 'Adders, subtractors, look ahead carry generator', 'Code converters: BCD to Gray, Excess-3', 'Comparators, multiplexers and trees', 'Demultiplexers and 3:8 decoders'] },
+      { id: 'deetc-u2', unit_number: 2, title: 'Sequential Logic Design',
+        topics: ['Latch and clocked SR, JK, master-slave JK, D, T flip-flops', 'Excitation tables and flip-flop conversion', 'Registers and shift registers', 'Ring, twisted ring, ripple and mod-n counters', 'Up/down and synchronous counters', 'Sequence generators'] },
+      { id: 'deetc-u3', unit_number: 3, title: 'State Machines',
+        topics: ['Moore and Mealy machines', 'State diagram, table, reduction, assignment', 'FSM implementation', 'Sequence detector', 'ASM charts and realization'] },
+      { id: 'deetc-u4', unit_number: 4, title: 'Digital Logic Families and PLDs',
+        topics: ['Digital IC parameters: fan-in, fan-out, noise margin, delay', 'TTL NAND operation', 'CMOS inverter, NAND, NOR', 'CMOS vs TTL', 'PROM, PAL, PLA architectures', 'FPGA and CPLD architecture'] },
+      { id: 'deetc-u5', unit_number: 5, title: 'Introduction to VHDL',
+        topics: ['Library, entity and architecture', 'Modeling styles', 'Data objects', 'Concurrent and sequential statements', 'VHDL design examples: gates, full adder, full subtractor'] },
+    ]
+  },
+  {
+    id: 'dsaetc',
+    name: 'Data Structures and Algorithms',
+    code: 'MDM-221-ETC',
+    credits: 3,
+    theoryCredits: 3,
+    termWorkCredits: 0,
+    units: [
+      { id: 'dsaetc-u1', unit_number: 1, title: 'Introduction to Data Structures and Complexity Analysis',
+        topics: ['Linear vs non-linear data structures, ADTs', 'Time and space complexity', 'Asymptotic notations: Big O, Omega, Theta', 'Best, worst and average case analysis', 'Linear and binary search', 'Bubble, selection, insertion sort'] },
+      { id: 'dsaetc-u2', unit_number: 2, title: 'Stack and Queue',
+        topics: ['Stack operations and array representation', 'Stack as ADT', 'Infix to postfix conversion and evaluation', 'Queue operations and array representation', 'Circular and priority queues', 'Queue applications: categorizing, simulation'] },
+      { id: 'dsaetc-u3', unit_number: 3, title: 'Linked List',
+        topics: ['Pointers and dynamic memory allocation', 'Sequential vs linked organization', 'Singly, doubly and circular linked lists', 'Stack and queue using linked lists', 'Polynomial representation with linked lists'] },
+      { id: 'dsaetc-u4', unit_number: 4, title: 'Non-Linear Data Structures: Trees',
+        topics: ['Tree concepts and terminology', 'Binary tree memory representation and traversal', 'Binary search tree operations', 'AVL trees and rotations'] },
+      { id: 'dsaetc-u5', unit_number: 5, title: 'Non-Linear Data Structures: Graphs',
+        topics: ['Graph concepts and terminology', 'Adjacency matrix and list', 'Graph traversal', 'Minimum spanning tree: Kruskal, Prim', "Dijkstra's shortest path"] },
+    ]
+  },
+  {
+    id: 'ce',
+    name: 'Communication Engineering',
+    code: 'PCC-251-ETC',
+    credits: 2,
+    theoryCredits: 2,
+    termWorkCredits: 0,
+    units: [
+      { id: 'ce-u1', unit_number: 1, title: 'Fundamentals of Communication Systems',
+        topics: ['Block diagram and types of communication systems', 'Regenerative repeaters', 'Noise types, calculations and noise figure', 'Baseband and bandpass signals', 'Signal energy and energy spectral density', 'Signal power and power spectral density'] },
+      { id: 'ce-u2', unit_number: 2, title: 'Amplitude Modulation and Demodulation',
+        topics: ['Need for modulation, AM types and modulation index', 'AM spectrum and power efficiency', 'DSB-SC, SSB and VSB modulation', 'Envelope detection', 'AM receiver'] },
+      { id: 'ce-u3', unit_number: 3, title: 'Frequency Modulation and Demodulation',
+        topics: ['FM concept, modulation index, spectrum, bandwidth', 'PM and FM relationship', 'Bessel coefficients', 'Narrowband and wideband FM', "FM generation by Armstrong's method", 'FM detection using PLL'] },
+      { id: 'ce-u4', unit_number: 4, title: 'Pulse Modulation Techniques',
+        topics: ['Sampling theorem and Nyquist criteria', 'Natural and flat-top sampling', 'PAM, PWM and PPM', 'Data formats: RZ, NRZ, AMI, Manchester', 'Quantization and companding', 'PCM, delta and adaptive delta modulation'] },
+      { id: 'ce-u5', unit_number: 5, title: 'Applications of Communication Engineering',
+        topics: ['Two-way radio communication', 'FM radio broadcasting', 'Aviation and marine communication', 'Television fundamentals'] },
+    ]
+  },
+  {
+    id: 'ss',
+    name: 'Signals and Systems',
+    code: 'PCC-252-ETC',
+    credits: 3,
+    theoryCredits: 3,
+    termWorkCredits: 0,
+    units: [
+      { id: 'ss-u1', unit_number: 1, title: 'Introduction to Signals',
+        topics: ['Continuous and discrete time signal representations', 'Elementary signals: impulse, step, ramp, sinc, Gaussian', 'Operations: scaling, shifting, reversal, differentiation, integration', 'Classification: periodic, even/odd, energy/power, stationary'] },
+      { id: 'ss-u2', unit_number: 2, title: 'Introduction to Systems',
+        topics: ['System classification: static/dynamic, causal, linear, time-invariant, stable, invertible', 'LTI systems and impulse response', 'FIR and IIR concepts', 'FIR and IIR structures, comparison, applications'] },
+      { id: 'ss-u3', unit_number: 3, title: 'Time-Domain Analysis of LTI Systems',
+        topics: ['Convolution sum: tabular and graphical methods', 'Convolution integral computation', 'Properties of convolution', 'System interconnection and impulse response', 'Step response from impulse response', 'Modern applications: NLP, CNNs'] },
+      { id: 'ss-u4', unit_number: 4, title: 'Fourier Analysis and Applications',
+        topics: ['Fourier series: trigonometric and exponential forms', 'Dirichlet conditions and Gibbs phenomenon', 'Fourier transform of aperiodic signals', 'Magnitude and phase response', 'FT properties and time-frequency interplay', 'FT of periodic signals'] },
+      { id: 'ss-u5', unit_number: 5, title: 'Laplace Transform and Applications',
+        topics: ['Definition and need vs Fourier transform', 'ROC and its properties', 'LT of standard functions', 'Inverse LT by partial fractions', 'System analysis: transfer function and impulse response'] },
+    ]
+  },
+  {
+    id: 'cs',
+    name: 'Control Systems',
+    code: 'PCC-253-ETC',
+    credits: 3,
+    theoryCredits: 3,
+    termWorkCredits: 0,
+    units: [
+      { id: 'cs-u1', unit_number: 1, title: 'Transfer Function and Time Domain Analysis',
+        topics: ['Open and closed loop systems', 'Differential equations and transfer function', 'Poles, zeros, order and type of a system', 'Block diagram reduction and signal flow graphs', 'Standard test inputs and steady state error', 'Transient analysis of first and second order systems'] },
+      { id: 'cs-u2', unit_number: 2, title: 'Stability Analysis',
+        topics: ['Characteristic equation', 'Pole locations and system stability', 'Absolute and relative stability', 'Routh-Hurwitz criterion', 'Root locus construction', 'Dominant poles, effect of added poles and zeros'] },
+      { id: 'cs-u3', unit_number: 3, title: 'Frequency Domain Analysis',
+        topics: ['Frequency response and specifications: resonant peak, bandwidth', 'Polar plots', 'Bode plot construction', 'Gain and phase crossover frequencies', 'Gain margin and phase margin'] },
+      { id: 'cs-u4', unit_number: 4, title: 'Modern Control Theory',
+        topics: ['State space representation', 'Transfer function from state space', 'Controllability and observability', 'Controllable and observable canonical forms', 'Solution of homogeneous state equations', 'State transition matrix by Laplace method'] },
+      { id: 'cs-u5', unit_number: 5, title: 'Controllers and Industrial Automation',
+        topics: ['ON-OFF controllers and dead zone', 'P, I, D, PI, PD and PID controllers', 'Offset and integral reset', 'Zeigler-Nichols tuning', 'PLC introduction and working', 'IoT-based industrial automation'] },
+    ]
+  },
+  {
+    id: 'oopetc',
+    name: 'Object-Oriented Programming',
+    code: 'MDM-271-ETC',
+    credits: 2,
+    theoryCredits: 2,
+    termWorkCredits: 0,
+    units: [
+      { id: 'oopetc-u1', unit_number: 1, title: 'Introduction to OOP Concepts',
+        topics: ['Limitations of procedural programming', 'OOP fundamentals: class, object, encapsulation, abstraction, inheritance, polymorphism', 'C++ basics: inline functions, default arguments', 'Reference variables and memory management operators', 'Scope resolution and typecast operators', 'Classes, objects and access specifiers'] },
+      { id: 'oopetc-u2', unit_number: 2, title: 'Introduction to Core Java',
+        topics: ['Evolution and features of Java', 'JVM, JRE and JDK', 'Java program structure, compilation and execution', 'Data types, operators, control statements', 'Constructors and method overloading', 'Static members, this, garbage collection, final'] },
+      { id: 'oopetc-u3', unit_number: 3, title: 'Inheritance and Polymorphism',
+        topics: ['Single, multilevel and hierarchical inheritance', 'Method overriding', 'Dynamic method dispatch', 'super and final keywords', 'Abstract methods and classes', 'One and two dimensional arrays, wrapper classes'] },
+      { id: 'oopetc-u4', unit_number: 4, title: 'Interfaces and Packages',
+        topics: ['Interfaces and multiple inheritance', 'Static methods in interfaces', 'Functional interfaces and lambda expressions', 'Java API and system packages', 'Creating and importing packages', 'Hiding classes'] },
+      { id: 'oopetc-u5', unit_number: 5, title: 'Multithreading and Exception Handling',
+        topics: ['Creating threads, extending the thread class', 'Types of errors', 'Exception handling syntax', 'Multiple catch statements', 'Custom exceptions'] },
+    ]
+  },
+];

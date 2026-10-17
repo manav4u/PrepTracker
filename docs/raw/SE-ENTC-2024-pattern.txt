@@ -1,0 +1,3195 @@
+  Savitribai Phule Pune University, Pune
+                       Maharashtra, India
+
+
+
+
+            Faculty of Science and Technology
+
+
+
+
+National Education Policy (NEP)-2020 Compliant Curriculum
+
+       SE - Second Year Engineering (2024 Pattern)
+
+
+ Electronics & Telecommunication Engineering
+
+              (With effect from Academic Year 2025-26)
+
+
+
+
+                         www.unipune.ac.in
+
+
+
+                                  i
+Contents
+
+Nomenclature                                                   iv
+
+Preface                                                         v
+
+Knowledge and Attitude Profile (WK)                            vi
+
+Program Outcomes                                               vii
+
+General Rules                                                  ix
+
+Curriculum Structure - Semester III                             1
+
+Curriculum Structure - Semester IV                              2
+
+Semester III Courses                                            3
+
+Electronics Circuits                                            4
+
+Engineering Mathematics III                                     7
+
+Digital Electronics                                             9
+
+Electronics Circuits & Digital Electronics Lab                 12
+
+Multidisciplinary Minor - Data Structures and Algorithms       14
+
+Multidisciplinary Minor - Data Structures and Algorithms Lab   16
+
+EEM - Engineering Economics & Applications                     20
+
+VEC-Universal Human Values & Professional Ethics               22
+
+Community Engagement Project                                   25
+
+Semester IV Courses                                            29
+
+Communication Engineering                                      30
+
+Signals and Systems                                            32
+
+
+
+                                                 ii
+Control Systems                                         35
+
+Communication Engineering Lab                           39
+
+Multidisciplinary Minor - Object Oriented Programming   40
+
+Signals & Systems and Object-Oriented Programming Lab   43
+
+VSE - Electronic Skill Development Lab                  46
+
+Modern Indian Languages - Marathi                       48
+
+Entrepreneurship Skill Development                      51
+
+VEC - Environment Awareness                             58
+
+Acknowledgement                                         61
+
+
+
+
+                                           iii
+Nomenclature
+
+CEP   Community Engagement Project
+
+CO    Course Outcome
+
+KAP   Knowledge and Attitude Profile
+
+MDM Multidisciplinary Minor
+
+OE    Open Elective
+
+PCC   Program Core Course
+
+PO    Program Outcomes
+
+VEC   Value Education Course
+
+VSE   Vocational and Skill Enhancement Course
+
+WK    Knowledge and Attitude Profile
+
+
+
+
+                                                iv
+                                    Preface by Board of Studies
+
+
+Dear Students and Teachers,
+
+ We, the members of Board of Studies Electronics and Telecommunication Engineering, are very happy
+to present Second Year Electronics and Telecommunication Engineering syllabus effective from the
+Academic Year 2025-26. The present curriculum will be implemented for Second Year of Engineering
+from the academic year 2025-26. Subsequently this will be carried forward for TE and BE in AY 2026-
+27, 2027-28, respectively.
+
+
+ Electronics and Telecommunication Engineering is a dynamic discipline that lies at the intersection of
+electronics engineering and communication technology. It provides the foundation for the design,
+development, and application of electronic systems and communication devices. This curriculum is
+designed to provide students with a comprehensive understanding of the fundamental principles,
+theories, and practices of Electronics and Telecommunication engineering, while also preparing them
+for the ever-evolving technological landscape.
+ The revised syllabus falls in line with the objectives of NEP-2020, Savitribai Phule Pune University,
+AICTE New Delhi, UGC, and various accreditation agencies by keeping an eye on the technological
+developments, innovations, and industry requirements. Wherever possible, additional resource links of
+platforms such as NPTEL, Swayam are appropriately provided at the end of each course. Learners are
+now getting sufficient time for self-learning either through online courses or additional projects for
+enhancing their knowledge and skill sets. Learners can be advised to take up online courses, on
+successful completion they are required to submit certification for the same. This will definitely help
+learners to facilitate their enhanced learning based on their interest.
+This curriculum is the result of extensive consultation with academic experts, industry professionals,
+and alumni to ensure relevance and excellence. It is designed not only to meet the current industry
+standards but also to prepare students for higher studies and research in the field of Electronics and
+Telecommunication engineering.
+We hope that this curriculum will inspire students to become competent professionals, responsible
+citizens, and contributors to the technological advancement of society.
+
+Dr. S. D. Shirbahadurkar
+Chairman
+Board of Studies
+                      Members of Board of Studies – E&TC Engineering
+                        Dr. Aditya Abhyankar         Dr. Rawal Awale
+                        Dr. Bhagwat Jadhav           Dr. M.B. Mali
+                        Dr. Sandeep Musale           Dr. Prachi Mukherji
+                        Dr. Sunil Moon               Dr. Shailesh Kulkarni
+                        Dr. Ramesh Pawase            Dr. Balasaheb Agarkar
+                        Dr. Kishor Vikhe             Dr. P. Malathi
+                        Dr. Manisha Dale             Dr. Urmila Patil
+
+                                                 v
+                Department of Electronics and Telecommunication Engineering
+
+                              Knowledge and Attitude Profile (WK)
+
+
+A Knowledge and Attitude Profile (KAP), often represented as WK (Knowledge and Attitude Profile) in
+some contexts, is a framework or assessment tool used to evaluate an individual’s knowledge and
+attitudes related to a specific area, topic, or domain.
+
+            WK1        A systematic, theory-based understanding of the natural sciences
+                       applicable to the discipline and awareness of relevant social sciences.
+            WK2        Conceptually-based mathematics, numerical analysis, data analysis,
+                       statistics and formal aspects of computer and information science to
+                       support detailed analysis and modelling applicable to the discipline.
+            WK3        A systematic, theory-based formulation of engineering fundamentals
+                       required in the engineering discipline.
+            WK4        Engineering specialist knowledge that provides theoretical
+                       frameworks and bodies of knowledge for the accepted practice areas
+                       in the engineering discipline; much is at the forefront of the
+                       discipline.
+            WK5        Knowledge, including efficient resource use, environmental impacts,
+                       whole-life cost, re-use of resources, net zero carbon, and similar
+                       concepts, that supports engineering design and operations in a
+                       practice area.
+            WK6        Knowledge of engineering practice (technology) in the practice areas
+                       in the engineering discipline.
+            WK7        Knowledge of the role of engineering in society and identified issues
+                       in engineering practice in the discipline, such as the professional
+                       responsibility of an engineer to public safety and sustainable
+                       development.
+            WK8        Engagement with selected knowledge in the current research
+                       literature of the discipline, awareness of the power of critical
+                       thinking and creative approaches to evaluate emerging issues.
+            WK9        Ethics, inclusive behavior and conduct. Knowledge of professional
+                       ethics, responsibilities, and norms of engineering practice.
+                       Awareness of the need for diversity by reason of ethnicity, gender,
+                       age, physical ability etc. with mutual understanding and respect, and
+                       of inclusive attitudes.
+
+
+
+
+                                                 vi
+                  Department of Electronics and Telecommunication Engineering
+
+                                    Programme Outcomes (PO)
+
+
+Program Outcomes are statements that describe what students are expected to know and be able
+to do upon graduating from the program. These relate to the skills, knowledge, attitude and be- haviour
+that students acquire through the program. On successful completion of B.E. in Electronics and
+Telecommunication Engineering, graduating students/graduates will be able to:
+
+
+  PO1    Engineering               Apply knowledge of mathematics, natural science, computing,
+         Knowledge                 engineering fundamentals and an engineering specialization as
+                                   specified in WK1 to WK4 respectively to develop to the solution
+                                   of complex engineering problems.
+  PO2    Problem Analysis          Identify, formulate, review research literature and analyze
+                                   complex engineering problems reaching substantiated
+                                   conclusions with consideration for sustainable development.
+                                   (WK1 to WK4)
+  PO3    Design / Development      Design creative solutions for complex engineering problems and
+         of Solutions              design/develop systems/components/processes to meet
+                                   identified needs with consideration for the public health and
+                                   safety, whole-life cost, net zero carbon, culture, society and
+                                   environment as required. (WK5)
+  PO4    Conduct Investigations    Conduct investigations of complex engineering problems using
+         of Complex Problems       research-based knowledge including design of experiments,
+                                   modelling, analysis & interpretation of data to provide valid
+                                   conclusions. (WK8).
+  PO5    Engineering Tool Usage    Create, select and apply appropriate techniques, resources and
+                                   modern engineering & IT tools, including prediction and
+                                   modelling recognizing their limitations to solve complex
+                                   engineering problems. (WK2 and WK6)
+  PO6    The Engineer and the      Analyze and evaluate societal and environmental aspects while
+         World                     solving complex engineering problems for its impact on
+                                   sustainability with reference to economy, health, safety, legal
+                                   framework, culture and environment. (WK1, WK5, and WK7).
+  PO7    Ethics                    Apply ethical principles and commit to professional ethics,
+                                   human values, diversity and inclusion; adhere to national &
+                                   international laws. (WK9)
+  PO8    Individual and            Function effectively as an individual, and as a member or leader
+         Collaborative Team        in diverse/multi-disciplinary teams.
+         Work
+
+
+
+
+                                                 vii
+PO9    Communication          Communicate effectively and inclusively within the engineering
+                              community and society at large, such as being able to
+                              comprehend and write effective reports and design
+                              documentation, make effective presentations considering
+                              cultural, language, and learning differences
+PO10   Project Management     Apply knowledge and understanding of engineering
+       and Finance            management principles and economic decision-making and
+                              apply these to one’s own work, as a member and leader in a
+                              team, and to manage projects and in multidisciplinary
+                              environments.
+PO11   Life-Long Learning     Recognize the need for, and have the preparation and ability for
+                              i) independent and life-long learning ii) adaptability to new and
+                              emerging technologies and iii) critical thinking in the broadest
+                              context of technological change. (WK8)
+Reference: Self-Assessment Report (SAR) Format Undergraduate Engineering Programs
+Graduate Attributes and Professional Competencies Version 4.0 (GAPCV4.0)- (August2024)
+Page56.
+
+
+
+
+                                            viii
+                                   General Rules and Guidelines
+
+
+   • Course Outcomes (CO): Course Outcomes are narrower statements that describe what students
+     are expected to know, and are able to do at the end of each course. These relate to the skills,
+     knowledge and behaviour that students acquire in their progress through the course.
+
+   • Assessment: Assessment is one or more processes, carried out by the institution, that identify,
+     collect, and prepare data to evaluate the achievement of Program Educational Objectives and
+     Program Outcomes.
+
+   • Evaluation: Evaluation is one or more processes, done by the Evaluation Team, for interpreting
+     the data and evidence accumulated through assessment practices. Evaluation determines the
+     extent to which Program Educational Objectives or Program Outcomes are being achieved, and
+     results in decisions and actions to improve the program
+
+                               Guidelines for Examination Scheme
+
+Theory Examination: The theory examination shall be conducted in two different parts Compre-
+hensive Continuous Evaluation (CCE) and End-Semester Examination (ESE).
+
+
+Comprehensive Continuous Evaluation (CCE) of 30 marks based on all the Units of course syllabus
+to be scheduled and conducted at institute level. To design a Comprehensive Continuous Evaluation
+(CCE) scheme for a theory subject of 30 marks with the specified parameters, the allocation of marks
+and the structure can be detailed as follows:
+  Sr. Parameters                                   Marks     Coverage of Units
+  1   Unit Test                                   12 Marks    Units 1 & Unit 2 (6 Marks/Unit)
+  2   Assignments / Case Study                    12 Marks    Units 3 & Unit 4 (6 Marks/Unit)
+      Seminar Presentation / Open Book Test/
+  3                                               06 Marks    Unit 5
+      Quiz
+
+Comprehensive Continuous Evaluation (CCE) of 15 marks based on all the Units of course syllabus
+to be scheduled and conducted at institute level. To design a Comprehensive Continuous Evaluation
+(CCE) scheme for a theory subject of 15 marks with the specified parameters, the allocation of marks
+and the structure can be detailed as follows:
+  Sr. Parameters                                   Marks     Coverage of Units
+  1   Unit Test                                   10 Marks    Unit 1 & Unit 2 (5 Marks/Unit)
+      Seminar Presentation / Open Book Test/
+  3                                               05 Marks    Unit 3 & Unit 4
+      Assignments / Case Study
+ Note: Students can opt for Open Electives offered by different faculty like Arts, Science, Commerce,
+Management, Humanities or Inter-Disciplinary studies.
+Example Open Elective I - Financial Accounting, Digital Finance, Digital Marketing can be opted
+from Commerce and Management faculty.
+And Elective II - Project Management, Business Analytical, Financial Management can be opted from
+Inter-Disciplinary studies, Commerce and Management faculty respectively.
+
+                                                 ix
+,                                                                                                      ,
+         Format and Implementation of Comprehensive Continuous Evaluation (CCE)
+z                                                                                                      r
+
+    • Unit Test
+
+        – Format : Questions designed as per Bloom’s Taxonomy guidelines to assess various cogni-
+          tive levels (Remember, Understand, Apply, Analyze, Evaluate, Create).
+        – Implementation: Schedule the test after completing Units 1 and 2. Ensure the question
+          paper is balanced and covers key concepts and applications.
+
+    • Sample Question Distribution
+
+         – Remembering (2 Marks): Define key terms related to [Topic from Units 1 and 2].
+         – Understanding (2 Marks): Explain the principle of [Concept] in [Context].
+         – Applying (2 Marks): Demonstrate how [Concept] can be used in [Scenario].
+         – Analyzing (3 Marks): Compare & contrast [Two related concepts] from Units 1 and 2.
+         – Evaluating (3 Marks): Evaluate the effectiveness of [Theory/Model] in [Situation].
+
+    • Assignments / Case Study : Students should submit one assignment or one Case Study Report
+      based on Unit 3 and one assignment or one Case Study Report based on Unit 4.
+
+        – Format: Problem-solving tasks, theoretical questions, practical exercises, or case studies
+          that require in-depth analysis and application of concepts.
+         – Implementation: Distribute the assignments or case study after covering Units 3 and 4.
+           Provide clear guidelines and a rubric for evaluation.
+
+    • Seminar Presentation:
+
+         – Format: Oral presentation on a topic from Unit 5, followed by a Q&A session.
+        – Deliverables: Presentation slides, a summary report in 2 to 3 pages, and performance
+          during the presentation.
+        – Implementation: Schedule the seminar presentations towards the end of the course. Pro-
+          vide students with ample time to prepare and offer guidance on presentation skills.
+
+    • Open Book Test:
+
+         – Format: Analytical and application-based questions to assess depth of understanding.
+        – Implementation: Schedule the open book test towards the end of the course, ensuring it
+          covers critical aspects of Unit 5.
+
+    • Quiz :
+
+        – Format: Quizzes can help your students practice existing knowledge while stimulating in-
+          terest in learning about new topic in that course. You can set your quizzes to be completed
+          individually or in small groups.
+
+
+
+                                                  x
+        – Implementation: Online tools and software can be used create quiz. Each quiz is made
+          up of a variety of question types including multiple choice, missing words, true or false etc
+
+    • Example Timeline for conducting CCE:
+
+        – Weeks 1-4 : Cover Units 1 and 2
+        – Week 5 : Conduct Unit Test (12 marks)
+        – Weeks 6-8 : Cover Units 3 and 4
+        – Week 9 : Distribute and collect Assignments / Case Study (12 marks)
+        – Weeks 10-12 : Cover Unit 5
+        – Week 13 : Conduct Seminar Presentations or Open Book Test or Quiz (6 marks)
+
+    • Evaluation and Feedback:
+
+        – Unit Test: Evaluate promptly and provide constructive feedback on strengths and areas
+          for improvement.
+        – Assignments / Case Study: Assess the quality of submissions based on the provided
+          rubric. Offer feedback to help students understand their performance.
+        – Seminar Presentation: Evaluate based on content, delivery, and engagement during the
+          Q&A session. Provide feedback on presentation skills and comprehension of the topic.
+        – Open Book Test: Evaluate based on the depth of analysis and application of concepts.
+          Provide feedback on critical thinking and problem-solving skills.
+,                                                                                                         ,
+z
+                                 End-Semester Examination (ESE)                                           r
+End-Semester Examination (ESE) of 70 marks written theory examination based on all the unit of
+course syllabus scheduled by university. Question papers will be sent by the University through QPD
+(Question Paper Delivery). University will schedule and conduct ESE at the end of the semester.
+
+
+    • Format and Implementation :
+
+        – Question Paper Design : Below structure is to be followed to design an End-Semester
+          Examination (ESE) for a theory subject of 70 marks on all 5 units of the syllabus with
+          questions set as per Bloom’s Taxonomy guidelines and 14 marks allocated per unit.
+        – Balanced Coverage: Ensure balanced coverage of all units with questions that assess
+          different cognitive levels of Bloom’s Taxonomy: Remember, Understand, Apply, Analyze,
+          Evaluate, and Create. The questions should be structured to cover:
+
+            * Remembering: Basic recall of facts and concepts.
+            * Understanding: Explanation of ideas or concepts.
+            * Applying: Use of information in new situations.
+            * Analyzing: Drawing connections among ideas.
+            * Evaluating: Justifying a decision or course of action.
+
+
+                                                 xi
+    * Creating: Producing new or original work (if applicable).
+– Detailed Scheme for 70 Marks: Unit-Wise Allocation (14 Marks per Unit): Each unit will
+  have a combination of questions designed to assess different cognitive levels. By following
+  this scheme, you can ensure a comprehensive and fair assessment of students understand-
+  ing and application of the course material, adhering to Bloom’s Taxonomy guidelines for
+  cognitive skills evaluation.
+– Detailed Scheme for 35 Marks: Unit-Wise Allocation (08 Marks for Unit-I, 09 Marks for
+  Unit-II, Unit III and Unit IV). Each unit will have a combination of questions designed to
+  assess different cognitive levels. By following this scheme, you can ensure a comprehensive
+  and fair assessment of students understand- Understanding and application of the course
+  material, adhering to Bloom’s Taxonomy guidelines for cognitive skills evaluation.
+
+
+
+
+                                        xii
+                                                        Curriculum Structure
+
+
+                                       NEP 2020 Compliant Curriculum Structure
+                                  Second Year Engineering (2024 Pattern)
+                           Electronics and Telecommunication Engineering
+
+                                                                 Semester III
+
+                                                                      Level 5.0
+                                                               Teaching                                      Examination
+                                                                Scheme                                       Scheme and
+                                                              (Hrs/week)                                        Marks                                            Credits
+ Course Code   Course Type        Course Name
+
+
+
+
+                                                                                                              Term Work
+                                                                                                   End Sem
+                                                                                Practical
+
+
+
+
+                                                                                                                          Practical
+
+
+
+
+                                                                                                                                                                         Practical
+                                                                  Tutorial
+
+
+
+
+                                                                                                                                                              Tutorial
+                                                        Theory
+
+
+
+
+                                                                                                                                                     Theory
+                                                                                                                                             Total
+
+
+
+
+                                                                                                                                                                                     Total
+                                                                                            CCE*
+
+
+
+
+                                                                                                                                      Oral
+                                                                             Semester I
+ PCC-201-ETC   Program Core     Electronics Circuits      3          -             -        30     70            -           -         -     100       3         -          -         3
+                  Course
+ PCC-202-ETC   Program Core    Engg Mathematics-III       3          -             -        30     70            -           -         -     100       3         -          -         3
+                  Course
+ PCC-203-ETC   Program Core     Digital Electronics       3         -              -        30     70            -           -         -     100       3         -          -         3
+                  Course
+ PCC-204-ETC   Program Core    Electronics Circuits &     -          -            2          -       -        25          50           -     75        -         -         1          1
+                Course-Lab      Digital Electronics
+                                        Lab
+               Open Elective    Open Elective - I**       2          -             -        15     35            -           -         -     50        2         -          -         2
+MDM-221-ETC        Multi-       Data Structures &         3          -             -        30     70            -           -         -     100       3         -          -         3
+                disciplinary       Algorithms
+                   Minor
+MDM-222-ETC        Multi-       Data Structures &         -          -            2          -       -        25          25           -     50        -         -         1          1
+                disciplinary     Algorithms Lab
+                   Minor
+ EEM-231-ETC      Entre-           Engineering            -         1             2          -       -        25             -         -     25        -        1          1          2
+               preneurship /       Economics &
+               Economics /         Applications
+               Management
+ VEC-232-ETC Value Education     Universal Human          2          -             -        15     35            -           -         -     50        2         -          -         2
+                               Values & Professional
+                                      Ethics
+ CEP-241-ETC    Community         Community               -          -          4#           -       -        25             -        25     50        -         -         2          2
+                Engagement     Engagement Project
+                  Project
+                      Total                             16        01            10          150    350       100          75          25     700     16       01         05          22
+
+
+
+
+* Comprehensive Continuous Evaluation
+** Open Elective I – Courses like Financial Accounting, Supply chain management, Digital Finance, Digital
+Marketing and other courses students can be opted from faculty Commerce and Management, Humanities
+and Inter-disciplinary bucket.
+# The actual teaching load shall consider 2 hrs/Week and rest 2 hrs. society engagement for students
+
+
+
+
+                                                                                  1
+                                                       Curriculum Structure
+
+
+                                       NEP 2020 Compliant Curriculum Structure
+                                  Second Year Engineering (2024 Pattern)
+                           Electronics and Telecommunication Engineering
+
+                                                                Semester IV
+
+                                                                     Level 5.0
+                                                              Teaching                                      Examination
+                                                               Scheme                                       Scheme and
+                                                             (Hrs/week)                                        Marks                                            Credits
+ Course Code   Course Type        Course Name
+
+
+
+
+                                                                                                             Term Work
+                                                                                                  End Sem
+                                                                               Practical
+
+
+
+
+                                                                                                                         Practical
+
+
+
+
+                                                                                                                                                                        Practical
+                                                                 Tutorial
+
+
+
+
+                                                                                                                                                             Tutorial
+                                                       Theory
+
+
+
+
+                                                                                                                                                    Theory
+                                                                                                                                            Total
+
+
+
+
+                                                                                                                                                                                    Total
+                                                                                           CCE*
+
+
+
+
+                                                                                                                                     Oral
+                                                                            Semester II
+ PCC-251-ETC   Program Core      Communication           3          -             -        30     70            -           -         -     100       2         -          -         2
+                  Course           Engineering
+ PCC-252-ETC   Program Core     Signals and Systems      3          -             -        30     70            -           -         -     100       3         -          -         3
+                  Course
+ PCC-253-ETC   Program Core      Control Systems         3          -             -        30     70            -           -         -     100       3         -          -         3
+                  Course
+ PCC-254-ETC   Program Core      Communication           -          -            2          -       -        25          25           -     50        -         -         1          1
+                Course-Lab       Engineering Lab
+               Open Elective    Open Elective - II**     2         -              -        15     35            -           -         -     50        2         -          -         2
+MDM-271-ETC        Multi-        Object-Oriented         3          -             -        30     70            -           -         -     100       2         -          -         2
+                disciplinary      Programming
+                   Minor
+ PCC-255-ETC   Program Core      Signals & Systems       -          -            2          -       -        25          25           -     50        -         -         1          1
+                Course-Lab      and Object-Oriented
+                                 Programming Lab
+ VSE-281-ETC   Vocational and     Electronics Skill      -         1             2          -       -        25          25           -     50        -        1          1          2
+                    Skill        Development Lab
+               Enhancement
+                  Course
+ AEC-282-ETC      Ability          Modern Indian         -         1             2          -       -        25             -         -     25        -        1          1          2
+               Enhancement          Languages
+                  Course          (Marathi/Hindi)
+ EEM-283-ETC   Entrepreneur-    Entrepreneurship         -         1             2          -       -        25             -         -     25        -        1          1          2
+                   ship /       Skill Development
+                Economics /
+               Management
+ VEC-284-ETC Value Education       Environment           2          -             -        15     35            -           -         -     50        2         -          -         2
+                 Course             Awareness
+                      Total                            16        03            10          150    350       125          75           -     700     14       03         05          22
+
+
+* Comprehensive Continuous Evaluation
+** Open Elective II – Courses like Project Management, Business Analytical, Product management
+Financial Management and other courses students can be opted from faculty Commerce and
+Management, Humanities and Inter-disciplinary bucket.
+
+
+
+
+                                                                                 2
+   Savitribai Phule Pune University, Pune
+
+
+
+                     Maharashtra, India
+
+
+
+
+SE - Electronics and Telecommunication Engineering
+
+                     2024 Pattern
+
+
+
+                      Semester III
+
+
+
+
+             With effect from Academic Year 2025–26
+
+
+
+
+                                3
+                                   Savitribai Phule Pune University
+            Second Year of Electronics and Telecommunication Engineering (2024 Course)
+                                  PCC-201-ETC: Electronics Circuits
+         Teaching Scheme                    Credits                   Examination Scheme
+Theory : 03 Hours/Week                         03          CCE* Marks : 30 Marks
+                                                           End Semester (Theory) : 70 Marks
+Prerequisite Courses, if any: Basic Electronics Engineering
+Companion Course, if any: PCC-201-ETC - Electronic Circuits Laboratory
+Course Objectives:
+To make students understand
+
+   1. Semiconductor device MOSFET, its characteristics, parameters & applications.
+
+   2. Concepts of feedbacks in amplifiers & oscillators.
+
+   3. Operational amplifier, concept, parameters & applications.
+
+   4. ADC, DAC as an interface between analog & digital domains.
+
+   5. Concepts, characteristics & applications of PLL.
+
+   6. Voltage to current and current to voltage converters.
+
+Course Outcomes:
+After successful completion of the course, learner will be able to:
+CO1:        Assimilate the physics, characteristics and parameters of MOSFET towards its applica-
+            tion as amplifier.
+CO2:        Design MOSFET amplifiers, with and without feedback, & MOSFET oscillators, for given
+            specifications.
+CO3:        Design, Build and test Op-amp based analog signal processing and conditioning circuits
+            towards various real time applications.
+CO4:        Understand and compare the principles of various data conversion techniques and PLL
+            with their applications.
+CO5:        Analyze and assess the performance of linear and switching regulators, with their vari-
+            ants, towards applications in regulated power supplies.
+
+                                           Course Contents
+       Unit I                         MOSFET & its Analysis                             (08 Hours)
+Enhancement MOSFET: MOSFET Biasing, Voltage divide bias, DC Load line, AC equivalent circuit,
+Parameters.
+Non ideal characteristics: Finite output resistance, Body effect, Sub-threshold conduction,
+breakdown effects, temperature effect, effect of W/L ratio, Common source amplifier & its AC analysis,
+Frequency response for CS amplifier. Source follower: circuit diagram, comparison with common
+source.
+Comparison between BJT & MOSFET.
+
+
+
+
+                                                      4
+Mapping of Course Outcomes for Unit I
+CO1: Assimilate the physics, characteristics and parameters of MOSFET towards its application
+as amplifier.
+     Unit II                              MOSFET Circuits                              (08 Hours)
+MOSFET as switch, CMOS inverter, resistor & diode. Current sink & source, Current mirror. Types
+of feedback, Four types of feedback topologies, Effects of feedback, Voltage series & current
+series feedback amplifiers and analysis. Barkhausen criterion, Types of Oscillators, RC
+phase shift oscillator, Crystal Oscillator.
+Mapping of Course Outcomes for Unit II
+CO2: Design MOSFET amplifiers, with and without feedback, & MOSFET oscillators, for given
+specifications.
+    Unit III              Operational amplifier and linear Applications               (09 Hours)
+Block diagram, Op amp parameters, Op-amp characteristics (AC & DC).
+Inverting amplifier (Voltage series), non-inverting amplifier (voltage shunt), Effect on Ri, Ro, gain &
+bandwidth, Voltage follower, Summing amplifier, Differential amplifier, Practical integrator,
+Practical differentiator, Precision half-wave and full wave Rectifier
+
+Mapping of Course Outcomes for Unit III
+CO3: Design, Build and test Op-amp based analog signal processing and conditioning circuits
+towards various real time applications.
+     Unit IV                 Op-amp and Non -Linear Applications                       (09 Hours)
+Comparator, Schmitt trigger, Square & triangular wave generator, PWM Generator
+DAC & ADC: Weighted resistor and R-2R DAC, SAR, Flash and dual slope ADC Types / Techniques,
+Characteristics, block diagrams, Circuits, Specifications, Merits, Demerits, Comparisons.
+
+
+Mapping of Course Outcomes for Unit IV
+CO4: Understand and compare the principles of various data conversion techniques and PLL
+with their applications.
+     Unit V                             Voltage Regulators                             (09 Hours)
+Three terminal voltage regulators: Define, Block diagram of power supply, Types: Fixed and
+Variable, Block diagram of linear voltage regulator, IC 317 and IC337, Features and specifications,
+typical circuits, current boosting, Low Dropout Regulator (LDO).
+SMPS: Block diagram, Types, features and specifications, typical circuits buck and boost
+converter.
+Comparison between Linear and Switch mode Power Supply.
+Mapping of Course Outcomes for Unit V
+CO5: Analyze and assess the performance of linear and switching regulators, with their vari-
+ants, towards applications in regulated power supplies.
+Mapping of Course Outcomes for Unit V: CO5
+
+Learning Resources
+
+
+
+                                                    5
+Textbooks:
+1. Donald Neaman, Electronic Circuits - Analysis and Design, Mc Graw Hill, 3rd Edition.
+2. Ramakant Gaikwad, Op Amps & Linear Integrated Circuits, Pearson Education.
+
+Reference Books:
+1. Millman Halkias, Integrated Electronics.
+2. Phillip E. Allen and Douglas R. Holberg, CMOS Analog Circuit Design, Oxford, 2nd Edition.
+3. Salivahan and Kanchana Bhaskaran, Linear Integrated Circuits, Tata McGraw Hill.
+
+MOOC / NPTEL Courses:
+1. NPTEL Course “Analog Electronic Circuits”
+https://nptel.ac.in/courses/108/105/108105158/
+
+
+2.   NPTEL Course on “Analog Circuits”
+https://nptel.ac.in/courses/108/101/108101094/
+
+
+
+
+                                                 6
+                                   Savitribai Phule Pune University
+            Second Year of Electronics and Telecommunication Engineering (2024 Course)
+                             PCC-202-ETC: Engineering Mathematics III
+         Teaching Scheme                     Credits                  Examination Scheme
+Theory : 03 Hours/Week                         03           CCE Marks : 30 Marks
+                                                            End Semester (Theory) : 70 Marks
+Prerequisite Courses: Differential and Integral calculus, Taylor series, Differential equations of first
+order and first degree, Fourier series, Vector algebra and Algebra of complex numbers.
+Course Objectives:
+To familiarize the students with concepts and techniques in Ordinary differential equations, Fourier
+Transform, Z-Transform, Numerical methods, Vector calculus and Statistics & Probability. The aim
+is to equip them with the techniques to understand advanced level mathematics and its applications that
+would enhance analytical thinking power, useful in their disciplines.
+Course Outcomes:
+After successful completion of the course, learner will be able to:
+CO1:       Solve higher order linear differential equation using appropriate techniques for mod-
+            elling, analyzing of electrical circuits and control systems.
+CO2: Apply concept of Fourier transform & Z-transform and its applications to continuous & discrete
+            systems, signal & image processing and communication systems.
+CO3:      Obtain Interpolating polynomials, numerically differentiate and integrate functions, nu-
+            merical solutions of differential equations using single step and multi-step iterative
+            methods used in modern scientific computing.
+CO4:     Perform Vector differentiation & integration, analyze the vector fields and apply to electro-
+            magnetic fields & wave theory.
+CO5:       Apply Statistical methods like correlation, regression and Probability theory as appli-
+            cable to analyze and interpret experimental data related to signal, communication and
+            information theory.
+
+                                             Course Contents
+       Unit I         Linear Differential Equations (LDE) and Applications               (09 Hours)
+LDE of nth order with constant coefficients, Complementary Function, Particular Integral, Gen-
+eral method, Short methods, Method of variation of parameters, Cauchys and Legendres dif-
+ferential equations, Simultaneous differential equations, Modeling of electrical circuits.
+     Unit II                             Numerical Methods                               (09 Hours)
+Interpolation: Finite Differences, Newtons and Lagranges interpolation formulae, Numerical
+differentiation.
+Numerical Integration: Trapezoidal and Simpsons rules, Bound of truncation error.
+Solution of ordinary differential equations: Eulers method, Modified Eulers method, Runge-
+Kutta 4th order method, Predictor-Corrector methods.
+    Unit III                         Fourier and Z-Transforms                            (09 Hours)
+
+
+
+
+                                                       7
+Fourier Transform (FT): Complex exponential form of Fourier series, Fourier integral represen-
+tation, Fourier sine and cosine integrals, Fourier transform, Fourier sine and cosine transforms
+and their inverses.
+Z-Transform (ZT): Introduction, Definition, Standard properties, ZT of standard sequences and
+their inverses, Solution of difference equations.
+    Unit IV                              Vector Calculus                             (09 Hours)
+Vector differentiation: Gradient, Divergence and Curl, Directional derivative, Solenoidal and
+Irrotational fields, Vector identities.
+Vector integration: Line, Surface and Volume integrals, Greens Lemma, Gausss Divergence
+theorem and Stokes theorem.
+Applications to problems in Electro-magnetic fields.
+     Unit V                         Statistics and Probability                       (09 Hours)
+Statistics: Measures of central tendency, Measures of dispersion, Coefficient of variation, Mo-
+ments, Skewness and Kurtosis, Correlation and Regression, Reliability of Regression estimates.
+Probability: Probability density function, Probability distributions Binomial, Poisson, Normal.
+Test of Hypothesis: Chi-square test.
+Learning Resources
+Text Books:
+1. Higher Engineering Mathematics by B.V. Ramana (Tata McGraw-Hill).
+2. Higher Engineering Mathematics by B. S. Grewal (Khanna Publication, Delhi).
+
+Reference Books:
+1. Advanced Engineering Mathematics, 10e, by Erwin Kreyszig (Wiley India).
+2. Advanced Engineering Mathematics, 2e, by M. D. Greenberg (Pearson Education).
+3. Advanced Engineering Mathematics, 7e, by Peter V. ONeil (Cengage Learning).
+4. Differential Equations, 3e by S. L. Ross (Wiley India).
+5. Numerical Methods for Engineers, 7e by S. C. Chapra and R. P. Canale (McGraw-Hill
+Education).
+6. Introduction to Probability and Statistics for Engineers and Scientists, 5e, by Sheldon M.
+Ross (Elsevier Academic Press).
+
+
+
+
+                                                    8
+                                    Savitribai Phule Pune University
+             Second Year of Electronics and Telecommunication Engineering (2024 Course)
+                                  PCC-203-ETC: Digital Electronics
+          Teaching Scheme                   Credits                  Examination Scheme
+Theory : 03 Hours/Week                        03           CCE* Marks : 30 Marks
+                                                           End Semester (Theory) : 70 Marks
+Prerequisite Courses: Basic gates, Number Systems and their conversations
+Companion Course: Laboratory Practicals
+Course Objectives:
+To make students understand
+
+   1. To understand K-map and its use to the design the various applications of combinational digital
+       circuits.
+
+   2. To analyze sequential logic using flip flops and their applications viz. counters, processes and
+       implement logical operations.
+
+   3. To understand the concepts of sequential circuits and apply them in state machines.
+
+   4. To understand the digital logic families and system design using programmable logic devices.
+
+   5. CTo understand the concepts of VHDL and its fundamental applications.
+
+Course Outcomes:
+After successful completion of the course, learner will be able to:
+CO1:        Analyze, design and implement combinational logic circuits.
+CO2:        Analyze, design and implement sequential circuits.
+CO3:        Analyze, design FSM and ASM.
+CO4:        Understand various digital parameters and analyze digital system design using PLD.
+CO5:        Understand the fundamentals of VHDL.
+
+                                           Course Contents
+       Unit I                      Combinational Logic Design                           (09 Hours)
+Definition of combinational logic, Standard representations for logic functions, k-map repre-
+sentation of logic functions (SOP and POS forms), minimization of logical functions for min- terms
+and max-terms (upto 4 variables), dont care conditions, Design Examples: Half Adder, Full adder,
+Half Subtractor, Full Subtractor, Adder and their use as subtractor, look ahead carry
+generator, Code converters (BCD to Gray, BCD to Excess-3, 4-bit Binary to Gray), 2- bit
+Comparator, Multiplexers, multiplexer trees, Demultiplexers, Demultiplexer trees and 3: 8
+Decoders.
+Exemplar: Arithmetic Logic Unit (ALU), Scientific calculator, computing engines, industrial
+control systems, consumer electronics.
+Mapping of Course Outcomes for Unit I: CO1
+
+       Unit II                         Sequential Logic Design                          (09Hours)
+
+
+                                                      9
+1-Bit Memory Cell/latch, Clocked SR flip flop, J-K flip flop, M-S J-K flip flop, D and T flip-
+flops. Use of preset and clear terminals in flip flops, Excitation Table for flip flops, Conversion of
+flip flops, Registers, Shift registers, Counters (ring counters, twisted ring counters), ripple
+counters, Mod-n counters, up/down counters, synchronous counters, Sequence Generators
+using flip flops.
+Exemplar: Memories, Rolling display boards, Microprocessors, Consumer electronics.
+Mapping of Course Outcomes for Unit II: CO2
+     Unit III                              State Machines                                 (09 Hours)
+Moore and Mealy machines, State diagram, State table, State reduction, State assignment,
+Finite state machine implementation, Sequence detector. Introduction to Algorithmic state
+machines- construction of ASM chart and realization for sequential circuits.
+Exemplar: ATM machine, vending machine and traffic lights
+Mapping of Course Outcomes for Unit III: CO3
+     Unit IV         Digital Logic Family and Programmable Logic Devices                  (08 Hours)
+Digital Logic Family: Performance parameters of digital ICs- fan in, fan out, noise margin,
+propagation delay, power dissipation. Operation of TTL NAND gate. CMOS inverter, NAND, NOR
+gates. Comparison of CMOS and TTL.
+Programmable Logic Devices: Detail architecture of PROM, PAL, PLA and Designing combi-
+national circuits using PLDs. General Architecture and specifications of FPGA and CPLD.
+Exemplar: High speed computing boards, automotive electronics
+Mapping of Course Outcomes for Unit IV: CO4
+     Unit V                            Introduction to VHDL                               (09 Hours)
+Introduction to Library, Entity and Architecture Modeling styles, Data objects, Concurrent and
+sequential statements, Design examples using VHDL for basic gates, full adder, full subtractor,
+multiplexer and D & T flip-flops using behavioral modelling style.
+Exemplar: Hardware lock and serial port communication.
+Mapping of Course Outcomes for Unit V: CO5
+Learning Resources
+Textbooks:
+1. R. P. Jain, "Modern Digital Electronics", Tata McGraw Hill Publication
+2. Thomas Floyd, "Digital Fundamentals", Pearson Publication, India
+
+Reference Books:
+1. John. F. Wakerly, "Digital Design- Principles and Practices", Pearson Publication
+2. M. M. Mano, "Digital Design," Prentice Hall India.
+3. Stephen Brown, "Fundamentals of digital logic design with VHDL" Tata McGraw Hill
+Publication
+
+e-Books:
+https://www.mheducation.co.in/modern-digital-electronics-9789355321770-india
+
+
+
+
+                                                     10
+ MOOC / NPTEL/YouTube Links:
+ https://nptel.ac.in/courses/108/105/108105132/
+
+
+Exemplar: These are real-life examples to create interest in the teaching learning process. No
+question should be asked in examinations on exemplars.
+
+
+                                              Exemplars
+   Sr.                               Unit
+                  Subject                           Exemplars
+   No.                                No
+                                             IC Fabrication, MOSFET Count in Processors of Computers &
+                                      1
+                                             Cell phones
+                                             Real Time Clock (RTC) IC, Quartz Crystal Oscillators in Clock
+                                      2
+                                             Analog Computers, Signal Conditioning Circuits
+         1   Electronic Circuits      3
+                                             Real world interfacing with IoT
+                                      4
+                                             Cell Phone chargers, Adapters, Vehicle Battery charger
+                                      5
+                                             Arithmetic Logic Unit (ALU), Scientific calculator, computing
+                                      1
+                                             engines, industrial control systems, consumer electronics.
+                                             Memories, Rolling display boards, Microprocessors,
+                                      2
+                                             Consumer electronics.
+                                             ATM machine, vending machine and traffic lights
+    2        Digital Electronics      3
+                                             High speed computing boards, automotive electronics
+                                      4
+                                             Hardware lock and serial port communication.
+                                      5
+                                             Recursive factorial, Search engines, (Searching Algorithms),
+                                      1
+                                             Artificial Intelligence
+                                             Online Ticket booking System (Arrays), Working of Browsers
+                                      2
+                                             (Stack), Token System (Queue)
+             Data Structures &               Play List, Undo/Redo Function, Polynomial Representation
+    3                                 3
+                Algorithms
+                                             Accessing file system on computers, HTML Document
+                                      4
+                                             Google Map/ Routing Algorithms, Social Networks, Word
+                                      5
+                                             Wide Web (WWW)
+
+
+
+
+                                                   11
+                                     Savitribai Phule Pune University
+              Second Year of Electronics and Telecommunication Engineering (2024 Course)
+                     PCC-204-ETC: Electronics Circuits & Digital Electronics Lab
+           Teaching Scheme                      Credits                    Examination Scheme
+  Practical : 02 Hours/Week                        01           Term Work : 25
+                                                                Practical : 50 Marks
+ Companion Course, if any: Electronics Circuits, Digital Electronics
+                                  List of Experiments (Electronics Circuits)
+                                    Group A: Any Three to be Performed
+ 1. Design, build single stage CS configuration & verify DC operating point and comment on results.
+ 2. Implement current series feedback amplifier & measure Rif , Rof , Gmf and comment on result.
+ 3. To design, build & test integrator using Op-amp and comment on result.
+ 4. Design, build & test Schmitt trigger using Op-Amp and comment on result.
+ 5. Design & implement adjustable voltage regulator using IC LM317/LM337 and comment on
+ result.
+                                    Group B: Any Three to be Performed
+ 6. Simulate voltage series feedback amplifier & measure Rif , Rof , Avf , bandwidth and comment
+ on result.
+ 7. Design, build & test square and triangular waveform generator using Op-Amp.
+ 8. Design, build & test 2 or 3-bit R-2R ladder DAC.
+ 9. Design, build & test half-wave and full-wave rectifier.
+ 10. To design, build & test Differentiator using Op-amp and comment on result.
+                        Group C: Course Project (Any 1 Group of 3 Students)
+ 11. Case Study 1: Design and implement a linear regulator variable power supply.
+ 12. Case Study 2: Design and implement signal conditioning circuit for temperature measurement
+ and control system.
+ Virtual LAB Links:
+
+      1. Integrated Circuits: http://vlabs.iitb.ac.in/vlabs-dev/vlab_bootcamp/bootcamp/
+        electronerds/index.html
+
+      2. Basic   Electronics      Virtual   Lab:   http://vlabs.iitkgp.ernet.in/be/
+
+
+Note:
+1. One practical from Group A and B should be performed as simulation practical (using any avail-
+able tool).
+2. Additional (min. 2) practical’s are to be performed using Virtual Lab.
+
+                                  List of Experiments (Digital Electronics)
+                                    Guidelines for Students Lab Journal
+  1     Title of the experiment
+  2     Problem Statement
+  3     Logic Design of given problem statement
+
+                                                        12
+  4     Logic diagram with IC number pin connections
+  5     Observation table / Truth table
+  6     Timing diagram
+  7     Result table
+  8     Conclusions
+  9     Mention real life examples concerned with the respective experiments
+                         Guidelines for Laboratory / Term Work Assessment
+  1     Continuous assessment of laboratory work based on overall performance and laboratory
+        performance of students.
+  2     Each laboratory assignment assessment should assign grade/marks based on parameters
+        with appropriate weightage.
+  3     Suggested parameters include timely completion, performance, efficiency, punctuality, and
+        neatness.
+                          Suggested List of Laboratory Experiments (Any 6)
+  1     Design and Implement 8:1 MUX using IC-74153 & Verify its Truth Table.
+        Design & implement the given 4-variable function using IC-74153. Verify its Truth Table.
+  2     Design and implement full adder and full subtractor function using IC-74138.
+  3     Design and implement 3-bit Binary to Gray code converter and BCD to Excess-3 code con-
+        verter using IC-74138.
+  4     Design and Implement 1-digit BCD adder using IC-7483.
+  5     Design and Implement 4-bit Binary adder and subtractor with mode control using IC-7483.
+  6     Design and Implement MOD-N and MOD-NN using IC-7490 and draw Timing diagram.
+  7     Design & Implement Up/down Counter with mode control using IC-74191 / IC-74193.
+        Draw Timing Diagram.
+  8     Design and Implement 4-bit right shift and left shift register using D-flip flop IC-7474.
+  9     Design and Implement Pulse train generator using IC-74194 / IC-7495 (Use right/left Shift).
+ 10     Design and Implement 4-bit Ring Counter / Twisted ring Counter using shift registers IC-
+        74194 / IC-7495.
+ Note: Additional (min. 2) practical’s based on applications are to be performed using Virtual Lab.
+
+      1. Digital Applications Lab: https://da-iitb.vlabs.ac.in/List%20of%20experiments.
+         html
+
+      2. Hybrid    Electronics     Lab:     https://he-coep.vlabs.ac.in/List%20of%20experiments.html
+Note:
+1. One practical from the Group should be performed as simulation practical (using any available
+tool).
+2. Additional (min. 2) practical’s are to be performed using Virtual Lab.
+
+
+
+
+                                                     13
+                                    Savitribai Phule Pune University
+             Second Year of Electronics and Telecommunication Engineering (2024 Course)
+                 MDM-221-ETC: Multidisciplinary Minor - Data Structures and Algorithms
+          Teaching Scheme                   Credits                 Examination Scheme
+Theory : 03 Hours/Week                        03           CCE : 30 Marks
+                                                           End-Semester: 70 Marks
+Prerequisite Courses: Fundamentals of Programming Languages, Basics of C Programming
+Course Objectives:
+To make students understand
+
+   1. To understand the significance of data structures and implement searching and sorting methods
+       using the C language.
+
+   2. To learn the concept and understand the importance of time and space complexity.
+
+   3. To understand data representation, implementation and applications of linear and nonlinear
+       data structures.
+Course Outcomes:
+After successful completion of the course, students will be able to:
+CO1:        Apply and implement the principle sorting and searching algorithms on the given data
+            using the C language.
+CO2:        Develop applications of stack and queue using arrays.
+CO3:        Implement and demonstrate the applicability of a Linked List.
+CO4:        Build, represent and traverse a Binary Search Tree.
+CO5:        Build, represent and traverse graphs.
+
+                                           Course Contents
+       Unit I        Introduction to Data Structures and Complexity            (09 Hours)
+                                         Analysis
+Overview of Data Structures: Linear vs. Non-linear Data Structures, Abstract Data Types (ADT),
+Algorithm Analysis: Time and Space Complexity, Asymptotic Notations: Big O, Omega, Theta,
+Best, Worst, and Average Case Analysis, Searching Algorithms: Linear Search, Binary Search,
+Sorting Algorithms: Bubble, Selection, Insertion Sorting Algorithms
+
+       Unit II                            Stack and Queue                              (09 Hours)
+Stack: Concept, Basic Stack operations, Array representation of stack, Stack as ADT, Stack Applications:
+Reversing data, Arithmetic expression conversion (Infix to Postfix) and Expression evaluation.
+Queue: Concept, Queue operations, Array representation of queue, Queue as ADT, Circular queue,
+Priority Queue, Applications of queue: Categorizing data, Simulation of queue
+     Unit III                               Linked List                                 (09 Hours)
+Pointer: Basic concepts, Pointer declaration and initialization, Dynamic Memory Allocation
+(malloc, calloc, realloc, free), comparison of sequential and linked organization,
+Linked List: Singly, Doubly, and Circular Linked List; Stack and Queue implementation using
+Linked list, Representation and manipulation of polynomial using linked list
+
+
+
+                                                      14
+    Unit IV                   Non-linear Data Structure: Tree                     (08 Hours)
+Introduction to tree: Basic Tree Concepts. Binary Tree: Concept & Terminologies, Representation
+of Binary Tree in memory, Traversing a binary tree.
+Binary Search Tree (BST): Basic Concepts, BST operations, AVL Tree: Basic concepts and rotations
+of a Tree
+
+
+
+    Unit V                   Non-linear Data Structure: Graphs                    (08 Hours)
+Graph: Basic Concepts & terminology, Representation of graph: Adjacency matrix, Adjacency list.
+Operations on graph: Traversing a graph.
+Spanning tree: Minimum Spanning tree- Kruskal’s Algorithm, Prim’s Algorithm; Dijkstra’s Shortest
+Path Algorithm
+
+Learning Resources
+Textbooks:
+1. Ellis Horowitz and Sartaj Sahni, Fundamentals of Data Structures, Galgotia Books Source,
+2nd Edition
+2. Richard. F. Gilberg and Behrouz A. Forouzan, Data Structures: A Pseudocode Approach
+with C, Cengage Learning, 2nd Edition.
+
+Reference Books:
+1. Reema Thareja, Data Structures using C, Oxford University Press, 2nd Edition
+2. Yedidyah Langsam, Moshe J Augenstein and Aaron M Tenenbaum Data structures using C
+and C++ PHI Publications, 2nd Edition.
+
+MOOC / NPTEL Courses:
+1. Data Structure using C Programming by Dr. Dipti Verma and Mr. Aditya Tiwari:
+https://onlinecourses.swayam2.ac.in/nou23_cs13/preview
+2. Data Structures and Algorithms:
+https://infyspringboard.onwingspan.com/web/en/
+app/toc/lex_auth_01384203240484864010470_shared/overview
+3. Data Structures in C: https://infyspringboard.onwingspan.com/web/en/app/toc/lex_
+auth_013299625203884032379/overview
+
+
+
+
+                                                15
+                                Savitribai Phule Pune University
+         Second Year of Electronics and Telecommunication Engineering (2024 Course)
+       MDM-222-ETC: Multidisciplinary Minor - Data Structures and Algorithms Lab
+       Teaching Scheme                    Credits                   Examination Scheme
+Practical : 02 Hours/Week                    01           Term Work : 25 Marks
+                                                          Practical : 25 Marks
+Companion Courses: Data Structures and Algorithms
+
+              List of Laboratory Experiments (Implement using C language)
+                                     Group A: Compulsory
+ 1       Student Database Management
+         You are developing a student result management system. The database should support
+         updating records, adding new entries, searching for specific students, and sorting based on
+         performance.
+         Using an array of structures, implement a student database with attributes: roll no,
+         name, program, course, subject marks, total, and average. Support operations: dis- play,
+         search, and sort. (Students can additionally perform modify, append.)
+ 2       Stack or Queue using Array (Static Implementation)
+         Simulate a parcel handling system at a post office where packages are stacked (LIFO) or
+         queued (FIFO).
+         Use an array to implement a stack (push, pop, display) or a queue (add, delete, dis-
+         play). Choose the appropriate model based on the scenario.
+ 3       Singly Linked List Operations
+         You are building a text editor where lines of text are stored dynamically. You need to allow
+         insertion and deletion of lines at any position, and display text both normally and in
+         reverse.
+         Use a singly linked list to implement: display, insert (front/end/middle), delete (fron-
+         t/end/middle), display in reverse, and reverse the list.
+ 4       Binary Search Tree Operations
+         An online directory system uses a BST to keep names in a sorted manner and support fast
+         searching.
+         Create a binary search tree and implement recursive traversals (inorder, preorder, pos-
+         torder) and search for a specific name in the directory.
+ 5       Graph Traversal
+         You are designing a navigation system for a campus with multiple buildings. The system
+         should explore possible paths (routes) using BFS or DFS.
+         Create a graph using an adjacency matrix and implement Breadth-First Search and
+         Depth-First Search to explore the building connectivity.
+
+
+
+
+                                                  16
+                          Group B: [Any 5 to be performed]
+6    Write a program in C to display the following patterns like
+     Right-angle triangle   Diamond shape      Pyramid with      Pyramid using
+     with a number:         with numbers:      an asterisk:      the alphabet:
+     1                             1                   *                   A
+     12                          2 2                 * *                 A B A
+     123                        3 3 3               * * *               A B C B A
+     1234                      4 4 4 4              * * * *         A B C D C B A
+                                3 3 3
+                                 2 2
+                                  1
+7    Searching Techniques
+     You are building a contact manager app. A user wants to search for a contact either by
+     scanning one by one or by using a fast lookup if the list is sorted.
+     Write a program that locates a specific name using both sequential and binary search
+     techniques.
+8    Sorting Algorithms
+     An online store wants to sort its product prices to help customers compare them easily.
+     Choose suitable sorting techniques for small to medium datasets.
+     Implement bubble sort, selection sort, and insertion sort to reorder product prices.
+9    Stack or Queue using Linked List (Dynamic Implementation)
+     Design a service window system where customers arrive and are served in order (FIFO),
+     or a browser history system where the last visited page is accessed first (LIFO).
+     Use a linked list to implement a dynamic stack (push, pop, display) or queue (add,
+     delete, display) based on the given use case.
+10   Balanced Parentheses or Decimal to Binary
+     Write a program to check for balanced parentheses in a given expression (including
+     (), {}, []) using a stack implemented with arrays or linked lists.
+     OR
+     Write a program to convert a Decimal number to a binary number using a stack.
+11   Height and Depth in BST
+     Develop a program that constructs a Binary Search Tree and computes the height of
+     the tree and the depth of a given node.
+12   Count and Classify Nodes
+     Write a program to count the number of:
+     - Leaf nodes
+     - Internal nodes
+     - Nodes with only one child
+     in a given binary tree.
+
+
+
+
+                                               17
+13         Train Ticket Booking System:
+           Implement a system to manage train ticket bookings using queues. Confirm bookings if
+           seats are available; otherwise, add passengers to a waiting list. On cancellation, shift the
+           first waiting passenger to confirmed status.
+                                         Group Assignment
+Group Assignment Guidelines:
+– Make a Group of 4 students in a batch (Batch of 20).
+– The group will select any of the listed group assignments or propose a similar one with the
+course teacher’s approval.
+– After completing the assignment, the group will present it during the practical slot.
+     The distribution of work in a group during a presentation may include:
+       Algorithm / Flowchart         Program Explanation          Applications
+                                         Group Assignments
+1          Matchstick Game (AI vs Human):
+           Design and implement a console-based Matchstick game where the total number of
+           matchsticks is 21. Two players (user and computer) take turns to pick 1 to 4 match-
+           sticks. The player forced to pick the last matchstick loses. Implement logic so that the
+           computer never loses the game. Use control structures and functions in C.
+           Key Concepts: Loops, conditionals, basic AI, user input validation
+2          Tic-Tac-Toe Game (2-Player Console Version):
+           Create a 2-player Tic-Tac-Toe game that runs in the console. The game board is a 3x3
+           grid where players take turns marking X or O. The game should detect a win, loss, or
+           draw condition and display the result accordingly. Use arrays and functions for board
+           management and input handling.
+           Key Concepts: 2D arrays, game logic, functions, modular programming
+3          Tower of Hanoi (Recursive Approach):
+           Write a program to simulate the Tower of Hanoi puzzle using recursion. The user
+           provides several disks, and the program outputs the sequence of moves to transfer all
+           disks from the source peg to the destination peg following the game rules.
+           Key Concepts: Recursion, stack behavior, algorithm design
+4          Banking Transactions Mini Statement Generator:
+           Develop a Banking Transaction System that allows the user to enter their account
+           number and perform basic transactions such as deposit and withdrawal. Maintain a log
+           of the last 5 transactions and display them as a mini statement. Use structures to
+           simulate user accounts and transaction history.
+           Key Concepts: Structures, arrays, file handling, menu-driven programs
+5          Typing Tutor (Accuracy and Speed Tracker):
+           Build a Typing Tutor that displays a random sentence for the user to type. After typing,
+           the program calculates the typing speed (WPM), accuracy (%), and suggests corrections
+           for misspelt words.
+           Key Concepts: Strings, time library, error handling, user input analysis
+
+
+                                                    18
+6   Calendar Generation by Year:
+    Create a program that accepts a year as input and displays the calendar for the entire
+    year. It should accurately calculate leap years and place correct dates under weekdays.
+    Use arrays and functions to handle months, days, and leap year conditions. Key
+    Concepts: Control structures, arrays, functions, date-time logic
+
+
+
+
+                                           19
+                                    Savitribai Phule Pune University
+             Second Year of Electronics and Telecommunication Engineering (2024 Course)
+                       EEM-231-ETC: Engineering Economics & Applications
+          Teaching Scheme                  Credits                   Examination Scheme
+Tutorial : 01 Hour/Week                       01           Term Work : 25 Marks
+Practical : 02 Hours/Week                     01
+Course Objectives:
+To make students understand
+
+   1. To understand key economic principles and the time value of money for engineering decisions.
+
+   2. To learn demand forecasting, cost analysis, and decision-making under uncertainty.
+
+   3. To explore market structures, pricing strategies, and value engineering in electronics.
+
+   4. To develop investment evaluation skills and grasp macroeconomic impacts on tech businesses.
+
+Course Outcomes:
+After successful completion of the course, students will be able to:
+CO1:        Apply economic principles and time value of money concepts using practical tools.
+CO2:        Perform break-even and CVP analyses to support engineering decisions.
+CO3:        Analyze market competition and pricing strategies with case studies.
+CO4:        Evaluate projects with capital budgeting and interpret macroeconomic effects on elec-
+            tronics.
+
+                                           Course Contents
+       Unit I            Theories and Laws of Economics for Engineers                   (04 Hours)
+Introduction to Engineering Economics, Basic economic concepts: Utility, scarcity, opportunity
+cost, Economic systems and firm objectives, Laws of demand and supply, elasticity, Value, wealth,
+and equilibrium price, Time value of money (Present Value, Future Value, annuity
+basics)
+       Unit II          Principles of Engineering Economics and Costing                 (04 Hours)
+Demand forecasting techniques and applications in tech markets, Cost behaviour: Fixed, vari-
+able, marginal, total, Cost-volume-profit and break-even analysis, Decision-making under un-
+certainty (intro to decision theory), Economies of scale in electronics manufacturing
+    Unit III           Applications of Economics in Electronics Industry                (04 Hours)
+Market structures: Perfect competition, monopoly, monopolistic competition, Pricing strate-
+gies and product lifecycle costing, Game theory basics and strategic behaviour, Make-or-buy
+decisions and Value Engineering in electronics, Kaizen and productivity in technical operations
+    Unit IV            Investment Analysis and Applied Macroeconomics                   (04 Hours)
+
+
+
+
+                                                     20
+Capital budgeting: Payback period, Net Present Value (NPV), Internal Rate of Return (IRR),
+Profitability Index, Equipment replacement decisions, Overview of macroeconomic indicators:
+Gross Domestic Product (GDP), Consumer Price Index (CPI), Business cycles, inflation, interest
+rates, and impact, CSR, sustainability, and policy impacts on tech firms, Exposure to areas like
+IPR, R&D, and innovation economics
+Extra two practical’s shall be based on the syllabus of all units apart from the following list:
+Any Six practical’s can be carried out, below list:
+
+  1. Case examples from electronics industries (e.g., Telecom spectrum pricing, consumer
+     electronics)
+
+  2. Excel-based Time Value of Money (TVM) computations
+
+  3. Forecast demand for a telecom device (Routing and Switching Networking communica-
+     tion devices /AI enabled Smart IOT devices and sensor)
+
+  4. Perform break-even and Cost-Volume-Profit (CVP) analysis using spreadsheets
+
+  5. Case study: Comparison of Pricing strategy between two service providers such as of Jio,
+     Airtel, BSNL etc.
+
+  6. To carryout mini project based on market and pricing strategy analysis of a smart device
+     or IoT product
+
+  7. Evaluate a small-scale engineering project (e.g., setup of a lab or unit based)
+
+  8. Group discussion: Impact of government policies and budget on electronics and telecom
+     sector
+
+Textbooks:
+1. A Textbook of Engineering Economics: The Principles and Applications, D. R. Kiran, BS
+Publications, 2021.
+2. Engineering Economics Test & Cases, D N Dwivedi, Dr H L Bhatia & Dr S N Maheshwari,
+Vikas Publishing House Pvt. Ltd.
+
+Reference Books:
+1. Principles of Engineering Economics with Applications, Zahid A. Khan, Arshad N. Siddiquee,
+Brajesh Kumar, Mustufa H. Abidi 2nd edition, Cambridge University.
+2. Practical Applications of Engineering Economics, Kal R. Sharma, Momentum Press.
+Engineering Economics, R. Panneerselvam, PHI Learning Private Ltd.
+
+
+
+
+                                                  21
+                                    Savitribai Phule Pune University
+             Second Year of Electronics and Telecommunication Engineering (2024 Course)
+                      VEC-232-ETC: Universal Human Values & Professional Ethics
+          Teaching Scheme                    Credits                    Examination Scheme
+Theory : 02 Hours/Week                          02              CCE : 15 Marks
+                                                                End-Semester : 35 Marks
+Prerequisite Courses: Student Induction Program (SIP)
+Course Objectives:
+
+  1. To help the students develop a holistic, humane world-vision, and appreciate the essential
+     complementarity between values and skills to ensure mutual happiness and prosperity
+  2. To elaborate on Self-exploration as the process for Value Education
+  3. To facilitate the understanding of harmony at various levels starting from self and going towards
+       family and society
+  4. To elaborate on the salient aspects of harmony in nature and the entire existence
+  5. To explain how the Right understanding forms the basis of Universal human values and defini-
+       tiveness of Ethical human conduct
+  6. To provide the vision for a holistic way of living and facilitate transition from chaotic life to an
+       orderly life
+
+Course Outcomes:
+After successful completion of the course, students will be able to:
+CO1:        Recognize the concept of self-exploration as the process of value education and see they
+            have the potential to explore on their own right.
+CO2:        Explore the human being as the coexistence of self and body to see their real needs /
+            basic aspirations clearly.
+CO3:        Explain relationship between one self and the other self as the essential part of relation-
+            ship and harmony in the family.
+CO4:        Interpret the interconnectedness, harmony and mutual fulfilment inherent in the nature
+            and the entire existence.
+
+                                             Course Contents
+       Unit I                     Introduction to Value Education                           (07 Hours)
+
+
+  i. Understanding Value Education
+  ii. Self-exploration as the Process for Value Education
+ iii. Continuous Happiness and Prosperity- the Basic Human Aspirations and their Fulfilment
+  iv. Right Understanding, Relationship and Physical Facility
+   v. Happiness and Prosperity- Current Scenario
+ vi. Method to Fulfil the Basic Human Aspirations
+
+
+       Unit II                     Harmony in the Human Being                               (07 Hours)
+
+
+
+                                                       22
+   i. Understanding Human being as the Co-existence of the Self and the Body
+   ii. Distinguishing between the Needs of the Self and the Body
+  iii. The Body as an Instrument of the Self
+  iv. Understanding Harmony in the Self
+   v. Harmony of the Self with the Body
+  vi. Programme to Ensure self-regulation and Health
+
+
+    Unit III                 Harmony in the Family and Society                     (08 Hours)
+
+
+    i. Harmony in the Family- the Basic Unit of Human Interaction "Trust"- the Foundational
+       Value in Relationship
+   ii. ‘Respect’- as the Right Evaluation
+  iii. Values in Human-to-Human Relationship
+   iv. Understanding Harmony in the Society
+    v. Vision for the Universal Human Order
+
+
+    Unit IV                  Harmony in the Nature (Existence)                     (08 Hours)
+
+
+    i. Understanding Harmony in the Nature
+   ii. Interconnectedness, self-regulation and Mutual Fulfilment among the Four Orders of Na-
+       ture
+  iii. Realizing Existence as Co-existence at All Levels
+   iv. The Holistic Perception of Harmony in Existence
+    v. Professional Ethics in the light of Right Understanding
+  vi. Strategies for Transition towards Value-based Life and Profession
+
+
+Learning Resources
+Textbooks:
+1. A Foundation Course in Human Values and Professional Ethics, RR Gaur, R Asthana, GP
+Bagaria, 3rd revised edition, UHV Publications, 2023, ISBN: 978-81-957703-7-3 (Printed Copy),
+978-81-957703-6-6 (e-book)
+
+
+2. Teachers Manual for A Foundation Course in Human Values and Professional Ethics, RR Gaur,
+R Asthana, GP Bagaria, 3rd revised edition, UHV Publications, 2023, ISBN: 978-81- 957703-5-9
+(Printed Copy), 978-81-957703-0-4 (e-Book)
+
+
+
+
+                                                 23
+Reference Books:
+
+  1. P. L. Dhar, R. R. Gaur, 1990, Science and Humanism, Commonwealth Publishers.
+  2. A. Nagaraj, 1999, Jeevan Vidya: Ek Parichaya, Jeevan Vidya Prakashan, Amarkantak
+  3. B. P. Banerjee, 2005, Foundations of Ethics and Management, Excel Books.
+  4. A. N. Tripathy, 2003, Human Values, New Age International Publishers.
+  5. E. G. Seebauer & Robert L. Berry, 2000, Fundamentals of Ethics for Scientists & Engineers,
+     Oxford University Press
+  6. B. L. Bajpai, 2004, Indian Ethos and Modern Management, New Royal Book Co., Luc-
+     know. Reprinted 2008.
+  7. M. Govindrajran, S Natrajan & V.S. Senthil Kumar, Engineering Ethics and Human Values,
+     Eastern Economy Edition, Prentice Hall of India Ltd.
+  8. M. K. Gandhi, The Story of my Experiments with Truth, Discovery Publisher
+
+MOOC / NPTEL/YouTube Links:
+1.    Swayam Course on Understanding Human Being Nature and Existence Compre- hensively
+by Dr.       Kumar Sambhav, Director, UP Institute of Design (UPID), Noida.
+https://onlinecourses.swayam2.ac.in/aic22_ge23/preview
+2. NPTEL Course on Exploring Human Values: Visions of Happiness and Perfect Soci-
+ety by Prof. A. K. Sharma, Department of Humanities and Social Sciences, IIT Kanpur.
+https://nptel.ac.in/courses/109104068
+3. https://www.youtube.com/channel/UCQxWr5QB_eZUnwxSwxXEkQw
+4. https://www.youtube.com/playlist?list=PLoVRJrAl0FT1DNRtDpYa3SGeMEm06O3Dv
+
+e- Resources
+
+  1. https://fdp-si.aicte-india.org/download.php#1/
+
+  2. https://madhyasth-
+     darshan.info/postulations/knowledge/ knowledge-of-
+     humane-conduct/
+
+  3. https://www.youtube.com/channel/UCQxWr5QB_eZUnwxSwxXEkQw
+
+
+
+
+                                                 24
+                                  Savitribai Phule Pune University
+           Second Year of Electronics and Telecommunication Engineering (2024 Course)
+                           CEP-241-ETC: Community Engagement Project
+         Teaching Scheme                     Credits                   Examination Scheme
+ Practical : 04 Hours/Week*                    02            Term Work : 25 Marks
+                                                             Oral : 25 Marks
+
+  1. CEP is an experiential learning approach that combines education, learning, community devel-
+     opment, and meaningful community service.
+
+  2. Project involves students in community development and service activities and applies the ex-
+     perience to personal and academic development.
+
+  3. The targeted contribution of college students to the village/local development will benefit the
+     community.
+
+  4. The college has an opportunity to help students become more socially conscious and responsible
+     while simultaneously becoming a socially conscious organization.
+
+Course Objectives: The course aims to:
+
+  1. Establish a mutually beneficial relationship between the college and the community
+
+  2. Opportunities to engage with their local community, fostering empathy, teamwork, and problem-
+     solving skills while contributing positively to their surroundings.
+
+  3. An understanding of the challenges faced by the local community and the role of engineering
+     in addressing those challenges.
+
+  4. The ability to apply technical knowledge and skills to design solutions or interventions that
+     create a positive impact on the community.
+
+  5. The skills to evaluate and critically analyze the outcomes of their engagement activities, deriv-
+     ing actionable insights for sustainable impact
+
+Course Outcomes: Upon successful completion of this course, students will be able to:
+
+  1. CO1 - Identify and Analyze local community needs and challenges by engaging with stake-
+     holders and evaluating real-world problems.
+
+  2. CO2- Design and Implement practical, creative, and context-specific solutions using engineer-
+     ing principles to address community issues.
+
+  3. CO3 - Reflect and Evaluate the effectiveness of their interventions and articulate lessons
+     learned through reports and presentations.
+
+
+
+
+                                                    25
+,                                                                                                        ,
+z                                           Course Contents                                              r
+Implementation
+
+
+    • A group of 3 to 4 students or a single student could be assigned for a particular habitation or
+      village or municipal ward, as far as possible, in the near vicinity of their place of stay/college
+      premise.
+
+    • Each group is allotted to a faculty member of the department as a mentor.
+
+    • The group of students will be associated with a government official / village authorities /NGOs
+      etc. concerned, allotted by the district administration, during the duration of the project.
+
+    • The Community Engagement Project should be different from the regular programmes of NSS/NC-
+      C/Green Club/Hobby Clubs, Special Interests Groups etc
+
+    • An activity book has to be maintained by each of the students to record the activities undertak-
+      en/involved and will be countersigned by the concerned mentor/HoD.
+
+    • Project report shall be submitted by each student/group of students.
+
+    • An internal evaluation shall also be conducted by a committee constituted by the HoD. Evalu-
+      ation to be done based on the active participation of the student and marks could be awarded by
+      the mentor/HoD.
+
+    • Students groups can conduct an awareness programme on Health and Hygiene or in Organic
+      Farming or in Fisheries or in advocating prohibition of liquor or about renewable energy, e- waste
+      management or any other activity in an area of their studies and as per his/her aptitude.
+
+Suggestive list of topics under Community Engagement Project
+
+The below lists are not exhaustive and open for HoD’s or mentors to add, delete or modify. It is
+expected that the focus should be on specific local issues in their nearby areas.
+The students are expected to carry out these projects with involvement, commitment, responsibility
+and accountability. The mentors of a student/group of students shall
+
+    • Use and/or miss-use of cell phones
+
+    • Career orientation of youth
+
+    • Water facilities and drinking water availability
+
+    • Health and hygiene of the school going students, home makers and old personals
+
+    • Health intervention and awareness programmes
+
+    • Horticulture
+
+    • Herbal and Nutrition
+
+    • Traditional and Modern health care methods
+
+                                                    26
+   • Food habits
+
+   • Air /Sound /Water pollution
+
+   • Plantation and Soil protection
+
+   • Renewable energy and Solar Systems
+
+   • Yoga awareness and practice
+
+   • Health care awareness programmes and their impact
+
+   • Organic farming , IoT implementations
+
+   • Food adulteration
+
+   • Incidence of Diabetes and other chronic diseases
+
+   • Blood groups and blood levels
+
+   • Chemicals in daily life
+
+   • Music and dance
+
+   • Women education and empowerment
+
+Project Scope
+
+
+   • Conduct workshops or awareness drives on topics like digital literacy, environmental sustain-
+     ability, mental health, or career planning for local stakeholders.
+
+   • Develop a simple prototype or solution that addresses a real-world problem (e.g., a water-saving
+     device, simple mobile apps, or tools for community use).
+
+   • Organize clean-up drives, tree plantations, recycling campaigns, or energy conservation initia-
+     tives.
+
+   • Promote health through awareness programs on hygiene, nutrition, and exercise.
+
+   • Teach basic computer or technical skills to students, staff, or the community
+
+Proposal Submission
+
+CEP Group should Submit a two-page project proposal, preferably prior to the term commencement
+outlining the following:-
+
+   • Title of the project
+
+   • Aim, Objective and expected outcome
+
+   • Plan of execution (timeline and activities).
+
+
+                                                    27
+    • Place of the CEP and involvement of any local authority, NGP
+
+    • Required resources (if any).
+
+    • Get approval from the designated faculty mentor.
+
+Learning Resources
+,                                                                                                  ,
+zText Books:                                                                                       r
+
+    1. Waterman, A. Service-Learning: A Guide to Planning, Implementing, and Assessing Student
+       Projects. Routledge, 1997.
+
+    2. Beckman, M., and Long, J. F. Community-Based Research: Teaching for Community Impact.
+       Stylus Publishing, 2016.
+
+    3. Design Thinking for Social Innovation. IDEO Press, 2015.
+
+    4. Dostilio, L. D., et al. The Community Engagement Professional’s Guidebook: A Companion to
+       The Community Engagement Professional in Higher Education. Stylus Publishing, 2017
+,                                                                                                  ,
+z    • MOOC / NPTEL/YouTube Links:                                                                 r
+
+    1. NPTEL course: Ecology and Society https://onlinecourses.nptel.ac.in/noc20_hs77/preview
+,                                                                                                  ,
+zWeb Links: -                                                                                      r
+
+    1. UNESCO: Education for Sustainable Development https://www.unesco.org
+
+    2. EPICS (Engineering Projects in Community Service) https://engineering.purdue.edu/EPICS
+
+    3. Ashoka: Innovators for the Public https://www.ashoka.org
+
+    4. Design for Change https://www.dfcworld.com
+
+
+
+
+                                                  28
+   Savitribai Phule Pune University, Pune
+
+
+
+                     Maharashtra, India
+
+
+
+SE - Electronics and Telecommunication Engineering
+
+                     2024 Pattern
+
+
+
+                       Semester IV
+
+
+
+
+             With effect from Academic Year 2025–26
+
+
+
+
+                                29
+                                    Savitribai Phule Pune University
+             Second Year of Electronics and Telecommunication Engineering (2024 Course)
+                            PCC-251-ETC: Communication Engineering
+          Teaching Scheme                  Credits                  Examination Scheme
+Theory : 03 Hours/Week                        02          CCE : 30 Marks
+                                                          End Semester (Theory) : 70 Marks
+Companion Course, if any: PCC-207-ETC - Signals & Systems
+Course Outcomes:
+After successful completion of the course, learner will be able to:
+CO1:        Understand the fundamentals of communication systems.
+CO2:        Apply amplitude modulation and demodulation techniques to analyze AM system per-
+            formance.
+CO3:        Apply frequency modulation and demodulation techniques to analyze FM system per-
+            formance.
+CO4:        Examine analog to digital conversion techniques and execute pulse modulation schemes
+            for digital communication systems.
+CO5:        Identify and Interpret real-world applications of communication systems.
+
+                                          Course Contents
+       Unit I               Fundamentals of Communication System                       (09 Hours)
+Introduction to Communication System, Block Diagram of Communication System, Types of
+Communication System: Analog, Digital, Wired and Wireless, Regenerative repeaters, Types
+of Noise: External and Internal, Noise Calculations, Noise Figure, Concept of baseband and
+bandpass signals, Signal Energy and Energy Spectral Density, Signal Power and Power Spectral
+Density
+Mapping of Course Outcomes for Unit I
+CO1: Understand fundamentals of communication systems
+       Unit II       Amplitude Modulation and Demodulation Techniques                  (09 Hours)
+Need of Modulation, Amplitude Modulation (AM), Types of AM, Modulation Index, Spectrum
+of AM, Double Sideband Suppressed Carrier (DSB-SC) Modulation, Single Sideband Modula-
+tion (SSB), Vestigial Sideband Modulation (VSB), Power Efficiency, Envelope Detection, AM
+receiver.
+Mapping of Course Outcomes for Unit II
+CO2: Apply amplitude modulation and demodulation techniques to analyze AM system per-
+formance.
+    Unit III         Frequency modulation and demodulation Techniques                  (09 Hours)
+Concept of FM, Modulation index , Spectrum, bandwidth, power and Relationship between
+Phase Modulation (PM) and Frequency modulation, features of Bessel coefficient, Narrow band
+and wideband FM, FM modulator and demodulator-FM generation by Armstrong ’s method,
+FM detection using PLL
+
+
+
+
+                                                   31
+Mapping of Course Outcomes for Unit III
+CO3: Apply frequency modulation and demodulation techniques to analyze FM system perfor-
+mance.
+    Unit IV                     Pulse Modulation Techniques                        (09 Hours)
+Need of analog to digital conversion, sampling theorem, Nyquist criteria, Types of sampling:
+Natural and Flat top. Pulse Amplitude Modulation (PAM), Pulse Width Modulation (PWM) and
+Pulse Position Modulation (PPM), Data formats (RZ, NRZ, UNIPOLAR, BIPOLAR, AMI, Manch-
+ester and its properties) Quantization of Signals: Quantization error, Type of Quantization:
+Uniform & Non-Uniform Quantization, Concept of Companding, Generation & Reconstruction
+of PCM, Delta Modulation, Adaptive Delta Modulation,
+Mapping of Course Outcomes for Unit IV
+CO4: Examine analog to digital conversion techniques and Execute pulse modulation schemes
+for digital communication systems.
+     Unit V             Applications of Communication Engineering                  (08 Hours)
+Case study: Applications of communication systems, with a focus on their real-world relevance,
+working principles, and functional blocks. Two-Way Radio Communication (Walkie-Talkies)
+FM Radio Broadcasting Aviation and Marine Communication Television Fundamentals.
+Mapping of Course Outcomes for Unit V
+CO5: Identify and interpret real-world applications of communication systems.
+Learning Resources
+Textbooks:
+1. Taub, Schilling and Saha, Principles of Communication Systems, McGraw-Hill, 4th Edition.
+2. B P Lathi, Zhi Ding, Modern Analog and Digital Communication System, Oxford University
+Press, 4th Edition.
+
+Reference Books:
+1. Bernard Sklar and Prabitra Kumar Ray, Digital Communications Fundamentals and
+Applications, Pearson Education 2nd Edition.
+2. Wayne Tomasi, Electronic Communications System, Pearson Education, 5th Edition.
+3. A.B Carlson, P B Crully and J C Rutledge, Communication Systems, Tata McGraw Hill
+Publication, 5th Edition.
+4. Simon Haykin, Communication Systems,John Wiley & Sons, 4th Edition.
+5. George Kennedy and Bernard Davis , Electronic Communication System
+6. P. Chakrabarti, Analog and Digital Communication
+
+MOOC / NPTEL Courses:
+1. NPTEL Course Principles of Communication Systems-I https://nptel.ac.in/courses/
+108/104/108104091/
+
+
+
+
+                                               31
+                                   Savitribai Phule Pune University
+            Second Year of Electronics and Telecommunication Engineering (2024 Course)
+                                 PCC-252-ETC: Signals and Systems
+         Teaching Scheme                     Credits                  Examination Scheme
+Theory : 03 Hours/Week                         03           CCE : 30 Marks
+                                                            End Semester (Theory) : 70 Marks
+Companion Course, if any: PCC-210-ETC: Control Systems and Signals & Systems Lab
+Course Objectives:
+
+   1. To introduce signals, its operations with examples and to classify signals into different cate-
+       gories.
+
+   2. To classify systems into different categories.
+
+   3. To analyze the Liner Time Invariant (LTI) systems and finding the system response in time
+       domain.
+
+   4. To acquire knowledge about Fourier Series and Transform and its significance in signal analysis.
+
+   5. To understand the limitations of Fourier transform and need for Laplace transform and develop
+      the ability to analyze the system in s- domain.
+
+Course Outcomes:
+After successful completion of the course, learner will be able to:
+CO1:       Develop the mathematical equations of continuous and discrete time signals and per-
+            form fundamental operations on signals and Categorize signals into different categories.
+CO2:        Analyze different systems by applying the knowledge of system classification.
+CO3:       Find response of a system for any arbitrary input signal using the convolution process
+            and aware of its modern applications. Test the system stability using the impulse re-
+            sponse.
+CO4:        Analyze and resolve the signals in frequency domain using Fourier Transform.
+CO5:        Apply Laplace transform for continuous time signals and perform system analysis.
+
+                                            Course Contents
+       Unit I                         Introduction to Signals                             (09 Hours)
+Signals: Introduction, Continuous and Discrete time signals representation: Graphical, Func-
+tional, Tabular and Sequence. Basic Elementary signals and their relationships: Unit Impulse,
+Unit step, Unit ramp, Unit parabolic, rectangular pulse, Triangular, Signum, Sinusoidal, Real
+exponential, Complex exponential, Sinc, and Gaussian function.
+Operations on signals (CT and DT): Amplitude scaling, signal addition, subtraction, signal
+multiplication, signal differentiation, signal integration, difference, accumulation, time shift- ing,
+time reversal, and time scaling.
+Classification of signals (CT and DT): Deterministic and Random, Periodic and Non-periodic,
+Even and odd, Energy and Power, and Stationary and non-stationary.
+
+
+
+                                                       32
+Mapping of Course Outcomes for Unit I
+CO1: Develop the mathematical equations of continuous and discrete time signals and perform
+fundamental operations on signals and Categorize signals into different categories
+     Unit II                         Introduction to Systems                           (09 Hours)
+Introduction to systems: Communication, control etc., Classification of systems using input-
+output relationship: static and dynamic, causal and non-causal, Linear and Non- linear, time
+variant and time invariant, stable and unstable, invertible and non- invertible. Linear Time
+Invariant (LTI) systems, impulse response, basic concepts of Finite Impulse Response (FIR) and
+Infinite Impulse Response (IIR), FIR and IIR system structures, comparison and applications of
+FIR and IIR systems.
+Exemplar: Applications of FIR and IIR systems.
+Mapping of Course Outcomes for Unit II
+CO2: Analyze different systems by applying the knowledge of system classification.
+    Unit III        Time-domain Analysis of LTI Systems and Applications               (09 Hours)
+Introduction to convolution, cconvolution sum, methods of finding convolution sum: tabu-
+lar and graphical, convolution integral, computation of convolution integral using graphical
+method for unit step to unit step, unit step to exponential, exponential to exponential, unit
+step to rectangular and rectangular to rectangular only. Properties of convolution sum and
+convolution integral. System interconnection, system properties in terms of impulse response,
+step response in terms of impulse response.
+Exemplar: Introduction to the modern applications of the convolution; (i) Speech recogni- tion
+and natural language processing (NLP): Voice Assistants, Real-Time Translation, Medi- cal
+Speech Processing, (ii) Convolutional Neural Networks (CNNs): Facial Recognition, Self-
+Driving Cars, Medical Imaging, Augmented Reality (AR)
+Mapping of Course Outcomes for Unit III
+CO3: Find response of a system for any arbitrary input signal using the convolution process
+and aware of its modern applications. Test the system stability using the impulse response.
+    Unit IV                    Fourier Analysis and Applications                       (09 Hours)
+Introduction to Fourier Series: Fourier Series (FS) representation of periodic Continuous-Time
+(CT) signals using trigonometric and exponential forms, Dirichlet conditions for the existence of
+Fourier Series, Gibbs phenomenon. Fourier Transform (FT): Fourier Transform represen- tation
+of aperiodic CT signals; Dirichlet conditions for the existence of Fourier Transform; evaluation of
+magnitude and phase response; Fourier Transform of standard CT signals; prop- erties and their
+significance; interplay between time and frequency domains using sinc and
+rectangular signals; Fourier Transform for periodic signals
+Exemplar: Applications of Fourier Transform in spectral analysis, communication, filtering,
+and biomedical signal processing.
+Mapping of Course Outcomes for Unit IV
+CO4: Analyze and resolve the signals in frequency domain using Fourier Transform.
+     Unit V                   Laplace Transform and Applications                       (09 Hours)
+
+
+
+                                                   33
+Definition of Laplace transform, Limitations of Fourier transform and need of Laplace trans-
+form, ROC, Properties of ROC, Laplace transform of standard periodic and aperiodic functions,
+properties of Laplace transform and their significance, Laplace transform evaluation using
+properties, Inverse Laplace transform based on partial fraction expansion, stability consid-
+erations in S domain, Application of Laplace Transforms: RL, RC, RLC Circuit analysis, transfer
+function and impulse response.
+Exemplar: Feedback Inverted Pendulum.
+Mapping of Course Outcomes for Unit V
+CO5: Apply Laplace transform for continuous time signals and perform system analysis.
+Learning Resources
+Textbooks:
+1. Simon Haykins and Barry Van Veen, Signals and Systems, Wiley India, 2nd Edition.
+2. A. V. Oppenheim, A. S. Willsky, "Signals and Systems", Pearson, 2nd Edition.
+3. B. P. Lathi, "Linear Systems and Signals" Oxford University Press, 2nd Edition.
+
+Reference Books:
+1. A. Nagoor Kanni Signals and Systems, Mc Graw Hill, 2nd Edition
+2. John G. Proakis and Dimitris G. Manolakis, "Digital signal Processing: Principles, Algo-
+rithms, and Applications", 4th Edition. Sept. 2007.
+3. Ian Goodfellow, Yoshua Bengio, Aaron Courville, Deep Learning, MIT Press, 2016.
+4. Charles Phillips, Signals, Systems and Transforms, Pearson Education, 3rd Edition
+
+e- Books:
+1. Linear Systems And Signal Processing By B.b Lathi 2nd Edition : LIBRARIAN IECW : Free
+Download, Borrow, and Streaming : Internet Archive
+https://archive.org/details/linear-systems-and-signal-processing-by-b.
+b-lathi-2nd-edition
+2. Engineering-Books/Signals and Systems/Oppenheim, Willsky, Nawab - Signals & Systems
+[2nd    Edition].pdf at    https://github.com/gigahidjrikaaa/Engineering-Books/blob/main/
+Signals%20and%20Systems/Oppenheim%2C%20Willsky%2C%20Nawab%20-%20Signals%20%26%
+20Systems%20%5B2nd%20Edition%5D.pdf
+
+MOOC / NPTEL/YouTube Links:
+https://archive.nptel.ac.in/courses/108/106/108106163/
+https://ocw.mit.edu/courses/res-6-007-signals-and-systems-spring-2011
+
+
+
+
+                                                  34
+                                   Savitribai Phule Pune University
+            Second Year of Electronics and Telecommunication Engineering (2024 Course)
+                                    PCC-253-ETC: Control System
+         Teaching Scheme                    Credits                  Examination Scheme
+Theory : 03 Hours/Week                        03           CCE : 30 Marks
+                                                           End Semester (Theory) : 70 Marks
+Prerequisite Courses, if any: Laplace Transform, Determinants and Matrix
+Companion Course, if any: PCC-210-ETC: Control Systems and Signals & Systems Lab
+Course Objectives:
+
+  1. To Introduce elements of control systems, their transfer function with various methods and time
+       domain analysis.
+
+  2. To Introduce the frequency response techniques for stability analysis.
+
+  3. To Introduce State Variable Analysis method.
+
+  4. To study various feedback controllers for industrial Automation.
+
+Course Outcomes:
+After successful completion of the course, learner will be able to:
+CO1:     Analyze Control System Performance: Determine the transfer function of control sys- tems
+            and evaluate time-domain responses of first and second-order systems to under- stand
+            their behavior and performance.
+CO2:      Assess Stability using Root Locus: Apply the root locus method to determine the
+        stability of control systems, ensuring they operate within desired parameters.
+CO3: Evaluate Frequency Domain Stability: Utilize graphical methods (e.g., Bode plots) to analyze
+           the frequency domain stability of control systems, enabling the design of stable systems.
+CO4:     Apply State-Space Analysis: Solve system equations using state-variable representa- tions,
+            enabling the analysis and design of complex control systems using modern control theory.
+CO5:     Design Feedback Control Systems: Compare and contrast various feedback controllers
+            (e.g., P, PI, PID) and understand their roles in industrial automation, facilitating the
+            design of effective control systems.
+
+
+
+
+                                           Course Contents
+       Unit I              Transfer function & Time Domain Analysis                     (09 Hours)
+Basic Elements of Control System, Open loop and Closed loop systems, Differential equations and
+Transfer function, concept of pole and zero, ORDER and TYPE of a system, Transfer func- tion of
+Electric systems, Transfer function using Block diagram reduction and Signal flow graph
+techniques. Standard test inputs for time domain analysis, Steady state response - Steady state
+error and static error constants. Transient analysis of first and second order systems. Time
+domain specifications of second order system for step response.
+
+
+
+                                                      35
+Exemplar: Cruise Control System in a Car (Closed Loop System, Transfer Function, Time Domain
+Analysis), Room Temperature Control using a Smart Thermostat (Closed Loop System, Steady
+State Error), Automatic Water Level Controller in a Tank (Closed Loop System, Type of
+System), Audio Amplifier (Pole and Zero)
+Mapping of Course Outcomes for Unit I: CO1
+        Unit II                          Stability Analysis                             (09 Hours)
+Characteristic equation of a system, Examine the impact of pole locations in the s-plane on system
+response and stability, including the effects of pole placement on system performance, concept
+of stability -absolute stability, relative stability, Routh-Hurwitz stability criterion, Root locus:
+definition, magnitude and angle conditions, construction of root locus, concept of dom- inant
+poles, effect of addition of pole and zero on root locus. Application of root locus for
+stability analysis
+Exemplar: Balancing a Self-Balancing Scooter or Robot (Stability, Pole Locations, Root Locus),
+Feedback Amplifier in Electronics (Stability, relative stability)
+Mapping of Course Outcomes for Unit II: CO2
+        Unit III                    Frequency domain analysis                           (09 Hours)
+Frequency response and frequency domain specifications-resonant peak, resonant frequency,
+bandwidth, correlation between time domain and frequency domain specifications. Con-
+struction of Polar plot and Bode plot, determination of frequency domain specifications gain
+crossover frequency, phase crossover frequency, gain margin, phase margin and stability anal-
+ysis.
+Exemplar: Feedback Amplifier in Electronics (Stability, Gain Margin, Phase Margin - related
+to relative stability), Audio Equalizer (Frequency Response, Bode Plot, Gain), Radio Tuner
+(Frequency Response, Selectivity, Bandwidth)
+Mapping of Course Outcomes for Unit III: CO3
+        Unit IV                       Modern Control Theory                             (08 Hours)
+State space advantages and representation, Transfer function from State space, physical vari-
+able form, phase variable forms: Concept of Controllability and Observability, controllable
+canonical form, observable canonical form, Solution of homogeneous state equations, state
+transition matrix and its properties, computation of state transition matrix by Laplace trans-
+form method only.
+Exemplar: Controlling a Multi-Link Robot Arm (State Space Representation, Multiple Input-
+s/Outputs), Analyzing the Stability of an Aircraft (State Transition Matrix, Laplace Transform
+Method)
+Mapping of Course Outcomes for Unit IV: CO4
+        Unit V         Controllers and Automation in Industrial Control                 (08 Hours)
+                                              Systems
+Concept of Controller, Basic ON-OFF Controller, Concept of Dead Zone, Introduction to P, I,
+D, PI, PD and PID controller, OFFSET of Controller, Integral Reset, PID Characteristics, Tuning of
+controllers- Zeigler-Nicholas method. Programmable Logic Controller (PLC) and IoT based
+Industrial Automation - introduction, block diagram, working principles and its need.
+
+                                                    36
+ Exemplar: Car Cruise Control (PI Controller, Integral Reset),Baking Oven Temperature Con-
+ trol (PID Controller, PID Characteristics), Smart Factory with IoT-Based Industrial Automation,
+ Automated Bottling Plant (PLC)
+ Mapping of Course Outcomes for Unit V: CO5
+ Learning Resources
+ Textbooks:
+ 1. N. J. Nagrath and M. Gopal, Control System Engineering, New Age International Publishers,
+ 5th Edition.
+ 2. K. Ogata, Modern Control Engineering, Prentice Hall India Learning Private Limited; 5th
+ Edition.
+
+ Reference Books:
+ 1. Benjamin C. Kuo, Automatic control systems, Prentice Hall of India, 7th Edition.
+ 2. M. Gopal, Control System Principles and Design, Tata McGraw Hill, 4th Edition.
+ 3. Schaums Outline Series, Feedback and Control Systems Tata McGraw-Hill.
+ 4. John J. DAzzo and Constantine H. Houpis, Linear Control System Analysis and Design, Tata
+ McGraw-Hill, Inc.
+ 5. Richard C. Dorf and Robert H. Bishop, Modern Control Systems, Addison Wesley
+
+ MOOC / NPTEL/YouTube Links:
+ 1. NPTEL Course Control System            https://nptel.ac.in/courses/107/106/107106081/
+ 2.   NPTEL Course Control System Design https://nptel.ac.in/courses/115/108/
+ 115108104/
+
+
+ #Exemplar: These are the practical applications based on the contents of the particular unit and for
+information only. These are real-life examples to create interest in the teaching learning process. No
+question should be asked in examinations on exemplars.
+
+
+
+
+                                                    37
+Sr. No.     Subject     Unit No      Exemplars
+                                  5G Communication, Satellite Communication, Cell Phone Base
+                          1
+                                  Station
+          Communicati
+                          2       AM Radio Stations & Coverage Area, TV Communication
+  1           on
+                          3       FM Radio Stations & Coverage Area, TV Communication
+          Engineering
+                          4       Digital Communication, Cell phone Communication app
+                          5       Communication System at Airport, Satellite Communication
+                                  Nature of Real life audio (voice), video, radio Signals and electrical
+                          1
+                                  currents
+                          2       Applications of FIR and IIR systems
+                                  Introduction to the modern applications of the convolution; (i)
+          Signals and             Speech recognition and natural language processing (NLP): Voice
+  2         Systems       3       Assistants, Real-Time Translation, Medical Speech Processing, (ii)
+                                  Convolutional Neural Networks (CNNs): Facial Recognition, Self-
+                                  Driving Cars, Medical Imaging, Augmented Reality (AR)
+                                  Applications of Fourier Transform in spectral analysis,
+                          4
+                                  communication, filtering, and biomedical signal processing.
+                          5       Feedback Inverted Pendulum.
+                                  Cruise Control System in a Car (Closed Loop System, Transfer
+                                  Function, Time Domain Analysis), Room Temperature Control using
+                          1       a Smart Thermostat (Closed Loop System, Steady State Error),
+                                  Automatic Water Level Controller in a Tank (Closed Loop System,
+                                  Type of System), Audio Amplifier (Pole and Zero)
+                                  Balancing a Self-Balancing Scooter or Robot (Stability, Pole
+                          2       Locations, Root Locus), Feedback Amplifier in Electronics (Stability,
+                                  relative stability)
+                                  Feedback Amplifier in Electronics (Stability, Gain Margin, Phase
+            Control
+  3                               Margin – related to relative stability), Audio Equalizer (Frequency
+            Systems       3
+                                  Response, Bode Plot, Gain), Radio Tuner (Frequency Response,
+                                  Selectivity, Bandwidth)
+                                  Controlling a Multi-Link Robot Arm (State Space Representation,
+                          4       Multiple Inputs/Outputs), Analyzing the Stability of an Aircraft
+                                  (State Transition Matrix, Laplace Transform Method)
+                                  Car Cruise Control (PI Controller, Integral Reset),Baking Oven
+                                  Temperature Control (PID Controller, PID Characteristics), Smart
+                          5
+                                  Factory with IoT-Based Industrial Automation, Automated Bottling
+                                  Plant (PLC)
+                          1       Student Grade Management System
+             Object-
+                          2       Employee Hierarchy System
+            Oriented
+  4                       3       Handles Exceptions
+          Programmin
+                          4       Background Tasks in Android apps
+                g
+                          5       Collection & Display User Entered Data
+
+
+
+
+                                               38
+                                    Savitribai Phule Pune University
+             Second Year of Electronics and Telecommunication Engineering (2024 Course)
+                          PCC-254-ETC: Communication Engineering Lab
+            Teaching Scheme                  Credits                  Examination Scheme
+Practical : 02 Hours/Week                      01          Term Work : 25 Marks
+                                                           Practical : 25 Marks
+                                     List of Laboratory Experiments
+                      Group A: Hardware Practicals [Any 6 to be performed]
+1. AM Generation (DSB-FC): Calculation of modulation index by graphical method, Power of AM
+Wave for different modulating signal and Observe Spectrum.
+2. Frequency modulator & demodulator using Varicap/Varactor Diode and NE 566 VCO, IC 565
+(PLL based detection), calculation of modulation index & BW of FM.
+3. Verification of Sampling Theorem in time domain (Flat top & Natural sampling).
+4. Generation and Detection of PWM using IC 555
+5. Study of PCM
+6. Study of Companded PCM
+7. Study of DM: Generation and detection
+8. Study of ADM: Generation and detection
+9. Study of line codes (NRZ, RZ, POLAR RZ, BIPOLAR (AMI), MANCHESTER) & their spectral
+analysis.
+       Group B: Simulation Practicals [Any 3 to be performed using suitable platform]
+1. Write a Program to generate white noise and calculate Signal to Noise Ratio and Noise Figure
+of a system
+2. Write a program to calculate Signal to noise ratio for PCM system & DM system.
+3. Write a program to demonstrate PCM companding.
+4. Write a program to Verify Sampling Theorem.
+5. Case Study any one: using Simulation Software (e.g., MATLAB/Simulink or SDR kits)
+
+
+      1. Two-Way Radio Communication (Walkie-Talkies)
+      2. FM Radio Broadcasting
+      3. Television System.
+      4. Aviation Communication System
+
+
+                              Group C: Experiential Learning [ Any One]
+1. Project based Learning / Poster Presentation
+Choose one communication application and present the system architecture.
+2. Industrial Visit
+Write a report on Industrial Visit
+3. Survey related any communication system.
+
+
+
+
+                                                    39
+                                   Savitribai Phule Pune University
+            Second Year of Electronics and Telecommunication Engineering (2024 Course)
+                MDM-271-ETC: Multidisciplinary Minor - Object-Oriented Programming
+         Teaching Scheme                    Credits                   Examination Scheme
+Theory : 03 Hours/Week                         02           CCE : 30 Marks
+                                                            End-Semester: 70 Marks
+Prerequisite Courses: Basic Object Oriented Programming concept using C++
+Course Objectives:
+
+1.     To understand the fundamentals of object-oriented programming using C++.
+2.     To develop Java programs using classes, objects, inheritance, polymorphism, and exception
+       handling.
+3.     To work with built-in Java libraries, packages and multithreading.
+4.     To foster problem-solving and logical thinking through real-world examples and programming
+       practices
+Course Outcomes:
+On completion of the course, learner will be able to:
+CO1:       Explain concepts of Object-Oriented Programming using C++.
+
+CO2:        Implement classes, objects, constructors, and destructor concepts in JAVA to build modular
+            programs.
+
+CO3:        Analyze and design JAVA codes using abstract classes, inheritance and polymorphism.
+
+CO4:        Evaluate the concept of interfaces & packages
+CO5:        Design and implement JAVA based mini project
+
+
+
+                                            Course Contents
+       Unit I             Introduction to OOP Concepts                                   (09 Hours)
+Introduction to procedural programming, Limitations of procedural programming, Need of
+object- oriented programming, Fundamentals of object-oriented programming :Class, Object,
+Encapsulation, Abstraction, Inheritance, Polymorphism,
+Basics of C++ programming, Functions, Inline functions, Default arguments, Reference
+variables, Dynamic initialization of variables, memory management operators, Member
+dereferencing operators, operator precedence, typecast operators, Scope resolution operators.
+Creating Classes and Objects, Access Specifiers
+
+
+
+Mapping of Course Outcomes for Unit I
+CO1: Explain concepts of Object-Oriented Programming using C++.
+
+
+
+
+                                                      40
+      Unit II                        Introduction to Core Java                       (09 Hours)
+Evolution of Java, Features of Java, Java Virtual Machine (JVM), Java Runtime Environment (JRE), Java
+Development Kit (JDK), Structure of a Java Program, Compilation and Execution Process. Java Syntax:
+Data Types, Variables, Operators, Control Statements and Loops. Creating Classes and Objects using
+JAVA. Constructors, method overloading, Static members and Methods, this pointer, Garbage collection,
+finalize methods, final variables and methods, final class.
+Mapping of Course Outcomes for Unit II
+CO2: Implement classes, objects, constructors, and destructor concepts in JAVA to build modular
+programs.
+    Unit III                    Inheritance and Polymorphism                        (09 Hours)
+Types of Inheritance in Java (Single, Multilevel, Hierarchical), Method Overriding, Dynamic Method
+Dispatch, Use of super and final keywords, Abstract Methods and classes, One dimensional and two-
+dimensional arrays, wrapper classes.
+Mapping of Course Outcomes for Unit III
+CO3: Analyze and design JAVA codes using abstract classes, inheritance and polymorphism
+    Unit IV                        Interfaces and Packages                          (09 Hours)
+Interfaces: Introduction to Interfaces, Multiple Inheritance using Interfaces, Using static method
+in interface , Functional Interfaces and Lambda Expressions.
+Packages: Java API Packages, Using System Packages, Creating accessing and using a package,
+Importing packages, Adding a class to a Package, Hiding classes.
+Mapping of Course Outcomes for Unit IV
+CO4: Evaluate the concept of interfaces & packages.
+     Unit V                Multithreading and Exception Handling                    (09 Hours)
+Introduction to multithreading: Introduction, Creating thread and extending thread class.
+Concept of Exception handling: Introduction, Types of errors, Exception handling syntax,
+Multiple catch statements, Creating Custom Exceptions.
+Mini Project: Real world application using JAVA
+Mapping of Course Outcomes for Unit V
+CO5: Design and implement JAVA based mini project
+Learning Resources
+Textbooks:
+  1. E Balagurusamy, “Programming with C++”, Tata McGraw Hill, 3rd Edition.
+  2. E Balagurusamy, Programming with JAVA , Tata McGraw Hill, 6th Edition
+  3. Herbert Schildt, Java: The complete reference, Tata McGraw Hill, 7th Edition
+
+
+
+
+                                                 41
+Reference Books:
+1. T. Budd, Understanding OOP with Java, Pearson Education
+2. Y. Daniel Liang (2010), Introduction to Java programming, 7th edition, Pearson education,
+In
+3. Cay Horstmann, Core Java Volume 1, Kindle, 11 edition
+4. M.T. Savaliya, Advanced Java Technology, Dreamtec
+
+MOOC / NPTEL Courses:
+1. NPTEL Course “Programming in
+C++”https://nptel.ac.in/courses/106/105/106105151/
+2. NPTEL Course “ Programming in
+Java”https://nptel.ac.in/courses/106/105/106105191/
+
+
+
+
+                                                 42
+                                 Savitribai Phule Pune University
+          Second Year of Electronics and Telecommunication Engineering (2024 Course)
+           PCC-272-ETC: Signals & Systems and Object-Oriented Programming Lab
+        Teaching Scheme                      Credits                 Examination Scheme
+Practical : 02 Hours/Week                      01          Term Work : 25 Marks
+                                                           Oral : 25 Marks
+                               Guidelines for Student’s Lab Journal
+The students Lab Journal should contain following related to every experiment
+1. Title of the experiment
+2. Objective
+3. Brief theory related to the experiment.
+4. Connection diagram / circuit diagram.
+5. Observation table
+6. Sample calculations for one/two reading.
+7. Result table
+8. Graph and Conclusions.
+                           Guidelines for Laboratory/ TW Assessment
+1. Continuous assessment of laboratory work is to be done based on overall performance and
+Laboratory performance of student.
+2. Each Laboratory assignment assessment should assign grade/marks based on parameters
+with appropriate weightage.
+3. Suggested parameters for overall assessment as well as each Laboratory assignment include
+timely completion, performance, efficiency, punctuality, and neatness.
+                                  List of Laboratory Experiments
+                         Group A (Any 6 experiments to be performed)
+1. Generate and plot the following signals in time domain and also sketch its amplitude and phase
+spectrum. Verify the result:
+Impulse
+Unit Step
+Exponential
+Unit ramp
+Sinc
+Rectangular
+2. Write the codes to plot the following signals also simulate the signals:
+(a) sin(200πt),
+(b) sin(200πt+π/6),
+(c) sin(200πt-π/6),
+(d) cos(200πt),
+(e) sin(200πt+π/4),
+(f) cos(200πt- π/4)
+
+
+
+                                                    43
+3. Develop codes to simulate, and plot the results for an exponential signal: x(t) = k e−atu(t)
+for the cases: (a) k = 1 and a = 0.35 (b) k =1.5 and a= -0.45
+4. Sampling & Aliasing: Consider various human voice / speech (probably your voice both male
+and female) or music signals. Try different sampling rates and observe the effect of aliasing.
+5. Find the convolution integral of Unit step and exponential signals and write a program to sketch
+the out response of the system. Also verify the commutative property of convolution integral.
+6. Take any one periodic signal and find its Fourier series coefficients using exponential or trigono-
+metric FS method. Write a program to find its Fourier series coefficients. Also using FS coefficients,
+reconstruct the signal. Observe the effect of Gibbs phenomenon.
+7. Real time speech signal and Spectral analysis The speech signal has frequency components in the
+audio frequency range 300 Hz to 3400 Hz of the electromagnetic spectrum. Record the male and
+female voice speech Signal. Write a program to record the speech signals and sketch it in time
+domain, its amplitude spectrum and phase spectrum.
+8. The music signal has frequency components in the audio frequency range 20 Hz to 20000 Hz of the
+electromagnetic spectrum. Record or use the recorded music samples of different instruments (at
+least four) and Write a program to record the music signal and sketch it in time domain, its
+amplitude spectrum and phase spectrum. Also comment on the result.
+
+
+                           Group B (Any 9 & mini project compulsory)
+1.        Class and Objects:
+          i) Write a program in C++ to perform following operations on complex numbers Add,
+             Subtract, Multiply, Divide, Complex conjugate. Design the class for complex number
+             representation and the operations to be performed
+
+2.        Java Basics:
+          Write a program in Java to find all the roots of a quadratic equation.
+3.        Methods:
+          Write a program in Java using methods
+          i)   To find factorial of a given number.
+          ii)  To display first 50 prime numbers.
+          iii) To find sum and average of N numbers.
+4.        Constructor:
+          Create a Bank Account class with deposit, withdraw, and balance check functionalities...
+5.        Arrays & Strings:
+          Write a program in Java to sort
+          i)   List of Integers
+          ii)  List of Names
+6.        2 dimensional Arrays:
+          Write a Program in Java to add two matrices...
+7.        Inheritance:
+          Create a base class Employee and derived classes Manager, Developer with
+          overridden salary computation
+
+
+
+
+                                                   44
+8.       Interface: Implement a program using interfaces such as Vehicle with classes Car, Bike..
+
+9.       Abstract Class:
+         Demonstrate an example where both abstract class and interface are used in a payment
+         gateway context..
+10.      Exception:
+         i)   Write a program in JAVA using try and catch for exception handling.
+         ii)  Create a program to validate voter age using user-defined exceptions.
+11.      Threads:
+         Write a program to create multiple threads and demonstrate how two threads
+         communicate with each other
+12.      Compulsory: Mini Project ( Group of 3 )
+
+
+
+Virtual LAB Links:
+1. Object Oriented Programming with C++:
+https://cse02-iiith.vlabs.ac.in
+2.    Core Java Programming
+https://java-iitd.vlabs.ac.in/
+
+
+
+
+                                                   45
+                                    Savitribai Phule Pune University
+             Second Year of Electronics and Telecommunication Engineering (2024 Course)
+                           VSE-281-ETC: Electronics Skill Development Lab
+          Teaching Scheme                    Credits                  Examination Scheme
+Tutorial: 01 Hour/Week                          01           Term Work : 25 Marks
+Practical: 02 Hours/Week                        01           Practical : 25 Marks
+Prerequisite Courses: Basics of Electronics Engineering, Fundamentals of programming
+Companion Course: Universal Human Values (Practical)
+Course Objectives:
+
+     1. To impart knowledge about electronics system development
+
+     2. To make aware various tools and techniques for testing, simulation and PCB design
+
+     3. To acquaint industry standards for product development
+
+Course Outcomes:
+After successful completion of the course, students will be able to:
+CO1:        Build application specific electronic circuit/system.
+CO2:        Use various measuring, debugging and EDA tools effectively.
+CO3:        Exercise prototype towards product development.
+
+                    Tutorial shall be conducted based on the following content
+                                  A: Electronic circuit/system Basics
+1.          Introduction and Identification of active and passive components with circuit connec-
+            tions using breadboard.
+2.          Basic programming example with open source and proprietary microcontroller plat-
+            forms.
+3.          Sensor and actuator interfacing with microcontroller.
+4.          Integrating communication capability (Wired and wireless) with microcontroller.
+5.          Estimation of power budget and subsequent selection of power source/battery for the
+            application.
+                                B: Simulation, Testing and PCB Design
+6.          Simulation of above designed electronics circuit/system with simulation software and
+            PCB lay outing using appropriate EDA tool.
+7.          Soldering of component on the fabricated PCB.
+8.          Testing and debugging of built circuit/system with an appropriate measuring and de-
+            bugging tools. e.g. EMI/EMC
+                                 C: Prototype to Product Conversion
+9.          Design considerations for the enclosure
+10.         Case study of prototype system to product conversion.
+11.         Report and manual preparation for the system developed.
+
+
+
+
+                                                       46
+Text Books
+1. Simulation Softwares Help Manual (Examples. Multisim, Proteus, Altium Design).
+2. Principles of Measurement Systems by John P. Bently (Pearson).
+3. PCB Design and Layout Fundamentals for EMC, by Roger Hu
+4.     https://www.eitkw.com/wpcontent/uploads/2020/03/Arduino_Projects_Book.pdf?
+srsltid=AfmBOoraDaL3Q5_vDUB0CY6D_gLik6-53lYuwvXktbJlgzVk8z5T7ZoD
+5. Electronic Instrumentation; by H. S. Kalsi; McGraw-Hill Education India Pvt. Ltd.
+6. Modern Electronic Instrumentation and measurement Techniques; by A.D. Helfrich and
+W.D. Cooper, PHI publication
+7. Printed Circuit Boards: Design and Technology; Walter C Bosshart; McGraw Hill Education
+Reference Books
+1. Electrical and Electronic Measurements and Instrumentation by A. K. Sawhney; Dhanpati Rai
+& Co.
+2. Printed Circuits Handbook, Seventh Edition: 50th Anniversary Edition (ELECTRONICS),
+Clyde Coombs, Happy Holden, McGraw-Hill Education India Pvt. Ltd.
+3. Instrumentation measurement and Analysis by B.C. Nakra, K.K. Chaudhary D. Roy Choud- hury
+and Shail B. Jain, Linear integrated Circuits, 5th Edition, New Age International Publish- ers
+4. R S Khandpur, Printed Circuit Boards: Design - Fabrication and Assembly, Tata McGraw Hill
+5. Simon Monk Hacking Electronics, McGraw Hill
+
+
+
+Web Resources
+1. https://github.com/arduino/Arduino
+2.        https://spoken-
+tutorial.org/tutorialsearch/?search_foss=Arduino&search_ language=English
+3. https://worldskillsindia.co.in/worldskill/file/2019/Electronics.pdf
+
+
+
+
+                                                47
+                                    Savitribai Phule Pune University
+             Second Year of Electronics and Telecommunication Engineering (2024 Course)
+                        AEC-282- ETC: Modern Indian Language (Marathi)
+           Teaching Scheme                 Credits                Examination Scheme
+    Tutorial : 01 Hour/Week                  01          Term Work: 25 Marks
+    Practical : 02 Hours/Week                01
+Course Objectives: The course aims to:
+
+
+
+
+,                                                                                         ,
+z                                        Course Contents                                  r
+Unit I & II - (07 & 08 Hours)
+
+
+
+
+Case Study:
+Unit III & IV - (07 & 08 Hours)
+
+
+
+
+Learning Resources
+,                                                                                         ,
+zText Books:                                                                              r
+
+
+
+
+                                                  48
+         Guidelines for Ability Enhancement Courses - Modern Indian Language
+                                       (Marathi)
+         Term Work Evaluation
+
+  1.         Subject teacher should frame minimum 08 assignments-based covering on all four units.
+
+            श काने चारह यु न सवर कमान ०८ असाइनमट-अ यास मावर आधा रत तयार करावेत.
+
+   2.        They can identify students depending upon the degree of difficulty in understanding
+
+       the language and frame the assignments accordingly.
+
+          श क , व या याना भाषा समज यात कती अडचण येते यावर अवलंबून आ ण यानुसार
+         असाइनमट तयार क       शकतात.
+
+                           Suggested List of Assignments (Marathi):
+
+ 1. Read a specific column (Sports, political, finance, editorial, education,
+       international news etc) in the daily Marathi newspapers, summarize and present in
+
+   the practical. A summary should be added as part of the journal.
+
+          दै नक मराठ वतमानप ांम ये व श ट कॉलम (           डा, राजक य, व , संपादक य, श ण, आंतररा    य
+          बात या इ.) वाचा, सारांश   या आ ण व सादर करण करा. या संदभातला सगळा सारांश जनल म ये
+      जमा करावा .
+2. Write blogs and posts on social media up to 200 words on recent development in their field of study,
+
+         सोशल मी डयावर यां या अ यासा या        े ातील अल कडील वकासावर 200 श दांपयत लॉग
+         लहा,आ ण पो ट करावा
+
+
+
+
+                                                    49
+3. Professional letter / report writing.
+   a. Write letter to the principal for organizing NSS camp in nearby village. Preparation of the
+    budget, permission letters and report submission in the University
+
+    जवळ या गावात एनएसएस श बर आयोिजत कर यासाठ मु या यापकांना प                     लहा.
+    व यापीठात बजेट, परवानगी प े आ ण अहवाल सादर करणे.
+
+   b. Write a letter for internship sponsorship to any organization.
+
+     कोण याह सं थेला इंटन शप        ायोजक वासाठ प        लहा.
+
+4. Book Review – Students are expected to read any novel, fiction or literature book of their choice and
+
+    write a review on post it on social media of their choice.
+
+    पु तक पन
+           ु रावलोकन - व या यानी यां या आवडीचे कोणतेह कादं बर , का प नक कथा कं वा
+    सा ह य पु तक वाचावे आ ण यावर पुनरावलोकन लहून ते यां या आवडी या सोशल मी डयावर
+    पो ट करावे अशी अपे ा आहे .
+
+5. Participation in Competitions (in college/outside the college) debate, declamation, elocution – A
+
+    Report should be submitted
+
+     पधाम ये (महा व यालयात/महा व यालयाबाहे र) सहभाग वाद ववाद, भाषणे, व त ृ व -
+    अहवाल सादर करावा.
+
+ 6. Group Activity: Road show, skit play, one-act play
+     गट    याकलाप: रोड शो, ि कट ले, एकां कका
+
+ 7. Participation in Purushottam karandam, Firodia karandak, Dajikaka Gadgil Karandak and Shreetej
+
+   Karandak.
+   पु षो म करं डम, फरो दया करं डक, दाजीकाका गाडगीळ करं डक आ ण          ीतेज करं डक या    पधम ये
+  सहभाग न दवावा.
+
+
+ 8. Marathi film Review – Social Marathi movie available and write a review on post it on social media of
+
+    their choice.
+
+  मराठ    च पट पुनरावलोकन - सामािजक आशाय वर आधा रत मराठ                च पट उपल ध आहे आ ण या
+   च पटाची समी ा क न यावर सारांश लहावा             व तो वतमानप े कं वा सोशल मी डयावर पो ट करावा
+   पसंती या सोशल मी डयावर पो ट करा.
+
+
+
+
+                                                   50
+                                    Savitribai Phule Pune University
+             Second Year of Electronics and Telecommunication Engineering (2024 Course)
+                         EEM-283- ETC : Entrepreneurship Skill Development
+           Teaching Scheme                     Credits                   Examination Scheme
+    Tutorial : 01 Hour/Week                       01           Term Work : 25 Marks
+    Practical : 02 Hours/Week                     01
+Course Objectives: The course aims to:
+
+    1. Introduce the fundamental principles of entrepreneurship, forms of business organizations, and
+       the startup ecosystem.
+
+    2. Enable students to identify, evaluate, and select viable business opportunities using structured
+       techniques.
+
+    3. Familiarize students with business models, financial planning, and market validation strategies.
+
+    4. Expose students to key marketing strategies, customer acquisition techniques, and branding
+       essentials for startups
+
+    5. Develop students’ entrepreneurial mindset and their ability to communicate and pitch business
+       ideas effectively using structured storytelling techniques
+
+Course Outcomes: Upon successful completion of this course, students will be able to:
+
+     • CO1: Describe the role of entrepreneurship in economic growth and the startup ecosystem.
+
+     • CO2: Apply creative techniques to viable business ideas based on customer needs.
+
+     • CO3: Develop a basic business model using tools like the Business Model Canvas through
+       market research.
+
+     • CO4: Implement basic marketing strategies for startups.
+
+     • CO5: Deliver a concise business pitch using storytelling and effective communication tech-
+       niques.
+,                                                                                                         ,
+z                                            Course Contents                                              r
+
+        Complete the syllabus during tutorials, Discuss the issues and content more in details during
+                                        practical hours batchwise.
+
+Unit I - Introduction to Entrepreneurship
+
+Entrepreneurship: Definition and evolution, Role of entrepreneurship in economic development
+Role of entrepreneurship in economic development – Role in job creation, GDP, and innovation.
+Characteristics of an Entrepreneur: Key traits: Risk-taking, innovation, pro-activeness, Leadership,
+perseverance, and resilience
+Types of Entrepreneurships: Startup entrepreneurship, Social entrepreneurship, Intrapreneurship
+(corporate entrepreneurship), Lifestyle and small business entrepreneurship,
+
+                                                       51
+Forms of Business Organization – Sole proprietorship, partnership, private limited, public limited.
+Entrepreneurial Mindset: Growth mindset and adaptability, Creativity and problem-solving, Oppor-
+tunity recognition and initiative-taking
+Overview of the Startup Ecosystem: Key stakeholders: Incubators, accelerators, angel investors, VCs,
+Government support schemes (Startup India, Atal Innovation Mission, etc.), Global vs. Indian startup
+ecosystems
+Case Study:
+
+  1. Ritesh Agarwal – Founder of OYO Rooms (India)
+
+  2. Falguni Nayar – Founder of Nykaa (India)
+
+  3. Nandan Nilekani – Co-founder of Infosys & Architect of Aadhaar (India) etc.
+
+Unit II -Idea Generation & Opportunity Recognition
+
+Creativity Techniques for Idea Generation: Definition and importance of creativity in entrepreneur-
+ship. Brainstorming: Rules of effective brainstorming. Individual vs. group brainstorming. Mind
+Mapping: Visual idea structuring using central themes and branches. Tools (manual and digital) for
+mind mapping.
+Understanding Customer Needs and Pain Points: Customer pain points and their identification,
+Problem-solution fit: Linking pain points to possible solutions. Observational techniques, user in-
+terviews, and empathy mapping.
+Evaluating Opportunities: Difference between an “idea” and an “opportunity.” Basic filters: Desir-
+ability, feasibility, and viability. Tools: SWOT Analysis, Opportunity Matrix, Industry trends, market
+gaps.
+Feasibility Analysis Basics: Market Need Assessment: about the users, the problem complexity. Scal-
+ability Check: Geographically or vertically growth of the idea, Barriers to scaling. Introduction to the
+“Lean Canvas”.
+Case Study : Analyzing how “Dunzo” or “BigBasket” identified urban pain points and How “Zerodha”
+scaled in India with a digital-first approach
+Unit III - Business Model Development
+
+Introduction to Business Model Canvas: Definition and purpose of a business model, Overview of the
+Business Model Canvas by Osterwalder, Benefits of using BMC for startups.
+ Key Components of BMC: Value Proposition: Defining what unique value the product/service of-
+fers. Addressing customer pain points. Customer Segments: Identifying target customers. Creating
+customer personas Revenue Models: Direct sales, subscriptions, freemium, licensing, etc.
+Basic Market Research for Validation: Importance of market research in early-stage business devel-
+opment. Designing effective surveys and customer feedback forms. Conducting basic interviews and
+analyzing responses. Introduction to MVP (Minimum Viable Product) and feedback loops.
+Case study: Map the BMC for a well-known startup (e.g., Uber or Zomato).
+Unit IV - Marketing Strategies & Customer Acquisition
+
+
+
+                                                    52
+Basics of Branding and Positioning: Introduction to Brand – Elements of brand identity: name, logo,
+voice, tone, and values. Positioning – How to create a unique space in the customer’s mind. Position- ing
+maps, Value-based positioning vs. competitor-based positioning Startup Branding Challenges – Limited
+budget, building trust, clarity in messaging.
+Costing & Pricing Strategies – Fixed vs. variable costs, break-even analysis.
+Introduction to Digital Marketing: Distribution Channels: Traditional vs. digital distribution. Social
+Media Marketing: Platforms overview (Instagram, LinkedIn, Facebook, X/Twitter) Creating a content
+strategy and calendar Organic vs. paid reach
+Search Engine Optimization (SEO): Basics of how search engines work, Keyword research and con- tent
+optimization, On-page vs. off-page SEO Importance of Digital Presence – Website essentials, blogs, and
+analytics tools.
+Customer Acquisition Strategies: Understanding the Customer Journey – Awareness, interest, deci-
+sion, action. Early-Stage Customer Acquisition Tactics: Word-of-mouth & referrals, Influencer mar-
+keting (micro-influencers), Email marketing basics, building a landing page and collecting leads
+Retention vs. Acquisition – Importance of building long-term customer relationships.
+Case Studies :
+    1. Zomato – Branding & Positioning in a Competitive Market
+    2. Mamaearth – Digital-First Customer Acquisition
+    3. Nykaa – Customer Segmentation and Channel Strategy
+Unit V - Pitching & Business Communication
+
+Crafting an Elevator Pitch: Definition and purpose, Key elements: Problem, solution, value proposi- tion,
+target audience, Delivery tips: Clarity, brevity, confidence
+Storytelling & Communication: Importance of Storytelling in Business, Structure of a Business Story:
+Setup, Conflict, Resolution. Communication Skills: Verbal and Non-verbal
+ Overview of Funding Sources: Public & private capital sources, venture capital, debt financing. Boot-
+strapping: Meaning, benefits, and risks, Angel investors: Role, expectations, approach, Brief on
+incubators, government schemes, crowdfunding.
+Case study:
+    1. Shark Tank India – Pitch Analysis (Any Season)
+    2. Airbnb – The Original Pitch Deck
+    3. Dropbox – Storytelling Through Demonstration
+    4. Dunzo – Investor Pitch Evolution
+
+
+Learning Resources
+,                                                                                                       ,
+zText Books:                                                                                            r
+
+    1. Bygrave, W.D., Zacharakis, A., & Corbett, A.C. Entrepreneurship, 6th Edition, Wiley, 2025.
+       ISBN: 9781394262809.
+
+    2. Drucker, Peter F. Innovation and Entrepreneurship: Practice and Principles, Reprint Edition,
+       Harper Business, 2006. ISBN: 9780060851132.
+
+
+
+                                                    53
+    3. Osterwalder, Alexander & Pigneur, Yves. Business Model Generation: A Handbook for Vision-
+       aries, Game Changers, and Challengers, 1st Edition, Wiley, 2010. ISBN: 9780470876411.
+,                                                                                                      ,
+zReference Books:                                                                                      r
+
+    1. Ries, Eric. The Lean Startup: How Today’s Entrepreneurs Use Continuous Innovation to Create
+       Radically Successful Businesses, 1st Edition, Crown Business, 2011. ISBN: 9780307887894.
+
+    2. Kawasaki, Guy. The Art of the Start 2.0: The Time-Tested, Battle-Hardened Guide for Anyone
+       Starting Anything, Portfolio (Penguin Random House), 2015. ISBN: 9781591847847.
+,                                                                                                      ,
+MOOC / NPTEL/YouTube Links: -
+z                                                                                                      r
+
+    1. Entrepreneurship Essentials By Prof. Manoj Kumar Mondal IIT Kharagpur
+       https://onlinecourses.nptel.ac.in/noc20_ge08/preview
+
+    2. Entrepreneurship By Prof. C Bhaktavatsala Rao
+       IIT Madras https://onlinecourses.nptel.ac.in/noc21_mg70/preview
+
+    3. https://onlinecourses.nptel.ac.in/noc20_mg35
+
+    4. https://www.coursera.org/learn/entrepreneur-guide-beginners
+
+    5. https://wadhwanifoundation.org/
+,                                                                                                      ,
+YouTube/Video Links
+z                                                                                                      r
+
+    1. https://www.youtube.com/@wadhwani-foundation/videos
+
+                                         List of Assignments
+
+ No     Title           Objective               Description
+        En-
+        trepreneurial
+    1                   To encourage            Write a reflective essay (500–600 words) based on
+        Mindset
+                        students to explore     the following:
+        Reflection
+                        their personal views    • Explain what entrepreneurship means to you
+                        on entrepreneurship     personally.
+                        and recognize the key   • Identify an entrepreneur (Indian or global) whom
+                        characteristics of an   you admire and explain the reasons for your
+                        entrepreneurial         admiration.
+                        mindset by studying     • Highlight specific mindset traits (e.g., risk-taking,
+                        the journey of a        resilience, innovation, adaptability) that contributed to
+                        real-world              this entrepreneur’s success.
+                        entrepreneur.           • Reflect on how these traits align with your own
+                                                strengths or indicate areas you wish to develop.
+
+
+
+
+                                                   54
+    Idea
+2   Generation   To foster creativity,     Generate 10 Business Ideas
+    Challenge    structured                Use any structured brainstorming technique
+                 brainstorming, and        Ideas can be tech-based, social impact, service-based,
+                 the ability to identify   or product-based
+                 potential business        2. Select One Idea- Choose the most promising idea
+                 opportunities based       from your list
+                 on real-world             3. Write a 1-page Concept Summary, include the
+                 problems.                 following:
+                                           • Problem Identified: Describe the specific problem or
+                                           pain point your idea addresses.
+                                           • Solution Overview: Briefly describe your business
+                                           idea.
+                                           • Target Audience: Identify the group of people or
+                                           organizations that would benefit.
+                                           • Market Potential: Discuss the viability and scalability
+                                           of the idea.
+    Business
+    Model &
+3                To help students          Part A: Business Model Canvas
+    Customer
+                 develop a clear,          1. Choose a business idea (from Assignment 2 or a
+    Validation
+                 structured business       new one).
+                 model and test its        2. Create a Business Model Canvas with all 9 key
+                 assumptions through       blocks:
+                 customer                  o Customer Segments
+                 conversations. The        o Value Propositions
+                 goal is to learn how      o Channels
+                 to validate ideas         o Customer Relationships
+                 through real-world        o Revenue Streams
+                 feedback and refine       o Key Resources
+                 the business concept      o Key Activities
+                 accordingly.              o Key Partnerships
+                                           o Cost Structure
+                                           3. Present the BMC in visual or tabular format.
+
+
+
+
+                                             55
+                                           Part B: Customer Interviews & Insights
+                                           1. Identify 2–3 potential customers from your target
+                                           segment.
+                                           2. Conduct brief interviews (5–10 minutes each) to
+                                           gather insights on:
+                                           o Their pain points
+                                           o Their reaction to your proposed solution
+                                           o Willingness to pay or use your product/service
+                                           3. Summarize findings in a 1–1.5 page report that
+                                           includes:
+                                           o Key customer quotes or paraphrased insights
+                                           o A revised Value Proposition or Customer Segment
+                                           block (if needed)
+                                           o A short reflection: key learnings and potential
+                                           changes to your idea
+    Business      To develop a practical   You are preparing to launch your business idea.
+4
+    Launch Plan   understanding of how     Prepare a combined Marketing and Financial Snapshot
+    – Marketing   marketing strategy       including the following
+    & Financial   and financial planning   Part A: Marketing Campaign Plan
+    Snapshot      go hand-in-hand in       • Define your target market by identifying primary
+                  launching a startup.     customers.
+                  Students will define a   • Design a mini-campaign using one or more of the
+                  basic marketing          following channels:
+                  campaign and align it    Social media (e.g., Instagram, LinkedIn)
+                  with estimated costs,    Print/digital flyers
+                  pricing, and projected   Email marketing
+                  revenue.                 • Describe the campaign content, including the
+                                           message or offer to be promoted.
+                                           • Optionally, create 1–2 sample marketing materials.
+                                           • Write a 300-word explanation outlining your
+                                           marketing strategy and expected impact.
+                                           Part B: Financial Snapshot
+                                           1. Startup Costs – Estimate your initial costs (fixed +
+                                           variable)
+                                           2. Pricing Strategy – State your pricing model and
+                                           justification
+                                           3. Break-even Analysis – Basic cost vs. sales estimate
+                                           4. 6-Month Revenue Projection – Expected sales and
+                                           income
+                                           5. Format: Use a simple table or spreadsheet (optional)
+
+
+
+                                             56
+    Elevator
+5                 To help students       Prepare a 90-second elevator pitch for your
+    Pitch Video
+                  develop confidence     business idea (the same or refined idea used in earlier
+                  and clarity in         assignments).
+                  presenting their       Your pitch should cover the following elements:
+                  business idea in a     o The Problem – Problem Identification
+                  short, compelling      o The Solution – Description of your product/service.
+                  format. The exercise   o Value Proposition – The unique value proposition.
+                  simulates real-world   o Target Audience – Audience for your idea.
+                  investor or            o Call to Action – E.g. request for support, funding,
+                  networking scenarios   feedback, etc.
+                  where entrepreneurs    Deliver Your Pitch:
+                  must grab attention    o Record a video and submit it with written version of
+                  quickly.               your pitch.
+                                         o Ensure clear speech, confident body language (for
+                                         video), and persuasive tone.
+                                         Reflection (Short Write-up):
+                                         o Share what you learned about communicating your
+                                         idea
+                                         o Describe challenges or rewards you experienced in
+                                         the process
+
+
+
+
+                                           57
+                                    Savitribai Phule Pune University
+             Second Year of Electronics and Telecommunication Engineering (2024 Course)
+                               VEC-284- ETC - Environment Awareness
+           Teaching Scheme                   Credits                   Examination Scheme
+    Theory: 02 Hours/Week                       02           CCE : 15 Marks
+                                                             End-Semester : 35 Marks
+Course Objectives: The course aims to:
+
+    1. To introduce the multidisciplinary nature and scope of environmental studies.
+
+    2. To understand ecosystem structures, biodiversity, and ecological balance through hands-on ob-
+       servation and documentation.
+
+    3. To examine the use and impact of natural resources on environmental sustainability.
+
+    4. To explore biodiversity conservation practices and develop eco-sensitive thinking through field-
+       based inquiry.
+
+Course Outcomes: Upon successful completion of this course, students will be able to:
+
+     • CO1. Illustrate the interdependence of ecosystems through activity-based exploration
+
+     • CO2. Analyze the role of natural resources in sustainable development using real-world data.
+
+     • CO3. Investigate biodiversity threats and conservation strategies through surveys and projects
+
+     • CO4. Create awareness tools or reports promoting sustainability based on their findings.
+,                                                                                                         ,
+z            Conduct course Contents during practical hours alongwith assignment                          r
+Unit I - Environment and its Issues
+
+a) Environment Meaning of Environment, Types of Environment, Components of Environment
+b) Man- Environment relationship, importance of environment
+c) Need for Public Awareness
+d) Ecosystem-Meaning, Major Components of Ecosystem
+e) Case studies of Forest Ecosystem, Grassland Ecosystem, Desert Ecosystem, Aquatic Ecosystem
+f) Stability of Ecosystem in Sustainable Environment
+Unit II - Environment Pollution
+
+a) Definition of Pollution, Types of Pollution
+b) Air Pollution-Meaning, Sources, effects of air pollution, Air Pollution Act
+c) Water Pollution Meaning, Sources, Effects of Water pollution, Water Pollution Act
+d) Noise Pollution Meaning, Sources, Effect of Noise Pollution
+e) Solid Waste Pollution Meaning, sources, Effect of Waste Pollution
+Unit III - e-Waste Managements and Acts
+
+e-waste; composition and generation. Global context in e-waste; e-waste pollutants, e-waste haz-
+ardous properties, Effects of pollutant (e-waste)on human health and surrounding environment,
+
+                                                     58
+domestic e-waste disposal, Basic principles of e-waste management, Technologies for recovery of
+resources from electronic waste, resource recovery potential of e-waste, steps in recycling and recov-
+ery of materials - mechanical processing, technologies for recovery of materials, occupational and
+environmental health perspectives of recycling e-waste in India.
+Unit IV - e-Waste Control and Measures
+
+ Need for stringent health safeguards and environmental protection laws in India, Extended Produc- ers
+Responsibility (EPR), Import of e-waste permissions, Producer-Public-Government cooperation,
+Administrative Controls & Engineering controls, monitoring of compliance of Rules, Effective regula
+tory mechanisms strengthened by manpower and technical expertise, Reduction of waste at source
+in India.
+                                            Assignments
+
+    Week                                       Topic to be covered
+     1     Introduction : Group discussion and poster making on "Why Environmental Studies
+           Matter for Technologists"
+     2     Eco Mapping: Identify and document elements of an ecosystem within the college campus
+     3     Model the Food Web: Create food chains and food webs using flowcharts (digital tools
+           like Canva / Lucid chart)
+     4     Case Study Review: Present real-world examples of forest, grassland, and aquatic
+           ecosystems
+     5     Soil and Water Testing Activity: Test soil pH, water quality (use school-level kits), and
+           interpret results
+     6     Field Visit / Virtual Tour: Document deforestation or mining impact in a chosen region;
+           students prepare a comparative report
+     7     Water Audit Exercise: Estimate water usage at home/hostel and identify areas of overuse;
+           propose conservation measures
+     8     Renewable Energy Models: Create a simple model or PPT on any renewable energy
+           source (e.g., solar cooker, wind energy demo)
+     9     Biodiversity Documentation: Survey nearby areas for plant/animal species; identify any
+           endemic/endangered species
+     10    Conservation Proposal Pitch: In groups, students prepare a mini proposal for biodiversity
+           conservation at local level
+     11    Group Project Work: Work on mini project report/documentation on any
+           ecosystem/natural resource/e-waste management topics
+     12    Presentation & Viva: Final presentation and oral examination based on project work and
+           learning portfolio
+
+Learning Resources
+,                                                                                                      ,
+zText Books:                                                                                           r
+
+    1. Odum, Eugene P. “Fundamentals of Ecology”
+
+    2. R. Rajagopalan, “Environmental Studies – From Crisis to Cure”, Oxford
+
+                                                     59
+,                                                                                        ,
+zReference Books:                                                                        r
+
+    1. Erach Bharucha, “Textbook of Environmental Studies”, UGC
+
+    2. Anubha Kaushik and C.P. Kaushik, “Environmental Studies”, New Age International
+,                                                                                        ,
+zE-Books Links: -                                                                        r
+
+    1. https://www.environment.gov.in
+
+    2. https://www.unep.org
+
+    3. https://news.mit.edu/2013/ewaste-mit
+
+
+
+
+                                                 60
+       Savitribai Phule Pune University, Pune
+                                     Maharashtra, India
+
+
+
+
+          Task Force for Curriculum Design and Development
+Support by : Dr G K Kharate, Dr D S Bormane, Dr Pradeep Mane, Dr D G Bhalke, Dr. Dhonde
+                                      SomnaDhonde
+                                 Team Members for Course Design
+                                   Electronics Circuits
+Dr. B. D. Jadhav, (BoS Member)       RSCOE, Pune
+Dr. V. J. Gond                       MET, Nashik
+Dr. P. G. Shete                      PVG, Pune
+Dr. S. S. Lokhande                   SCOE.Pune
+Dr. S. M. Hambarde                   JSCOE, Pune
+Dr. Pramod Chavan                    KJCOE
+
+                                   Engg. Mathematics - III
+Dr. B. D. Jadhav, (BoS Member)       RSCOE, Pune
+Dr. N. S. Mujumdar                   RSCOE, Pune
+Dr. Pravin Thakare                   ZCOER, Pune
+Dr. Radhika Menon                    BoS ES Co-ordinator
+
+                                   Digital Electronics
+Dr. M. B. Mali (BoS Member)          SCOE, Pune
+Dr. Pranoti Mane                     Wadia College of Engineering, Pune
+Dr. Rahul M Mulajkar                 JCOE, Junner
+
+Dr. Sushma Wadar                     AIT, Pune
+Dr. S. R. Gagare                     AVCOE, Sangamner
+Dr. D. G. Ganage                     SCOE, Pune
+
+                                   MDM -1 (Data Structures & Algorithms)
+Dr. Dale M. P. (BoS Member)          Wadia College of Engineering, Pune
+Dr. G. R. Patil                     AIT, Pune
+Prof. Dhekale Santosh B.             AISSMS CoE, Pune
+
+
+
+                                                   61
+Dr. M. V. Bhalerao                 PVG, Nashik
+Dr. Varsha Degaonkar               I2IT,Pune
+Prof. Armaan Shaikh                Dr. D. Y. Patil Institute of Technology, Pune
+
+                                  Engineering Economics & Applications
+Dr. B. S. Agarkar, (BoS Member)    Sanjivani College of Engineering, Kopargaon
+Dr. Pratap Shinde                  BSCOER, Narhe, Pune
+Dr Sudhir Joshi                    BSCOER, Narhe, Pune
+Dr. Makrand Jadhav                 RMD Sinhgad SoE, Pune
+Dr.J.P.Shinde                      RMD Sinhgad SoE, Pune
+
+                                  Universal Human Values & Professional ethics
+Dr. Mahesh Kolte                   PCCOE, Pune
+
+                                   Community Engagement Project
+Dr. Prachi Mukherji (BoS Member)      Cummins CoE, Pune
+Dr Ansari Saniya                      ADYPSoE, Lohegaon, Pune
+Dr. S.M. Kulkarni                     PVPIT, Pune
+Dr. Dhonde S. B.                      AISSMCOE, Pune
+Dr. Yogesh Thakare                    PVG, Pune
+
+                                     Communication Engineering
+Dr. P. Malthi, (BoS Member)           DYPCOE, Pune
+
+Dr. M. B. Kadu                        AVCOE, Sangamner
+Dr. P. N. Kota                        MECOE, Pune
+Dr. Pratibha P. Chavan                Trinity Engg College, Pune
+Dr. Sonal Jagtap                      SKNCOE, Pune
+Dr. Yogesh Risodkar                   Sandeep Institute and Research, Nashik
+
+                                     Signals and Systems
+Dr. R. S. Pawase, (BoS Member)        AVCOE, Sangamner
+Dr. D. G. Bhalke                      Dr. D. Y. Patil Institute of Technology, Pune
+Dr. Manjare C. A.                     JSCOE, Pune
+Dr. R. G. Mapari                      PCCOER, Pune
+S Mohan Mahalakshmi Naidu             I2IT, Pune
+Prof. G. N. Gaikwad                   SCOE, Pune
+
+                                      Control Systems
+Dr. S. S. Musale, (BoS Member)        Cummins CoE, Pune
+Dr. Yogesh Angal                      BSCOER, Pune
+Dr. S. O. Rajankar                    SCOE, Pune
+
+
+                                                 62
+Dr. U. V. Patil                           MET, Nashik
+Prof. M. P. Potdar                        PVG Nashik
+Prof Nitin Gaikwad                        APCOER, Pune
+
+                                         MDM-2 (Object-Oriented Programing)
+Dr. S. K. Moon, (BoS Member)              PICT, Pune
+Prof. V. V. Sovani                        PVG, Pune
+Dr. Mrinal Dhanvijay                      SCOE. Pune
+Prof. S. A. Koti                          Sinhgad College of Engineering, Pune
+Prof. A. A. Labade                        Dr. D. Y. Patil Institute of Technology, Pune
+
+                                         Electronics Skill Development Lab
+Dr. Shailesh Kulkarni, (BoS Member)           VIIT, Pune
+Dr. D.S. Mantri                               SIT Lonawala
+Dr. A. N. Paithane                            RSCOE, Pune
+Dr. Ghate Pravin                              RSCOE, Pune
+
+                                         Entrepreneurship Skill Development
+Dr. Shailesh Kulkarni, (BoS Member)       VIIT, Pune
+Dr. S. M. Turkane                         PREC, Loni
+Dr. M. M. Jadhav                          RMD Sinhgad SoE,Pune
+Dr. Pratap Shinde                         BSCOER, Narhe, Pune
+Dr J J Chopade                            Matoshri CoER, Nashik
+
+                                         Environment Awareness
+Dr. S. S. Musale, (BoS Member)            Cummins CoE, Pune
+Dr. Mrs. A n i t a Patil                  Pravara Engg College Nagar
+Dr. Chopade                               Wadia College of Engineering, Pune
+Dr Sujata Rao                             Ramchandra CoE, Pune
+
+                                             Chairman
+
+ Dr. S. D. Shirbahadurkar - Board of Studies Electronics & Telecommunication Engineering
+                            Savitribai Phule Pune University, Pune
+
+                                                Dean
+
+
+                           Dr. Pramod Patil - Dean – Science and Technology
+                                  Savitribai Phule Pune University, Pune
+
+
+
+
+                                                   63
+
