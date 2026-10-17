@@ -190,7 +190,7 @@ const SubjectDetail: React.FC = () => {
                     isMastered ? 'border-[#F63C49] bg-[#D61A40] shadow-[0_0_15px_#F63C49]' : isActive ? 'border-white bg-white' : 'border-white/10'
                   }`}></div>
 
-                  <div className="bg-[#0a0a0a] p-8 rounded-3xl border border-white/5 hover:border-white/10 transition-all">
+                  <div className="surface-1 p-8 rounded-3xl hover:border-white/10 transition-all">
                     <div className="flex flex-col sm:flex-row justify-between items-start mb-8 gap-6 sm:gap-0">
                       <button
                         type="button"
@@ -238,7 +238,7 @@ const SubjectDetail: React.FC = () => {
                     {!isCollapsed && (<>
                     {/* Topics List */}
                     {unit.topics && (
-                       <div className="mb-8 p-6 rounded-2xl bg-white/5 border border-white/5">
+                       <div className="mb-8 p-6 rounded-2xl surface-2">
                          <h3 className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">
                            <List size={12} /> Key Topics <span className="ml-auto font-mono text-slate-500">{(p.topicsDone || []).filter(x => unit.topics.includes(x)).length}/{unit.topics.length}</span>
                          </h3>
@@ -307,7 +307,7 @@ const SubjectDetail: React.FC = () => {
 
         {/* Sidebar */}
         <div className="lg:col-span-4 space-y-6">
-           <div className="p-8 rounded-3xl bg-[#0a0a0a] border border-white/5 min-h-[300px]">
+           <div className="p-8 rounded-3xl surface-1 min-h-[300px]">
               <h3 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-6 px-1 flex items-center justify-between">
                 Recommended Resources
                 <Link to="/app/resources" aria-label="Open the resource library" className="text-white hover:text-[#F63C49] transition-colors flex items-center gap-1">

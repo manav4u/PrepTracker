@@ -260,7 +260,7 @@ const TodoList: React.FC = () => {
         </div>
         
         {/* Progress Unit */}
-        <div className="w-full md:w-64 bg-[#0a0a0a] border border-white/10 p-4 rounded-2xl relative overflow-hidden">
+        <div className="w-full md:w-64 surface-1 p-4 rounded-2xl relative overflow-hidden">
             <div className="flex justify-between items-end mb-2 relative z-10">
                 <span className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Tasks done</span>
                 <span className="text-right">
@@ -283,7 +283,7 @@ const TodoList: React.FC = () => {
         
         {/* INPUT CONSOLE */}
         <div className="lg:col-span-4 space-y-6">
-            <div className="bg-[#050505] border border-white/10 rounded-3xl p-6 lg:p-8 sticky top-8">
+            <div className="surface-1 rounded-3xl p-6 lg:p-8 sticky top-8">
                 <div className="flex items-center gap-2 mb-6 text-white/50">
                     <LayoutList size={18} />
                     <h2 className="text-xs font-bold uppercase tracking-widest">Add New Task</h2>
@@ -359,7 +359,7 @@ const TodoList: React.FC = () => {
             
             {/* Controls */}
             <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-                <div className="flex bg-[#0a0a0a] border border-white/10 p-1 rounded-xl">
+                <div className="flex surface-2 p-1 rounded-xl">
                     {(['ALL', 'ACTIVE', 'COMPLETED'] as const).map((f) => (
                         <button
                             key={f}
@@ -408,7 +408,7 @@ const TodoList: React.FC = () => {
                             <div 
                                 key={task.id}
                                 className={`
-                                    group relative bg-[#0a0a0a] border rounded-2xl p-5 transition-all duration-300 
+                                    group relative surface-1 rounded-2xl p-5 transition-all duration-300 
                                     hover:translate-x-1 flex items-start gap-5
                                     ${task.completed ? 'opacity-50 border-white/5' : `hover:border-white/20 ${priConfig.border} ${priConfig.glow}`}
                                 `}

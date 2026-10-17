@@ -248,7 +248,7 @@ const CalculatorPage: React.FC = () => {
         </div>
 
         <div className="lg:col-span-5 lg:sticky lg:top-8 space-y-6">
-          <div className="rounded-[2.5rem] bg-[#050505] border border-white/10 p-8 lg:p-12 relative overflow-hidden flex flex-col items-center text-center shadow-2xl">
+          <div className="rounded-[2.5rem] surface-1 p-8 lg:p-12 relative overflow-hidden flex flex-col items-center text-center">
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
             <div className="relative z-10 w-full" aria-live="polite">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/5 mb-8">

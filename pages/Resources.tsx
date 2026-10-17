@@ -125,7 +125,7 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ item, onClick, isSelectionM
             className={`group relative border rounded-xl p-6 transition-all duration-300 overflow-hidden flex flex-col h-full cursor-pointer hover:-translate-y-1 text-left w-full ${
                 isSelected 
                 ? 'bg-[#F63C49]/10 border-[#F63C49] shadow-[0_0_20px_rgba(246,60,73,0.15)]' 
-                : 'bg-white/[0.02] border-white/5 hover:border-[#F63C49]/50 hover:bg-white/[0.04] hover:shadow-xl hover:shadow-[#F63C49]/5'
+                : 'surface-1 hover:border-[#F63C49]/50 hover:shadow-xl hover:shadow-[#F63C49]/5'
             }`}
         >
             {/* Hover Scan Effect - disabled if selected or in selection mode */}

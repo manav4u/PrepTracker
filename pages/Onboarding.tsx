@@ -193,7 +193,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
                     </div>
 
                     {/* Input Container */}
-                    <div className="bg-[#050505] border border-white/10 p-8 rounded-[2rem] relative overflow-hidden group shadow-2xl">
+                    <div className="surface-1 p-8 rounded-[2rem] relative overflow-hidden group">
                         {/* Top Accent */}
                         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[2px] bg-[#D61A40] blur-[8px]"></div>
 

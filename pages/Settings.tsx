@@ -286,7 +286,7 @@ const SettingsPage: React.FC = () => {
         <div className="space-y-8">
 
             {/* SECTION: OPERATOR IDENTITY */}
-            <section className="relative group bg-[#050505] border border-white/10 rounded-3xl p-8 overflow-hidden hover:border-white/20 transition-all">
+            <section className="relative group surface-1 rounded-3xl p-8 overflow-hidden hover:border-white/20 transition-all">
                 <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
                     <User size={120} strokeWidth={0.5} />
                 </div>
@@ -398,7 +398,7 @@ const SettingsPage: React.FC = () => {
 
 
             {/* SECTION: ACADEMIC CONFIGURATION */}
-            <section className="bg-[#050505] border border-white/10 rounded-3xl p-8">
+            <section className="surface-1 rounded-3xl p-8">
                 <div className="flex justify-between items-start mb-8">
                     <h2 className="text-xl font-display font-bold text-white flex items-center gap-3">
                         <Terminal size={20} className="text-[#F63C49]" />
@@ -427,7 +427,7 @@ const SettingsPage: React.FC = () => {
 
             {/* SECTION: DATA PORTABILITY */}
             <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="bg-[#050505] border border-white/10 rounded-3xl p-8 flex flex-col justify-between">
+                <div className="surface-1 rounded-3xl p-8 flex flex-col justify-between">
                     <div>
                         <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
                            <Save size={16} /> Data Portability
@@ -488,7 +488,7 @@ const SettingsPage: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="bg-[#050505] border border-red-500/20 rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden group">
+                <div className="surface-1 border-red-500/20 rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden group">
                     <div className="absolute inset-0 bg-red-900/5 group-hover:bg-red-900/10 transition-colors"></div>
                     <div className="relative z-10">
                         <h3 className="text-lg font-bold text-red-500 mb-2 flex items-center gap-2"><AlertTriangle size={16} /> Danger Zone</h3>
