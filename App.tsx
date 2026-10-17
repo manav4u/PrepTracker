@@ -40,7 +40,7 @@ const NavItem = ({ to, icon: Icon, active, label, short }: { to: string, icon: a
     <Icon size={20} strokeWidth={active ? 2.5 : 2} className="lg:w-[22px] lg:h-[22px]" />
     <span aria-hidden="true" className="lg:hidden text-[7px] font-bold uppercase tracking-widest leading-none">{short || label}</span>
     {active && (
-      <span className="absolute -bottom-2 lg:top-1/2 lg:-right-2 w-1 h-1 lg:w-1.5 lg:h-1.5 bg-[#E11D48] rounded-full shadow-[0_0_10px_#E11D48]"></span>
+      <span className="absolute -bottom-2 lg:top-1/2 lg:-right-2 w-1 h-1 lg:w-1.5 lg:h-1.5 bg-[#D61A40] rounded-full shadow-[0_0_10px_#F63C49]"></span>
     )}
   </Link>
 );
@@ -71,7 +71,7 @@ export default function App() {
                      location.pathname === '/' ? <LandingPage /> : <Navigate to="/landing" />
                 ) : (
                     // APP SHELL
-                    <div className="flex flex-col lg:flex-row min-h-screen bg-[#030303] text-slate-200 selection:bg-[#E11D48] selection:text-white overflow-hidden">
+                    <div className="flex flex-col lg:flex-row min-h-screen bg-[#030303] text-slate-200 selection:bg-[#D61A40] selection:text-white overflow-hidden">
 
                     {/* Mobile Branding Header */}
                     <div className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-[#030303]/80 backdrop-blur-xl border-b border-white/5 px-6 py-4 flex justify-between items-center">
@@ -132,8 +132,8 @@ export default function App() {
 
                         <div className="hidden lg:flex mt-4 pt-8 border-t border-white/5 w-full flex-col items-center gap-6">
                         <div className="relative group">
-                            <div className="absolute inset-0 bg-[#E11D48] rounded-full blur-md opacity-0 group-hover:opacity-20 transition-opacity"></div>
-                            <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#E11D48] transition-all">
+                            <div className="absolute inset-0 bg-[#D61A40] rounded-full blur-md opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                            <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#F63C49] transition-all">
                                 <HardDrive size={20} />
                             </div>
                             <div className="absolute left-16 top-1/2 -translate-y-1/2 px-3 py-1 bg-white text-black text-[8px] font-bold uppercase tracking-widest rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-xl">
@@ -155,7 +155,7 @@ export default function App() {
                         <div className="flex items-center gap-4 text-sm font-medium text-white/60">
                             <span>{new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</span>
                             <span className="w-1 h-1 rounded-full bg-white/20"></span>
-                            <span className="text-[#E11D48]">First Year Engineering</span>
+                            <span className="text-[#F63C49]">First Year Engineering</span>
                         </div>
 
                         <div className="flex items-center gap-4">
@@ -178,7 +178,7 @@ export default function App() {
                     </main>
 
                     {/* Background Decor */}
-                    <div className="fixed top-0 right-0 w-[500px] lg:w-[800px] h-[500px] lg:h-[800px] bg-[#E11D48] opacity-[0.03] blur-[100px] lg:blur-[150px] rounded-full pointer-events-none -z-10 translate-x-1/3 -translate-y-1/3"></div>
+                    <div className="fixed top-0 right-0 w-[500px] lg:w-[800px] h-[500px] lg:h-[800px] bg-[#D61A40] opacity-[0.03] blur-[100px] lg:blur-[150px] rounded-full pointer-events-none -z-10 translate-x-1/3 -translate-y-1/3"></div>
                     <div className="fixed bottom-0 left-0 w-[400px] lg:w-[600px] h-[400px] lg:h-[600px] bg-blue-600 opacity-[0.03] blur-[100px] lg:blur-[150px] rounded-full pointer-events-none -z-10 -translate-x-1/3 translate-y-1/3"></div>
                     </div>
                 )

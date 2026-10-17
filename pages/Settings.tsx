@@ -40,7 +40,7 @@ const ConfirmModal = ({ isOpen, title, description, onConfirm, onCancel, isDange
                 isDanger ? 'border-red-500/30' : 'border-white/10'
             }`}>
                 <div className="flex items-center gap-3 mb-6">
-                    {isDanger ? <AlertTriangle className="text-red-500" size={24} /> : <Terminal className="text-[#E11D48]" size={24} />}
+                    {isDanger ? <AlertTriangle className="text-red-500" size={24} /> : <Terminal className="text-[#F63C49]" size={24} />}
                     <h3 className={`text-xl font-display font-bold ${isDanger ? 'text-red-500' : 'text-white'}`}>{title}</h3>
                 </div>
                 
@@ -228,14 +228,14 @@ const SettingsPage: React.FC = () => {
       {isBusy.active && (
         <div className="fixed inset-0 z-[100] bg-[#030303]/95 backdrop-blur-3xl flex flex-col items-center justify-center animate-in fade-in duration-300">
             <div className="relative mb-8">
-                <div className="absolute inset-0 bg-[#E11D48] rounded-full blur-xl opacity-20 animate-pulse"></div>
-                <Loader2 size={64} className="text-[#E11D48] animate-spin relative z-10" />
+                <div className="absolute inset-0 bg-[#D61A40] rounded-full blur-xl opacity-20 animate-pulse"></div>
+                <Loader2 size={64} className="text-[#F63C49] animate-spin relative z-10" />
             </div>
             <h2 className="text-3xl font-display font-bold text-white tracking-[0.2em] uppercase animate-pulse mb-2">
                 {isBusy.message}
             </h2>
             <div className="h-1 w-64 bg-white/10 rounded-full overflow-hidden">
-                <div className="h-full bg-[#E11D48] animate-[progress_1.5s_ease-in-out_infinite] w-full origin-left"></div>
+                <div className="h-full bg-[#D61A40] animate-[progress_1.5s_ease-in-out_infinite] w-full origin-left"></div>
             </div>
             <p className="text-[10px] font-mono text-slate-500 mt-4 uppercase tracking-widest">Do not close window</p>
         </div>
@@ -267,7 +267,7 @@ const SettingsPage: React.FC = () => {
         {/* Header */}
         <header className="mb-16 border-b border-white/5 pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
-                <div className="flex items-center gap-2 text-[#E11D48] mb-2">
+                <div className="flex items-center gap-2 text-[#F63C49] mb-2">
                     <Terminal size={16} />
                     <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em]">Settings</span>
                 </div>
@@ -292,7 +292,7 @@ const SettingsPage: React.FC = () => {
                 </div>
                 
                 <h2 className="text-xl font-display font-bold text-white mb-8 flex items-center gap-3">
-                    <HardDrive size={20} className="text-[#E11D48]" />
+                    <HardDrive size={20} className="text-[#F63C49]" />
                     Your profile
                 </h2>
 
@@ -305,7 +305,7 @@ const SettingsPage: React.FC = () => {
                                 aria-label="Your name"
                                 value={profile.name}
                                 onChange={(e) => update('name', e.target.value)}
-                                className="w-full bg-transparent border-b border-white/20 py-2 text-2xl font-display font-bold text-white focus:border-[#E11D48] focus:outline-none transition-colors placeholder:text-white/10"
+                                className="w-full bg-transparent border-b border-white/20 py-2 text-2xl font-display font-bold text-white focus:border-[#F63C49] focus:outline-none transition-colors placeholder:text-white/10"
                             />
                         </div>
                         <div className="space-y-2">
@@ -315,7 +315,7 @@ const SettingsPage: React.FC = () => {
                                 value={profile.prn || ''}
                                 onChange={(e) => update('prn', e.target.value)}
                                 placeholder="NOT_SET"
-                                className="w-full bg-transparent border-b border-white/20 py-2 text-xl font-mono text-slate-300 focus:border-[#E11D48] focus:outline-none transition-colors placeholder:text-white/10"
+                                className="w-full bg-transparent border-b border-white/20 py-2 text-xl font-mono text-slate-300 focus:border-[#F63C49] focus:outline-none transition-colors placeholder:text-white/10"
                             />
                         </div>
                         <div className="space-y-2">
@@ -325,7 +325,7 @@ const SettingsPage: React.FC = () => {
                                 type="date"
                                 value={profile.examStartDate || ''}
                                 onChange={(e) => update('examStartDate', e.target.value || undefined)}
-                                className="w-full bg-transparent border-b border-white/20 py-2 text-xl font-mono text-slate-300 focus:border-[#E11D48] focus:outline-none transition-colors [color-scheme:dark]"
+                                className="w-full bg-transparent border-b border-white/20 py-2 text-xl font-mono text-slate-300 focus:border-[#F63C49] focus:outline-none transition-colors [color-scheme:dark]"
                             />
                         </div>
                      </div>
@@ -349,7 +349,7 @@ const SettingsPage: React.FC = () => {
                                             if (e.target.value) d[su.id] = e.target.value; else delete d[su.id];
                                             update('examDates', d);
                                         }}
-                                        className="bg-transparent border-b border-white/20 py-1 text-sm font-mono text-slate-300 focus:border-[#E11D48] focus:outline-none transition-colors [color-scheme:dark]"
+                                        className="bg-transparent border-b border-white/20 py-1 text-sm font-mono text-slate-300 focus:border-[#F63C49] focus:outline-none transition-colors [color-scheme:dark]"
                                     />
                                 </div>
                             ))}
@@ -359,12 +359,12 @@ const SettingsPage: React.FC = () => {
                      {/* Visual ID Card Preview */}
                      <div className="relative w-full aspect-[1.58/1] rounded-2xl bg-[#020202] overflow-hidden border border-white/10 group shadow-2xl hover:scale-[1.02] transition-transform duration-500">
                         {/* Background Effects */}
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(225,29,72,0.1),transparent_70%)]"></div>
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(246,60,73,0.1),transparent_70%)]"></div>
                         
                         {/* Content Container */}
                         <div className="relative z-10 p-6 sm:p-8 flex flex-col justify-between h-full">
                             <div className="flex justify-between items-start">
-                                <HardDrive size={24} className="text-[#E11D48]" />
+                                <HardDrive size={24} className="text-[#F63C49]" />
                                 <div className="text-right">
                                     <span className="text-[8px] font-bold border border-white/20 px-1.5 py-0.5 rounded text-white/50 bg-white/5 uppercase tracking-widest">PrepTracker Local</span>
                                 </div>
@@ -383,7 +383,7 @@ const SettingsPage: React.FC = () => {
                             <div className="flex justify-between items-end">
                                 <div>
                                     <span className="text-[8px] font-mono text-slate-500 uppercase tracking-widest block mb-0.5 opacity-70">PRN Identifier</span>
-                                    <p className="font-mono font-bold text-[#E11D48] tracking-[0.2em] text-sm sm:text-base">
+                                    <p className="font-mono font-bold text-[#F63C49] tracking-[0.2em] text-sm sm:text-base">
                                         {profile.prn || '0000000000'}
                                     </p>
                                 </div>
@@ -401,12 +401,12 @@ const SettingsPage: React.FC = () => {
             <section className="bg-[#050505] border border-white/10 rounded-3xl p-8">
                 <div className="flex justify-between items-start mb-8">
                     <h2 className="text-xl font-display font-bold text-white flex items-center gap-3">
-                        <Terminal size={20} className="text-[#E11D48]" />
+                        <Terminal size={20} className="text-[#F63C49]" />
                         Your subjects
                     </h2>
                     <button 
                         onClick={initiateReset}
-                        className="px-4 py-2 rounded-lg bg-white/5 hover:bg-[#E11D48] text-slate-400 hover:text-white text-[10px] font-bold uppercase tracking-widest transition-all flex items-center gap-2 border border-white/5"
+                        className="px-4 py-2 rounded-lg bg-white/5 hover:bg-[#D61A40] text-slate-400 hover:text-white text-[10px] font-bold uppercase tracking-widest transition-all flex items-center gap-2 border border-white/5"
                     >
                         <RotateCcw size={12} /> Change subjects
                     </button>
@@ -446,13 +446,13 @@ const SettingsPage: React.FC = () => {
                                 className={`
                                     border border-dashed rounded-xl p-6 text-center transition-all cursor-pointer group
                                     ${dragActive 
-                                        ? 'border-[#E11D48] bg-[#E11D48]/10 scale-[1.02]' 
+                                        ? 'border-[#F63C49] bg-[#F63C49]/10 scale-[1.02]' 
                                         : 'border-white/10 hover:border-white/30 hover:bg-white/5'
                                     }
                                 `}
                             >
                                 <div className="flex flex-col items-center gap-3 pointer-events-none">
-                                    <div className={`p-3 rounded-full transition-colors ${dragActive ? 'bg-[#E11D48]/20 text-[#E11D48]' : 'bg-white/5 text-slate-400'}`}>
+                                    <div className={`p-3 rounded-full transition-colors ${dragActive ? 'bg-[#F63C49]/20 text-[#F63C49]' : 'bg-white/5 text-slate-400'}`}>
                                         <Upload size={20} />
                                     </div>
                                     <div>

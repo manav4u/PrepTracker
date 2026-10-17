@@ -1,7 +1,7 @@
 
 import { Subject, ResourceItem } from './types';
 
-export const SPPU_MAROON = '#E11D48'; // Modern Crimson
+export const SPPU_MAROON = '#F63C49'; // Logo gradient top stop
 
 export const getYouTubeID = (url: string) => {
     if (!url) return null;

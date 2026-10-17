@@ -147,10 +147,10 @@ const SubjectDetail: React.FC = () => {
         </Link>
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 lg:gap-12">
           <div className="max-w-4xl">
-            <span className="text-[#E11D48] text-[10px] font-bold tracking-[0.25em] uppercase mb-4 block flex items-center gap-2">
+            <span className="text-[#F63C49] text-[10px] font-bold tracking-[0.25em] uppercase mb-4 block flex items-center gap-2">
               <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E11D48] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E11D48]"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D61A40] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#D61A40]"></span>
               </span>
               {subject.code} • {subject.credits} Credits • <HardDrive size={10} className="inline mr-1" /> Local
             </span>
@@ -163,7 +163,7 @@ const SubjectDetail: React.FC = () => {
                 <span className="text-white font-mono">{coveredTopics}/{totalTopics} topics • {coveredPct}%</span>
               </div>
               <div className="h-2 rounded-full bg-white/5 overflow-hidden" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={coveredPct} aria-label="Syllabus covered">
-                <div className="h-full rounded-full bg-[#E11D48] transition-all duration-500" style={{ width: `${coveredPct}%` }} />
+                <div className="h-full rounded-full bg-[#D61A40] transition-all duration-500" style={{ width: `${coveredPct}%` }} />
               </div>
             </div>
           </div>
@@ -187,7 +187,7 @@ const SubjectDetail: React.FC = () => {
                 <div key={unit.id} className="relative pl-16 group">
                   {/* Timeline Node */}
                   <div className={`absolute left-[1.1rem] top-8 w-5 h-5 rounded-full border-[3px] transition-all duration-300 z-10 bg-[#030303] ${
-                    isMastered ? 'border-[#E11D48] bg-[#E11D48] shadow-[0_0_15px_#E11D48]' : isActive ? 'border-white bg-white' : 'border-white/10'
+                    isMastered ? 'border-[#F63C49] bg-[#D61A40] shadow-[0_0_15px_#F63C49]' : isActive ? 'border-white bg-white' : 'border-white/10'
                   }`}></div>
 
                   <div className="bg-[#0a0a0a] p-8 rounded-3xl border border-white/5 hover:border-white/10 transition-all">
@@ -200,7 +200,7 @@ const SubjectDetail: React.FC = () => {
                       >
                         <span>
                           <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1 block">Unit 0{unit.unit_number}</span>
-                          <h2 className={`text-2xl font-display font-bold mt-1 transition-colors tracking-tight ${isMastered ? 'text-[#E11D48]' : 'text-white group-hover/title:text-[#E11D48]'}`}>{unit.title}</h2>
+                          <h2 className={`text-2xl font-display font-bold mt-1 transition-colors tracking-tight ${isMastered ? 'text-[#F63C49]' : 'text-white group-hover/title:text-[#F63C49]'}`}>{unit.title}</h2>
                         </span>
                         <ChevronDown size={20} className={`mt-2 shrink-0 text-slate-500 transition-transform duration-300 ${isCollapsed ? '-rotate-90' : ''}`} />
                       </button>
@@ -254,7 +254,7 @@ const SubjectDetail: React.FC = () => {
                                    onClick={() => toggleTopic(unit.id, t, unit.topics)}
                                    className={`w-full text-left text-sm flex items-start gap-3 p-2 -m-2 rounded-lg transition-colors hover:bg-white/5 ${done ? 'text-slate-500' : 'text-slate-300'}`}
                                  >
-                                   <span className={`mt-0.5 w-4 h-4 rounded border shrink-0 flex items-center justify-center transition-all ${done ? 'bg-[#E11D48] border-[#E11D48]' : 'border-white/20'}`}>
+                                   <span className={`mt-0.5 w-4 h-4 rounded border shrink-0 flex items-center justify-center transition-all ${done ? 'bg-[#D61A40] border-[#F63C49]' : 'border-white/20'}`}>
                                      {done && <Check size={10} strokeWidth={3.5} className="text-white" />}
                                    </span>
                                    <span className={`leading-relaxed font-medium ${done ? 'line-through decoration-white/20' : ''}`}>{t}</span>
@@ -282,7 +282,7 @@ const SubjectDetail: React.FC = () => {
                                aria-pressed={isSolved}
                                className={`group px-4 py-3 rounded-xl border flex items-center justify-between transition-all duration-300 ${
                                  isSolved
-                                   ? 'bg-[#E11D48]/10 border-[#E11D48]/30 text-[#E11D48]'
+                                   ? 'bg-[#F63C49]/10 border-[#F63C49]/30 text-[#F63C49]'
                                    : 'bg-white/5 border-white/5 text-slate-400 hover:bg-white/10 hover:border-white/20 hover:text-white'
                                }`}
                              >
@@ -310,7 +310,7 @@ const SubjectDetail: React.FC = () => {
            <div className="p-8 rounded-3xl bg-[#0a0a0a] border border-white/5 min-h-[300px]">
               <h3 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-6 px-1 flex items-center justify-between">
                 Recommended Resources
-                <Link to="/resources" aria-label="Open the resource library" className="text-white hover:text-[#E11D48] transition-colors flex items-center gap-1">
+                <Link to="/resources" aria-label="Open the resource library" className="text-white hover:text-[#F63C49] transition-colors flex items-center gap-1">
                    <ArrowUpRight size={10} />
                 </Link>
               </h3>
@@ -350,7 +350,7 @@ const SubjectDetail: React.FC = () => {
                             <Search size={20} className="text-slate-600" />
                          </div>
                          <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">No Resources Found</p>
-                         <Link to="/resources" className="text-[10px] text-[#E11D48] mt-2 font-mono hover:underline">
+                         <Link to="/resources" className="text-[10px] text-[#F63C49] mt-2 font-mono hover:underline">
                              Add a resource
                          </Link>
                     </div>

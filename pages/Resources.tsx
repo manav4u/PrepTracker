@@ -66,7 +66,7 @@ const CustomSelect = ({ label, options, value, onChange, placeholder = "Select..
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
                 className={`w-full bg-white/5 border rounded-xl px-4 py-3 text-sm flex items-center justify-between transition-all duration-300 ${
-                    isOpen ? 'border-[#E11D48] shadow-[0_0_15px_rgba(225,29,72,0.1)]' : 'border-white/10 hover:border-white/20'
+                    isOpen ? 'border-[#F63C49] shadow-[0_0_15px_rgba(246,60,73,0.1)]' : 'border-white/10 hover:border-white/20'
                 }`}
             >
                 <div className="flex flex-col items-start text-left">
@@ -79,7 +79,7 @@ const CustomSelect = ({ label, options, value, onChange, placeholder = "Select..
                         <span className="text-slate-500">{placeholder}</span>
                      )}
                 </div>
-                <ChevronDown size={16} className={`text-slate-500 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#E11D48]' : ''}`} />
+                <ChevronDown size={16} className={`text-slate-500 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#F63C49]' : ''}`} />
             </button>
 
             {/* Dropdown Menu */}
@@ -93,12 +93,12 @@ const CustomSelect = ({ label, options, value, onChange, placeholder = "Select..
                             className="w-full text-left px-4 py-3 hover:bg-white/5 transition-colors flex items-center justify-between group border-b border-white/5 last:border-0"
                         >
                             <div className="flex flex-col">
-                                <span className={`text-sm font-medium ${value === opt.value ? 'text-[#E11D48]' : 'text-slate-300 group-hover:text-white'}`}>
+                                <span className={`text-sm font-medium ${value === opt.value ? 'text-[#F63C49]' : 'text-slate-300 group-hover:text-white'}`}>
                                     {opt.label}
                                 </span>
                                 {opt.sub && <span className="text-[9px] text-slate-600 font-mono uppercase tracking-wider">{opt.sub}</span>}
                             </div>
-                            {value === opt.value && <Check size={14} className="text-[#E11D48]" />}
+                            {value === opt.value && <Check size={14} className="text-[#F63C49]" />}
                         </button>
                     ))}
                 </div>
@@ -124,13 +124,13 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ item, onClick, isSelectionM
             aria-pressed={isSelectionMode ? isSelected : undefined}
             className={`group relative border rounded-xl p-6 transition-all duration-300 overflow-hidden flex flex-col h-full cursor-pointer hover:-translate-y-1 text-left w-full ${
                 isSelected 
-                ? 'bg-[#E11D48]/10 border-[#E11D48] shadow-[0_0_20px_rgba(225,29,72,0.15)]' 
-                : 'bg-white/[0.02] border-white/5 hover:border-[#E11D48]/50 hover:bg-white/[0.04] hover:shadow-xl hover:shadow-[#E11D48]/5'
+                ? 'bg-[#F63C49]/10 border-[#F63C49] shadow-[0_0_20px_rgba(246,60,73,0.15)]' 
+                : 'bg-white/[0.02] border-white/5 hover:border-[#F63C49]/50 hover:bg-white/[0.04] hover:shadow-xl hover:shadow-[#F63C49]/5'
             }`}
         >
             {/* Hover Scan Effect - disabled if selected or in selection mode */}
             {!isSelectionMode && (
-                <div className="pointer-events-none absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#E11D48] to-transparent -translate-x-full group-hover:animate-[scan_1.5s_ease-in-out_infinite]"></div>
+                <div className="pointer-events-none absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#F63C49] to-transparent -translate-x-full group-hover:animate-[scan_1.5s_ease-in-out_infinite]"></div>
             )}
 
             <div className="flex justify-between items-start mb-6">
@@ -152,8 +152,8 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ item, onClick, isSelectionM
                     {isSelectionMode ? (
                         <div className={`w-5 h-5 rounded-md border flex items-center justify-center transition-all ${
                             isSelected 
-                            ? 'bg-[#E11D48] border-[#E11D48] text-white' 
-                            : 'bg-transparent border-white/30 text-transparent hover:border-[#E11D48]/50'
+                            ? 'bg-[#D61A40] border-[#F63C49] text-white' 
+                            : 'bg-transparent border-white/30 text-transparent hover:border-[#F63C49]/50'
                         }`}>
                             <Check size={12} strokeWidth={4} />
                         </div>
@@ -166,14 +166,14 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ item, onClick, isSelectionM
             </div>
 
             <p className={`text-lg font-display font-bold mb-2 leading-tight transition-colors line-clamp-2 ${
-                isSelected ? 'text-[#E11D48]' : 'text-white group-hover:text-[#E11D48]'
+                isSelected ? 'text-[#F63C49]' : 'text-white group-hover:text-[#F63C49]'
             }`}>
                 {item.title}
             </p>
 
-            <div className={`mt-auto pt-6 border-t flex items-center justify-between ${isSelected ? 'border-[#E11D48]/30' : 'border-white/5'}`}>
+            <div className={`mt-auto pt-6 border-t flex items-center justify-between ${isSelected ? 'border-[#F63C49]/30' : 'border-white/5'}`}>
                 <span className="text-[10px] font-mono text-slate-500 uppercase flex items-center gap-2">
-                    <span className={`w-1.5 h-1.5 rounded-full transition-colors ${item.isSystem ? 'bg-slate-700 group-hover:bg-[#E11D48]' : 'bg-green-500'}`}></span> 
+                    <span className={`w-1.5 h-1.5 rounded-full transition-colors ${item.isSystem ? 'bg-slate-700 group-hover:bg-[#D61A40]' : 'bg-green-500'}`}></span> 
                     {item.isSystem ? `By ${item.author}` : 'Added by you'}
                 </span>
             </div>
@@ -212,7 +212,7 @@ const AddResourceModal = ({ isOpen, onClose, onAdd, userSubjects }: { isOpen: bo
                 </button>
                 
                 <div className="flex items-center gap-3 mb-8">
-                    <LinkIcon size={20} className="text-[#E11D48]" />
+                    <LinkIcon size={20} className="text-[#F63C49]" />
                     <h3 className="text-xl font-display font-bold text-white">Add New Resource</h3>
                 </div>
 
@@ -224,7 +224,7 @@ const AddResourceModal = ({ isOpen, onClose, onAdd, userSubjects }: { isOpen: bo
                             value={form.title}
                             onChange={e => setForm({...form, title: e.target.value})}
                             placeholder="e.g. FPL Unit 3 Cheat Sheet"
-                            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#E11D48] outline-none transition-colors"
+                            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#F63C49] outline-none transition-colors"
                             autoFocus
                         />
                     </div>
@@ -236,7 +236,7 @@ const AddResourceModal = ({ isOpen, onClose, onAdd, userSubjects }: { isOpen: bo
                             value={form.url}
                             onChange={e => setForm({...form, url: e.target.value})}
                             placeholder="https://..."
-                            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#E11D48] outline-none transition-colors font-mono"
+                            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#F63C49] outline-none transition-colors font-mono"
                         />
                     </div>
 
@@ -260,7 +260,7 @@ const AddResourceModal = ({ isOpen, onClose, onAdd, userSubjects }: { isOpen: bo
                     <button 
                         type="submit"
                         disabled={!form.title || !form.url || !form.subject}
-                        className="w-full py-4 bg-[#E11D48] hover:bg-[#be123c] disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold uppercase tracking-[0.2em] rounded-xl transition-all flex items-center justify-center gap-2 mt-4"
+                        className="w-full py-4 bg-[#D61A40] hover:bg-[#B3123B] disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold uppercase tracking-[0.2em] rounded-xl transition-all flex items-center justify-center gap-2 mt-4"
                     >
                         <Plus size={16} /> Add to Library
                     </button>
@@ -379,7 +379,7 @@ const Resources: React.FC = () => {
       <header className="mb-12 lg:mb-16 border-b border-white/5 pb-8">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
             <div className="space-y-4">
-                <div className="flex items-center gap-3 text-[#E11D48] mb-2">
+                <div className="flex items-center gap-3 text-[#F63C49] mb-2">
                     <Database size={16} />
                     <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em]">Resource Library</span>
                 </div>
@@ -404,16 +404,16 @@ const Resources: React.FC = () => {
             
             {/* Selection Mode Controls */}
             {isSelectionMode ? (
-                <div className="w-full lg:w-auto flex items-center gap-2 bg-[#E11D48]/10 rounded-xl p-1 pr-2 border border-[#E11D48]/30">
-                    <div className="px-3 py-2 text-[#E11D48] font-bold text-xs uppercase tracking-widest flex items-center gap-2">
+                <div className="w-full lg:w-auto flex items-center gap-2 bg-[#F63C49]/10 rounded-xl p-1 pr-2 border border-[#F63C49]/30">
+                    <div className="px-3 py-2 text-[#F63C49] font-bold text-xs uppercase tracking-widest flex items-center gap-2">
                         <CheckSquare size={16} />
                         {selectedIds.size} Selected
                     </div>
-                    <div className="h-6 w-px bg-[#E11D48]/20"></div>
+                    <div className="h-6 w-px bg-[#F63C49]/20"></div>
                     <button 
                         onClick={handleBulkDelete}
                         disabled={selectedIds.size === 0}
-                        className="px-4 py-2 bg-[#E11D48] text-white rounded-lg text-[10px] font-bold uppercase tracking-widest hover:bg-red-600 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 transition-all shadow-lg shadow-red-900/20"
+                        className="px-4 py-2 bg-[#D61A40] text-white rounded-lg text-[10px] font-bold uppercase tracking-widest hover:bg-red-600 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 transition-all shadow-lg shadow-red-900/20"
                     >
                         <Trash2 size={12} /> Delete
                     </button>
@@ -434,8 +434,8 @@ const Resources: React.FC = () => {
             )}
 
             {/* CLI Search */}
-            <div className="flex-1 w-full bg-black/50 rounded-xl border border-white/10 flex items-center px-4 group focus-within:border-[#E11D48]/50 transition-colors">
-                <span className="text-[#E11D48] font-mono mr-3 text-lg">{'>'}</span>
+            <div className="flex-1 w-full bg-black/50 rounded-xl border border-white/10 flex items-center px-4 group focus-within:border-[#F63C49]/50 transition-colors">
+                <span className="text-[#F63C49] font-mono mr-3 text-lg">{'>'}</span>
                 <input 
                     type="text" 
                     value={searchQuery}
@@ -474,7 +474,7 @@ const Resources: React.FC = () => {
             aria-pressed={subjectFilter === o.value}
             onClick={() => setSubjectFilter(o.value)}
             className={`px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.12em] whitespace-nowrap border transition-all ${
-              subjectFilter === o.value ? 'bg-[#E11D48]/10 border-[#E11D48]/40 text-[#E11D48]' : 'border-white/10 text-slate-500 hover:text-white hover:bg-white/5'
+              subjectFilter === o.value ? 'bg-[#F63C49]/10 border-[#F63C49]/40 text-[#F63C49]' : 'border-white/10 text-slate-500 hover:text-white hover:bg-white/5'
             }`}
           >
             {o.value === 'ALL' || o.value === 'GENERAL' ? o.label : o.value}
@@ -487,9 +487,9 @@ const Resources: React.FC = () => {
          {/* Add New Node Card */}
          <button 
             onClick={() => setIsAddModalOpen(true)}
-            className="group relative rounded-xl border border-dashed border-white/10 bg-white/[0.01] hover:bg-white/[0.05] hover:border-[#E11D48]/50 transition-all flex flex-col items-center justify-center p-8 h-[220px] gap-4"
+            className="group relative rounded-xl border border-dashed border-white/10 bg-white/[0.01] hover:bg-white/[0.05] hover:border-[#F63C49]/50 transition-all flex flex-col items-center justify-center p-8 h-[220px] gap-4"
          >
-             <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center text-slate-500 group-hover:text-[#E11D48] group-hover:bg-[#E11D48]/10 transition-all duration-500">
+             <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center text-slate-500 group-hover:text-[#F63C49] group-hover:bg-[#F63C49]/10 transition-all duration-500">
                  <Plus size={32} />
              </div>
              <p className="text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-white transition-colors">Add Resource</p>

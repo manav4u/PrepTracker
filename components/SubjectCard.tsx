@@ -16,10 +16,10 @@ const SubjectCard: React.FC<SubjectCardProps> = ({ subject, progress, masteredCo
   const activeUnitTitle = subject.units[activeUnitIdx]?.title || 'Revision Phase';
 
   return (
-    <Link to={`/subject/${subject.id}`} className="group relative flex flex-col justify-between h-[280px] rounded-3xl bg-[#080808] border border-white/5 overflow-hidden hover:border-[#E11D48]/30 transition-all duration-500 hover:shadow-2xl hover:shadow-[#E11D48]/10">
+    <Link to={`/subject/${subject.id}`} className="group relative flex flex-col justify-between h-[280px] rounded-3xl bg-[#080808] border border-white/5 overflow-hidden hover:border-[#F63C49]/30 transition-all duration-500 hover:shadow-2xl hover:shadow-[#F63C49]/10">
       
       {/* Dynamic Gradient Glow - Restored */}
-      <div className="absolute -top-24 -right-24 w-64 h-64 bg-[#E11D48] opacity-0 blur-[100px] rounded-full group-hover:opacity-25 group-hover:scale-125 transition-all duration-700 ease-in-out pointer-events-none"></div>
+      <div className="absolute -top-24 -right-24 w-64 h-64 bg-[#D61A40] opacity-0 blur-[100px] rounded-full group-hover:opacity-25 group-hover:scale-125 transition-all duration-700 ease-in-out pointer-events-none"></div>
       
       {/* Subtle Texture */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
@@ -29,18 +29,18 @@ const SubjectCard: React.FC<SubjectCardProps> = ({ subject, progress, masteredCo
         <div className="flex justify-between items-start mb-auto">
            <div className="flex items-center gap-3">
               <div className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/5 backdrop-blur-md flex items-center gap-2 group-hover:bg-white/10 transition-colors">
-                <Layers size={10} className="text-white/40 group-hover:text-[#E11D48] transition-colors" />
+                <Layers size={10} className="text-white/40 group-hover:text-[#F63C49] transition-colors" />
                 <span className="text-[10px] font-bold font-display text-white/70 tracking-wider uppercase">{subject.code}</span>
               </div>
               {masteredCount > 0 && (
                 <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#E11D48] animate-pulse"></span>
-                    <span className="text-[10px] font-bold tracking-widest text-[#E11D48] uppercase">Active</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#D61A40] animate-pulse"></span>
+                    <span className="text-[10px] font-bold tracking-widest text-[#F63C49] uppercase">Active</span>
                 </div>
               )}
            </div>
            
-           <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/20 group-hover:bg-[#E11D48] group-hover:text-white group-hover:border-[#E11D48] transition-all duration-300 shadow-lg shadow-transparent group-hover:shadow-[#E11D48]/20">
+           <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/20 group-hover:bg-[#D61A40] group-hover:text-white group-hover:border-[#F63C49] transition-all duration-300 shadow-lg shadow-transparent group-hover:shadow-[#F63C49]/20">
              <ArrowRight size={14} className="-rotate-45 group-hover:rotate-0 transition-transform duration-300" />
            </div>
         </div>
@@ -58,7 +58,7 @@ const SubjectCard: React.FC<SubjectCardProps> = ({ subject, progress, masteredCo
         <div className="mt-auto">
             <div className="flex justify-between items-end mb-3">
                 <div className="max-w-[70%]">
-                     <p className="text-[10px] font-bold uppercase tracking-widest text-slate-600 mb-1 group-hover:text-[#E11D48] transition-colors">Current Focus</p>
+                     <p className="text-[10px] font-bold uppercase tracking-widest text-slate-600 mb-1 group-hover:text-[#F63C49] transition-colors">Current Focus</p>
                      <p className="text-sm text-white font-bold truncate">{activeUnitTitle}</p>
                 </div>
                 <span className="text-2xl font-display font-bold text-white/50 group-hover:text-white transition-colors">
@@ -73,7 +73,7 @@ const SubjectCard: React.FC<SubjectCardProps> = ({ subject, progress, masteredCo
                     key={i} 
                     className={`flex-1 rounded-sm transition-all duration-500 ${
                     i < masteredCount 
-                        ? 'bg-[#E11D48] shadow-[0_0_8px_#E11D48]' 
+                        ? 'bg-[#D61A40] shadow-[0_0_8px_#F63C49]' 
                         : 'bg-white/10 group-hover:bg-white/20'
                     }`}
                 ></div>

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --sppu-maroon: #E11D48;
+  --sppu-maroon: #F63C49;
   --bg-void: #030303;
 }
 body {
@@ -18,7 +18,7 @@ body {
   overflow-x: hidden;
 }
 ::selection {
-  background: #E11D48;
+  background: #D61A40;
   color: white;
 }
 .glass-panel {
@@ -43,7 +43,7 @@ button:focus-visible,
 [role='option']:focus-visible,
 select:focus-visible,
 summary:focus-visible {
-  outline: 2px solid #E11D48 !important;
+  outline: 2px solid #F63C49 !important;
   outline-offset: 2px;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -54,6 +54,3 @@ summary:focus-visible {
   }
 }
 
-/* Brand red is #E11D48 on buttons and fills. For small text on the near-black background it is 4.2 to 4.4:1,
-   so text uses a slightly lighter red that passes 4.5:1. */
-.text-\[\#E11D48\] { color: #F43F5E; }
