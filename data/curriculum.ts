@@ -670,3 +670,165 @@ export const SE_MECH_SUBJECTS: Subject[] = [
     ]
   },
 ];
+
+// Civil Engineering, Second Year, 2024 pattern. Official SPPU PDF
+// (SE-Civil2024_pattern-_final_version_22072025.pdf, unipune.ac.in Syllabus2025
+// library, verbatim extraction at docs/raw/SE-Civil-2024-pattern.txt).
+export const SE_CIVIL_SUBJECTS: Subject[] = [
+  {
+    id: 'mos',
+    name: 'Mechanics of Structures',
+    code: 'PCC-201-CVL',
+    credits: 3,
+    theoryCredits: 3,
+    termWorkCredits: 0,
+    units: [
+      { id: 'mos-u1', unit_number: 1, title: 'Simple Stresses and Strains',
+        topics: ['Stress-strain diagram: elastic, plastic and brittle materials', 'Axial stresses and strains: linear, lateral, shear, volumetric', 'Elastic constants and their relations', 'Stresses and strains due to temperature change', 'Determinate and indeterminate homogeneous and composite sections'] },
+      { id: 'mos-u2', unit_number: 2, title: 'Shear Force and Bending Moment',
+        topics: ['Relationship between load, shear force and bending moment', 'SFD and BMD for determinate beams', 'Concentrated, uniformly distributed, uniformly varying loads and couples', 'Point of contraflexure and inflexion'] },
+      { id: 'mos-u3', unit_number: 3, title: 'Bending and Shear Stresses in Beams',
+        topics: ['Theory of simple bending and flexure formula', 'Bending stress distribution and moment of resistance', 'Complementary shear stress formula', 'Shear stress distribution across sections', 'Maximum and average shear stress'] },
+      { id: 'mos-u4', unit_number: 4, title: 'Torsion, Principal Stresses and Strains',
+        topics: ['Theory of torsion and torsion formula', 'Solid and hollow shafts, determinate and indeterminate', 'Power transmitted by shafts', 'Principal planes and principal stresses', 'Normal and shear stresses on oblique planes'] },
+      { id: 'mos-u5', unit_number: 5, title: 'Axially Loaded Columns, Slope and Deflection',
+        topics: ["Euler's formula for buckling load with hinged ends", 'Equivalent length for various end conditions', "Rankine's formula and safe load on column", 'Limitations of Euler formula', 'Eccentrically loaded short columns, slope and deflection of beams'] },
+    ]
+  },
+  {
+    id: 'surveying',
+    name: 'Surveying',
+    code: 'PCC-202-CVL',
+    credits: 3,
+    theoryCredits: 3,
+    termWorkCredits: 0,
+    units: [
+      { id: 'sv-u1', unit_number: 1, title: 'Distance and Angle Measurement',
+        topics: ['Principles and classification of surveys, scale and R.F.', 'Instruments for measuring distance and marking stations', 'Direct ranging, survey stations, base line and check line', 'Booking field notes and chain surveying'] },
+      { id: 'sv-u2', unit_number: 2, title: 'Levelling',
+        topics: ['Dumpy, auto, digital and laser levels', 'Temporary adjustment of level', 'Simple, differential, fly and profile levelling', 'Curvature and refraction correction', 'Reciprocal levelling'] },
+      { id: 'sv-u3', unit_number: 3, title: 'Theodolite Traversing',
+        topics: ['20 second vernier transit theodolite, fundamental lines', 'Temporary adjustments', 'Horizontal angle by repetition and reiteration', 'Vertical angles, direct and deflection angles', 'Latitude and departure, balancing of traverse'] },
+      { id: 'sv-u4', unit_number: 4, title: 'Tacheometry and Total Station Survey',
+        topics: ['Principle and theory of stadia tacheometry', 'Tacheometric constants', 'Fixed hair method, horizontal and inclined sights', 'Contours: uses, characteristics, methods and interpolation', 'Total station survey'] },
+      { id: 'sv-u5', unit_number: 5, title: 'Curves',
+        topics: ['Degree of curve and relation to radius', 'Super elevation and centrifugal ratio', 'Types of horizontal curves', 'Properties of a simple circular curve', 'Setting out: offsets from chord produced, Rankine method'] },
+    ]
+  },
+  {
+    id: 'bcm',
+    name: 'Building Construction and Materials',
+    code: 'PCC-203-CVL',
+    credits: 3,
+    theoryCredits: 3,
+    termWorkCredits: 0,
+    units: [
+      { id: 'bcm-u1', unit_number: 1, title: 'Introduction to Building Technology',
+        topics: ['Classification of buildings as per NBC', 'Load bearing and framed structures', 'Types of loads and their effects', 'Building components and their functions'] },
+      { id: 'bcm-u2', unit_number: 2, title: 'Conventional Building Materials and Techniques',
+        topics: ['Stone, brick, cement, concrete and concrete blocks', 'Flooring and roofing materials', 'Mortars, plasters, admixtures and pigments', 'Timber types, products and applications', 'Steel and aluminium as structural materials'] },
+      { id: 'bcm-u3', unit_number: 3, title: 'Modern Construction Techniques',
+        topics: ['RCC and concrete frame construction', 'Prefabrication construction', 'Steel frame and modular construction', '3D printing in buildings', 'Dry construction techniques for sustainability'] },
+      { id: 'bcm-u4', unit_number: 4, title: 'Green Building Planning and Sustainable Materials',
+        topics: ['Green buildings and ratings: LEED, GRIHA, IGBC', 'Green roof concept and passive solar design', 'Bioclimatic architecture and thermal insulation', 'Eco-friendly materials: bamboo, recycled aggregates, fly ash bricks'] },
+      { id: 'bcm-u5', unit_number: 5, title: 'Building Bye-Laws and Drawings',
+        topics: ['UDCPR: plot sizes, road width, open spaces, marginal distances', 'Building line, control line and room sizes', 'Built-up area, carpet area and Floor Space Index', 'Transfer of development rights', 'Building drawings'] },
+    ]
+  },
+  {
+    id: 'm3cvl',
+    name: 'Engineering Mathematics - III',
+    code: 'MDM-221-CVL',
+    credits: 3,
+    theoryCredits: 3,
+    termWorkCredits: 0,
+    units: [
+      { id: 'm3c-u1', unit_number: 1, title: 'Linear Differential Equations and Applications',
+        topics: ['LDE of nth order with constant coefficients', 'Complementary function and particular integral', 'General and short cut methods', 'Method of variation of parameters', "Cauchy's and Legendre's DE, simultaneous DE"] },
+      { id: 'm3c-u2', unit_number: 2, title: 'Statistics and Probability',
+        topics: ['Measures of central tendency and dispersion', 'Coefficient of variation', 'Moments, skewness and kurtosis', 'Correlation and regression', 'Reliability of regression estimates, probability'] },
+      { id: 'm3c-u3', unit_number: 3, title: 'Numerical Methods: Algebraic and Transcendental Equations',
+        topics: ['Bisection method', 'Secant and Regula-Falsi methods', 'Newton-Raphson and successive approximation', 'Solution of simultaneous algebraic equations'] },
+      { id: 'm3c-u4', unit_number: 4, title: 'Numerical Interpolation and Solution of ODE',
+        topics: ['Finite differences', "Newton's and Lagrange's interpolation formulae", 'Numerical differentiation', 'Numerical integration', 'Solution of ordinary differential equations'] },
+      { id: 'm3c-u5', unit_number: 5, title: 'Vector Calculus',
+        topics: ['Vector differentiation: gradient, divergence, curl', 'Directional derivative, solenoidal and irrotational fields', 'Vector identities', 'Line, surface and volume integrals', "Green's theorem, Gauss divergence theorem and Stokes theorem"] },
+    ]
+  },
+  {
+    id: 'fmc',
+    name: 'Fluid Mechanics',
+    code: 'PCC-251-CVL',
+    credits: 3,
+    theoryCredits: 3,
+    termWorkCredits: 0,
+    units: [
+      { id: 'fmc-u1', unit_number: 1, title: 'Properties of Fluids and Fluid Statics',
+        topics: ['Ideal and real fluids, mass density, specific weight, specific gravity', 'Dynamic and kinematic viscosity, Newton law of viscosity', 'Surface tension, capillarity, vapour pressure, compressibility', 'Fluid statics: pressure and its measurement'] },
+      { id: 'fmc-u2', unit_number: 2, title: 'Fluid Kinematics',
+        topics: ['Eulerian and Lagrangian approach', 'Classification of flows', 'Streamline, path line, streak line, control volume', 'Continuity equation for 3-D flow', 'Velocity potential, stream function and flow net'] },
+      { id: 'fmc-u3', unit_number: 3, title: 'Fluid Dynamics',
+        topics: ["Euler's equation of motion along a streamline", "Bernoulli's equation and its limitations", 'Concept of HGL and TEL', 'Applications: venturimeter, orifice meter, rotameter and pitot tube'] },
+      { id: 'fmc-u4', unit_number: 4, title: 'Flow Through Pipes',
+        topics: ['Laminar flow through a circular pipe: Hagen-Poiseuille equation', 'Hazen-Williams formula', "Darcy-Weisbach equation and Moody's diagram", 'Major and minor losses of energy', 'Pipes in series, parallel and compound pipes'] },
+      { id: 'fmc-u5', unit_number: 5, title: 'Open Channel Flow',
+        topics: ['Classification of channels and channel flows', 'Geometric elements of channel', 'Velocity distribution in open channel flow', 'Hydraulic jump'] },
+    ]
+  },
+  {
+    id: 'sa',
+    name: 'Structural Analysis',
+    code: 'PCC-252-CVL',
+    credits: 3,
+    theoryCredits: 3,
+    termWorkCredits: 0,
+    units: [
+      { id: 'sa-u1', unit_number: 1, title: 'Fundamentals of Structure and Redundant Beams',
+        topics: ['Types and classification of structures by structural form', 'Static and kinematic indeterminacy', 'Propped cantilever, fixed beam and continuous beams', 'Indeterminacy up to second degree'] },
+      { id: 'sa-u2', unit_number: 2, title: 'Analysis of Redundant Frames',
+        topics: ['Redundant trusses by unit load method', 'External loading, lack of fit, sinking of support, temperature changes', 'Approximate methods for two-storied two-bay 2-D frames', 'Cantilever and portal methods'] },
+      { id: 'sa-u3', unit_number: 3, title: 'Slope-Deflection Method',
+        topics: ['Slope-deflection and equilibrium equations', 'Beams with and without joint translation and rotation', 'Yielding of support', 'Non-sway and sway analysis of rigid jointed portal frames', 'Shear force and bending moment diagrams'] },
+      { id: 'sa-u4', unit_number: 4, title: 'Moment Distribution Method',
+        topics: ['Stiffness factor, carry over factor, distribution factor', 'Beams with and without joint translation', 'Yielding of support', 'Application to non-sway rigid jointed portal frames'] },
+      { id: 'sa-u5', unit_number: 5, title: 'Stiffness Method',
+        topics: ['Matrix methods: flexibility and stiffness', 'Structure approach and member approach', 'Application to beams by structure approach', 'Application to rigid jointed portal frames', 'Not more than three unknowns'] },
+    ]
+  },
+  {
+    id: 'ct',
+    name: 'Concrete Technology',
+    code: 'PCC-253-CVL',
+    credits: 3,
+    theoryCredits: 3,
+    termWorkCredits: 0,
+    units: [
+      { id: 'ct-u1', unit_number: 1, title: 'Fundamentals of Concrete Technology',
+        topics: ['Cement: raw materials, manufacturing, types, hydration', 'Aggregates: types, properties, recycled aggregates', 'Water quality requirements', 'Admixtures: types and functions', 'Fibers: types and uses'] },
+      { id: 'ct-u2', unit_number: 2, title: 'Properties of Fresh and Hardened Concrete',
+        topics: ['Workability and factors affecting it', 'Tests: slump, compaction factor, Vee-Bee, flow table', 'Setting time and bleeding', 'Compressive, tensile and flexural strength', 'Microstructure and permeability of hardened concrete'] },
+      { id: 'ct-u3', unit_number: 3, title: 'Concrete Mix Design',
+        topics: ['Design mix and nominal mix', 'Batching, mixing, transportation, placement, compaction, curing', 'IS 10262 method of mix design', 'Case studies of concrete failure', 'High strength concrete mix design'] },
+      { id: 'ct-u4', unit_number: 4, title: 'Durability and Sustainability of Concrete',
+        topics: ['Sulphate attack, chloride ingress, alkali-silica reaction', 'Corrosion of reinforcement: mechanism and prevention', 'Permeability, porosity and water absorption', 'Sustainable concrete: recycled aggregates and green cements'] },
+      { id: 'ct-u5', unit_number: 5, title: 'Advanced and Special Concretes',
+        topics: ['High performance and self-compacting concrete', 'Fiber reinforced, lightweight, pervious concrete', '3D printed concrete and digital fabrication', 'Self-healing and sensor embedded smart concrete', 'Nano technology and green concrete'] },
+    ]
+  },
+  {
+    id: 'geo',
+    name: 'Engineering Geology',
+    code: 'MDM-271-CVL',
+    credits: 2,
+    theoryCredits: 2,
+    termWorkCredits: 0,
+    units: [
+      { id: 'geo-u1', unit_number: 1, title: 'Rock Science',
+        topics: ['Applied engineering geology in industry', 'Minerals: definition, types, industrial minerals', 'Minerals and rocks in civil industry: limestone, granite, marble, basalt', 'Economic zones in India', 'Engineering properties of rocks'] },
+      { id: 'geo-u2', unit_number: 2, title: 'Remote Sensing, GIS and Hydrogeology',
+        topics: ['Remote sensing platforms, sensors and applications', 'GIS: components, data types and applications', 'Hydrogeological properties of rocks, aquifers and their types', 'Artificial recharge and groundwater conservation', 'Watershed development and management case study'] },
+      { id: 'geo-u3', unit_number: 3, title: 'Geology of Dams, Highways and Tunnels',
+        topics: ['Types of dams and their foundation requirements', 'Geological investigations for dam sites', 'Preliminary exploration: test pits, trenches, drilling', 'Geological and geotechnical investigations for tunnels', 'Highways and subsurface investigations'] },
+    ]
+  },
+];

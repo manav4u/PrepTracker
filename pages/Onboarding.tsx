@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { ArrowRight, Zap, Cpu } from 'lucide-react';
 import LogoMark from '../components/LogoMark';
 import { Profile } from '../types';
-import { SE_COMPUTER_SUBJECTS, SE_IT_SUBJECTS, SE_ENTC_SUBJECTS, SE_MECH_SUBJECTS } from '../data/curriculum';
+import { SE_COMPUTER_SUBJECTS, SE_IT_SUBJECTS, SE_ENTC_SUBJECTS, SE_MECH_SUBJECTS, SE_CIVIL_SUBJECTS } from '../data/curriculum';
 import { useData } from '../context/DataContext';
 
 interface OnboardingProps {}
@@ -95,7 +95,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
             clearInterval(interval);
 
             const selectedIds = year === 'SE'
-                ? (branch === 'it' ? SE_IT_SUBJECTS : branch === 'entc' ? SE_ENTC_SUBJECTS : branch === 'mech' ? SE_MECH_SUBJECTS : SE_COMPUTER_SUBJECTS).map(sub => sub.id)
+                ? (branch === 'it' ? SE_IT_SUBJECTS : branch === 'entc' ? SE_ENTC_SUBJECTS : branch === 'mech' ? SE_MECH_SUBJECTS : branch === 'civil' ? SE_CIVIL_SUBJECTS : SE_COMPUTER_SUBJECTS).map(sub => sub.id)
                 : [choices.maths, choices.programming, choices.science, choices.circuit, choices.core];
             const newProfile: Profile = {
                 name: name || 'Student',
@@ -243,7 +243,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
                                     ['it', 'Information Technology', true],
                                     ['entc', 'Electronics and Telecom', true],
                                     ['mech', 'Mechanical Engineering', true],
-                                    ['civil', 'Civil Engineering', false],
+                                    ['civil', 'Civil Engineering', true],
                                 ] as const).map(([v, title, ready], i) => (
                                     <button
                                         key={v}
@@ -275,7 +275,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
                     {year === 'SE' && (
                         <button
                             onClick={handleFinish}
-                            disabled={!['computer','it','entc','mech'].includes(branch || '')}
+                            disabled={!['computer','it','entc','mech','civil'].includes(branch || '')}
                             className="w-full py-5 bg-[#D61A40] text-white font-bold uppercase tracking-[0.2em] rounded-xl hover:bg-[#B3123B] transition-all shadow-[0_0_40px_-10px_#F63C49] disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center gap-3"
                         >
                             <Zap size={18} className="fill-white" />
