@@ -141,23 +141,23 @@ const SubjectDetail: React.FC = () => {
       
       <ResourceViewerModal isOpen={!!viewResource} onClose={() => setViewResource(null)} resource={viewResource} />
 
-      <div className="mb-12 lg:mb-20">
+      <div className="mb-8 lg:mb-10">
         <Link to="/app" className="inline-flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-white uppercase tracking-widest transition-colors mb-8">
           <ArrowLeft size={14} /> Back to Dashboard
         </Link>
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 lg:gap-12">
           <div className="max-w-4xl">
-            <span className="text-[#F63C49] text-[10px] font-bold tracking-[0.25em] uppercase mb-4 block flex items-center gap-2">
+            <span className="text-[#F63C49] text-[10px] font-bold tracking-[0.25em] uppercase mb-2 block flex items-center gap-2">
               <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D61A40] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#D61A40]"></span>
               </span>
               {subject.code} • {subject.credits} Credits • <HardDrive size={10} className="inline mr-1" /> Local
             </span>
-            <h1 className="text-4xl lg:text-8xl font-display font-bold text-white leading-[0.9] tracking-tighter text-balance">
+            <h1 className="text-3xl lg:text-5xl font-display font-bold text-white leading-[0.95] tracking-tighter text-balance">
               {subject.name}
             </h1>
-            <div className="mt-8 max-w-md" data-testid="subject-progress">
+            <div className="mt-5 max-w-md" data-testid="subject-progress">
               <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2">
                 <span>Syllabus covered</span>
                 <span className="text-white font-mono">{coveredTopics}/{totalTopics} topics • {coveredPct}%</span>
@@ -170,12 +170,12 @@ const SubjectDetail: React.FC = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
         {/* Timeline / Unit List */}
         <div className="lg:col-span-8 relative">
           <div className="absolute left-6 top-8 bottom-8 w-px bg-white/5"></div>
           
-          <div className="space-y-8">
+          <div className="space-y-5">
             {subject.units.map((unit, i) => {
               const p = getProg(unit.id);
               const isActive = p.status !== UnitStatus.NOT_STARTED;
@@ -190,8 +190,8 @@ const SubjectDetail: React.FC = () => {
                     isMastered ? 'border-[#F63C49] bg-[#D61A40] shadow-[0_0_15px_#F63C49]' : isActive ? 'border-white bg-white' : 'border-white/10'
                   }`}></div>
 
-                  <div className="surface-1 p-8 rounded-3xl hover:border-white/10 transition-all">
-                    <div className="flex flex-col sm:flex-row justify-between items-start mb-8 gap-6 sm:gap-0">
+                  <div className="surface-1 p-5 lg:p-6 rounded-3xl hover:border-white/10 transition-all">
+                    <div className="flex flex-col sm:flex-row justify-between items-start mb-5 gap-4 sm:gap-0">
                       <button
                         type="button"
                         onClick={() => setCollapsedUnits(prev => ({ ...prev, [unit.id]: !isCollapsed }))}
@@ -200,7 +200,7 @@ const SubjectDetail: React.FC = () => {
                       >
                         <span>
                           <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1 block">Unit 0{unit.unit_number}</span>
-                          <h2 className={`text-2xl font-display font-bold mt-1 transition-colors tracking-tight ${isMastered ? 'text-[#F63C49]' : 'text-white group-hover/title:text-[#F63C49]'}`}>{unit.title}</h2>
+                          <h2 className={`text-xl font-display font-bold mt-1 transition-colors tracking-tight ${isMastered ? 'text-[#F63C49]' : 'text-white group-hover/title:text-[#F63C49]'}`}>{unit.title}</h2>
                         </span>
                         <ChevronDown size={20} className={`mt-2 shrink-0 text-slate-500 transition-transform duration-300 ${isCollapsed ? '-rotate-90' : ''}`} />
                       </button>
@@ -238,7 +238,7 @@ const SubjectDetail: React.FC = () => {
                     {!isCollapsed && (<>
                     {/* Topics List */}
                     {unit.topics && (
-                       <div className="mb-8 p-6 rounded-2xl surface-2">
+                       <div className="mb-6 p-4 lg:p-5 rounded-2xl surface-2">
                          <h3 className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">
                            <List size={12} /> Key Topics <span className="ml-auto font-mono text-slate-500">{(p.topicsDone || []).filter(x => unit.topics.includes(x)).length}/{unit.topics.length}</span>
                          </h3>
@@ -307,7 +307,7 @@ const SubjectDetail: React.FC = () => {
 
         {/* Sidebar */}
         <div className="lg:col-span-4 space-y-6">
-           <div className="p-8 rounded-3xl surface-1 min-h-[300px]">
+           <div className="p-5 lg:p-6 rounded-3xl surface-1 min-h-[280px]">
               <h3 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-6 px-1 flex items-center justify-between">
                 Recommended Resources
                 <Link to="/app/resources" aria-label="Open the resource library" className="text-white hover:text-[#F63C49] transition-colors flex items-center gap-1">
