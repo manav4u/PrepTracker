@@ -43,15 +43,17 @@ const MarkInput = ({
   value,
   onChange,
   id,
+  hideLabel,
 }: {
   label: string;
   max: number;
   value: number | undefined;
   onChange: (v: string) => void;
   id: string;
+  hideLabel?: boolean;
 }) => (
   <div className="flex flex-col items-center gap-2">
-    <label htmlFor={id} className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">
+    <label htmlFor={id} className={hideLabel ? 'sr-only' : 'text-[9px] font-mono text-slate-500 uppercase tracking-widest'}>
       {label} / {max}
     </label>
     <div className="relative group/input">
@@ -64,10 +66,9 @@ const MarkInput = ({
         step={0.5}
         value={value ?? ''}
         onChange={(e) => onChange(e.target.value)}
-        className="w-20 bg-transparent text-2xl font-mono text-white text-center border-b border-white/10 focus:border-[#F63C49] outline-none py-1 transition-colors placeholder:text-white/10 tabular-nums"
+        className="w-[4.5rem] bg-white/[0.04] text-lg font-mono text-white text-center border border-white/10 rounded-lg focus:border-[#F63C49] focus:bg-white/[0.07] outline-none py-2 transition-colors placeholder:text-white/20 tabular-nums"
         placeholder="--"
       />
-      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-[#D61A40] scale-x-0 group-focus-within/input:scale-x-100 transition-transform duration-300"></div>
     </div>
   </div>
 );
@@ -104,23 +105,42 @@ const CalculatorPage: React.FC = () => {
   const sgpaText = est.sgpa === null ? '--' : est.sgpa.toFixed(2);
 
   return (
-    <div className="max-w-7xl mx-auto space-y-12 animate-in fade-in duration-700">
-      <header className="border-b border-white/5 pb-8 flex justify-between items-end">
+    <div className="max-w-5xl mx-auto space-y-6 lg:space-y-8 animate-in fade-in duration-700 pb-20">
+      <header className="flex items-end justify-between gap-6">
         <div>
-          <div className="flex items-center gap-2 mb-4">
+          <div className="flex items-center gap-2 text-[#F63C49] mb-2">
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#D61A40]"></span>
-            <span className="text-[10px] font-mono font-bold uppercase tracking-[0.25em] text-[#F63C49]">
-              Estimate only
-            </span>
+            <span className="text-[9px] font-mono font-bold uppercase tracking-[0.25em]">Estimate only</span>
           </div>
-          <h1 className="text-5xl lg:text-7xl font-display font-bold tracking-tighter text-white leading-none">
-            Forecaster
-          </h1>
-          <p className="mt-4 text-sm text-slate-400 max-w-xl leading-relaxed">
-            Enter the marks you have. We grade each head the way the SPPU 2024 pattern does and weight it by credits.
-            This is not an official result.
+          <h1 className="text-4xl lg:text-5xl font-display font-bold tracking-tighter text-white leading-none">SGPA</h1>
+          <p className="mt-2 text-xs text-slate-500 max-w-md leading-relaxed">
+            Graded the way the SPPU 2024 pattern does, weighted by credits. Not an official result.
           </p>
         </div>
+        {confirmClear ? (
+          <div className="flex items-center gap-2 shrink-0">
+            <button
+              onClick={() => { setMarks({}); setConfirmClear(false); }}
+              className="px-3 py-1.5 rounded-lg bg-[#D61A40] text-white text-[9px] font-bold uppercase tracking-widest"
+            >
+              Yes, clear
+            </button>
+            <button
+              onClick={() => setConfirmClear(false)}
+              className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-[9px] font-bold text-slate-400 uppercase tracking-widest"
+            >
+              Keep
+            </button>
+          </div>
+        ) : (
+          <button
+            onClick={() => setConfirmClear(true)}
+            disabled={Object.keys(marks).length === 0}
+            className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-[9px] font-bold text-slate-400 uppercase tracking-widest hover:bg-[#D61A40] hover:text-white hover:border-[#F63C49] transition-all disabled:opacity-30 disabled:hover:bg-white/5 disabled:hover:text-slate-400 shrink-0"
+          >
+            <RotateCcw size={10} /> Clear marks
+          </button>
+        )}
       </header>
 
       {/* Mobile: keep the running number in view while typing */}
@@ -137,207 +157,155 @@ const CalculatorPage: React.FC = () => {
         document.body
       )}
 
-      <div className="lg:hidden h-8" aria-hidden="true" />
+      <div className="lg:hidden h-2" aria-hidden="true" />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-        <div className="lg:col-span-7">
-          <div className="bg-[#030303] border border-white/10 rounded-3xl overflow-hidden relative">
-            <div className="p-6 border-b border-white/10 flex justify-between items-center bg-white/[0.02]">
-              <div className="flex items-center gap-2 text-white">
-                <Cpu size={16} />
-                <h2 className="font-bold text-xs font-mono uppercase tracking-[0.2em]">Enter Marks</h2>
-              </div>
-              {confirmClear ? (
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={() => {
-                      setMarks({});
-                      setConfirmClear(false);
-                    }}
-                    className="px-3 py-1.5 rounded bg-[#D61A40] text-white text-[9px] font-bold uppercase tracking-widest"
-                  >
-                    Yes, clear
-                  </button>
-                  <button
-                    onClick={() => setConfirmClear(false)}
-                    className="px-3 py-1.5 rounded bg-white/5 border border-white/10 text-[9px] font-bold text-slate-400 uppercase tracking-widest"
-                  >
-                    Keep
-                  </button>
+      {/* Summary strip: the number, its context, its status. No monument card. */}
+      <section className="surface-1 rounded-3xl px-6 py-5 lg:px-8 lg:py-6 flex flex-wrap items-center gap-x-10 gap-y-4" aria-live="polite">
+        <div className="flex items-end gap-3">
+          <span className="text-6xl lg:text-7xl leading-[0.85] font-display font-bold text-white tracking-tighter tabular-nums">{sgpaText}</span>
+          <span className="text-[10px] font-mono text-slate-500 uppercase tracking-[0.3em] mb-1">SGPA / 10</span>
+        </div>
+        <div className="flex items-center gap-8">
+          <div>
+            <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mb-1">Heads</p>
+            <p className="text-sm font-mono font-bold text-white tabular-nums">{est.completeHeads} / {est.totalHeads}</p>
+          </div>
+          <div>
+            <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mb-1">Credits</p>
+            <p className="text-sm font-mono font-bold text-white tabular-nums">{est.gradedCredits} / {est.totalCredits}</p>
+          </div>
+        </div>
+        <div className="lg:ml-auto flex flex-col items-start lg:items-end gap-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/5">
+            <Activity size={11} className="text-[#F63C49]" />
+            <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-300">
+              {est.sgpa === null ? 'Waiting for marks' : est.complete ? 'Estimated SGPA' : 'Partial estimate'}
+            </span>
+          </div>
+          {failing > 0 && (
+            <p className="text-[10px] text-red-400 leading-snug max-w-[16rem] lg:text-right">
+              {failing} {failing === 1 ? 'head' : 'heads'} under 40%. That is an F: zero points, course has to be cleared again.
+            </p>
+          )}
+          {est.sgpa !== null && !est.complete && failing === 0 && (
+            <p className="text-[10px] text-slate-500 leading-snug max-w-[16rem] lg:text-right">
+              Only entered heads count. Fill the rest for the full-semester number.
+            </p>
+          )}
+        </div>
+      </section>
+
+      {/* The Ledger */}
+      <section className="bg-[#030303] border border-white/10 rounded-3xl overflow-hidden">
+        {courses.length === 0 && (
+          <p className="p-8 text-sm text-slate-400">
+            No courses selected yet. Pick your courses in Settings and they will show up here.
+          </p>
+        )}
+
+        {/* Desktop ledger header */}
+        {courses.length > 0 && (
+          <div className="hidden lg:grid grid-cols-[minmax(0,1fr)_92px_92px_92px_72px_72px] gap-4 items-center px-6 py-3 border-b border-white/10 bg-white/[0.02]">
+            <span className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest">Course</span>
+            <span className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest text-center">CCE / 30</span>
+            <span className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest text-center">End / 70</span>
+            <span className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest text-center">TW / 25</span>
+            <span className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest text-center">Theory</span>
+            <span className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest text-center">TW</span>
+          </div>
+        )}
+
+        <div className="divide-y divide-white/5">
+          {courses.map((s) => {
+            const m = marks[s.id];
+            const tg = theoryGrade(m);
+            const wg = termWorkGrade(m);
+            const rowFailing = (tg?.letter === 'F') || (wg?.letter === 'F');
+            return (
+              <div key={s.id} className={`relative px-5 py-4 lg:px-6 transition-colors hover:bg-white/[0.02] ${rowFailing ? 'bg-red-500/[0.03]' : ''}`}>
+                {rowFailing && <span className="absolute left-0 top-3 bottom-3 w-[3px] rounded-r-full bg-[#F63C49]"></span>}
+
+                {/* Desktop row */}
+                <div className="hidden lg:grid grid-cols-[minmax(0,1fr)_92px_92px_92px_72px_72px] gap-4 items-center">
+                  <div className="min-w-0">
+                    <span className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest">{s.code} / {s.credits} cr</span>
+                    <h3 className="text-sm font-bold text-white leading-tight mt-0.5 truncate">{s.name}</h3>
+                  </div>
+                  <div className="flex justify-center"><MarkInput id={`${s.id}-cce`} label="CCE" max={MAX_CCE} value={m?.inSem} onChange={(v) => updateMark(s.id, 'inSem', v)} hideLabel /></div>
+                  <div className="flex justify-center"><MarkInput id={`${s.id}-end`} label="End-sem" max={MAX_END_SEM} value={m?.endSem} onChange={(v) => updateMark(s.id, 'endSem', v)} hideLabel /></div>
+                  <div className="flex justify-center">{s.termWorkCredits > 0 ? <MarkInput id={`${s.id}-tw`} label="Term work" max={MAX_TERM_WORK} value={m?.termWork} onChange={(v) => updateMark(s.id, 'termWork', v)} hideLabel /> : <span className="text-slate-700 font-mono">--</span>}</div>
+                  <div className="flex justify-center"><GradeChip grade={tg} /></div>
+                  <div className="flex justify-center">{s.termWorkCredits > 0 ? <GradeChip grade={wg} /> : <span className="text-slate-700 font-mono">--</span>}</div>
                 </div>
-              ) : (
-                <button
-                  onClick={() => setConfirmClear(true)}
-                  disabled={Object.keys(marks).length === 0}
-                  className="flex items-center gap-2 px-3 py-1.5 rounded bg-white/5 border border-white/5 text-[9px] font-bold text-slate-400 uppercase tracking-widest hover:bg-[#D61A40] hover:text-white hover:border-[#F63C49] transition-all disabled:opacity-30 disabled:hover:bg-white/5 disabled:hover:text-slate-400"
-                >
-                  <RotateCcw size={10} /> Clear marks
-                </button>
-              )}
-            </div>
 
-            {courses.length === 0 && (
-              <p className="p-8 text-sm text-slate-400">
-                No courses selected yet. Pick your courses in Settings and they will show up here.
-              </p>
-            )}
-
-            <div className="divide-y divide-white/5">
-              {courses.map((s) => {
-                const m = marks[s.id];
-                const tg = theoryGrade(m);
-                const wg = termWorkGrade(m);
-                return (
-                  <div key={s.id} className="p-5 hover:bg-white/[0.02] transition-colors">
-                    <div className="flex items-start justify-between gap-4 mb-5">
-                      <div>
-                        <span className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest">
-                          {s.code} / {s.credits} credits
-                        </span>
-                        <h3 className="text-sm font-bold text-white leading-tight mt-1">{s.name}</h3>
-                      </div>
+                {/* Phone block */}
+                <div className="lg:hidden">
+                  <div className="flex items-start justify-between gap-3 mb-3">
+                    <div className="min-w-0">
+                      <span className="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest">{s.code} / {s.credits} cr</span>
+                      <h3 className="text-sm font-bold text-white leading-tight mt-0.5">{s.name}</h3>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      <div>
-                        <div className="flex items-center justify-between mb-3">
-                          <span className="text-[9px] font-mono text-slate-400 uppercase tracking-widest">
-                            Theory / {s.theoryCredits} cr
-                          </span>
-                          <GradeChip grade={tg} />
-                        </div>
-                        <div className="flex items-center justify-around gap-4">
-                          <MarkInput
-                            id={`${s.id}-cce`}
-                            label="CCE"
-                            max={MAX_CCE}
-                            value={m?.inSem}
-                            onChange={(v) => updateMark(s.id, 'inSem', v)}
-                          />
-                          <MarkInput
-                            id={`${s.id}-end`}
-                            label="End-sem"
-                            max={MAX_END_SEM}
-                            value={m?.endSem}
-                            onChange={(v) => updateMark(s.id, 'endSem', v)}
-                          />
-                        </div>
-                      </div>
-                      <div>
-                        <div className="flex items-center justify-between mb-3">
-                          <span className="text-[9px] font-mono text-slate-400 uppercase tracking-widest">
-                            Term work / {s.termWorkCredits} cr
-                          </span>
-                          <GradeChip grade={wg} />
-                        </div>
-                        <div className="flex items-center justify-around">
-                          <MarkInput
-                            id={`${s.id}-tw`}
-                            label="Term work"
-                            max={MAX_TERM_WORK}
-                            value={m?.termWork}
-                            onChange={(v) => updateMark(s.id, 'termWork', v)}
-                          />
-                        </div>
-                      </div>
+                    <div className="flex gap-1.5 shrink-0">
+                      <GradeChip grade={tg} />
+                      {s.termWorkCredits > 0 && <GradeChip grade={wg} />}
                     </div>
                   </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-
-        <div className="lg:col-span-5 lg:sticky lg:top-8 space-y-6">
-          <div className="rounded-[2.5rem] surface-1 p-8 lg:p-12 relative overflow-hidden flex flex-col items-center text-center">
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
-            <div className="relative z-10 w-full" aria-live="polite">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/5 mb-8">
-                <Activity size={12} className="text-[#F63C49]" />
-                <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-300">
-                  {est.sgpa === null ? 'Waiting for marks' : est.complete ? 'Estimated SGPA' : 'Partial estimate'}
-                </span>
-              </div>
-
-              <div className="mb-8">
-                <h2 className="text-[7rem] lg:text-[9rem] leading-[0.8] font-display font-bold text-white tracking-tighter tabular-nums">
-                  {sgpaText}
-                </h2>
-                <p className="text-sm font-mono text-slate-500 uppercase tracking-[0.4em] mt-3">SGPA / 10</p>
-              </div>
-
-              <div className="w-full max-w-xs mx-auto space-y-3 text-left">
-                <div className="bg-white/5 p-4 rounded-xl border border-white/5 flex justify-between items-center">
-                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Heads entered</span>
-                  <span className="text-sm font-mono font-bold text-white tabular-nums">
-                    {est.completeHeads} / {est.totalHeads}
-                  </span>
-                </div>
-                <div className="bg-white/5 p-4 rounded-xl border border-white/5 flex justify-between items-center">
-                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Credits graded</span>
-                  <span className="text-sm font-mono font-bold text-white tabular-nums">
-                    {est.gradedCredits} / {est.totalCredits}
-                  </span>
+                  <div className="grid grid-cols-3 gap-2">
+                    <MarkInput id={`${s.id}-cce`} label="CCE" max={MAX_CCE} value={m?.inSem} onChange={(v) => updateMark(s.id, 'inSem', v)} />
+                    <MarkInput id={`${s.id}-end`} label="End-sem" max={MAX_END_SEM} value={m?.endSem} onChange={(v) => updateMark(s.id, 'endSem', v)} />
+                    {s.termWorkCredits > 0 ? (
+                      <MarkInput id={`${s.id}-tw`} label="TW" max={MAX_TERM_WORK} value={m?.termWork} onChange={(v) => updateMark(s.id, 'termWork', v)} />
+                    ) : <span />}
+                  </div>
                 </div>
               </div>
-
-              {est.sgpa !== null && !est.complete && (
-                <p className="mt-6 text-xs text-slate-400 leading-relaxed">
-                  Only the heads you entered are counted. Fill the rest for the full-semester number.
-                </p>
-              )}
-              {failing > 0 && (
-                <p className="mt-6 text-xs text-red-400 leading-relaxed">
-                  {failing} {failing === 1 ? 'head is' : 'heads are'} under 40 percent. That is an F: zero points, and
-                  the course has to be cleared again.
-                </p>
-              )}
-            </div>
-          </div>
-
-          <details className="bg-[#030303] border border-white/10 rounded-2xl p-5 text-sm text-slate-400">
-            <summary className="cursor-pointer text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-slate-300 flex items-center gap-2">
-              <Info size={12} /> How this is graded
-            </summary>
-            <div className="mt-4 space-y-3 leading-relaxed">
-              <p>
-                Theory is CCE (30) plus end-semester (70), graded out of 100. Term work (25) is graded on its own as a
-                percentage. SGPA is the credit-weighted average of grade points across all heads.
-              </p>
-              <table className="w-full text-xs font-mono">
-                <thead>
-                  <tr className="text-slate-500 text-left">
-                    <th className="py-1 font-normal">Marks %</th>
-                    <th className="py-1 font-normal">Grade</th>
-                    <th className="py-1 font-normal">Points</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {GRADE_BANDS.map((b) => (
-                    <tr key={b.letter} className="border-t border-white/5 text-slate-300">
-                      <td className="py-1">{b.label}</td>
-                      <td className="py-1">{b.letter}</td>
-                      <td className="py-1">{b.point}</td>
-                    </tr>
-                  ))}
-                  <tr className="border-t border-white/5 text-slate-300">
-                    <td className="py-1">Below 40</td>
-                    <td className="py-1">F</td>
-                    <td className="py-1">0</td>
-                  </tr>
-                </tbody>
-              </table>
-              <p>
-                Source: SPPU Credit Framework, Guidelines, Rules and Regulations for the 4-year UG Engineering
-                programme (2024-25), Table 2.{' '}
-                <a href={RULES_URL} target="_blank" rel="noopener noreferrer" className="text-[#F63C49] underline">
-                  Read the PDF
-                </a>
-                . Your college's result is the only official one.
-              </p>
-            </div>
-          </details>
+            );
+          })}
         </div>
-      </div>
+      </section>
+
+      <details className="bg-[#030303] border border-white/10 rounded-2xl p-5 text-sm text-slate-400">
+        <summary className="cursor-pointer text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-slate-300 flex items-center gap-2">
+          <Info size={12} /> How this is graded
+        </summary>
+        <div className="mt-4 space-y-3 leading-relaxed">
+          <p>
+            Theory is CCE (30) plus end-semester (70), graded out of 100. Term work (25) is graded on its own as a
+            percentage. SGPA is the credit-weighted average of grade points across all heads.
+          </p>
+          <table className="w-full text-xs font-mono max-w-md">
+            <thead>
+              <tr className="text-slate-500 text-left">
+                <th className="py-1 font-normal">Marks %</th>
+                <th className="py-1 font-normal">Grade</th>
+                <th className="py-1 font-normal">Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              {GRADE_BANDS.map((b) => (
+                <tr key={b.letter} className="border-t border-white/5 text-slate-300">
+                  <td className="py-1">{b.label}</td>
+                  <td className="py-1">{b.letter}</td>
+                  <td className="py-1">{b.point}</td>
+                </tr>
+              ))}
+              <tr className="border-t border-white/5 text-slate-300">
+                <td className="py-1">Below 40</td>
+                <td className="py-1">F</td>
+                <td className="py-1">0</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            Source: SPPU Credit Framework, Guidelines, Rules and Regulations for the 4-year UG Engineering
+            programme (2024-25), Table 2.{' '}
+            <a href={RULES_URL} target="_blank" rel="noopener noreferrer" className="text-[#F63C49] underline">
+              Read the PDF
+            </a>
+            . Your college's result is the only official one.
+          </p>
+        </div>
+      </details>
     </div>
   );
 };
