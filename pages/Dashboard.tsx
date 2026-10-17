@@ -53,30 +53,32 @@ const StatPill = ({ label, value, sub, active = false, gradient = false, icon: I
 const StreakCard = ({ streak, counts, labels, style }: any) => {
   const todayIdx = counts.length - 1;
   return (
-    <div style={style} className="relative p-6 rounded-3xl flex flex-col justify-between h-36 lg:h-40 overflow-hidden group hover:-translate-y-1 transition-all duration-300 animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500 bg-[linear-gradient(180deg,#FDFBF6_0%,#F6F1E8_52%,#EEE8DC_100%)] shadow-[0_1px_2px_rgba(0,0,0,0.45),0_18px_38px_-22px_rgba(0,0,0,0.85),0_0_34px_-10px_rgba(255,247,235,0.22)]">
+    <div style={style} className="relative p-5 rounded-3xl flex flex-col justify-between h-36 lg:h-40 overflow-hidden group hover:-translate-y-1 transition-all duration-300 animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500 bg-[linear-gradient(180deg,#FDFBF6_0%,#F6F1E8_52%,#EEE8DC_100%)] shadow-[0_1px_2px_rgba(0,0,0,0.45),0_18px_38px_-22px_rgba(0,0,0,0.85),0_0_34px_-10px_rgba(255,247,235,0.22)]">
       {/* Ivory material: bright top sheen, warm bottom vignette, crisp inner highlight */}
       <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-transparent to-black/[0.05] pointer-events-none"></div>
       <div className="absolute inset-0 rounded-3xl shadow-[inset_0_1px_0_rgba(255,255,255,0.9),inset_0_-1px_0_rgba(0,0,0,0.05)] pointer-events-none"></div>
       <div className="absolute inset-0 rounded-3xl ring-1 ring-black/[0.06] pointer-events-none"></div>
-      <div className="relative flex justify-between items-start">
+
+      {/* Label row: flame sits inline as a small mark, no floating chip */}
+      <div className="relative flex items-center gap-1.5">
+        <Flame size={10} strokeWidth={2.5} className="text-[#F63C49] -mt-px" />
         <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-[#8a8172]">Study Streak</span>
-        <span className="hidden sm:flex items-center justify-center w-7 h-7 -mt-1 -mr-1 rounded-lg bg-[#F63C49]/10 ring-1 ring-[#F63C49]/25 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
-          <Flame size={13} className="text-[#F63C49]" />
-        </span>
       </div>
-      <div className="relative flex flex-col md:flex-row md:items-end md:justify-between gap-2">
-        <div className="order-2 md:order-1">
-          <p className="text-4xl lg:text-5xl font-display font-bold tracking-tighter text-[#17171c] leading-none mb-1.5">{streak}</p>
-          <p className="text-[10px] lg:text-[11px] font-bold uppercase tracking-widest text-[#4a443a] whitespace-nowrap">Day Streak</p>
-        </div>
-        <div className="order-1 md:order-2 flex items-end gap-[5px] pb-0.5 self-end md:self-auto">
-          {counts.map((c: number, i: number) => (
-            <div key={i} className="flex flex-col items-center gap-1">
-              <span className={`rounded-full ${i === todayIdx ? 'w-2 h-2' : 'w-1.5 h-1.5'} ${c > 0 ? 'bg-[#F63C49] shadow-[0_0_8px_rgba(246,60,73,0.5)]' : 'bg-black/[0.04] ring-1 ring-black/20'}`}></span>
-              <span className={`hidden sm:block text-[8px] font-mono font-bold uppercase ${i === todayIdx ? 'text-black/60' : 'text-[#b0a895]'}`}>{labels[i]}</span>
-            </div>
-          ))}
-        </div>
+
+      {/* Hero figure with quiet baseline caption */}
+      <div className="relative flex items-end gap-2">
+        <p className="text-5xl lg:text-6xl font-display font-bold tracking-tighter text-[#17171c] leading-[0.85]">{streak}</p>
+        <p className="text-[9px] lg:text-[10px] font-bold uppercase tracking-widest text-[#4a443a] mb-0.5 whitespace-nowrap">Day Streak</p>
+      </div>
+
+      {/* Week strip: full-width capsule bars, today taller, mono letters beneath */}
+      <div className="relative flex items-end gap-1.5">
+        {counts.map((c: number, i: number) => (
+          <div key={i} className="flex-1 flex flex-col items-center gap-1">
+            <span className={`w-full rounded-full ${i === todayIdx ? 'h-[22px] lg:h-[26px]' : 'h-[16px] lg:h-[20px]'} ${c > 0 ? 'bg-[#F63C49] shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_2px_8px_-2px_rgba(246,60,73,0.55)]' : 'bg-black/[0.03] ring-1 ring-inset ring-black/15'}`}></span>
+            <span className={`text-[7px] lg:text-[8px] font-mono font-bold uppercase leading-none ${i === todayIdx ? 'text-[#4a443a]' : 'text-[#b0a895]'}`}>{labels[i]}</span>
+          </div>
+        ))}
       </div>
     </div>
   );
