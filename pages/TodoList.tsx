@@ -35,7 +35,7 @@ const CATEGORY_CONFIG: Record<Category, { color: string, icon: any, label: strin
 };
 
 const PRIORITY_CONFIG: Record<Priority, { color: string, border: string, glow: string }> = {
-  CRITICAL: { color: 'text-[#E11D48]', border: 'border-[#E11D48]', glow: 'shadow-[0_0_15px_rgba(225,29,72,0.15)]' },
+  CRITICAL: { color: 'text-[#F63C49]', border: 'border-[#F63C49]', glow: 'shadow-[0_0_15px_rgba(246,60,73,0.15)]' },
   NORMAL: { color: 'text-blue-400', border: 'border-blue-500/50', glow: '' },
   LOW: { color: 'text-slate-400', border: 'border-slate-700', glow: '' }
 };
@@ -75,7 +75,7 @@ const CustomSelect = <T extends string>({
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         className={`w-full bg-white/5 border rounded-xl px-4 py-3 flex items-center justify-between transition-all duration-300 ${
-            isOpen ? 'border-[#E11D48] bg-white/[0.07] shadow-[0_0_15px_rgba(225,29,72,0.1)]' : 'border-white/10 hover:border-white/20'
+            isOpen ? 'border-[#F63C49] bg-white/[0.07] shadow-[0_0_15px_rgba(246,60,73,0.1)]' : 'border-white/10 hover:border-white/20'
         }`}
       >
         <div className="flex items-center gap-3">
@@ -85,7 +85,7 @@ const CustomSelect = <T extends string>({
                 {selectedOption?.label}
             </span>
         </div>
-        <ChevronDown size={14} className={`text-slate-500 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#E11D48]' : ''}`} />
+        <ChevronDown size={14} className={`text-slate-500 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#F63C49]' : ''}`} />
       </button>
 
       {isOpen && (
@@ -104,7 +104,7 @@ const CustomSelect = <T extends string>({
                              {opt.label}
                          </span>
                     </div>
-                    {value === opt.value && <Check size={12} className="text-[#E11D48]" />}
+                    {value === opt.value && <Check size={12} className="text-[#F63C49]" />}
                 </button>
             ))}
         </div>
@@ -218,7 +218,7 @@ const TodoList: React.FC = () => {
 
   // Dropdown Options Configuration
   const priorityOptions = [
-    { value: 'CRITICAL', label: 'Critical', color: 'bg-[#E11D48]' },
+    { value: 'CRITICAL', label: 'Critical', color: 'bg-[#D61A40]' },
     { value: 'NORMAL', label: 'Normal', color: 'bg-blue-400' },
     { value: 'LOW', label: 'Low', color: 'bg-slate-500' }
   ];
@@ -250,7 +250,7 @@ const TodoList: React.FC = () => {
       {/* HEADER HUD */}
       <header className="mb-12 border-b border-white/5 pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-           <div className="flex items-center gap-2 text-[#E11D48] mb-2">
+           <div className="flex items-center gap-2 text-[#F63C49] mb-2">
                 <CheckSquare size={16} />
                 <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em]">Local Task Management</span>
             </div>
@@ -270,7 +270,7 @@ const TodoList: React.FC = () => {
             </div>
             <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden relative z-10">
                 <div 
-                    className={`h-full bg-[#E11D48] shadow-[0_0_10px_#E11D48] transition-all duration-700 ease-out ${loading ? 'animate-pulse' : ''}`}
+                    className={`h-full bg-[#D61A40] shadow-[0_0_10px_#F63C49] transition-all duration-700 ease-out ${loading ? 'animate-pulse' : ''}`}
                     style={{ width: `${progress}%` }}
                 ></div>
             </div>
@@ -299,7 +299,7 @@ const TodoList: React.FC = () => {
                             value={inputText}
                             onChange={(e) => setInputText(e.target.value)}
                             placeholder="Ex: Complete Unit 3 PYQs..."
-                            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#E11D48] focus:bg-white/[0.07] outline-none transition-all placeholder:text-slate-600 font-medium"
+                            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#F63C49] focus:bg-white/[0.07] outline-none transition-all placeholder:text-slate-600 font-medium"
                             autoFocus
                         />
                     </div>
@@ -332,13 +332,13 @@ const TodoList: React.FC = () => {
                     <div className="space-y-2">
                         <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Due date (optional)</label>
                         <div className="relative group">
-                            <Calendar size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-[#E11D48] transition-colors" />
+                            <Calendar size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-[#F63C49] transition-colors" />
                             <input 
                                 type="date" 
                                 aria-label="Due date"
                                 value={inputDate}
                                 onChange={(e) => setInputDate(e.target.value)}
-                                className="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-xs font-mono text-slate-300 focus:border-[#E11D48] outline-none transition-colors uppercase"
+                                className="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-xs font-mono text-slate-300 focus:border-[#F63C49] outline-none transition-colors uppercase"
                             />
                         </div>
                     </div>
@@ -346,7 +346,7 @@ const TodoList: React.FC = () => {
                     <button 
                         type="submit"
                         disabled={!inputText}
-                        className="w-full py-4 bg-[#E11D48] hover:bg-[#be123c] disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold uppercase tracking-[0.2em] rounded-xl transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(225,29,72,0.2)] hover:shadow-[0_0_30px_rgba(225,29,72,0.4)]"
+                        className="w-full py-4 bg-[#D61A40] hover:bg-[#B3123B] disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold uppercase tracking-[0.2em] rounded-xl transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(246,60,73,0.2)] hover:shadow-[0_0_30px_rgba(246,60,73,0.4)]"
                     >
                         <Plus size={16} /> Add Task
                     </button>
@@ -389,7 +389,7 @@ const TodoList: React.FC = () => {
             <div className="space-y-4">
                 {loading ? (
                     <div className="py-20 text-center">
-                        <Loader2 size={48} className="mx-auto text-[#E11D48] animate-spin mb-4" />
+                        <Loader2 size={48} className="mx-auto text-[#F63C49] animate-spin mb-4" />
                         <p className="text-slate-500 text-sm font-mono uppercase tracking-widest">Loading tasks...</p>
                     </div>
                 ) : filteredTasks.length === 0 ? (
@@ -501,7 +501,7 @@ const TodoList: React.FC = () => {
       {undo && (
         <div role="status" className="fixed bottom-28 left-4 right-4 lg:bottom-8 lg:left-auto lg:right-8 lg:w-80 z-[60] bg-[#0a0a0a] border border-white/10 rounded-2xl px-4 py-3 flex items-center justify-between shadow-2xl animate-in slide-in-from-bottom-4 fade-in duration-300">
           <span className="text-xs font-bold text-slate-300">{undo.label}</span>
-          <button onClick={undoRemove} className="text-[10px] font-bold uppercase tracking-widest text-[#E11D48] hover:text-white px-3 py-2 rounded-lg hover:bg-white/5">Undo</button>
+          <button onClick={undoRemove} className="text-[10px] font-bold uppercase tracking-widest text-[#F63C49] hover:text-white px-3 py-2 rounded-lg hover:bg-white/5">Undo</button>
         </div>
       )}
     </div>

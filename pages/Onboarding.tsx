@@ -134,13 +134,13 @@ const Onboarding: React.FC<OnboardingProps> = () => {
     return (
       <div className="fixed inset-0 bg-black flex flex-col items-center justify-center z-50">
          <div className="w-64 space-y-4">
-            <div className="flex justify-between items-end text-xs font-mono text-[#E11D48] mb-1">
+            <div className="flex justify-between items-end text-xs font-mono text-[#F63C49] mb-1">
                 <span>Setup</span>
                 <span>{bootProgress}%</span>
             </div>
             <div className="h-0.5 bg-white/10 w-full overflow-hidden">
                 <div 
-                    className="h-full bg-[#E11D48] shadow-[0_0_20px_#E11D48] transition-all duration-100 ease-out"
+                    className="h-full bg-[#D61A40] shadow-[0_0_20px_#F63C49] transition-all duration-100 ease-out"
                     style={{ width: `${bootProgress}%` }}
                 ></div>
             </div>
@@ -183,9 +183,9 @@ const Onboarding: React.FC<OnboardingProps> = () => {
                     {/* Visual Icon */}
                     <div className="text-center mb-10">
                         <div className="w-24 h-24 bg-white/5 rounded-full mx-auto flex items-center justify-center border border-white/10 relative mb-8">
-                           <ScanFace size={40} className="text-[#E11D48] relative z-10" strokeWidth={1.5} />
+                           <ScanFace size={40} className="text-[#F63C49] relative z-10" strokeWidth={1.5} />
                            {/* Decorative Spinners */}
-                           <div className="absolute inset-0 border-t border-[#E11D48] rounded-full animate-spin"></div>
+                           <div className="absolute inset-0 border-t border-[#F63C49] rounded-full animate-spin"></div>
                            <div className="absolute inset-2 border-b border-white/20 rounded-full animate-[spin_3s_linear_infinite_reverse]"></div>
                         </div>
                         <h1 className="text-3xl font-display font-bold text-white mb-2 tracking-tight">Your profile</h1>
@@ -195,9 +195,9 @@ const Onboarding: React.FC<OnboardingProps> = () => {
                     {/* Input Container */}
                     <div className="bg-[#050505] border border-white/10 p-8 rounded-[2rem] relative overflow-hidden group shadow-2xl">
                         {/* Top Accent */}
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[2px] bg-[#E11D48] blur-[8px]"></div>
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[2px] bg-[#D61A40] blur-[8px]"></div>
 
-                        <label className="flex items-center gap-2 text-[9px] font-mono text-[#E11D48] mb-6 uppercase tracking-[0.2em] font-bold">
+                        <label className="flex items-center gap-2 text-[9px] font-mono text-[#F63C49] mb-6 uppercase tracking-[0.2em] font-bold">
                            <ShieldCheck size={12} /> Your name
                         </label>
 
@@ -207,10 +207,10 @@ const Onboarding: React.FC<OnboardingProps> = () => {
                                value={name}
                                onChange={(e) => setName(e.target.value)}
                                placeholder="YOUR NAME"
-                               className="w-full bg-transparent border-b border-white/10 py-3 text-2xl lg:text-3xl font-display font-bold text-center text-white focus:border-[#E11D48] focus:outline-none transition-all placeholder:text-white/30 uppercase tracking-wide"
+                               className="w-full bg-transparent border-b border-white/10 py-3 text-2xl lg:text-3xl font-display font-bold text-center text-white focus:border-[#F63C49] focus:outline-none transition-all placeholder:text-white/30 uppercase tracking-wide"
                                autoFocus
                            />
-                           <div className="absolute bottom-0 left-0 w-full h-[1px] bg-[#E11D48] scale-x-0 group-focus-within:scale-x-100 transition-transform duration-500"></div>
+                           <div className="absolute bottom-0 left-0 w-full h-[1px] bg-[#D61A40] scale-x-0 group-focus-within:scale-x-100 transition-transform duration-500"></div>
                         </div>
 
                         <div className="text-center space-y-2">
@@ -238,7 +238,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
             {stage === 'matrix' && (
                 <div className="w-full animate-in fade-in zoom-in-95 duration-500 slide-in-from-right-8 pb-10">
                      <div className="mb-10 text-center lg:text-left">
-                        <span className="inline-block px-3 py-1 rounded-full border border-[#E11D48]/30 bg-[#E11D48]/10 text-[#E11D48] text-[10px] font-bold uppercase tracking-widest mb-4">
+                        <span className="inline-block px-3 py-1 rounded-full border border-[#F63C49]/30 bg-[#F63C49]/10 text-[#F63C49] text-[10px] font-bold uppercase tracking-widest mb-4">
                             Your subjects - SPPU 2024 pattern
                         </span>
                         <h2 className="text-4xl font-display font-bold mb-2">Select Your Subjects</h2>
@@ -296,7 +296,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
                      <p className="text-center text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-4">5 subjects - you can change them later in Settings</p>
                      <button
                         onClick={handleFinish}
-                        className="w-full py-6 bg-[#E11D48] text-white font-bold uppercase tracking-[0.2em] rounded-xl hover:bg-[#be123c] transition-all shadow-[0_0_40px_-10px_#E11D48] hover:shadow-[0_0_60px_-10px_#E11D48] flex items-center justify-center gap-3 group"
+                        className="w-full py-6 bg-[#D61A40] text-white font-bold uppercase tracking-[0.2em] rounded-xl hover:bg-[#B3123B] transition-all shadow-[0_0_40px_-10px_#F63C49] hover:shadow-[0_0_60px_-10px_#F63C49] flex items-center justify-center gap-3 group"
                      >
                         <Zap size={18} className="fill-white" />
                         Start PrepTracker
@@ -309,10 +309,10 @@ const Onboarding: React.FC<OnboardingProps> = () => {
                     <div className="relative mb-12">
                          {/* Core Animation */}
                          <div className="w-32 h-32 mx-auto relative flex items-center justify-center">
-                             <div className="absolute inset-0 bg-[#E11D48]/20 rounded-full animate-ping"></div>
-                             <div className="absolute inset-0 border border-[#E11D48] rounded-full animate-[spin_10s_linear_infinite]"></div>
+                             <div className="absolute inset-0 bg-[#F63C49]/20 rounded-full animate-ping"></div>
+                             <div className="absolute inset-0 border border-[#F63C49] rounded-full animate-[spin_10s_linear_infinite]"></div>
                              <div className="absolute inset-4 border border-white/20 rounded-full animate-[spin_5s_linear_infinite_reverse]"></div>
-                             <div className="relative z-10 w-20 h-20 bg-[#0a0a0a] rounded-full border border-white/10 flex items-center justify-center shadow-[0_0_30px_#E11D48]">
+                             <div className="relative z-10 w-20 h-20 bg-[#0a0a0a] rounded-full border border-white/10 flex items-center justify-center shadow-[0_0_30px_#F63C49]">
                                 <Cpu size={32} className="text-white animate-pulse" />
                              </div>
                          </div>
@@ -323,7 +323,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
                             <h2 className="text-2xl font-display font-bold text-white mb-2 uppercase tracking-widest animate-pulse">
                                 Saving your setup
                             </h2>
-                            <p className="text-[10px] font-mono text-[#E11D48] uppercase tracking-[0.2em]">
+                            <p className="text-[10px] font-mono text-[#F63C49] uppercase tracking-[0.2em]">
                                 {processLog}
                             </p>
                         </div>
@@ -331,7 +331,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
                         {/* Progress Bar */}
                         <div className="w-full bg-[#0a0a0a] rounded-full h-1.5 border border-white/10 overflow-hidden relative">
                              <div 
-                                className="h-full bg-gradient-to-r from-[#E11D48] to-purple-600 transition-all duration-300 ease-out relative"
+                                className="h-full bg-gradient-to-r from-[#F63C49] to-purple-600 transition-all duration-300 ease-out relative"
                                 style={{ width: `${processPercent}%` }}
                              >
                                 <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,rgba(255,255,255,0.5)_50%,transparent_100%)] animate-[shimmer_1s_infinite]"></div>

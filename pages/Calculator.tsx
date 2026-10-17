@@ -64,10 +64,10 @@ const MarkInput = ({
         step={0.5}
         value={value ?? ''}
         onChange={(e) => onChange(e.target.value)}
-        className="w-20 bg-transparent text-2xl font-mono text-white text-center border-b border-white/10 focus:border-[#E11D48] outline-none py-1 transition-colors placeholder:text-white/10 tabular-nums"
+        className="w-20 bg-transparent text-2xl font-mono text-white text-center border-b border-white/10 focus:border-[#F63C49] outline-none py-1 transition-colors placeholder:text-white/10 tabular-nums"
         placeholder="--"
       />
-      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-[#E11D48] scale-x-0 group-focus-within/input:scale-x-100 transition-transform duration-300"></div>
+      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-[#D61A40] scale-x-0 group-focus-within/input:scale-x-100 transition-transform duration-300"></div>
     </div>
   </div>
 );
@@ -108,8 +108,8 @@ const CalculatorPage: React.FC = () => {
       <header className="border-b border-white/5 pb-8 flex justify-between items-end">
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E11D48]"></span>
-            <span className="text-[10px] font-mono font-bold uppercase tracking-[0.25em] text-[#E11D48]">
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#D61A40]"></span>
+            <span className="text-[10px] font-mono font-bold uppercase tracking-[0.25em] text-[#F63C49]">
               Estimate only
             </span>
           </div>
@@ -154,7 +154,7 @@ const CalculatorPage: React.FC = () => {
                       setMarks({});
                       setConfirmClear(false);
                     }}
-                    className="px-3 py-1.5 rounded bg-[#E11D48] text-white text-[9px] font-bold uppercase tracking-widest"
+                    className="px-3 py-1.5 rounded bg-[#D61A40] text-white text-[9px] font-bold uppercase tracking-widest"
                   >
                     Yes, clear
                   </button>
@@ -169,7 +169,7 @@ const CalculatorPage: React.FC = () => {
                 <button
                   onClick={() => setConfirmClear(true)}
                   disabled={Object.keys(marks).length === 0}
-                  className="flex items-center gap-2 px-3 py-1.5 rounded bg-white/5 border border-white/5 text-[9px] font-bold text-slate-400 uppercase tracking-widest hover:bg-[#E11D48] hover:text-white hover:border-[#E11D48] transition-all disabled:opacity-30 disabled:hover:bg-white/5 disabled:hover:text-slate-400"
+                  className="flex items-center gap-2 px-3 py-1.5 rounded bg-white/5 border border-white/5 text-[9px] font-bold text-slate-400 uppercase tracking-widest hover:bg-[#D61A40] hover:text-white hover:border-[#F63C49] transition-all disabled:opacity-30 disabled:hover:bg-white/5 disabled:hover:text-slate-400"
                 >
                   <RotateCcw size={10} /> Clear marks
                 </button>
@@ -252,7 +252,7 @@ const CalculatorPage: React.FC = () => {
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
             <div className="relative z-10 w-full" aria-live="polite">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/5 mb-8">
-                <Activity size={12} className="text-[#E11D48]" />
+                <Activity size={12} className="text-[#F63C49]" />
                 <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-300">
                   {est.sgpa === null ? 'Waiting for marks' : est.complete ? 'Estimated SGPA' : 'Partial estimate'}
                 </span>
@@ -329,7 +329,7 @@ const CalculatorPage: React.FC = () => {
               <p>
                 Source: SPPU Credit Framework, Guidelines, Rules and Regulations for the 4-year UG Engineering
                 programme (2024-25), Table 2.{' '}
-                <a href={RULES_URL} target="_blank" rel="noopener noreferrer" className="text-[#E11D48] underline">
+                <a href={RULES_URL} target="_blank" rel="noopener noreferrer" className="text-[#F63C49] underline">
                   Read the PDF
                 </a>
                 . Your college's result is the only official one.

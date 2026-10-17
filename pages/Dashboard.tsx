@@ -27,7 +27,7 @@ const StatPill = ({ label, value, sub, active = false, gradient = false, icon: I
   return (
   <Wrap {...(to ? { to } : {})} className={`p-6 rounded-3xl flex flex-col justify-between h-36 lg:h-40 transition-all duration-300 group hover:-translate-y-1 ${
     gradient 
-      ? 'bg-gradient-to-br from-[#E11D48] to-[#9f1239] shadow-[0_10px_40px_-10px_rgba(225,29,72,0.4)] border-none' 
+      ? 'bg-gradient-to-br from-[#F63C49] to-[#9f1239] shadow-[0_10px_40px_-10px_rgba(246,60,73,0.4)] border-none' 
       : active 
         ? 'bg-white text-black border-none shadow-xl' 
         : 'bg-[#0a0a0a] border border-white/5 hover:border-white/10'
@@ -36,7 +36,7 @@ const StatPill = ({ label, value, sub, active = false, gradient = false, icon: I
       <span className={`text-[9px] uppercase tracking-[0.25em] font-bold ${
         gradient ? 'text-white/80' : active ? 'text-black/50' : 'text-slate-500'
       }`}>{label}</span>
-      <Icon size={16} className={gradient ? 'text-white' : active ? 'text-black' : 'text-[#E11D48]'} />
+      <Icon size={16} className={gradient ? 'text-white' : active ? 'text-black' : 'text-[#F63C49]'} />
     </div>
     <div>
       <p className={`text-4xl lg:text-5xl font-display font-bold tracking-tighter mb-2 ${
@@ -76,10 +76,10 @@ const ProgressGraphCard = ({ data, labels, total }: { data: number[], labels: st
                 <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-slate-500">Last 7 days</span>
                 <div className="flex items-center gap-2">
                     <span className="relative flex h-1.5 w-1.5">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E11D48] opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#E11D48]"></span>
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D61A40] opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#D61A40]"></span>
                     </span>
-                    <Activity size={16} className="text-white/20 group-hover:text-[#E11D48] transition-colors" />
+                    <Activity size={16} className="text-white/20 group-hover:text-[#F63C49] transition-colors" />
                 </div>
             </div>
             
@@ -88,8 +88,8 @@ const ProgressGraphCard = ({ data, labels, total }: { data: number[], labels: st
                     <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
                          <defs>
                             <linearGradient id="grad" x1="0" x2="0" y1="0" y2="1">
-                                <stop offset="0%" stopColor="#E11D48" stopOpacity="0.4" />
-                                <stop offset="100%" stopColor="#E11D48" stopOpacity="0" />
+                                <stop offset="0%" stopColor="#F63C49" stopOpacity="0.4" />
+                                <stop offset="100%" stopColor="#F63C49" stopOpacity="0" />
                             </linearGradient>
                          </defs>
                          
@@ -105,12 +105,12 @@ const ProgressGraphCard = ({ data, labels, total }: { data: number[], labels: st
                          <polyline 
                             points={points} 
                             fill="none" 
-                            stroke="#E11D48" 
+                            stroke="#F63C49" 
                             strokeWidth="2" 
                             vectorEffect="non-scaling-stroke"
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                            className="drop-shadow-[0_0_8px_rgba(225,29,72,0.5)] transition-all duration-700 ease-in-out"
+                            className="drop-shadow-[0_0_8px_rgba(246,60,73,0.5)] transition-all duration-700 ease-in-out"
                          />
                          
                          {/* Data Points */}
@@ -123,7 +123,7 @@ const ProgressGraphCard = ({ data, labels, total }: { data: number[], labels: st
                                     cx={x} 
                                     cy={y} 
                                     r="2" 
-                                    className="fill-[#0a0a0a] stroke-[#E11D48] stroke-[1px] transition-all duration-700 ease-in-out" 
+                                    className="fill-[#0a0a0a] stroke-[#F63C49] stroke-[1px] transition-all duration-700 ease-in-out" 
                                 />
                              );
                          })}
@@ -221,10 +221,10 @@ const Dashboard: React.FC = () => {
           <div className="relative z-10">
             <div className="flex items-center gap-3 mb-8">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E11D48] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E11D48]"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D61A40] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#D61A40]"></span>
                 </span>
-                <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-[#E11D48]">
+                <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-[#F63C49]">
                     Hi, {profile.name}
                 </span>
             </div>
@@ -239,7 +239,7 @@ const Dashboard: React.FC = () => {
                  <span className="text-4xl font-display font-bold text-white tracking-tighter">{avgProgress}%</span>
                </div>
                <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
-                 <div className="h-full bg-gradient-to-r from-[#E11D48] to-[#be123c] shadow-[0_0_20px_rgba(225,29,72,0.5)] transition-all duration-1000 cubic-bezier(0.4, 0, 0.2, 1)" style={{ width: `${avgProgress}%` }}></div>
+                 <div className="h-full bg-gradient-to-r from-[#F63C49] to-[#D61A40] shadow-[0_0_20px_rgba(246,60,73,0.5)] transition-all duration-1000 cubic-bezier(0.4, 0, 0.2, 1)" style={{ width: `${avgProgress}%` }}></div>
                </div>
           </div>
         </div>
@@ -277,7 +277,7 @@ const Dashboard: React.FC = () => {
       <section className="grid grid-cols-1 lg:grid-cols-3 gap-10 pt-10 border-t border-white/5">
         <div className="lg:col-span-3 max-w-2xl">
           <div className="flex items-center gap-3 mb-8">
-            <CalendarDays size={18} className="text-[#E11D48]" />
+            <CalendarDays size={18} className="text-[#F63C49]" />
             <h3 className="text-lg font-display font-bold text-white tracking-tight">Exam Timeline</h3>
           </div>
           
@@ -285,7 +285,7 @@ const Dashboard: React.FC = () => {
             {timelineExams.length > 0 ? timelineExams.map((exam, i) => (
               <Link to={`/subject/${exam.subjectId}`} key={exam.subjectId} className={`group flex items-center gap-5 p-3 rounded-2xl hover:bg-white/5 transition-all cursor-pointer border border-transparent hover:border-white/5 ${i !== nextIdx && nextIdx !== -1 && i < nextIdx ? 'opacity-40' : ''}`}>
                 {/* Date Ticket */}
-                <div className="w-14 h-14 rounded-xl bg-[#0a0a0a] border border-white/10 flex flex-col items-center justify-center shrink-0 group-hover:border-[#E11D48] transition-colors">
+                <div className="w-14 h-14 rounded-xl bg-[#0a0a0a] border border-white/10 flex flex-col items-center justify-center shrink-0 group-hover:border-[#F63C49] transition-colors">
                   <span className="text-[9px] font-bold uppercase tracking-widest text-slate-500">{exam.date.toLocaleString('default', { month: 'short' })}</span>
                   <span className="text-xl font-display font-bold text-white leading-none mt-0.5">{exam.date.getDate()}</span>
                 </div>
@@ -293,8 +293,8 @@ const Dashboard: React.FC = () => {
                 {/* Details */}
                 <div className="flex-1 min-w-0">
                    <div className="flex justify-between items-center mb-1">
-                      <p className="text-sm font-bold text-white truncate pr-2 group-hover:text-[#E11D48] transition-colors">{exam.name}</p>
-                      {i === nextIdx && <span className="w-2 h-2 rounded-full bg-[#E11D48] shadow-[0_0_10px_#E11D48]"></span>}
+                      <p className="text-sm font-bold text-white truncate pr-2 group-hover:text-[#F63C49] transition-colors">{exam.name}</p>
+                      {i === nextIdx && <span className="w-2 h-2 rounded-full bg-[#D61A40] shadow-[0_0_10px_#F63C49]"></span>}
                    </div>
                    <div className="flex items-center gap-3">
                       <span className="text-[10px] font-mono text-slate-500 bg-white/5 px-1.5 py-0.5 rounded border border-white/5">{exam.code}</span>
@@ -303,9 +303,9 @@ const Dashboard: React.FC = () => {
                 </div>
               </Link>
             )) : (
-              <Link to="/settings" className="block p-6 rounded-2xl border border-dashed border-white/10 text-center hover:border-[#E11D48]/40 transition-colors group">
+              <Link to="/settings" className="block p-6 rounded-2xl border border-dashed border-white/10 text-center hover:border-[#F63C49]/40 transition-colors group">
                  <p className="text-xs font-medium text-slate-500 uppercase tracking-widest group-hover:text-slate-300">No exam dates set</p>
-                 <p className="text-[10px] font-mono text-[#E11D48] mt-2 uppercase tracking-widest">Set them in Settings</p>
+                 <p className="text-[10px] font-mono text-[#F63C49] mt-2 uppercase tracking-widest">Set them in Settings</p>
               </Link>
             )}
           </div>

@@ -62,7 +62,7 @@ const ResourceViewerModal: React.FC<ResourceViewerModalProps> = ({ isOpen, onClo
                             <div className="flex flex-col gap-3 w-full">
                                 <button 
                                     onClick={() => setPlayVideo(true)}
-                                    className="w-full py-4 bg-[#E11D48] text-white font-bold uppercase text-xs tracking-[0.2em] rounded-xl hover:bg-[#be123c] hover:scale-[1.02] transition-all flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(225,29,72,0.3)]"
+                                    className="w-full py-4 bg-[#D61A40] text-white font-bold uppercase text-xs tracking-[0.2em] rounded-xl hover:bg-[#B3123B] hover:scale-[1.02] transition-all flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(246,60,73,0.3)]"
                                 >
                                     <MonitorPlay size={16} /> Initialize Cinema Mode
                                 </button>
@@ -94,7 +94,7 @@ const ResourceViewerModal: React.FC<ResourceViewerModalProps> = ({ isOpen, onClo
                         <div className="absolute top-0 left-0 right-0 z-20 p-6 bg-gradient-to-b from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex justify-between items-start pointer-events-none">
                             <div className="translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                                 <h3 className="text-lg font-bold text-white drop-shadow-lg">{resource.title}</h3>
-                                <p className="text-[10px] text-[#E11D48] font-mono font-bold mt-1 tracking-widest uppercase">Embedded from the source site</p>
+                                <p className="text-[10px] text-[#F63C49] font-mono font-bold mt-1 tracking-widest uppercase">Embedded from the source site</p>
                             </div>
                             <button onClick={onClose} className="pointer-events-auto p-3 bg-white/10 backdrop-blur-xl rounded-full hover:bg-white/20 text-white transition-all hover:scale-110 active:scale-95">
                                 <X size={24} />
@@ -114,16 +114,16 @@ const ResourceViewerModal: React.FC<ResourceViewerModalProps> = ({ isOpen, onClo
                         </div>
                         
                         {/* Footer Status Bar */}
-                        <div className="h-1 bg-[#E11D48] w-full animate-pulse shadow-[0_0_20px_#E11D48]"></div>
+                        <div className="h-1 bg-[#D61A40] w-full animate-pulse shadow-[0_0_20px_#F63C49]"></div>
                     </div>
                 ) : (
                     // STANDARD REDIRECT CONFIRMATION
                     <div className="p-8">
                         <div className="flex flex-col items-center text-center space-y-6">
                             <div className="w-20 h-20 rounded-full bg-white/5 flex items-center justify-center mb-2 relative group">
-                                <div className="absolute inset-0 rounded-full border border-[#E11D48] opacity-20 animate-[ping_2s_ease-in-out_infinite]"></div>
-                                <div className="absolute inset-0 rounded-full border border-[#E11D48] opacity-10 animate-[ping_3s_ease-in-out_infinite_delay-100]"></div>
-                                <ExternalLink size={32} className="text-[#E11D48] relative z-10" />
+                                <div className="absolute inset-0 rounded-full border border-[#F63C49] opacity-20 animate-[ping_2s_ease-in-out_infinite]"></div>
+                                <div className="absolute inset-0 rounded-full border border-[#F63C49] opacity-10 animate-[ping_3s_ease-in-out_infinite_delay-100]"></div>
+                                <ExternalLink size={32} className="text-[#F63C49] relative z-10" />
                             </div>
                             
                             <div>
