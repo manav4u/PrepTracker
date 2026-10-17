@@ -201,42 +201,53 @@
   .pull figcaption{margin-top:30px;font-family:var(--mono);font-size:11px;letter-spacing:.24em;
     text-transform:uppercase;color:var(--mut)}
   .pull figcaption b{color:var(--red);font-weight:400}
-  .mq{margin-top:76px;
+  .mq{margin-top:76px;overflow:hidden;
     -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
     mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-  .mq-row{overflow:hidden}
-  .mq-row+.mq-row{margin-top:22px}
-  .mq-track{display:flex;width:max-content;padding:8px 0;animation:mqscroll 52s linear infinite}
-  .mq-row.mq-rev .mq-track{animation-direction:reverse;animation-duration:64s}
+  .mq-track{display:flex;width:max-content;padding:8px 0;animation:mqscroll 74s linear infinite}
   .mq:hover .mq-track{animation-play-state:paused}
   @keyframes mqscroll{to{transform:translateX(-50%)}}
-  .mq-card{flex:0 0 auto;margin-right:20px;
-    background:#FCFAF6;border:1px solid var(--hair);border-radius:14px;
-    padding:16px 20px 0;box-shadow:0 1px 2px rgba(20,20,25,.04),0 16px 30px -22px rgba(20,20,25,.2)}
-  .mq-card.w-s{width:270px}
-  .mq-card.w-m{width:330px}
-  .mq-card.w-l{width:410px}
-  .mq-card .qmark{display:block;margin:0 0 4px;font-size:30px;line-height:.8;font-weight:700;color:var(--red)}
-  .mq-card blockquote{margin:0;font-family:var(--sat);font-size:16.5px;font-weight:500;
-    line-height:1.5;letter-spacing:-.01em;color:var(--ink)}
-  .mq-card figcaption{margin:14px -20px 0;padding:9px 20px 10px;border-top:1px solid var(--hair);
-    display:flex;justify-content:space-between;align-items:baseline;gap:12px;
-    font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut)}
-  .mq-card figcaption b{color:var(--red);font-weight:400}
+  .mq-set{display:flex;gap:16px;margin-right:16px}
+  .bento{display:grid;grid-template-columns:repeat(4,280px);grid-template-rows:repeat(2,172px);
+    gap:16px;grid-auto-flow:dense}
+  .bt{border-radius:16px;padding:18px 20px 14px;display:flex;flex-direction:column;
+    box-shadow:0 1px 2px rgba(20,20,25,.04),0 16px 30px -22px rgba(20,20,25,.2)}
+  .bt.t-tall{grid-row:span 2}
+  .bt.t-wide{grid-column:span 2}
+  .bt blockquote{margin:0;font-family:var(--sat);font-weight:500;letter-spacing:-.01em;line-height:1.45;
+    font-size:15px;flex:1}
+  .bt.t-tall blockquote{font-size:18px}
+  .bt.t-wide blockquote{font-size:21px;line-height:1.4}
+  .bt.t-big blockquote{font-family:var(--grot);font-weight:700;font-size:27px;line-height:1.2;
+    letter-spacing:-.02em;display:flex;align-items:center}
+  .bt figcaption{margin-top:14px;padding-top:9px;border-top:1px solid var(--hair);
+    display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase}
+  .t-cream{background:#FCFAF6;border:1px solid var(--hair);color:var(--ink)}
+  .t-cream figcaption{color:var(--mut)}
+  .t-cream figcaption b{color:var(--red);font-weight:400}
+  .t-ink{background:#141419;color:#F7F5F2;border:1px solid rgba(20,20,25,.6)}
+  .t-ink figcaption{border-top-color:rgba(247,245,242,.16);color:rgba(247,245,242,.55)}
+  .t-ink figcaption b{color:var(--red-hi);font-weight:400}
+  .t-red{background:linear-gradient(160deg,var(--red),var(--red-deep));color:#fff;border:1px solid rgba(179,18,59,.5)}
+  .t-red figcaption{border-top-color:rgba(255,255,255,.28);color:rgba(255,255,255,.75)}
+  .t-red figcaption b{color:#fff;font-weight:400}
   @media (prefers-reduced-motion: reduce){
     .mq-track{animation:none;width:auto;flex-wrap:wrap;justify-content:center}
-    .mq-card{margin:0 11px 22px}
-    .mq-card.dup{display:none}
+    .mq-set{margin:0 8px 16px}
+    .mq-set.dup{display:none}
   }
   @media(max-width:900px){
     .pull{margin-top:44px}
     .mq{margin-top:52px}
-    .mq-card{padding:14px 18px 0}
-    .mq-card.w-s{width:232px}
-    .mq-card.w-m{width:270px}
-    .mq-card.w-l{width:318px}
-    .mq-card blockquote{font-size:15.5px}
-    .mq-card figcaption{margin:12px -18px 0;padding:8px 18px 9px}
+    .mq-set{gap:12px;margin-right:12px}
+    .bento{grid-template-columns:repeat(4,196px);grid-template-rows:repeat(2,138px);gap:12px}
+    .bt{padding:14px 16px 10px;border-radius:14px}
+    .bt blockquote{font-size:13px}
+    .bt.t-tall blockquote{font-size:14.5px}
+    .bt.t-wide blockquote{font-size:16px}
+    .bt.t-big blockquote{font-size:19px}
+    .bt figcaption{margin-top:10px;padding-top:7px;font-size:8px;letter-spacing:.14em}
   }
 
   @media(max-width:1100px){
@@ -620,33 +631,34 @@ document.querySelectorAll('.mark2,.markg').forEach(p=>p.setAttribute('d',MP));
 const QUOTES={
  pull:{q:'I used to open three PDFs and a spreadsheet to figure out what to study. Now I open one tab and the decision is already made.',
    mark:'one tab',name:'Aditi',tag:'sem 5'},
- cards:[
-  {n:'01',q:'Eleven days out, and I already know what Tuesday looks like.',name:'Rohan',tag:'sem 3'},
-  {n:'02',q:'Streak at 11. I have never kept anything alive for 11 days.',name:'Karan',tag:'sem 7'},
-  {n:'03',q:'The syllabus finally looks finite. That alone lowered my blood pressure.',name:'Sneha',tag:'sem 3'},
-  {n:'04',q:'I stopped rewriting my timetable every Sunday. The list just meets me in the morning.',name:'Priya',tag:'sem 5'},
-  {n:'05',q:'Ticked one unit, watched the bar move, felt weirdly calm. Then ticked another.',name:'Arjun',tag:'sem 1'},
-  {n:'06',q:'PYQs next to the units they belong to. Whoever thought of that, thank you.',name:'Neha',tag:'sem 7'},
-  {n:'07',q:'It is the first app that tells me what is left instead of what I should feel guilty about.',name:'Vikram',tag:'sem 5'},
-  {n:'08',q:'Two minutes to set up. I spent longer choosing a pen.',name:'Ishita',tag:'sem 3'},
-  {n:'09',q:'The countdown used to scare me. Now it just plans for me.',name:'Rahul',tag:'sem 1'},
-  {n:'10',q:'My group chat still argues about portions. I just open one tab.',name:'Tanvi',tag:'sem 5'},
-  {n:'11',q:'Offline in the reading hall, no account, no ads. It respects the grind.',name:'Dev',tag:'sem 7'},
-  {n:'12',q:'I know exactly what is left. That sentence used to be a joke.',name:'Anaya',tag:'sem 3'}
+ clusterA:[
+  {q:'I stopped rewriting my timetable every Sunday. The list just meets me in the morning.',name:'Priya',tag:'sem 5',size:'t-tall',fill:'t-cream'},
+  {q:'Streak at 11. I have never kept anything alive for 11 days.',name:'Karan',tag:'sem 7',size:'t-wide t-big',fill:'t-red'},
+  {q:'Two minutes to set up. I spent longer choosing a pen.',name:'Ishita',tag:'sem 3',size:'',fill:'t-ink'},
+  {q:'Eleven days out, and I already know what Tuesday looks like.',name:'Rohan',tag:'sem 3',size:'',fill:'t-cream'},
+  {q:'PYQs next to the units they belong to. Whoever thought of that, thank you.',name:'Neha',tag:'sem 7',size:'',fill:'t-cream'},
+  {q:'Offline in the reading hall, no account, no ads. It respects the grind.',name:'Dev',tag:'sem 7',size:'',fill:'t-ink'}
+ ],
+ clusterB:[
+  {q:'It is the first app that tells me what is left instead of what I should feel guilty about.',name:'Vikram',tag:'sem 5',size:'t-tall',fill:'t-cream'},
+  {q:'The syllabus finally looks finite. That alone lowered my blood pressure.',name:'Sneha',tag:'sem 3',size:'',fill:'t-cream'},
+  {q:'The countdown used to scare me. Now it just plans for me.',name:'Rahul',tag:'sem 1',size:'t-wide t-big',fill:'t-ink'},
+  {q:'Ticked one unit, watched the bar move, felt weirdly calm. Then ticked another.',name:'Arjun',tag:'sem 1',size:'',fill:'t-red'},
+  {q:'I know exactly what is left. That sentence used to be a joke.',name:'Anaya',tag:'sem 3',size:'',fill:'t-cream'},
+  {q:'My group chat still argues about portions. I just open one tab.',name:'Tanvi',tag:'sem 5',size:'',fill:'t-cream'}
  ]};
 (function(){
  const box=document.getElementById('quotes'),p=QUOTES.pull,parts=p.q.split(p.mark);
- const tier=t=>t.q.length<62?'w-s':t.q.length<92?'w-m':'w-l';
- const card=(t,dup)=>'<figure class="mq-card '+tier(t)+(dup?' dup':'')+'" data-placeholder="testimonial"'+(dup?' aria-hidden="true"':'')+'>'+
-  '<span class="qmark" aria-hidden="true">&ldquo;</span><blockquote>'+t.q+'</blockquote>'+
+ const tile=t=>'<figure class="bt '+t.size+' '+t.fill+'" data-placeholder="testimonial">'+
+  '<blockquote>'+t.q+'</blockquote>'+
   '<figcaption><b>'+t.name+'</b><span>'+t.tag+'</span></figcaption></figure>';
- const row=(list,rev)=>{const a=list.map(t=>card(t,false)).join(''),b=list.map(t=>card(t,true)).join('');
-  return '<div class="mq-row'+(rev?' mq-rev':'')+'"><div class="mq-track">'+a+b+'</div></div>';};
- const half=Math.ceil(QUOTES.cards.length/2);
+ const cluster=list=>'<div class="bento">'+list.map(tile).join('')+'</div>';
+ const set=dup=>'<div class="mq-set'+(dup?' dup':'')+'"'+(dup?' aria-hidden="true"':'')+'>'+
+  cluster(QUOTES.clusterA)+cluster(QUOTES.clusterB)+'</div>';
  box.insertAdjacentHTML('beforeend','<figure class="pull reveal" data-placeholder="testimonial"><blockquote>'+
   '<span class="qm">&ldquo;</span>'+parts[0]+'<mark>'+p.mark+'</mark>'+parts[1]+'<span class="qm">&rdquo;</span></blockquote>'+
   '<figcaption><b>'+p.name+'</b> &middot; '+p.tag+'</figcaption></figure>'+
-  '<div class="mq">'+row(QUOTES.cards.slice(0,half),false)+row(QUOTES.cards.slice(half),true)+'</div>');
+  '<div class="mq"><div class="mq-track">'+set(false)+set(true)+'</div></div>');
 })();
 </script>
 <script src="gsap.min.js"></script>
