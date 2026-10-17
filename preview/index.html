@@ -202,9 +202,9 @@
     text-transform:uppercase;color:var(--mut)}
   .pull figcaption b{color:var(--red);font-weight:400}
   .mq{margin-top:76px;overflow:hidden;
-    -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
-    mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-  .mq-track{display:flex;width:max-content;padding:8px 0;animation:mqscroll 74s linear infinite}
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+  .mq-track{display:flex;width:max-content;padding:12px 0;animation:mqscroll 74s linear infinite}
   .mq:hover .mq-track{animation-play-state:paused}
   @keyframes mqscroll{to{transform:translateX(-50%)}}
   .mq-set{display:flex;gap:16px;margin-right:16px}
@@ -234,17 +234,18 @@
   .t-red figcaption b{color:#fff;font-weight:400}
   .bt .dd{position:absolute;pointer-events:none}
   .bt .dd svg{display:block;width:100%;height:auto}
-  .hl{padding:.02em .2em;border-radius:7px 13px 5px 14px;box-decoration-break:clone;
-    -webkit-box-decoration-break:clone;display:inline-block;transform:rotate(-.5deg)}
+  .hl{padding:0 .12em;border-radius:4px 9px 3px 10px;box-decoration-break:clone;
+    -webkit-box-decoration-break:clone}
   .hl-y{background:rgba(255,205,54,.5)}
   .hl-r{background:rgba(214,26,64,.16)}
   .scu{position:relative;white-space:nowrap}
   .scu svg{position:absolute;left:-2%;bottom:-.32em;width:104%;height:.34em}
   .circ{position:relative;padding:0 .1em;white-space:nowrap}
   .circ svg{position:absolute;left:-.28em;top:50%;transform:translateY(-52%);width:calc(100% + .56em);height:1.5em}
-  .tape{position:absolute;top:-9px;width:64px;height:19px;background:rgba(247,245,242,.8);
-    border:1px solid rgba(20,20,25,.07);border-radius:2px;transform:rotate(-5deg);
-    box-shadow:0 1px 3px rgba(20,20,25,.1);pointer-events:none}
+  .tape{position:absolute;top:-9px;width:66px;height:20px;
+    background:linear-gradient(100deg,rgba(246,230,193,.94),rgba(238,216,170,.94));
+    clip-path:polygon(4% 0,97% 3%,100% 24%,98% 48%,100% 72%,96% 100%,3% 97%,0 76%,2% 52%,0 26%);
+    transform:rotate(-5deg);filter:drop-shadow(0 2px 3px rgba(20,20,25,.18));pointer-events:none}
   @media (prefers-reduced-motion: reduce){
     .mq-track{animation:none;width:auto;flex-wrap:wrap;justify-content:center}
     .mq-set{margin:0 8px 16px}
@@ -252,15 +253,17 @@
   }
   @media(max-width:900px){
     .pull{margin-top:44px}
-    .mq{margin-top:52px}
+    .mq{margin-top:52px;
+      -webkit-mask-image:linear-gradient(90deg,transparent,#000 3.5%,#000 96.5%,transparent);
+      mask-image:linear-gradient(90deg,transparent,#000 3.5%,#000 96.5%,transparent)}
     .mq-set{gap:12px;margin-right:12px}
     .bento{grid-template-columns:repeat(4,196px);grid-template-rows:repeat(2,138px);gap:12px}
     .bt{padding:14px 16px 10px;border-radius:14px}
-    .bt blockquote{font-size:14px}
-    .bt.t-tall blockquote{font-size:16.5px}
-    .bt.t-wide blockquote{font-size:18px}
-    .bt.t-big blockquote{font-size:20px}
-    .bt figcaption{margin-top:10px;padding-top:7px;font-size:8px;letter-spacing:.14em}
+    .bt blockquote{font-size:14.5px;line-height:1.4}
+    .bt.t-tall blockquote{font-size:22px;line-height:1.32}
+    .bt.t-wide blockquote{font-size:20px;line-height:1.32}
+    .bt.t-big blockquote{font-size:24px;line-height:1.18}
+    .bt figcaption{margin-top:8px;padding-top:6px;font-size:8px;letter-spacing:.14em}
   }
 
   @media(max-width:1100px){
@@ -648,27 +651,27 @@ const QUOTES={
   {q:'I stopped rewriting my timetable every Sunday. The list just meets me in the morning.',name:'Priya',tag:'sem 5',size:'t-tall',fill:'t-cream',
    hl:{t:'meets me in the morning',c:'hl-y'},dd:[{k:'tape',st:'left:18px'}]},
   {q:'Streak at 11. I have never kept anything alive for 11 days.',name:'Karan',tag:'sem 7',size:'t-wide t-big',fill:'t-red',
-   sc:{t:'11 days',c:'rgba(247,245,242,.9)'},dd:[{k:'star',st:'top:12px;right:14px;width:30px;transform:rotate(12deg)',c:'#F7F5F2'}]},
+   sc:{t:'11 days',c:'rgba(247,245,242,.9)'},dd:[{k:'star',st:'top:-7px;right:-6px;width:24px;transform:rotate(12deg)',c:'#F7F5F2'}]},
   {q:'Two minutes to set up. I spent longer choosing a pen.',name:'Ishita',tag:'sem 3',size:'',fill:'t-ink',
-   dd:[{k:'star',st:'bottom:34px;right:12px;width:20px;transform:rotate(-8deg)',c:'#F63C49'}]},
-  {q:'Eleven days out, and I already know what Tuesday looks like.',name:'Rohan',tag:'sem 3',size:'',fill:'t-cream',
-   hl:{t:'Tuesday',c:'hl-r'},dd:[{k:'squig',st:'bottom:36px;right:12px;width:38px;transform:rotate(-6deg)',c:'#D61A40'}]},
+   dd:[{k:'star',st:'bottom:-6px;right:-5px;width:20px;transform:rotate(-8deg)',c:'#F63C49'}]},
+  {q:'Eleven days out, and I already know what Tuesday looks like.',name:'Rohan',tag:'sem 3',size:'',fill:'t-ink',
+   circ:{t:'Tuesday',c:'#F63C49'},dd:[{k:'squig',st:'bottom:36px;right:12px;width:38px;transform:rotate(-6deg)',c:'#F63C49'}]},
   {q:'PYQs next to the units they belong to. Whoever thought of that, thank you.',name:'Neha',tag:'sem 7',size:'',fill:'t-cream',
    sc:{t:'thank you',c:'#D61A40'}},
-  {q:'Offline in the reading hall, no account, no ads. It respects the grind.',name:'Dev',tag:'sem 7',size:'',fill:'t-ink',
+  {q:'Offline in the reading hall, no account, no ads. It respects the grind.',name:'Dev',tag:'sem 7',size:'',fill:'t-cream',
    dd:[{k:'tape',st:'right:16px;left:auto;transform:rotate(6deg)'}]},
  ],
  clusterB:[
   {q:'It is the first app that tells me what is left instead of what I should feel guilty about.',name:'Vikram',tag:'sem 5',size:'t-tall',fill:'t-cream',
-   hl:{t:'what is left',c:'hl-y'},dd:[{k:'arrow',st:'top:14px;right:14px;width:44px;transform:rotate(24deg)',c:'#D61A40'}]},
+   hl:{t:'what is left',c:'hl-y'}},
   {q:'The syllabus finally looks finite. That alone lowered my blood pressure.',name:'Sneha',tag:'sem 3',size:'',fill:'t-cream',
    circ:{t:'finite',c:'#D61A40'}},
   {q:'The countdown used to scare me. Now it just plans for me.',name:'Rahul',tag:'sem 1',size:'t-wide t-big',fill:'t-ink',
-   sc:{t:'plans for me',c:'#F63C49'},dd:[{k:'star',st:'top:12px;right:14px;width:26px;transform:rotate(-10deg)',c:'#F63C49'}]},
+   sc:{t:'plans for me',c:'#F63C49'},dd:[{k:'star',st:'top:-7px;right:-6px;width:22px;transform:rotate(-10deg)',c:'#F63C49'}]},
   {q:'Ticked one unit, watched the bar move, felt weirdly calm. Then ticked another.',name:'Arjun',tag:'sem 1',size:'',fill:'t-red',
-   sc:{t:'weirdly calm',c:'rgba(247,245,242,.9)'},dd:[{k:'star',st:'bottom:36px;right:12px;width:18px;transform:rotate(14deg)',c:'#F7F5F2'}]},
+   sc:{t:'weirdly calm',c:'rgba(247,245,242,.9)'},dd:[{k:'star',st:'top:-7px;right:-5px;width:18px;transform:rotate(14deg)',c:'#F7F5F2'}]},
   {q:'I know exactly what is left. That sentence used to be a joke.',name:'Anaya',tag:'sem 3',size:'',fill:'t-cream',
-   hl:{t:'exactly what is left',c:'hl-y'},dd:[{k:'arrow',st:'bottom:38px;right:14px;width:34px;transform:rotate(150deg)',c:'#D61A40'}]},
+   hl:{t:'exactly what is left',c:'hl-y'}},
   {q:'My group chat still argues about portions. I just open one tab.',name:'Tanvi',tag:'sem 5',size:'',fill:'t-cream',
    sc:{t:'one tab',c:'#D61A40'},dd:[{k:'tape',st:'left:16px'}]},
  ]};
