@@ -28,7 +28,7 @@ import GlobalSearch from './components/GlobalSearch';
 const NavItem = ({ to, icon: Icon, active, label, short }: { to: string, icon: any, active: boolean, label: string, short?: string }) => (
   <Link
     to={to}
-    aria-label={label}
+    aria-label={short || label}
     title={label}
     aria-current={active ? 'page' : undefined}
     className={`relative group flex flex-col lg:flex-row items-center justify-center gap-0.5 lg:gap-0 w-12 h-12 lg:w-14 lg:h-14 rounded-2xl lg:rounded-3xl transition-all duration-300 ${
@@ -38,7 +38,7 @@ const NavItem = ({ to, icon: Icon, active, label, short }: { to: string, icon: a
     }`}
   >
     <Icon size={20} strokeWidth={active ? 2.5 : 2} className="lg:w-[22px] lg:h-[22px]" />
-    <span aria-hidden="true" className="lg:hidden text-[7px] font-bold uppercase tracking-widest leading-none">{short || label}</span>
+    <span aria-hidden="true" className={`lg:hidden text-[7px] font-bold uppercase tracking-widest leading-none ${active ? '' : 'text-white/70'}`}>{short || label}</span>
     {active && (
       <span className="absolute -bottom-2 lg:top-1/2 lg:-right-2 w-1 h-1 lg:w-1.5 lg:h-1.5 bg-[#D61A40] rounded-full shadow-[0_0_10px_#F63C49]"></span>
     )}
@@ -74,7 +74,7 @@ export default function App() {
                     <div className="flex flex-col lg:flex-row min-h-screen bg-[#030303] text-slate-200 selection:bg-[#D61A40] selection:text-white overflow-hidden">
 
                     {/* Mobile Branding Header */}
-                    <div className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-[#030303]/80 backdrop-blur-xl border-b border-white/5 px-6 py-4 flex justify-between items-center">
+                    <header className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-[#030303]/80 backdrop-blur-xl border-b border-white/5 px-6 py-4 flex justify-between items-center">
                         <div className="flex items-center gap-3">
                         <div className="w-8 h-8 flex items-center justify-center">
                             <LogoMark size={26} />
@@ -94,7 +94,7 @@ export default function App() {
                         <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${profile.name}`} alt="User" />
                         </Link>
                         </div>
-                    </div>
+                    </header>
 
                     {/* Mobile search overlay */}
                     {mobileSearchOpen && (
