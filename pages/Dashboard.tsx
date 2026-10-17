@@ -212,7 +212,7 @@ const Dashboard: React.FC = () => {
         <div className="lg:col-span-2 rounded-3xl surface-1 p-8 lg:p-10 relative overflow-hidden group flex flex-col justify-between">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
           {/* Decorative spark (shape from shapes.gallery, recolored brand red) */}
-          <svg viewBox="0 0 256 256" aria-hidden="true" className="absolute -top-8 -right-8 w-44 h-44 sm:w-52 sm:h-52 lg:w-64 lg:h-64 opacity-30 pointer-events-none select-none">
+          <svg viewBox="0 0 256 256" aria-hidden="true" className="absolute -top-8 -right-8 md:-top-10 md:-right-10 w-44 h-44 sm:w-52 sm:h-52 lg:w-64 lg:h-64 opacity-30 pointer-events-none select-none">
             <defs>
               <mask id="sparkCut">
                 <rect width="256" height="256" fill="#fff"/>
