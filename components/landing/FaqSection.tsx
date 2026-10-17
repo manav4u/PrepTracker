@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useGSAP } from '@gsap/react';
+import ChapterMark, { stampChapterMarks } from './ChapterMark';
 import { gsap, reduceMotion } from '../../lib/scroll';
 import { Plus } from 'lucide-react';
 
@@ -36,6 +37,7 @@ const FaqSection: React.FC = () => {
 
   useGSAP(() => {
     if (reduceMotion()) return;
+    stampChapterMarks();
     gsap.fromTo(
       '.fq-head',
       { y: 28, autoAlpha: 0 },
@@ -85,8 +87,9 @@ const FaqSection: React.FC = () => {
 
   return (
     <section ref={root} aria-label="Frequently asked questions" className="relative bg-[#F7F5F2] text-[#141419] px-6 py-24 md:py-32">
+      <p aria-hidden="true" className="hidden xl:block absolute right-8 top-28 font-mono text-[10px] uppercase tracking-[0.34em] text-[#D61A40] [writing-mode:vertical-rl]">your data never leaves this browser</p>
       <div className="max-w-3xl mx-auto">
-        <p className="fq-head font-mono text-[11px] uppercase tracking-[0.28em] text-[#D61A40]">Fair questions</p>
+        <div className="fq-head"><ChapterMark n="04" label="Fair questions" /></div>
         <h2 className="fq-head mt-4 text-3xl md:text-5xl font-bold tracking-[-0.025em] leading-[1.08]">
           Free means free. Offline means offline.
         </h2>
