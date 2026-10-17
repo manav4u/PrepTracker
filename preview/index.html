@@ -34,10 +34,14 @@
     transition:color .2s,background .2s}
   .nav-link:hover{color:var(--ink)}
   .nav-link.act{color:var(--ink);background:rgba(20,20,25,.07)}
-  .nav-cta{background:var(--ink);color:#F7F5F2;text-decoration:none;font-family:var(--sat);
+  .nav-cta{background:linear-gradient(180deg,#2B2B34 0%,var(--ink) 55%,#08080C 125%);color:#F7F5F2;text-decoration:none;font-family:var(--sat);
     font-weight:700;font-size:13.5px;padding:11px 24px;border-radius:999px;
-    transition:background .35s ease,color .35s ease}
-  .nav-cta.hot{background:var(--red);color:#fff}
+    transition:transform .2s ease,box-shadow .2s ease,background .35s ease,color .35s ease;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.2),inset 0 -2px 0 rgba(0,0,0,.4),0 1px 2px rgba(20,20,25,.4),0 8px 20px -8px rgba(20,20,25,.6)}
+  .nav-cta:active{transform:translateY(1px);box-shadow:inset 0 2px 4px rgba(0,0,0,.4),0 1px 1px rgba(20,20,25,.35)}
+  .nav-cta.hot{background:linear-gradient(180deg,var(--red-hi) 0%,var(--red) 55%,var(--red-deep) 118%);color:#fff;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.4),inset 0 -2px 0 rgba(0,0,0,.22),0 1px 2px rgba(20,20,25,.4),0 8px 20px -7px rgba(214,26,64,.6)}
+  .nav-cta.hot:active{box-shadow:inset 0 2px 4px rgba(0,0,0,.3),0 1px 1px rgba(20,20,25,.3)}
 
   /* HERO - layout: Supahero "Modyfi" (copy band over full-width product canvas) */
   .hero{position:relative;padding:126px 40px 0;max-width:1400px;margin:0 auto;overflow:hidden}
@@ -52,10 +56,15 @@
   h1 em{font-style:normal;color:var(--red)}
   .sub{margin-top:24px;font-size:17px;line-height:1.65;color:var(--mut);max-width:520px}
   .cta-row{display:flex;align-items:center;gap:24px;margin-top:34px;flex-wrap:wrap}
-  .cta-main{display:inline-flex;align-items:center;gap:12px;background:var(--red);color:#fff;
+  .cta-main{display:inline-flex;align-items:center;gap:12px;color:#fff;
+    background:linear-gradient(180deg,var(--red-hi) 0%,var(--red) 48%,var(--red-deep) 108%);
     text-decoration:none;font-family:var(--sat);font-weight:700;font-size:17px;padding:19px 36px;
-    border-radius:999px;transition:transform .22s ease,background .22s ease;box-shadow:0 18px 40px -18px rgba(214,26,64,.55)}
-  .cta-main:hover{background:var(--red-deep);transform:translateY(-2px)}
+    border-radius:999px;transition:transform .22s ease,box-shadow .22s ease;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.42),inset 0 -2px 0 rgba(0,0,0,.2),0 1px 2px rgba(20,20,25,.45),0 10px 26px -6px rgba(214,26,64,.6)}
+  .cta-main:hover{transform:translateY(-2px);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.42),inset 0 -2px 0 rgba(0,0,0,.2),0 2px 3px rgba(20,20,25,.4),0 18px 36px -8px rgba(214,26,64,.62)}
+  .cta-main:active{transform:translateY(0);
+    box-shadow:inset 0 2px 5px rgba(0,0,0,.3),inset 0 -1px 0 rgba(255,255,255,.15),0 1px 1px rgba(20,20,25,.35),0 4px 10px -6px rgba(214,26,64,.5)}
   .cta-main svg{width:16px;height:16px}
   .fud{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
 
@@ -182,50 +191,32 @@
   .step p{margin-top:10px;font-size:14.5px;line-height:1.65;color:var(--mut)}
 
 
-  /* ---------- 7. TESTIMONIALS (ayzz Ep.07 proof treatment + Supahero: one giant quote, editorial index) ---------- */
-  .t-grid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:64px;align-items:center;margin-top:56px}
-  .feat-q{margin:0}
-  .feat-q blockquote{font-weight:700;letter-spacing:-.03em;line-height:1.12;
-    font-size:clamp(28px,3.6vw,52px);margin:0}
-  .feat-q blockquote .qm{color:var(--red)}
-  .feat-q mark{background:linear-gradient(transparent 58%,rgba(246,60,73,.28) 58%,rgba(246,60,73,.28) 94%,transparent 94%);
-    color:inherit;padding:0 .04em}
-  .feat-q figcaption{margin-top:26px;font-family:var(--mono);font-size:11px;letter-spacing:.24em;
-    text-transform:uppercase;color:var(--mut)}
-  .feat-q figcaption b{color:var(--ink);font-weight:400}
-
-  /* the receipt: proof, not decoration - mono, dashed, tilted, red-ink note */
-  .receipt{background:#fff;border:1px solid var(--hair);padding:26px 26px 24px;margin:0;
-    transform:rotate(2deg);box-shadow:0 34px 70px -34px rgba(20,20,25,.42);font-family:var(--mono)}
-  .r-head{margin:0;text-align:center;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--mut)}
-  .r-name{margin:10px 0 0;text-align:center;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
-  .receipt ul{list-style:none;margin:18px 0 0;padding:16px 0;border-top:1px dashed #C9C5BE;
-    border-bottom:1px dashed #C9C5BE;display:grid;gap:11px}
-  .receipt li{display:flex;justify-content:space-between;gap:16px;font-size:11.5px;
-    letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
-  .receipt li b{color:var(--ink);font-weight:700}
-  .r-status{margin:16px 0 0;text-align:center;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--red)}
-  .r-note{margin:12px 0 0;text-align:center;font-family:'Caveat',cursive;font-weight:600;
-    font-size:27px;line-height:1.1;color:var(--red);transform:rotate(-2deg)}
-
-  /* the other three: cards with a face, a name and a stat */
-  .q-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:80px}
-  .q-card{background:#fff;border:1px solid var(--hair);border-radius:22px;padding:26px;margin:0;
-    display:flex;flex-direction:column;gap:20px;transition:transform .25s ease,box-shadow .25s ease}
-  .q-card:hover{transform:translateY(-4px);box-shadow:0 24px 50px -30px rgba(20,20,25,.3)}
-  .q-card figcaption{display:flex;align-items:center;gap:13px}
-  .avatar{width:42px;height:42px;border-radius:50%;background:var(--ink);color:#fff;flex-shrink:0;
-    display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;letter-spacing:.06em}
-  .q-card:nth-child(2) .avatar{background:var(--red)}
-  .who b{display:block;font-weight:700;font-size:15px;letter-spacing:-.01em;color:var(--ink)}
-  .who i{display:block;font-style:normal;margin-top:3px;font-family:var(--mono);font-size:9.5px;
-    letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
-  .q-card blockquote{margin:0;flex:1;font-size:16.5px;line-height:1.55;font-weight:500;
-    letter-spacing:-.01em;color:var(--ink)}
-  .chip{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);
-    font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);
-    border:1px solid var(--hair);border-radius:999px;padding:8px 13px}
-  .chip::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--red)}
+  /* ---------- 7. TESTIMONIALS (original concept: the group chat - proof in the format students actually share) ---------- */
+  .chats{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:64px;align-items:start}
+  .thread{background:#fff;border:1px solid var(--hair);border-radius:24px;padding:26px 26px 32px;position:relative;
+    box-shadow:0 30px 60px -38px rgba(20,20,25,.35)}
+  .thread:first-child{transform:rotate(-1.1deg)}
+  .thread:last-child{transform:rotate(.9deg);margin-top:48px}
+  .chat-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;
+    padding-bottom:16px;margin-bottom:22px;border-bottom:1px solid var(--hair)}
+  .chat-head b{font-family:var(--sat);font-weight:700;font-size:16.5px;letter-spacing:-.01em}
+  .chat-head span{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+  .msgrow{display:flex;flex-direction:column;gap:18px}
+  .tstamp{margin:0;text-align:center;font-family:var(--mono);font-size:9.5px;letter-spacing:.24em;color:var(--mut)}
+  .msg{max-width:84%;position:relative}
+  .m-who{margin:0 0 6px 4px;font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+  .m-who b{color:var(--red);font-weight:400}
+  .bubble{background:var(--paper);border:1px solid var(--hair);border-radius:16px;border-bottom-left-radius:5px;
+    padding:13px 16px;font-size:15px;line-height:1.5;font-weight:500;letter-spacing:-.01em;color:var(--ink)}
+  .heart{position:absolute;right:-8px;bottom:-13px;display:inline-flex;align-items:center;gap:4px;
+    background:#fff;border:1px solid var(--hair);border-radius:999px;padding:4px 9px 4px 7px;
+    font-family:var(--mono);font-size:9.5px;color:var(--red);box-shadow:0 6px 14px -6px rgba(20,20,25,.3)}
+  .heart svg{width:10px;height:10px;fill:var(--red)}
+  .bubble.typing{display:inline-flex;gap:5px;align-items:center;padding:15px 16px}
+  .bubble.typing i{width:6px;height:6px;border-radius:50%;background:var(--mut);opacity:.5;animation:tp 1.2s infinite}
+  .bubble.typing i:nth-child(2){animation-delay:.18s}
+  .bubble.typing i:nth-child(3){animation-delay:.36s}
+  @keyframes tp{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-4px);opacity:1}}
   @media(max-width:1100px){
     .foot-grid{grid-template-columns:1fr 1fr}
     .foot-about{grid-column:1/-1}
@@ -236,32 +227,39 @@
   }
 
   @media(max-width:900px){
-    .t-grid{grid-template-columns:1fr;gap:48px;margin-top:44px}
-    .receipt{max-width:400px;margin:0 auto;transform:rotate(1.4deg)}
-    .q-cards{grid-template-columns:1fr;gap:16px;margin-top:64px}
+    .chats{grid-template-columns:1fr;gap:26px;margin-top:44px}
+    .thread{transform:none !important;margin-top:0 !important}
   }
 
   /* ---------- 8. FINAL CTA + FOOTER (footer.design: Northeast Tomato) ---------- */
   .final{padding:40px 40px 0;max-width:1400px;margin:0 auto}
-  .final-panel{background:linear-gradient(155deg,#F8505C 0%,#E01E38 42%,#A50F33 100%);border-radius:28px;color:#fff;text-align:center;
+  .final-panel{background:var(--red-deep);border-radius:28px;color:#fff;text-align:center;
     padding:120px 40px 110px;position:relative;overflow:hidden}
+  .fp-glow{position:absolute;inset:0;pointer-events:none;z-index:0}
+  .fp-glow i{position:absolute;display:block;border-radius:50%}
+  .fp-glow .g1{width:46%;height:62%;left:-7%;top:-22%;background:#FF6B47;opacity:.7;filter:blur(100px)}
+  .fp-glow .g2{width:26%;height:36%;left:16%;top:-10%;background:#FF9D8A;opacity:.45;filter:blur(80px)}
+  .fp-glow .g3{width:72%;height:92%;right:-18%;bottom:-48%;background:#5C071D;opacity:.95;filter:blur(95px)}
   .final-panel::before{content:"";position:absolute;inset:0;background-image:url("favicon.svg");
-    background-size:180px;opacity:.3;mix-blend-mode:overlay;pointer-events:none}
-  .final-panel::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background-size:180px;opacity:.3;mix-blend-mode:overlay;pointer-events:none;z-index:1}
+  .final-panel::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
     background:radial-gradient(110% 80% at 50% 0%,rgba(255,255,255,.16),transparent 52%),
                radial-gradient(130% 120% at 50% 118%,rgba(64,2,14,.42),transparent 56%)}
-  .fp-rules{position:absolute;inset:0;pointer-events:none;
+  .fp-rules{position:absolute;inset:0;pointer-events:none;z-index:1;
     background:repeating-linear-gradient(0deg,transparent 0 52px,rgba(255,255,255,.05) 52px 53px)}
   .fp-ghost{position:absolute;right:-130px;bottom:-190px;width:560px;height:548px;opacity:.09;
     transform:rotate(-10deg);pointer-events:none}
   .final-panel>*:not(.fp-ghost):not(.fp-rules){position:relative;z-index:2}
   .final-panel h2{color:#fff;font-size:clamp(40px,5.4vw,84px)}
   .final-panel .subf{margin:22px auto 0;font-size:16px;line-height:1.7;color:rgba(255,255,255,.75);max-width:440px}
-  .cta-white{display:inline-flex;align-items:center;gap:12px;background:#fff;color:var(--ink);
+  .cta-white{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(180deg,#FFFFFF 0%,#F4F1EC 100%);color:var(--ink);
     text-decoration:none;font-family:var(--sat);font-weight:700;font-size:17px;padding:19px 36px;
-    border-radius:999px;margin-top:38px;transition:transform .22s ease;
-    box-shadow:0 14px 34px rgba(88,3,18,.38),inset 0 1px 0 rgba(255,255,255,.7)}
-  .cta-white:hover{transform:translateY(-2px)}
+    border-radius:999px;margin-top:38px;transition:transform .22s ease,box-shadow .22s ease;
+    box-shadow:inset 0 1px 0 #fff,inset 0 -2px 0 rgba(20,20,25,.1),0 1px 2px rgba(88,3,18,.5),0 12px 30px -6px rgba(88,3,18,.55)}
+  .cta-white:hover{transform:translateY(-2px);
+    box-shadow:inset 0 1px 0 #fff,inset 0 -2px 0 rgba(20,20,25,.1),0 2px 3px rgba(88,3,18,.45),0 20px 42px -8px rgba(88,3,18,.6)}
+  .cta-white:active{transform:translateY(0);
+    box-shadow:inset 0 2px 5px rgba(20,20,25,.16),0 1px 1px rgba(88,3,18,.4)}
   .cta-white svg{width:16px;height:16px}
   .final-panel .fud{color:rgba(255,255,255,.6);margin-top:16px}
   footer{padding-bottom:44px}
@@ -491,14 +489,14 @@
 </section>
 
 <!-- 6. HOW IT WORKS - ayzz Perfect Structure: 3 steps -->
-<!-- 7. TESTIMONIALS - ref: ayzz Ep.07 proof treatment + Supahero (Arc) single-quote statement
+<!-- 7. TESTIMONIALS - original concept: the group chat.
      PLACEHOLDER SECTION: every quote below is DEMO copy approved by the owner for preview only.
      None of this may ship to production until replaced with real, collected quotes.
-     Each rendered quote carries data-placeholder="testimonial". Edit the single TESTIMONIALS
+     Each rendered node carries data-placeholder="testimonial". Edit the single CHATS
      array in the script below to swap. -->
 <section class="sec testi" aria-label="What students say">
   <p class="eyebrow reveal">Word of mouth</p>
-  <h2 class="reveal">Students keep <em>the receipts.</em></h2>
+  <h2 class="reveal">Straight from <em>the group chat.</em></h2>
   <div id="quotes"></div>
 </section>
 
@@ -528,6 +526,7 @@
 <!-- 8. FINAL CTA + FOOTER - footer.design: Northeast Tomato (giant red panel + utility row) -->
 <section class="final" aria-label="Final call to action">
   <div class="final-panel reveal">
+    <div class="fp-glow" aria-hidden="true"><i class="g1"></i><i class="g2"></i><i class="g3"></i></div>
     <div class="fp-rules"></div>
     <svg class="fp-ghost" viewBox="0 0 149 146" aria-hidden="true"><path class="markg" fill="#fff" d=""/></svg>
     <h2>Walk in knowing<br>what&rsquo;s <em style="color:#fff;text-decoration:underline;text-underline-offset:10px;text-decoration-thickness:4px">left.</em></h2>
@@ -595,42 +594,32 @@ document.querySelectorAll('.mark2,.markg').forEach(p=>p.setAttribute('d',MP));
    merge. Every rendered node carries data-placeholder so the
    set is greppable: [data-placeholder="testimonial"].
    ============================================================ */
-const TESTIMONIALS=[
- {q:'I used to open three PDFs and a spreadsheet to figure out what to study. Now I open one tab and the decision is already made.',
-  mark:'one tab',name:'Aditi K.',tag:'Mechanical',featured:true,
-  stats:[['Units ticked','1 / 15'],['Topics done','10'],['Day streak','4'],['Days left','11']],
-  note:'first time I have felt ahead'},
- {q:'Eleven days out, and I already know what Tuesday looks like.',
-  name:'Rohan M.',tag:'Computer',chip:'Streak 6'},
- {q:'I tick topics between lectures, on the bus, wherever. Revision stopped being scary because I could see I was not actually behind.',
-  name:'Sneha P.',tag:'Electronics',chip:'23 topics done'},
- {q:'Everything I need sits in one place now. Question papers, my progress, the countdown. I stopped digging through group chats for that one PDF in week one, and I have not opened a spreadsheet since.',
-  name:'Karan S.',tag:'Civil',chip:'3 subjects tracked'}
+const CHATS=[
+ {title:'third sem survivors',members:'4 members',msgs:[
+  {t:'09:42'},
+  {name:'Rohan',tag:'sem 3',q:'cleared 3 topics on the bus today. most productive commute of my life',hearts:2},
+  {name:'Aditi',tag:'sem 5',q:'stopped keeping a spreadsheet. it just tells me what is left every morning'},
+  {name:'Karan',tag:'sem 7',q:'streak at 11. I have never kept anything alive for 11 days',hearts:1},
+  {name:'Sneha',tag:'sem 3',q:'syllabus finally looks finite. that alone lowered my blood pressure'}]},
+ {title:'syllabus speedrun',members:'5 members',msgs:[
+  {t:'23:15'},
+  {name:'Aditi',tag:'sem 5',q:'opened it before instagram today. growth'},
+  {name:'Sneha',tag:'sem 3',q:'who else ticks topics between lectures. just me? ok',hearts:3},
+  {t:'23:41'},
+  {name:'Karan',tag:'sem 7',q:'one tab. that is the whole system. not going back'},
+  {typing:'Meera'}]}
 ];
 (function(){
+ const HEART='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.9-9.7-9.2C.8 8.9 2.4 5.5 5.6 5.1c1.9-.2 3.7.8 4.6 2.3.9-1.5 2.7-2.5 4.6-2.3 3.2.4 4.8 3.8 3.3 6.7C19.5 16.1 12 21 12 21z"/></svg>';
  const box=document.getElementById('quotes');
- const f=TESTIMONIALS.find(t=>t.featured),parts=f.q.split(f.mark);
- const rows=f.stats.map(r=>'<li><span>'+r[0]+'</span><b>'+r[1]+'</b></li>').join('');
- box.insertAdjacentHTML('beforeend',
-  '<div class="t-grid">'+
-  '<figure class="feat-q reveal" data-placeholder="testimonial"><blockquote>'+
-  '<span class="qm">&ldquo;</span>'+parts[0]+'<mark>'+f.mark+'</mark>'+parts[1]+'<span class="qm">&rdquo;</span></blockquote>'+
-  '<figcaption><b>'+f.name+'</b> &middot; '+f.tag+'</figcaption></figure>'+
-  '<aside class="receipt reveal" data-placeholder="testimonial" aria-label="Study receipt for '+f.name+'">'+
-  '<p class="r-head">PrepTracker &middot; study receipt</p>'+
-  '<p class="r-name">'+f.name+'</p>'+
-  '<ul>'+rows+'</ul>'+
-  '<p class="r-status">Status: on track</p>'+
-  '<p class="r-note">'+f.note+'</p>'+
-  '</aside></div>');
- const cards=TESTIMONIALS.filter(t=>!t.featured).map(t=>{
-  const init=t.name.split(' ').map(w=>w[0]).join('').replace('.','');
-  return '<figure class="q-card reveal" data-placeholder="testimonial">'+
-  '<figcaption><span class="avatar">'+init+'</span>'+
-  '<span class="who"><b>'+t.name+'</b><i>'+t.tag+'</i></span></figcaption>'+
-  '<blockquote>'+t.q+'</blockquote>'+
-  '<span class="chip">'+t.chip+'</span></figure>'}).join('');
- box.insertAdjacentHTML('beforeend','<div class="q-cards">'+cards+'</div>');
+ box.insertAdjacentHTML('beforeend','<div class="chats">'+CHATS.map(c=>
+  '<div class="thread reveal" data-placeholder="testimonial" aria-label="Group chat '+c.title+'">'+
+  '<div class="chat-head"><b>'+c.title+'</b><span>'+c.members+'</span></div>'+
+  '<div class="msgrow">'+c.msgs.map(mm=>{
+   if(mm.t)return '<p class="tstamp" data-placeholder="testimonial">'+mm.t+'</p>';
+   if(mm.typing)return '<div class="msg" data-placeholder="testimonial"><p class="m-who"><b>'+mm.typing+'</b> is typing</p><div class="bubble typing"><i></i><i></i><i></i></div></div>';
+   return '<div class="msg" data-placeholder="testimonial"><p class="m-who"><b>'+mm.name+'</b> &middot; '+mm.tag+'</p><div class="bubble">'+mm.q+(mm.hearts?'<span class="heart">'+HEART+mm.hearts+'</span>':'')+'</div></div>';
+  }).join('')+'</div></div>').join('')+'</div>');
 })();
 </script>
 <script src="gsap.min.js"></script>
