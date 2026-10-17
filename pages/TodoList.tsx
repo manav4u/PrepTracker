@@ -4,7 +4,6 @@ import { SUBJECTS } from '../constants';
 import { 
   Plus, 
   Trash2, 
-  CheckCircle2, 
   Circle, 
   AlertCircle, 
   Calendar, 
@@ -394,7 +393,10 @@ const TodoList: React.FC = () => {
                     </div>
                 ) : filteredTasks.length === 0 ? (
                     <div className="py-20 text-center border border-dashed border-white/10 rounded-3xl bg-white/[0.01]">
-                        <CheckCircle2 size={48} className="mx-auto text-slate-700 mb-4" />
+                        {/* Empty-state mark (shape from shapes.gallery, recolored brand red) */}
+                        <svg viewBox="0 0 256 256" aria-hidden="true" className="mx-auto mb-4 w-14 h-14 text-[#F63C49] drop-shadow-[0_0_18px_rgba(246,60,73,0.35)]">
+                          <path fill="currentColor" fillRule="evenodd" d="M192 0c35.346 0 64 28.654 64 64s-28.654 64-64 64c35.346 0 64 28.654 64 64s-28.654 64-64 64-64-28.654-64-64c0 35.346-28.654 64-64 64S0 227.346 0 192s28.654-64 64-64C28.654 128 0 99.346 0 64S28.654 0 64 0s64 28.654 64 64c0-35.346 28.654-64 64-64m-64 100c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28"/>
+                        </svg>
                         <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">No Active Tasks</p>
                     </div>
                 ) : (

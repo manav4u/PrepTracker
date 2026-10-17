@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { SUBJECTS } from '../constants';
 import SubjectCard from '../components/SubjectCard';
 import { UnitStatus } from '../types';
-import { ChevronRight, Sparkles, CalendarDays, TrendingUp, Activity } from 'lucide-react';
+import { ChevronRight, Sparkles, CalendarDays, Flame, Activity } from 'lucide-react';
 import { useData } from '../context/DataContext';
 import { currentStreak, lastDays } from '../lib/activity';
 import { subjectExamList, nextExamIndex } from '../lib/exams';
@@ -47,6 +47,38 @@ const StatPill = ({ label, value, sub, active = false, gradient = false, icon: I
       }`}>{sub}</p>
     </div>
   </Wrap>
+  );
+};
+
+const StreakCard = ({ streak, counts, labels, style }: any) => {
+  const todayIdx = counts.length - 1;
+  return (
+    <div style={style} className="relative p-6 rounded-3xl surface-1 flex flex-col justify-between h-36 lg:h-40 overflow-hidden group hover:-translate-y-1 transition-all duration-300 animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500">
+      {/* Material depth: top sheen, bottom vignette, red bloom off the corner */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/[0.05] via-transparent to-black/40 pointer-events-none"></div>
+      <div className="absolute -bottom-14 -right-14 w-40 h-40 rounded-full bg-[#F63C49]/20 blur-2xl pointer-events-none"></div>
+      <div className="absolute inset-0 rounded-3xl shadow-[inset_0_1px_0_rgba(255,255,255,0.07)] pointer-events-none"></div>
+      <div className="relative flex justify-between items-start">
+        <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-[#F63C49]">Study Streak</span>
+        <span className="flex items-center justify-center w-7 h-7 -mt-1 -mr-1 rounded-lg bg-[#F63C49]/15 ring-1 ring-[#F63C49]/30 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)]">
+          <Flame size={13} className="text-[#F63C49]" />
+        </span>
+      </div>
+      <div className="relative flex flex-col md:flex-row md:items-end md:justify-between gap-2">
+        <div className="order-2 md:order-1">
+          <p className="text-4xl lg:text-5xl font-display font-bold tracking-tighter text-white leading-none mb-1.5">{streak}</p>
+          <p className="text-[10px] lg:text-[11px] font-bold uppercase tracking-widest text-[#F63C49]/90 whitespace-nowrap">Day Streak</p>
+        </div>
+        <div className="order-1 md:order-2 flex items-end gap-[5px] pb-0.5 self-end md:self-auto">
+          {counts.map((c: number, i: number) => (
+            <div key={i} className="flex flex-col items-center gap-1">
+              <span className={`rounded-full ${i === todayIdx ? 'w-2 h-2' : 'w-1.5 h-1.5'} ${c > 0 ? 'bg-[#F63C49] shadow-[0_0_8px_rgba(246,60,73,0.8)]' : 'bg-white/5 ring-1 ring-white/15'}`}></span>
+              <span className={`text-[8px] font-mono font-bold uppercase ${i === todayIdx ? 'text-white/70' : 'text-slate-600'}`}>{labels[i]}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 };
 
@@ -211,17 +243,6 @@ const Dashboard: React.FC = () => {
       <section className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         <div className="lg:col-span-2 rounded-3xl surface-1 p-8 lg:p-10 relative overflow-hidden group flex flex-col justify-between">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-          {/* Decorative spark (shape from shapes.gallery, recolored brand red) */}
-          <svg viewBox="0 0 256 256" aria-hidden="true" className="absolute -top-8 -right-8 md:-top-10 md:-right-10 w-44 h-44 sm:w-52 sm:h-52 lg:w-64 lg:h-64 opacity-30 pointer-events-none select-none">
-            <defs>
-              <mask id="sparkCut">
-                <rect width="256" height="256" fill="#fff"/>
-                <path fill="#000" d="M4.688 136C68.373 136 120 187.627 120 251.312q-.001 2.356-.095 4.688H0V136.096q2.332-.095 4.688-.096m246.624 0q2.356.001 4.688.096V256H136.095a118 118 0 0 1-.095-4.688C136 187.627 187.627 136 251.312 136M119.905 0q.094 2.332.095 4.688C120 68.373 68.373 120 4.687 120q-2.355-.001-4.687-.095V0ZM256 119.905q-2.332.094-4.688.095C187.627 120 136 68.373 136 4.687q.001-2.355.095-4.687H256Z"/>
-              </mask>
-            <linearGradient id="sparkGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF6B76"/><stop offset="1" stop-color="#B31226"/></linearGradient>
-            </defs>
-            <rect width="256" height="256" fill="url(#sparkGrad)" mask="url(#sparkCut)"/>
-          </svg>
           
           <div className="relative z-10">
             <div className="flex items-center gap-3 mb-8">
@@ -256,7 +277,7 @@ const Dashboard: React.FC = () => {
            <ProgressGraphCard data={graphData} labels={graphLabels} total={weekTotal} />
            
            <StatPill label="Days to Exam" value={examValue} sub={examSub} icon={CalendarDays} to={examDiff === null ? '/app/settings' : undefined} style={{ animationDelay: '120ms' }} />
-           <StatPill label="Study Streak" value={validStreak} sub="Day Streak" icon={TrendingUp} active={validStreak > 2} style={{ animationDelay: '180ms' }} />
+           <StreakCard streak={validStreak} counts={week.counts} labels={week.labels} style={{ animationDelay: '180ms' }} />
         </div>
       </section>
 
