@@ -191,9 +191,8 @@
   .step p{margin-top:10px;font-size:14.5px;line-height:1.65;color:var(--mut)}
 
 
-  /* ---------- 7. TESTIMONIALS (typographic editorial: one pull quote + margin notes) ---------- */
-  .t-wrap{display:grid;grid-template-columns:1fr 2.3fr 1fr;column-gap:56px;max-width:1300px;margin:72px auto 0}
-  .pull{grid-column:2;grid-row:1;margin:0}
+  /* ---------- 7. TESTIMONIALS (editorial pull quote + endless marquee of notes) ---------- */
+  .pull{max-width:840px;margin:64px auto 0}
   .pull blockquote{margin:0;font-weight:700;letter-spacing:-.03em;line-height:1.15;
     font-size:clamp(28px,3.7vw,52px);line-height:1.22;color:var(--ink)}
   .pull .qm{color:var(--red)}
@@ -202,16 +201,36 @@
   .pull figcaption{margin-top:30px;font-family:var(--mono);font-size:11px;letter-spacing:.24em;
     text-transform:uppercase;color:var(--mut)}
   .pull figcaption b{color:var(--red);font-weight:400}
-  .note{margin:0;max-width:240px}
-  .note .n-no{display:block;margin-bottom:10px;font-family:var(--mono);font-size:10px;
+  .mq{margin-top:76px;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+  .mq-row{overflow:hidden}
+  .mq-row+.mq-row{margin-top:22px}
+  .mq-track{display:flex;width:max-content;padding:8px 0;animation:mqscroll 52s linear infinite}
+  .mq-row.mq-rev .mq-track{animation-direction:reverse;animation-duration:64s}
+  .mq:hover .mq-track{animation-play-state:paused}
+  @keyframes mqscroll{to{transform:translateX(-50%)}}
+  .mq-card{flex:0 0 auto;width:330px;margin-right:22px;
+    background:linear-gradient(180deg,#fff,#FCFAF6);border:1px solid var(--hair);border-radius:16px;
+    padding:22px 24px 20px;box-shadow:0 1px 2px rgba(20,20,25,.04),0 18px 34px -22px rgba(20,20,25,.18)}
+  .mq-card .n-no{display:block;margin-bottom:12px;font-family:var(--mono);font-size:10px;
     letter-spacing:.22em;color:var(--red)}
-  .note blockquote{margin:0;font-family:var(--sat);font-size:15.5px;font-weight:500;
+  .mq-card blockquote{margin:0;font-family:var(--sat);font-size:15.5px;font-weight:500;
     line-height:1.55;letter-spacing:-.01em;color:var(--ink)}
-  .note figcaption{margin-top:12px;font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;
+  .mq-card figcaption{margin-top:14px;font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;
     text-transform:uppercase;color:var(--mut)}
-  .note-a{grid-column:1;grid-row:1;align-self:start;margin-top:34px;transform:rotate(-1.2deg)}
-  .note-b{grid-column:3;grid-row:1;align-self:end;margin-bottom:44px;transform:rotate(.9deg)}
-  .note-c{grid-column:2;grid-row:2;justify-self:end;max-width:330px;margin-top:60px}
+  .mq-card figcaption b{color:var(--red);font-weight:400}
+  @media (prefers-reduced-motion: reduce){
+    .mq-track{animation:none;width:auto;flex-wrap:wrap;justify-content:center}
+    .mq-card{margin:0 11px 22px}
+    .mq-card.dup{display:none}
+  }
+  @media(max-width:900px){
+    .pull{margin-top:44px}
+    .mq{margin-top:52px}
+    .mq-card{width:272px;padding:18px 20px 16px}
+  }
+
   @media(max-width:1100px){
     .foot-grid{grid-template-columns:1fr 1fr}
     .foot-about{grid-column:1/-1}
@@ -219,12 +238,6 @@
 
   @media(max-width:1023px){
     .nav-links{display:none}
-  }
-
-  @media(max-width:900px){
-    .t-wrap{grid-template-columns:1fr;row-gap:44px;margin-top:48px}
-    .pull,.note-a,.note-b,.note-c{grid-column:1;grid-row:auto;margin:0;justify-self:start;
-      max-width:100%;transform:none}
   }
 
   /* ---------- 8. FINAL CTA + FOOTER (footer.design: Northeast Tomato) ---------- */
@@ -487,11 +500,11 @@
 </section>
 
 <!-- 6. HOW IT WORKS - ayzz Perfect Structure: 3 steps -->
-<!-- 7. TESTIMONIALS - typographic editorial: one pull quote, margin notes.
-     PLACEHOLDER SECTION: every quote below is DEMO copy approved by the owner for preview only.
-     None of this may ship to production until replaced with real, collected quotes.
-     Each rendered node carries data-placeholder="testimonial". Edit the single QUOTES
-     object in the script below to swap. -->
+<!-- 7. TESTIMONIALS - editorial pull quote + endless marquee of note cards.
+     PLACEHOLDER SECTION: every quote below is DEMO copy. The owner chose to keep
+     demo quotes for now and will replace them with real, collected quotes.
+     Each rendered node carries data-placeholder="testimonial". Edit the single
+     QUOTES object in the script below to swap. -->
 <section class="sec testi" aria-label="What students say">
   <p class="eyebrow reveal">Word of mouth</p>
   <h2 class="reveal">In their <em>own words.</em></h2>
@@ -599,20 +612,32 @@ document.querySelectorAll('.mark2,.markg').forEach(p=>p.setAttribute('d',MP));
 const QUOTES={
  pull:{q:'I used to open three PDFs and a spreadsheet to figure out what to study. Now I open one tab and the decision is already made.',
    mark:'one tab',name:'Aditi',tag:'sem 5'},
- notes:[
+ cards:[
   {n:'01',q:'Eleven days out, and I already know what Tuesday looks like.',name:'Rohan',tag:'sem 3'},
   {n:'02',q:'Streak at 11. I have never kept anything alive for 11 days.',name:'Karan',tag:'sem 7'},
-  {n:'03',q:'The syllabus finally looks finite. That alone lowered my blood pressure.',name:'Sneha',tag:'sem 3'}
+  {n:'03',q:'The syllabus finally looks finite. That alone lowered my blood pressure.',name:'Sneha',tag:'sem 3'},
+  {n:'04',q:'I stopped rewriting my timetable every Sunday. The list just meets me in the morning.',name:'Priya',tag:'sem 5'},
+  {n:'05',q:'Ticked one unit, watched the bar move, felt weirdly calm. Then ticked another.',name:'Arjun',tag:'sem 1'},
+  {n:'06',q:'PYQs next to the units they belong to. Whoever thought of that, thank you.',name:'Neha',tag:'sem 7'},
+  {n:'07',q:'It is the first app that tells me what is left instead of what I should feel guilty about.',name:'Vikram',tag:'sem 5'},
+  {n:'08',q:'Two minutes to set up. I spent longer choosing a pen.',name:'Ishita',tag:'sem 3'},
+  {n:'09',q:'The countdown used to scare me. Now it just plans for me.',name:'Rahul',tag:'sem 1'},
+  {n:'10',q:'My group chat still argues about portions. I just open one tab.',name:'Tanvi',tag:'sem 5'},
+  {n:'11',q:'Offline in the reading hall, no account, no ads. It respects the grind.',name:'Dev',tag:'sem 7'},
+  {n:'12',q:'I know exactly what is left. That sentence used to be a joke.',name:'Anaya',tag:'sem 3'}
  ]};
 (function(){
  const box=document.getElementById('quotes'),p=QUOTES.pull,parts=p.q.split(p.mark);
- const notes=QUOTES.notes.map((t,i)=>'<figure class="note note-'+'abc'[i]+' reveal" data-placeholder="testimonial">'+
+ const card=(t,dup)=>'<figure class="mq-card'+(dup?' dup':'')+'" data-placeholder="testimonial"'+(dup?' aria-hidden="true"':'')+'>'+
   '<span class="n-no">'+t.n+'</span><blockquote>'+t.q+'</blockquote>'+
-  '<figcaption>'+t.name+' &middot; '+t.tag+'</figcaption></figure>').join('');
- box.insertAdjacentHTML('beforeend','<div class="t-wrap">'+
-  '<figure class="pull reveal" data-placeholder="testimonial"><blockquote>'+
+  '<figcaption><b>'+t.name+'</b> &middot; '+t.tag+'</figcaption></figure>';
+ const row=(list,rev)=>{const a=list.map(t=>card(t,false)).join(''),b=list.map(t=>card(t,true)).join('');
+  return '<div class="mq-row'+(rev?' mq-rev':'')+'"><div class="mq-track">'+a+b+'</div></div>';};
+ const half=Math.ceil(QUOTES.cards.length/2);
+ box.insertAdjacentHTML('beforeend','<figure class="pull reveal" data-placeholder="testimonial"><blockquote>'+
   '<span class="qm">&ldquo;</span>'+parts[0]+'<mark>'+p.mark+'</mark>'+parts[1]+'<span class="qm">&rdquo;</span></blockquote>'+
-  '<figcaption><b>'+p.name+'</b> &middot; '+p.tag+'</figcaption></figure>'+notes+'</div>');
+  '<figcaption><b>'+p.name+'</b> &middot; '+p.tag+'</figcaption></figure>'+
+  '<div class="mq">'+row(QUOTES.cards.slice(0,half),false)+row(QUOTES.cards.slice(half),true)+'</div>');
 })();
 </script>
 <script src="gsap.min.js"></script>
