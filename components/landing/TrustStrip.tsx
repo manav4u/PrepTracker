@@ -1,44 +1,73 @@
-import React from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import { gsap, reduceMotion } from '../../lib/scroll';
 
 const stats = [
-  { value: '10', label: 'first-year subjects', note: 'SPPU 2024 pattern' },
-  { value: '50', label: 'units mapped', note: 'from the official syllabus' },
-  { value: '318', label: 'topics to tick off', note: 'nothing left to guess' },
-  { value: '30', label: 'verified resources', note: 'notes, playlists and PYQs' },
+  { value: 10, label: 'first-year subjects', sub: 'SPPU 2024 pattern' },
+  { value: 50, label: 'units mapped', sub: 'from the official syllabus' },
+  { value: 318, label: 'topics to tick off', sub: 'nothing left to guess' },
+  { value: 30, label: 'verified resources', sub: 'notes, playlists and PYQs' },
 ];
 
 const TrustStrip: React.FC = () => {
-  const reduce = useReducedMotion();
+  const root = useRef<HTMLElement>(null);
+
+  useGSAP(() => {
+    if (reduceMotion()) return;
+    const nums = gsap.utils.toArray<HTMLElement>('.ts-num');
+    nums.forEach((el) => {
+      const target = Number(el.dataset.value || '0');
+      const state = { v: 0 };
+      gsap.to(state, {
+        v: target,
+        duration: 1.6,
+        ease: 'power3.out',
+        onUpdate: () => { el.textContent = String(Math.round(state.v)); },
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+      });
+    });
+    gsap.fromTo(
+      '.ts-cell',
+      { y: 28, autoAlpha: 0 },
+      {
+        y: 0, autoAlpha: 1, duration: 0.9, ease: 'power3.out', stagger: 0.08,
+        scrollTrigger: { trigger: root.current, start: 'top 85%', once: true },
+      }
+    );
+    // hairline draws itself across
+    gsap.fromTo(
+      '.ts-rule',
+      { scaleX: 0 },
+      {
+        scaleX: 1, duration: 1.2, ease: 'power3.inOut', transformOrigin: 'left center',
+        scrollTrigger: { trigger: root.current, start: 'top 85%', once: true },
+      }
+    );
+  }, { scope: root });
+
   return (
-    <section aria-label="What PrepTracker covers" className="relative bg-[#F7F5F2] text-[#141419] px-6 pb-20 -mt-px">
-      <motion.div
-        initial={reduce ? false : { opacity: 0, y: 24 }}
-        whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-80px' }}
-        transition={{ type: 'spring', stiffness: 120, damping: 20 }}
-        className="max-w-5xl mx-auto border-y border-black/10"
-      >
-        <div className="grid grid-cols-2 md:grid-cols-4">
+    <section ref={root} aria-label="PrepTracker in numbers" className="relative bg-[#F7F5F2] px-6 py-16 md:py-24">
+      <div className="max-w-6xl mx-auto">
+        <div className="ts-rule h-px bg-black/10 mb-10 md:mb-14" aria-hidden="true" />
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12">
           {stats.map((s, i) => (
-            <motion.div
+            <div
               key={s.label}
-              initial={reduce ? false : { opacity: 0, y: 16 }}
-              whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ type: 'spring', stiffness: 140, damping: 20, delay: reduce ? 0 : i * 0.08 }}
-              className={`px-6 py-8 md:py-10 text-center ${i > 0 ? 'border-l border-black/10' : ''} ${i > 1 ? 'max-md:border-t max-md:border-black/10' : ''} ${i === 2 ? 'max-md:border-l-0' : ''}`}
+              className={`ts-cell text-center ${i > 0 ? 'md:border-l md:border-black/10' : ''} ${i % 2 === 1 ? 'max-md:border-l max-md:border-black/10' : ''}`}
             >
-              <div className="text-4xl md:text-5xl font-bold tracking-tight">{s.value}</div>
-              <div className="mt-1.5 text-sm font-semibold">{s.label}</div>
-              <div className="mt-0.5 text-xs text-[#5A5A66]">{s.note}</div>
-            </motion.div>
+              <span
+                className="ts-num block text-5xl md:text-6xl font-bold tracking-[-0.03em] text-[#141419] tabular-nums"
+                data-value={s.value}
+              >
+                {s.value}
+              </span>
+              <p className="mt-2 text-sm font-semibold text-[#141419] tracking-tight">{s.label}</p>
+              <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.18em] text-[#6E6E78]">{s.sub}</p>
+            </div>
           ))}
         </div>
-      </motion.div>
-      <p className="max-w-5xl mx-auto mt-6 text-center text-xs text-[#141419]/45">
-        Every unit and topic checked against the official SPPU first-year syllabus. Free, no account, works offline.
-      </p>
+        <div className="ts-rule h-px bg-black/10 mt-10 md:mt-14" aria-hidden="true" />
+      </div>
     </section>
   );
 };
