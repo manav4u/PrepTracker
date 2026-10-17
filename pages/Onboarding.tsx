@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { ArrowRight, Zap, Cpu } from 'lucide-react';
 import LogoMark from '../components/LogoMark';
 import { Profile } from '../types';
-import { SE_COMPUTER_SUBJECTS } from '../data/curriculum';
+import { SE_COMPUTER_SUBJECTS, SE_IT_SUBJECTS } from '../data/curriculum';
 import { useData } from '../context/DataContext';
 
 interface OnboardingProps {}
@@ -95,7 +95,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
             clearInterval(interval);
 
             const selectedIds = year === 'SE'
-                ? SE_COMPUTER_SUBJECTS.map(sub => sub.id)
+                ? (branch === 'it' ? SE_IT_SUBJECTS : SE_COMPUTER_SUBJECTS).map(sub => sub.id)
                 : [choices.maths, choices.programming, choices.science, choices.circuit, choices.core];
             const newProfile: Profile = {
                 name: name || 'Student',
@@ -240,7 +240,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
                             <div className="border-t border-white/10">
                                 {([
                                     ['computer', 'Computer Engineering', true],
-                                    ['it', 'Information Technology', false],
+                                    ['it', 'Information Technology', true],
                                     ['entc', 'Electronics and Telecom', false],
                                     ['mech', 'Mechanical Engineering', false],
                                     ['civil', 'Civil Engineering', false],
@@ -275,7 +275,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
                     {year === 'SE' && (
                         <button
                             onClick={handleFinish}
-                            disabled={branch !== 'computer'}
+                            disabled={branch !== 'computer' && branch !== 'it'}
                             className="w-full py-5 bg-[#D61A40] text-white font-bold uppercase tracking-[0.2em] rounded-xl hover:bg-[#B3123B] transition-all shadow-[0_0_40px_-10px_#F63C49] disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center gap-3"
                         >
                             <Zap size={18} className="fill-white" />

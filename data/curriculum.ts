@@ -168,3 +168,170 @@ export const SE_COMPUTER_SUBJECTS: Subject[] = [
     ]
   },
 ];
+
+// Second Year Information Technology, 2024 pattern (NEP), effective AY 2025-26.
+// Source: official SPPU syllabus PDF (collegecirculars.unipune.ac.in, Syllabus2025
+// library); verbatim text preserved in docs/raw/SE-IT-2024-pattern.txt.
+// Same scope rule as Computer: theory courses with a unit-wise syllabus only.
+export const SE_IT_SUBJECTS: Subject[] = [
+  {
+    id: 'dsa',
+    name: 'Data Structures and Algorithms',
+    code: 'PCC-201-ITT',
+    credits: 3,
+    theoryCredits: 3,
+    termWorkCredits: 0,
+    units: [
+      { id: 'dsa-u1', unit_number: 1, title: 'Introduction to Data Structures and Algorithms',
+        topics: ['Data, data objects and ADTs', 'Classification: primitive, non-primitive, static, dynamic', 'Algorithm definition and design strategies', 'Time and space complexity, asymptotic notations', 'Linear and binary search', 'Bubble, selection and insertion sort'] },
+      { id: 'dsa-u2', unit_number: 2, title: 'Linear Data Structures',
+        topics: ['Singly, doubly and circular linked lists', 'Stack as an ADT, array and linked implementations', 'Infix to postfix conversion and evaluation', 'Queue as an ADT', 'Circular queue and deque'] },
+      { id: 'dsa-u3', unit_number: 3, title: 'Non-Linear Data Structures',
+        topics: ['Binary tree representation and traversals', 'Threaded binary trees and BSTs', 'AVL and 2-3 balanced trees', 'Graph matrix representation, BFS, DFS', 'Spanning trees, Prim and Kruskal', 'Min and max heaps, heap sort'] },
+      { id: 'dsa-u4', unit_number: 4, title: 'Hashing and String Processing',
+        topics: ['Hash functions', 'Collision handling: chaining, open addressing', 'Naive string matching', 'Rabin-Karp algorithm', 'Knuth-Morris-Pratt algorithm', 'Applications: social network analysis, AI search'] },
+      { id: 'dsa-u5', unit_number: 5, title: 'Advanced Algorithms',
+        topics: ['Divide and conquer: merge sort, quick sort, matrix multiplication', 'Greedy: activity selection, fractional knapsack', 'Huffman coding', 'Dynamic programming: 0/1 knapsack', 'Longest common subsequence', 'Floyd-Warshall algorithm'] },
+    ]
+  },
+  {
+    id: 'oop',
+    name: 'Object Oriented Programming',
+    code: 'PCC-202-ITT',
+    credits: 3,
+    theoryCredits: 3,
+    termWorkCredits: 0,
+    units: [
+      { id: 'oop-u1', unit_number: 1, title: 'Foundations of Object-Oriented Programming',
+        topics: ['Limitations of procedural programming', 'Objects, classes, data members, methods', 'Encapsulation, abstraction, information hiding', 'Inheritance and polymorphism', 'Static and dynamic binding', 'Access modifiers'] },
+      { id: 'oop-u2', unit_number: 2, title: 'Methods and Constructors',
+        topics: ['Methods with parameters and return values', 'The this keyword and method overloading', 'Objects as parameters, arrays of objects', 'Static data members and methods', 'Constructor types and overloading', 'Garbage collection, destructors, finalizers'] },
+      { id: 'oop-u3', unit_number: 3, title: 'Inheritance and Polymorphism',
+        topics: ['Types and benefits of inheritance', 'Constructors in derived classes', 'Method overriding', 'Abstract classes and interfaces', 'Compile-time and run-time polymorphism', 'Mechanisms for software reuse'] },
+      { id: 'oop-u4', unit_number: 4, title: 'Exception Handling and Generic Programming',
+        topics: ['Error and exception types', 'try, catch, multiple catch, nested try', 'User-defined exceptions with throw', 'Generics introduction', 'List and Set interfaces', 'ArrayList and LinkedList classes'] },
+      { id: 'oop-u5', unit_number: 5, title: 'File Handling and Design Patterns',
+        topics: ['Byte and character stream classes', 'The File class and I/O exceptions', 'Reading and writing characters, bytes, primitives', 'Random access files', 'Design patterns: Adapter, Singleton, Iterator'] },
+    ]
+  },
+  {
+    id: 'bcn',
+    name: 'Basics of Computer Network',
+    code: 'PCC-203-ITT',
+    credits: 3,
+    theoryCredits: 3,
+    termWorkCredits: 0,
+    units: [
+      { id: 'bcn-u1', unit_number: 1, title: 'Introduction to Computer Networking',
+        topics: ['Communication systems: sender, receiver, medium, protocols', 'Network types: LAN, MAN, WAN', 'Topologies: star, ring, mesh, hybrid', 'Layered network architecture', 'OSI seven-layer model', 'TCP/IP suite'] },
+      { id: 'bcn-u2', unit_number: 2, title: 'Data Communications',
+        topics: ['Analog and digital signals and conversions', 'Transmission modes: simplex, half-duplex, full-duplex', 'Modulation and multiplexing: FDM, TDM', 'Wired media: twisted pair, coaxial, optical fiber', 'Wireless media: radio, microwave, infrared', 'Circuit, packet, datagram and virtual-circuit switching'] },
+      { id: 'bcn-u3', unit_number: 3, title: 'Data Link Layer and Multiple Access Protocols',
+        topics: ['ALOHA and CSMA/CD', 'Ethernet LANs', 'Repeaters, hubs, switches, bridges, routers, gateways', 'Error detection: checksum, CRC', 'Flow and error control: Stop and Wait, Go Back N, Selective Repeat', 'HDLC and PPP, channelization: FDMA, TDMA, CDMA'] },
+      { id: 'bcn-u4', unit_number: 4, title: 'Network Layer',
+        topics: ['Logical addressing: IPv4 and IPv6', 'Address mapping and error reporting', 'Delivery, forwarding and routing', 'Frame Relay and ATM', 'Process-to-process delivery: UDP, TCP'] },
+      { id: 'bcn-u5', unit_number: 5, title: 'Overview of Networking Technologies',
+        topics: ['DNS, WWW, URL, email architecture, HTTP', 'Application protocols: SMTP, POP, FTP', 'Transport: UDP, TCP, SCTP, congestion control, QoS', 'WiFi and Bluetooth', '4G to 5G evolution', 'Cloud networking, SDN, NFV, IoT protocols'] },
+    ]
+  },
+  {
+    id: 'deldit',
+    name: 'Digital Electronics and Logic Design',
+    code: 'MDM-221-ITT',
+    credits: 2,
+    theoryCredits: 2,
+    termWorkCredits: 0,
+    units: [
+      { id: 'deldit-u1', unit_number: 1, title: 'Introduction to Digital Electronics',
+        topics: ['Digital IC characteristics, TTL and CMOS families', 'Signed number representations and binary arithmetic', 'Subtraction using 2s complement', 'IEEE 754 floating point representation', 'Codes: binary, BCD, octal, hexadecimal, Excess-3, Gray'] },
+      { id: 'deldit-u2', unit_number: 2, title: 'Combinational Logic Design',
+        topics: ["SOP and POS minimization, don't care conditions", 'K-maps up to 4 variables', 'Adders and subtractors, n-bit binary adder', 'Multiplexers IC 74151, 74153', 'Decoder/demultiplexer IC 74138, binary adder IC 7483', 'BCD adder and logic functions using MSI chips'] },
+      { id: 'deldit-u3', unit_number: 3, title: 'Flip Flops and Their Applications',
+        topics: ['Latches and sequential vs combinational circuits', 'SR, JK, D, T flip-flops: truth and excitation tables', 'Master-slave configuration and conversions', 'Flip-flop ICs 7473, 7474, 7476', 'Asynchronous, synchronous and modulo counters', 'Counter IC 7490'] },
+      { id: 'deldit-u4', unit_number: 4, title: 'Sequential Logic Design',
+        topics: ['Buffer and shift registers: SISO, SIPO, PISO, PIPO', 'Ring and twisted ring counters', 'State diagram, state table, state reduction, state assignment', 'Mealy and Moore machines', 'Sequence generators and detectors'] },
+      { id: 'deldit-u5', unit_number: 5, title: 'Introduction to Computer Architecture',
+        topics: ['CPU, memory, I/O and system bus organization', 'Von Neumann and Harvard architecture', 'Instruction cycle state diagram', 'IAS computer structure and registers', 'Hardwired vs microprogrammed control unit'] },
+    ]
+  },
+  {
+    id: 'dbmsit',
+    name: 'Database Management System',
+    code: 'PCC-251-ITT',
+    credits: 3,
+    theoryCredits: 3,
+    termWorkCredits: 0,
+    units: [
+      { id: 'dbmsit-u1', unit_number: 1, title: 'Introduction to Database Management Systems',
+        topics: ['DBMS vs file processing, data abstraction, independence', 'Database languages and DBMS components', 'Multi-user DBMS architecture', 'Data modeling: entities, attributes, relationships, keys', 'ER and EER diagrams', 'Converting ER diagrams into tables'] },
+      { id: 'dbmsit-u2', unit_number: 2, title: 'Relational Model and Database Design',
+        topics: ['Domains, attributes, tuples, relations', "Codd's rules", 'Features of good relational design', 'Data redundancy and anomalies', 'Functional dependencies', 'Normal forms: 1NF, 2NF, 3NF, BCNF'] },
+      { id: 'dbmsit-u3', unit_number: 3, title: 'SQL and PL/SQL',
+        topics: ['DDL and constraints', 'DML and SELECT clauses: WHERE, ORDER BY, LIKE, IN, BETWEEN', 'Aggregate functions, GROUP BY, HAVING', 'Joins, sub-queries, set operations, views, indexes', 'PL/SQL control structures and cursors', 'Procedures, functions, triggers'] },
+      { id: 'dbmsit-u4', unit_number: 4, title: 'Transaction Management and Concurrency Control',
+        topics: ['Transaction states and ACID properties', 'Serial and concurrent schedules', 'Serializability: conflict and view', 'Lock-based, timestamp and validation protocols', 'Deadlock', 'Recovery: shadow paging, log-based recovery, checkpoints'] },
+      { id: 'dbmsit-u5', unit_number: 5, title: 'Emerging Trends in Database Technologies',
+        topics: ['NoSQL types: document, key-value, column, graph', 'MongoDB examples', 'Cloud databases and DBaaS', 'Big Data, Hadoop and HDFS basics', 'AI/ML with databases'] },
+    ]
+  },
+  {
+    id: 'cg',
+    name: 'Computer Graphics',
+    code: 'PCC-252-ITT',
+    credits: 3,
+    theoryCredits: 3,
+    termWorkCredits: 0,
+    units: [
+      { id: 'cg-u1', unit_number: 1, title: 'Graphics Primitives and OpenGL Basics',
+        topics: ['Applications of computer graphics', 'Display devices: CRT, LCD, LED', 'Frame buffer, resolution, aspect ratio', 'Pixel, line, circle, polygon basics', 'OpenGL architecture and primitives', 'Simple 2D/3D modeling and rendering'] },
+      { id: 'cg-u2', unit_number: 2, title: 'Rasterization, Filling and Clipping',
+        topics: ['Line drawing: DDA, Bresenham', 'Circle drawing: DDA, Bresenham, Midpoint', 'Polygon filling: flood, seed, scan', 'Cohen-Sutherland clipping', 'Sutherland-Hodgman clipping', 'Weiler-Atherton clipping'] },
+      { id: 'cg-u3', unit_number: 3, title: '2D, 3D Transformations and Projections',
+        topics: ['Homogeneous coordinates', '2D translation, scaling, rotation, shear', '3D transformations and arbitrary-axis rotation', 'Parallel projections: orthographic, oblique', 'Perspective projections: 1, 2, 3 point'] },
+      { id: 'cg-u4', unit_number: 4, title: 'Color, Shading and Hidden Surfaces',
+        topics: ['Color models: CIE, RGB, HSV, CMY', 'Illumination: ambient, diffuse, specular', 'Phong and Warn models', 'Hidden surface elimination: z-buffer', "Painter's and Warnock algorithms"] },
+      { id: 'cg-u5', unit_number: 5, title: 'Curves, Fractals and Introduction to Animation',
+        topics: ['Interpolation, approximation, blending functions', 'B-Spline and Bezier curves', 'Fractal classification and generation', 'Snowflake and Hilbert curves', 'Animation basics: keyframe, morphing'] },
+    ]
+  },
+  {
+    id: 'ps',
+    name: 'Probability and Statistics',
+    code: 'PCC-253-ITT',
+    credits: 2,
+    theoryCredits: 2,
+    termWorkCredits: 0,
+    units: [
+      { id: 'ps-u1', unit_number: 1, title: 'Probability Fundamentals and Set Theory',
+        topics: ['Algebra of sets', 'Axiomatic, classical and frequentist probability', 'Conditional probability and independence', "Bayes' theorem"] },
+      { id: 'ps-u2', unit_number: 2, title: 'Random Variables and Expectation',
+        topics: ['Discrete, continuous and mixed random variables', 'PMF, PDF, CDF', 'Expectation, variance, higher-order moments', 'Moment generating functions', 'Markov and Chebyshev inequalities'] },
+      { id: 'ps-u3', unit_number: 3, title: 'Distributions and Functions of Random Variables',
+        topics: ['Binomial, Poisson, geometric distributions', 'Exponential, normal, gamma, beta distributions', 'Transformation techniques', 'Joint, marginal and conditional distributions', 'Covariance, correlation, bivariate normal'] },
+      { id: 'ps-u4', unit_number: 4, title: 'Sampling and Estimation',
+        topics: ['Sampling distributions', 'Central Limit Theorem', 'Point estimation: unbiasedness, consistency', 'Maximum likelihood and method of moments', 'Confidence intervals'] },
+      { id: 'ps-u5', unit_number: 5, title: 'Hypothesis Testing and Decision Theory',
+        topics: ['Hypothesis formulation and critical regions', 'Type I and II errors', 'Neyman-Pearson lemma', 'Z, t, chi-square and F tests', 'Goodness-of-fit, tests for proportions and variance'] },
+    ]
+  },
+  {
+    id: 'pa',
+    name: 'Processor Architecture',
+    code: 'MDM-271-ITT',
+    credits: 2,
+    theoryCredits: 2,
+    termWorkCredits: 0,
+    units: [
+      { id: 'pa-u1', unit_number: 1, title: 'Fundamentals of PIC Microcontroller',
+        topics: ['Microprocessor vs microcontroller', 'PIC architecture and core components', 'Types of PIC microcontrollers', 'Development tools and programming languages', 'Typical PIC applications'] },
+      { id: 'pa-u2', unit_number: 2, title: 'PIC Microcontroller Architecture',
+        topics: ['Selection criteria for microcontrollers', 'PIC18 series comparison and pin diagram', 'Internal architecture: ALU, EEPROM, RAM, I/O ports, timers, ADC, serial port', 'PIC18F registers and interrupts', 'Program and data memory organization'] },
+      { id: 'pa-u3', unit_number: 3, title: 'PIC I/O Ports, Timer and Counter',
+        topics: ['I/O port structure: PORTx, TRISx, LATx', 'Bit-level I/O control in embedded C', 'Timer/counter modules and registers', 'Delay generation using timers', 'Timer programming in embedded C'] },
+      { id: 'pa-u4', unit_number: 4, title: 'PIC Interfacing',
+        topics: ['PIC18F interrupt structure and SFRs', 'CCP modes: capture, compare, PWM', 'DC motor speed control with CCP', 'ADC block and sensor interfacing', 'LED, LCD, keyboard, 7-segment, relay, buzzer interfacing', 'Serial protocols: RS232, I2C, SPI, UART'] },
+      { id: 'pa-u5', unit_number: 5, title: 'Current Trends in Processor Architecture',
+        topics: ['ARM and RISC design philosophy', 'ARM processor versions, features, advantages', 'ARM programmer model and CPSR registers', 'PIC vs ARM', 'Performance techniques in modern processor architectures'] },
+    ]
+  },
+];
