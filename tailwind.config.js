@@ -13,6 +13,7 @@ export default {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         display: ['Space Grotesk', 'sans-serif'],
+        brand: ['Satoshi', 'Space Grotesk', 'sans-serif'],
       },
       colors: {
         // Raised from the Tailwind defaults so small grey labels reach 4.5:1 on the near-black background.

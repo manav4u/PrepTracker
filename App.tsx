@@ -6,7 +6,6 @@ import {
   Library,
   Calculator,
   Settings,
-  Hexagon,
   Menu,
   X,
   ListTodo,
@@ -23,6 +22,7 @@ import LandingPage from './pages/LandingPage';
 import { UnitStatus } from './types';
 import { useData } from './context/DataContext';
 import ErrorBoundary from './components/ErrorBoundary';
+import LogoMark from './components/LogoMark';
 import GlobalSearch from './components/GlobalSearch';
 
 const NavItem = ({ to, icon: Icon, active, label, short }: { to: string, icon: any, active: boolean, label: string, short?: string }) => (
@@ -76,8 +76,8 @@ export default function App() {
                     {/* Mobile Branding Header */}
                     <div className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-[#030303]/80 backdrop-blur-xl border-b border-white/5 px-6 py-4 flex justify-between items-center">
                         <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 flex items-center justify-center text-[#E11D48]">
-                            <Hexagon size={24} strokeWidth={2.5} className="fill-[#E11D48]/10" />
+                        <div className="w-8 h-8 flex items-center justify-center">
+                            <LogoMark size={26} />
                         </div>
                         <span className="font-bold tracking-widest uppercase text-xs text-white">PrepTracker</span>
                         </div>
@@ -118,8 +118,8 @@ export default function App() {
                         bottom-6 left-4 right-4 h-20 glass-panel rounded-[2.5rem] flex items-center justify-around px-2 shadow-2xl
                         lg:bottom-auto lg:top-1/2 lg:left-6 lg:right-auto lg:h-auto lg:w-24 lg:flex-col lg:rounded-[3rem] lg:py-10 lg:gap-8 lg:-translate-y-1/2 lg:shadow-none
                     ">
-                        <div className="hidden lg:flex w-14 h-14 items-center justify-center text-[#E11D48] mb-4">
-                        <Hexagon size={32} strokeWidth={2.5} className="fill-[#E11D48]/10" />
+                        <div className="hidden lg:flex w-14 h-14 items-center justify-center mb-4">
+                        <LogoMark size={34} />
                         </div>
 
                         <nav className="flex flex-row lg:flex-col w-full justify-evenly lg:gap-6 items-center">

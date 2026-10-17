@@ -1,0 +1,63 @@
+import React, { useId } from 'react';
+
+/**
+ * PrepTracker "Progress Path" mark, rebuilt as clean vector geometry from the
+ * brand sheets (Concept 1). Straight structural edges, Catmull-Rom bowl arc,
+ * squared slot wall, concave leg fillet, and the sampled fold shadow.
+ * Gradient stops are sampled from the original artwork.
+ */
+const MARK_PATH = "M 21.2 0.0 L 104.3 0.0 C 106.6 0.5 113.4 0.9 118.0 2.9 C 122.6 4.8 128.2 8.5 132.0 11.7 C 135.8 14.9 138.7 18.5 141.0 21.9 C 143.3 25.3 144.7 28.5 146.0 32.1 C 147.3 35.8 148.6 40.4 149.0 43.8 C 149.4 47.2 148.6 49.7 148.3 52.6 C 148.1 55.5 147.9 58.4 147.5 61.3 C 147.1 64.2 146.9 67.2 146.0 70.1 C 145.1 73.0 143.8 75.9 142.0 78.8 C 140.2 81.7 138.0 84.7 135.0 87.6 C 132.0 90.5 127.8 94.0 124.0 96.4 C 120.2 98.8 115.8 100.8 112.0 102.2 C 108.2 103.6 104.6 104.2 101.3 104.8 C 98.0 105.4 96.1 105.4 92.4 105.8 C 88.7 106.2 83.2 106.8 79.0 107.3 C 74.8 107.8 69.0 108.5 67.0 108.8 C 65.3 109.2 58.8 109.2 56.6 111.0 C 54.4 112.8 54.8 115.8 53.6 119.7 C 52.4 123.6 50.7 129.9 49.2 134.3 C 47.7 138.7 45.5 144.1 44.7 146.0 L 0.0 146.0 L 28.3 75.9 Q 37.2 63.5 53.6 62.8 L 100.6 62.8 Q 105.0 62.8 105.0 57.7 L 105.0 47.5 Q 105.0 42.3 100.6 42.3 L 3.9 42.3 Z";
+const FOLD_PATH = "M 44.7 62.8 L 100.6 62.8 L 101.3 104.8 L 67.0 108.3 Z";
+
+type LogoMarkProps = {
+  /** Rendered width in px. Height follows the 149:146 source aspect. */
+  size?: number;
+  /** gradient: brand red gradient + fold. mono: solid ink. white: solid white for dark surfaces. */
+  variant?: 'gradient' | 'mono' | 'white';
+  className?: string;
+};
+
+const LogoMark: React.FC<LogoMarkProps> = ({ size = 32, variant = 'gradient', className }) => {
+  const uid = useId().replace(/[^a-zA-Z0-9]/g, '');
+  const gid = `ptg-${uid}`;
+  const fid = `ptfold-${uid}`;
+  const cid = `ptglyph-${uid}`;
+  const sid = `ptsoft-${uid}`;
+  const fill = variant === 'gradient' ? `url(#${gid})` : variant === 'white' ? '#FFFFFF' : '#1A1A1A';
+
+  return (
+    <svg
+      width={size}
+      height={Math.round((size * 146) / 149)}
+      viewBox="0 0 149 146"
+      className={className}
+      aria-hidden="true"
+      focusable="false"
+    >
+      {variant === 'gradient' && (
+        <defs>
+          <linearGradient id={gid} x1="0" y1="0.05" x2="1" y2="0.6">
+            <stop offset="0" stopColor="#F63C49" />
+            <stop offset="1" stopColor="#D61A40" />
+          </linearGradient>
+          <linearGradient id={fid} x1="0" y1="0" x2="0.7" y2="1">
+            <stop offset="0" stopColor="#7A0B28" stopOpacity="0.38" />
+            <stop offset="1" stopColor="#7A0B28" stopOpacity="0" />
+          </linearGradient>
+          <clipPath id={cid}>
+            <path d={MARK_PATH} />
+          </clipPath>
+          <filter id={sid} x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="2.2" />
+          </filter>
+        </defs>
+      )}
+      <path d={MARK_PATH} fill={fill} />
+      {variant === 'gradient' && (
+        <path d={FOLD_PATH} fill={`url(#${fid})`} clipPath={`url(#${cid})`} filter={`url(#${sid})`} />
+      )}
+    </svg>
+  );
+};
+
+export default LogoMark;
