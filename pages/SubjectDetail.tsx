@@ -232,7 +232,7 @@ const SubjectDetail: React.FC = () => {
                                 }`}
                             >
                                 <item.icon size={13} className={isSelected ? 'text-black' : 'text-current'} strokeWidth={2.5} />
-                                <span className={`text-[9px] font-bold uppercase tracking-wider ${isSelected ? 'block' : 'hidden sm:block'}`}>
+                                <span className="text-[9px] font-bold uppercase tracking-wider block">
                                     {item.label}
                                 </span>
                             </button>
