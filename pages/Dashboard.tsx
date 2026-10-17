@@ -53,27 +53,27 @@ const StatPill = ({ label, value, sub, active = false, gradient = false, icon: I
 const StreakCard = ({ streak, counts, labels, style }: any) => {
   const todayIdx = counts.length - 1;
   return (
-    <div style={style} className="relative p-6 rounded-3xl surface-1 flex flex-col justify-between h-36 lg:h-40 overflow-hidden group hover:-translate-y-1 transition-all duration-300 animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500">
-      {/* Material depth: top sheen, bottom vignette, red bloom off the corner */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/[0.05] via-transparent to-black/40 pointer-events-none"></div>
-      <div className="absolute -bottom-14 -right-14 w-40 h-40 rounded-full bg-[#F63C49]/20 blur-2xl pointer-events-none"></div>
-      <div className="absolute inset-0 rounded-3xl shadow-[inset_0_1px_0_rgba(255,255,255,0.07)] pointer-events-none"></div>
+    <div style={style} className="relative p-6 rounded-3xl flex flex-col justify-between h-36 lg:h-40 overflow-hidden group hover:-translate-y-1 transition-all duration-300 animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500 bg-[linear-gradient(180deg,#FDFBF6_0%,#F6F1E8_52%,#EEE8DC_100%)] shadow-[0_1px_2px_rgba(0,0,0,0.45),0_18px_38px_-22px_rgba(0,0,0,0.85),0_0_34px_-10px_rgba(255,247,235,0.22)]">
+      {/* Ivory material: bright top sheen, warm bottom vignette, crisp inner highlight */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-transparent to-black/[0.05] pointer-events-none"></div>
+      <div className="absolute inset-0 rounded-3xl shadow-[inset_0_1px_0_rgba(255,255,255,0.9),inset_0_-1px_0_rgba(0,0,0,0.05)] pointer-events-none"></div>
+      <div className="absolute inset-0 rounded-3xl ring-1 ring-black/[0.06] pointer-events-none"></div>
       <div className="relative flex justify-between items-start">
-        <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-[#F63C49]">Study Streak</span>
-        <span className="hidden sm:flex items-center justify-center w-7 h-7 -mt-1 -mr-1 rounded-lg bg-[#F63C49]/15 ring-1 ring-[#F63C49]/30 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)]">
+        <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-[#8a8172]">Study Streak</span>
+        <span className="hidden sm:flex items-center justify-center w-7 h-7 -mt-1 -mr-1 rounded-lg bg-[#F63C49]/10 ring-1 ring-[#F63C49]/25 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)]">
           <Flame size={13} className="text-[#F63C49]" />
         </span>
       </div>
       <div className="relative flex flex-col md:flex-row md:items-end md:justify-between gap-2">
         <div className="order-2 md:order-1">
-          <p className="text-4xl lg:text-5xl font-display font-bold tracking-tighter text-white leading-none mb-1.5">{streak}</p>
-          <p className="text-[10px] lg:text-[11px] font-bold uppercase tracking-widest text-[#F63C49]/90 whitespace-nowrap">Day Streak</p>
+          <p className="text-4xl lg:text-5xl font-display font-bold tracking-tighter text-[#17171c] leading-none mb-1.5">{streak}</p>
+          <p className="text-[10px] lg:text-[11px] font-bold uppercase tracking-widest text-[#6f685b] whitespace-nowrap">Day Streak</p>
         </div>
         <div className="order-1 md:order-2 flex items-end gap-[5px] pb-0.5 self-end md:self-auto">
           {counts.map((c: number, i: number) => (
             <div key={i} className="flex flex-col items-center gap-1">
-              <span className={`rounded-full ${i === todayIdx ? 'w-2 h-2' : 'w-1.5 h-1.5'} ${c > 0 ? 'bg-[#F63C49] shadow-[0_0_8px_rgba(246,60,73,0.8)]' : 'bg-white/5 ring-1 ring-white/15'}`}></span>
-              <span className={`hidden sm:block text-[8px] font-mono font-bold uppercase ${i === todayIdx ? 'text-white/70' : 'text-slate-600'}`}>{labels[i]}</span>
+              <span className={`rounded-full ${i === todayIdx ? 'w-2 h-2' : 'w-1.5 h-1.5'} ${c > 0 ? 'bg-[#F63C49] shadow-[0_0_8px_rgba(246,60,73,0.5)]' : 'bg-black/[0.04] ring-1 ring-black/20'}`}></span>
+              <span className={`hidden sm:block text-[8px] font-mono font-bold uppercase ${i === todayIdx ? 'text-black/60' : 'text-[#b0a895]'}`}>{labels[i]}</span>
             </div>
           ))}
         </div>
