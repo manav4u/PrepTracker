@@ -150,14 +150,27 @@ const TodoList: React.FC = () => {
   const [inputUnit, setInputUnit] = useState('');
   const [inputSubject, setInputSubject] = useState('');
   const [editSubject, setEditSubject] = useState('');
+  const [editUnit, setEditUnit] = useState('');
+  const [editText, setEditText] = useState('');
+  const [editDate, setEditDate] = useState('');
   const [filter, setFilter] = useState<'ALL' | 'ACTIVE' | 'COMPLETED'>('ALL');
   const [editingUnitTaskId, setEditingUnitTaskId] = useState<string | null>(null);
 
-  const updateTaskUnit = (id: string, unitId: string) => {
+  const startEdit = (t: Task) => {
+    setEditSubject(subjectOfUnit(t.unitId || ''));
+    setEditUnit(t.unitId || '');
+    setEditText(t.text);
+    setEditDate(t.dueDate || '');
+    setEditingUnitTaskId(t.id);
+  };
+
+  const saveEdit = (id: string) => {
+    const text = editText.trim();
+    if (!text) return;
     setTasks(prev => prev.map(t => {
       if (t.id !== id) return t;
       const { unitId: _drop, ...rest } = t;
-      return unitId ? { ...rest, unitId } : rest;
+      return { ...rest, text, dueDate: editDate || '', ...(editUnit ? { unitId: editUnit } : {}) };
     }));
     setEditingUnitTaskId(null);
   };
@@ -490,7 +503,7 @@ const TodoList: React.FC = () => {
                             >
                                 <button
                                     tabIndex={openId === task.id ? 0 : -1}
-                                    onClick={() => { setEditSubject(subjectOfUnit(task.unitId || '')); setEditingUnitTaskId(task.id); setOpenId(null); }}
+                                    onClick={() => { startEdit(task); setOpenId(null); }}
                                     aria-label={`Edit task: ${task.text}`}
                                     className="flex-1 flex flex-col items-center justify-center gap-1 bg-[#1b1b20] text-white/80 text-[10px] font-bold uppercase tracking-wider"
                                 >
@@ -535,6 +548,64 @@ const TodoList: React.FC = () => {
                                 </button>
 
                                 <div className="flex-1 min-w-0">
+                                    {editingUnitTaskId === task.id ? (
+                                        <div className="space-y-3 animate-in fade-in duration-[250ms]" onClick={(e) => e.stopPropagation()}>
+                                            <div className="space-y-2">
+                                                <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Title</label>
+                                                <input
+                                                    type="text"
+                                                    aria-label="Task title"
+                                                    value={editText}
+                                                    onChange={(e) => setEditText(e.target.value)}
+                                                    onKeyDown={(e) => { if (e.key === 'Enter') saveEdit(task.id); if (e.key === 'Escape') setEditingUnitTaskId(null); }}
+                                                    className="w-full surface-2 border border-white/10 rounded-2xl px-4 h-12 text-sm text-white focus:border-[#F63C49] outline-none transition-colors"
+                                                />
+                                            </div>
+                                            <div className="space-y-2">
+                                                <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Due date</label>
+                                                <div className="relative group">
+                                                    <Calendar size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-[#F63C49] transition-colors" />
+                                                    <input
+                                                        type="date"
+                                                        aria-label="Due date"
+                                                        value={editDate}
+                                                        onChange={(e) => setEditDate(e.target.value)}
+                                                        className="w-full surface-2 border border-white/10 rounded-2xl pl-10 pr-4 h-12 text-xs font-mono text-slate-300 focus:border-[#F63C49] outline-none transition-colors uppercase"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <CustomSelect
+                                                label="Subject"
+                                                value={editSubject}
+                                                onChange={(v) => { setEditSubject(v); setEditUnit(''); }}
+                                                options={subjectOptionsFor(subjectOfUnit(task.unitId || ''))}
+                                            />
+                                            <CustomSelect
+                                                label="Linked unit"
+                                                value={editUnit}
+                                                onChange={(v) => setEditUnit(v)}
+                                                options={unitOptionsFor(editSubject)}
+                                                disabled={!editSubject}
+                                            />
+                                            <div className="flex gap-3 pt-1">
+                                                <button
+                                                    type="button"
+                                                    onClick={() => setEditingUnitTaskId(null)}
+                                                    className="flex-1 h-11 surface-2 border border-white/10 rounded-2xl text-[10px] font-bold uppercase tracking-[0.2em] text-slate-300 hover:text-white transition-colors duration-[250ms]"
+                                                >
+                                                    Cancel
+                                                </button>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => saveEdit(task.id)}
+                                                    disabled={!editText.trim()}
+                                                    className="flex-1 h-11 bg-gradient-to-br from-[#F63C49] to-[#9f1239] disabled:opacity-40 rounded-2xl text-[10px] font-bold uppercase tracking-[0.2em] text-white transition-all duration-[250ms]"
+                                                >
+                                                    Save
+                                                </button>
+                                            </div>
+                                        </div>
+                                    ) : (<>
                                     <div className="flex items-start justify-between gap-3 lg:pr-16">
                                         <p className={`text-base font-medium leading-snug ${task.completed ? 'text-slate-500 line-through decoration-slate-700' : 'text-white'}`}>
                                             {task.text}
@@ -564,31 +635,11 @@ const TodoList: React.FC = () => {
                                             {catConfig.label}
                                         </span>
 
-                                        {editingUnitTaskId === task.id ? (
-                                            <div className="w-64 max-w-full space-y-3" onClick={(e) => e.stopPropagation()}>
-                                                <CustomSelect
-                                                    label="Subject"
-                                                    value={editSubject}
-                                                    onChange={(v) => setEditSubject(v)}
-                                                    options={subjectOptionsFor(subjectOfUnit(task.unitId || ''))}
-                                                />
-                                                <CustomSelect
-                                                    label="Linked unit"
-                                                    value={subjectOfUnit(task.unitId || '') === editSubject ? (task.unitId || '') : ''}
-                                                    onChange={(v) => updateTaskUnit(task.id, v)}
-                                                    options={unitOptionsFor(editSubject)}
-                                                    disabled={!editSubject}
-                                                />
-                                            </div>
-                                        ) : (
-                                            <>
-                                                {task.unitId && unitLabel(task.unitId) && (
+                                        {task.unitId && unitLabel(task.unitId) && (
                                                     <Link to={`/subject/${unitLabel(task.unitId)!.subjectId}`} className="text-[10px] font-bold uppercase tracking-wider text-slate-400 hover:text-white border border-white/10 rounded-full px-2 py-0.5">
                                                         {unitLabel(task.unitId)!.text}
                                                     </Link>
                                                 )}
-                                            </>
-                                        )}
 
                                         {/* Due date in plain words */}
                                         {task.dueDate && (() => {
@@ -601,14 +652,15 @@ const TodoList: React.FC = () => {
                                             );
                                         })()}
                                     </div>
+                                    </>)}
                                 </div>
 
                             </div>
                                 {/* Desktop: edit and delete appear on hover, top right */}
-                                <div className="hidden lg:flex absolute top-3 right-4 items-center gap-1 opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity duration-[250ms]">
+                                <div className={`hidden ${editingUnitTaskId === task.id ? "" : "lg:flex"} absolute top-3 right-4 items-center gap-1 opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity duration-[250ms]`}>
                                     <button
                                         type="button"
-                                        onClick={() => { setEditSubject(subjectOfUnit(task.unitId || '')); setEditingUnitTaskId(task.id); }}
+                                        onClick={() => startEdit(task)}
                                         aria-label={`Edit task: ${task.text}`}
                                         title="Edit"
                                         className="p-2 text-slate-500 hover:text-white rounded-lg hover:bg-white/5 transition-colors"
