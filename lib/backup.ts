@@ -1,6 +1,7 @@
 // Backup and restore for PrepTracker's browser storage.
 // One shared key list is used by the app, export and restore so they cannot drift apart again.
 import { cleanMarks } from './grading.ts';
+import { isReviews } from './revision.ts';
 
 export const KEYS = {
   profile: 'sppu_profile',
@@ -9,6 +10,7 @@ export const KEYS = {
   resources: 'sppu_custom_resources',
   tasks: 'sppu_tasks',
   hiddenResourceIds: 'sppu_deleted_system_ids',
+  reviews: 'sppu_reviews',
 } as const;
 export type Field = keyof typeof KEYS;
 export const FIELDS = Object.keys(KEYS) as Field[];
@@ -17,8 +19,10 @@ export const ROLLBACK_KEY = 'sppu_backup_rollback';
 export const BACKUP_TYPE = 'SPPU_PREPTRACKER_LOCAL_BACKUP';
 // 4.0.0 is the first version that exports the real progress key. Older files were written by a
 // buggy exporter (3.1.0) that read a key the app never used, so their progress is empty.
-export const BACKUP_VERSION = '4.0.0';
-export const SUPPORTED_VERSIONS = ['3.1.0', '4.0.0'];
+// 4.1.0 adds the spaced-review schedule. Older files have none, so restoring one clears the schedule
+// instead of mixing an old progress list with a newer schedule.
+export const BACKUP_VERSION = '4.1.0';
+export const SUPPORTED_VERSIONS = ['3.1.0', '4.0.0', '4.1.0'];
 export const MAX_BYTES = 5 * 1024 * 1024;
 
 export interface StorageLike {
@@ -76,9 +80,10 @@ const checks: Record<Field, (x: unknown) => boolean> = {
     ),
   marks: (x) => plain(x) && JSON.stringify(cleanMarks(x)) === JSON.stringify(x),
   hiddenResourceIds: strs,
+  reviews: isReviews,
 };
 
-const defaults: BackupData = { profile: null, progress: [], marks: {}, resources: [], tasks: [], hiddenResourceIds: [] };
+const defaults: BackupData = { profile: null, progress: [], marks: {}, resources: [], tasks: [], hiddenResourceIds: [], reviews: {} };
 
 export function readState(storage: StorageLike): BackupData {
   const state: any = {};
@@ -136,6 +141,10 @@ export function parseBackup(content: string, current: BackupData): Preview {
   const data: any = {};
   for (const f of FIELDS) {
     if (!Object.prototype.hasOwnProperty.call(source, f)) {
+      if (f === 'reviews') {
+        data[f] = {};
+        continue;
+      }
       if (f === 'hiddenResourceIds' || version === '3.1.0') {
         data[f] = current[f];
         if (f !== 'hiddenResourceIds') warnings.push(`This older file has no ${f} section. Your current ${f} are kept.`);

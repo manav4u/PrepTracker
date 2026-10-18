@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 import { SUBJECTS } from '../constants';
 import SubjectCard from '../components/SubjectCard';
 import { UnitStatus } from '../types';
-import { Sparkles, CalendarDays, Flame, Activity } from 'lucide-react';
+import { CalendarDays, Flame, Activity } from 'lucide-react';
 import { useData } from '../context/DataContext';
 import { currentStreak, lastDays, todayCount, DAILY_GOAL } from '../lib/activity';
+import { DailyRevisePrompt } from '../components/ReviseSheet';
 import ActivityHeatmap from '../components/ActivityHeatmap';
 import { subjectExamList, nextExamIndex } from '../lib/exams';
 
@@ -22,6 +23,36 @@ const SHORT_NAMES: Record<string, string> = {
   'mech': 'MECH',
   'graph': 'EG'
 };
+
+const BLOCK_LIMIT = 40;
+
+// Units Mastered: the count, and one block per unit (red once mastered).
+// Past BLOCK_LIMIT units the blocks become a plain bar so the card keeps its height.
+const MasteryCard = ({ mastered, total, style }: { mastered: number; total: number; style?: React.CSSProperties }) => (
+  <div style={style} className="p-5 rounded-3xl flex flex-col justify-between h-36 lg:h-40 surface-1 transition-all duration-300 hover:border-white/15 hover:-translate-y-1 animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500">
+    <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-slate-500">Units Mastered</span>
+    <p className="flex items-baseline gap-2 text-white">
+      <span className="text-4xl lg:text-5xl font-display font-bold tracking-tighter tabular-nums leading-none">{mastered}</span>
+      <span className="text-[10px] lg:text-[11px] font-bold uppercase tracking-widest text-slate-500">of {total} {total === 1 ? 'unit' : 'units'}</span>
+    </p>
+    {total <= BLOCK_LIMIT ? (
+      <div
+        className="grid gap-[3px] grid-cols-[repeat(var(--cm),minmax(0,1fr))] lg:grid-cols-[repeat(var(--cd),minmax(0,1fr))]"
+        style={{ '--cm': Math.ceil(total / 2), '--cd': total <= 30 ? total : Math.ceil(total / 2) } as React.CSSProperties}
+        role="img"
+        aria-label={`${mastered} of ${total} units mastered`}
+      >
+        {Array.from({ length: total }, (_, i) => (
+          <span key={i} className={`aspect-square rounded-[2px] transition-colors duration-[250ms] ${i < mastered ? 'bg-[#F63C49]' : 'bg-white/10'}`}></span>
+        ))}
+      </div>
+    ) : (
+      <div className="h-2 rounded-full bg-white/10 overflow-hidden" role="img" aria-label={`${mastered} of ${total} units mastered`}>
+        <div className="h-full rounded-full bg-[#F63C49]" style={{ width: `${total ? (mastered / total) * 100 : 0}%` }}></div>
+      </div>
+    )}
+  </div>
+);
 
 const StatPill = ({ label, value, sub, active = false, gradient = false, icon: Icon = Activity, to, style }: any) => {
   const Wrap: any = to ? Link : 'div';
@@ -244,6 +275,8 @@ const Dashboard: React.FC = () => {
   return (
     <div className="space-y-12 lg:space-y-20 animate-in fade-in slide-in-from-bottom-8 duration-700">
       
+      <DailyRevisePrompt />
+
       {/* HUD Header */}
       <section className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         <div className="lg:col-span-2 rounded-3xl surface-1 p-8 lg:p-10 relative overflow-hidden group flex flex-col justify-between">
@@ -276,7 +309,7 @@ const Dashboard: React.FC = () => {
         </div>
 
         <div className="lg:col-span-2 grid grid-cols-2 gap-4 lg:gap-6">
-           <StatPill label="Units Mastered" value={totalMastered} sub={`/ ${totalUnits} Units`} gradient={true} icon={Sparkles} style={{ animationDelay: '60ms' }} />
+           <MasteryCard mastered={totalMastered} total={totalUnits} style={{ animationDelay: '60ms' }} />
 
            {/* Dynamic Graph Replacement for Forecast */}
            <ProgressGraphCard data={graphData} labels={graphLabels} total={weekTotal} />

@@ -44,7 +44,7 @@ export interface StudyEvent {
   subjectId: string;
   unitId?: string;
   topic?: string; // topic name, or PYQ year for kind 'pyq'
-  kind: 'topic' | 'unit' | 'pyq';
+  kind: 'topic' | 'unit' | 'pyq' | 'review';
 }
 
 export interface Profile {

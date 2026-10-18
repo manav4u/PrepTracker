@@ -20,7 +20,7 @@ const seed = (s: Mem) => {
 test('export uses the real progress key and round-trips', () => {
   const s = new Mem(); seed(s);
   const b = createBackup(s);
-  assert.equal(b.metadata.version, '4.0.0');
+  assert.equal(b.metadata.version, '4.1.0');
   assert.deepEqual(b.data.progress, progress);
   assert.deepEqual(b.data.marks, { m1: { inSem: 20, endSem: 50 } });
   const t = new Mem();
@@ -85,4 +85,31 @@ test('export refuses to write a backup from corrupt saved data', () => {
   assert.throws(() => createBackup(s), /unexpected shape/);
   s.setItem(KEYS.progress, '{oops');
   assert.throws(() => createBackup(s), /unreadable/);
+});
+
+test('review schedule is exported, validated and restored', () => {
+  const reviews = { 'm1-u1::Rolle’s Theorem': { stage: 2, due: '2026-10-20', last: '2026-10-13' } };
+  const s = new Mem(); seed(s); s.setItem(KEYS.reviews, JSON.stringify(reviews));
+  const b = createBackup(s);
+  assert.deepEqual(b.data.reviews, reviews);
+  const t = new Mem();
+  restoreBackup(t, parseBackup(JSON.stringify(b), readState(t)).data);
+  assert.deepEqual(JSON.parse(t.getItem(KEYS.reviews) as string), reviews);
+});
+
+test('a 4.0.0 file without reviews restores with an empty schedule', () => {
+  const s = new Mem(); seed(s); s.setItem(KEYS.reviews, JSON.stringify({ k: { stage: 1, due: '2026-10-20', last: '2026-10-19' } }));
+  const old = createBackup(s) as any;
+  old.metadata.version = '4.0.0'; delete old.data.reviews;
+  const p = parseBackup(JSON.stringify(old), readState(s));
+  assert.deepEqual(p.data.reviews, {});
+});
+
+test('a malformed review schedule in a file is rejected and in storage refuses export', () => {
+  const s = new Mem(); seed(s);
+  const bad = createBackup(s) as any;
+  bad.data.reviews = { k: { stage: 99, due: 'x', last: 'y' } };
+  assert.throws(() => parseBackup(JSON.stringify(bad), readState(s)), /reviews section of the backup is invalid/);
+  s.setItem(KEYS.reviews, '[1,2]');
+  assert.throws(() => readState(s), /reviews has an unexpected shape/);
 });

@@ -3,6 +3,7 @@ import React, { createContext, useContext, useState, useEffect, ReactNode } from
 import { Profile, UserProgress, Task, ResourceItem } from '../types';
 import { SYSTEM_RESOURCES } from '../constants';
 import { MarksMap, cleanMarks } from '../lib/grading';
+import { Reviews, cleanReviews } from '../lib/revision';
 
 interface DataContextType {
   profile: Profile | null;
@@ -11,6 +12,8 @@ interface DataContextType {
   setUserProgress: (progress: UserProgress[]) => void;
   tasks: Task[];
   setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
+  reviews: Reviews;
+  setReviews: React.Dispatch<React.SetStateAction<Reviews>>;
   marks: MarksMap;
   setMarks: React.Dispatch<React.SetStateAction<MarksMap>>;
   resources: ResourceItem[];
@@ -61,6 +64,16 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
     }
   });
 
+  const [reviews, setReviews] = useState<Reviews>(() => {
+    try {
+      const saved = localStorage.getItem('sppu_reviews');
+      return saved ? cleanReviews(JSON.parse(saved)) : {};
+    } catch (e) {
+      console.error("Failed to parse reviews from local storage", e);
+      return {};
+    }
+  });
+
   const [customResources, setCustomResources] = useState<ResourceItem[]>(() => {
     try {
       const saved = localStorage.getItem('sppu_custom_resources');
@@ -105,6 +118,10 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
   }, [marks]);
 
   useEffect(() => {
+    localStorage.setItem('sppu_reviews', JSON.stringify(reviews));
+  }, [reviews]);
+
+  useEffect(() => {
     localStorage.setItem('sppu_custom_resources', JSON.stringify(customResources));
   }, [customResources]);
 
@@ -144,6 +161,8 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
       setUserProgress,
       tasks,
       setTasks,
+      reviews,
+      setReviews,
       marks,
       setMarks,
       resources,
