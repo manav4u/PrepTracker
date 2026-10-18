@@ -185,6 +185,27 @@ const TodoList: React.FC = () => {
   };
 
   const [drawId, setDrawId] = useState<string | null>(null);
+  // Swipe-to-reveal (phone): one row open at a time. Tween only, no spring.
+  const ACTIONS_W = 144;
+  const [openId, setOpenId] = useState<string | null>(null);
+  const [drag, setDrag] = useState<{ id: string; x: number } | null>(null);
+  const touch = useRef<{ x: number; y: number; base: number; horiz: boolean | null } | null>(null);
+  const onRowTouchStart = (id: string, e: React.TouchEvent) => {
+    if (openId && openId !== id) setOpenId(null);
+    touch.current = { x: e.touches[0].clientX, y: e.touches[0].clientY, base: openId === id ? -ACTIONS_W : 0, horiz: null };
+  };
+  const onRowTouchMove = (id: string, e: React.TouchEvent) => {
+    const t = touch.current; if (!t) return;
+    const dx = e.touches[0].clientX - t.x, dy = e.touches[0].clientY - t.y;
+    if (t.horiz === null && (Math.abs(dx) > 8 || Math.abs(dy) > 8)) t.horiz = Math.abs(dx) > Math.abs(dy);
+    if (!t.horiz) return;
+    setDrag({ id, x: Math.max(-ACTIONS_W, Math.min(0, t.base + dx)) });
+  };
+  const onRowTouchEnd = (id: string) => {
+    const t = touch.current; touch.current = null;
+    if (t?.horiz && drag?.id === id) setOpenId(drag.x < -ACTIONS_W / 2 ? id : null);
+    setDrag(null);
+  };
   const toggleTask = (id: string) => {
     setDrawId(id);
     const target = tasks.find(t => t.id === id);
@@ -461,10 +482,42 @@ const TodoList: React.FC = () => {
                         const CategoryIcon = catConfig.icon;
 
                         return (
-                            <div 
-                                key={task.id}
-                                className={`group relative surface-1 rounded-3xl px-5 py-4 lg:px-6 lg:py-5 transition-opacity duration-[250ms] flex items-start gap-4 ${task.completed ? 'opacity-50' : ''}`}
+                            <div key={task.id} className="relative rounded-3xl overflow-hidden lg:overflow-visible">
+                            {/* Phone: actions revealed by swiping the row left */}
+                            <div
+                                className="lg:hidden absolute inset-y-0 right-0 flex rounded-r-3xl overflow-hidden transition-opacity duration-[250ms]"
+                                style={{ width: ACTIONS_W, opacity: openId === task.id || drag?.id === task.id ? 1 : 0, pointerEvents: openId === task.id ? 'auto' : 'none' }}
                             >
+                                <button
+                                    tabIndex={openId === task.id ? 0 : -1}
+                                    onClick={() => { setEditSubject(subjectOfUnit(task.unitId || '')); setEditingUnitTaskId(task.id); setOpenId(null); }}
+                                    aria-label={`Edit task: ${task.text}`}
+                                    className="flex-1 flex flex-col items-center justify-center gap-1 bg-[#1b1b20] text-white/80 text-[10px] font-bold uppercase tracking-wider"
+                                >
+                                    <Pencil size={16} />Edit
+                                </button>
+                                <button
+                                    tabIndex={openId === task.id ? 0 : -1}
+                                    onClick={() => { setOpenId(null); deleteTask(task.id); }}
+                                    aria-label={`Delete task: ${task.text}`}
+                                    className="flex-1 flex flex-col items-center justify-center gap-1 bg-gradient-to-br from-[#F63C49] to-[#9f1239] text-white text-[10px] font-bold uppercase tracking-wider"
+                                >
+                                    <Trash2 size={16} />Delete
+                                </button>
+                            </div>
+                            <div
+                                className="group relative surface-1 rounded-3xl px-5 py-4 lg:px-6 lg:py-5"
+                                style={{
+                                    transform: `translateX(${drag?.id === task.id ? drag.x : openId === task.id ? -ACTIONS_W : 0}px)`,
+                                    transition: drag?.id === task.id ? 'none' : 'transform 250ms cubic-bezier(0.4,0,0.2,1)',
+                                    touchAction: 'pan-y'
+                                }}
+                                onTouchStart={(e) => onRowTouchStart(task.id, e)}
+                                onTouchMove={(e) => onRowTouchMove(task.id, e)}
+                                onTouchEnd={() => onRowTouchEnd(task.id)}
+                                onClickCapture={(e) => { if (openId === task.id) { e.preventDefault(); e.stopPropagation(); setOpenId(null); } }}
+                            >
+                            <div className={`flex items-start gap-4 transition-opacity duration-[250ms] ${task.completed ? 'opacity-50' : ''}`}>
                                 {/* Checkbox */}
                                 <button 
                                     onClick={() => toggleTask(task.id)}
@@ -482,7 +535,7 @@ const TodoList: React.FC = () => {
                                 </button>
 
                                 <div className="flex-1 min-w-0">
-                                    <div className="flex items-start justify-between gap-3">
+                                    <div className="flex items-start justify-between gap-3 lg:pr-16">
                                         <p className={`text-base font-medium leading-snug ${task.completed ? 'text-slate-500 line-through decoration-slate-700' : 'text-white'}`}>
                                             {task.text}
                                         </p>
@@ -534,15 +587,6 @@ const TodoList: React.FC = () => {
                                                         {unitLabel(task.unitId)!.text}
                                                     </Link>
                                                 )}
-                                                <button
-                                                    type="button"
-                                                    onClick={() => { setEditSubject(subjectOfUnit(task.unitId || '')); setEditingUnitTaskId(task.id); }}
-                                                    aria-label={task.unitId ? `Change linked unit for task: ${task.text}` : `Link a unit to task: ${task.text}`}
-                                                    title={task.unitId ? 'Change linked unit' : 'Link a unit'}
-                                                    className="lg:opacity-0 lg:group-hover:opacity-100 focus-visible:opacity-100 text-slate-500 hover:text-white border border-transparent hover:border-white/10 rounded p-0.5 transition-all"
-                                                >
-                                                    <Pencil size={10} />
-                                                </button>
                                             </>
                                         )}
 
@@ -559,13 +603,28 @@ const TodoList: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <button 
-                                    onClick={() => deleteTask(task.id)}
-                                    aria-label={`Delete task: ${task.text}`}
-                                    className="lg:opacity-0 lg:group-hover:opacity-100 focus-visible:opacity-100 p-2 -mr-2 text-slate-600 hover:text-red-500 transition-all rounded-lg hover:bg-white/5"
-                                >
-                                    <X size={16} />
-                                </button>
+                            </div>
+                                {/* Desktop: edit and delete appear on hover, top right */}
+                                <div className="hidden lg:flex absolute top-3 right-4 items-center gap-1 opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity duration-[250ms]">
+                                    <button
+                                        type="button"
+                                        onClick={() => { setEditSubject(subjectOfUnit(task.unitId || '')); setEditingUnitTaskId(task.id); }}
+                                        aria-label={`Edit task: ${task.text}`}
+                                        title="Edit"
+                                        className="p-2 text-slate-500 hover:text-white rounded-lg hover:bg-white/5 transition-colors"
+                                    >
+                                        <Pencil size={14} />
+                                    </button>
+                                    <button
+                                        onClick={() => deleteTask(task.id)}
+                                        aria-label={`Delete task: ${task.text}`}
+                                        title="Delete"
+                                        className="p-2 text-slate-500 hover:text-[#F63C49] rounded-lg hover:bg-white/5 transition-colors"
+                                    >
+                                        <Trash2 size={14} />
+                                    </button>
+                                </div>
+                            </div>
                             </div>
                         );
                     })
