@@ -1,6 +1,6 @@
 
 import React, { useRef, useState, useEffect } from 'react';
-import { RotateCcw, Trash2, Terminal, AlertTriangle, Upload, Download, Check, AlertOctagon, Loader2 } from 'lucide-react';
+import { RotateCcw, Trash2, Terminal, AlertTriangle, Upload, Download, Check, AlertOctagon, Loader2, ChevronDown } from 'lucide-react';
 import { SUBJECTS } from '../constants';
 import { useData } from '../context/DataContext';
 import { BackupData, MAX_BYTES, Preview, createBackup, hasRollback, parseBackup, readState, restoreBackup, rollbackRestore, wipeAll } from '../lib/backup';
@@ -241,6 +241,9 @@ const SettingsPage: React.FC = () => {
       if (a.n >= 5) { a.n = 0; setSpin(v => v + 1); }
       else a.t = setTimeout(() => { a.n = 0; }, 1500);
   };
+  const [examOpen, setExamOpen] = useState(false);
+  const examSubjects = SUBJECTS.filter(su => profile.selectedSubjects?.includes(su.id));
+  const examSetCount = examSubjects.filter(su => (profile.examDates || {})[su.id]).length;
   const unit = ['days', 'hours', 'weeks'][unitIdx];
   const shownValue = examDiff !== null && examDiff > 0
       ? (unit === 'days' ? `${examDiff}d` : unit === 'hours' ? `${examDiff * 24}h` : `${(examDiff / 7).toFixed(1)}w`)
@@ -361,30 +364,46 @@ const SettingsPage: React.FC = () => {
                     </div>
 
                     {/* Per-subject exam dates (drive the dashboard timeline) */}
-                    <div className="space-y-3 pt-1">
-                        <div>
-                            <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Exam date per subject</p>
-                            <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">These build your dashboard exam timeline. Leave blank if the timetable is not out yet.</p>
-                        </div>
-                        <div className="space-y-3">
-                            {SUBJECTS.filter(su => profile.selectedSubjects?.includes(su.id)).map(su => (
-                                <div key={su.id} className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4">
-                                    <span className="text-sm font-medium text-slate-200">{su.name}</span>
-                                    <div className="relative group sm:w-52 shrink-0">
-                                                    <input
-                                            type="date"
-                                            aria-label={`Exam date for ${su.name}`}
-                                            value={(profile.examDates || {})[su.id] || ''}
-                                            onChange={(e) => {
-                                                const d = { ...(profile.examDates || {}) };
-                                                if (e.target.value) d[su.id] = e.target.value; else delete d[su.id];
-                                                update('examDates', d);
-                                            }}
-                                            className="w-full surface-2 border border-white/10 rounded-2xl px-4 h-11 text-xs font-mono text-slate-300 focus:border-[#F63C49] outline-none transition-colors uppercase [color-scheme:dark]"
-                                        />
-                                    </div>
+                    <div className="pt-1">
+                        <button
+                            type="button"
+                            onClick={() => setExamOpen(o => !o)}
+                            aria-expanded={examOpen}
+                            aria-controls="exam-dates-panel"
+                            className="w-full surface-2 border border-white/10 rounded-2xl px-4 h-14 flex items-center justify-between gap-3 text-left transition-colors duration-[250ms] hover:border-white/25"
+                        >
+                            <span className="min-w-0">
+                                <span className="block text-sm font-medium text-slate-200">Exam date per subject</span>
+                                <span className="block text-xs text-slate-500 mt-0.5">{examSetCount} of {examSubjects.length} set</span>
+                            </span>
+                            <ChevronDown size={16} className={`text-slate-400 shrink-0 transition-transform duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${examOpen ? 'rotate-180' : ''}`} />
+                        </button>
+                        <div
+                            id="exam-dates-panel"
+                            inert={!examOpen}
+                            className={`grid transition-[grid-template-rows,opacity] duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${examOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+                        >
+                            <div className="overflow-hidden">
+                                <p className="text-xs text-slate-500 mt-3 mb-1 leading-relaxed">These build your dashboard exam timeline. Leave blank if the timetable is not out yet.</p>
+                                <div className="divide-y divide-white/5">
+                                    {examSubjects.map(su => (
+                                        <div key={su.id} className="flex items-center justify-between gap-3 py-3">
+                                            <span className="text-sm text-slate-200 leading-snug min-w-0">{su.name}</span>
+                                            <input
+                                                type="date"
+                                                aria-label={`Exam date for ${su.name}`}
+                                                value={(profile.examDates || {})[su.id] || ''}
+                                                onChange={(e) => {
+                                                    const d = { ...(profile.examDates || {}) };
+                                                    if (e.target.value) d[su.id] = e.target.value; else delete d[su.id];
+                                                    update('examDates', d);
+                                                }}
+                                                className="w-[8.75rem] shrink-0 surface-2 border border-white/10 rounded-full px-3 h-9 text-[11px] font-mono text-slate-300 focus:border-[#F63C49] outline-none transition-colors uppercase [color-scheme:dark]"
+                                            />
+                                        </div>
+                                    ))}
                                 </div>
-                            ))}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -393,12 +412,12 @@ const SettingsPage: React.FC = () => {
             {/* SUBJECTS */}
             <section className="surface-1 rounded-3xl p-5 lg:p-7">
                 <div className="flex items-center justify-between gap-4 mb-5">
-                    <h2 className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/50">Your subjects</h2>
+                    <h2 className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/50 whitespace-nowrap">Your subjects</h2>
                     <button
                         onClick={initiateReset}
-                        className="h-9 px-4 rounded-full border border-white/10 bg-white/[0.03] text-slate-300 hover:text-white hover:border-white/25 text-[10px] font-bold uppercase tracking-[0.18em] transition-colors duration-[250ms] flex items-center gap-2"
+                        className="h-9 px-3 whitespace-nowrap rounded-full border border-white/10 bg-white/[0.03] text-slate-300 hover:text-white hover:border-white/25 text-[10px] font-bold uppercase tracking-[0.18em] transition-colors duration-[250ms] flex items-center gap-2"
                     >
-                        <RotateCcw size={12} /> Change subjects
+                        <RotateCcw size={12} aria-hidden="true" /> Change<span className="sr-only"> subjects</span>
                     </button>
                 </div>
 
