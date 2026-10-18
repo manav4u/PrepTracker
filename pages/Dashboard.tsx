@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 import { SUBJECTS } from '../constants';
 import SubjectCard from '../components/SubjectCard';
 import { UnitStatus } from '../types';
-import { ChevronRight, Sparkles, CalendarDays, Flame, Activity } from 'lucide-react';
+import { Sparkles, CalendarDays, Flame, Activity, Zap } from 'lucide-react';
 import { useData } from '../context/DataContext';
-import { currentStreak, lastDays } from '../lib/activity';
+import { currentStreak, lastDays, todayCount, DAILY_GOAL } from '../lib/activity';
+import ActivityHeatmap from '../components/ActivityHeatmap';
 import { subjectExamList, nextExamIndex } from '../lib/exams';
 
 const SHORT_NAMES: Record<string, string> = {
@@ -50,8 +51,8 @@ const StatPill = ({ label, value, sub, active = false, gradient = false, icon: I
   );
 };
 
-const StreakCard = ({ streak, counts, labels, style }: any) => {
-  const todayIdx = counts.length - 1;
+const StreakCard = ({ streak, today, goal, style }: any) => {
+  const goalPct = Math.min(100, Math.round((today / goal) * 100));
   return (
     <div style={style} className="relative p-5 rounded-3xl flex flex-col justify-between h-36 lg:h-40 overflow-hidden group hover:-translate-y-1 transition-all duration-300 animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500 bg-[linear-gradient(180deg,#FDFBF6_0%,#F6F1E8_52%,#EEE8DC_100%)] shadow-[0_1px_2px_rgba(0,0,0,0.45),0_18px_38px_-22px_rgba(0,0,0,0.85),0_0_34px_-10px_rgba(255,247,235,0.22)]">
       {/* Ivory material: bright top sheen, warm bottom vignette, crisp inner highlight */}
@@ -71,16 +72,34 @@ const StreakCard = ({ streak, counts, labels, style }: any) => {
         <p className="text-[9px] lg:text-[10px] font-bold uppercase tracking-widest text-[#4a443a] mb-0.5 whitespace-nowrap">Day Streak</p>
       </div>
 
-      {/* Week strip: full-width capsule bars, today taller, mono letters beneath */}
-      <div className="relative flex items-end gap-1.5">
-        {counts.map((c: number, i: number) => (
-          <div key={i} className="flex-1 flex flex-col items-center gap-1">
-            <span className={`w-full rounded-full ${i === todayIdx ? 'h-[22px] lg:h-[26px]' : 'h-[16px] lg:h-[20px]'} ${c > 0 ? 'bg-[#F63C49] shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_2px_8px_-2px_rgba(246,60,73,0.55)]' : 'bg-black/[0.03] ring-1 ring-inset ring-black/15'}`}></span>
-            <span className={`text-[7px] lg:text-[8px] font-mono font-bold uppercase leading-none ${i === todayIdx ? 'text-[#4a443a]' : 'text-[#b0a895]'}`}>{labels[i]}</span>
-          </div>
-        ))}
+      {/* Daily goal: today's actions against a fixed target, Duolingo-style */}
+      <div className="relative">
+        <div className="flex justify-between items-end mb-1.5">
+          <span className="text-[8px] lg:text-[9px] font-bold uppercase tracking-widest text-[#8a8172]">Today</span>
+          <span className="text-[9px] lg:text-[10px] font-bold font-mono text-[#4a443a]">{today}/{goal}</span>
+        </div>
+        <div className="h-1.5 w-full rounded-full bg-black/[0.06] overflow-hidden ring-1 ring-inset ring-black/10">
+          <div className="h-full rounded-full bg-[#F63C49] transition-all duration-700" style={{ width: `${goalPct}%` }}></div>
+        </div>
       </div>
     </div>
+  );
+};
+
+const CountdownTile = ({ value, sub, to, style }: any) => {
+  const Wrap: any = to ? Link : 'div';
+  return (
+    <Wrap {...(to ? { to } : {})} style={style} className="p-6 rounded-3xl surface-1 flex flex-col justify-between h-44 lg:h-auto transition-all duration-300 group hover:-translate-y-1 hover:border-white/15 animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(246,60,73,0.08),transparent_60%)] pointer-events-none"></div>
+      <div className="relative flex justify-between items-start">
+        <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-[#F63C49]">Days to exam</span>
+        <CalendarDays size={16} className="text-[#F63C49]" />
+      </div>
+      <div className="relative">
+        <p className="text-7xl lg:text-8xl font-display font-bold tracking-tighter text-[#F63C49] leading-[0.85] mb-2 drop-shadow-[0_0_24px_rgba(246,60,73,0.35)]">{value}</p>
+        <p className="text-[10px] lg:text-[11px] font-bold uppercase tracking-widest text-slate-500">{sub}</p>
+      </div>
+    </Wrap>
   );
 };
 
@@ -222,13 +241,14 @@ const Dashboard: React.FC = () => {
   const examDiff = examStart && !isNaN(examStart.getTime())
     ? Math.round((examStart.getTime() - startOfToday.getTime()) / 86400000)
     : null;
-  const examValue = examDiff === null ? '--' : examDiff > 0 ? `${examDiff}d` : examDiff === 0 ? 'Today' : 'Now';
+  const examValue = examDiff === null ? '--' : examDiff > 0 ? `${examDiff}` : examDiff === 0 ? 'Today' : 'Now';
   const examSub = examDiff === null ? 'Set exam date' : examDiff >= 0 && examStart
     ? `Starts ${examStart.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}`
     : 'Exams started';
 
   // Streak Validation Logic
   const validStreak = currentStreak(profile);
+  const todayActions = todayCount(profile);
 
   // Graph Data Preparation
   // Ensure we display something even if 0
@@ -272,15 +292,22 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
 
-        <div className="lg:col-span-2 grid grid-cols-2 gap-4 lg:gap-6">
-           <StatPill label="Units Mastered" value={totalMastered} sub={`/ ${totalUnits} Units`} gradient={true} icon={Sparkles} style={{ animationDelay: '60ms' }} />
-           
-           {/* Dynamic Graph Replacement for Forecast */}
-           <ProgressGraphCard data={graphData} labels={graphLabels} total={weekTotal} />
-           
-           <StatPill label="Days to Exam" value={examValue} sub={examSub} icon={CalendarDays} to={examDiff === null ? '/app/settings' : undefined} style={{ animationDelay: '120ms' }} />
-           <StreakCard streak={validStreak} counts={week.counts} labels={week.labels} style={{ animationDelay: '180ms' }} />
-        </div>
+        <CountdownTile value={examValue} sub={examSub} to={examDiff === null ? '/app/settings' : undefined} style={{ animationDelay: '90ms' }} />
+        <StreakCard streak={validStreak} today={todayActions} goal={DAILY_GOAL} style={{ animationDelay: '150ms' }} />
+      </section>
+
+      {/* Activity heatmap: the return-visit engine, full width under the greeting row */}
+      <section>
+        <ActivityHeatmap profile={profile} style={{ animationDelay: '200ms' }} />
+      </section>
+
+      {/* Quiet supporting stats */}
+      <section className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+           <StatPill label="Units Mastered" value={totalMastered} sub={`/ ${totalUnits} Units`} gradient={true} icon={Sparkles} style={{ animationDelay: '240ms' }} />
+           <div className="lg:col-span-2">
+             <ProgressGraphCard data={graphData} labels={graphLabels} total={weekTotal} />
+           </div>
+           <StatPill label="Today" value={todayActions} sub={`/ ${DAILY_GOAL} actions`} icon={Zap} style={{ animationDelay: '300ms' }} />
       </section>
 
       {/* Main Grid */}
