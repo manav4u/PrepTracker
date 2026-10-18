@@ -99,18 +99,18 @@ const CustomSelect = <T extends string>({
         type="button"
         disabled={disabled}
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-full surface-2 border rounded-2xl px-4 ${compact ? 'h-10 lg:h-12' : 'h-12'} disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-between transition-all duration-300 ${
+        className={`w-full surface-2 border rounded-2xl px-3 ${compact ? 'h-10 lg:h-12' : 'h-12'} disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-between transition-all duration-300 ${
             isOpen ? 'border-[#F63C49] bg-white/[0.07] shadow-[0_0_15px_rgba(246,60,73,0.1)]' : 'border-white/10 hover:border-white/20'
         }`}
       >
-        <div className="flex items-center gap-3 min-w-0">
+        <div className="flex items-center gap-2 min-w-0">
             {selectedOption?.icon && <selectedOption.icon key={picked} size={16} className={selectedOption.color} play={picked > 0} />}
             {selectedOption?.color && !selectedOption.icon && <div className={`w-2 h-2 rounded-full ${selectedOption.color}`} />}
-            <span className={`truncate text-left text-xs font-bold uppercase tracking-wider ${selectedOption?.color && !selectedOption.icon ? 'text-slate-300' : (selectedOption?.icon ? 'text-slate-300' : '')}`}>
+            <span className={`truncate text-left text-[11px] font-bold uppercase tracking-wide ${selectedOption?.color && !selectedOption.icon ? 'text-slate-300' : (selectedOption?.icon ? 'text-slate-300' : '')}`}>
                 {selectedOption?.label}
             </span>
         </div>
-        <ChevronDown size={14} className={`shrink-0 ml-2 text-slate-500 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#F63C49]' : ''}`} />
+        <ChevronDown size={14} className={`shrink-0 ml-1 text-slate-500 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#F63C49]' : ''}`} />
       </button>
 
       {isOpen && !disabled && (
@@ -190,7 +190,12 @@ const TodoList: React.FC = () => {
         const { unitId: _drop, ...rest } = t;
         return { ...rest, text: inputText.trim(), priority: inputPriority, category: inputCategory, dueDate: inputDate || '', ...(inputUnit ? { unitId: inputUnit } : {}) };
       }));
+      const editedId = editingId;
       resetForm();
+      if (window.matchMedia('(max-width: 1023px)').matches) {
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        requestAnimationFrame(() => document.getElementById(`task-${editedId}`)?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' }));
+      }
       return;
     }
 
@@ -445,12 +450,12 @@ const TodoList: React.FC = () => {
                         </div>
                     </div>
 
-                    <div className="flex gap-3">
+                    <div className="flex gap-3 lg:flex-col-reverse">
                         {editingId && (
                             <button
                                 type="button"
                                 onClick={resetForm}
-                                className="flex-1 h-12 surface-2 border border-white/10 rounded-2xl text-xs font-bold uppercase tracking-[0.2em] text-slate-300 hover:text-white transition-colors duration-[250ms]"
+                                className="flex-1 lg:flex-none h-12 lg:h-10 surface-2 lg:bg-transparent border border-white/10 lg:border-transparent rounded-2xl text-xs font-bold uppercase tracking-[0.2em] text-slate-300 lg:text-slate-500 hover:text-white transition-colors duration-[250ms]"
                             >
                                 Cancel
                             </button>
@@ -458,7 +463,7 @@ const TodoList: React.FC = () => {
                     <button 
                         type="submit"
                         disabled={!inputText}
-                        className={`${editingId ? 'flex-1' : 'w-full'} h-12 bg-gradient-to-br from-[#F63C49] to-[#9f1239] disabled:opacity-40 disabled:cursor-not-allowed text-white text-xs font-bold uppercase tracking-[0.12em] lg:tracking-[0.2em] rounded-2xl transition-all duration-[250ms] flex items-center justify-center gap-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_8px_22px_-8px_rgba(246,60,73,0.6)]`}
+                        className={`${editingId ? 'flex-1 lg:flex-none lg:w-full' : 'w-full'} h-12 bg-gradient-to-br from-[#F63C49] to-[#9f1239] disabled:opacity-40 disabled:cursor-not-allowed text-white text-xs font-bold uppercase tracking-[0.12em] lg:tracking-[0.2em] rounded-2xl transition-all duration-[250ms] flex items-center justify-center gap-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_8px_22px_-8px_rgba(246,60,73,0.6)]`}
                     >
                         {editingId ? <Check size={16} /> : <Plus size={16} />} {editingId ? 'Save changes' : 'Add Task'}
                     </button>
@@ -521,7 +526,7 @@ const TodoList: React.FC = () => {
                         const CategoryIcon = catConfig.icon;
 
                         return (
-                            <div key={task.id} className="relative rounded-3xl overflow-hidden lg:overflow-visible">
+                            <div key={task.id} id={`task-${task.id}`} className="relative rounded-3xl overflow-hidden lg:overflow-visible scroll-mt-28">
                             {/* Phone: actions revealed by swiping the row left */}
                             <div
                                 className="lg:hidden absolute inset-y-0 right-0 flex rounded-r-3xl overflow-hidden transition-opacity duration-[250ms]"
@@ -645,6 +650,12 @@ const TodoList: React.FC = () => {
                                     </button>
                                 </div>
                             </div>
+                            {/* Phone: soft vignette on the clipped left edge while a row is swiped open */}
+                            <div
+                                aria-hidden="true"
+                                className="lg:hidden pointer-events-none absolute inset-y-0 left-0 w-10 rounded-l-3xl bg-gradient-to-r from-black via-black/60 to-transparent transition-opacity duration-[250ms]"
+                                style={{ opacity: openId === task.id || drag?.id === task.id ? 1 : 0 }}
+                            />
                             </div>
                         );
                     })
