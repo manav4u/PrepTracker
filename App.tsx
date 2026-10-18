@@ -39,25 +39,41 @@ const NotFound = () => (
   </div>
 );
 
-const NavItem = ({ to, icon: Icon, active, label, short }: { to: string, icon: any, active: boolean, label: string, short?: string }) => (
-  <Link
-    to={to}
-    aria-label={short || label}
-    title={label}
-    aria-current={active ? 'page' : undefined}
-    className={`relative group flex flex-col lg:flex-row items-center justify-center gap-0.5 lg:gap-0 w-12 h-12 lg:w-14 lg:h-14 rounded-2xl lg:rounded-3xl transition-all duration-300 ${
-      active
-        ? 'bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.3)] scale-110'
-        : 'text-white/40 hover:text-white hover:bg-white/5'
-    }`}
-  >
-    <Icon size={20} strokeWidth={active ? 2.5 : 2} className="lg:w-[22px] lg:h-[22px]" />
-    <span aria-hidden="true" className={`lg:hidden text-[7px] font-bold uppercase tracking-widest leading-none ${active ? '' : 'text-white/70'}`}>{short || label}</span>
-    {active && (
-      <span className="absolute -bottom-2 lg:top-1/2 lg:-right-2 w-1 h-1 lg:w-1.5 lg:h-1.5 bg-[#D61A40] rounded-full shadow-[0_0_10px_#F63C49]"></span>
-    )}
-  </Link>
-);
+const NAV_V: string = (typeof localStorage !== 'undefined' && localStorage.getItem('nav_v')) || 'a';
+
+const NavItem = ({ to, icon: Icon, active, label, short }: { to: string, icon: any, active: boolean, label: string, short?: string }) => {
+  const desk = `lg:w-14 lg:h-14 lg:rounded-3xl lg:flex-row lg:gap-0 ${active ? 'lg:bg-white lg:text-black lg:shadow-[0_0_20px_rgba(255,255,255,0.3)] lg:scale-110' : 'lg:text-white/40 lg:hover:text-white lg:hover:bg-white/5'}`;
+  let mob = '';
+  if (NAV_V === 'a') {
+    // Pill: active item expands into a red pill with its label, others icon-only
+    mob = active
+      ? 'h-11 px-4 gap-2 rounded-full bg-[#F63C49] text-white shadow-[0_6px_20px_rgba(246,60,73,0.45)]'
+      : 'w-11 h-11 rounded-full text-white/45';
+  } else if (NAV_V === 'b') {
+    // Edge bar: all labels shown, red indicator line on top of the active item
+    mob = `w-16 h-14 gap-1 rounded-xl ${active ? 'text-white' : 'text-white/40'}`;
+  } else {
+    // Icons only: active icon red with a soft red tile
+    mob = `w-12 h-12 rounded-2xl ${active ? 'bg-[#F63C49]/15 text-[#F63C49]' : 'text-white/40'}`;
+  }
+  return (
+    <Link
+      to={to}
+      aria-label={short || label}
+      title={label}
+      aria-current={active ? 'page' : undefined}
+      className={`relative group flex ${NAV_V === 'a' ? 'flex-row' : 'flex-col'} items-center justify-center transition-all duration-300 ${mob} ${desk}`}
+    >
+      <Icon size={20} strokeWidth={active ? 2.4 : 2} className="lg:w-[22px] lg:h-[22px]" />
+      {NAV_V === 'a' && active && <span className="lg:hidden text-[11px] font-bold tracking-wide leading-none">{short || label}</span>}
+      {NAV_V === 'b' && <span aria-hidden="true" className="lg:hidden text-[9px] font-semibold tracking-wide leading-none">{short || label}</span>}
+      {NAV_V === 'b' && active && <span className="lg:hidden absolute -top-[9px] left-3 right-3 h-[2px] rounded-full bg-[#F63C49] shadow-[0_0_10px_#F63C49]"></span>}
+      {active && (
+        <span className="hidden lg:block absolute top-1/2 -right-2 w-1.5 h-1.5 bg-[#D61A40] rounded-full shadow-[0_0_10px_#F63C49]"></span>
+      )}
+    </Link>
+  );
+};
 
 export default function App() {
   const { profile, setProfile } = useData();
@@ -128,10 +144,10 @@ export default function App() {
                     )}
 
                     {/* Adaptive Navigation Dock */}
-                    <aside className="fixed z-50 transition-all duration-500
-                        bottom-6 left-4 right-4 h-20 glass-panel rounded-[2.5rem] flex items-center justify-around px-2 shadow-2xl
+                    <aside className={`fixed z-50 transition-all duration-500
+                        ${NAV_V === 'b' ? 'bottom-0 left-0 right-0 h-[72px] pb-1 glass-panel rounded-t-3xl border-t border-white/10' : NAV_V === 'a' ? 'bottom-5 left-4 right-4 h-16 glass-panel rounded-full' : 'bottom-5 left-1/2 -translate-x-1/2 w-[300px] h-16 glass-panel rounded-full'} flex items-center justify-around px-2 shadow-2xl lg:translate-x-0 lg:w-24
                         lg:bottom-auto lg:top-1/2 lg:left-6 lg:right-auto lg:h-auto lg:w-24 lg:flex-col lg:rounded-[3rem] lg:py-10 lg:gap-8 lg:-translate-y-1/2 lg:shadow-none
-                    ">
+                    `}>
                         <div className="hidden lg:flex w-14 h-14 items-center justify-center mb-4">
                         <LogoMark size={34} />
                         </div>
