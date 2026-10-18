@@ -1,5 +1,5 @@
 import { motion, AnimatePresence, MotionConfig, LayoutGroup } from 'framer-motion';
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
 import {
   LayoutGrid,
@@ -12,14 +12,28 @@ import {
   ListTodo,
   HardDrive
 } from 'lucide-react';
-import Dashboard from './pages/Dashboard';
-import SubjectDetail from './pages/SubjectDetail';
-import Resources from './pages/Resources';
-import RevisePage from './pages/Revise';
-import SettingsPage from './pages/Settings';
-import Onboarding from './pages/Onboarding';
-import TodoList from './pages/TodoList';
-import LandingPage from './pages/LandingPage';
+// A screen is a separate file. After a new deploy an open tab can ask for a file that no longer exists;
+// reload once to pick up the new build instead of showing an error.
+const screen = <T extends { default: React.ComponentType<any> }>(load: () => Promise<T>) =>
+  lazy(() => load().catch((err) => {
+    try {
+      if (!sessionStorage.getItem('pt_reloaded')) {
+        sessionStorage.setItem('pt_reloaded', '1');
+        window.location.reload();
+        return new Promise<T>(() => {});
+      }
+    } catch { /* storage blocked: fall through to the error screen */ }
+    throw err;
+  }));
+
+const Dashboard = screen(() => import('./pages/Dashboard'));
+const SubjectDetail = screen(() => import('./pages/SubjectDetail'));
+const Resources = screen(() => import('./pages/Resources'));
+const RevisePage = screen(() => import('./pages/Revise'));
+const SettingsPage = screen(() => import('./pages/Settings'));
+const Onboarding = screen(() => import('./pages/Onboarding'));
+const TodoList = screen(() => import('./pages/TodoList'));
+const LandingPage = screen(() => import('./pages/LandingPage'));
 import { UnitStatus } from './types';
 import { useData } from './context/DataContext';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -107,8 +121,21 @@ export default function App() {
 
   const isSetupComplete = profile && profile.setupComplete;
 
+  // Once the first screen is up, fetch the other screens in the background so tapping a tab is instant.
+  React.useEffect(() => {
+    if (!isSetupComplete) return;
+    const warm = () => {
+      import('./pages/SubjectDetail'); import('./pages/Resources'); import('./pages/TodoList');
+      import('./pages/Revise'); import('./pages/Settings');
+    };
+    const w = window as any;
+    const id = w.requestIdleCallback ? w.requestIdleCallback(warm, { timeout: 4000 }) : setTimeout(warm, 2500);
+    return () => { if (w.cancelIdleCallback) w.cancelIdleCallback(id); else clearTimeout(id); };
+  }, [isSetupComplete]);
+
   return (
     <ErrorBoundary scope="app">
+        <Suspense fallback={<div className="min-h-screen bg-[#030303]" />}>
         <Routes>
             {/* PUBLIC ROUTES */}
             <Route path="/" element={<LandingPage />} />
@@ -213,6 +240,7 @@ export default function App() {
 
                         <div className="max-w-[1600px] mx-auto h-full">
                         <ErrorBoundary scope="page" resetKey={location.pathname}>
+                        <Suspense fallback={null}>
                         <Routes>
                             <Route path="/" element={<Dashboard />} />
                             <Route path="subject/:id" element={<SubjectDetail />} />
@@ -222,6 +250,7 @@ export default function App() {
                             <Route path="settings" element={<SettingsPage />} />
                             <Route path="*" element={<Navigate to="/app" replace />} />
                         </Routes>
+                        </Suspense>
                         </ErrorBoundary>
                         </div>
                     </main>
@@ -241,6 +270,7 @@ export default function App() {
             } />
             <Route path="*" element={<NotFound />} />
         </Routes>
+        </Suspense>
     </ErrorBoundary>
   );
 }
