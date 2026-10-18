@@ -66,8 +66,10 @@ const CustomSelect = <T extends string>({
   value, 
   onChange, 
   options,
-  disabled = false
+  disabled = false,
+  compact = false
 }: { 
+  compact?: boolean,
   label: string, 
   value: T, 
   onChange: (val: T) => void, 
@@ -91,13 +93,13 @@ const CustomSelect = <T extends string>({
   const selectedOption = options.find(o => o.value === value);
 
   return (
-    <div className="space-y-2 relative" ref={containerRef}>
+    <div className={`relative ${compact ? 'space-y-1 lg:space-y-2' : 'space-y-2'}`} ref={containerRef}>
       <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">{label}</label>
       <button
         type="button"
         disabled={disabled}
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-full surface-2 border rounded-2xl px-4 h-12 disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-between transition-all duration-300 ${
+        className={`w-full surface-2 border rounded-2xl px-4 ${compact ? 'h-10 lg:h-12' : 'h-12'} disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-between transition-all duration-300 ${
             isOpen ? 'border-[#F63C49] bg-white/[0.07] shadow-[0_0_15px_rgba(246,60,73,0.1)]' : 'border-white/10 hover:border-white/20'
         }`}
       >
@@ -537,7 +539,7 @@ const TodoList: React.FC = () => {
                                     aria-label={task.completed ? `Mark not done: ${task.text}` : `Mark done: ${task.text}`}
                                     aria-pressed={task.completed}
                                     className={`
-                                        mt-0.5 w-6 h-6 rounded-full border flex items-center justify-center shrink-0 transition-all duration-[250ms]
+                                        mt-0.5 w-6 h-6 rounded-full border flex items-center justify-center shrink-0 transition-all duration-[250ms] ${editingUnitTaskId === task.id ? 'max-lg:hidden' : ''}
                                         ${task.completed 
                                             ? 'bg-gradient-to-br from-[#F63C49] to-[#9f1239] border-white/10 text-white' 
                                             : 'bg-transparent border-white/25 hover:border-white text-transparent'
@@ -549,8 +551,8 @@ const TodoList: React.FC = () => {
 
                                 <div className="flex-1 min-w-0">
                                     {editingUnitTaskId === task.id ? (
-                                        <div className="space-y-3 animate-in fade-in duration-[250ms]" onClick={(e) => e.stopPropagation()}>
-                                            <div className="space-y-2">
+                                        <div className="grid grid-cols-2 gap-x-2 gap-y-1.5 lg:grid-cols-1 lg:gap-y-3 animate-in fade-in duration-[250ms]" onClick={(e) => e.stopPropagation()}>
+                                            <div className="space-y-1 lg:space-y-2 col-span-2 lg:col-span-1">
                                                 <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Title</label>
                                                 <input
                                                     type="text"
@@ -558,10 +560,10 @@ const TodoList: React.FC = () => {
                                                     value={editText}
                                                     onChange={(e) => setEditText(e.target.value)}
                                                     onKeyDown={(e) => { if (e.key === 'Enter') saveEdit(task.id); if (e.key === 'Escape') setEditingUnitTaskId(null); }}
-                                                    className="w-full surface-2 border border-white/10 rounded-2xl px-4 h-12 text-sm text-white focus:border-[#F63C49] outline-none transition-colors"
+                                                    className="w-full surface-2 border border-white/10 rounded-2xl px-4 h-10 lg:h-12 text-sm text-white focus:border-[#F63C49] outline-none transition-colors"
                                                 />
                                             </div>
-                                            <div className="space-y-2">
+                                            <div className="space-y-1 lg:space-y-2 min-w-0">
                                                 <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Due date</label>
                                                 <div className="relative group">
                                                     <Calendar size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-[#F63C49] transition-colors" />
@@ -570,28 +572,30 @@ const TodoList: React.FC = () => {
                                                         aria-label="Due date"
                                                         value={editDate}
                                                         onChange={(e) => setEditDate(e.target.value)}
-                                                        className="w-full surface-2 border border-white/10 rounded-2xl pl-10 pr-4 h-12 text-xs font-mono text-slate-300 focus:border-[#F63C49] outline-none transition-colors uppercase"
+                                                        className="w-full surface-2 border border-white/10 rounded-2xl pl-9 pr-2 lg:pl-10 lg:pr-4 h-10 lg:h-12 text-[11px] lg:text-xs font-mono text-slate-300 focus:border-[#F63C49] outline-none transition-colors uppercase"
                                                     />
                                                 </div>
                                             </div>
                                             <CustomSelect
+                                                compact
                                                 label="Subject"
                                                 value={editSubject}
                                                 onChange={(v) => { setEditSubject(v); setEditUnit(''); }}
                                                 options={subjectOptionsFor(subjectOfUnit(task.unitId || ''))}
                                             />
-                                            <CustomSelect
+                                            <div className="col-span-2 lg:col-span-1"><CustomSelect
+                                                compact
                                                 label="Linked unit"
                                                 value={editUnit}
                                                 onChange={(v) => setEditUnit(v)}
                                                 options={unitOptionsFor(editSubject)}
                                                 disabled={!editSubject}
-                                            />
-                                            <div className="flex gap-3 pt-1">
+                                            /></div>
+                                            <div className="flex gap-3 pt-0.5 col-span-2 lg:col-span-1">
                                                 <button
                                                     type="button"
                                                     onClick={() => setEditingUnitTaskId(null)}
-                                                    className="flex-1 h-11 surface-2 border border-white/10 rounded-2xl text-[10px] font-bold uppercase tracking-[0.2em] text-slate-300 hover:text-white transition-colors duration-[250ms]"
+                                                    className="flex-1 h-10 lg:h-11 surface-2 border border-white/10 rounded-2xl text-[10px] font-bold uppercase tracking-[0.2em] text-slate-300 hover:text-white transition-colors duration-[250ms]"
                                                 >
                                                     Cancel
                                                 </button>
@@ -599,7 +603,7 @@ const TodoList: React.FC = () => {
                                                     type="button"
                                                     onClick={() => saveEdit(task.id)}
                                                     disabled={!editText.trim()}
-                                                    className="flex-1 h-11 bg-gradient-to-br from-[#F63C49] to-[#9f1239] disabled:opacity-40 rounded-2xl text-[10px] font-bold uppercase tracking-[0.2em] text-white transition-all duration-[250ms]"
+                                                    className="flex-1 h-10 lg:h-11 bg-gradient-to-br from-[#F63C49] to-[#9f1239] disabled:opacity-40 rounded-2xl text-[10px] font-bold uppercase tracking-[0.2em] text-white transition-all duration-[250ms]"
                                                 >
                                                     Save
                                                 </button>
