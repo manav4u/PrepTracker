@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { SUBJECTS } from '../constants';
 import { 
@@ -58,6 +58,174 @@ const BarsLow = (p: { size?: number; className?: string }) => <SignalBars level=
 const BarsNormal = (p: { size?: number; className?: string }) => <SignalBars level={2} {...p} />;
 const BarsCritical = (p: { size?: number; className?: string }) => <SignalBars level={3} {...p} />;
 const PRIORITY_BARS: Record<Priority, 1 | 2 | 3> = { LOW: 1, NORMAL: 2, CRITICAL: 3 };
+
+
+// One row. Memoised so ticking or swiping one task does not re-render the other few hundred.
+interface RowActions {
+  edit: (t: Task) => void;
+  remove: (id: string) => void;
+  toggle: (id: string) => void;
+  close: () => void;
+  touchStart: (id: string, e: React.TouchEvent) => void;
+  touchMove: (id: string, e: React.TouchEvent) => void;
+  touchEnd: (id: string) => void;
+}
+const ACTIONS_W = 144;
+const TaskRow = React.memo(function TaskRow({ task, open, dragX, editing, draw, unit, act }: {
+  task: Task; open: boolean; dragX: number | null; editing: boolean; draw: boolean;
+  unit: { subjectId: string; text: string } | null; act: RowActions;
+}) {
+  const catConfig = CATEGORY_CONFIG[task.category] || CATEGORY_CONFIG['GENERAL'];
+  const priConfig = PRIORITY_CONFIG[task.priority] || PRIORITY_CONFIG['NORMAL'];
+  const CategoryIcon = catConfig.icon;
+  return (
+                            <div key={task.id} id={`task-${task.id}`} className="relative rounded-3xl overflow-hidden lg:overflow-visible scroll-mt-28">
+                            {/* Phone: actions revealed by swiping the row left */}
+                            <div
+                                className="lg:hidden absolute inset-y-0 right-0 flex rounded-r-3xl overflow-hidden transition-opacity duration-[250ms]"
+                                style={{ width: ACTIONS_W, opacity: open || dragX !== null ? 1 : 0, pointerEvents: open ? 'auto' : 'none' }}
+                            >
+                                <button
+                                    tabIndex={open ? 0 : -1}
+                                    onClick={() => { act.edit(task); }}
+                                    aria-label={`Edit task: ${task.text}`}
+                                    className="flex-1 flex flex-col items-center justify-center gap-1 bg-[#1b1b20] text-white/80 text-[10px] font-bold uppercase tracking-wider"
+                                >
+                                    <Pencil size={16} />Edit
+                                </button>
+                                <button
+                                    tabIndex={open ? 0 : -1}
+                                    onClick={() => { act.close(); act.remove(task.id); }}
+                                    aria-label={`Delete task: ${task.text}`}
+                                    className="flex-1 flex flex-col items-center justify-center gap-1 bg-gradient-to-br from-[#F63C49] to-[#9f1239] text-white text-[10px] font-bold uppercase tracking-wider"
+                                >
+                                    <Trash2 size={16} />Delete
+                                </button>
+                            </div>
+                            <div
+                                className={`group relative surface-1 rounded-3xl px-5 py-4 lg:px-6 lg:py-5 transition-shadow duration-[250ms] ${editing ? 'ring-1 ring-inset ring-[#F63C49]/60' : ''}`}
+                                style={{
+                                    transform: `translateX(${dragX !== null ? dragX : open ? -ACTIONS_W : 0}px)`,
+                                    transition: dragX !== null ? 'none' : 'transform 250ms cubic-bezier(0.4,0,0.2,1), border-radius 250ms cubic-bezier(0.4,0,0.2,1)',
+                                    ...((open || (dragX !== null && dragX < -4)) ? { borderTopRightRadius: 0, borderBottomRightRadius: 0, borderRightColor: 'transparent' } : {}),
+                                    touchAction: 'pan-y'
+                                }}
+                                onTouchStart={(e) => act.touchStart(task.id, e)}
+                                onTouchMove={(e) => act.touchMove(task.id, e)}
+                                onTouchEnd={() => act.touchEnd(task.id)}
+                                onClickCapture={(e) => { if (open) { e.preventDefault(); e.stopPropagation(); act.close(); } }}
+                            >
+                            <div className={`flex items-start gap-4 transition-opacity duration-[250ms] ${task.completed ? 'opacity-50' : ''}`}>
+                                {/* Checkbox */}
+                                <button 
+                                    onClick={() => act.toggle(task.id)}
+                                    aria-label={task.completed ? `Mark not done: ${task.text}` : `Mark done: ${task.text}`}
+                                    aria-pressed={task.completed}
+                                    className={`
+                                        mt-0.5 w-6 h-6 rounded-full border flex items-center justify-center shrink-0 transition-all duration-[250ms]
+                                        ${task.completed 
+                                            ? 'bg-gradient-to-br from-[#F63C49] to-[#9f1239] border-white/10 text-white' 
+                                            : 'bg-transparent border-white/25 hover:border-white text-transparent'
+                                        }
+                                    `}
+                                >
+                                    <TickDraw size={14} play={draw && task.completed} />
+                                </button>
+
+                                <div className="flex-1 min-w-0">
+                                    
+                                    <div className="flex items-start justify-between gap-3 lg:pr-16">
+                                        <p className={`text-base font-medium leading-snug ${task.completed ? 'text-slate-500 line-through decoration-slate-700' : 'text-white'}`}>
+                                            {task.text}
+                                        </p>
+                                        {/* Phone: date sits on the title line so the meta row stays one compact line */}
+                                        {task.dueDate && (() => {
+                                            const due = dueWords(task.dueDate);
+                                            return (
+                                                <span className={`lg:hidden shrink-0 mt-[3px] text-[10px] font-bold flex items-center gap-1 uppercase tracking-wider ${due.overdue && !task.completed ? 'text-[#F63C49]' : 'text-slate-500'}`}>
+                                                    <Clock size={10} />
+                                                    {due.text}
+                                                </span>
+                                            );
+                                        })()}
+                                    </div>
+
+                                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 mt-2">
+                                        {/* Priority */}
+                                        <span className={`text-[10px] font-bold flex items-center gap-1.5 uppercase tracking-wider ${priConfig.color}`}>
+                                            <SignalBars level={PRIORITY_BARS[task.priority] || 2} size={12} />
+                                            {task.priority || 'NORMAL'}
+                                        </span>
+
+                                        {/* Category */}
+                                        <span className={`text-[10px] font-bold flex items-center gap-1 uppercase tracking-wider ${catConfig.color}`}>
+                                            <CategoryIcon size={12} />
+                                            {catConfig.label}
+                                        </span>
+
+                                        {task.unitId && unit && (
+                                                    <Link to={`/subject/${unit!.subjectId}`} className="text-[10px] font-bold uppercase tracking-wider text-slate-400 hover:text-white border border-white/10 rounded-full px-2 py-0.5">
+                                                        {unit!.text}
+                                                    </Link>
+                                                )}
+
+                                        {/* Due date in plain words */}
+                                        {task.dueDate && (() => {
+                                            const due = dueWords(task.dueDate);
+                                            return (
+                                                <span className={`text-[10px] font-bold hidden lg:flex items-center gap-1 uppercase tracking-wider ml-auto ${due.overdue && !task.completed ? 'text-[#F63C49]' : 'text-slate-500'}`}>
+                                                    <Clock size={10} />
+                                                    {due.text}
+                                                </span>
+                                            );
+                                        })()}
+                                    </div>
+                                </div>
+
+                            </div>
+                                {/* Desktop: edit and delete appear on hover, top right */}
+                                <div className={`hidden lg:flex absolute top-3 right-4 items-center gap-1 opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity duration-[250ms]`}>
+                                    <button
+                                        type="button"
+                                        onClick={() => act.edit(task)}
+                                        aria-label={`Edit task: ${task.text}`}
+                                        title="Edit"
+                                        className="p-2 text-slate-500 hover:text-white rounded-lg hover:bg-white/5 transition-colors"
+                                    >
+                                        <Pencil size={14} />
+                                    </button>
+                                    <button
+                                        onClick={() => act.remove(task.id)}
+                                        aria-label={`Delete task: ${task.text}`}
+                                        title="Delete"
+                                        className="p-2 text-slate-500 hover:text-[#F63C49] rounded-lg hover:bg-white/5 transition-colors"
+                                    >
+                                        <Trash2 size={14} />
+                                    </button>
+                                </div>
+                            </div>
+                            {/* Phone: soft vignette on the clipped left edge while a row is swiped open */}
+                            <div
+                                aria-hidden="true"
+                                className="lg:hidden pointer-events-none absolute inset-y-0 left-0 w-10 rounded-l-3xl bg-gradient-to-r from-black via-black/60 to-transparent transition-opacity duration-[250ms]"
+                                style={{ opacity: open || dragX !== null ? 1 : 0 }}
+                            />
+                            </div>
+  );
+});
+
+// Which subject a unit belongs to. Built once, so rows do not search the syllabus on every render.
+let UNIT_INDEX: Map<string, { subjectId: string; text: string }> | null = null;
+const unitLabel = (id: string) => {
+  if (!UNIT_INDEX) {
+    UNIT_INDEX = new Map();
+    for (const s of SUBJECTS) for (const u of s.units) UNIT_INDEX.set(u.id, { subjectId: s.id, text: s.name });
+  }
+  return UNIT_INDEX.get(id) || null;
+};
+
+// Rows are drawn in pages as the list is scrolled, so a few hundred tasks never mount at once.
+const PAGE = 40;
 
 // --- MICRO COMPONENTS ---
 
@@ -218,7 +386,6 @@ const TodoList: React.FC = () => {
 
   const [drawId, setDrawId] = useState<string | null>(null);
   // Swipe-to-reveal (phone): one row open at a time. Tween only, no spring.
-  const ACTIONS_W = 144;
   const [openId, setOpenId] = useState<string | null>(null);
   const [drag, setDrag] = useState<{ id: string; x: number } | null>(null);
   const touch = useRef<{ x: number; y: number; base: number; horiz: boolean | null } | null>(null);
@@ -286,7 +453,7 @@ const TodoList: React.FC = () => {
   const progress = totalCount === 0 ? 0 : Math.round((completedCount / totalCount) * 100);
 
   // Filtering
-  const filteredTasks = tasks.filter(t => {
+  const filteredTasks = useMemo(() => tasks.filter(t => {
     if (filter === 'ACTIVE') return !t.completed;
     if (filter === 'COMPLETED') return t.completed;
     return true;
@@ -300,7 +467,33 @@ const TodoList: React.FC = () => {
         return pB - pA;
     }
     return a.completed ? 1 : -1;
-  });
+  }), [tasks, filter]);
+
+  const [shown, setShown] = useState(PAGE);
+  useEffect(() => { setShown(PAGE); }, [filter]);
+  const visibleTasks = filteredTasks.length > shown ? filteredTasks.slice(0, shown) : filteredTasks;
+  const sentinel = useRef<HTMLDivElement>(null);
+  const moreLeft = filteredTasks.length > shown;
+  useEffect(() => {
+    const el = sentinel.current;
+    if (!el || !moreLeft) return;
+    if (typeof IntersectionObserver === 'undefined') { setShown(filteredTasks.length); return; }
+    const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) setShown(n => n + PAGE); }, { rootMargin: '800px 0px' });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [moreLeft, shown, filteredTasks.length]);
+
+  // Stable handlers for the memoised rows; they always call the latest versions.
+  const latest = useRef<RowActions>(null as unknown as RowActions);
+  latest.current = {
+    edit: startEdit, remove: deleteTask, toggle: toggleTask, close: () => setOpenId(null),
+    touchStart: onRowTouchStart, touchMove: onRowTouchMove, touchEnd: onRowTouchEnd,
+  };
+  const act = useMemo<RowActions>(() => ({
+    edit: t => latest.current.edit(t), remove: id => latest.current.remove(id), toggle: id => latest.current.toggle(id),
+    close: () => latest.current.close(), touchStart: (id, e) => latest.current.touchStart(id, e),
+    touchMove: (id, e) => latest.current.touchMove(id, e), touchEnd: id => latest.current.touchEnd(id),
+  }), []);
 
   // Dropdown Options Configuration
   const priorityOptions = [
@@ -318,13 +511,6 @@ const TodoList: React.FC = () => {
     { value: '', label: 'No unit' },
     ...(SUBJECTS.find(s => s.id === subjectId)?.units || []).map(u => ({ value: u.id, label: `Unit ${u.unit_number} · ${u.title}` }))
   ];
-  const unitLabel = (id: string) => {
-    for (const s of SUBJECTS) {
-      const u = s.units.find(x => x.id === id);
-      if (u) return { subjectId: s.id, text: s.name };
-    }
-    return null;
-  };
 
   const categoryOptions = Object.entries(CATEGORY_CONFIG).map(([key, config]) => ({
       value: key as Category,
@@ -519,148 +705,11 @@ const TodoList: React.FC = () => {
                         <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">No Active Tasks</p>
                     </div>
                 ) : (
-                    filteredTasks.map(task => {
-                        // Safety Checks for Configs
-                        const catConfig = CATEGORY_CONFIG[task.category] || CATEGORY_CONFIG['GENERAL'];
-                        const priConfig = PRIORITY_CONFIG[task.priority] || PRIORITY_CONFIG['NORMAL'];
-                        const CategoryIcon = catConfig.icon;
-
-                        return (
-                            <div key={task.id} id={`task-${task.id}`} className="relative rounded-3xl overflow-hidden lg:overflow-visible scroll-mt-28">
-                            {/* Phone: actions revealed by swiping the row left */}
-                            <div
-                                className="lg:hidden absolute inset-y-0 right-0 flex rounded-r-3xl overflow-hidden transition-opacity duration-[250ms]"
-                                style={{ width: ACTIONS_W, opacity: openId === task.id || drag?.id === task.id ? 1 : 0, pointerEvents: openId === task.id ? 'auto' : 'none' }}
-                            >
-                                <button
-                                    tabIndex={openId === task.id ? 0 : -1}
-                                    onClick={() => { startEdit(task); setOpenId(null); }}
-                                    aria-label={`Edit task: ${task.text}`}
-                                    className="flex-1 flex flex-col items-center justify-center gap-1 bg-[#1b1b20] text-white/80 text-[10px] font-bold uppercase tracking-wider"
-                                >
-                                    <Pencil size={16} />Edit
-                                </button>
-                                <button
-                                    tabIndex={openId === task.id ? 0 : -1}
-                                    onClick={() => { setOpenId(null); deleteTask(task.id); }}
-                                    aria-label={`Delete task: ${task.text}`}
-                                    className="flex-1 flex flex-col items-center justify-center gap-1 bg-gradient-to-br from-[#F63C49] to-[#9f1239] text-white text-[10px] font-bold uppercase tracking-wider"
-                                >
-                                    <Trash2 size={16} />Delete
-                                </button>
-                            </div>
-                            <div
-                                className={`group relative surface-1 rounded-3xl px-5 py-4 lg:px-6 lg:py-5 transition-shadow duration-[250ms] ${editingId === task.id ? 'ring-1 ring-inset ring-[#F63C49]/60' : ''}`}
-                                style={{
-                                    transform: `translateX(${drag?.id === task.id ? drag.x : openId === task.id ? -ACTIONS_W : 0}px)`,
-                                    transition: drag?.id === task.id ? 'none' : 'transform 250ms cubic-bezier(0.4,0,0.2,1), border-radius 250ms cubic-bezier(0.4,0,0.2,1)',
-                                    ...((openId === task.id || (drag?.id === task.id && drag.x < -4)) ? { borderTopRightRadius: 0, borderBottomRightRadius: 0, borderRightColor: 'transparent' } : {}),
-                                    touchAction: 'pan-y'
-                                }}
-                                onTouchStart={(e) => onRowTouchStart(task.id, e)}
-                                onTouchMove={(e) => onRowTouchMove(task.id, e)}
-                                onTouchEnd={() => onRowTouchEnd(task.id)}
-                                onClickCapture={(e) => { if (openId === task.id) { e.preventDefault(); e.stopPropagation(); setOpenId(null); } }}
-                            >
-                            <div className={`flex items-start gap-4 transition-opacity duration-[250ms] ${task.completed ? 'opacity-50' : ''}`}>
-                                {/* Checkbox */}
-                                <button 
-                                    onClick={() => toggleTask(task.id)}
-                                    aria-label={task.completed ? `Mark not done: ${task.text}` : `Mark done: ${task.text}`}
-                                    aria-pressed={task.completed}
-                                    className={`
-                                        mt-0.5 w-6 h-6 rounded-full border flex items-center justify-center shrink-0 transition-all duration-[250ms]
-                                        ${task.completed 
-                                            ? 'bg-gradient-to-br from-[#F63C49] to-[#9f1239] border-white/10 text-white' 
-                                            : 'bg-transparent border-white/25 hover:border-white text-transparent'
-                                        }
-                                    `}
-                                >
-                                    <TickDraw size={14} play={drawId === task.id && task.completed} />
-                                </button>
-
-                                <div className="flex-1 min-w-0">
-                                    
-                                    <div className="flex items-start justify-between gap-3 lg:pr-16">
-                                        <p className={`text-base font-medium leading-snug ${task.completed ? 'text-slate-500 line-through decoration-slate-700' : 'text-white'}`}>
-                                            {task.text}
-                                        </p>
-                                        {/* Phone: date sits on the title line so the meta row stays one compact line */}
-                                        {task.dueDate && (() => {
-                                            const due = dueWords(task.dueDate);
-                                            return (
-                                                <span className={`lg:hidden shrink-0 mt-[3px] text-[10px] font-bold flex items-center gap-1 uppercase tracking-wider ${due.overdue && !task.completed ? 'text-[#F63C49]' : 'text-slate-500'}`}>
-                                                    <Clock size={10} />
-                                                    {due.text}
-                                                </span>
-                                            );
-                                        })()}
-                                    </div>
-
-                                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 mt-2">
-                                        {/* Priority */}
-                                        <span className={`text-[10px] font-bold flex items-center gap-1.5 uppercase tracking-wider ${priConfig.color}`}>
-                                            <SignalBars level={PRIORITY_BARS[task.priority] || 2} size={12} />
-                                            {task.priority || 'NORMAL'}
-                                        </span>
-
-                                        {/* Category */}
-                                        <span className={`text-[10px] font-bold flex items-center gap-1 uppercase tracking-wider ${catConfig.color}`}>
-                                            <CategoryIcon size={12} />
-                                            {catConfig.label}
-                                        </span>
-
-                                        {task.unitId && unitLabel(task.unitId) && (
-                                                    <Link to={`/subject/${unitLabel(task.unitId)!.subjectId}`} className="text-[10px] font-bold uppercase tracking-wider text-slate-400 hover:text-white border border-white/10 rounded-full px-2 py-0.5">
-                                                        {unitLabel(task.unitId)!.text}
-                                                    </Link>
-                                                )}
-
-                                        {/* Due date in plain words */}
-                                        {task.dueDate && (() => {
-                                            const due = dueWords(task.dueDate);
-                                            return (
-                                                <span className={`text-[10px] font-bold hidden lg:flex items-center gap-1 uppercase tracking-wider ml-auto ${due.overdue && !task.completed ? 'text-[#F63C49]' : 'text-slate-500'}`}>
-                                                    <Clock size={10} />
-                                                    {due.text}
-                                                </span>
-                                            );
-                                        })()}
-                                    </div>
-                                </div>
-
-                            </div>
-                                {/* Desktop: edit and delete appear on hover, top right */}
-                                <div className={`hidden lg:flex absolute top-3 right-4 items-center gap-1 opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity duration-[250ms]`}>
-                                    <button
-                                        type="button"
-                                        onClick={() => startEdit(task)}
-                                        aria-label={`Edit task: ${task.text}`}
-                                        title="Edit"
-                                        className="p-2 text-slate-500 hover:text-white rounded-lg hover:bg-white/5 transition-colors"
-                                    >
-                                        <Pencil size={14} />
-                                    </button>
-                                    <button
-                                        onClick={() => deleteTask(task.id)}
-                                        aria-label={`Delete task: ${task.text}`}
-                                        title="Delete"
-                                        className="p-2 text-slate-500 hover:text-[#F63C49] rounded-lg hover:bg-white/5 transition-colors"
-                                    >
-                                        <Trash2 size={14} />
-                                    </button>
-                                </div>
-                            </div>
-                            {/* Phone: soft vignette on the clipped left edge while a row is swiped open */}
-                            <div
-                                aria-hidden="true"
-                                className="lg:hidden pointer-events-none absolute inset-y-0 left-0 w-10 rounded-l-3xl bg-gradient-to-r from-black via-black/60 to-transparent transition-opacity duration-[250ms]"
-                                style={{ opacity: openId === task.id || drag?.id === task.id ? 1 : 0 }}
-                            />
-                            </div>
-                        );
-                    })
+                    visibleTasks.map(task => (
+                        <TaskRow key={task.id} task={task} open={openId === task.id} dragX={drag?.id === task.id ? drag.x : null} editing={editingId === task.id} draw={drawId === task.id} unit={task.unitId ? unitLabel(task.unitId) : null} act={act} />
+                    ))
                 )}
+                {moreLeft && <div ref={sentinel} aria-hidden="true" className="h-px" />}
             </div>
         </div>
       </div>
