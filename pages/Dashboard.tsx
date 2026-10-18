@@ -233,7 +233,9 @@ const Dashboard: React.FC = () => {
   // Streak Validation Logic
   const validStreak = currentStreak(profile);
   const todayActions = todayCount(profile);
-  const toRevise = buildQueue(SUBJECTS, selectedIds, userProgress, profile.events || [], reviews).today.length;
+  const reviseQueue = buildQueue(SUBJECTS, selectedIds, userProgress, profile.events || [], reviews).today;
+  const toRevise = reviseQueue.length;
+  const reviseSubjects = Array.from(new Set(reviseQueue.map(i => i.subjectName)));
 
   // Graph Data Preparation
   // Ensure we display something even if 0
@@ -246,6 +248,29 @@ const Dashboard: React.FC = () => {
   return (
     <div className="space-y-12 lg:space-y-20 animate-in fade-in slide-in-from-bottom-8 duration-700">
       
+      {toRevise > 0 && (
+        <section className="rounded-3xl border border-white/10 surface-1 p-6 lg:p-8 flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10">
+          <div className="flex items-end gap-4 lg:gap-5 shrink-0">
+            <p className="leading-none text-7xl lg:text-8xl tabular-nums text-[#F63C49]" style={{ fontFamily: "'Instrument Serif', serif" }}>{toRevise}</p>
+            <p className="pb-2 text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">{toRevise === 1 ? 'topic to' : 'topics to'}<br />revise today</p>
+          </div>
+          <div className="flex flex-wrap gap-2 min-w-0 lg:flex-1">
+            {reviseSubjects.slice(0, 3).map((n, i) => (
+              <span key={n} className={`${i === 2 ? 'hidden lg:inline-flex' : 'inline-flex'} items-center h-7 px-3 rounded-full border border-white/10 bg-white/[0.03] text-[10px] font-bold uppercase tracking-[0.12em] text-slate-300 max-w-full truncate`}>{n}</span>
+            ))}
+            {reviseSubjects.length > 2 && (
+              <span className={`${reviseSubjects.length > 3 ? 'inline-flex' : 'inline-flex lg:hidden'} items-center h-7 px-3 text-[10px] font-bold uppercase tracking-[0.12em] text-slate-500`}>
+                <span className="lg:hidden">+{reviseSubjects.length - 2} more</span>
+                <span className="hidden lg:inline">+{reviseSubjects.length - 3} more</span>
+              </span>
+            )}
+          </div>
+          <Link to="/app/revise" className="h-14 lg:px-12 rounded-full bg-[#F63C49] flex items-center justify-center text-xs font-bold uppercase tracking-[0.14em] text-white whitespace-nowrap transition-colors duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:bg-[#ff5560] active:bg-[#d92f3b]">
+            Start
+          </Link>
+        </section>
+      )}
+
       {/* HUD Header */}
       <section className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         <div className="lg:col-span-2 rounded-3xl surface-1 p-8 lg:p-10 relative overflow-hidden group flex flex-col justify-between">
@@ -287,13 +312,6 @@ const Dashboard: React.FC = () => {
            <StreakCard streak={validStreak} today={todayActions} goal={DAILY_GOAL} style={{ animationDelay: '180ms' }} />
         </div>
       </section>
-
-      {toRevise > 0 && (
-        <Link to="/app/revise" className="flex items-center justify-between gap-4 rounded-3xl border border-white/10 surface-1 px-6 py-4 transition-colors duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:border-white/30">
-          <span className="text-sm text-white"><span className="text-[#F63C49] font-bold tabular-nums">{toRevise}</span> {toRevise === 1 ? 'topic' : 'topics'} to revise today</span>
-          <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">Revise</span>
-        </Link>
-      )}
 
       {/* Activity heatmap: full-width strip under the greeting row */}
       <section>
