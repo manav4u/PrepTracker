@@ -41,7 +41,7 @@ const NotFound = () => (
 );
 
 const MotionLink = motion.create(Link);
-const NAV_SPRING = { type: 'tween' as const, duration: 0.25, ease: [0.65, 0, 0.35, 1] as [number, number, number, number] };
+const NAV_SPRING = { type: 'tween' as const, duration: 0.25, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] };
 
 const NavItem = ({ to, icon: Icon, active, label, short }: { to: string, icon: any, active: boolean, label: string, short?: string }) => {
   const isDesk = typeof window !== 'undefined' && window.matchMedia('(min-width: 1024px)').matches;
@@ -69,8 +69,7 @@ const NavItem = ({ to, icon: Icon, active, label, short }: { to: string, icon: a
       <motion.span
         layout="position"
         transition={NAV_SPRING}
-        animate={{ scale: active ? 1.06 : 1 }}
-        className="relative z-10 flex"
+                className="relative z-10 flex"
       >
         <Icon size={20} strokeWidth={active ? 2.4 : 1.9} className="lg:w-[22px] lg:h-[22px]" />
       </motion.span>
@@ -79,10 +78,10 @@ const NavItem = ({ to, icon: Icon, active, label, short }: { to: string, icon: a
           <motion.span
             key="lbl"
             layout="position"
-            initial={{ opacity: 0, scale: 0.85, x: -6 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
+            initial={{ opacity: 0, x: -6 }}
+            animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, transition: { duration: 0.08 } }}
-            transition={{ ...NAV_SPRING, opacity: { duration: 0.2, delay: 0.06 } }}
+            transition={{ ...NAV_SPRING, opacity: { duration: 0.2, delay: 0.05, ease: 'easeOut' } }}
             className="lg:hidden relative z-10 ml-2 whitespace-nowrap text-[10px] font-bold uppercase tracking-[0.18em] leading-none"
           >
             {short || label}
@@ -173,7 +172,7 @@ export default function App() {
                         <LogoMark size={34} />
                         </div>
 
-                        <MotionConfig reducedMotion="user"><LayoutGroup><nav className="flex flex-row lg:flex-col w-full justify-evenly lg:gap-6 items-center">
+                        <MotionConfig reducedMotion="user" transition={NAV_SPRING}><LayoutGroup><nav className="flex flex-row lg:flex-col w-full justify-evenly lg:gap-6 items-center">
                         <NavItem label="Dashboard" to="/app" short="Home" icon={LayoutGrid} active={location.pathname === '/app'} />
                         <NavItem label="Resources" to="/app/resources" short="Library" icon={Library} active={location.pathname === '/app/resources'} />
                         <NavItem label="Tasks" to="/app/tasks" short="Tasks" icon={ListTodo} active={location.pathname === '/app/tasks'} />
