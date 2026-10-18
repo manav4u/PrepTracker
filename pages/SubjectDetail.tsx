@@ -93,7 +93,7 @@ const SubjectDetail: React.FC = () => {
     }
     setUserProgress(next);
 
-    if (profile) setProfile(recordStudy(profile));
+    if (profile) setProfile(recordStudy(profile, new Date(), { subjectId: subject.id, unitId: uId, kind: 'unit' }));
   };
 
   const toggleTopic = (uId: string, topic: string, allTopics: string[]) => {
@@ -109,7 +109,7 @@ const SubjectDetail: React.FC = () => {
     const row = { ...cur, status, topicsDone };
     const next = idx > -1 ? userProgress.map((p, i) => (i === idx ? row : p)) : [...userProgress, row];
     setUserProgress(next);
-    if (!nowDone && profile) setProfile(recordStudy(profile));
+    if (!nowDone && profile) setProfile(recordStudy(profile, new Date(), { subjectId: subject.id, unitId: uId, topic, kind: 'topic' }));
   };
 
   const togglePyq = (uId: string, year: string) => {
@@ -133,7 +133,7 @@ const SubjectDetail: React.FC = () => {
     }
     setUserProgress(next);
     // Finishing a PYQ set is real study work: count it like ticking a topic.
-    if (marked && profile) setProfile(recordStudy(profile));
+    if (marked && profile) setProfile(recordStudy(profile, new Date(), { subjectId: subject.id, unitId: uId, topic: year, kind: 'pyq' }));
   };
 
   return (

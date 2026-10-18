@@ -39,6 +39,14 @@ export interface UserProgress {
   topicsDone?: string[];
 }
 
+export interface StudyEvent {
+  day: string; // local day key YYYY-MM-DD
+  subjectId: string;
+  unitId?: string;
+  topic?: string; // topic name, or PYQ year for kind 'pyq'
+  kind: 'topic' | 'unit' | 'pyq';
+}
+
 export interface Profile {
   name: string;
   prn?: string;
@@ -49,6 +57,7 @@ export interface Profile {
   streak: number;
   lastStudyDate: string; // ISO date string
   activity?: Record<string, number>; // study actions per local day, last 60 days
+  events?: StudyEvent[]; // what was studied, per action, last 60 days
   examStartDate?: string; // YYYY-MM-DD, set by the student
   examDates?: Record<string, string>; // subjectId -> YYYY-MM-DD, set by the student
 }
