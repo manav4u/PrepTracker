@@ -553,7 +553,8 @@ const TodoList: React.FC = () => {
                                 className={`group relative surface-1 rounded-3xl px-5 py-4 lg:px-6 lg:py-5 transition-shadow duration-[250ms] ${editingId === task.id ? 'ring-1 ring-inset ring-[#F63C49]/60' : ''}`}
                                 style={{
                                     transform: `translateX(${drag?.id === task.id ? drag.x : openId === task.id ? -ACTIONS_W : 0}px)`,
-                                    transition: drag?.id === task.id ? 'none' : 'transform 250ms cubic-bezier(0.4,0,0.2,1)',
+                                    transition: drag?.id === task.id ? 'none' : 'transform 250ms cubic-bezier(0.4,0,0.2,1), border-radius 250ms cubic-bezier(0.4,0,0.2,1)',
+                                    ...((openId === task.id || (drag?.id === task.id && drag.x < -4)) ? { borderTopRightRadius: 0, borderBottomRightRadius: 0, borderRightColor: 'transparent' } : {}),
                                     touchAction: 'pan-y'
                                 }}
                                 onTouchStart={(e) => onRowTouchStart(task.id, e)}
