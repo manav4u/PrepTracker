@@ -187,6 +187,8 @@ const TodoList: React.FC = () => {
   const [drawId, setDrawId] = useState<string | null>(null);
   const toggleTask = (id: string) => {
     setDrawId(id);
+    const target = tasks.find(t => t.id === id);
+    setBurst(!!target && !target.completed && tasks.every(t => t.id === id || t.completed));
     setTasks(prev => prev.map(t => t.id === id ? { ...t, completed: !t.completed } : t));
   };
 
@@ -224,6 +226,8 @@ const TodoList: React.FC = () => {
 
   // Metrics
   const completedCount = tasks.filter(t => t.completed).length;
+  const allClear = tasks.length > 0 && completedCount === tasks.length;
+  const [burst, setBurst] = useState(false);
   const totalCount = tasks.length;
   const progress = totalCount === 0 ? 0 : Math.round((completedCount / totalCount) * 100);
 
@@ -298,9 +302,18 @@ const TodoList: React.FC = () => {
             <div className="relative flex items-end justify-between gap-4">
                 <div className="flex flex-col gap-2">
                     <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-[#8a8172]">Tasks done</span>
-                    <span className="text-4xl lg:text-5xl font-display font-bold tracking-tighter text-[#17171c] leading-[0.85]" data-testid="tasks-done">{totalCount === 0 ? '--' : `${completedCount}/${totalCount}`}</span>
+                    <span className="relative inline-block">
+                        <span className={`font-display font-bold tracking-tighter text-[#17171c] leading-[0.85] ${allClear ? 'text-4xl' : 'text-4xl lg:text-5xl'}`} data-testid="tasks-done">{totalCount === 0 ? '--' : allClear ? 'All clear' : `${completedCount}/${totalCount}`}</span>
+                        {burst && allClear && (
+                            <span className="absolute left-[calc(100%+16px)] top-1/2 pointer-events-none" aria-hidden="true">
+                                {Array.from({ length: 8 }).map((_, i) => (
+                                    <span key={i} className="pt-burst-dot absolute w-1.5 h-1.5 -ml-[3px] -mt-[3px] rounded-full bg-[#F63C49]" style={{ ['--a' as any]: `${i * 45}deg` }}></span>
+                                ))}
+                            </span>
+                        )}
+                    </span>
                 </div>
-                {totalCount > 0 && <span className="text-4xl lg:text-5xl font-display font-bold tracking-tighter text-[#17171c]/30 leading-[0.85]">{progress}%</span>}
+                {totalCount > 0 && !allClear && <span className="text-4xl lg:text-5xl font-display font-bold tracking-tighter text-[#17171c]/30 leading-[0.85]">{progress}%</span>}
             </div>
 
             <div className="relative h-1.5 w-full rounded-full bg-black/[0.06] overflow-hidden ring-1 ring-inset ring-black/10">

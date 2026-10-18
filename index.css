@@ -109,3 +109,10 @@ summary:focus-visible {
 .pt-bubble circle { animation: pt-bubble 250ms cubic-bezier(0.4, 0, 0.2, 1) 1; }
 .pt-bubble circle:nth-child(2) { animation-delay: 60ms; animation-fill-mode: backwards; }
 .pt-tickdraw { animation: pt-tickdraw 250ms cubic-bezier(0.4, 0, 0.2, 1) 1; }
+
+/* All clear: one small burst, once, 250ms ease. */
+@keyframes pt-burst {
+  from { transform: rotate(var(--a)) translateY(0) scale(1); opacity: 1; }
+  to { transform: rotate(var(--a)) translateY(-26px) scale(0.4); opacity: 0; }
+}
+.pt-burst-dot { animation: pt-burst 250ms cubic-bezier(0.4, 0, 0.2, 1) 1 forwards; }
