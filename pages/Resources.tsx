@@ -380,7 +380,7 @@ const Resources: React.FC = () => {
       setIsDeleteModalOpen(false);
   };
 
-  const filteredResources = resources.filter(res => {
+  const allFiltered = resources.filter(res => {
     const matchesTab = activeTab === 'all' || res.category.includes(activeTab) || (activeTab === 'notes (pdf)' && res.type === 'pdf') || (activeTab === 'textbooks' && res.type === 'book');
     const matchesSearch = res.title.toLowerCase().includes(searchQuery.toLowerCase()) || res.subject.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesSubject =
@@ -388,6 +388,22 @@ const Resources: React.FC = () => {
       (subjectFilter === 'GENERAL' ? res.subject === 'GENERAL' || res.subject === 'GLOBAL' : res.subject === subjectFilter || subjectFilter.startsWith(res.subject));
     return matchesTab && matchesSearch && matchesSubject;
   });
+
+  // Cards mount in pages as the list is scrolled, so hundreds of resources never mount at once.
+  const PAGE = 36;
+  const [shown, setShown] = useState(PAGE);
+  useEffect(() => { setShown(PAGE); }, [activeTab, subjectFilter, searchQuery]);
+  const filteredResources = allFiltered.length > shown ? allFiltered.slice(0, shown) : allFiltered;
+  const moreLeft = allFiltered.length > shown;
+  const sentinel = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = sentinel.current;
+    if (!el || !moreLeft) return;
+    if (typeof IntersectionObserver === 'undefined') { setShown(allFiltered.length); return; }
+    const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) setShown(n => n + PAGE); }, { rootMargin: '800px 0px' });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [moreLeft, shown, allFiltered.length]);
 
   return (
     <div className="min-h-full animate-in fade-in duration-700 pb-20">
@@ -540,6 +556,7 @@ const Resources: React.FC = () => {
                 isSelected={selectedIds.has(item.id)}
             />
          ))}
+         {moreLeft && <div ref={sentinel} aria-hidden="true" className="col-span-full h-px" />}
       </div>
     </div>
   );
