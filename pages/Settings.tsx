@@ -1,6 +1,6 @@
 
 import React, { useRef, useState, useEffect } from 'react';
-import { RotateCcw, Trash2, Terminal, AlertTriangle, Upload, Download, Check, AlertOctagon, Loader2, ChevronDown } from 'lucide-react';
+import { RotateCcw, Trash2, Terminal, AlertTriangle, Upload, Download, Check, AlertOctagon, Loader2, ChevronDown, Share2, X } from 'lucide-react';
 import { SUBJECTS } from '../constants';
 import { useData } from '../context/DataContext';
 import { BackupData, MAX_BYTES, Preview, createBackup, hasRollback, parseBackup, readState, restoreBackup, rollbackRestore, wipeAll } from '../lib/backup';
@@ -138,22 +138,77 @@ const SettingsPage: React.FC = () => {
 
   // --- DATA PORTABILITY ENGINE ---
 
-  const exportData = () => {
+  // Last backup date and nudge snooze live in their own small keys (not part of the backup itself).
+  const LAST_KEY = 'sppu_last_backup';
+  const SNOOZE_KEY = 'sppu_backup_nudge_until';
+  const [lastBackup, setLastBackup] = useState<number | null>(() => {
+      const v = Number(localStorage.getItem(LAST_KEY));
+      return v > 0 ? v : null;
+  });
+  const [nudgeHidden, setNudgeHidden] = useState(() => Number(localStorage.getItem(SNOOZE_KEY)) > Date.now());
+  const WEEK = 7 * 86400000;
+  // Nothing worth backing up yet: no progress, tasks, marks or custom links.
+  const hasData = (() => {
       try {
-          const backup = createBackup(localStorage);
-          const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
-          const url = URL.createObjectURL(blob);
+          const d = readState(localStorage);
+          return d.progress.length + d.tasks.length + d.resources.length + Object.keys(d.marks).length > 0;
+      } catch { return true; }
+  })();
+  const nudgeDue = hasData && !nudgeHidden && (lastBackup === null || Date.now() - lastBackup > WEEK);
+  const dismissNudge = () => {
+      localStorage.setItem(SNOOZE_KEY, String(Date.now() + WEEK));
+      setNudgeHidden(true);
+  };
+  const stampBackup = () => {
+      const t = Date.now();
+      localStorage.setItem(LAST_KEY, String(t));
+      setLastBackup(t);
+      setNudgeHidden(true);
+  };
+  const lastBackupLabel = lastBackup
+      ? new Date(lastBackup).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })
+      : null;
+
+  const makeBackupFile = () => {
+      const backup = createBackup(localStorage);
+      const name = `PrepTracker_LocalBackup_${new Date().toISOString().split('T')[0]}.json`;
+      const file = new File([JSON.stringify(backup, null, 2)], name, { type: 'application/json' });
+      return file;
+  };
+
+  const downloadData = () => {
+      try {
+          const file = makeBackupFile();
+          const url = URL.createObjectURL(file);
           const a = document.createElement('a');
           a.href = url;
-          a.download = `PrepTracker_LocalBackup_${new Date().toISOString().split('T')[0]}.json`;
+          a.download = file.name;
           document.body.appendChild(a);
           a.click();
           document.body.removeChild(a);
           URL.revokeObjectURL(url);
+          stampBackup();
           showToast("Backup downloaded", 'success');
       } catch (err: any) {
           console.error("Export Error:", err);
           showToast(err?.message || "Export failed", 'error');
+      }
+  };
+
+  // Opens the phone's share sheet (WhatsApp, Drive, Files). Falls back to a plain download.
+  const canShareFile = typeof navigator !== 'undefined' && typeof navigator.canShare === 'function' &&
+      (() => { try { return navigator.canShare({ files: [new File(['{}'], 'x.json', { type: 'application/json' })] }); } catch { return false; } })();
+  const exportData = async () => {
+      if (!canShareFile) { downloadData(); return; }
+      try {
+          const file = makeBackupFile();
+          await navigator.share({ files: [file], title: 'PrepTracker backup' });
+          stampBackup();
+          showToast("Backup shared", 'success');
+      } catch (err: any) {
+          if (err?.name === 'AbortError') return;
+          console.error("Share Error:", err);
+          downloadData();
       }
   };
 
@@ -438,13 +493,23 @@ const SettingsPage: React.FC = () => {
                     Save your progress, tasks, marks and links to a JSON file. Restoring shows what will change first and keeps an undo copy.
                 </p>
 
+                {nudgeDue && (
+                    <div className="mb-4 flex items-center justify-between gap-3 rounded-2xl border border-white/10 surface-2 pl-4 pr-2 h-11">
+                        <p className="text-xs text-slate-300">{lastBackup === null ? 'No backup yet. Save one now.' : 'It has been a week. Back up now.'}</p>
+                        <button type="button" onClick={dismissNudge} aria-label="Dismiss reminder" className="w-8 h-8 rounded-full flex items-center justify-center text-slate-500 hover:text-white transition-colors duration-[250ms]">
+                            <X size={14} />
+                        </button>
+                    </div>
+                )}
+
                 <div className="space-y-3">
                     <button
                         onClick={exportData}
-                        className="w-full h-12 bg-[#F63C49] hover:bg-[#e0303c] text-white text-xs font-bold uppercase tracking-[0.2em] rounded-2xl transition-colors duration-[250ms] flex items-center justify-center gap-2"
+                        className="w-full h-12 bg-[#F63C49] hover:bg-[#e0303c] text-white text-xs font-bold uppercase tracking-[0.2em] rounded-2xl transition-colors duration-[250ms] flex items-center justify-center gap-2 whitespace-nowrap"
                     >
-                        <Download size={14} /> Download Backup
+                        {canShareFile ? <Share2 size={14} /> : <Download size={14} />} {canShareFile ? 'Share Backup' : 'Save Backup'}
                     </button>
+                    <p className="text-[11px] text-slate-500 text-center">{lastBackupLabel ? `Last backup ${lastBackupLabel}` : 'Not backed up yet'}</p>
 
                     <div
                         onDragEnter={handleDrag}
@@ -470,6 +535,12 @@ const SettingsPage: React.FC = () => {
                         className="hidden"
                         accept=".json"
                     />
+
+                    {canShareFile && (
+                        <button type="button" onClick={downloadData} className="w-full text-center text-[11px] font-bold uppercase tracking-[0.18em] text-slate-500 hover:text-white transition-colors duration-[250ms] py-1">
+                            Download file instead
+                        </button>
+                    )}
 
                     {canUndo && (
                         <button
