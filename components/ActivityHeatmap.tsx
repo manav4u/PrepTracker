@@ -92,35 +92,37 @@ const ActivityHeatmap: React.FC<{ profile: ActivityProfile; style?: React.CSSPro
         </div>
 
         {/* Day detail */}
-        <div className="relative rounded-2xl surface-2 p-5 w-full lg:flex-1">
-          <div className="flex items-center justify-between mb-3">
-            <p className="text-sm font-display font-bold text-white tracking-tight">{selectedLabel}</p>
-            <span className="text-[9px] font-bold uppercase tracking-widest text-slate-500">
+        <div className="relative rounded-2xl surface-2 p-5 lg:p-7 w-full lg:flex-1 flex flex-col">
+          <div className="flex items-center justify-between mb-3 lg:mb-5">
+            <p className="text-sm lg:text-lg font-display font-bold text-white tracking-tight">{selectedLabel}</p>
+            <span className="text-[9px] lg:text-[10px] font-bold uppercase tracking-widest text-slate-500">
               {selectedCount === 0 ? 'No study' : `${selectedCount} action${selectedCount === 1 ? '' : 's'}`}
             </span>
           </div>
-          {selectedEvents.length > 0 ? (
-            <ul className="space-y-2.5">
-              {selectedEvents.map((e, i) => {
-                const line = eventLine(e);
-                return (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-[2px] bg-[#F63C49] shrink-0"></span>
-                    <div className="min-w-0">
-                      <p className="text-xs font-medium text-white truncate">{line.title}</p>
-                      <p className="text-[10px] font-mono uppercase tracking-wider text-slate-500 truncate">{line.sub}</p>
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
-          ) : selectedCount > 0 ? (
-            <p className="text-xs text-slate-500">
-              {selectedCount} study action{selectedCount === 1 ? '' : 's'} this day. Per-topic detail starts with the new study log.
-            </p>
-          ) : (
-            <p className="text-xs text-slate-500">No study recorded this day.</p>
-          )}
+          <div className="lg:flex-1 lg:flex lg:flex-col lg:justify-center">
+            {selectedEvents.length > 0 ? (
+              <ul className="space-y-2.5 lg:space-y-5">
+                {selectedEvents.map((e, i) => {
+                  const line = eventLine(e);
+                  return (
+                    <li key={i} className="flex items-start gap-3 lg:gap-4">
+                      <span className="mt-1.5 lg:mt-2 w-1.5 h-1.5 lg:w-2 lg:h-2 rounded-[2px] bg-[#F63C49] shrink-0"></span>
+                      <div className="min-w-0">
+                        <p className="text-xs lg:text-base font-medium text-white truncate">{line.title}</p>
+                        <p className="text-[10px] lg:text-xs font-mono uppercase tracking-wider text-slate-500 truncate mt-0.5">{line.sub}</p>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            ) : selectedCount > 0 ? (
+              <p className="text-xs lg:text-sm text-slate-500">
+                {selectedCount} study action{selectedCount === 1 ? '' : 's'} this day. Per-topic detail starts with the new study log.
+              </p>
+            ) : (
+              <p className="text-xs lg:text-sm text-slate-500">No study recorded this day.</p>
+            )}
+          </div>
         </div>
       </div>
     </div>
