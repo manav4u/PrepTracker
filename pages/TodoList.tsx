@@ -271,18 +271,22 @@ const TodoList: React.FC = () => {
            </h1>
         </div>
 
-        {/* Progress */}
-        <div className="w-full md:w-64 surface-1 px-5 py-4 rounded-3xl">
-            <div className="flex justify-between items-end mb-3">
-                <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Tasks done</span>
-                <span className="text-right">
-                  <span className="text-xl font-sans font-semibold text-white tabular-nums" data-testid="tasks-done">{totalCount === 0 ? '--' : `${completedCount}/${totalCount}`}</span>
-                  {totalCount > 0 && <span className="ml-2 text-[10px] font-bold text-slate-500 tabular-nums">{progress}%</span>}
-                </span>
+        {/* Progress: ivory card, same material as the dashboard streak card */}
+        <div className="relative w-full md:w-64 p-5 rounded-3xl flex flex-col justify-between gap-5 overflow-hidden bg-[linear-gradient(180deg,#FDFBF6_0%,#F6F1E8_52%,#EEE8DC_100%)] shadow-[0_1px_2px_rgba(0,0,0,0.45),0_18px_38px_-22px_rgba(0,0,0,0.85),0_0_34px_-10px_rgba(255,247,235,0.22)]">
+            <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-transparent to-black/[0.05] pointer-events-none"></div>
+            <div className="absolute inset-0 rounded-3xl shadow-[inset_0_1px_0_rgba(255,255,255,0.9),inset_0_-1px_0_rgba(0,0,0,0.05)] pointer-events-none"></div>
+            <div className="absolute inset-0 rounded-3xl ring-1 ring-black/[0.06] pointer-events-none"></div>
+
+            <span className="relative text-[9px] uppercase tracking-[0.25em] font-bold text-[#8a8172]">Tasks done</span>
+
+            <div className="relative flex items-end gap-2">
+                <span className="text-5xl lg:text-6xl font-display font-bold tracking-tighter text-[#17171c] leading-[0.85]" data-testid="tasks-done">{totalCount === 0 ? '--' : `${completedCount}/${totalCount}`}</span>
+                {totalCount > 0 && <span className="text-[9px] lg:text-[10px] font-bold font-mono text-[#4a443a] mb-0.5">{progress}%</span>}
             </div>
-            <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+
+            <div className="relative h-1.5 w-full rounded-full bg-black/[0.06] overflow-hidden ring-1 ring-inset ring-black/10">
                 <div
-                    className={`h-full bg-gradient-to-r from-[#F63C49] to-[#9f1239] transition-all duration-700 ease-out ${loading ? 'animate-pulse' : ''}`}
+                    className={`h-full rounded-full bg-[#F63C49] transition-all duration-700 ease-out ${loading ? 'animate-pulse' : ''}`}
                     style={{ width: `${progress}%` }}
                 ></div>
             </div>
