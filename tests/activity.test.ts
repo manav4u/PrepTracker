@@ -63,24 +63,24 @@ test('an event lands on the acted day with subject and topic', () => {
   assert.deepEqual(p.events?.[0], { day: '2026-10-10', subjectId: 'm1', unitId: 'm1-u2', topic: 'Euler', kind: 'topic' });
 });
 
-test('events older than the 91-day window are pruned', () => {
-  const seeded: ActivityProfile = { streak: 1, lastStudyDate: at('2026-07-01').toISOString(), events: [{ day: '2026-07-01', subjectId: 'm1', kind: 'unit' }] };
+test('events older than the 182-day window are pruned', () => {
+  const seeded: ActivityProfile = { streak: 1, lastStudyDate: at('2026-04-01').toISOString(), events: [{ day: '2026-04-01', subjectId: 'm1', kind: 'unit' }] };
   const p = recordStudy(seeded, at('2026-10-10'), { subjectId: 'phy', kind: 'unit' });
   assert.equal(p.events?.length, 1);
   assert.equal(p.events?.[0].subjectId, 'phy');
 });
 
-test('heatmap weeks: 13 monday-first weeks, 7 cells, future flagged, today matched', () => {
+test('heatmap weeks: 26 monday-first weeks, 7 cells, future flagged, today matched', () => {
   const now = at('2026-10-14'); // a Wednesday
   const p: ActivityProfile = { streak: 1, lastStudyDate: now.toISOString(), activity: { '2026-10-14': 3 } };
-  const weeks = heatmapWeeks(p, 12, now);
-  assert.equal(weeks.length, 13);
-  assert.equal(weeks[12].cells.length, 7);
-  assert.equal(weeks[12].cells[2].day, '2026-10-14');
-  assert.equal(weeks[12].cells[2].count, 3);
-  assert.equal(weeks[12].cells[2].level, 2);
-  assert.equal(weeks[12].cells[3].future, true);
-  assert.equal(weeks[12].cells[0].future, false);
+  const weeks = heatmapWeeks(p, 25, now);
+  assert.equal(weeks.length, 26);
+  assert.equal(weeks[25].cells.length, 7);
+  assert.equal(weeks[25].cells[2].day, '2026-10-14');
+  assert.equal(weeks[25].cells[2].count, 3);
+  assert.equal(weeks[25].cells[2].level, 2);
+  assert.equal(weeks[25].cells[3].future, true);
+  assert.equal(weeks[25].cells[0].future, false);
 });
 
 test('levelFor buckets counts onto five heat levels', () => {

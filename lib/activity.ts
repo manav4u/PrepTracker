@@ -19,7 +19,7 @@ export interface ActivityProfile {
   events?: StudyEvent[];
 }
 
-const KEEP_DAYS = 91; // about thirteen weeks - one full study season
+const KEEP_DAYS = 182; // about twenty-six weeks - a full prep season
 /** Study actions that make a full study day; drives the daily-goal readout. */
 export const DAILY_GOAL = 5;
 
@@ -105,7 +105,7 @@ export interface HeatWeek {
 }
 
 /** Monday-first weeks ending this week, oldest first. Covers the kept activity window. */
-export const heatmapWeeks = (p: ActivityProfile, weeksBack = 12, now: Date = new Date()): HeatWeek[] => {
+export const heatmapWeeks = (p: ActivityProfile, weeksBack = 25, now: Date = new Date()): HeatWeek[] => {
   const today = startOfDay(now);
   const dow = (today.getDay() + 6) % 7; // 0 = Monday
   const thisMonday = new Date(today.getFullYear(), today.getMonth(), today.getDate() - dow);

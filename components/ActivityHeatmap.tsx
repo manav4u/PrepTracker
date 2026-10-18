@@ -13,11 +13,11 @@ import {
 } from '../lib/activity';
 
 const LEVEL_CLASS: Record<HeatLevel, string> = {
-  0: 'bg-white/[0.045]',
-  1: 'bg-[#F63C49]/15',
-  2: 'bg-[#F63C49]/32',
-  3: 'bg-[#F63C49]/55',
-  4: 'bg-[#F63C49] shadow-[0_0_10px_rgba(246,60,73,0.45)]',
+  0: 'bg-white/[0.05]',
+  1: 'bg-[#F63C49]/25',
+  2: 'bg-[#F63C49]/45',
+  3: 'bg-[#F63C49]/70',
+  4: 'bg-[#F63C49] shadow-[0_0_8px_rgba(246,60,73,0.5)]',
 };
 
 const eventLine = (e: StudyEvent): { title: string; sub: string } => {
@@ -50,15 +50,14 @@ const ActivityHeatmap: React.FC<{ profile: ActivityProfile; style?: React.CSSPro
   return (
     <div
       style={style}
-      className="relative rounded-3xl surface-1 p-6 lg:p-8 overflow-hidden animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500 shadow-[0_0_70px_-24px_rgba(246,60,73,0.35)]"
+      className="relative rounded-3xl surface-1 p-5 lg:p-6 overflow-hidden animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(246,60,73,0.07),transparent_55%)] pointer-events-none"></div>
-
+      
       {/* Header */}
-      <div className="relative flex items-center justify-between mb-6">
+      <div className="relative flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">
           <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-slate-500">Activity</span>
-          <span className="text-[9px] font-mono uppercase tracking-widest text-slate-600">Last 13 weeks</span>
+          <span className="text-[9px] font-mono uppercase tracking-widest text-slate-600">Last 26 weeks</span>
         </div>
         <div className="flex items-center gap-4">
           <span className="flex items-center gap-1.5">
@@ -74,7 +73,7 @@ const ActivityHeatmap: React.FC<{ profile: ActivityProfile; style?: React.CSSPro
       </div>
 
       {/* Month labels */}
-      <div className="relative flex gap-[3px] lg:gap-1.5 mb-1.5 pl-7">
+      <div className="relative flex gap-[2px] mb-1 pl-6">
         {weeks.map((w, i) => (
           <div key={i} className="flex-1 min-w-0">
             {w.monthLabel && (
@@ -86,7 +85,7 @@ const ActivityHeatmap: React.FC<{ profile: ActivityProfile; style?: React.CSSPro
 
       {/* Grid */}
       <div className="relative flex gap-[6px]">
-        <div className="flex flex-col gap-[3px] w-4 shrink-0">
+        <div className="flex flex-col gap-[2px] w-3 shrink-0">
           {['M', 'T', 'W', 'T', 'F', 'S', 'S'].map((d, i) => (
             <div key={i} className="flex-1 flex items-center">
               {(i === 0 || i === 2 || i === 4) && (
@@ -95,7 +94,7 @@ const ActivityHeatmap: React.FC<{ profile: ActivityProfile; style?: React.CSSPro
             </div>
           ))}
         </div>
-        <div className="flex gap-[3px] lg:gap-1.5 flex-1">
+        <div className="flex gap-[2px] flex-1">
           {weeks.map((w, wi) => (
             <div key={wi} className="flex-1 flex flex-col gap-[3px]">
               {w.cells.map((c) => {
@@ -107,7 +106,7 @@ const ActivityHeatmap: React.FC<{ profile: ActivityProfile; style?: React.CSSPro
                     type="button"
                     aria-label={`${c.day}: ${c.future ? 'upcoming' : c.count + ' study actions'}`}
                     onClick={() => !c.future && setSelected(c.day)}
-                    className={`w-full aspect-square rounded-[3px] transition-all duration-200 ${LEVEL_CLASS[c.level]}
+                    className={`w-full aspect-square rounded-[2px] transition-all duration-200 ${LEVEL_CLASS[c.level]}
                       ${c.future ? 'opacity-25 cursor-default' : 'hover:scale-110 cursor-pointer'}
                       ${isToday ? 'ring-1 ring-white/80' : ''}
                       ${isSelected && !isToday ? 'ring-1 ring-[#F63C49]' : ''}`}

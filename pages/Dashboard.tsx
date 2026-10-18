@@ -96,7 +96,7 @@ const CountdownTile = ({ value, sub, to, style }: any) => {
         <CalendarDays size={16} className="text-[#F63C49]" />
       </div>
       <div className="relative">
-        <p className="text-7xl lg:text-8xl font-display font-bold tracking-tighter text-[#F63C49] leading-[0.85] mb-2 drop-shadow-[0_0_24px_rgba(246,60,73,0.35)]">{value}</p>
+        <p className="text-7xl lg:text-8xl font-display font-bold tracking-tighter text-[#F63C49] leading-[0.85] mb-2">{value}</p>
         <p className="text-[10px] lg:text-[11px] font-bold uppercase tracking-widest text-slate-500">{sub}</p>
       </div>
     </Wrap>
