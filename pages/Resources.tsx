@@ -411,22 +411,20 @@ const Resources: React.FC = () => {
 
       {/* Cinematic Header */}
       <header className="mb-8 lg:mb-10">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-            <div className="space-y-3">
-                <div className="flex items-center gap-3 text-[#F63C49] mb-1">
-                    <Database size={16} />
-                    <span className="text-[10px] font-bold uppercase tracking-[0.25em]">Resource Library</span>
-                </div>
-                <h1 className="text-5xl lg:text-6xl font-display font-bold text-white tracking-tighter leading-[0.9]">
-                    The <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-500">Library</span>
-                </h1>
-            </div>
-            
-            {/* System Status Indicators */}
-            <div className="flex items-baseline gap-2">
-                <span className="text-3xl lg:text-4xl font-display font-bold text-white tracking-tighter">{resources.length}</span>
-                <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Items</span>
-            </div>
+        <div className="flex items-end justify-between gap-6">
+          <div>
+            <span className="inline-flex items-center gap-2 h-7 px-3 rounded-full border border-white/10 bg-white/[0.03] text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400 mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F63C49]"></span>Resource Library
+            </span>
+            <h1 className="text-white leading-[0.95]">
+              <span className="block font-display font-medium text-base lg:text-lg tracking-[0.02em] text-slate-500 mb-1">The</span>
+              <span className="block text-6xl lg:text-8xl tracking-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>Library<span className="text-[#F63C49]">.</span></span>
+            </h1>
+          </div>
+          <span className="inline-flex items-center gap-2 h-10 px-4 rounded-full border border-white/10 surface-1 shrink-0 mb-2">
+            <span className="font-sans font-semibold text-white text-lg tabular-nums">{resources.length}</span>
+            <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Items</span>
+          </span>
         </div>
       </header>
 
