@@ -7,6 +7,40 @@ import ResourceViewerModal from '../components/ResourceViewerModal';
 import { useModalA11y } from '../components/useModalA11y';
 import { useData } from '../context/DataContext';
 
+// Horizontally scrolling row with soft edge fades. Fades only show on a side that has more content.
+const FadeRow: React.FC<{ className?: string; children: React.ReactNode; role?: string; ariaLabel?: string }> = ({ className = '', children, role, ariaLabel }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [edges, setEdges] = useState({ left: false, right: false });
+  const update = () => {
+    const el = ref.current;
+    if (!el) return;
+    const left = el.scrollLeft > 4;
+    const right = el.scrollLeft + el.clientWidth < el.scrollWidth - 4;
+    setEdges((e) => (e.left === left && e.right === right ? e : { left, right }));
+  };
+  useEffect(() => {
+    update();
+    const el = ref.current;
+    if (!el) return;
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  });
+  const mask = `linear-gradient(to right, ${edges.left ? 'transparent 0, #000 36px' : '#000 0'}, ${edges.right ? '#000 calc(100% - 36px), transparent 100%' : '#000 100%'})`;
+  return (
+    <div
+      ref={ref}
+      onScroll={update}
+      role={role}
+      aria-label={ariaLabel}
+      className={className}
+      style={{ WebkitMaskImage: mask, maskImage: mask }}
+    >
+      {children}
+    </div>
+  );
+};
+
 // --- TYPES ---
 
 interface SelectOption {
@@ -445,7 +479,7 @@ const Resources: React.FC = () => {
             </div>
 
             {/* Tab Matrix */}
-            <div className="flex overflow-x-auto no-scrollbar gap-1 p-1 w-full lg:w-auto">
+            <FadeRow className="flex overflow-x-auto no-scrollbar gap-1 p-1 w-full lg:w-auto">
                 {['all', 'notes', 'lecture streams', 'textbooks', 'solved pyqs'].map((tab) => (
                     <button
                         key={tab}
@@ -459,12 +493,12 @@ const Resources: React.FC = () => {
                         {tab}
                     </button>
                 ))}
-            </div>
+            </FadeRow>
          </div>
       </div>
 
       {/* Subject filter */}
-      <div className="flex overflow-x-auto no-scrollbar gap-2 mb-8 -mt-6" role="group" aria-label="Filter by subject">
+      <FadeRow className="flex overflow-x-auto no-scrollbar gap-2 mb-8 -mt-6" role="group" ariaLabel="Filter by subject">
         {[{ label: 'All subjects', value: 'ALL' }, ...userSubjectOptions].map((o) => (
           <button
             key={o.value}
@@ -478,7 +512,7 @@ const Resources: React.FC = () => {
             <span className="block max-w-[200px] truncate" title={o.label}>{o.label}</span>
           </button>
         ))}
-      </div>
+      </FadeRow>
 
       {/* Data Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6">
