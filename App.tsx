@@ -41,7 +41,7 @@ const NotFound = () => (
 );
 
 const MotionLink = motion.create(Link);
-const NAV_SPRING = { type: 'tween' as const, duration: 0.4, ease: [0.65, 0, 0.35, 1] as [number, number, number, number] };
+const NAV_SPRING = { type: 'tween' as const, duration: 0.25, ease: [0.65, 0, 0.35, 1] as [number, number, number, number] };
 
 const NavItem = ({ to, icon: Icon, active, label, short }: { to: string, icon: any, active: boolean, label: string, short?: string }) => {
   const isDesk = typeof window !== 'undefined' && window.matchMedia('(min-width: 1024px)').matches;
