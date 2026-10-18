@@ -22,15 +22,16 @@ import {
   Loader2,
   Pencil
 } from 'lucide-react';
+import { FlameIcon, FlaskIcon, PaperStampIcon, OpenBookIcon, SignalBars, TickDraw } from '../components/TaskIcons';
 import { useData } from '../context/DataContext';
 import { Task, Priority, TaskCategory as Category } from '../types';
 
 // --- CONSTANTS ---
 const CATEGORY_CONFIG: Record<Category, { color: string, icon: any, label: string }> = {
-  EXAM: { color: 'text-red-400', icon: Flame, label: 'Exam Prep' },
-  LAB: { color: 'text-slate-400', icon: FlaskConical, label: 'Lab Work' },
-  SUBMISSION: { color: 'text-slate-400', icon: Briefcase, label: 'Submission' },
-  GENERAL: { color: 'text-slate-400', icon: BookOpen, label: 'General' }
+  EXAM: { color: 'text-red-400', icon: FlameIcon, label: 'Exam Prep' },
+  LAB: { color: 'text-slate-400', icon: FlaskIcon, label: 'Lab Work' },
+  SUBMISSION: { color: 'text-slate-400', icon: PaperStampIcon, label: 'Submission' },
+  GENERAL: { color: 'text-slate-400', icon: OpenBookIcon, label: 'General' }
 };
 
 const PRIORITY_CONFIG: Record<Priority, { color: string, border: string, glow: string }> = {
@@ -53,6 +54,11 @@ const dueWords = (iso: string): { text: string; overdue: boolean } => {
   return { text: due.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }), overdue: diff < 0 };
 };
 
+const BarsLow = (p: { size?: number; className?: string }) => <SignalBars level={1} {...p} />;
+const BarsNormal = (p: { size?: number; className?: string }) => <SignalBars level={2} {...p} />;
+const BarsCritical = (p: { size?: number; className?: string }) => <SignalBars level={3} {...p} />;
+const PRIORITY_BARS: Record<Priority, 1 | 2 | 3> = { LOW: 1, NORMAL: 2, CRITICAL: 3 };
+
 // --- MICRO COMPONENTS ---
 
 const CustomSelect = <T extends string>({ 
@@ -69,6 +75,7 @@ const CustomSelect = <T extends string>({
   disabled?: boolean
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [picked, setPicked] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -95,7 +102,7 @@ const CustomSelect = <T extends string>({
         }`}
       >
         <div className="flex items-center gap-3 min-w-0">
-            {selectedOption?.icon && <selectedOption.icon size={14} className={selectedOption.color} />}
+            {selectedOption?.icon && <selectedOption.icon key={picked} size={16} className={selectedOption.color} play={picked > 0} />}
             {selectedOption?.color && !selectedOption.icon && <div className={`w-2 h-2 rounded-full ${selectedOption.color}`} />}
             <span className={`truncate text-left text-xs font-bold uppercase tracking-wider ${selectedOption?.color && !selectedOption.icon ? 'text-slate-300' : (selectedOption?.icon ? 'text-slate-300' : '')}`}>
                 {selectedOption?.label}
@@ -110,11 +117,11 @@ const CustomSelect = <T extends string>({
                 <button
                     key={opt.value}
                     type="button"
-                    onClick={() => { onChange(opt.value); setIsOpen(false); }}
+                    onClick={() => { onChange(opt.value); setPicked(n => n + 1); setIsOpen(false); }}
                     className="w-full text-left px-4 py-3 hover:bg-white/5 transition-colors flex items-center justify-between group border-b border-white/5 last:border-0"
                 >
                     <div className="flex items-center gap-3">
-                         {opt.icon && <opt.icon size={14} className={opt.color || 'text-slate-500'} />}
+                         {opt.icon && <opt.icon size={16} className={opt.color || 'text-slate-500'} />}
                          {opt.color && !opt.icon && <div className={`w-2 h-2 rounded-full ${opt.color}`} />}
                          <span className={`text-xs font-bold uppercase tracking-wider ${value === opt.value ? 'text-white' : 'text-slate-400 group-hover:text-slate-200'}`}>
                              {opt.label}
@@ -177,7 +184,9 @@ const TodoList: React.FC = () => {
     setInputSubject('');
   };
 
+  const [drawId, setDrawId] = useState<string | null>(null);
   const toggleTask = (id: string) => {
+    setDrawId(id);
     setTasks(prev => prev.map(t => t.id === id ? { ...t, completed: !t.completed } : t));
   };
 
@@ -237,9 +246,9 @@ const TodoList: React.FC = () => {
 
   // Dropdown Options Configuration
   const priorityOptions = [
-    { value: 'CRITICAL', label: 'Critical', color: 'bg-[#D61A40]' },
-    { value: 'NORMAL', label: 'Normal', color: 'bg-blue-400' },
-    { value: 'LOW', label: 'Low', color: 'bg-slate-500' }
+    { value: 'CRITICAL', label: 'Critical', icon: BarsCritical, color: 'text-[#F63C49]' },
+    { value: 'NORMAL', label: 'Normal', icon: BarsNormal, color: 'text-blue-400' },
+    { value: 'LOW', label: 'Low', icon: BarsLow, color: 'text-slate-400' }
   ];
 
   const subjectOfUnit = (id: string) => SUBJECTS.find(x => x.units.some(u => u.id === id))?.id || '';
@@ -456,7 +465,7 @@ const TodoList: React.FC = () => {
                                         }
                                     `}
                                 >
-                                    <Check size={14} strokeWidth={3} />
+                                    <TickDraw size={14} play={drawId === task.id && task.completed} />
                                 </button>
 
                                 <div className="flex-1 min-w-0">
@@ -479,13 +488,13 @@ const TodoList: React.FC = () => {
                                     <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 mt-2">
                                         {/* Priority */}
                                         <span className={`text-[10px] font-bold flex items-center gap-1.5 uppercase tracking-wider ${priConfig.color}`}>
-                                            <span className="w-1.5 h-1.5 rounded-full bg-current"></span>
+                                            <SignalBars level={PRIORITY_BARS[task.priority] || 2} size={12} />
                                             {task.priority || 'NORMAL'}
                                         </span>
 
                                         {/* Category */}
                                         <span className={`text-[10px] font-bold flex items-center gap-1 uppercase tracking-wider ${catConfig.color}`}>
-                                            <CategoryIcon size={10} />
+                                            <CategoryIcon size={12} />
                                             {catConfig.label}
                                         </span>
 
