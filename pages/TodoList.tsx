@@ -59,12 +59,14 @@ const CustomSelect = <T extends string>({
   label, 
   value, 
   onChange, 
-  options 
+  options,
+  disabled = false
 }: { 
   label: string, 
   value: T, 
   onChange: (val: T) => void, 
-  options: { value: T, label: string, icon?: any, color?: string }[] 
+  options: { value: T, label: string, icon?: any, color?: string }[],
+  disabled?: boolean
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -86,22 +88,23 @@ const CustomSelect = <T extends string>({
       <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">{label}</label>
       <button
         type="button"
+        disabled={disabled}
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-full surface-2 border rounded-2xl px-4 h-12 flex items-center justify-between transition-all duration-300 ${
+        className={`w-full surface-2 border rounded-2xl px-4 h-12 disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-between transition-all duration-300 ${
             isOpen ? 'border-[#F63C49] bg-white/[0.07] shadow-[0_0_15px_rgba(246,60,73,0.1)]' : 'border-white/10 hover:border-white/20'
         }`}
       >
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 min-w-0">
             {selectedOption?.icon && <selectedOption.icon size={14} className={selectedOption.color} />}
             {selectedOption?.color && !selectedOption.icon && <div className={`w-2 h-2 rounded-full ${selectedOption.color}`} />}
             <span className={`truncate text-left text-xs font-bold uppercase tracking-wider ${selectedOption?.color && !selectedOption.icon ? 'text-slate-300' : (selectedOption?.icon ? 'text-slate-300' : '')}`}>
                 {selectedOption?.label}
             </span>
         </div>
-        <ChevronDown size={14} className={`text-slate-500 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#F63C49]' : ''}`} />
+        <ChevronDown size={14} className={`shrink-0 ml-2 text-slate-500 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#F63C49]' : ''}`} />
       </button>
 
-      {isOpen && (
+      {isOpen && !disabled && (
         <div className="absolute top-[calc(100%+8px)] left-0 w-full bg-[#0a0a0a] border border-white/10 rounded-xl shadow-2xl z-50 max-h-64 overflow-y-auto animate-in fade-in zoom-in-95 duration-200">
             {options.map((opt) => (
                 <button
@@ -138,6 +141,8 @@ const TodoList: React.FC = () => {
   const [inputCategory, setInputCategory] = useState<Category>('GENERAL');
   const [inputDate, setInputDate] = useState('');
   const [inputUnit, setInputUnit] = useState('');
+  const [inputSubject, setInputSubject] = useState('');
+  const [editSubject, setEditSubject] = useState('');
   const [filter, setFilter] = useState<'ALL' | 'ACTIVE' | 'COMPLETED'>('ALL');
   const [editingUnitTaskId, setEditingUnitTaskId] = useState<string | null>(null);
 
@@ -169,6 +174,7 @@ const TodoList: React.FC = () => {
     setTasks(prev => [newTask, ...prev]);
     setInputText('');
     setInputUnit('');
+    setInputSubject('');
   };
 
   const toggleTask = (id: string) => {
@@ -236,16 +242,19 @@ const TodoList: React.FC = () => {
     { value: 'LOW', label: 'Low', color: 'bg-slate-500' }
   ];
 
-  const unitOptions = [
+  const subjectOfUnit = (id: string) => SUBJECTS.find(x => x.units.some(u => u.id === id))?.id || '';
+  const subjectOptionsFor = (extra: string) => [
+    { value: '', label: 'Select subject' },
+    ...SUBJECTS.filter(s => profile?.selectedSubjects?.includes(s.id) || s.id === extra).map(s => ({ value: s.id, label: s.name }))
+  ];
+  const unitOptionsFor = (subjectId: string) => [
     { value: '', label: 'No unit' },
-    ...SUBJECTS.filter(s => profile?.selectedSubjects?.includes(s.id)).flatMap(s =>
-      s.units.map(u => ({ value: u.id, label: `${s.code.replace(/-[A-Z]+$/, '')} · Unit ${u.unit_number}: ${u.title}` }))
-    )
+    ...(SUBJECTS.find(s => s.id === subjectId)?.units || []).map(u => ({ value: u.id, label: `Unit ${u.unit_number} · ${u.title}` }))
   ];
   const unitLabel = (id: string) => {
     for (const s of SUBJECTS) {
       const u = s.units.find(x => x.id === id);
-      if (u) return { subjectId: s.id, text: `${s.code.replace(/-[A-Z]+$/, '')} · Unit ${u.unit_number}` };
+      if (u) return { subjectId: s.id, text: s.name };
     }
     return null;
   };
@@ -336,10 +345,18 @@ const TodoList: React.FC = () => {
                     </div>
 
                     <CustomSelect
+                        label="Subject"
+                        value={inputSubject}
+                        onChange={(v) => { setInputSubject(v); setInputUnit(''); }}
+                        options={subjectOptionsFor('')}
+                    />
+
+                    <CustomSelect
                         label="Linked Unit (Optional)"
                         value={inputUnit}
                         onChange={(v) => setInputUnit(v)}
-                        options={unitOptions}
+                        options={unitOptionsFor(inputSubject)}
+                        disabled={!inputSubject}
                     />
 
                     {/* Date Input */}
@@ -461,12 +478,19 @@ const TodoList: React.FC = () => {
                                         </span>
 
                                         {editingUnitTaskId === task.id ? (
-                                            <div className="w-64 max-w-full" onClick={(e) => e.stopPropagation()}>
+                                            <div className="w-64 max-w-full space-y-3" onClick={(e) => e.stopPropagation()}>
+                                                <CustomSelect
+                                                    label="Subject"
+                                                    value={editSubject}
+                                                    onChange={(v) => setEditSubject(v)}
+                                                    options={subjectOptionsFor(subjectOfUnit(task.unitId || ''))}
+                                                />
                                                 <CustomSelect
                                                     label="Linked unit"
-                                                    value={task.unitId || ''}
+                                                    value={subjectOfUnit(task.unitId || '') === editSubject ? (task.unitId || '') : ''}
                                                     onChange={(v) => updateTaskUnit(task.id, v)}
-                                                    options={unitOptions}
+                                                    options={unitOptionsFor(editSubject)}
+                                                    disabled={!editSubject}
                                                 />
                                             </div>
                                         ) : (
@@ -478,7 +502,7 @@ const TodoList: React.FC = () => {
                                                 )}
                                                 <button
                                                     type="button"
-                                                    onClick={() => setEditingUnitTaskId(task.id)}
+                                                    onClick={() => { setEditSubject(subjectOfUnit(task.unitId || '')); setEditingUnitTaskId(task.id); }}
                                                     aria-label={task.unitId ? `Change linked unit for task: ${task.text}` : `Link a unit to task: ${task.text}`}
                                                     title={task.unitId ? 'Change linked unit' : 'Link a unit'}
                                                     className="lg:opacity-0 lg:group-hover:opacity-100 focus-visible:opacity-100 text-slate-500 hover:text-white border border-transparent hover:border-white/10 rounded p-0.5 transition-all"
