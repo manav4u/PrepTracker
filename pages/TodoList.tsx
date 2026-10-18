@@ -460,9 +460,21 @@ const TodoList: React.FC = () => {
                                 </button>
 
                                 <div className="flex-1 min-w-0">
-                                    <p className={`text-base font-medium leading-snug ${task.completed ? 'text-slate-500 line-through decoration-slate-700' : 'text-white'}`}>
-                                        {task.text}
-                                    </p>
+                                    <div className="flex items-start justify-between gap-3">
+                                        <p className={`text-base font-medium leading-snug ${task.completed ? 'text-slate-500 line-through decoration-slate-700' : 'text-white'}`}>
+                                            {task.text}
+                                        </p>
+                                        {/* Phone: date sits on the title line so the meta row stays one compact line */}
+                                        {task.dueDate && (() => {
+                                            const due = dueWords(task.dueDate);
+                                            return (
+                                                <span className={`lg:hidden shrink-0 mt-[3px] text-[10px] font-bold flex items-center gap-1 uppercase tracking-wider ${due.overdue && !task.completed ? 'text-[#F63C49]' : 'text-slate-500'}`}>
+                                                    <Clock size={10} />
+                                                    {due.text}
+                                                </span>
+                                            );
+                                        })()}
+                                    </div>
 
                                     <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 mt-2">
                                         {/* Priority */}
@@ -516,7 +528,7 @@ const TodoList: React.FC = () => {
                                         {task.dueDate && (() => {
                                             const due = dueWords(task.dueDate);
                                             return (
-                                                <span className={`text-[10px] font-bold flex items-center gap-1 uppercase tracking-wider ml-auto ${due.overdue && !task.completed ? 'text-[#F63C49]' : 'text-slate-500'}`}>
+                                                <span className={`text-[10px] font-bold hidden lg:flex items-center gap-1 uppercase tracking-wider ml-auto ${due.overdue && !task.completed ? 'text-[#F63C49]' : 'text-slate-500'}`}>
                                                     <Clock size={10} />
                                                     {due.text}
                                                 </span>
