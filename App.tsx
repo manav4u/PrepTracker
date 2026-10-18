@@ -1,3 +1,4 @@
+import { motion, AnimatePresence, MotionConfig, LayoutGroup } from 'framer-motion';
 import React from 'react';
 import { Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
 import {
@@ -39,25 +40,60 @@ const NotFound = () => (
   </div>
 );
 
-const NavItem = ({ to, icon: Icon, active, label, short }: { to: string, icon: any, active: boolean, label: string, short?: string }) => (
-  <Link
-    to={to}
-    aria-label={short || label}
-    title={label}
-    aria-current={active ? 'page' : undefined}
-    className={`relative group flex flex-col lg:flex-row items-center justify-center gap-0.5 lg:gap-0 w-12 h-12 lg:w-14 lg:h-14 rounded-2xl lg:rounded-3xl transition-all duration-300 ${
-      active
-        ? 'bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.3)] scale-110'
-        : 'text-white/40 hover:text-white hover:bg-white/5'
-    }`}
-  >
-    <Icon size={20} strokeWidth={active ? 2.5 : 2} className="lg:w-[22px] lg:h-[22px]" />
-    <span aria-hidden="true" className={`lg:hidden text-[7px] font-bold uppercase tracking-widest leading-none ${active ? '' : 'text-white/70'}`}>{short || label}</span>
-    {active && (
-      <span className="absolute -bottom-2 lg:top-1/2 lg:-right-2 w-1 h-1 lg:w-1.5 lg:h-1.5 bg-[#D61A40] rounded-full shadow-[0_0_10px_#F63C49]"></span>
-    )}
-  </Link>
-);
+const MotionLink = motion.create(Link);
+const NAV_SPRING = { type: 'tween' as const, duration: 0.25, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] };
+
+const NavItem = ({ to, icon: Icon, active, label, short }: { to: string, icon: any, active: boolean, label: string, short?: string }) => {
+  const isDesk = typeof window !== 'undefined' && window.matchMedia('(min-width: 1024px)').matches;
+  const desk = `lg:w-14 lg:h-14 lg:rounded-3xl lg:px-0 ${active ? 'lg:bg-white lg:text-black lg:shadow-[0_0_20px_rgba(255,255,255,0.3)]' : 'lg:text-white/40 lg:hover:text-white lg:hover:bg-white/5'}`;
+  return (
+    <MotionLink
+      to={to}
+      layout
+      transition={NAV_SPRING}
+      animate={{ scale: isDesk && active ? 1.1 : 1 }}
+      whileTap={{ scale: 0.9 }}
+      aria-label={short || label}
+      title={label}
+      aria-current={active ? 'page' : undefined}
+      className={`relative group flex flex-row items-center justify-center h-11 rounded-full transition-colors duration-300 ${active ? 'px-4 text-white' : 'w-11 text-white/45 hover:text-white/80'} ${desk}`}
+    >
+      {active && (
+        <motion.span
+          layoutId="nav-pill"
+          transition={NAV_SPRING}
+          style={{ borderRadius: 9999 }}
+          className="lg:hidden absolute inset-0 border border-white/10 bg-gradient-to-br from-[#F63C49] to-[#9f1239] shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_10px_28px_-8px_rgba(246,60,73,0.65)]"
+        />
+      )}
+      <motion.span
+        layout="position"
+        transition={NAV_SPRING}
+                className="relative z-10 flex"
+      >
+        <Icon size={20} strokeWidth={active ? 2.4 : 1.9} className="lg:w-[22px] lg:h-[22px]" />
+      </motion.span>
+      <AnimatePresence initial={false}>
+        {active && (
+          <motion.span
+            key="lbl"
+            layout="position"
+            initial={{ opacity: 0, x: -6 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, transition: { duration: 0.08 } }}
+            transition={{ ...NAV_SPRING, opacity: { duration: 0.2, delay: 0.05, ease: 'easeOut' } }}
+            className="lg:hidden relative z-10 ml-2 whitespace-nowrap text-[10px] font-bold uppercase tracking-[0.18em] leading-none"
+          >
+            {short || label}
+          </motion.span>
+        )}
+      </AnimatePresence>
+      {active && (
+        <span className="hidden lg:block absolute top-1/2 -right-2 w-1.5 h-1.5 bg-[#D61A40] rounded-full shadow-[0_0_10px_#F63C49]"></span>
+      )}
+    </MotionLink>
+  );
+};
 
 export default function App() {
   const { profile, setProfile } = useData();
@@ -128,21 +164,21 @@ export default function App() {
                     )}
 
                     {/* Adaptive Navigation Dock */}
-                    <aside className="fixed z-50 transition-all duration-500
-                        bottom-6 left-4 right-4 h-20 glass-panel rounded-[2.5rem] flex items-center justify-around px-2 shadow-2xl
+                    <aside className={`fixed z-50 transition-all duration-500
+                        bottom-5 left-4 right-4 h-16 glass-panel nav-dock rounded-full flex items-center justify-around px-2 shadow-2xl lg:shadow-none lg:w-24
                         lg:bottom-auto lg:top-1/2 lg:left-6 lg:right-auto lg:h-auto lg:w-24 lg:flex-col lg:rounded-[3rem] lg:py-10 lg:gap-8 lg:-translate-y-1/2 lg:shadow-none
-                    ">
+                    `}>
                         <div className="hidden lg:flex w-14 h-14 items-center justify-center mb-4">
                         <LogoMark size={34} />
                         </div>
 
-                        <nav className="flex flex-row lg:flex-col w-full justify-evenly lg:gap-6 items-center">
+                        <MotionConfig reducedMotion="user" transition={NAV_SPRING}><LayoutGroup><nav className="flex flex-row lg:flex-col w-full justify-evenly lg:gap-6 items-center">
                         <NavItem label="Dashboard" to="/app" short="Home" icon={LayoutGrid} active={location.pathname === '/app'} />
                         <NavItem label="Resources" to="/app/resources" short="Library" icon={Library} active={location.pathname === '/app/resources'} />
                         <NavItem label="Tasks" to="/app/tasks" short="Tasks" icon={ListTodo} active={location.pathname === '/app/tasks'} />
                         <NavItem label="SGPA calculator" to="/app/calculator" short="SGPA" icon={Calculator} active={location.pathname === '/app/calculator'} />
                         <NavItem label="Settings" to="/app/settings" short="Settings" icon={Settings} active={location.pathname === '/app/settings'} />
-                        </nav>
+                        </nav></LayoutGroup></MotionConfig>
 
                         <div className="hidden lg:flex mt-4 pt-8 border-t border-white/5 w-full flex-col items-center gap-6">
                         <div className="relative group">
