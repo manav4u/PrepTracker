@@ -1,4 +1,5 @@
 
+import AppFooter from '../components/AppFooter';
 import React, { useRef, useState, useEffect } from 'react';
 import { RotateCcw, Trash2, Terminal, AlertTriangle, Upload, Download, Check, AlertOctagon, Loader2, ChevronDown, Share2, X } from 'lucide-react';
 import { SUBJECTS } from '../constants';
@@ -569,11 +570,7 @@ const SettingsPage: React.FC = () => {
 
         </div>
 
-        <div className="mt-10 text-center">
-            <p className="text-[9px] font-mono text-slate-600 uppercase tracking-widest">
-                PrepTracker • Built for SPPU Students
-            </p>
-        </div>
+        <AppFooter />
       </div>
     </div>
   );
