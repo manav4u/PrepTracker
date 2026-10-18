@@ -81,27 +81,29 @@ const Revise: React.FC = () => {
         <p aria-hidden="true" className={`absolute left-0 -bottom-6 text-xs text-slate-500 transition-opacity ${EASE} ${stopLine ? 'opacity-100' : 'opacity-0'}`}>Little and often beats all night.</p>
       </header>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-x-12 lg:gap-y-6 items-start">
-        {/* HERO: first on phone, sticky on the right on desktop */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-x-8 lg:gap-y-5 items-start">
+        {/* Compact stats: a strip above the topic card on phone, top of the right column on desktop */}
         <section
           aria-live="polite"
-          className="lg:col-start-8 lg:col-span-5 lg:row-start-1 lg:row-span-2 lg:sticky lg:top-8 rounded-3xl border border-white/10 surface-1 p-5 lg:p-6"
+          className="order-1 lg:col-start-8 lg:col-span-5 lg:row-start-1 rounded-2xl lg:rounded-3xl border border-white/10 surface-1 px-4 py-3.5 lg:px-6 lg:py-5"
         >
-          <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">To revise today</p>
-          <div className="mt-1 flex items-end justify-between gap-4">
-            <p className={`leading-[0.85] text-6xl lg:text-7xl tabular-nums ${left > 0 ? 'text-[#F63C49]' : 'text-slate-700'}`} style={{ fontFamily: "'Instrument Serif', serif" }}>{left}</p>
-            <div className="text-right text-sm text-slate-400 tabular-nums leading-snug">
-              <p><span className="text-white font-semibold">{queue.doneToday}</span> done</p>
-              {streak > 0 && <p><span className="text-white font-semibold">{streak}</span>-day streak</p>}
-            </div>
+          <div className="flex items-baseline justify-between gap-4">
+            <p className="flex items-baseline gap-2 text-sm lg:text-base text-slate-400">
+              <span className={`text-4xl lg:text-5xl leading-none tabular-nums ${left > 0 ? 'text-[#F63C49]' : 'text-slate-700'}`} style={{ fontFamily: "'Instrument Serif', serif" }}>{left}</span>
+              left
+            </p>
+            <p className="text-sm lg:text-base text-slate-400 tabular-nums text-right">
+              <span className="text-white font-semibold">{queue.doneToday}</span> done
+              {streak > 0 && <> · <span className="text-white font-semibold">{streak}</span>-day streak</>}
+            </p>
           </div>
-          <div className="mt-4 h-1.5 rounded-full bg-white/10 overflow-hidden" role="progressbar" aria-valuemin={0} aria-valuemax={total} aria-valuenow={queue.doneToday} aria-label="Reviews done today">
+          <div className="mt-3 h-1 rounded-full bg-white/10 overflow-hidden" role="progressbar" aria-valuemin={0} aria-valuemax={total} aria-valuenow={queue.doneToday} aria-label="Reviews done today">
             <div className={`h-full rounded-full bg-[#F63C49] transition-[width] ${EASE}`} style={{ width: `${pct}%` }}></div>
           </div>
           {queue.waiting > 0 && <p className="mt-2 text-right text-xs text-slate-500 tabular-nums">{queue.waiting} more tomorrow</p>}
         </section>
 
-        <div className="lg:col-span-7 lg:col-start-1 lg:row-start-1 space-y-5">
+        <div className="order-2 lg:col-span-7 lg:col-start-1 lg:row-start-1 lg:row-span-2 space-y-5">
           {current ? (
             <section key={current.key} className={`rounded-3xl border border-white/10 surface-1 p-5 lg:p-8 animate-in fade-in ${EASE}`}>
               <div className="flex flex-wrap items-center gap-2">
@@ -150,24 +152,23 @@ const Revise: React.FC = () => {
               {undoRow}
             </section>
           )}
-
-          {rest.length > 0 && (
-            <section>
-              <h2 className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400 mb-3 px-1">Up next</h2>
-              <ul className="rounded-3xl border border-white/10 surface-1 divide-y divide-white/5 overflow-hidden">
-                {rest.slice(0, SHOWN_UP_NEXT).map((i) => (
-                  <li key={i.key} className="px-5 py-3.5 min-w-0">
-                    <p className="text-sm text-white truncate">{i.topic}</p>
-                    <p className="text-[10px] font-mono uppercase tracking-widest text-slate-500 mt-1 truncate">{i.subjectName} · Unit {i.unitNumber}</p>
-                  </li>
-                ))}
-                {rest.length > SHOWN_UP_NEXT && (
-                  <li className="px-5 py-3.5 text-xs text-slate-500 tabular-nums">and {rest.length - SHOWN_UP_NEXT} more today</li>
-                )}
-              </ul>
-            </section>
-          )}
         </div>
+        {rest.length > 0 && (
+          <section className="order-3 lg:col-start-8 lg:col-span-5 lg:row-start-2">
+            <h2 className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400 mb-3 px-1">Up next</h2>
+            <ul className="rounded-3xl border border-white/10 surface-1 divide-y divide-white/5 overflow-hidden">
+              {rest.slice(0, SHOWN_UP_NEXT).map((i) => (
+                <li key={i.key} className="px-5 py-3.5 min-w-0">
+                  <p className="text-sm text-white truncate">{i.topic}</p>
+                  <p className="text-[10px] font-mono uppercase tracking-widest text-slate-500 mt-1 truncate">{i.subjectName} · Unit {i.unitNumber}</p>
+                </li>
+              ))}
+              {rest.length > SHOWN_UP_NEXT && (
+                <li className="px-5 py-3.5 text-xs text-slate-500 tabular-nums">and {rest.length - SHOWN_UP_NEXT} more today</li>
+              )}
+            </ul>
+          </section>
+        )}
       </div>
     </div>
   );
