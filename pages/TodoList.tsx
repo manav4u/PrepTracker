@@ -28,8 +28,8 @@ import { Task, Priority, TaskCategory as Category } from '../types';
 // --- CONSTANTS ---
 const CATEGORY_CONFIG: Record<Category, { color: string, icon: any, label: string }> = {
   EXAM: { color: 'text-red-400', icon: Flame, label: 'Exam Prep' },
-  LAB: { color: 'text-cyan-400', icon: FlaskConical, label: 'Lab Work' },
-  SUBMISSION: { color: 'text-yellow-400', icon: Briefcase, label: 'Submission' },
+  LAB: { color: 'text-slate-400', icon: FlaskConical, label: 'Lab Work' },
+  SUBMISSION: { color: 'text-slate-400', icon: Briefcase, label: 'Submission' },
   GENERAL: { color: 'text-slate-400', icon: BookOpen, label: 'General' }
 };
 
@@ -37,6 +37,20 @@ const PRIORITY_CONFIG: Record<Priority, { color: string, border: string, glow: s
   CRITICAL: { color: 'text-[#F63C49]', border: 'border-[#F63C49]', glow: 'shadow-[0_0_15px_rgba(246,60,73,0.15)]' },
   NORMAL: { color: 'text-blue-400', border: 'border-blue-500/50', glow: '' },
   LOW: { color: 'text-slate-400', border: 'border-slate-700', glow: '' }
+};
+
+const dueWords = (iso: string): { text: string; overdue: boolean } => {
+  const [y, m, d] = iso.split('-').map(Number);
+  if (!y || !m || !d) return { text: iso, overdue: false };
+  const due = new Date(y, m - 1, d);
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const diff = Math.round((due.getTime() - today.getTime()) / 86400000);
+  if (diff === 0) return { text: 'Today', overdue: false };
+  if (diff === 1) return { text: 'Tomorrow', overdue: false };
+  if (diff === -1) return { text: 'Yesterday', overdue: true };
+  if (diff > 1 && diff < 7) return { text: due.toLocaleDateString('en-GB', { weekday: 'long' }), overdue: false };
+  return { text: due.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }), overdue: diff < 0 };
 };
 
 // --- MICRO COMPONENTS ---
@@ -73,7 +87,7 @@ const CustomSelect = <T extends string>({
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-full bg-white/5 border rounded-xl px-4 py-3 flex items-center justify-between transition-all duration-300 ${
+        className={`w-full surface-2 border rounded-2xl px-4 h-12 flex items-center justify-between transition-all duration-300 ${
             isOpen ? 'border-[#F63C49] bg-white/[0.07] shadow-[0_0_15px_rgba(246,60,73,0.1)]' : 'border-white/10 hover:border-white/20'
         }`}
       >
@@ -246,35 +260,32 @@ const TodoList: React.FC = () => {
   return (
     <div className="min-h-full animate-in fade-in slide-in-from-bottom-4 duration-700 pb-20">
       
-      {/* HEADER HUD */}
-      <header className="mb-12 border-b border-white/5 pb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+      {/* HEADER */}
+      <header className="mb-8 lg:mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-           <div className="flex items-center gap-2 text-[#F63C49] mb-2">
-                <CheckSquare size={16} />
-                <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em]">Local Task Management</span>
-            </div>
-            <h1 className="text-5xl lg:text-7xl font-display font-bold text-white tracking-tighter leading-none">
-                Task <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-500 to-slate-700">List</span>
-            </h1>
+           <span className="inline-flex items-center gap-2 h-7 px-3 rounded-full border border-white/10 bg-white/[0.03] text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400 mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F63C49]"></span>Local Task Management
+           </span>
+           <h1 className="text-white leading-[0.95]">
+              <span className="block text-6xl lg:text-8xl tracking-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>Task List<span className="text-[#F63C49]">.</span></span>
+           </h1>
         </div>
-        
-        {/* Progress Unit */}
-        <div className="w-full md:w-64 surface-1 p-4 rounded-2xl relative overflow-hidden">
-            <div className="flex justify-between items-end mb-2 relative z-10">
-                <span className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Tasks done</span>
+
+        {/* Progress */}
+        <div className="w-full md:w-64 surface-1 px-5 py-4 rounded-3xl">
+            <div className="flex justify-between items-end mb-3">
+                <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Tasks done</span>
                 <span className="text-right">
-                  <span className="text-2xl font-display font-bold text-white" data-testid="tasks-done">{totalCount === 0 ? '--' : `${completedCount}/${totalCount}`}</span>
-                  {totalCount > 0 && <span className="ml-2 text-[10px] font-mono text-slate-500">{progress}%</span>}
+                  <span className="text-xl font-sans font-semibold text-white tabular-nums" data-testid="tasks-done">{totalCount === 0 ? '--' : `${completedCount}/${totalCount}`}</span>
+                  {totalCount > 0 && <span className="ml-2 text-[10px] font-bold text-slate-500 tabular-nums">{progress}%</span>}
                 </span>
             </div>
-            <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden relative z-10">
-                <div 
-                    className={`h-full bg-[#D61A40] shadow-[0_0_10px_#F63C49] transition-all duration-700 ease-out ${loading ? 'animate-pulse' : ''}`}
+            <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+                <div
+                    className={`h-full bg-gradient-to-r from-[#F63C49] to-[#9f1239] transition-all duration-700 ease-out ${loading ? 'animate-pulse' : ''}`}
                     style={{ width: `${progress}%` }}
                 ></div>
             </div>
-            {/* Background noise */}
-            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
         </div>
       </header>
 
@@ -282,10 +293,10 @@ const TodoList: React.FC = () => {
         
         {/* INPUT CONSOLE */}
         <div className="lg:col-span-4 space-y-6">
-            <div className="surface-1 rounded-3xl p-6 lg:p-8 sticky top-8">
-                <div className="flex items-center gap-2 mb-6 text-white/50">
-                    <LayoutList size={18} />
-                    <h2 className="text-xs font-bold uppercase tracking-widest">Add New Task</h2>
+            <div className="surface-1 rounded-3xl p-5 lg:p-7 sticky top-8">
+                <div className="flex items-center gap-2 mb-5 text-white/50">
+                    <LayoutList size={16} />
+                    <h2 className="text-[10px] font-bold uppercase tracking-[0.18em]">Add New Task</h2>
                 </div>
 
                 <form onSubmit={addTask} className="space-y-5">
@@ -298,7 +309,7 @@ const TodoList: React.FC = () => {
                             value={inputText}
                             onChange={(e) => setInputText(e.target.value)}
                             placeholder="Ex: Complete Unit 3 PYQs..."
-                            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#F63C49] focus:bg-white/[0.07] outline-none transition-all placeholder:text-slate-600 font-medium"
+                            className="w-full surface-2 border border-white/10 rounded-2xl px-4 h-12 text-sm text-white focus:border-[#F63C49] outline-none transition-all placeholder:text-slate-600 font-medium"
                             autoFocus
                         />
                     </div>
@@ -337,7 +348,7 @@ const TodoList: React.FC = () => {
                                 aria-label="Due date"
                                 value={inputDate}
                                 onChange={(e) => setInputDate(e.target.value)}
-                                className="w-full bg-white/5 border border-white/10 rounded-xl pl-10 pr-4 py-3 text-xs font-mono text-slate-300 focus:border-[#F63C49] outline-none transition-colors uppercase"
+                                className="w-full surface-2 border border-white/10 rounded-2xl pl-10 pr-4 h-12 text-xs font-mono text-slate-300 focus:border-[#F63C49] outline-none transition-colors uppercase"
                             />
                         </div>
                     </div>
@@ -345,7 +356,7 @@ const TodoList: React.FC = () => {
                     <button 
                         type="submit"
                         disabled={!inputText}
-                        className="w-full py-4 bg-[#D61A40] hover:bg-[#B3123B] disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold uppercase tracking-[0.2em] rounded-xl transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(246,60,73,0.2)] hover:shadow-[0_0_30px_rgba(246,60,73,0.4)]"
+                        className="w-full h-12 bg-gradient-to-br from-[#F63C49] to-[#9f1239] disabled:opacity-40 disabled:cursor-not-allowed text-white text-xs font-bold uppercase tracking-[0.2em] rounded-2xl transition-all duration-[250ms] flex items-center justify-center gap-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_8px_22px_-8px_rgba(246,60,73,0.6)]"
                     >
                         <Plus size={16} /> Add Task
                     </button>
@@ -358,15 +369,15 @@ const TodoList: React.FC = () => {
             
             {/* Controls */}
             <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-                <div className="flex surface-2 p-1 rounded-xl">
+                <div className="flex gap-1">
                     {(['ALL', 'ACTIVE', 'COMPLETED'] as const).map((f) => (
                         <button
                             key={f}
                             onClick={() => setFilter(f)}
-                            className={`px-4 py-2 rounded-lg text-[10px] font-bold uppercase tracking-widest transition-all ${
+                            className={`px-4 h-10 rounded-full border text-[10px] font-bold uppercase tracking-[0.15em] transition-all duration-[250ms] ${
                                 filter === f 
-                                ? 'bg-white text-black shadow-lg' 
-                                : 'text-slate-500 hover:text-white hover:bg-white/5'
+                                ? 'text-white border-white/10 bg-gradient-to-br from-[#F63C49] to-[#9f1239] shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_8px_22px_-8px_rgba(246,60,73,0.6)]' 
+                                : 'border-transparent text-slate-500 hover:text-white hover:bg-white/5'
                             }`}
                         >
                             {f}
@@ -385,7 +396,7 @@ const TodoList: React.FC = () => {
             </div>
 
             {/* List */}
-            <div className="space-y-4">
+            <div className="space-y-3">
                 {loading ? (
                     <div className="py-20 text-center">
                         <Loader2 size={48} className="mx-auto text-[#F63C49] animate-spin mb-4" />
@@ -409,22 +420,18 @@ const TodoList: React.FC = () => {
                         return (
                             <div 
                                 key={task.id}
-                                className={`
-                                    group relative surface-1 rounded-2xl p-5 transition-all duration-300 
-                                    hover:translate-x-1 flex items-start gap-5
-                                    ${task.completed ? 'opacity-50 border-white/5' : `hover:border-white/20 ${priConfig.border} ${priConfig.glow}`}
-                                `}
+                                className={`group relative surface-1 rounded-3xl px-5 py-4 lg:px-6 lg:py-5 transition-opacity duration-[250ms] flex items-start gap-4 ${task.completed ? 'opacity-50' : ''}`}
                             >
-                                {/* Checkbox Node */}
+                                {/* Checkbox */}
                                 <button 
                                     onClick={() => toggleTask(task.id)}
                                     aria-label={task.completed ? `Mark not done: ${task.text}` : `Mark done: ${task.text}`}
                                     aria-pressed={task.completed}
                                     className={`
-                                        mt-1 w-6 h-6 rounded-full border flex items-center justify-center shrink-0 transition-all
+                                        mt-0.5 w-6 h-6 rounded-full border flex items-center justify-center shrink-0 transition-all duration-[250ms]
                                         ${task.completed 
-                                            ? 'bg-green-500 border-green-500 text-black' 
-                                            : 'bg-transparent border-white/20 hover:border-white text-transparent'
+                                            ? 'bg-gradient-to-br from-[#F63C49] to-[#9f1239] border-white/10 text-white' 
+                                            : 'bg-transparent border-white/25 hover:border-white text-transparent'
                                         }
                                     `}
                                 >
@@ -432,14 +439,19 @@ const TodoList: React.FC = () => {
                                 </button>
 
                                 <div className="flex-1 min-w-0">
-                                    <div className="flex flex-wrap items-center gap-2 mb-2">
-                                        {/* Priority Badge */}
-                                        <span className={`text-[9px] font-bold border px-1.5 py-0.5 rounded uppercase tracking-wider ${priConfig.color} border-current opacity-80`}>
+                                    <p className={`text-base font-medium leading-snug ${task.completed ? 'text-slate-500 line-through decoration-slate-700' : 'text-white'}`}>
+                                        {task.text}
+                                    </p>
+
+                                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 mt-2">
+                                        {/* Priority */}
+                                        <span className={`text-[10px] font-bold flex items-center gap-1.5 uppercase tracking-wider ${priConfig.color}`}>
+                                            <span className="w-1.5 h-1.5 rounded-full bg-current"></span>
                                             {task.priority || 'NORMAL'}
                                         </span>
-                                        
-                                        {/* Category Badge */}
-                                        <span className={`text-[9px] font-bold flex items-center gap-1 uppercase tracking-wider ${catConfig.color}`}>
+
+                                        {/* Category */}
+                                        <span className={`text-[10px] font-bold flex items-center gap-1 uppercase tracking-wider ${catConfig.color}`}>
                                             <CategoryIcon size={10} />
                                             {catConfig.label}
                                         </span>
@@ -456,7 +468,7 @@ const TodoList: React.FC = () => {
                                         ) : (
                                             <>
                                                 {task.unitId && unitLabel(task.unitId) && (
-                                                    <Link to={`/subject/${unitLabel(task.unitId)!.subjectId}`} className="text-[9px] font-bold uppercase tracking-wider text-slate-400 hover:text-white border border-white/10 rounded px-1.5 py-0.5">
+                                                    <Link to={`/subject/${unitLabel(task.unitId)!.subjectId}`} className="text-[10px] font-bold uppercase tracking-wider text-slate-400 hover:text-white border border-white/10 rounded-full px-2 py-0.5">
                                                         {unitLabel(task.unitId)!.text}
                                                     </Link>
                                                 )}
@@ -472,24 +484,23 @@ const TodoList: React.FC = () => {
                                             </>
                                         )}
 
-                                        {/* Date Badge */}
-                                        {task.dueDate && (
-                                            <span className="text-[9px] font-mono text-slate-500 flex items-center gap-1 uppercase tracking-wider ml-auto">
-                                                <Clock size={10} />
-                                                {new Date(task.dueDate).toLocaleDateString()}
-                                            </span>
-                                        )}
+                                        {/* Due date in plain words */}
+                                        {task.dueDate && (() => {
+                                            const due = dueWords(task.dueDate);
+                                            return (
+                                                <span className={`text-[10px] font-bold flex items-center gap-1 uppercase tracking-wider ml-auto ${due.overdue && !task.completed ? 'text-[#F63C49]' : 'text-slate-500'}`}>
+                                                    <Clock size={10} />
+                                                    {due.text}
+                                                </span>
+                                            );
+                                        })()}
                                     </div>
-
-                                    <p className={`text-sm font-medium leading-relaxed ${task.completed ? 'text-slate-500 line-through decoration-slate-700' : 'text-slate-200'}`}>
-                                        {task.text}
-                                    </p>
                                 </div>
 
                                 <button 
                                     onClick={() => deleteTask(task.id)}
                                     aria-label={`Delete task: ${task.text}`}
-                                    className="lg:opacity-0 lg:group-hover:opacity-100 focus-visible:opacity-100 p-2 text-slate-600 hover:text-red-500 transition-all rounded-lg hover:bg-white/5"
+                                    className="lg:opacity-0 lg:group-hover:opacity-100 focus-visible:opacity-100 p-2 -mr-2 text-slate-600 hover:text-red-500 transition-all rounded-lg hover:bg-white/5"
                                 >
                                     <X size={16} />
                                 </button>
