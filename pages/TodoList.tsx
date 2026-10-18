@@ -277,11 +277,12 @@ const TodoList: React.FC = () => {
             <div className="absolute inset-0 rounded-3xl shadow-[inset_0_1px_0_rgba(255,255,255,0.9),inset_0_-1px_0_rgba(0,0,0,0.05)] pointer-events-none"></div>
             <div className="absolute inset-0 rounded-3xl ring-1 ring-black/[0.06] pointer-events-none"></div>
 
-            <span className="relative text-[9px] uppercase tracking-[0.25em] font-bold text-[#8a8172]">Tasks done</span>
-
-            <div className="relative flex items-end gap-2">
-                <span className="text-4xl lg:text-5xl font-display font-bold tracking-tighter text-[#17171c] leading-[0.85]" data-testid="tasks-done">{totalCount === 0 ? '--' : `${completedCount}/${totalCount}`}</span>
-                {totalCount > 0 && <span className="text-[9px] lg:text-[10px] font-bold font-mono text-[#4a443a] mb-0.5">{progress}%</span>}
+            <div className="relative flex items-end justify-between gap-4">
+                <div className="flex flex-col gap-2">
+                    <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-[#8a8172]">Tasks done</span>
+                    <span className="text-4xl lg:text-5xl font-display font-bold tracking-tighter text-[#17171c] leading-[0.85]" data-testid="tasks-done">{totalCount === 0 ? '--' : `${completedCount}/${totalCount}`}</span>
+                </div>
+                {totalCount > 0 && <span className="text-4xl lg:text-5xl font-display font-bold tracking-tighter text-[#17171c]/30 leading-[0.85]">{progress}%</span>}
             </div>
 
             <div className="relative h-1.5 w-full rounded-full bg-black/[0.06] overflow-hidden ring-1 ring-inset ring-black/10">
