@@ -53,7 +53,7 @@ const Revise: React.FC = () => {
 
   const undoRow = last && (
     <div className="flex items-center justify-between gap-3 mt-4 min-h-9">
-      <p className="text-xs text-slate-500 truncate">{last.recalled ? 'Got it' : 'Shaky'}: {last.item.topic}</p>
+      <p className="text-xs text-slate-500 truncate">{last.recalled ? 'Got it' : 'Forgot'}: {last.item.topic}</p>
       <button type="button" onClick={undo} className={`shrink-0 h-9 px-4 rounded-full border border-white/15 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-200 transition-colors ${EASE} hover:border-white/40 hover:text-white`}>
         Undo
       </button>
@@ -114,7 +114,7 @@ const Revise: React.FC = () => {
               <p className="mt-5 lg:mt-8 text-3xl lg:text-5xl leading-[1.1] text-white" style={{ fontFamily: "'Instrument Serif', serif" }}>{current.topic}</p>
               <p className="mt-3 text-xs text-slate-500 tabular-nums">
                 Topic {queue.doneToday + 1} of {total}
-                {current.shaky && ' · you marked it shaky last time'}
+                {current.shaky && ' · you forgot it last time'}
               </p>
               <div className="grid grid-cols-2 gap-3 mt-5 lg:mt-8">
                 <button
@@ -122,7 +122,7 @@ const Revise: React.FC = () => {
                   onClick={() => respond(current, false)}
                   className={`h-14 rounded-full border border-white/15 text-xs font-bold uppercase tracking-[0.14em] text-slate-200 whitespace-nowrap transition-colors ${EASE} hover:border-white/40 hover:text-white active:bg-white/5`}
                 >
-                  Shaky
+                  Forgot
                 </button>
                 <button
                   type="button"
@@ -132,7 +132,7 @@ const Revise: React.FC = () => {
                   Got it
                 </button>
               </div>
-              {last ? undoRow : <p className="mt-4 text-xs text-slate-500 leading-relaxed min-h-9 flex items-center">Recall it from memory, then tap. Shaky comes back tomorrow.</p>}
+              {last ? undoRow : <p className="mt-4 text-xs text-slate-500 leading-relaxed min-h-9 flex items-center">Recall it from memory, then tap. Forgot comes back tomorrow.</p>}
             </section>
           ) : queue.trackedTopics === 0 && queue.doneToday === 0 ? (
             <section className="rounded-3xl border border-white/10 surface-1 p-5 lg:p-8">
