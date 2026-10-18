@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { useData } from '../context/DataContext';
 import { SUBJECTS } from '../constants';
 import { recordStudy, currentStreak } from '../lib/activity';
-import { buildQueue, answer, addDays, dayOf, STEPS, type ReviewItem } from '../lib/revision';
+import type { Profile } from '../types';
+import { buildQueue, answer, STEPS, type ReviewItem, type ReviewEntry } from '../lib/revision';
 
 const EASE = 'duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)]';
 const SHOWN_UP_NEXT = 4;
@@ -16,6 +17,8 @@ const dayLabel = (key: string) => {
 const Revise: React.FC = () => {
   const { profile, setProfile, userProgress, reviews, setReviews } = useData();
   const [stopLine, setStopLine] = useState(false);
+  // The last tap, kept so one tap can be taken back.
+  const [last, setLast] = useState<{ item: ReviewItem; recalled: boolean; prev: ReviewEntry | undefined; profile: Profile | null } | null>(null);
 
   const queue = useMemo(
     () => buildQueue(SUBJECTS, profile?.selectedSubjects || [], userProgress, profile?.events || [], reviews),
@@ -30,10 +33,32 @@ const Revise: React.FC = () => {
 
   const respond = (item: ReviewItem, recalled: boolean) => {
     const now = new Date();
+    setLast({ item, recalled, prev: reviews[item.key], profile });
     setReviews((r) => ({ ...r, [item.key]: answer(r[item.key], recalled, now) }));
     // A review is study work: it counts toward the day and the streak like ticking a topic.
     if (profile) setProfile(recordStudy(profile, now, { subjectId: item.subjectId, unitId: item.unitId, topic: item.topic, kind: 'review' }));
   };
+
+  const undo = () => {
+    if (!last) return;
+    setReviews((r) => {
+      const next = { ...r };
+      if (last.prev) next[last.item.key] = last.prev;
+      else delete next[last.item.key];
+      return next;
+    });
+    if (last.profile) setProfile(last.profile);
+    setLast(null);
+  };
+
+  const undoRow = last && (
+    <div className="flex items-center justify-between gap-3 mt-4 min-h-9">
+      <p className="text-xs text-slate-500 truncate">{last.recalled ? 'Got it' : 'Shaky'}: {last.item.topic}</p>
+      <button type="button" onClick={undo} className={`shrink-0 h-9 px-4 rounded-full border border-white/15 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-200 transition-colors ${EASE} hover:border-white/40 hover:text-white`}>
+        Undo
+      </button>
+    </div>
+  );
 
   const nextLine = queue.tomorrow > 0
     ? `${queue.tomorrow} ${queue.tomorrow === 1 ? 'topic comes' : 'topics come'} back tomorrow.`
@@ -43,7 +68,7 @@ const Revise: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto animate-in fade-in duration-700">
-      <header className="relative mb-8 lg:mb-12">
+      <header className="relative mb-6 lg:mb-12">
         <span className="inline-flex items-center gap-2 h-7 px-3 rounded-full border border-white/10 bg-white/[0.03] text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400 mb-4">
           <span className="w-1.5 h-1.5 rounded-full bg-[#F63C49]"></span>Spaced review
         </span>
@@ -70,9 +95,10 @@ const Revise: React.FC = () => {
           <p className="text-xs text-slate-500 mt-3 tabular-nums">
             {queue.doneToday} done today
             {queue.waiting > 0 && ` · ${queue.waiting} more wait for tomorrow`}
+            {streak > 0 && <span className="lg:hidden">{` · ${streak}-day streak`}</span>}
           </p>
           {streak > 0 && (
-            <p className="mt-3 pt-3 lg:mt-4 lg:pt-4 border-t border-white/10 text-xs text-slate-400 tabular-nums">
+            <p className="hidden lg:block mt-4 pt-4 border-t border-white/10 text-xs text-slate-400 tabular-nums">
               {streak}-day streak. Each review counts toward it.
             </p>
           )}
@@ -106,7 +132,7 @@ const Revise: React.FC = () => {
                   Got it
                 </button>
               </div>
-              <p className="mt-4 text-xs text-slate-500 leading-relaxed">Say it out loud first, then tell us how it went. Shaky comes back tomorrow.</p>
+              {last ? undoRow : <p className="mt-4 text-xs text-slate-500 leading-relaxed min-h-9 flex items-center">Say it first, then tap. Shaky returns tomorrow.</p>}
             </section>
           ) : queue.trackedTopics === 0 && queue.doneToday === 0 ? (
             <section className="rounded-3xl border border-white/10 surface-1 p-5 lg:p-8">
@@ -124,6 +150,7 @@ const Revise: React.FC = () => {
                 {queue.doneToday > 0 ? 'All done for today.' : 'Nothing due today.'}
               </p>
               {nextLine && <p className="mt-3 text-sm text-slate-400 leading-relaxed">{nextLine}</p>}
+              {undoRow}
             </section>
           )}
 

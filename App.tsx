@@ -16,7 +16,6 @@ import Dashboard from './pages/Dashboard';
 import SubjectDetail from './pages/SubjectDetail';
 import Resources from './pages/Resources';
 import RevisePage from './pages/Revise';
-import CalculatorPage from './pages/Calculator';
 import SettingsPage from './pages/Settings';
 import Onboarding from './pages/Onboarding';
 import TodoList from './pages/TodoList';
@@ -205,8 +204,6 @@ export default function App() {
                         <div className="hidden lg:flex justify-between items-center mb-16 max-w-[1600px] mx-auto">
                         <div className="flex items-center gap-4 text-sm font-medium text-white/60">
                             <span>{new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</span>
-                            <span className="w-1 h-1 rounded-full bg-white/20"></span>
-                            <span className="text-[#F63C49]">First Year Engineering</span>
                         </div>
 
                         <div className="flex items-center gap-4">
@@ -222,7 +219,6 @@ export default function App() {
                             <Route path="resources" element={<Resources />} />
                             <Route path="tasks" element={<TodoList />} />
                             <Route path="revise" element={<RevisePage />} />
-                            <Route path="calculator" element={<CalculatorPage />} />
                             <Route path="settings" element={<SettingsPage />} />
                             <Route path="*" element={<Navigate to="/app" replace />} />
                         </Routes>

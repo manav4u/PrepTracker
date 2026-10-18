@@ -12,7 +12,9 @@ export interface ReviewEntry {
 export type Reviews = Record<string, ReviewEntry>;
 
 /** Days to wait after the topic was studied (step 0), then after each recalled review. */
-export const STEPS = [1, 3, 7, 21];
+export const STEPS = [3, 7, 21];
+/** A shaky review comes back the next day. */
+export const SHAKY_DAYS = 1;
 /** Most reviews shown on one day. The rest wait quietly for tomorrow. */
 export const DAILY_CAP = 8;
 
@@ -131,7 +133,7 @@ export const buildQueue = (
 export const answer = (prev: ReviewEntry | undefined, recalled: boolean, now: Date = new Date()): ReviewEntry => {
   const today = dayOf(now);
   const stage = prev?.stage ?? 0;
-  if (!recalled) return { stage: 0, due: addDays(today, STEPS[0]), last: today, shaky: true };
+  if (!recalled) return { stage: 0, due: addDays(today, SHAKY_DAYS), last: today, shaky: true };
   const next = stage + 1;
   return { stage: next, due: next >= STEPS.length ? '' : addDays(today, STEPS[next]), last: today };
 };

@@ -7,6 +7,7 @@ import { UnitStatus } from '../types';
 import { Sparkles, CalendarDays, Flame, Activity } from 'lucide-react';
 import { useData } from '../context/DataContext';
 import { currentStreak, lastDays, todayCount, DAILY_GOAL } from '../lib/activity';
+import { buildQueue } from '../lib/revision';
 import ActivityHeatmap from '../components/ActivityHeatmap';
 import { subjectExamList, nextExamIndex } from '../lib/exams';
 
@@ -178,7 +179,7 @@ const ProgressGraphCard = ({ data, labels, total }: { data: number[], labels: st
 }
 
 const Dashboard: React.FC = () => {
-  const { profile, userProgress } = useData();
+  const { profile, userProgress, reviews } = useData();
 
   if (!profile) return null;
 
@@ -232,6 +233,7 @@ const Dashboard: React.FC = () => {
   // Streak Validation Logic
   const validStreak = currentStreak(profile);
   const todayActions = todayCount(profile);
+  const toRevise = buildQueue(SUBJECTS, selectedIds, userProgress, profile.events || [], reviews).today.length;
 
   // Graph Data Preparation
   // Ensure we display something even if 0
@@ -285,6 +287,13 @@ const Dashboard: React.FC = () => {
            <StreakCard streak={validStreak} today={todayActions} goal={DAILY_GOAL} style={{ animationDelay: '180ms' }} />
         </div>
       </section>
+
+      {toRevise > 0 && (
+        <Link to="/app/revise" className="flex items-center justify-between gap-4 rounded-3xl border border-white/10 surface-1 px-6 py-4 transition-colors duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:border-white/30">
+          <span className="text-sm text-white"><span className="text-[#F63C49] font-bold tabular-nums">{toRevise}</span> {toRevise === 1 ? 'topic' : 'topics'} to revise today</span>
+          <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">Revise</span>
+        </Link>
+      )}
 
       {/* Activity heatmap: full-width strip under the greeting row */}
       <section>

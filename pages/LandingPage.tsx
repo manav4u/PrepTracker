@@ -104,7 +104,7 @@ const VIEWS = [
 ];
 
 const TICKER = ['Every topic accounted for', 'Every day counted', 'Know exactly what\u2019s left', 'Walk in ready'];
-const STRIP = ['Every subject as units & topics', 'Previous-year questions', 'Daily tasks & streaks', 'SGPA calculator', 'Works offline'];
+const STRIP = ['Every subject as units & topics', 'Previous-year questions', 'Daily tasks & streaks', 'Spaced revision', 'Works offline'];
 
 const LandingPage: React.FC = () => {
   const [view, setView] = useState(0);

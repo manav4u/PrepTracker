@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { buildQueue, answer, addDays, isReviews, cleanReviews, reviewKey, DAILY_CAP, STEPS } from '../lib/revision.ts';
+import { buildQueue, answer, addDays, isReviews, cleanReviews, reviewKey, DAILY_CAP, STEPS, SHAKY_DAYS } from '../lib/revision.ts';
 
 const at = (s: string) => new Date(`${s}T10:00:00`);
 const subjects = [
@@ -10,15 +10,16 @@ const subjects = [
 const prog = [{ unitId: 's1-u1', topicsDone: ['a', 'b'] }, { unitId: 's2-u1', topicsDone: ['x'] }];
 const ev = (day: string, unitId: string, topic: string) => ({ day, unitId, topic, kind: 'topic' });
 
-test('a topic studied today is not due until tomorrow', () => {
+test('a topic studied today is first due in three days', () => {
   const q = buildQueue(subjects, ['s1', 's2'], prog, [ev('2026-10-10', 's1-u1', 'a')], {}, at('2026-10-10'));
   assert.equal(q.today.length, 0);
-  assert.equal(q.tomorrow, 3);
+  assert.equal(q.tomorrow, 0);
+  assert.equal(q.nextDue, '2026-10-13');
   assert.equal(q.trackedTopics, 3);
 });
 
-test('a topic studied yesterday is due today', () => {
-  const q = buildQueue(subjects, ['s1'], prog, [ev('2026-10-09', 's1-u1', 'a')], {}, at('2026-10-10'));
+test('a topic studied three days ago is due today', () => {
+  const q = buildQueue(subjects, ['s1'], prog, [ev('2026-10-07', 's1-u1', 'a')], {}, at('2026-10-10'));
   assert.deepEqual(q.today.map((i) => i.topic), ['a']);
   assert.equal(q.today[0].subjectName, 'Subject One');
 });
@@ -31,23 +32,23 @@ test('unticked topics and unselected subjects never appear', () => {
 test('a unit marked Mastered uses the unit event date', () => {
   const q = buildQueue(subjects, ['s1'], prog, [{ day: '2026-10-01', unitId: 's1-u1', kind: 'unit' }], {}, at('2026-10-10'));
   assert.equal(q.today.length, 2);
-  assert.equal(q.today[0].overdue, 8);
+  assert.equal(q.today[0].overdue, 6);
 });
 
 test('recalled climbs the steps and graduates after the last one', () => {
   let e = answer(undefined, true, at('2026-10-10'));
   assert.equal(e.stage, 1);
   assert.equal(e.due, addDays('2026-10-10', STEPS[1]));
-  e = answer(e, true, at('2026-10-13'));
-  e = answer(e, true, at('2026-10-20'));
-  e = answer(e, true, at('2026-11-10'));
+  e = answer(e, true, at('2026-10-17'));
+  assert.equal(e.due, addDays('2026-10-17', STEPS[2]));
+  e = answer(e, true, at('2026-11-07'));
   assert.equal(e.stage, STEPS.length);
   assert.equal(e.due, '');
 });
 
 test('shaky starts again from tomorrow', () => {
   const e = answer({ stage: 3, due: '2026-10-10', last: '2026-10-01' }, false, at('2026-10-10'));
-  assert.deepEqual(e, { stage: 0, due: '2026-10-11', last: '2026-10-10', shaky: true });
+  assert.deepEqual(e, { stage: 0, due: addDays('2026-10-10', SHAKY_DAYS), last: '2026-10-10', shaky: true });
 });
 
 test('graduated topics leave the cycle', () => {
@@ -72,8 +73,8 @@ test('the daily cap holds the rest back and counts reviews already done today', 
 });
 
 test('shaky topics sort ahead of equally late ones', () => {
-  const reviews = { [reviewKey('s1-u1', 'b')]: { stage: 0, due: '2026-10-09', last: '2026-10-08', shaky: true } };
-  const q = buildQueue(subjects, ['s1'], prog, [ev('2026-10-08', 's1-u1', 'a')], reviews, at('2026-10-10'));
+  const reviews = { [reviewKey('s1-u1', 'b')]: { stage: 0, due: '2026-10-08', last: '2026-10-07', shaky: true } };
+  const q = buildQueue(subjects, ['s1'], prog, [ev('2026-10-05', 's1-u1', 'a')], reviews, at('2026-10-10'));
   assert.equal(q.today[0].topic, 'b');
 });
 
