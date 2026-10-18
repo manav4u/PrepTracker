@@ -534,7 +534,7 @@ const TodoList: React.FC = () => {
         </div>
 
         {/* Progress: ivory card, same material as the dashboard streak card */}
-        <div className="relative w-full md:w-64 px-5 py-4 rounded-3xl flex flex-col justify-between gap-3 overflow-hidden bg-[linear-gradient(180deg,#FDFBF6_0%,#F6F1E8_52%,#EEE8DC_100%)] shadow-[0_1px_2px_rgba(0,0,0,0.45),0_18px_38px_-22px_rgba(0,0,0,0.85),0_0_34px_-10px_rgba(255,247,235,0.22)]">
+        <div className="relative w-full md:w-auto md:min-w-64 md:max-w-sm px-5 py-4 rounded-3xl flex flex-col justify-between gap-3 overflow-hidden bg-[linear-gradient(180deg,#FDFBF6_0%,#F6F1E8_52%,#EEE8DC_100%)] shadow-[0_1px_2px_rgba(0,0,0,0.45),0_18px_38px_-22px_rgba(0,0,0,0.85),0_0_34px_-10px_rgba(255,247,235,0.22)]">
             <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-transparent to-black/[0.05] pointer-events-none"></div>
             <div className="absolute inset-0 rounded-3xl shadow-[inset_0_1px_0_rgba(255,255,255,0.9),inset_0_-1px_0_rgba(0,0,0,0.05)] pointer-events-none"></div>
             <div className="absolute inset-0 rounded-3xl ring-1 ring-black/[0.06] pointer-events-none"></div>
@@ -543,7 +543,7 @@ const TodoList: React.FC = () => {
                 <div className="flex flex-col gap-2">
                     <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-[#8a8172]">Tasks done</span>
                     <span className="relative inline-block">
-                        <span className={`font-display font-bold tracking-tighter text-[#17171c] leading-[0.85] ${allClear ? 'text-4xl' : 'text-4xl lg:text-5xl'}`} data-testid="tasks-done">{totalCount === 0 ? '--' : allClear ? 'All clear' : `${completedCount}/${totalCount}`}</span>
+                        <span className={`font-display font-bold tracking-tighter text-[#17171c] leading-[0.85] ${allClear || totalCount >= 100 ? 'text-4xl' : 'text-4xl lg:text-5xl'}`} data-testid="tasks-done">{totalCount === 0 ? '--' : allClear ? 'All clear' : `${completedCount}/${totalCount}`}</span>
                         {burst && allClear && (
                             <span className="absolute left-[calc(100%+16px)] top-1/2 pointer-events-none" aria-hidden="true">
                                 {Array.from({ length: 8 }).map((_, i) => (
@@ -553,7 +553,7 @@ const TodoList: React.FC = () => {
                         )}
                     </span>
                 </div>
-                {totalCount > 0 && !allClear && <span className="text-4xl lg:text-5xl font-display font-bold tracking-tighter text-[#17171c]/30 leading-[0.85]">{progress}%</span>}
+                {totalCount > 0 && !allClear && <span className={`${totalCount >= 100 ? 'text-4xl' : 'text-4xl lg:text-5xl'} font-display font-bold tracking-tighter text-[#17171c]/30 leading-[0.85]`}>{progress}%</span>}
             </div>
 
             <div className="relative h-1.5 w-full rounded-full bg-black/[0.06] overflow-hidden ring-1 ring-inset ring-black/10">
