@@ -60,7 +60,10 @@ export const recordStudy = <T extends ActivityProfile>(p: T, now: Date = new Dat
 
   let events = p.events ? [...p.events] : undefined;
   if (event) {
-    events = [...(events || []), { ...event, day: key }].filter(e => e.day >= cutoff);
+    const kept = (events || []).filter(e => e.day >= cutoff);
+    // Ticking, unticking and ticking the same thing again in one day is one line in that day's list.
+    const dup = kept.some(e => e.day === key && e.kind === event.kind && e.subjectId === event.subjectId && e.unitId === event.unitId && e.topic === event.topic);
+    events = dup ? kept : [...kept, { ...event, day: key }];
   }
 
   return { ...p, streak, lastStudyDate: now.toISOString(), activity, ...(events ? { events } : {}) };
