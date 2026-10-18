@@ -105,7 +105,7 @@ export interface HeatWeek {
 }
 
 /** Monday-first weeks ending this week, oldest first. Covers the kept activity window. */
-export const heatmapWeeks = (p: ActivityProfile, weeksBack = 25, now: Date = new Date()): HeatWeek[] => {
+export const heatmapWeeks = (p: ActivityProfile, weeksBack = 4, now: Date = new Date()): HeatWeek[] => {
   const today = startOfDay(now);
   const dow = (today.getDay() + 6) % 7; // 0 = Monday
   const thisMonday = new Date(today.getFullYear(), today.getMonth(), today.getDate() - dow);

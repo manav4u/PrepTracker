@@ -70,17 +70,17 @@ test('events older than the 182-day window are pruned', () => {
   assert.equal(p.events?.[0].subjectId, 'phy');
 });
 
-test('heatmap weeks: 26 monday-first weeks, 7 cells, future flagged, today matched', () => {
+test('heatmap weeks: 5 monday-first weeks, 7 cells, future flagged, today matched', () => {
   const now = at('2026-10-14'); // a Wednesday
   const p: ActivityProfile = { streak: 1, lastStudyDate: now.toISOString(), activity: { '2026-10-14': 3 } };
-  const weeks = heatmapWeeks(p, 25, now);
-  assert.equal(weeks.length, 26);
-  assert.equal(weeks[25].cells.length, 7);
-  assert.equal(weeks[25].cells[2].day, '2026-10-14');
-  assert.equal(weeks[25].cells[2].count, 3);
-  assert.equal(weeks[25].cells[2].level, 2);
-  assert.equal(weeks[25].cells[3].future, true);
-  assert.equal(weeks[25].cells[0].future, false);
+  const weeks = heatmapWeeks(p, 4, now);
+  assert.equal(weeks.length, 5);
+  assert.equal(weeks[4].cells.length, 7);
+  assert.equal(weeks[4].cells[2].day, '2026-10-14');
+  assert.equal(weeks[4].cells[2].count, 3);
+  assert.equal(weeks[4].cells[2].level, 2);
+  assert.equal(weeks[4].cells[3].future, true);
+  assert.equal(weeks[4].cells[0].future, false);
 });
 
 test('levelFor buckets counts onto five heat levels', () => {
