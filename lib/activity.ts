@@ -99,14 +99,23 @@ export interface HeatCell {
   level: HeatLevel;
 }
 
-/** The last n days ending today, oldest first, for the horizontal strip. */
-export const lastNDays = (p: ActivityProfile, n = 30, now: Date = new Date()): HeatCell[] => {
-  const cells: HeatCell[] = [];
-  for (let i = n - 1; i >= 0; i--) {
-    const d = new Date(now.getFullYear(), now.getMonth(), now.getDate() - i);
+/** A week column of the heat grid: seven weekday slots (Sunday first), null where
+ *  the slot falls outside the window - before the first day, or after today. */
+export type HeatDay = HeatCell | null;
+
+/** The last n days as week columns, GitHub's contribution-grid shape:
+ *  columns flow left to right, each column is Sunday..Saturday top to bottom. */
+export const heatmapWeeks = (p: ActivityProfile, days = 30, now: Date = new Date()): HeatDay[][] => {
+  const today = startOfDay(now);
+  const start = new Date(today.getFullYear(), today.getMonth(), today.getDate() - (days - 1));
+  const weeks: HeatDay[][] = [];
+  let week: HeatDay[] = new Array(start.getDay()).fill(null);
+  for (let d = new Date(start); d <= today; d.setDate(d.getDate() + 1)) {
     const key = dayKey(d);
     const count = p.activity?.[key] || 0;
-    cells.push({ day: key, count, future: false, level: levelFor(count) });
+    week.push({ day: key, count, future: false, level: levelFor(count) });
+    if (week.length === 7) { weeks.push(week); week = []; }
   }
-  return cells;
+  if (week.length) { while (week.length < 7) week.push(null); weeks.push(week); }
+  return weeks;
 };

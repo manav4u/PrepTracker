@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { recordStudy, currentStreak, lastDays, dayKey, lastNDays, levelFor, eventsForDay, type ActivityProfile } from '../lib/activity.ts';
+import { recordStudy, currentStreak, lastDays, dayKey, heatmapWeeks, levelFor, eventsForDay, type ActivityProfile } from '../lib/activity.ts';
 
 const at = (s: string) => new Date(`${s}T10:00:00`);
 const base: ActivityProfile = { streak: 0, lastStudyDate: '' };
@@ -70,17 +70,26 @@ test('events older than the 182-day window are pruned', () => {
   assert.equal(p.events?.[0].subjectId, 'phy');
 });
 
-test('lastNDays: 30 cells oldest first, today last with its count and level', () => {
+test('heatmapWeeks: last 30 days as GitHub-style week columns, Sunday first', () => {
   const now = at('2026-10-14');
   const p: ActivityProfile = { streak: 1, lastStudyDate: now.toISOString(), activity: { '2026-10-14': 3, '2026-09-15': 9 } };
-  const cells = lastNDays(p, 30, now);
+  const weeks = heatmapWeeks(p, 30, now);
+  const flat = weeks.flat();
+  const cells = flat.filter(c => c !== null);
   assert.equal(cells.length, 30);
-  assert.equal(cells[0].day, '2026-09-15');
-  assert.equal(cells[0].level, 4);
-  assert.equal(cells[29].day, '2026-10-14');
-  assert.equal(cells[29].count, 3);
-  assert.equal(cells[29].level, 2);
-  assert.equal(cells[28].level, 0);
+  assert.equal(weeks.every(w => w.length === 7), true);
+  assert.equal(cells[0]!.day, '2026-09-15');
+  assert.equal(cells[0]!.level, 4);
+  assert.equal(cells[29]!.day, '2026-10-14');
+  assert.equal(cells[29]!.count, 3);
+  assert.equal(cells[29]!.level, 2);
+  // first column leads with nulls up to the start day's weekday, last column ends at today
+  const firstCol = weeks[0];
+  assert.equal(firstCol[0], null);
+  assert.equal(firstCol[firstCol.findIndex(c => c !== null)]!.day, '2026-09-15');
+  const lastCol = weeks[weeks.length - 1];
+  const lastIdx = lastCol.findIndex(c => c === null);
+  assert.equal(lastCol[lastIdx - 1]!.day, '2026-10-14');
 });
 
 test('levelFor buckets counts onto five heat levels', () => {
