@@ -56,7 +56,7 @@ const ActivityHeatmap: React.FC<{ profile: ActivityProfile; style?: React.CSSPro
 
       {/* Grid + day detail: side by side on desktop, stacked on phone */}
       <div className="relative flex flex-col lg:flex-row lg:items-start gap-5">
-        <div className="flex-1 min-w-0">
+        <div className="w-full lg:w-[340px] lg:flex-none min-w-0">
           {/* 4 rows x 7 columns: each row is one week, Monday to Sunday */}
           <div className="flex flex-col gap-[2px]">
             {weeks.map((w, wi) => (
@@ -70,7 +70,7 @@ const ActivityHeatmap: React.FC<{ profile: ActivityProfile; style?: React.CSSPro
                       type="button"
                       aria-label={`${c.day}: ${c.future ? 'upcoming' : c.count + ' study actions'}`}
                       onClick={() => !c.future && setSelected(c.day)}
-                      className={`w-full h-[26px] lg:h-[34px] rounded-[3px] transition-all duration-200 ${LEVEL_CLASS[c.level]}
+                      className={`w-full h-[26px] lg:h-[28px] rounded-[3px] transition-all duration-200 ${LEVEL_CLASS[c.level]}
                         ${c.future ? 'opacity-25 cursor-default' : 'hover:scale-105 cursor-pointer'}
                         ${isToday ? 'ring-1 ring-white/80' : ''}
                         ${isSelected && !isToday ? 'ring-1 ring-[#F63C49]' : ''}`}
@@ -92,7 +92,7 @@ const ActivityHeatmap: React.FC<{ profile: ActivityProfile; style?: React.CSSPro
         </div>
 
         {/* Day detail */}
-        <div className="relative rounded-2xl surface-2 p-5 w-full lg:w-[480px] lg:shrink-0">
+        <div className="relative rounded-2xl surface-2 p-5 w-full lg:flex-1">
           <div className="flex items-center justify-between mb-3">
             <p className="text-sm font-display font-bold text-white tracking-tight">{selectedLabel}</p>
             <span className="text-[9px] font-bold uppercase tracking-widest text-slate-500">
