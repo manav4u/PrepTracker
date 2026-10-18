@@ -102,3 +102,14 @@ test('eventsForDay returns only that day, in order', () => {
   assert.equal(evs[0].subjectId, 'm1');
   assert.equal(evs[1].subjectId, 'fpl');
 });
+
+test('ticking the same topic again on the same day adds one history line, still counts the action', () => {
+  const now = new Date(2026, 9, 19, 10);
+  const ev = { subjectId: 'm1', unitId: 'm1-u1', topic: 'Rank', kind: 'topic' as const };
+  let p: any = { streak: 0, lastStudyDate: '', activity: {}, events: [] };
+  p = recordStudy(p, now, ev);
+  p = recordStudy(p, now, ev);
+  p = recordStudy(p, now, { ...ev, topic: 'Other' });
+  assert.equal(p.events.length, 2);
+  assert.equal(p.activity['2026-10-19'], 3);
+});
