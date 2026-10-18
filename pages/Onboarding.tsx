@@ -239,7 +239,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
                 <div className="w-full animate-in fade-in zoom-in-95 duration-500 slide-in-from-right-8 pb-10">
                      <div className="mb-10 text-center lg:text-left">
                         <span className="inline-block px-3 py-1 rounded-full border border-[#F63C49]/30 bg-[#F63C49]/10 text-[#F63C49] text-[10px] font-bold uppercase tracking-widest mb-4">
-                            Your subjects - SPPU 2024 pattern
+                            Your subjects
                         </span>
                         <h2 className="text-4xl font-display font-bold mb-2">Select Your Subjects</h2>
                         <p className="text-slate-500 text-sm">Customize your dashboard for the current semester.</p>

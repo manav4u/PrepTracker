@@ -117,7 +117,7 @@ const CalculatorPage: React.FC = () => {
             Forecaster
           </h1>
           <p className="mt-4 text-sm text-slate-400 max-w-xl leading-relaxed">
-            Enter the marks you have. We grade each head the way the SPPU 2024 pattern does and weight it by credits.
+            Enter the marks you have. We grade each head the way SPPU grades it and weight it by credits.
             This is not an official result.
           </p>
         </div>

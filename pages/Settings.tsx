@@ -571,7 +571,7 @@ const SettingsPage: React.FC = () => {
 
         <div className="mt-10 text-center">
             <p className="text-[9px] font-mono text-slate-600 uppercase tracking-widest">
-                PrepTracker • Built for the SPPU 2024 Pattern
+                PrepTracker • Built for SPPU Students
             </p>
         </div>
       </div>
