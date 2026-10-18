@@ -1,3 +1,4 @@
+import Doodle from '../components/Doodle';
 import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useData } from '../context/DataContext';
@@ -134,7 +135,8 @@ const Revise: React.FC = () => {
               {last ? undoRow : <p className="mt-4 text-xs text-slate-500 leading-relaxed min-h-9 flex items-center">Recall it from memory, then tap. Forgot comes back tomorrow.</p>}
             </section>
           ) : queue.trackedTopics === 0 && queue.doneToday === 0 ? (
-            <section className="rounded-3xl border border-white/10 surface-1 p-5 lg:p-8">
+            <section className="rounded-3xl border border-white/10 surface-1 p-5 lg:p-8 relative">
+              <Doodle kind="sprout" className="absolute right-5 bottom-5 lg:right-8 lg:bottom-8 w-20 h-20 lg:w-28 lg:h-28" />
               <p className="text-2xl lg:text-3xl text-white leading-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>Nothing to revise yet.</p>
               <p className="mt-3 text-sm text-slate-400 leading-relaxed max-w-md">
                 Tick topics as you study them. Each one comes back here after {STEPS.slice(0, -1).join(', ')} and {STEPS[STEPS.length - 1]} days.
@@ -144,7 +146,8 @@ const Revise: React.FC = () => {
               </Link>
             </section>
           ) : (
-            <section className="rounded-3xl border border-white/10 surface-1 p-5 lg:p-8">
+            <section className="rounded-3xl border border-white/10 surface-1 p-5 lg:p-8 relative">
+              <Doodle kind={queue.doneToday > 0 ? 'moon' : 'sprout'} className="absolute right-5 bottom-5 lg:right-8 lg:bottom-8 w-20 h-20 lg:w-28 lg:h-28" />
               <p className="text-2xl lg:text-3xl text-white leading-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>
                 {queue.doneToday > 0 ? 'All done for today.' : 'Nothing due today.'}
               </p>
