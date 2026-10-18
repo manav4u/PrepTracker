@@ -315,7 +315,6 @@ const TodoList: React.FC = () => {
                             onChange={(e) => setInputText(e.target.value)}
                             placeholder="Ex: Complete Unit 3 PYQs..."
                             className="w-full surface-2 border border-white/10 rounded-2xl px-4 h-12 text-sm text-white focus:border-[#F63C49] outline-none transition-all placeholder:text-slate-600 font-medium"
-                            autoFocus
                         />
                     </div>
 
