@@ -1,0 +1,152 @@
+import React, { useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useData } from '../context/DataContext';
+import { SUBJECTS } from '../constants';
+import { recordStudy, currentStreak } from '../lib/activity';
+import { buildQueue, answer, addDays, dayOf, STEPS, type ReviewItem } from '../lib/revision';
+
+const EASE = 'duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)]';
+const SHOWN_UP_NEXT = 4;
+
+const dayLabel = (key: string) => {
+  const [y, m, d] = key.split('-').map(Number);
+  return new Date(y, m - 1, d).toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+};
+
+const Revise: React.FC = () => {
+  const { profile, setProfile, userProgress, reviews, setReviews } = useData();
+  const [stopLine, setStopLine] = useState(false);
+
+  const queue = useMemo(
+    () => buildQueue(SUBJECTS, profile?.selectedSubjects || [], userProgress, profile?.events || [], reviews),
+    [profile?.selectedSubjects, profile?.events, userProgress, reviews]
+  );
+
+  const [current, ...rest] = queue.today;
+  const left = queue.today.length;
+  const total = left + queue.doneToday;
+  const pct = total === 0 ? 0 : Math.round((queue.doneToday / total) * 100);
+  const streak = profile ? currentStreak(profile) : 0;
+
+  const respond = (item: ReviewItem, recalled: boolean) => {
+    const now = new Date();
+    setReviews((r) => ({ ...r, [item.key]: answer(r[item.key], recalled, now) }));
+    // A review is study work: it counts toward the day and the streak like ticking a topic.
+    if (profile) setProfile(recordStudy(profile, now, { subjectId: item.subjectId, unitId: item.unitId, topic: item.topic, kind: 'review' }));
+  };
+
+  const nextLine = queue.tomorrow > 0
+    ? `${queue.tomorrow} ${queue.tomorrow === 1 ? 'topic comes' : 'topics come'} back tomorrow.`
+    : queue.nextDue
+      ? `Next review is ${dayLabel(queue.nextDue)}.`
+      : '';
+
+  return (
+    <div className="max-w-7xl mx-auto animate-in fade-in duration-700">
+      <header className="relative mb-8 lg:mb-12">
+        <span className="inline-flex items-center gap-2 h-7 px-3 rounded-full border border-white/10 bg-white/[0.03] text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400 mb-4">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#F63C49]"></span>Spaced review
+        </span>
+        <h1 className="text-white leading-[0.95]">
+          <span className="block text-6xl lg:text-8xl tracking-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>
+            Revise
+            <span onClick={() => setStopLine((v) => !v)} className="inline-block text-[#F63C49] cursor-default">.</span>
+          </span>
+        </h1>
+        <p aria-hidden="true" className={`absolute left-0 -bottom-6 text-xs text-slate-500 transition-opacity ${EASE} ${stopLine ? 'opacity-100' : 'opacity-0'}`}>Little and often beats all night.</p>
+      </header>
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-x-12 lg:gap-y-6 items-start">
+        {/* HERO: first on phone, sticky on the right on desktop */}
+        <section
+          aria-live="polite"
+          className="lg:col-start-8 lg:col-span-5 lg:row-start-1 lg:row-span-2 lg:sticky lg:top-8 rounded-3xl border border-white/10 surface-1 p-5 lg:p-7"
+        >
+          <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">To revise today</p>
+          <p className={`mt-1 lg:mt-2 leading-none text-6xl lg:text-8xl tabular-nums ${left > 0 ? 'text-[#F63C49]' : 'text-slate-700'}`} style={{ fontFamily: "'Instrument Serif', serif" }}>{left}</p>
+          <div className="mt-4 lg:mt-6 h-1.5 rounded-full bg-white/10 overflow-hidden" role="progressbar" aria-valuemin={0} aria-valuemax={total} aria-valuenow={queue.doneToday} aria-label="Reviews done today">
+            <div className={`h-full rounded-full bg-[#F63C49] transition-[width] ${EASE}`} style={{ width: `${pct}%` }}></div>
+          </div>
+          <p className="text-xs text-slate-500 mt-3 tabular-nums">
+            {queue.doneToday} done today
+            {queue.waiting > 0 && ` · ${queue.waiting} more wait for tomorrow`}
+          </p>
+          {streak > 0 && (
+            <p className="mt-3 pt-3 lg:mt-4 lg:pt-4 border-t border-white/10 text-xs text-slate-400 tabular-nums">
+              {streak}-day streak. Each review counts toward it.
+            </p>
+          )}
+        </section>
+
+        <div className="lg:col-span-7 lg:col-start-1 lg:row-start-1 space-y-5">
+          {current ? (
+            <section key={current.key} className={`rounded-3xl border border-white/10 surface-1 p-5 lg:p-8 animate-in fade-in ${EASE}`}>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center h-7 px-3 rounded-full border border-white/10 bg-white/[0.03] text-[10px] font-bold uppercase tracking-[0.12em] text-slate-300 max-w-full truncate">{current.subjectName}</span>
+                <span className="text-[10px] font-mono uppercase tracking-widest text-slate-500 whitespace-nowrap">Unit {current.unitNumber}</span>
+              </div>
+              <p className="mt-5 lg:mt-8 text-3xl lg:text-5xl leading-[1.1] text-white" style={{ fontFamily: "'Instrument Serif', serif" }}>{current.topic}</p>
+              <p className="mt-3 text-xs text-slate-500 tabular-nums">
+                Review {current.stage + 1} of {STEPS.length}
+                {current.shaky && ' · you marked it shaky last time'}
+              </p>
+              <div className="grid grid-cols-2 gap-3 mt-5 lg:mt-8">
+                <button
+                  type="button"
+                  onClick={() => respond(current, false)}
+                  className={`h-14 rounded-full border border-white/15 text-xs font-bold uppercase tracking-[0.14em] text-slate-200 whitespace-nowrap transition-colors ${EASE} hover:border-white/40 hover:text-white active:bg-white/5`}
+                >
+                  Shaky
+                </button>
+                <button
+                  type="button"
+                  onClick={() => respond(current, true)}
+                  className={`h-14 rounded-full bg-[#F63C49] text-xs font-bold uppercase tracking-[0.14em] text-white whitespace-nowrap transition-colors ${EASE} hover:bg-[#ff5560] active:bg-[#d92f3b]`}
+                >
+                  Got it
+                </button>
+              </div>
+              <p className="mt-4 text-xs text-slate-500 leading-relaxed">Say it out loud first, then tell us how it went. Shaky comes back tomorrow.</p>
+            </section>
+          ) : queue.trackedTopics === 0 && queue.doneToday === 0 ? (
+            <section className="rounded-3xl border border-white/10 surface-1 p-5 lg:p-8">
+              <p className="text-2xl lg:text-3xl text-white leading-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>Nothing to revise yet.</p>
+              <p className="mt-3 text-sm text-slate-400 leading-relaxed max-w-md">
+                Tick topics as you study them. Each one comes back here after {STEPS.slice(0, -1).join(', ')} and {STEPS[STEPS.length - 1]} days.
+              </p>
+              <Link to="/app" className={`mt-6 inline-flex items-center h-11 px-5 rounded-full border border-white/15 text-xs font-bold uppercase tracking-[0.14em] text-slate-200 transition-colors ${EASE} hover:border-white/40 hover:text-white`}>
+                Open your subjects
+              </Link>
+            </section>
+          ) : (
+            <section className="rounded-3xl border border-white/10 surface-1 p-5 lg:p-8">
+              <p className="text-2xl lg:text-3xl text-white leading-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>
+                {queue.doneToday > 0 ? 'All done for today.' : 'Nothing due today.'}
+              </p>
+              {nextLine && <p className="mt-3 text-sm text-slate-400 leading-relaxed">{nextLine}</p>}
+            </section>
+          )}
+
+          {rest.length > 0 && (
+            <section>
+              <h2 className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400 mb-3 px-1">Up next</h2>
+              <ul className="rounded-3xl border border-white/10 surface-1 divide-y divide-white/5 overflow-hidden">
+                {rest.slice(0, SHOWN_UP_NEXT).map((i) => (
+                  <li key={i.key} className="px-5 py-3.5 min-w-0">
+                    <p className="text-sm text-white truncate">{i.topic}</p>
+                    <p className="text-[10px] font-mono uppercase tracking-widest text-slate-500 mt-1 truncate">{i.subjectName} · Unit {i.unitNumber}</p>
+                  </li>
+                ))}
+                {rest.length > SHOWN_UP_NEXT && (
+                  <li className="px-5 py-3.5 text-xs text-slate-500 tabular-nums">and {rest.length - SHOWN_UP_NEXT} more today</li>
+                )}
+              </ul>
+            </section>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Revise;

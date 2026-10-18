@@ -5,7 +5,7 @@ import {
   LayoutGrid,
   Search,
   Library,
-  Calculator,
+  Repeat,
   Settings,
   Menu,
   X,
@@ -15,6 +15,7 @@ import {
 import Dashboard from './pages/Dashboard';
 import SubjectDetail from './pages/SubjectDetail';
 import Resources from './pages/Resources';
+import RevisePage from './pages/Revise';
 import CalculatorPage from './pages/Calculator';
 import SettingsPage from './pages/Settings';
 import Onboarding from './pages/Onboarding';
@@ -176,7 +177,7 @@ export default function App() {
                         <NavItem label="Dashboard" to="/app" short="Home" icon={LayoutGrid} active={location.pathname === '/app'} />
                         <NavItem label="Resources" to="/app/resources" short="Library" icon={Library} active={location.pathname === '/app/resources'} />
                         <NavItem label="Tasks" to="/app/tasks" short="Tasks" icon={ListTodo} active={location.pathname === '/app/tasks'} />
-                        <NavItem label="SGPA calculator" to="/app/calculator" short="SGPA" icon={Calculator} active={location.pathname === '/app/calculator'} />
+                        <NavItem label="Revise" to="/app/revise" short="Revise" icon={Repeat} active={location.pathname === '/app/revise'} />
                         <NavItem label="Settings" to="/app/settings" short="Settings" icon={Settings} active={location.pathname === '/app/settings'} />
                         </nav></LayoutGroup></MotionConfig>
 
@@ -220,6 +221,7 @@ export default function App() {
                             <Route path="subject/:id" element={<SubjectDetail />} />
                             <Route path="resources" element={<Resources />} />
                             <Route path="tasks" element={<TodoList />} />
+                            <Route path="revise" element={<RevisePage />} />
                             <Route path="calculator" element={<CalculatorPage />} />
                             <Route path="settings" element={<SettingsPage />} />
                             <Route path="*" element={<Navigate to="/app" replace />} />

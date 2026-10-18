@@ -5,7 +5,7 @@ export interface StudyEventInput {
   subjectId: string;
   unitId?: string;
   topic?: string;
-  kind: 'topic' | 'unit' | 'pyq';
+  kind: 'topic' | 'unit' | 'pyq' | 'review';
 }
 
 export interface StudyEvent extends StudyEventInput {

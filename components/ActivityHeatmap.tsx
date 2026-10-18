@@ -25,6 +25,9 @@ const eventLine = (e: StudyEvent): { title: string; sub: string } => {
   if (e.kind === 'topic') {
     return { title: `Ticked "${e.topic}"`, sub: [subjectName, unitLabel].filter(Boolean).join(' - ') };
   }
+  if (e.kind === 'review') {
+    return { title: `Revised "${e.topic}"`, sub: [subjectName, unitLabel].filter(Boolean).join(' - ') };
+  }
   if (e.kind === 'pyq') {
     return { title: `PYQ ${e.topic} completed`, sub: [subjectName, unitLabel].filter(Boolean).join(' - ') };
   }
