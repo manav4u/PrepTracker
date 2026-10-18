@@ -151,36 +151,48 @@ const TodoList: React.FC = () => {
   const [inputDate, setInputDate] = useState('');
   const [inputUnit, setInputUnit] = useState('');
   const [inputSubject, setInputSubject] = useState('');
-  const [editSubject, setEditSubject] = useState('');
-  const [editUnit, setEditUnit] = useState('');
-  const [editText, setEditText] = useState('');
-  const [editDate, setEditDate] = useState('');
   const [filter, setFilter] = useState<'ALL' | 'ACTIVE' | 'COMPLETED'>('ALL');
-  const [editingUnitTaskId, setEditingUnitTaskId] = useState<string | null>(null);
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const formRef = useRef<HTMLDivElement>(null);
 
-  const startEdit = (t: Task) => {
-    setEditSubject(subjectOfUnit(t.unitId || ''));
-    setEditUnit(t.unitId || '');
-    setEditText(t.text);
-    setEditDate(t.dueDate || '');
-    setEditingUnitTaskId(t.id);
+  const resetForm = () => {
+    setEditingId(null);
+    setInputText('');
+    setInputPriority('NORMAL');
+    setInputCategory('GENERAL');
+    setInputDate('');
+    setInputUnit('');
+    setInputSubject('');
   };
 
-  const saveEdit = (id: string) => {
-    const text = editText.trim();
-    if (!text) return;
-    setTasks(prev => prev.map(t => {
-      if (t.id !== id) return t;
-      const { unitId: _drop, ...rest } = t;
-      return { ...rest, text, dueDate: editDate || '', ...(editUnit ? { unitId: editUnit } : {}) };
-    }));
-    setEditingUnitTaskId(null);
+  // Edit loads the task into the Add Task card; nothing is focused so the phone keyboard stays down
+  const startEdit = (t: Task) => {
+    setEditingId(t.id);
+    setInputText(t.text);
+    setInputPriority(t.priority);
+    setInputCategory(t.category);
+    setInputDate(t.dueDate || '');
+    setInputUnit(t.unitId || '');
+    setInputSubject(subjectOfUnit(t.unitId || ''));
+    setOpenId(null);
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    requestAnimationFrame(() => formRef.current?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }));
   };
 
   // Handlers
   const addTask = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!inputText.trim()) return;
+
+    if (editingId) {
+      setTasks(prev => prev.map(t => {
+        if (t.id !== editingId) return t;
+        const { unitId: _drop, ...rest } = t;
+        return { ...rest, text: inputText.trim(), priority: inputPriority, category: inputCategory, dueDate: inputDate || '', ...(inputUnit ? { unitId: inputUnit } : {}) };
+      }));
+      resetForm();
+      return;
+    }
 
     const newTask: Task = {
       id: Math.random().toString(36).substr(2, 9),
@@ -244,6 +256,7 @@ const TodoList: React.FC = () => {
     const removed = tasks.filter(t => t.id === id);
     setTasks(prev => prev.filter(t => t.id !== id));
     offerUndo(removed, 'Task deleted');
+    if (editingId === id) resetForm();
   };
 
   const clearCompleted = () => {
@@ -365,10 +378,10 @@ const TodoList: React.FC = () => {
         
         {/* INPUT CONSOLE */}
         <div className="lg:col-span-4 space-y-6">
-            <div className="surface-1 rounded-3xl p-5 lg:p-7 sticky top-8">
+            <div ref={formRef} className={`surface-1 rounded-3xl p-5 lg:p-7 sticky top-8 scroll-mt-24 transition-shadow duration-[250ms] ${editingId ? 'ring-1 ring-[#F63C49]/50' : ''}`}>
                 <div className="flex items-center gap-2 mb-5 text-white/50">
                     <LayoutList size={16} />
-                    <h2 className="text-[10px] font-bold uppercase tracking-[0.18em]">Add New Task</h2>
+                    <h2 className="text-[10px] font-bold uppercase tracking-[0.18em]">{editingId ? 'Edit Task' : 'Add New Task'}</h2>
                 </div>
 
                 <form onSubmit={addTask} className="space-y-5">
@@ -432,13 +445,24 @@ const TodoList: React.FC = () => {
                         </div>
                     </div>
 
+                    <div className="flex gap-3">
+                        {editingId && (
+                            <button
+                                type="button"
+                                onClick={resetForm}
+                                className="flex-1 h-12 surface-2 border border-white/10 rounded-2xl text-xs font-bold uppercase tracking-[0.2em] text-slate-300 hover:text-white transition-colors duration-[250ms]"
+                            >
+                                Cancel
+                            </button>
+                        )}
                     <button 
                         type="submit"
                         disabled={!inputText}
-                        className="w-full h-12 bg-gradient-to-br from-[#F63C49] to-[#9f1239] disabled:opacity-40 disabled:cursor-not-allowed text-white text-xs font-bold uppercase tracking-[0.2em] rounded-2xl transition-all duration-[250ms] flex items-center justify-center gap-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_8px_22px_-8px_rgba(246,60,73,0.6)]"
+                        className={`${editingId ? 'flex-1' : 'w-full'} h-12 bg-gradient-to-br from-[#F63C49] to-[#9f1239] disabled:opacity-40 disabled:cursor-not-allowed text-white text-xs font-bold uppercase tracking-[0.12em] lg:tracking-[0.2em] rounded-2xl transition-all duration-[250ms] flex items-center justify-center gap-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_8px_22px_-8px_rgba(246,60,73,0.6)]`}
                     >
-                        <Plus size={16} /> Add Task
+                        {editingId ? <Check size={16} /> : <Plus size={16} />} {editingId ? 'Save changes' : 'Add Task'}
                     </button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -521,7 +545,7 @@ const TodoList: React.FC = () => {
                                 </button>
                             </div>
                             <div
-                                className="group relative surface-1 rounded-3xl px-5 py-4 lg:px-6 lg:py-5"
+                                className={`group relative surface-1 rounded-3xl px-5 py-4 lg:px-6 lg:py-5 transition-shadow duration-[250ms] ${editingId === task.id ? 'ring-1 ring-inset ring-[#F63C49]/60' : ''}`}
                                 style={{
                                     transform: `translateX(${drag?.id === task.id ? drag.x : openId === task.id ? -ACTIONS_W : 0}px)`,
                                     transition: drag?.id === task.id ? 'none' : 'transform 250ms cubic-bezier(0.4,0,0.2,1)',
@@ -539,7 +563,7 @@ const TodoList: React.FC = () => {
                                     aria-label={task.completed ? `Mark not done: ${task.text}` : `Mark done: ${task.text}`}
                                     aria-pressed={task.completed}
                                     className={`
-                                        mt-0.5 w-6 h-6 rounded-full border flex items-center justify-center shrink-0 transition-all duration-[250ms] ${editingUnitTaskId === task.id ? 'max-lg:hidden' : ''}
+                                        mt-0.5 w-6 h-6 rounded-full border flex items-center justify-center shrink-0 transition-all duration-[250ms]
                                         ${task.completed 
                                             ? 'bg-gradient-to-br from-[#F63C49] to-[#9f1239] border-white/10 text-white' 
                                             : 'bg-transparent border-white/25 hover:border-white text-transparent'
@@ -550,66 +574,7 @@ const TodoList: React.FC = () => {
                                 </button>
 
                                 <div className="flex-1 min-w-0">
-                                    {editingUnitTaskId === task.id ? (
-                                        <div className="grid grid-cols-2 gap-x-2 gap-y-1.5 lg:grid-cols-1 lg:gap-y-3 animate-in fade-in duration-[250ms]" onClick={(e) => e.stopPropagation()}>
-                                            <div className="space-y-1 lg:space-y-2 col-span-2 lg:col-span-1">
-                                                <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Title</label>
-                                                <input
-                                                    type="text"
-                                                    aria-label="Task title"
-                                                    value={editText}
-                                                    onChange={(e) => setEditText(e.target.value)}
-                                                    onKeyDown={(e) => { if (e.key === 'Enter') saveEdit(task.id); if (e.key === 'Escape') setEditingUnitTaskId(null); }}
-                                                    className="w-full surface-2 border border-white/10 rounded-2xl px-4 h-10 lg:h-12 text-sm text-white focus:border-[#F63C49] outline-none transition-colors"
-                                                />
-                                            </div>
-                                            <div className="space-y-1 lg:space-y-2 min-w-0">
-                                                <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Due date</label>
-                                                <div className="relative group">
-                                                    <Calendar size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-[#F63C49] transition-colors" />
-                                                    <input
-                                                        type="date"
-                                                        aria-label="Due date"
-                                                        value={editDate}
-                                                        onChange={(e) => setEditDate(e.target.value)}
-                                                        className="w-full surface-2 border border-white/10 rounded-2xl pl-9 pr-2 lg:pl-10 lg:pr-4 h-10 lg:h-12 text-[11px] lg:text-xs font-mono text-slate-300 focus:border-[#F63C49] outline-none transition-colors uppercase"
-                                                    />
-                                                </div>
-                                            </div>
-                                            <CustomSelect
-                                                compact
-                                                label="Subject"
-                                                value={editSubject}
-                                                onChange={(v) => { setEditSubject(v); setEditUnit(''); }}
-                                                options={subjectOptionsFor(subjectOfUnit(task.unitId || ''))}
-                                            />
-                                            <div className="col-span-2 lg:col-span-1"><CustomSelect
-                                                compact
-                                                label="Linked unit"
-                                                value={editUnit}
-                                                onChange={(v) => setEditUnit(v)}
-                                                options={unitOptionsFor(editSubject)}
-                                                disabled={!editSubject}
-                                            /></div>
-                                            <div className="flex gap-3 pt-0.5 col-span-2 lg:col-span-1">
-                                                <button
-                                                    type="button"
-                                                    onClick={() => setEditingUnitTaskId(null)}
-                                                    className="flex-1 h-10 lg:h-11 surface-2 border border-white/10 rounded-2xl text-[10px] font-bold uppercase tracking-[0.2em] text-slate-300 hover:text-white transition-colors duration-[250ms]"
-                                                >
-                                                    Cancel
-                                                </button>
-                                                <button
-                                                    type="button"
-                                                    onClick={() => saveEdit(task.id)}
-                                                    disabled={!editText.trim()}
-                                                    className="flex-1 h-10 lg:h-11 bg-gradient-to-br from-[#F63C49] to-[#9f1239] disabled:opacity-40 rounded-2xl text-[10px] font-bold uppercase tracking-[0.2em] text-white transition-all duration-[250ms]"
-                                                >
-                                                    Save
-                                                </button>
-                                            </div>
-                                        </div>
-                                    ) : (<>
+                                    
                                     <div className="flex items-start justify-between gap-3 lg:pr-16">
                                         <p className={`text-base font-medium leading-snug ${task.completed ? 'text-slate-500 line-through decoration-slate-700' : 'text-white'}`}>
                                             {task.text}
@@ -656,12 +621,11 @@ const TodoList: React.FC = () => {
                                             );
                                         })()}
                                     </div>
-                                    </>)}
                                 </div>
 
                             </div>
                                 {/* Desktop: edit and delete appear on hover, top right */}
-                                <div className={`hidden ${editingUnitTaskId === task.id ? "" : "lg:flex"} absolute top-3 right-4 items-center gap-1 opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity duration-[250ms]`}>
+                                <div className={`hidden lg:flex absolute top-3 right-4 items-center gap-1 opacity-0 group-hover:opacity-100 focus-within:opacity-100 transition-opacity duration-[250ms]`}>
                                     <button
                                         type="button"
                                         onClick={() => startEdit(task)}
