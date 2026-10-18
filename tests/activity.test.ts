@@ -70,26 +70,17 @@ test('events older than the 182-day window are pruned', () => {
   assert.equal(p.events?.[0].subjectId, 'phy');
 });
 
-test('heatmapWeeks: last 30 days as GitHub-style week columns, Sunday first', () => {
-  const now = at('2026-10-14');
-  const p: ActivityProfile = { streak: 1, lastStudyDate: now.toISOString(), activity: { '2026-10-14': 3, '2026-09-15': 9 } };
-  const weeks = heatmapWeeks(p, 30, now);
-  const flat = weeks.flat();
-  const cells = flat.filter(c => c !== null);
-  assert.equal(cells.length, 30);
-  assert.equal(weeks.every(w => w.length === 7), true);
-  assert.equal(cells[0]!.day, '2026-09-15');
-  assert.equal(cells[0]!.level, 4);
-  assert.equal(cells[29]!.day, '2026-10-14');
-  assert.equal(cells[29]!.count, 3);
-  assert.equal(cells[29]!.level, 2);
-  // first column leads with nulls up to the start day's weekday, last column ends at today
-  const firstCol = weeks[0];
-  assert.equal(firstCol[0], null);
-  assert.equal(firstCol[firstCol.findIndex(c => c !== null)]!.day, '2026-09-15');
-  const lastCol = weeks[weeks.length - 1];
-  const lastIdx = lastCol.findIndex(c => c === null);
-  assert.equal(lastCol[lastIdx - 1]!.day, '2026-10-14');
+test('heatmap weeks: 5 monday-first weeks, 7 cells, future flagged, today matched', () => {
+  const now = at('2026-10-14'); // a Wednesday
+  const p: ActivityProfile = { streak: 1, lastStudyDate: now.toISOString(), activity: { '2026-10-14': 3 } };
+  const weeks = heatmapWeeks(p, 4, now);
+  assert.equal(weeks.length, 5);
+  assert.equal(weeks[4].cells.length, 7);
+  assert.equal(weeks[4].cells[2].day, '2026-10-14');
+  assert.equal(weeks[4].cells[2].count, 3);
+  assert.equal(weeks[4].cells[2].level, 2);
+  assert.equal(weeks[4].cells[3].future, true);
+  assert.equal(weeks[4].cells[0].future, false);
 });
 
 test('levelFor buckets counts onto five heat levels', () => {

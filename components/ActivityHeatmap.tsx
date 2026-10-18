@@ -1,53 +1,51 @@
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useMemo, useState } from 'react';
+import { SUBJECTS } from '../constants';
 import {
   ActivityProfile,
+  StudyEvent,
+  eventsForDay,
   heatmapWeeks,
+  dayKey,
   type HeatLevel,
 } from '../lib/activity';
 
-// GitHub contribution-grid geometry: 10px cells, 3px gap, 2px radius.
-const CELL = 10;
-const GAP = 3;
-const PITCH = CELL + GAP;
-
 const LEVEL_CLASS: Record<HeatLevel, string> = {
-  0: 'bg-white/[0.06]',
+  0: 'bg-white/[0.05]',
   1: 'bg-[#F63C49]/25',
   2: 'bg-[#F63C49]/45',
   3: 'bg-[#F63C49]/70',
-  4: 'bg-[#F63C49] shadow-[0_0_6px_rgba(246,60,73,0.5)]',
+  4: 'bg-[#F63C49] shadow-[0_0_8px_rgba(246,60,73,0.5)]',
 };
 
-interface Tip {
-  day: string;
-  count: number;
-  x: number;
-  topRow: boolean;
-  pinned: boolean;
-}
-
-const tipText = (day: string, count: number): string => {
-  const d = new Date(`${day}T00:00:00`);
-  const when = isNaN(d.getTime()) ? day : d.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
-  return count === 0 ? `No study on ${when}` : `${count} study action${count === 1 ? '' : 's'} on ${when}`;
+const eventLine = (e: StudyEvent): { title: string; sub: string } => {
+  const subject = SUBJECTS.find(s => s.id === e.subjectId);
+  const subjectName = subject?.name || e.subjectId;
+  const unit = subject?.units.find(u => u.id === e.unitId);
+  const unitLabel = unit ? `Unit ${unit.unit_number}` : '';
+  if (e.kind === 'topic') {
+    return { title: `Ticked "${e.topic}"`, sub: [subjectName, unitLabel].filter(Boolean).join(' - ') };
+  }
+  if (e.kind === 'pyq') {
+    return { title: `PYQ ${e.topic} completed`, sub: [subjectName, unitLabel].filter(Boolean).join(' - ') };
+  }
+  return { title: `${unitLabel || 'Unit'} status updated`, sub: subjectName };
 };
 
 const ActivityHeatmap: React.FC<{ profile: ActivityProfile; style?: React.CSSProperties }> = ({ profile, style }) => {
-  const weeks = useMemo(() => heatmapWeeks(profile, 30), [profile]);
-  const [tip, setTip] = useState<Tip | null>(null);
-  const gridWidth = weeks.length * PITCH - GAP;
-
-  const show = (day: string, count: number, col: number, row: number, pinned: boolean) => {
-    const cx = col * PITCH + CELL / 2;
-    setTip({ day, count, x: Math.min(Math.max(cx, 70), gridWidth - 70), topRow: row <= 1, pinned });
-  };
-  const hide = () => setTip(t => (t && t.pinned ? t : null));
+  const today = dayKey(new Date());
+  const [selected, setSelected] = useState(today);
+  const weeks = useMemo(() => heatmapWeeks(profile), [profile]);
+  const selectedEvents = eventsForDay(profile, selected);
+  const selectedCount = profile.activity?.[selected] || 0;
+  const selectedDate = new Date(`${selected}T00:00:00`);
+  const selectedLabel = isNaN(selectedDate.getTime())
+    ? selected
+    : selectedDate.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short' });
 
   return (
     <div
       style={style}
       className="relative rounded-3xl surface-1 p-5 lg:p-6 overflow-hidden animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500"
-      onMouseLeave={hide}
     >
       {/* Header */}
       <div className="relative flex items-center gap-3 mb-4">
@@ -55,51 +53,96 @@ const ActivityHeatmap: React.FC<{ profile: ActivityProfile; style?: React.CSSPro
         <span className="text-[9px] font-mono uppercase tracking-widest text-slate-600">Last 30 days</span>
       </div>
 
-      {/* GitHub-style grid: week columns, Sunday at the top of each column */}
-      <div className="relative" style={{ width: gridWidth }}>
-        <div
-          className="grid grid-flow-col"
-          style={{ gridTemplateRows: `repeat(7, ${CELL}px)`, gap: GAP }}
-          onClick={() => setTip(null)}
-        >
-          {weeks.map((week, col) =>
-            week.map((cell, row) =>
-              cell === null ? (
-                <span key={`${col}-${row}`} style={{ width: CELL, height: CELL }} />
-              ) : (
-                <button
-                  key={cell.day}
-                  type="button"
-                  aria-label={tipText(cell.day, cell.count)}
-                  onMouseEnter={() => show(cell.day, cell.count, col, row, false)}
-                  onMouseLeave={hide}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    if (tip?.pinned && tip.day === cell.day) setTip(null);
-                    else show(cell.day, cell.count, col, row, true);
-                  }}
-                  style={{ width: CELL, height: CELL }}
-                  className={`rounded-[2px] transition-transform duration-150 cursor-pointer hover:ring-1 hover:ring-white/60 ${LEVEL_CLASS[cell.level]}`}
-                />
-              )
-            )
-          )}
+      {/* Grid + day detail: side by side on desktop, stacked on phone */}
+      <div className="relative flex flex-col lg:flex-row lg:items-start gap-5">
+        <div className="shrink-0">
+          {/* Month labels */}
+          <div className="flex gap-[2px] mb-1 pl-4">
+            {weeks.map((w, i) => (
+              <div key={i} className="w-[26px] lg:w-[34px] shrink-0">
+                {w.monthLabel && (
+                  <span className="text-[8px] font-mono font-bold uppercase text-slate-500 truncate block">{w.monthLabel}</span>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Grid */}
+          <div className="flex gap-[5px]">
+            <div className="flex flex-col gap-[2px] w-2.5 shrink-0">
+              {['M', 'T', 'W', 'T', 'F', 'S', 'S'].map((d, i) => (
+                <div key={i} className="h-[26px] lg:h-[34px] flex items-center">
+                  {(i === 0 || i === 2 || i === 4) && (
+                    <span className="text-[8px] font-mono font-bold text-slate-600">{d}</span>
+                  )}
+                </div>
+              ))}
+            </div>
+            <div className="flex gap-[2px]">
+              {weeks.map((w, wi) => (
+                <div key={wi} className="w-[26px] lg:w-[34px] shrink-0 flex flex-col gap-[2px]">
+                  {w.cells.map((c) => {
+                    const isToday = c.day === today;
+                    const isSelected = c.day === selected;
+                    return (
+                      <button
+                        key={c.day}
+                        type="button"
+                        aria-label={`${c.day}: ${c.future ? 'upcoming' : c.count + ' study actions'}`}
+                        onClick={() => !c.future && setSelected(c.day)}
+                        className={`w-full h-[26px] lg:h-[34px] rounded-[3px] transition-all duration-200 ${LEVEL_CLASS[c.level]}
+                          ${c.future ? 'opacity-25 cursor-default' : 'hover:scale-105 cursor-pointer'}
+                          ${isToday ? 'ring-1 ring-white/80' : ''}
+                          ${isSelected && !isToday ? 'ring-1 ring-[#F63C49]' : ''}`}
+                      />
+                    );
+                  })}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Legend */}
+          <div className="flex items-center gap-1.5 mt-3 pl-4">
+            <span className="text-[8px] font-mono uppercase text-slate-600 mr-1">Less</span>
+            {([0, 1, 2, 3, 4] as HeatLevel[]).map(l => (
+              <span key={l} className={`w-2.5 h-2.5 rounded-[3px] ${LEVEL_CLASS[l]}`}></span>
+            ))}
+            <span className="text-[8px] font-mono uppercase text-slate-600 ml-1">More</span>
+          </div>
         </div>
 
-        {/* Tooltip, GitHub style */}
-        {tip && (
-          <div
-            className={`pointer-events-none absolute z-10 left-0 whitespace-nowrap rounded-md bg-[#0d0f12] border border-white/10 px-2.5 py-1.5 text-[10px] font-medium text-slate-200 shadow-lg
-              ${tip.topRow ? 'top-full mt-1.5' : '-translate-y-1.5'}`}
-            style={{ left: tip.x, transform: `translateX(-50%)${tip.topRow ? '' : ' translateY(-6px)'}`, top: tip.topRow ? undefined : -8 }}
-          >
-            {tipText(tip.day, tip.count)}
-            <span
-              className={`absolute left-1/2 -translate-x-1/2 w-2 h-2 rotate-45 bg-[#0d0f12] border-white/10
-                ${tip.topRow ? '-top-1 border-l border-t' : '-bottom-1 border-r border-b'}`}
-            />
+        {/* Day detail */}
+        <div className="relative rounded-2xl surface-2 p-5 flex-1 w-full">
+          <div className="flex items-center justify-between mb-3">
+            <p className="text-sm font-display font-bold text-white tracking-tight">{selectedLabel}</p>
+            <span className="text-[9px] font-bold uppercase tracking-widest text-slate-500">
+              {selectedCount === 0 ? 'No study' : `${selectedCount} action${selectedCount === 1 ? '' : 's'}`}
+            </span>
           </div>
-        )}
+          {selectedEvents.length > 0 ? (
+            <ul className="space-y-2.5">
+              {selectedEvents.map((e, i) => {
+                const line = eventLine(e);
+                return (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-[2px] bg-[#F63C49] shrink-0"></span>
+                    <div className="min-w-0">
+                      <p className="text-xs font-medium text-white truncate">{line.title}</p>
+                      <p className="text-[10px] font-mono uppercase tracking-wider text-slate-500 truncate">{line.sub}</p>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          ) : selectedCount > 0 ? (
+            <p className="text-xs text-slate-500">
+              {selectedCount} study action{selectedCount === 1 ? '' : 's'} this day. Per-topic detail starts with the new study log.
+            </p>
+          ) : (
+            <p className="text-xs text-slate-500">No study recorded this day.</p>
+          )}
+        </div>
       </div>
     </div>
   );
