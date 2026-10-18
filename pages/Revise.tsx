@@ -85,23 +85,20 @@ const Revise: React.FC = () => {
         {/* HERO: first on phone, sticky on the right on desktop */}
         <section
           aria-live="polite"
-          className="lg:col-start-8 lg:col-span-5 lg:row-start-1 lg:row-span-2 lg:sticky lg:top-8 rounded-3xl border border-white/10 surface-1 p-5 lg:p-7"
+          className="lg:col-start-8 lg:col-span-5 lg:row-start-1 lg:row-span-2 lg:sticky lg:top-8 rounded-3xl border border-white/10 surface-1 p-5 lg:p-6"
         >
           <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">To revise today</p>
-          <p className={`mt-1 lg:mt-2 leading-none text-6xl lg:text-8xl tabular-nums ${left > 0 ? 'text-[#F63C49]' : 'text-slate-700'}`} style={{ fontFamily: "'Instrument Serif', serif" }}>{left}</p>
-          <div className="mt-4 lg:mt-6 h-1.5 rounded-full bg-white/10 overflow-hidden" role="progressbar" aria-valuemin={0} aria-valuemax={total} aria-valuenow={queue.doneToday} aria-label="Reviews done today">
+          <div className="mt-1 flex items-end justify-between gap-4">
+            <p className={`leading-[0.85] text-6xl lg:text-7xl tabular-nums ${left > 0 ? 'text-[#F63C49]' : 'text-slate-700'}`} style={{ fontFamily: "'Instrument Serif', serif" }}>{left}</p>
+            <div className="text-right text-sm text-slate-400 tabular-nums leading-snug">
+              <p><span className="text-white font-semibold">{queue.doneToday}</span> done</p>
+              {streak > 0 && <p><span className="text-white font-semibold">{streak}</span>-day streak</p>}
+            </div>
+          </div>
+          <div className="mt-4 h-1.5 rounded-full bg-white/10 overflow-hidden" role="progressbar" aria-valuemin={0} aria-valuemax={total} aria-valuenow={queue.doneToday} aria-label="Reviews done today">
             <div className={`h-full rounded-full bg-[#F63C49] transition-[width] ${EASE}`} style={{ width: `${pct}%` }}></div>
           </div>
-          <p className="text-xs text-slate-500 mt-3 tabular-nums">
-            {queue.doneToday} done · {left} left today
-            {streak > 0 && <span className="lg:hidden">{` · ${streak}-day streak`}</span>}
-          </p>
-          {queue.waiting > 0 && <p className="text-xs text-slate-500 mt-1 tabular-nums">{queue.waiting} more queued for tomorrow</p>}
-          {streak > 0 && (
-            <p className="hidden lg:block mt-4 pt-4 border-t border-white/10 text-xs text-slate-400 tabular-nums">
-              {streak}-day streak
-            </p>
-          )}
+          {queue.waiting > 0 && <p className="mt-2 text-right text-xs text-slate-500 tabular-nums">{queue.waiting} more tomorrow</p>}
         </section>
 
         <div className="lg:col-span-7 lg:col-start-1 lg:row-start-1 space-y-5">
