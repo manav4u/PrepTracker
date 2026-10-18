@@ -99,33 +99,14 @@ export interface HeatCell {
   level: HeatLevel;
 }
 
-export interface HeatWeek {
-  cells: HeatCell[]; // Monday first, seven cells
-  monthLabel?: string; // set when the week's Monday opens a new month
-}
-
-/** Monday-first weeks ending this week, oldest first. Covers the kept activity window. */
-export const heatmapWeeks = (p: ActivityProfile, weeksBack = 4, now: Date = new Date()): HeatWeek[] => {
-  const today = startOfDay(now);
-  const dow = (today.getDay() + 6) % 7; // 0 = Monday
-  const thisMonday = new Date(today.getFullYear(), today.getMonth(), today.getDate() - dow);
-  const weeks: HeatWeek[] = [];
-  let prevMonth = -1;
-  for (let w = weeksBack; w >= 0; w--) {
-    const monday = new Date(thisMonday.getFullYear(), thisMonday.getMonth(), thisMonday.getDate() - w * 7);
-    const cells: HeatCell[] = [];
-    for (let i = 0; i < 7; i++) {
-      const d = new Date(monday.getFullYear(), monday.getMonth(), monday.getDate() + i);
-      const key = dayKey(d);
-      const future = startOfDay(d).getTime() > today.getTime();
-      const count = p.activity?.[key] || 0;
-      cells.push({ day: key, count, future, level: future ? 0 : levelFor(count) });
-    }
-    const monthLabel = monday.getMonth() !== prevMonth
-      ? monday.toLocaleDateString('en-US', { month: 'short' })
-      : undefined;
-    prevMonth = monday.getMonth();
-    weeks.push({ cells, monthLabel });
+/** The last n days ending today, oldest first, for the horizontal strip. */
+export const lastNDays = (p: ActivityProfile, n = 30, now: Date = new Date()): HeatCell[] => {
+  const cells: HeatCell[] = [];
+  for (let i = n - 1; i >= 0; i--) {
+    const d = new Date(now.getFullYear(), now.getMonth(), now.getDate() - i);
+    const key = dayKey(d);
+    const count = p.activity?.[key] || 0;
+    cells.push({ day: key, count, future: false, level: levelFor(count) });
   }
-  return weeks;
+  return cells;
 };

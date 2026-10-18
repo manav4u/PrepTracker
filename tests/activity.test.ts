@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { recordStudy, currentStreak, lastDays, dayKey, heatmapWeeks, levelFor, eventsForDay, type ActivityProfile } from '../lib/activity.ts';
+import { recordStudy, currentStreak, lastDays, dayKey, lastNDays, levelFor, eventsForDay, type ActivityProfile } from '../lib/activity.ts';
 
 const at = (s: string) => new Date(`${s}T10:00:00`);
 const base: ActivityProfile = { streak: 0, lastStudyDate: '' };
@@ -70,17 +70,17 @@ test('events older than the 182-day window are pruned', () => {
   assert.equal(p.events?.[0].subjectId, 'phy');
 });
 
-test('heatmap weeks: 5 monday-first weeks, 7 cells, future flagged, today matched', () => {
-  const now = at('2026-10-14'); // a Wednesday
-  const p: ActivityProfile = { streak: 1, lastStudyDate: now.toISOString(), activity: { '2026-10-14': 3 } };
-  const weeks = heatmapWeeks(p, 4, now);
-  assert.equal(weeks.length, 5);
-  assert.equal(weeks[4].cells.length, 7);
-  assert.equal(weeks[4].cells[2].day, '2026-10-14');
-  assert.equal(weeks[4].cells[2].count, 3);
-  assert.equal(weeks[4].cells[2].level, 2);
-  assert.equal(weeks[4].cells[3].future, true);
-  assert.equal(weeks[4].cells[0].future, false);
+test('lastNDays: 30 cells oldest first, today last with its count and level', () => {
+  const now = at('2026-10-14');
+  const p: ActivityProfile = { streak: 1, lastStudyDate: now.toISOString(), activity: { '2026-10-14': 3, '2026-09-15': 9 } };
+  const cells = lastNDays(p, 30, now);
+  assert.equal(cells.length, 30);
+  assert.equal(cells[0].day, '2026-09-15');
+  assert.equal(cells[0].level, 4);
+  assert.equal(cells[29].day, '2026-10-14');
+  assert.equal(cells[29].count, 3);
+  assert.equal(cells[29].level, 2);
+  assert.equal(cells[28].level, 0);
 });
 
 test('levelFor buckets counts onto five heat levels', () => {
