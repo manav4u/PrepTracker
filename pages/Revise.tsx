@@ -1,4 +1,3 @@
-import AppFooter from '../components/AppFooter';
 import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useData } from '../context/DataContext';
@@ -68,7 +67,7 @@ const Revise: React.FC = () => {
       : '';
 
   return (
-    <div className="max-w-7xl mx-auto animate-in fade-in duration-700 flex flex-col lg:min-h-[calc(100svh-13rem)]">
+    <div className="max-w-7xl mx-auto animate-in fade-in duration-700">
       <header className="relative mb-6 lg:mb-12">
         <span className="inline-flex items-center gap-2 h-7 px-3 rounded-full border border-white/10 bg-white/[0.03] text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400 mb-4">
           <span className="w-1.5 h-1.5 rounded-full bg-[#F63C49]"></span>Daily revision
@@ -171,7 +170,6 @@ const Revise: React.FC = () => {
           </section>
         )}
       </div>
-      <AppFooter />
     </div>
   );
 };
