@@ -7,6 +7,40 @@ import ResourceViewerModal from '../components/ResourceViewerModal';
 import { useModalA11y } from '../components/useModalA11y';
 import { useData } from '../context/DataContext';
 
+// Horizontally scrolling row with soft edge fades. Fades only show on a side that has more content.
+const FadeRow: React.FC<{ className?: string; children: React.ReactNode; role?: string; ariaLabel?: string }> = ({ className = '', children, role, ariaLabel }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [edges, setEdges] = useState({ left: false, right: false });
+  const update = () => {
+    const el = ref.current;
+    if (!el) return;
+    const left = el.scrollLeft > 4;
+    const right = el.scrollLeft + el.clientWidth < el.scrollWidth - 4;
+    setEdges((e) => (e.left === left && e.right === right ? e : { left, right }));
+  };
+  useEffect(() => {
+    update();
+    const el = ref.current;
+    if (!el) return;
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  });
+  const mask = `linear-gradient(to right, ${edges.left ? 'transparent 0, #000 36px' : '#000 0'}, ${edges.right ? '#000 calc(100% - 36px), transparent 100%' : '#000 100%'})`;
+  return (
+    <div
+      ref={ref}
+      onScroll={update}
+      role={role}
+      aria-label={ariaLabel}
+      className={className}
+      style={{ WebkitMaskImage: mask, maskImage: mask }}
+    >
+      {children}
+    </div>
+  );
+};
+
 // --- TYPES ---
 
 interface SelectOption {
@@ -122,10 +156,10 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ item, onClick, isSelectionM
             type="button"
             onClick={onClick}
             aria-pressed={isSelectionMode ? isSelected : undefined}
-            className={`group relative border rounded-xl p-6 transition-all duration-300 overflow-hidden flex flex-col h-full cursor-pointer hover:-translate-y-1 text-left w-full ${
+            className={`group relative border rounded-3xl p-5 lg:p-6 transition-all duration-300 overflow-hidden flex flex-col h-full cursor-pointer hover:-translate-y-1 text-left w-full ${
                 isSelected 
                 ? 'bg-[#F63C49]/10 border-[#F63C49] shadow-[0_0_20px_rgba(246,60,73,0.15)]' 
-                : 'surface-1 hover:border-[#F63C49]/50 hover:shadow-xl hover:shadow-[#F63C49]/5'
+                : 'surface-1 hover:border-[#F63C49]/40'
             }`}
         >
             {/* Hover Scan Effect - disabled if selected or in selection mode */}
@@ -133,18 +167,18 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ item, onClick, isSelectionM
                 <div className="pointer-events-none absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#F63C49] to-transparent -translate-x-full group-hover:animate-[scan_1.5s_ease-in-out_infinite]"></div>
             )}
 
-            <div className="flex justify-between items-start mb-6">
+            <div className="flex justify-between items-start mb-5">
                 <div className="flex items-center gap-3">
-                    <div className={`p-2.5 rounded-lg border ${
+                    <div className={`p-2.5 rounded-xl border ${
                         item.type === 'video' || isYoutube
-                        ? 'bg-red-500/10 border-red-500/20 text-red-500' 
-                        : 'bg-cyan-500/10 border-cyan-500/20 text-cyan-500'
+                        ? 'bg-[#F63C49]/10 border-[#F63C49]/25 text-[#F63C49]' 
+                        : 'bg-white/[0.05] border-white/10 text-slate-300'
                     }`}>
                         {isYoutube ? <Youtube size={16} /> : item.type === 'video' ? <Video size={16} /> : <FileText size={16} />}
                     </div>
                     <div className="flex flex-col">
                         <span className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mb-0.5">{item.category}</span>
-                        <span className="text-[10px] font-bold text-white bg-white/10 px-1.5 py-0.5 rounded w-fit">{item.subject}</span>
+                        <span className="text-[10px] font-bold text-white bg-white/[0.07] border border-white/5 px-1.5 py-0.5 rounded-md w-fit">{item.subject}</span>
                     </div>
                 </div>
 
@@ -171,7 +205,7 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ item, onClick, isSelectionM
                 {item.title}
             </p>
 
-            <div className={`mt-auto pt-6 border-t flex items-center justify-between ${isSelected ? 'border-[#F63C49]/30' : 'border-white/5'}`}>
+            <div className={`mt-auto pt-5 flex items-center justify-between`}>
                 <span className="text-[10px] font-mono text-slate-500 uppercase flex items-center gap-2">
                     <span className={`w-1.5 h-1.5 rounded-full transition-colors ${item.isSystem ? 'bg-slate-700 group-hover:bg-[#D61A40]' : 'bg-green-500'}`}></span> 
                     {item.isSystem ? `By ${item.author}` : 'Added by you'}
@@ -376,31 +410,27 @@ const Resources: React.FC = () => {
       />
 
       {/* Cinematic Header */}
-      <header className="mb-12 lg:mb-16 border-b border-white/5 pb-8">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-            <div className="space-y-4">
-                <div className="flex items-center gap-3 text-[#F63C49] mb-2">
-                    <Database size={16} />
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-[0.3em]">Resource Library</span>
-                </div>
-                <h1 className="text-6xl lg:text-8xl font-display font-bold text-white tracking-tighter leading-[0.85]">
-                    The <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-500">Library</span>
-                </h1>
-            </div>
-            
-            {/* System Status Indicators */}
-            <div className="flex gap-4 lg:gap-8">
-                <div className="text-right">
-                    <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mb-1">Items</p>
-                    <p className="text-xs font-bold text-white font-mono">{resources.length}</p>
-                </div>
-            </div>
+      <header className="mb-8 lg:mb-10">
+        <div className="flex items-end justify-between gap-6">
+          <div>
+            <span className="inline-flex items-center gap-2 h-7 px-3 rounded-full border border-white/10 bg-white/[0.03] text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400 mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F63C49]"></span>Resource Library
+            </span>
+            <h1 className="text-white leading-[0.95]">
+              <span className="block font-display font-medium text-base lg:text-lg tracking-[0.02em] text-slate-500 mb-1">The</span>
+              <span className="block text-6xl lg:text-8xl tracking-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>Library<span className="text-[#F63C49]">.</span></span>
+            </h1>
+          </div>
+          <span className="inline-flex items-center gap-2 h-10 px-4 rounded-full border border-white/10 surface-1 shrink-0 mb-2">
+            <span className="font-sans font-semibold text-white text-lg tabular-nums">{resources.length}</span>
+            <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Items</span>
+          </span>
         </div>
       </header>
 
       {/* Control Deck */}
-      <div className="sticky top-24 lg:top-8 z-30 bg-[#030303]/80 backdrop-blur-xl border border-white/5 rounded-2xl p-2 mb-8 shadow-2xl transition-all">
-         <div className="flex flex-col lg:flex-row gap-4 items-center">
+      <div className="sticky top-24 lg:top-8 z-30 surface-1 backdrop-blur-xl rounded-3xl p-2 mb-8 transition-all">
+         <div className="flex flex-col lg:flex-row gap-2 lg:gap-3 items-center">
             
             {/* Selection Mode Controls */}
             {isSelectionMode ? (
@@ -427,46 +457,46 @@ const Resources: React.FC = () => {
             ) : (
                 <button 
                     onClick={() => setIsSelectionMode(true)}
-                    className="w-full lg:w-auto px-6 py-4 lg:py-0 h-[52px] rounded-xl border border-white/10 text-slate-400 hover:text-white hover:bg-white/5 font-bold uppercase text-[10px] tracking-widest flex items-center justify-center gap-2 transition-all shrink-0 hover:border-white/20"
+                    className="w-full lg:w-auto px-6 h-12 rounded-2xl surface-2 text-slate-400 hover:text-white hover:bg-white/[0.07] font-bold uppercase text-[10px] tracking-widest flex items-center justify-center gap-2 transition-all shrink-0"
                 >
                     <MousePointer2 size={16} /> Select
                 </button>
             )}
 
             {/* CLI Search */}
-            <div className="flex-1 w-full bg-black/50 rounded-xl border border-white/10 flex items-center px-4 group focus-within:border-[#F63C49]/50 transition-colors">
-                <span className="text-[#F63C49] font-mono mr-3 text-lg">{'>'}</span>
+            <div className="flex-1 w-full h-12 surface-2 rounded-2xl flex items-center px-4 group focus-within:border-[#F63C49]/50 transition-colors">
+                <span className="text-[#F63C49] font-mono mr-3 text-base">{'>'}</span>
                 <input 
                     type="text" 
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search resources..."
-                    className="w-full bg-transparent border-none py-4 text-sm font-mono text-white placeholder:text-slate-600 focus:outline-none uppercase tracking-wider"
+                    className="w-full bg-transparent border-none py-3 text-sm font-mono text-white placeholder:text-slate-600 focus:outline-none uppercase tracking-wider"
                 />
                 <Command size={16} className="text-slate-600" />
             </div>
 
             {/* Tab Matrix */}
-            <div className="flex overflow-x-auto no-scrollbar gap-1 p-1 w-full lg:w-auto">
+            <FadeRow className="flex overflow-x-auto no-scrollbar gap-1 p-1 w-full lg:w-auto">
                 {['all', 'notes', 'lecture streams', 'textbooks', 'solved pyqs'].map((tab) => (
                     <button
                         key={tab}
                         onClick={() => setActiveTab(tab)}
-                        className={`px-4 py-3 rounded-lg text-[10px] font-bold uppercase tracking-[0.15em] whitespace-nowrap transition-all border border-transparent ${
+                        className={`px-4 h-10 rounded-full text-[10px] font-bold uppercase tracking-[0.15em] whitespace-nowrap transition-all border ${
                             activeTab === tab 
-                            ? 'bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.2)]' 
-                            : 'text-slate-500 hover:text-white hover:bg-white/5 hover:border-white/10'
+                            ? 'text-white border-white/10 bg-gradient-to-br from-[#F63C49] to-[#9f1239] shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_8px_22px_-8px_rgba(246,60,73,0.6)]' 
+                            : 'border-transparent text-slate-500 hover:text-white hover:bg-white/5'
                         }`}
                     >
                         {tab}
                     </button>
                 ))}
-            </div>
+            </FadeRow>
          </div>
       </div>
 
       {/* Subject filter */}
-      <div className="flex overflow-x-auto no-scrollbar gap-2 mb-8 -mt-6" role="group" aria-label="Filter by subject">
+      <FadeRow className="flex overflow-x-auto no-scrollbar gap-2 mb-8 -mt-6" role="group" ariaLabel="Filter by subject">
         {[{ label: 'All subjects', value: 'ALL' }, ...userSubjectOptions].map((o) => (
           <button
             key={o.value}
@@ -477,20 +507,20 @@ const Resources: React.FC = () => {
               subjectFilter === o.value ? 'bg-[#F63C49]/10 border-[#F63C49]/40 text-[#F63C49]' : 'border-white/10 text-slate-500 hover:text-white hover:bg-white/5'
             }`}
           >
-            {o.value === 'ALL' || o.value === 'GENERAL' ? o.label : o.value}
+            <span className="block max-w-[200px] truncate" title={o.label}>{o.label}</span>
           </button>
         ))}
-      </div>
+      </FadeRow>
 
       {/* Data Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6">
          {/* Add New Node Card */}
          <button 
             onClick={() => setIsAddModalOpen(true)}
-            className="group relative rounded-xl border border-dashed border-white/10 bg-white/[0.01] hover:bg-white/[0.05] hover:border-[#F63C49]/50 transition-all flex flex-col items-center justify-center p-8 h-[220px] gap-4"
+            className="group relative rounded-3xl border border-dashed border-white/10 bg-white/[0.01] hover:bg-white/[0.05] hover:border-[#F63C49]/50 transition-all flex flex-row md:flex-col items-center justify-center p-5 lg:p-8 h-[88px] md:h-auto md:min-h-[200px] gap-4"
          >
-             <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center text-slate-500 group-hover:text-[#F63C49] group-hover:bg-[#F63C49]/10 transition-all duration-500">
-                 <Plus size={32} />
+             <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-white/5 flex items-center justify-center text-slate-500 group-hover:text-[#F63C49] group-hover:bg-[#F63C49]/10 transition-all duration-500">
+                 <Plus size={24} />
              </div>
              <p className="text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-white transition-colors">Add Resource</p>
          </button>
