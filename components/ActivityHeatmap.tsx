@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { SUBJECTS } from '../constants';
 import {
   ActivityProfile,
@@ -37,6 +37,18 @@ const ActivityHeatmap: React.FC<{ profile: ActivityProfile; style?: React.CSSPro
   const weeks = useMemo(() => heatmapWeeks(profile, 3), [profile]);
   const monthLabel = new Date().toLocaleDateString('en-US', { month: 'long' });
   const selectedEvents = eventsForDay(profile, selected);
+  const listRef = useRef<HTMLDivElement>(null);
+  // Bottom vignette strength: 1 while more rows sit below the fold, easing to 0 at the end.
+  const updateFade = () => {
+    const el = listRef.current;
+    if (!el) return;
+    const left = el.scrollHeight - el.clientHeight - el.scrollTop;
+    el.style.setProperty('--fade', String(Math.max(0, Math.min(1, left / 24))));
+  };
+  useEffect(() => {
+    if (listRef.current) listRef.current.scrollTop = 0;
+    updateFade();
+  }, [selected, selectedEvents.length]);
   const selectedCount = profile.activity?.[selected] || 0;
   const selectedDate = new Date(`${selected}T00:00:00`);
   const selectedLabel = isNaN(selectedDate.getTime())
@@ -91,21 +103,25 @@ const ActivityHeatmap: React.FC<{ profile: ActivityProfile; style?: React.CSSPro
           </div>
         </div>
 
-        {/* Day detail */}
+        {/* Day detail: fixed height sized for five rows, scrolls inside, bottom vignette */}
         <div className="relative rounded-2xl surface-2 p-5 lg:p-7 w-full lg:flex-1 flex flex-col">
-          <div className="flex items-center justify-between mb-3 lg:mb-5">
+          <div className="flex items-center justify-between mb-3 lg:mb-4 shrink-0">
             <p className="text-sm lg:text-lg font-display font-bold text-white tracking-tight">{selectedLabel}</p>
             <span className="text-[9px] lg:text-[10px] font-bold uppercase tracking-widest text-slate-500">
               {selectedCount === 0 ? 'No study' : `${selectedCount} action${selectedCount === 1 ? '' : 's'}`}
             </span>
           </div>
-          <div className="lg:flex-1 lg:flex lg:flex-col lg:justify-center">
+          <div
+            ref={listRef}
+            onScroll={updateFade}
+            className="actions-scroll h-[300px] lg:h-[280px] overflow-y-auto overscroll-contain"
+          >
             {selectedEvents.length > 0 ? (
-              <ul className="space-y-2.5 lg:space-y-5">
+              <ul>
                 {selectedEvents.map((e, i) => {
                   const line = eventLine(e);
                   return (
-                    <li key={i} className="flex items-start gap-3 lg:gap-4">
+                    <li key={i} className="flex items-start gap-3 lg:gap-4 h-[60px] lg:h-[56px]">
                       <span className="mt-1.5 lg:mt-2 w-1.5 h-1.5 lg:w-2 lg:h-2 rounded-[2px] bg-[#F63C49] shrink-0"></span>
                       <div className="min-w-0">
                         <p className="text-xs lg:text-base font-medium text-white truncate">{line.title}</p>
@@ -115,12 +131,14 @@ const ActivityHeatmap: React.FC<{ profile: ActivityProfile; style?: React.CSSPro
                   );
                 })}
               </ul>
-            ) : selectedCount > 0 ? (
-              <p className="text-xs lg:text-sm text-slate-500">
-                {selectedCount} study action{selectedCount === 1 ? '' : 's'} this day. Per-topic detail starts with the new study log.
-              </p>
             ) : (
-              <p className="text-xs lg:text-sm text-slate-500">No study recorded this day.</p>
+              <div className="h-full flex items-center">
+                <p className="text-xs lg:text-sm text-slate-500">
+                  {selectedCount > 0
+                    ? `${selectedCount} study action${selectedCount === 1 ? '' : 's'} this day. Per-topic detail starts with the new study log.`
+                    : 'No study recorded this day.'}
+                </p>
+              </div>
             )}
           </div>
         </div>
