@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { SUBJECTS } from '../constants';
 import SubjectCard from '../components/SubjectCard';
 import { UnitStatus } from '../types';
-import { Sparkles, CalendarDays, Flame, Activity, Zap } from 'lucide-react';
+import { Sparkles, CalendarDays, Flame, Activity } from 'lucide-react';
 import { useData } from '../context/DataContext';
 import { currentStreak, lastDays, todayCount, DAILY_GOAL } from '../lib/activity';
 import ActivityHeatmap from '../components/ActivityHeatmap';
@@ -83,23 +83,6 @@ const StreakCard = ({ streak, today, goal, style }: any) => {
         </div>
       </div>
     </div>
-  );
-};
-
-const CountdownTile = ({ value, sub, to, style }: any) => {
-  const Wrap: any = to ? Link : 'div';
-  return (
-    <Wrap {...(to ? { to } : {})} style={style} className="p-6 rounded-3xl surface-1 flex flex-col justify-between h-44 lg:h-auto transition-all duration-300 group hover:-translate-y-1 hover:border-white/15 animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(246,60,73,0.08),transparent_60%)] pointer-events-none"></div>
-      <div className="relative flex justify-between items-start">
-        <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-[#F63C49]">Days to exam</span>
-        <CalendarDays size={16} className="text-[#F63C49]" />
-      </div>
-      <div className="relative">
-        <p className="text-7xl lg:text-8xl font-display font-bold tracking-tighter text-[#F63C49] leading-[0.85] mb-2">{value}</p>
-        <p className="text-[10px] lg:text-[11px] font-bold uppercase tracking-widest text-slate-500">{sub}</p>
-      </div>
-    </Wrap>
   );
 };
 
@@ -241,7 +224,7 @@ const Dashboard: React.FC = () => {
   const examDiff = examStart && !isNaN(examStart.getTime())
     ? Math.round((examStart.getTime() - startOfToday.getTime()) / 86400000)
     : null;
-  const examValue = examDiff === null ? '--' : examDiff > 0 ? `${examDiff}` : examDiff === 0 ? 'Today' : 'Now';
+  const examValue = examDiff === null ? '--' : examDiff > 0 ? `${examDiff}d` : examDiff === 0 ? 'Today' : 'Now';
   const examSub = examDiff === null ? 'Set exam date' : examDiff >= 0 && examStart
     ? `Starts ${examStart.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}`
     : 'Exams started';
@@ -292,22 +275,20 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
 
-        <CountdownTile value={examValue} sub={examSub} to={examDiff === null ? '/app/settings' : undefined} style={{ animationDelay: '90ms' }} />
-        <StreakCard streak={validStreak} today={todayActions} goal={DAILY_GOAL} style={{ animationDelay: '150ms' }} />
+        <div className="lg:col-span-2 grid grid-cols-2 gap-4 lg:gap-6">
+           <StatPill label="Units Mastered" value={totalMastered} sub={`/ ${totalUnits} Units`} gradient={true} icon={Sparkles} style={{ animationDelay: '60ms' }} />
+
+           {/* Dynamic Graph Replacement for Forecast */}
+           <ProgressGraphCard data={graphData} labels={graphLabels} total={weekTotal} />
+
+           <StatPill label="Days to Exam" value={examValue} sub={examSub} icon={CalendarDays} to={examDiff === null ? '/app/settings' : undefined} style={{ animationDelay: '120ms' }} />
+           <StreakCard streak={validStreak} today={todayActions} goal={DAILY_GOAL} style={{ animationDelay: '180ms' }} />
+        </div>
       </section>
 
-      {/* Activity heatmap: the return-visit engine, full width under the greeting row */}
+      {/* Activity heatmap: full-width strip under the greeting row */}
       <section>
         <ActivityHeatmap profile={profile} style={{ animationDelay: '200ms' }} />
-      </section>
-
-      {/* Quiet supporting stats */}
-      <section className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-           <StatPill label="Units Mastered" value={totalMastered} sub={`/ ${totalUnits} Units`} gradient={true} icon={Sparkles} style={{ animationDelay: '240ms' }} />
-           <div className="lg:col-span-2">
-             <ProgressGraphCard data={graphData} labels={graphLabels} total={weekTotal} />
-           </div>
-           <StatPill label="Today" value={todayActions} sub={`/ ${DAILY_GOAL} actions`} icon={Zap} style={{ animationDelay: '300ms' }} />
       </section>
 
       {/* Main Grid */}
