@@ -35,7 +35,7 @@ const ReviseSheet: React.FC<{ count: number; subjects: string[]; onClose: () => 
             <span key={n} className="inline-flex items-center h-7 px-3 rounded-full border border-white/10 bg-white/[0.03] text-[10px] font-bold uppercase tracking-[0.12em] text-slate-300 max-w-full truncate">{n}</span>
           ))}
           {subjects.length > shown.length && (
-            <span className="inline-flex items-center h-7 px-3 text-[10px] font-bold uppercase tracking-[0.12em] text-slate-500">+{subjects.length - shown.length} more</span>
+            <span className="inline-flex items-center h-7 px-3 text-[10px] font-bold uppercase tracking-[0.12em] text-slate-500">+{subjects.length - shown.length} more {subjects.length - shown.length === 1 ? 'subject' : 'subjects'}</span>
           )}
         </div>
         <div className="grid grid-cols-2 gap-3 mt-7">

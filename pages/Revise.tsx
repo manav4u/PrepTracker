@@ -70,7 +70,7 @@ const Revise: React.FC = () => {
     <div className="max-w-7xl mx-auto animate-in fade-in duration-700">
       <header className="relative mb-6 lg:mb-12">
         <span className="inline-flex items-center gap-2 h-7 px-3 rounded-full border border-white/10 bg-white/[0.03] text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400 mb-4">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#F63C49]"></span>Spaced review
+          <span className="w-1.5 h-1.5 rounded-full bg-[#F63C49]"></span>Daily revision
         </span>
         <h1 className="text-white leading-[0.95]">
           <span className="block text-6xl lg:text-8xl tracking-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>
@@ -93,13 +93,13 @@ const Revise: React.FC = () => {
             <div className={`h-full rounded-full bg-[#F63C49] transition-[width] ${EASE}`} style={{ width: `${pct}%` }}></div>
           </div>
           <p className="text-xs text-slate-500 mt-3 tabular-nums">
-            {queue.doneToday} done today
-            {queue.waiting > 0 && ` · ${queue.waiting} more wait for tomorrow`}
+            {queue.doneToday} done · {left} left today
             {streak > 0 && <span className="lg:hidden">{` · ${streak}-day streak`}</span>}
           </p>
+          {queue.waiting > 0 && <p className="text-xs text-slate-500 mt-1 tabular-nums">{queue.waiting} more queued for tomorrow</p>}
           {streak > 0 && (
             <p className="hidden lg:block mt-4 pt-4 border-t border-white/10 text-xs text-slate-400 tabular-nums">
-              {streak}-day streak. Each review counts toward it.
+              {streak}-day streak
             </p>
           )}
         </section>
@@ -113,7 +113,7 @@ const Revise: React.FC = () => {
               </div>
               <p className="mt-5 lg:mt-8 text-3xl lg:text-5xl leading-[1.1] text-white" style={{ fontFamily: "'Instrument Serif', serif" }}>{current.topic}</p>
               <p className="mt-3 text-xs text-slate-500 tabular-nums">
-                Review {current.stage + 1} of {STEPS.length}
+                Topic {queue.doneToday + 1} of {total}
                 {current.shaky && ' · you marked it shaky last time'}
               </p>
               <div className="grid grid-cols-2 gap-3 mt-5 lg:mt-8">
@@ -132,7 +132,7 @@ const Revise: React.FC = () => {
                   Got it
                 </button>
               </div>
-              {last ? undoRow : <p className="mt-4 text-xs text-slate-500 leading-relaxed min-h-9 flex items-center">Say it first, then tap. Shaky returns tomorrow.</p>}
+              {last ? undoRow : <p className="mt-4 text-xs text-slate-500 leading-relaxed min-h-9 flex items-center">Recall it from memory, then tap. Shaky comes back tomorrow.</p>}
             </section>
           ) : queue.trackedTopics === 0 && queue.doneToday === 0 ? (
             <section className="rounded-3xl border border-white/10 surface-1 p-5 lg:p-8">
