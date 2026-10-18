@@ -475,7 +475,7 @@ const Resources: React.FC = () => {
               subjectFilter === o.value ? 'bg-[#F63C49]/10 border-[#F63C49]/40 text-[#F63C49]' : 'border-white/10 text-slate-500 hover:text-white hover:bg-white/5'
             }`}
           >
-            {o.value === 'ALL' || o.value === 'GENERAL' ? o.label : o.value}
+            <span className="block max-w-[200px] truncate" title={o.label}>{o.label}</span>
           </button>
         ))}
       </div>
