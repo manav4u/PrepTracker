@@ -92,7 +92,7 @@ const ActivityHeatmap: React.FC<{ profile: ActivityProfile; style?: React.CSSPro
         </div>
 
         {/* Day detail */}
-        <div className="relative rounded-2xl surface-2 p-5 w-full lg:w-[400px] lg:shrink-0">
+        <div className="relative rounded-2xl surface-2 p-5 w-full lg:w-[480px] lg:shrink-0">
           <div className="flex items-center justify-between mb-3">
             <p className="text-sm font-display font-bold text-white tracking-tight">{selectedLabel}</p>
             <span className="text-[9px] font-bold uppercase tracking-widest text-slate-500">
