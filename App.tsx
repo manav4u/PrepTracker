@@ -41,7 +41,7 @@ const NotFound = () => (
 );
 
 const MotionLink = motion.create(Link);
-const NAV_SPRING = { type: 'spring' as const, stiffness: 520, damping: 34, mass: 0.9 };
+const NAV_SPRING = { type: 'tween' as const, duration: 0.4, ease: [0.65, 0, 0.35, 1] as [number, number, number, number] };
 
 const NavItem = ({ to, icon: Icon, active, label, short }: { to: string, icon: any, active: boolean, label: string, short?: string }) => {
   const isDesk = typeof window !== 'undefined' && window.matchMedia('(min-width: 1024px)').matches;
@@ -69,7 +69,7 @@ const NavItem = ({ to, icon: Icon, active, label, short }: { to: string, icon: a
       <motion.span
         layout="position"
         transition={NAV_SPRING}
-        animate={{ scale: active ? 1.08 : 1, rotate: active ? [0, -8, 0] : 0 }}
+        animate={{ scale: active ? 1.06 : 1 }}
         className="relative z-10 flex"
       >
         <Icon size={20} strokeWidth={active ? 2.4 : 1.9} className="lg:w-[22px] lg:h-[22px]" />
