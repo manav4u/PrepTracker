@@ -96,7 +96,7 @@ const NavItem = ({ to, icon: Icon, active, label, short }: { to: string, icon: a
 };
 
 export default function App() {
-  const { profile, setProfile } = useData();
+  const { profile, setProfile, storageFull } = useData();
   const location = useLocation();
   const [mobileSearchOpen, setMobileSearchOpen] = React.useState(false);
 
@@ -225,6 +225,13 @@ export default function App() {
                         </ErrorBoundary>
                         </div>
                     </main>
+
+                    {storageFull && (
+                        <div role="alert" className="fixed bottom-28 left-4 right-4 lg:bottom-8 lg:left-auto lg:right-8 lg:w-96 z-[60] bg-[#0a0a0a] border border-white/10 rounded-2xl px-4 py-3 flex items-center justify-between gap-3">
+                            <span className="text-xs font-bold text-slate-300">Storage is full. New changes are not being saved.</span>
+                            <Link to="/app/settings" className="shrink-0 text-[10px] font-bold uppercase tracking-widest text-[#F63C49] hover:text-white px-3 py-2 rounded-lg hover:bg-white/5">Back up</Link>
+                        </div>
+                    )}
 
                     {/* Background Decor */}
                     <div className="fixed top-0 right-0 w-[500px] lg:w-[800px] h-[500px] lg:h-[800px] bg-[#D61A40] opacity-[0.03] blur-[100px] lg:blur-[150px] rounded-full pointer-events-none -z-10 translate-x-1/3 -translate-y-1/3"></div>

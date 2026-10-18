@@ -4,6 +4,7 @@ import { Profile, UserProgress, Task, ResourceItem } from '../types';
 import { SYSTEM_RESOURCES } from '../constants';
 import { MarksMap, cleanMarks } from '../lib/grading';
 import { Reviews, cleanReviews } from '../lib/revision';
+import { persist } from '../lib/persist';
 
 interface DataContextType {
   profile: Profile | null;
@@ -17,6 +18,7 @@ interface DataContextType {
   marks: MarksMap;
   setMarks: React.Dispatch<React.SetStateAction<MarksMap>>;
   resources: ResourceItem[];
+  storageFull: boolean;
   addResource: (resource: ResourceItem) => void;
   deleteResources: (ids: string[]) => void;
 }
@@ -100,33 +102,38 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
     ...customResources
   ];
 
-  // Persistence Effects
+  // Persistence Effects. A refused save is remembered per key so the app can say so once.
+  const [failed, setFailed] = useState<string[]>([]);
+  const save = (key: string, value: unknown) => {
+    const ok = persist(localStorage, key, value);
+    setFailed(f => (ok ? (f.includes(key) ? f.filter(k => k !== key) : f) : (f.includes(key) ? f : [...f, key])));
+  };
   useEffect(() => {
-    if (profile) localStorage.setItem('sppu_profile', JSON.stringify(profile));
+    if (profile) save('sppu_profile', profile);
   }, [profile]);
 
   useEffect(() => {
-    localStorage.setItem('sppu_progress', JSON.stringify(userProgress));
+    save('sppu_progress', userProgress);
   }, [userProgress]);
 
   useEffect(() => {
-    localStorage.setItem('sppu_tasks', JSON.stringify(tasks));
+    save('sppu_tasks', tasks);
   }, [tasks]);
 
   useEffect(() => {
-    localStorage.setItem('sppu_calculator_marks', JSON.stringify(marks));
+    save('sppu_calculator_marks', marks);
   }, [marks]);
 
   useEffect(() => {
-    localStorage.setItem('sppu_reviews', JSON.stringify(reviews));
+    save('sppu_reviews', reviews);
   }, [reviews]);
 
   useEffect(() => {
-    localStorage.setItem('sppu_custom_resources', JSON.stringify(customResources));
+    save('sppu_custom_resources', customResources);
   }, [customResources]);
 
   useEffect(() => {
-    localStorage.setItem('sppu_deleted_system_ids', JSON.stringify(deletedResourceIds));
+    save('sppu_deleted_system_ids', deletedResourceIds);
   }, [deletedResourceIds]);
 
 
@@ -166,6 +173,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
       marks,
       setMarks,
       resources,
+      storageFull: failed.length > 0,
       addResource,
       deleteResources
     }}>
