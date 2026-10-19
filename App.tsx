@@ -172,7 +172,7 @@ export default function App() {
                         <Search size={18} />
                         </button>
                         <Link to="/app/settings" aria-label="Settings" className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-white/10">
-                        <ProfileAvatar id={profile.avatarId} size={48} />
+                        <ProfileAvatar id={profile.avatarId} size={48} className="w-full h-full" />
                         </Link>
                         </div>
                     </header>
@@ -224,7 +224,7 @@ export default function App() {
                             </div>
                         </div>
                         <Link to="/app/settings" aria-label="Settings" className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-white/10 hover:ring-white/40 transition-all hover:scale-110">
-                            <ProfileAvatar id={profile.avatarId} size={48} />
+                            <ProfileAvatar id={profile.avatarId} size={48} className="w-full h-full" />
                         </Link>
                         </div>
                     </aside>
