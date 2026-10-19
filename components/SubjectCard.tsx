@@ -11,23 +11,21 @@ interface SubjectCardProps {
   style?: React.CSSProperties;
 }
 
-/** Mini shelf: one small spine per unit, filled by real status. Matches the course page. */
-const MiniShelf: React.FC<{ subject: Subject }> = ({ subject }) => {
+/** Segmented progress: one bar per unit, filled red when mastered. The design he asked to keep. */
+const SegmentedProgress: React.FC<{ subject: Subject }> = ({ subject }) => {
   const { userProgress } = useData();
   return (
-    <div>
-      <div className="flex items-end gap-1">
-        {subject.units.map(u => {
-          const st = userProgress.find(p => p.unitId === u.id)?.status;
-          return (
-            <span key={u.id} className="w-2.5 h-6 rounded-t-[2px] bg-white/[0.08] relative overflow-hidden">
-              {st === UnitStatus.MASTERED && <span className="absolute inset-0 bg-[#D61A40]" />}
-              {st === UnitStatus.IN_PROGRESS && <span className="absolute inset-x-0 bottom-0 h-1/2 bg-[#D61A40]" />}
-            </span>
-          );
-        })}
-      </div>
-      <div className="h-[2px] rounded-full bg-white/[0.12] mt-px" />
+    <div className="flex gap-1.5">
+      {subject.units.map(u => {
+        const st = userProgress.find(p => p.unitId === u.id)?.status;
+        const done = st === UnitStatus.MASTERED;
+        return (
+          <span
+            key={u.id}
+            className={`h-1.5 flex-1 rounded-full transition-colors duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${done ? 'bg-[#F63C49]' : 'bg-white/[0.12]'}`}
+          />
+        );
+      })}
     </div>
   );
 };
@@ -81,7 +79,7 @@ const SubjectCard: React.FC<SubjectCardProps> = ({ subject, progress, masteredCo
                 </div>
                 <span className="text-2xl font-display font-bold text-white/50">{pct}%</span>
             </div>
-            <MiniShelf subject={subject} />
+            <SegmentedProgress subject={subject} />
         </div>
       </div>
     </Link>
