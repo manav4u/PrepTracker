@@ -5,6 +5,7 @@ import type { CatalogEntry } from '../lib/catalog';
 import NameTiles from './NameTiles';
 import StepArt, { ArtKind } from './StepArt';
 import Ring from './CheckRing';
+import RestoreBackup from './RestoreBackup';
 
 type Year = 'FE' | 'SE' | 'TE';
 type Step = 'name' | 'year' | 'branch' | 'semester' | 'courses';
@@ -262,6 +263,8 @@ const PickerFlow: React.FC<{ onDone: (ids: string[]) => void; name: string; setN
           </span>
         </button>
       </div>
+
+      {step === 'name' && <RestoreBackup />}
     </div>
 
     <aside aria-hidden="true" className="hidden lg:block">

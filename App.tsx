@@ -39,6 +39,7 @@ import { useData } from './context/DataContext';
 import { useSubjects } from './context/SubjectsContext';
 import ErrorBoundary from './components/ErrorBoundary';
 import LogoMark from './components/LogoMark';
+import DesktopNav from './components/nav/DesktopNav';
 import GlobalSearch from './components/GlobalSearch';
 
 const NotFound = () => (
@@ -192,8 +193,10 @@ export default function App() {
                     </div>
                     )}
 
+                    <DesktopNav />
+
                     {/* Adaptive Navigation Dock */}
-                    <aside className={`fixed z-50 transition-all duration-500
+                    <aside className={`fixed z-50 transition-all duration-500 lg:hidden
                         bottom-5 left-4 right-4 h-16 glass-panel nav-dock rounded-full flex items-center justify-around px-2 shadow-2xl lg:shadow-none lg:w-24
                         lg:bottom-auto lg:top-1/2 lg:left-6 lg:right-auto lg:h-auto lg:w-24 lg:flex-col lg:rounded-[3rem] lg:py-10 lg:gap-8 lg:-translate-y-1/2 lg:shadow-none
                     `}>
@@ -225,10 +228,9 @@ export default function App() {
                         </div>
                     </aside>
 
-                    <main className="flex-1 w-full min-w-0
+                    <main className={`flex-1 w-full min-w-0
                         pt-24 pb-32 px-4
-                        lg:pl-40 lg:pr-12 lg:py-12 lg:pb-12
-                    ">
+                        lg:pl-40 lg:pr-12 lg:py-12 lg:pb-12`}>
                         {/* Desktop Top Bar */}
                         <div className="hidden lg:flex justify-between items-center mb-16 max-w-[1600px] mx-auto">
                         <div className="flex items-center gap-4 text-sm font-medium text-white/60">
