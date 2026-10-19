@@ -1,7 +1,7 @@
 import React, { useMemo, useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search, X } from 'lucide-react';
-import { SUBJECTS } from '../constants';
+import { useSubjects } from '../context/SubjectsContext';
 import { useData } from '../context/DataContext';
 
 interface Hit { key: string; title: string; sub: string; to: string; group: 'Syllabus' | 'Tasks' | 'Resources'; }
@@ -13,34 +13,35 @@ const GlobalSearch: React.FC<{ selectedSubjects: string[]; overlay?: boolean; on
   const ref = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const { tasks, resources } = useData();
+  const { subjects: allSubjects } = useSubjects();
 
   const hits = useMemo<Hit[]>(() => {
     const term = q.trim().toLowerCase();
     if (term.length < 2) return [];
     const out: Hit[] = [];
-    for (const s of SUBJECTS.filter(x => selectedSubjects.includes(x.id))) {
+    for (const s of allSubjects.filter(x => selectedSubjects.includes(x.id))) {
       if (s.name.toLowerCase().includes(term) || s.code.toLowerCase().includes(term)) {
-        out.push({ key: s.id, title: s.name, sub: s.code, to: `/subject/${s.id}`, group: 'Syllabus' });
+        out.push({ key: s.id, title: s.name, sub: s.code, to: `/app/subject/${s.id}`, group: 'Syllabus' });
       }
       for (const u of s.units) {
-        if (u.title.toLowerCase().includes(term)) out.push({ key: u.id, title: u.title, sub: `${s.code} · Unit ${u.unit_number}`, to: `/subject/${s.id}`, group: 'Syllabus' });
+        if (u.title.toLowerCase().includes(term)) out.push({ key: u.id, title: u.title, sub: `${s.code} · Unit ${u.unit_number}`, to: `/app/subject/${s.id}`, group: 'Syllabus' });
         for (const t of u.topics || []) {
-          if (t.toLowerCase().includes(term)) out.push({ key: `${u.id}:${t}`, title: t, sub: `${s.code} · Unit ${u.unit_number}`, to: `/subject/${s.id}`, group: 'Syllabus' });
+          if (t.toLowerCase().includes(term)) out.push({ key: `${u.id}:${t}`, title: t, sub: `${s.code} · Unit ${u.unit_number}`, to: `/app/subject/${s.id}`, group: 'Syllabus' });
         }
       }
     }
     for (const t of tasks) {
       if (t.text.toLowerCase().includes(term)) {
-        out.push({ key: `task:${t.id}`, title: t.text, sub: `Task · ${(t.priority || 'NORMAL').toLowerCase()}${t.completed ? ' · done' : ''}`, to: '/tasks', group: 'Tasks' });
+        out.push({ key: `task:${t.id}`, title: t.text, sub: `Task · ${(t.priority || 'NORMAL').toLowerCase()}${t.completed ? ' · done' : ''}`, to: '/app/tasks', group: 'Tasks' });
       }
     }
     for (const r of resources) {
       if (r.title.toLowerCase().includes(term) || r.author.toLowerCase().includes(term)) {
-        out.push({ key: `res:${r.id}`, title: r.title, sub: `Resource · ${r.subject}`, to: '/resources', group: 'Resources' });
+        out.push({ key: `res:${r.id}`, title: r.title, sub: `Resource · ${r.subject}`, to: '/app/resources', group: 'Resources' });
       }
     }
     return out.slice(0, 10);
-  }, [q, selectedSubjects, tasks, resources]);
+  }, [q, selectedSubjects, tasks, resources, allSubjects]);
 
   useEffect(() => {
     if (overlay) return; // overlay mode closes via its own button

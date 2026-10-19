@@ -1,52 +1,120 @@
-import React from 'react';
+import ProfileAvatar from './components/ProfileAvatar';
+import { motion, AnimatePresence, MotionConfig, LayoutGroup } from 'framer-motion';
+import React, { Suspense, lazy } from 'react';
 import { Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
 import {
   LayoutGrid,
   Search,
   Library,
-  Calculator,
+  Repeat,
   Settings,
   Menu,
   X,
   ListTodo,
   HardDrive
 } from 'lucide-react';
-import Dashboard from './pages/Dashboard';
-import SubjectDetail from './pages/SubjectDetail';
-import Resources from './pages/Resources';
-import CalculatorPage from './pages/Calculator';
-import SettingsPage from './pages/Settings';
-import Onboarding from './pages/Onboarding';
-import TodoList from './pages/TodoList';
-import LandingPage from './pages/LandingPage';
+// A screen is a separate file. After a new deploy an open tab can ask for a file that no longer exists;
+// reload once to pick up the new build instead of showing an error.
+const screen = <T extends { default: React.ComponentType<any> }>(load: () => Promise<T>) =>
+  lazy(() => load().catch((err) => {
+    try {
+      if (!sessionStorage.getItem('pt_reloaded')) {
+        sessionStorage.setItem('pt_reloaded', '1');
+        window.location.reload();
+        return new Promise<T>(() => {});
+      }
+    } catch { /* storage blocked: fall through to the error screen */ }
+    throw err;
+  }));
+
+const Dashboard = screen(() => import('./pages/Dashboard'));
+const SubjectDetail = screen(() => import('./pages/SubjectDetail'));
+const Resources = screen(() => import('./pages/Resources'));
+const RevisePage = screen(() => import('./pages/Revise'));
+const SettingsPage = screen(() => import('./pages/Settings'));
+const Onboarding = screen(() => import('./pages/Onboarding'));
+const TodoList = screen(() => import('./pages/TodoList'));
+const LandingPage = screen(() => import('./pages/LandingPage'));
 import { UnitStatus } from './types';
 import { useData } from './context/DataContext';
+import { useSubjects } from './context/SubjectsContext';
 import ErrorBoundary from './components/ErrorBoundary';
 import LogoMark from './components/LogoMark';
+import DesktopNav from './components/nav/DesktopNav';
 import GlobalSearch from './components/GlobalSearch';
 
-const NavItem = ({ to, icon: Icon, active, label, short }: { to: string, icon: any, active: boolean, label: string, short?: string }) => (
-  <Link
-    to={to}
-    aria-label={short || label}
-    title={label}
-    aria-current={active ? 'page' : undefined}
-    className={`relative group flex flex-col lg:flex-row items-center justify-center gap-0.5 lg:gap-0 w-12 h-12 lg:w-14 lg:h-14 rounded-2xl lg:rounded-3xl transition-all duration-300 ${
-      active
-        ? 'bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.3)] scale-110'
-        : 'text-white/40 hover:text-white hover:bg-white/5'
-    }`}
-  >
-    <Icon size={20} strokeWidth={active ? 2.5 : 2} className="lg:w-[22px] lg:h-[22px]" />
-    <span aria-hidden="true" className={`lg:hidden text-[7px] font-bold uppercase tracking-widest leading-none ${active ? '' : 'text-white/70'}`}>{short || label}</span>
-    {active && (
-      <span className="absolute -bottom-2 lg:top-1/2 lg:-right-2 w-1 h-1 lg:w-1.5 lg:h-1.5 bg-[#D61A40] rounded-full shadow-[0_0_10px_#F63C49]"></span>
-    )}
-  </Link>
+const NotFound = () => (
+  <div className="min-h-screen bg-[#030303] text-slate-200 flex flex-col items-center justify-center gap-8 px-6 text-center">
+    <LogoMark size={40} />
+    <div>
+      <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#F63C49] mb-4">404</p>
+      <h1 className="text-3xl font-bold text-white tracking-tight">This page does not exist.</h1>
+    </div>
+    <div className="flex items-center gap-4">
+      <Link to="/" className="px-6 py-3 rounded-full border border-white/15 text-sm font-bold text-white/80 hover:text-white hover:border-white/40 transition-colors">Landing</Link>
+      <Link to="/app" className="px-6 py-3 rounded-full bg-[#D61A40] text-sm font-bold text-white hover:bg-[#F63C49] transition-colors">Open the app</Link>
+    </div>
+  </div>
 );
 
+const MotionLink = motion.create(Link);
+const NAV_SPRING = { type: 'tween' as const, duration: 0.25, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] };
+
+const NavItem = ({ to, icon: Icon, active, label, short }: { to: string, icon: any, active: boolean, label: string, short?: string }) => {
+  const isDesk = typeof window !== 'undefined' && window.matchMedia('(min-width: 1024px)').matches;
+  const desk = `lg:w-14 lg:h-14 lg:rounded-3xl lg:px-0 ${active ? 'lg:bg-white lg:text-black lg:shadow-[0_0_20px_rgba(255,255,255,0.3)]' : 'lg:text-white/40 lg:hover:text-white lg:hover:bg-white/5'}`;
+  return (
+    <MotionLink
+      to={to}
+      layout
+      transition={NAV_SPRING}
+      animate={{ scale: isDesk && active ? 1.1 : 1 }}
+      whileTap={{ scale: 0.9 }}
+      aria-label={short || label}
+      title={label}
+      aria-current={active ? 'page' : undefined}
+      className={`relative group flex flex-row items-center justify-center h-11 rounded-full transition-colors duration-300 ${active ? 'px-4 text-white' : 'w-11 text-white/45 hover:text-white/80'} ${desk}`}
+    >
+      {active && (
+        <motion.span
+          layoutId="nav-pill"
+          transition={NAV_SPRING}
+          style={{ borderRadius: 9999 }}
+          className="lg:hidden absolute inset-0 border border-white/10 bg-gradient-to-br from-[#F63C49] to-[#9f1239] shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_10px_28px_-8px_rgba(246,60,73,0.65)]"
+        />
+      )}
+      <motion.span
+        layout="position"
+        transition={NAV_SPRING}
+                className="relative z-10 flex"
+      >
+        <Icon size={20} strokeWidth={active ? 2.4 : 1.9} className="lg:w-[22px] lg:h-[22px]" />
+      </motion.span>
+      <AnimatePresence initial={false}>
+        {active && (
+          <motion.span
+            key="lbl"
+            layout="position"
+            initial={{ opacity: 0, x: -6 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, transition: { duration: 0.08 } }}
+            transition={{ ...NAV_SPRING, opacity: { duration: 0.2, delay: 0.05, ease: 'easeOut' } }}
+            className="lg:hidden relative z-10 ml-2 whitespace-nowrap text-[10px] font-bold uppercase tracking-[0.18em] leading-none"
+          >
+            {short || label}
+          </motion.span>
+        )}
+      </AnimatePresence>
+      {active && (
+        <span className="hidden lg:block absolute top-1/2 -right-2 w-1.5 h-1.5 bg-[#D61A40] rounded-full shadow-[0_0_10px_#F63C49]"></span>
+      )}
+    </MotionLink>
+  );
+};
+
 export default function App() {
-  const { profile, setProfile } = useData();
+  const { profile, setProfile, storageFull } = useData();
+  const { ready: subjectsReady } = useSubjects();
   const location = useLocation();
   const [mobileSearchOpen, setMobileSearchOpen] = React.useState(false);
 
@@ -57,18 +125,31 @@ export default function App() {
 
   const isSetupComplete = profile && profile.setupComplete;
 
+  // Once the first screen is up, fetch the other screens in the background so tapping a tab is instant.
+  React.useEffect(() => {
+    if (!isSetupComplete) return;
+    const warm = () => {
+      import('./pages/SubjectDetail'); import('./pages/Resources'); import('./pages/TodoList');
+      import('./pages/Revise'); import('./pages/Settings');
+    };
+    const w = window as any;
+    const id = w.requestIdleCallback ? w.requestIdleCallback(warm, { timeout: 4000 }) : setTimeout(warm, 2500);
+    return () => { if (w.cancelIdleCallback) w.cancelIdleCallback(id); else clearTimeout(id); };
+  }, [isSetupComplete]);
+
   return (
     <ErrorBoundary scope="app">
+        <Suspense fallback={<div className="min-h-screen bg-[#030303]" />}>
         <Routes>
             {/* PUBLIC ROUTES */}
-            <Route path="/landing" element={isSetupComplete ? <Navigate to="/" /> : <LandingPage />} />
-            <Route path="/onboarding" element={isSetupComplete ? <Navigate to="/" /> : <Onboarding />} />
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/landing" element={<Navigate to="/" replace />} />
+            <Route path="/onboarding" element={isSetupComplete ? <Navigate to="/app" replace /> : <Onboarding />} />
 
             {/* APP ROUTES (Protected by Setup Check) */}
-            <Route path="*" element={
+            <Route path="/app/*" element={
                 !isSetupComplete ? (
-                    // Redirect root to landing if not setup
-                     location.pathname === '/' ? <LandingPage /> : <Navigate to="/landing" />
+                    <Navigate to="/onboarding" replace />
                 ) : (
                     // APP SHELL
                     <div className="flex flex-col lg:flex-row min-h-screen bg-[#030303] text-slate-200 selection:bg-[#D61A40] selection:text-white overflow-hidden">
@@ -90,8 +171,8 @@ export default function App() {
                         >
                         <Search size={18} />
                         </button>
-                        <Link to="/settings" aria-label="Settings" className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-white/10">
-                        <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${profile.name}`} alt="User" />
+                        <Link to="/app/settings" aria-label="Settings" className="w-8 h-8">
+                        <ProfileAvatar id={profile.avatarId} shape={profile.avatarShape} size={48} className="w-full h-full" />
                         </Link>
                         </div>
                     </header>
@@ -113,22 +194,24 @@ export default function App() {
                     </div>
                     )}
 
+                    <DesktopNav />
+
                     {/* Adaptive Navigation Dock */}
-                    <aside className="fixed z-50 transition-all duration-500
-                        bottom-6 left-4 right-4 h-20 glass-panel rounded-[2.5rem] flex items-center justify-around px-2 shadow-2xl
+                    <aside className={`fixed z-50 transition-all duration-500 lg:hidden
+                        bottom-5 left-4 right-4 h-16 glass-panel nav-dock rounded-full flex items-center justify-around px-2 shadow-2xl lg:shadow-none lg:w-24
                         lg:bottom-auto lg:top-1/2 lg:left-6 lg:right-auto lg:h-auto lg:w-24 lg:flex-col lg:rounded-[3rem] lg:py-10 lg:gap-8 lg:-translate-y-1/2 lg:shadow-none
-                    ">
+                    `}>
                         <div className="hidden lg:flex w-14 h-14 items-center justify-center mb-4">
                         <LogoMark size={34} />
                         </div>
 
-                        <nav className="flex flex-row lg:flex-col w-full justify-evenly lg:gap-6 items-center">
-                        <NavItem label="Dashboard" to="/" short="Home" icon={LayoutGrid} active={location.pathname === '/'} />
-                        <NavItem label="Resources" to="/resources" short="Library" icon={Library} active={location.pathname === '/resources'} />
-                        <NavItem label="Tasks" to="/tasks" short="Tasks" icon={ListTodo} active={location.pathname === '/tasks'} />
-                        <NavItem label="SGPA calculator" to="/calculator" short="SGPA" icon={Calculator} active={location.pathname === '/calculator'} />
-                        <NavItem label="Settings" to="/settings" short="Settings" icon={Settings} active={location.pathname === '/settings'} />
-                        </nav>
+                        <MotionConfig reducedMotion="user" transition={NAV_SPRING}><LayoutGroup><nav className="flex flex-row lg:flex-col w-full justify-evenly lg:gap-6 items-center">
+                        <NavItem label="Dashboard" to="/app" short="Home" icon={LayoutGrid} active={location.pathname === '/app'} />
+                        <NavItem label="Resources" to="/app/resources" short="Library" icon={Library} active={location.pathname === '/app/resources'} />
+                        <NavItem label="Tasks" to="/app/tasks" short="Tasks" icon={ListTodo} active={location.pathname === '/app/tasks'} />
+                        <NavItem label="Revise" to="/app/revise" short="Revise" icon={Repeat} active={location.pathname === '/app/revise'} />
+                        <NavItem label="Settings" to="/app/settings" short="Settings" icon={Settings} active={location.pathname === '/app/settings'} />
+                        </nav></LayoutGroup></MotionConfig>
 
                         <div className="hidden lg:flex mt-4 pt-8 border-t border-white/5 w-full flex-col items-center gap-6">
                         <div className="relative group">
@@ -140,22 +223,19 @@ export default function App() {
                                 Local Storage Active
                             </div>
                         </div>
-                        <Link to="/settings" aria-label="Settings" className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-white/10 hover:ring-white/40 transition-all hover:scale-110">
-                            <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${profile.name}`} alt="User" />
+                        <Link to="/app/settings" aria-label="Settings" className="w-12 h-12">
+                            <ProfileAvatar id={profile.avatarId} shape={profile.avatarShape} size={48} className="w-full h-full" />
                         </Link>
                         </div>
                     </aside>
 
-                    <main className="flex-1 w-full min-w-0
+                    <main className={`flex-1 w-full min-w-0
                         pt-24 pb-32 px-4
-                        lg:pl-40 lg:pr-12 lg:py-12 lg:pb-12
-                    ">
+                        lg:pl-40 lg:pr-12 lg:py-12 lg:pb-12`}>
                         {/* Desktop Top Bar */}
                         <div className="hidden lg:flex justify-between items-center mb-16 max-w-[1600px] mx-auto">
                         <div className="flex items-center gap-4 text-sm font-medium text-white/60">
                             <span>{new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</span>
-                            <span className="w-1 h-1 rounded-full bg-white/20"></span>
-                            <span className="text-[#F63C49]">First Year Engineering</span>
                         </div>
 
                         <div className="flex items-center gap-4">
@@ -165,17 +245,27 @@ export default function App() {
 
                         <div className="max-w-[1600px] mx-auto h-full">
                         <ErrorBoundary scope="page" resetKey={location.pathname}>
-                        <Routes>
+                        <Suspense fallback={null}>
+                        {subjectsReady && (<Routes>
                             <Route path="/" element={<Dashboard />} />
-                            <Route path="/subject/:id" element={<SubjectDetail />} />
-                            <Route path="/resources" element={<Resources />} />
-                            <Route path="/tasks" element={<TodoList />} />
-                            <Route path="/calculator" element={<CalculatorPage />} />
-                            <Route path="/settings" element={<SettingsPage />} />
-                        </Routes>
+                            <Route path="subject/:id" element={<SubjectDetail />} />
+                            <Route path="resources" element={<Resources />} />
+                            <Route path="tasks" element={<TodoList />} />
+                            <Route path="revise" element={<RevisePage />} />
+                            <Route path="settings" element={<SettingsPage />} />
+                            <Route path="*" element={<Navigate to="/app" replace />} />
+                        </Routes>)}
+                        </Suspense>
                         </ErrorBoundary>
                         </div>
                     </main>
+
+                    {storageFull && (
+                        <div role="alert" className="fixed bottom-28 left-4 right-4 lg:bottom-8 lg:left-auto lg:right-8 lg:w-96 z-[60] bg-[#0a0a0a] border border-white/10 rounded-2xl px-4 py-3 flex items-center justify-between gap-3">
+                            <span className="text-xs font-bold text-slate-300">Storage is full. New changes are not being saved.</span>
+                            <Link to="/app/settings" className="shrink-0 text-[10px] font-bold uppercase tracking-widest text-[#F63C49] hover:text-white px-3 py-2 rounded-lg hover:bg-white/5">Back up</Link>
+                        </div>
+                    )}
 
                     {/* Background Decor */}
                     <div className="fixed top-0 right-0 w-[500px] lg:w-[800px] h-[500px] lg:h-[800px] bg-[#D61A40] opacity-[0.03] blur-[100px] lg:blur-[150px] rounded-full pointer-events-none -z-10 translate-x-1/3 -translate-y-1/3"></div>
@@ -183,7 +273,9 @@ export default function App() {
                     </div>
                 )
             } />
+            <Route path="*" element={<NotFound />} />
         </Routes>
+        </Suspense>
     </ErrorBoundary>
   );
 }

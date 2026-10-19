@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import LogoMark from '../components/LogoMark';
+import { useData } from '../context/DataContext';
 import { useGSAP } from '@gsap/react';
 import { gsap, reduceMotion } from '../lib/scroll';
 import './landing-v2.css';
@@ -96,17 +97,20 @@ const tileQuote = (t: Tile) => {
 };
 
 const VIEWS = [
-  { key: 'dash', label: 'Dashboard', desktop: '/landing/v2/dash.png', mobile: '/landing/v2/dash-m.png', alt: 'PrepTracker dashboard' },
-  { key: 'subject', label: 'Subjects', desktop: '/landing/v2/app-subject.png', mobile: '/landing/v2/app-subject-m.png', alt: 'Subject view with units and topics' },
-  { key: 'tasks', label: 'Tasks', desktop: '/landing/v2/app-tasks.png', mobile: '/landing/v2/app-tasks-m.png', alt: "Today's tasks" },
-  { key: 'library', label: 'Library', desktop: '/landing/v2/app-library.png', mobile: '/landing/v2/app-library-m.png', alt: 'Question paper library' },
+  { key: 'dash', label: 'Dashboard', desktop: '/landing/v2/dash-1440.webp', mobile: '/landing/v2/dash-390.webp', alt: 'PrepTracker dashboard' },
+  { key: 'subject', label: 'Subjects', desktop: '/landing/v2/subject-1440.webp', mobile: '/landing/v2/subject-390.webp', alt: 'Subject view with units and topics' },
+  { key: 'tasks', label: 'Tasks', desktop: '/landing/v2/tasks-1440.webp', mobile: '/landing/v2/tasks-390.webp', alt: "Today's tasks" },
+  { key: 'library', label: 'Library', desktop: '/landing/v2/library-1440.webp', mobile: '/landing/v2/library-390.webp', alt: 'Question paper library' },
 ];
 
 const TICKER = ['Every topic accounted for', 'Every day counted', 'Know exactly what\u2019s left', 'Walk in ready'];
-const STRIP = ['Every subject as units & topics', 'Previous-year questions', 'Daily tasks & streaks', 'SGPA calculator', 'Works offline'];
+const STRIP = ['Every subject as units & topics', 'Previous-year questions', 'Daily tasks & streaks', 'Spaced revision', 'Works offline'];
 
 const LandingPage: React.FC = () => {
   const [view, setView] = useState(0);
+  const { profile } = useData();
+  const isSetup = !!profile?.setupComplete;
+  const ctaTo = isSetup ? '/app' : '/onboarding';
   const pullParts = QUOTES.pull.q.split(QUOTES.pull.mark);
 
   // Sliding pill under the active view tab: re-measured on tab change,
@@ -118,7 +122,9 @@ const LandingPage: React.FC = () => {
     const sw = switcherRef.current;
     const pill = pillRef.current;
     if (!sw || !pill) return;
-    const b = sw.querySelectorAll('button')[view] as HTMLElement | undefined;
+    // Long-lived resize/font listeners must measure today's selection, not
+    // the initial render's `view` captured by their closure.
+    const b = sw.querySelector<HTMLButtonElement>('[role="tab"][aria-selected="true"]');
     if (!b) return;
     if (instant) pill.style.transition = 'none';
     pill.style.left = `${b.offsetLeft}px`;
@@ -253,7 +259,7 @@ const LandingPage: React.FC = () => {
   return (
     <div className="lp2">
       <nav id="lp2-nav" aria-label="Main">
-        <Link className="brand" to="/landing" aria-label="PrepTracker home">
+        <Link className="brand" to="/" aria-label="PrepTracker home">
           <LogoMark size={27} />
           <b>PrepTracker</b>
         </Link>
@@ -262,7 +268,7 @@ const LandingPage: React.FC = () => {
           <a className="nav-link" href="#features" data-sec="features">Features</a>
           <a className="nav-link" href="#how" data-sec="how">How it works</a>
         </div>
-        <Link className="nav-cta" id="lp2-navCta" to="/onboarding">Start</Link>
+        <Link className="nav-cta" id="lp2-navCta" to={ctaTo}>{isSetup ? 'Open app' : 'Start'}</Link>
       </nav>
 
       <main>
@@ -275,7 +281,7 @@ const LandingPage: React.FC = () => {
               </h1>
               <p className="sub">PrepTracker breaks the syllabus into units and topics, counts the days to your exam, and tells you what to study today.</p>
               <div className="cta-row">
-                <Link className="cta-main" to="/onboarding">Start tracking
+                <Link className="cta-main" to={ctaTo}>{isSetup ? 'Open PrepTracker' : 'Start tracking'}
                   <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </Link>
                 <p className="fud">Free &middot; No account &middot; Data stays in your browser</p>
@@ -297,10 +303,10 @@ const LandingPage: React.FC = () => {
             <div className="window-back" aria-hidden="true"></div>
             <div className="window">
               <div className="screen" id="screen">
-                {VIEWS.map((v, i) => (
+                {VIEWS.map((v, i) => view === i && (
                   <picture key={v.key}>
                     <source media="(max-width:900px)" srcSet={v.mobile} />
-                    <img src={v.desktop} className={view === i ? 'on' : ''} alt={v.alt} />
+                    <img src={v.desktop} className="on" alt={v.alt} width={1440} height={900} decoding="async" fetchPriority="high" />
                   </picture>
                 ))}
               </div>
@@ -367,7 +373,7 @@ const LandingPage: React.FC = () => {
               <h3>Your whole exam, on one screen</h3>
               <p>Progress across every subject, the days left, and today&rsquo;s streak. The numbers you used to guess, counted for you.</p>
             </div>
-            <div className="feat-shot"><img src="/landing/v2/full-dash.png" alt="The PrepTracker dashboard with progress, days to exam and streak." /></div>
+            <div className="feat-shot"><picture><source media="(max-width:900px)" srcSet="/landing/v2/dash-390.webp" /><img src="/landing/v2/dash-1440.webp" width={1440} height={900} loading="lazy" decoding="async" alt="The PrepTracker dashboard with progress, days to exam and streak." /></picture></div>
           </div>
 
           <div className="feat-row flip reveal">
@@ -376,7 +382,7 @@ const LandingPage: React.FC = () => {
               <h3>Every unit, every topic, one tick at a time</h3>
               <p>Each subject broken into its real units and topics. Tick them off as you study and watch the unit flip to mastered.</p>
             </div>
-            <div className="feat-shot"><img src="/landing/v2/full-subject.png" alt="A subject broken into units and topics with progress." /></div>
+            <div className="feat-shot"><picture><source media="(max-width:900px)" srcSet="/landing/v2/subject-390.webp" /><img src="/landing/v2/subject-1440.webp" width={1440} height={900} loading="lazy" decoding="async" alt="A subject broken into units and topics with progress." /></picture></div>
           </div>
 
           <div className="feat-row reveal">
@@ -385,7 +391,7 @@ const LandingPage: React.FC = () => {
               <h3>Wake up to today&rsquo;s list</h3>
               <p>No planning session every morning. Open the app and the day&rsquo;s tasks are already there, sized to the days left.</p>
             </div>
-            <div className="feat-shot"><img src="/landing/v2/full-tasks.png" alt="The tasks view with today's study tasks." /></div>
+            <div className="feat-shot"><picture><source media="(max-width:900px)" srcSet="/landing/v2/tasks-390.webp" /><img src="/landing/v2/tasks-1440.webp" width={1440} height={900} loading="lazy" decoding="async" alt="The tasks view with today's study tasks." /></picture></div>
           </div>
 
           <div className="feat-row flip reveal">
@@ -394,7 +400,7 @@ const LandingPage: React.FC = () => {
               <h3>Question papers where you study</h3>
               <p>Previous-year papers and resources sit next to the units they belong to, not in a drive folder you never open.</p>
             </div>
-            <div className="feat-shot"><img src="/landing/v2/full-library.png" alt="The library of previous-year question papers." /></div>
+            <div className="feat-shot"><picture><source media="(max-width:900px)" srcSet="/landing/v2/library-390.webp" /><img src="/landing/v2/library-1440.webp" width={1440} height={900} loading="lazy" decoding="async" alt="The library of previous-year question papers." /></picture></div>
           </div>
         </section>
 
@@ -470,7 +476,7 @@ const LandingPage: React.FC = () => {
             <LogoMark variant="white" size={560} className="fp-ghost" />
             <h2>Walk in knowing<br />what&rsquo;s <em style={{ color: '#fff', textDecoration: 'underline', textUnderlineOffset: '10px', textDecorationThickness: '4px' }}>left.</em></h2>
             <p className="subf">Two minutes to set up. Then the app counts the days, the units and the topics. You just study.</p>
-            <Link className="cta-white" to="/onboarding">Start tracking
+            <Link className="cta-white" to={ctaTo}>{isSetup ? 'Open PrepTracker' : 'Start tracking'}
               <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="#D61A40" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </Link>
             <p className="fud">Free &middot; No account &middot; Data stays in your browser</p>
@@ -496,13 +502,12 @@ const LandingPage: React.FC = () => {
             </p>
             <div className="foot-grid">
               <div className="foot-about">
-                <LogoMark size={34} />
                 <p>The exam desk. Syllabus progress, study resources and tasks in one place. Free, open source, and private by design.</p>
                 <p className="foot-sign">Built by a student, for students</p>
               </div>
               <nav className="foot-col" aria-label="Product">
                 <h3>Product</h3>
-                <Link to="/onboarding">Open the app</Link>
+                <Link to={ctaTo}>Open the app</Link>
                 <a href="#features">Features</a>
                 <a href="#how">How it works</a>
               </nav>

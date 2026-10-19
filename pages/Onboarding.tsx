@@ -1,73 +1,32 @@
+import type { AvatarShape } from '../lib/avatars';
 
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Zap, Cpu, CheckCircle2, ScanFace, ShieldCheck, HardDrive } from 'lucide-react';
 import LogoMark from '../components/LogoMark';
 import { Profile } from '../types';
 import { useData } from '../context/DataContext';
+import PickerFlow from '../components/PickerFlow';
+import SetupScreen from '../components/SetupScreen';
+import { buildSummary } from '../components/SetupScenes';
 
 interface OnboardingProps {}
 
 // --- MICRO COMPONENTS ---
 
-const BinaryChoice = ({ titleA, codeA, titleB, codeB, selected, onSelect, label }: any) => (
-  <div className="space-y-4">
-    <div className="flex items-center gap-4">
-        <div className="h-px bg-white/10 flex-1"></div>
-        <span className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">{label}</span>
-        <div className="h-px bg-white/10 flex-1"></div>
-    </div>
-    <div className="grid grid-cols-2 gap-4">
-      <button
-        onClick={() => onSelect('A')}
-        className={`group relative p-6 border rounded-2xl text-left transition-all duration-500 overflow-hidden ${
-            selected === 'A' 
-            ? 'bg-white text-black border-white shadow-[0_0_30px_rgba(255,255,255,0.2)]' 
-            : 'bg-black border-white/10 text-slate-500 hover:border-white/30 hover:text-white'
-        }`}
-      >
-        <div className="relative z-10">
-            <span className={`text-[9px] font-bold uppercase tracking-widest block mb-2 ${selected === 'A' ? 'text-black/50' : 'text-slate-600'}`}>{codeA}</span>
-            <span className="text-lg font-bold font-display leading-none">{titleA}</span>
-        </div>
-        {selected === 'A' && <div className="absolute inset-0 bg-gradient-to-br from-white via-slate-200 to-slate-400 opacity-100 z-0"></div>}
-      </button>
-
-      <button
-        onClick={() => onSelect('B')}
-        className={`group relative p-6 border rounded-2xl text-left transition-all duration-500 overflow-hidden ${
-            selected === 'B' 
-            ? 'bg-white text-black border-white shadow-[0_0_30px_rgba(255,255,255,0.2)]' 
-            : 'bg-black border-white/10 text-slate-500 hover:border-white/30 hover:text-white'
-        }`}
-      >
-         <div className="relative z-10">
-            <span className={`text-[9px] font-bold uppercase tracking-widest block mb-2 ${selected === 'B' ? 'text-black/50' : 'text-slate-600'}`}>{codeB}</span>
-            <span className="text-lg font-bold font-display leading-none">{titleB}</span>
-         </div>
-         {selected === 'B' && <div className="absolute inset-0 bg-gradient-to-br from-white via-slate-200 to-slate-400 opacity-100 z-0"></div>}
-      </button>
-    </div>
-  </div>
-);
-
 const Onboarding: React.FC<OnboardingProps> = () => {
-  const { setProfile } = useData();
+  const { profile, setProfile } = useData();
   // Stages: 'boot' -> 'identity' -> 'matrix' -> 'processing'
-  const [stage, setStage] = useState<'boot' | 'identity' | 'matrix' | 'processing'>('boot');
+  const [stage, setStage] = useState<'boot' | 'matrix' | 'processing'>('boot');
   const [bootProgress, setBootProgress] = useState(0);
-  const [name, setName] = useState('');
+  // Re-pick (Settings > Change subjects) keeps the profile, so greet them by name again.
+  const [name, setName] = useState(profile?.name ?? '');
+  const [avatarId, setAvatarId] = useState(profile?.avatarId);
+  const [avatarShape, setAvatarShape] = useState<AvatarShape>(profile?.avatarShape || 'circle');
   
   // Processing Stage State
   const [processPercent, setProcessPercent] = useState(0);
   const [processLog, setProcessLog] = useState("INITIALIZING...");
+  const [summary, setSummary] = useState<ReturnType<typeof buildSummary> | undefined>();
 
-  const [choices, setChoices] = useState({
-    maths: 'm1',
-    programming: 'fpl',
-    science: 'phy', // 'phy' or 'chem'
-    circuit: 'elect', // 'elect' or 'elec'
-    core: 'mech' // 'mech' or 'graph'
-  });
 
   // --- BOOT SEQUENCE LOGIC ---
   useEffect(() => {
@@ -76,7 +35,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
         setBootProgress(prev => {
           if (prev >= 100) {
             clearInterval(interval);
-            setTimeout(() => setStage('identity'), 800);
+            setTimeout(() => setStage('matrix'), 600);
             return 100;
           }
           return Math.min(100, prev + Math.floor(Math.random() * 15) + 5);
@@ -86,7 +45,8 @@ const Onboarding: React.FC<OnboardingProps> = () => {
     }
   }, [stage]);
 
-  const handleFinish = async () => {
+  const handleFinish = async (ids: string[]) => {
+    setSummary(buildSummary(name, ids));
     setStage('processing');
     
     // Simulate complex processing steps
@@ -104,9 +64,11 @@ const Onboarding: React.FC<OnboardingProps> = () => {
         if (currentStep >= steps.length) {
             clearInterval(interval);
 
-            const selectedIds = [choices.maths, choices.programming, choices.science, choices.circuit, choices.core];
+            const selectedIds = ids;
             const newProfile: Profile = {
-                name: name || 'Student',
+                name: name || profile?.name || 'Student',
+                avatarId,
+                avatarShape,
                 theme: 'dark',
                 selectedSubjects: selectedIds,
                 setupComplete: true,
@@ -132,27 +94,8 @@ const Onboarding: React.FC<OnboardingProps> = () => {
 
   if (stage === 'boot') {
     return (
-      <div className="fixed inset-0 bg-black flex flex-col items-center justify-center z-50">
-         <div className="w-64 space-y-4">
-            <div className="flex justify-between items-end text-xs font-mono text-[#F63C49] mb-1">
-                <span>Setup</span>
-                <span>{bootProgress}%</span>
-            </div>
-            <div className="h-0.5 bg-white/10 w-full overflow-hidden">
-                <div 
-                    className="h-full bg-[#D61A40] shadow-[0_0_20px_#F63C49] transition-all duration-100 ease-out"
-                    style={{ width: `${bootProgress}%` }}
-                ></div>
-            </div>
-            <div className="h-8 overflow-hidden">
-                <p className="font-mono text-[10px] text-slate-500 leading-relaxed">
-                    {bootProgress < 30 && "Saving your profile..."}
-                    {bootProgress >= 30 && bootProgress < 60 && "Setting up your subjects..."}
-                    {bootProgress >= 60 && bootProgress < 90 && "Building your dashboard..."}
-                    {bootProgress >= 90 && "Ready."}
-                </p>
-            </div>
-         </div>
+      <div className="fixed inset-0 bg-black flex items-center justify-center z-50 p-6">
+        <SetupScreen title="Getting ready" percent={bootProgress} log={bootProgress < 50 ? 'Loading your catalog' : 'Almost there'} />
       </div>
     );
   }
@@ -160,187 +103,27 @@ const Onboarding: React.FC<OnboardingProps> = () => {
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden selection:bg-white selection:text-black">
       
-      {/* Dynamic Grid Background */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none"></div>
 
       <div className="relative z-10 min-h-screen flex flex-col">
         
         {/* Header */}
         <header className="p-8 flex justify-between items-center opacity-50">
             <div className="flex items-center gap-2">
-                <div className={`w-2 h-2 bg-white rounded-full ${stage === 'processing' ? 'animate-ping' : 'animate-pulse'}`}></div>
+                <div className="w-2 h-2 bg-slate-500 rounded-full"></div>
                 <span className="font-mono text-[10px] uppercase tracking-widest">Setup</span>
             </div>
             <LogoMark size={20} />
         </header>
 
         {/* Content Container */}
-        <main className="flex-1 flex flex-col items-center justify-center p-6 max-w-lg mx-auto w-full">
+        <main className={`flex-1 flex flex-col items-center p-6 mx-auto w-full ${stage === 'matrix' ? 'max-w-5xl' : 'max-w-lg justify-center'}`}>
             
-            {stage === 'identity' && (
-                <div className="w-full animate-in fade-in zoom-in-95 duration-700 slide-in-from-bottom-8">
-                    
-                    {/* Visual Icon */}
-                    <div className="text-center mb-10">
-                        <div className="w-24 h-24 bg-white/5 rounded-full mx-auto flex items-center justify-center border border-white/10 relative mb-8">
-                           <ScanFace size={40} className="text-[#F63C49] relative z-10" strokeWidth={1.5} />
-                           {/* Decorative Spinners */}
-                           <div className="absolute inset-0 border-t border-[#F63C49] rounded-full animate-spin"></div>
-                           <div className="absolute inset-2 border-b border-white/20 rounded-full animate-[spin_3s_linear_infinite_reverse]"></div>
-                        </div>
-                        <h1 className="text-3xl font-display font-bold text-white mb-2 tracking-tight">Your profile</h1>
-                        <p className="text-slate-500 font-mono text-[10px] uppercase tracking-[0.2em]">Saved only on this device</p>
-                    </div>
-
-                    {/* Input Container */}
-                    <div className="bg-[#050505] border border-white/10 p-8 rounded-[2rem] relative overflow-hidden group shadow-2xl">
-                        {/* Top Accent */}
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[2px] bg-[#D61A40] blur-[8px]"></div>
-
-                        <label className="flex items-center gap-2 text-[9px] font-mono text-[#F63C49] mb-6 uppercase tracking-[0.2em] font-bold">
-                           <ShieldCheck size={12} /> Your name
-                        </label>
-
-                        <div className="relative mb-8">
-                           <input
-                               type="text"
-                               value={name}
-                               onChange={(e) => setName(e.target.value)}
-                               placeholder="YOUR NAME"
-                               className="w-full bg-transparent border-b border-white/10 py-3 text-2xl lg:text-3xl font-display font-bold text-center text-white focus:border-[#F63C49] focus:outline-none transition-all placeholder:text-white/30 uppercase tracking-wide"
-                               autoFocus
-                           />
-                           <div className="absolute bottom-0 left-0 w-full h-[1px] bg-[#D61A40] scale-x-0 group-focus-within:scale-x-100 transition-transform duration-500"></div>
-                        </div>
-
-                        <div className="text-center space-y-2">
-                             <p className="text-xs text-white font-medium">What should we call you?</p>
-                             <p className="text-[10px] text-slate-500 leading-relaxed font-mono">
-                                Enter your Name or Username to personalize your dashboard.<br/>
-                                <span className="opacity-50">Data is stored securely on your local device.</span>
-                             </p>
-                        </div>
-                    </div>
-
-                    {/* Action */}
-                    <div className="mt-8 flex justify-center">
-                        <button 
-                            onClick={() => name.length > 0 && setStage('matrix')}
-                            disabled={name.length === 0}
-                            className="group flex items-center gap-3 px-8 py-4 bg-white text-black rounded-xl text-xs font-bold uppercase tracking-[0.2em] disabled:opacity-30 disabled:cursor-not-allowed transition-all hover:bg-slate-200 hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.1)]"
-                        >
-                            Continue <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                        </button>
-                    </div>
-                </div>
-            )}
-
             {stage === 'matrix' && (
-                <div className="w-full animate-in fade-in zoom-in-95 duration-500 slide-in-from-right-8 pb-10">
-                     <div className="mb-10 text-center lg:text-left">
-                        <span className="inline-block px-3 py-1 rounded-full border border-[#F63C49]/30 bg-[#F63C49]/10 text-[#F63C49] text-[10px] font-bold uppercase tracking-widest mb-4">
-                            Your subjects - SPPU 2024 pattern
-                        </span>
-                        <h2 className="text-4xl font-display font-bold mb-2">Select Your Subjects</h2>
-                        <p className="text-slate-500 text-sm">Customize your dashboard for the current semester.</p>
-                     </div>
-
-                     <div className="space-y-8 mb-12">
-                        {/* Mathematics Choice */}
-                        <BinaryChoice
-                            label="Mathematics Module"
-                            titleA="Engineering Maths-I" codeA="BSC-101"
-                            titleB="Engineering Maths-II" codeB="BSC-151"
-                            selected={choices.maths === 'm1' ? 'A' : 'B'}
-                            onSelect={(v: string) => setChoices({...choices, maths: v === 'A' ? 'm1' : 'm2'})}
-                        />
-
-                        {/* Programming Choice */}
-                        <BinaryChoice
-                            label="Programming Module"
-                            titleA="FPL (C Programming)" codeA="ESC-105"
-                            titleB="PPS (Python)" codeB="PCC-151"
-                            selected={choices.programming === 'fpl' ? 'A' : 'B'}
-                            onSelect={(v: string) => setChoices({...choices, programming: v === 'A' ? 'fpl' : 'pps'})}
-                        />
-
-                        {/* Science Choice */}
-                        <BinaryChoice 
-                            label="Applied Science Module"
-                            titleA="Engineering Physics" codeA="BSC-102"
-                            titleB="Engineering Chemistry" codeB="BSC-103"
-                            selected={choices.science === 'phy' ? 'A' : 'B'}
-                            onSelect={(v: string) => setChoices({...choices, science: v === 'A' ? 'phy' : 'chem'})}
-                        />
-
-                        {/* Circuit Choice */}
-                        <BinaryChoice 
-                            label="Circuit Theory Module"
-                            titleA="Basic Electronics" codeA="ESC-101"
-                            titleB="Basic Electrical" codeB="ESC-102"
-                            selected={choices.circuit === 'elect' ? 'A' : 'B'}
-                            onSelect={(v: string) => setChoices({...choices, circuit: v === 'A' ? 'elect' : 'elec'})}
-                        />
-
-                        {/* Core Choice */}
-                        <BinaryChoice 
-                            label="Core Engineering Module"
-                            titleA="Engg. Graphics" codeA="ESC-103"
-                            titleB="Engg. Mechanics" codeB="ESC-104"
-                            selected={choices.core === 'graph' ? 'A' : 'B'}
-                            onSelect={(v: string) => setChoices({...choices, core: v === 'A' ? 'graph' : 'mech'})}
-                        />
-
-                     </div>
-
-                     <p className="text-center text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-4">5 subjects - you can change them later in Settings</p>
-                     <button
-                        onClick={handleFinish}
-                        className="w-full py-6 bg-[#D61A40] text-white font-bold uppercase tracking-[0.2em] rounded-xl hover:bg-[#B3123B] transition-all shadow-[0_0_40px_-10px_#F63C49] hover:shadow-[0_0_60px_-10px_#F63C49] flex items-center justify-center gap-3 group"
-                     >
-                        <Zap size={18} className="fill-white" />
-                        Start PrepTracker
-                     </button>
-                </div>
+                <PickerFlow avatarShape={avatarShape} setAvatarShape={setAvatarShape} avatarId={avatarId} setAvatarId={setAvatarId} name={name} setName={setName} onDone={(ids) => handleFinish(ids)} />
             )}
 
             {stage === 'processing' && (
-                <div className="w-full max-w-sm mx-auto animate-in fade-in zoom-in-95 duration-700">
-                    <div className="relative mb-12">
-                         {/* Core Animation */}
-                         <div className="w-32 h-32 mx-auto relative flex items-center justify-center">
-                             <div className="absolute inset-0 bg-[#F63C49]/20 rounded-full animate-ping"></div>
-                             <div className="absolute inset-0 border border-[#F63C49] rounded-full animate-[spin_10s_linear_infinite]"></div>
-                             <div className="absolute inset-4 border border-white/20 rounded-full animate-[spin_5s_linear_infinite_reverse]"></div>
-                             <div className="relative z-10 w-20 h-20 bg-[#0a0a0a] rounded-full border border-white/10 flex items-center justify-center shadow-[0_0_30px_#F63C49]">
-                                <Cpu size={32} className="text-white animate-pulse" />
-                             </div>
-                         </div>
-                    </div>
-
-                    <div className="text-center space-y-6">
-                        <div>
-                            <h2 className="text-2xl font-display font-bold text-white mb-2 uppercase tracking-widest animate-pulse">
-                                Saving your setup
-                            </h2>
-                            <p className="text-[10px] font-mono text-[#F63C49] uppercase tracking-[0.2em]">
-                                {processLog}
-                            </p>
-                        </div>
-
-                        {/* Progress Bar */}
-                        <div className="w-full bg-[#0a0a0a] rounded-full h-1.5 border border-white/10 overflow-hidden relative">
-                             <div 
-                                className="h-full bg-gradient-to-r from-[#F63C49] to-purple-600 transition-all duration-300 ease-out relative"
-                                style={{ width: `${processPercent}%` }}
-                             >
-                                <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,rgba(255,255,255,0.5)_50%,transparent_100%)] animate-[shimmer_1s_infinite]"></div>
-                             </div>
-                        </div>
-
-
-                    </div>
-                </div>
+                <SetupScreen title="Setting up" percent={processPercent} log={processLog} checklist summary={summary} />
             )}
 
         </main>

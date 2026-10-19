@@ -1,10 +1,11 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import './index.css';
 import { DataProvider } from './context/DataContext';
+import { SubjectsProvider } from './context/SubjectsContext';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -14,16 +15,18 @@ if (!rootElement) {
 const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
-    <HashRouter>
+    <BrowserRouter basename={(import.meta as any).env?.BASE_URL || '/'}>
       <DataProvider>
+      <SubjectsProvider>
         <App />
+      </SubjectsProvider>
       </DataProvider>
-    </HashRouter>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
 if ('serviceWorker' in navigator && (import.meta as any).env?.PROD) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').catch(() => {});
+    navigator.serviceWorker.register(`${(import.meta as any).env?.BASE_URL || '/'}sw.js`).catch(() => {});
   });
 }

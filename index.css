@@ -21,6 +21,23 @@ body {
   background: #D61A40;
   color: white;
 }
+/* Material system: dark elevation tokens.
+   Level 1: raised cards on the void. Level 2: elements nested inside cards. */
+@layer components {
+  .surface-1 {
+    background: linear-gradient(180deg, rgba(255,255,255,0.035) 0%, rgba(255,255,255,0.008) 45%, rgba(255,255,255,0) 100%), #0b0b0d;
+    border: 1px solid rgba(255,255,255,0.07);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.06),
+      0 1px 2px rgba(0,0,0,0.55),
+      0 20px 44px -28px rgba(0,0,0,0.9);
+  }
+  .surface-2 {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+  }
+}
 .glass-panel {
   background: rgba(10, 10, 10, 0.8);
   backdrop-filter: blur(24px);
@@ -54,3 +71,65 @@ summary:focus-visible {
   }
 }
 
+
+/* Mobile bottom dock: same raised-glass material as the dashboard cards. */
+@media (max-width: 1023px) {
+  .nav-dock {
+    background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 55%, rgba(255,255,255,0) 100%), rgba(11,11,13,0.82);
+    backdrop-filter: blur(24px) saturate(140%);
+    border: 1px solid rgba(255,255,255,0.09);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 1px 2px rgba(0,0,0,0.6), 0 18px 40px -12px rgba(0,0,0,0.9);
+  }
+}
+
+/* Actions card: slim scrollbar and a bottom vignette that fades out at the end of the list. */
+.actions-scroll {
+  --fade: 0;
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 56px * var(--fade)), transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 56px * var(--fade)), transparent 100%);
+  scrollbar-width: none;
+}
+.actions-scroll::-webkit-scrollbar { display: none; }
+
+/* Tasks micro-motion: interaction only, 250ms, ease (0.4,0,0.2,1), no spring. */
+@keyframes pt-flicker {
+  0% { transform: scale(1, 1); }
+  40% { transform: scale(0.92, 1.1) translateY(-0.4px); }
+  100% { transform: scale(1, 1); }
+}
+@keyframes pt-bubble {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-3.5px); opacity: 0; }
+}
+@keyframes pt-tickdraw {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+.pt-flicker { animation: pt-flicker 250ms cubic-bezier(0.4, 0, 0.2, 1) 1; }
+.pt-bubble circle { animation: pt-bubble 250ms cubic-bezier(0.4, 0, 0.2, 1) 1; }
+.pt-bubble circle:nth-child(2) { animation-delay: 60ms; animation-fill-mode: backwards; }
+.pt-tickdraw { animation: pt-tickdraw 250ms cubic-bezier(0.4, 0, 0.2, 1) 1; }
+
+/* All clear: one small burst, once, 250ms ease. */
+@keyframes pt-burst {
+  from { transform: rotate(var(--a)) translateY(0) scale(1); opacity: 1; }
+  to { transform: rotate(var(--a)) translateY(-26px) scale(0.4); opacity: 0; }
+}
+.pt-burst-dot { animation: pt-burst 250ms cubic-bezier(0.4, 0, 0.2, 1) 1 forwards; }
+
+/* Onboarding step change: a short eased slide and fade. No spring. */
+@keyframes pt-step-in-fwd { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; transform: none; } }
+@keyframes pt-step-in-back { from { opacity: 0; transform: translateX(-18px); } to { opacity: 1; transform: none; } }
+.pt-step-fwd { animation: pt-step-in-fwd 250ms cubic-bezier(0.4, 0, 0.2, 1) both; }
+.pt-step-back { animation: pt-step-in-back 250ms cubic-bezier(0.4, 0, 0.2, 1) both; }
+@media (prefers-reduced-motion: reduce) { .pt-step-fwd, .pt-step-back { animation: none; } }
+@keyframes pt-drop { from { opacity: 0; transform: translateY(-28px); } to { opacity: 1; transform: none; } }
+
+
+.pt-drop { animation: pt-drop 250ms cubic-bezier(0.4, 0, 0.2, 1) both; }
+
+
+@media (prefers-reduced-motion: reduce) { .pt-drop { animation: none; } }
+@keyframes pt-grow { from { clip-path: inset(100% 0 0 0); transform: translateY(14px); } to { clip-path: inset(0 0 0 0); transform: none; } }
+.pt-grow { animation: pt-grow 250ms cubic-bezier(0.4, 0, 0.2, 1) both; }
+@media (prefers-reduced-motion: reduce) { .pt-grow { animation: none; } }
