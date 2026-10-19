@@ -2,7 +2,7 @@
 import AppFooter from '../components/AppFooter';
 import React, { useRef, useState, useEffect } from 'react';
 import { RotateCcw, Trash2, Terminal, AlertTriangle, Upload, Download, Check, AlertOctagon, Loader2, ChevronDown, Share2, X } from 'lucide-react';
-import { SUBJECTS } from '../constants';
+import { useSubjects } from '../context/SubjectsContext';
 import { useData } from '../context/DataContext';
 import { BackupData, MAX_BYTES, Preview, createBackup, hasRollback, parseBackup, readState, restoreBackup, rollbackRestore, wipeAll } from '../lib/backup';
 import { useModalA11y } from '../components/useModalA11y';
@@ -76,6 +76,7 @@ const ConfirmModal = ({ isOpen, title, description, onConfirm, onCancel, isDange
 
 const SettingsPage: React.FC = () => {
   const { profile, setProfile } = useData();
+  const { subjects: allSubjects } = useSubjects();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [dragActive, setDragActive] = useState(false);
@@ -298,13 +299,13 @@ const SettingsPage: React.FC = () => {
       else a.t = setTimeout(() => { a.n = 0; }, 1500);
   };
   const [examOpen, setExamOpen] = useState(false);
-  const examSubjects = SUBJECTS.filter(su => profile.selectedSubjects?.includes(su.id));
+  const examSubjects = allSubjects.filter(su => profile.selectedSubjects?.includes(su.id));
   const examSetCount = examSubjects.filter(su => (profile.examDates || {})[su.id]).length;
   const unit = ['days', 'hours', 'weeks'][unitIdx];
   const shownValue = examDiff !== null && examDiff > 0
       ? (unit === 'days' ? `${examDiff}d` : unit === 'hours' ? `${examDiff * 24}h` : `${(examDiff / 7).toFixed(1)}w`)
       : examValue;
-  const selectedSubjectsList = SUBJECTS.filter(s => profile.selectedSubjects.includes(s.id));
+  const selectedSubjectsList = allSubjects.filter(s => profile.selectedSubjects.includes(s.id));
 
   return (
     <div className="min-h-screen relative animate-in fade-in duration-700 pb-20">

@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import './index.css';
 import { DataProvider } from './context/DataContext';
+import { SubjectsProvider } from './context/SubjectsContext';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -16,7 +17,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter basename={(import.meta as any).env?.BASE_URL || '/'}>
       <DataProvider>
+      <SubjectsProvider>
         <App />
+      </SubjectsProvider>
       </DataProvider>
     </BrowserRouter>
   </React.StrictMode>

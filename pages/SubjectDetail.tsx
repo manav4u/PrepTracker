@@ -19,15 +19,17 @@ import {
   Search,
   ArrowUpRight,
   HardDrive, ChevronDown} from 'lucide-react';
-import { SUBJECTS, SYSTEM_RESOURCES, getYouTubeID } from '../constants';
+import { SYSTEM_RESOURCES, getYouTubeID } from '../constants';
+import { useSubjects } from '../context/SubjectsContext';
 import { UnitStatus, ResourceItem } from '../types';
 import { useData } from '../context/DataContext';
 import ResourceViewerModal from '../components/ResourceViewerModal';
 
 const SubjectDetail: React.FC = () => {
   const { id } = useParams();
-  const subject = SUBJECTS.find(s => s.id === id);
   const { userProgress, setUserProgress, profile, setProfile } = useData();
+  const { subjects: allSubjects, ready: subjectsReady } = useSubjects();
+  const subject = allSubjects.find(s => s.id === id);
 
   // Resource State
   const [subjectResources, setSubjectResources] = useState<ResourceItem[]>([]);
@@ -72,7 +74,7 @@ const SubjectDetail: React.FC = () => {
       fetchResources();
   }, [subject]);
 
-  if (!subject) return <div className="p-20 text-center text-white font-display">Subject not found</div>;
+  if (!subject) return subjectsReady ? <div className="p-20 text-center text-white font-display">Subject not found</div> : null;
 
   const totalTopics = subject.units.reduce((n, u) => n + (u.topics?.length || 0), 0);
   const coveredTopics = subject.units.reduce((n, u) => n + (userProgress.find(p => p.unitId === u.id)?.topicsDone || []).filter(t => (u.topics || []).includes(t)).length, 0);
