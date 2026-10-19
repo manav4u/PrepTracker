@@ -2,7 +2,7 @@
 // One shared key list is used by the app, export and restore so they cannot drift apart again.
 import { cleanMarks } from './grading.ts';
 import { isReviews } from './revision.ts';
-import { isAvatarId } from './avatars.ts';
+import { isAvatarId, isAvatarShape } from './avatars.ts';
 
 export const KEYS = {
   profile: 'sppu_profile',
@@ -167,6 +167,10 @@ export function parseBackup(content: string, current: BackupData): Preview {
     }
   }
   if (data.profile === null) data.profile = current.profile;
+  if (data.profile && data.profile.avatarShape !== undefined && !isAvatarShape(data.profile.avatarShape)) {
+    data.profile = { ...data.profile, avatarShape: 'circle' };
+    warnings.push('This avatar shape is not supported. Circle will be used.');
+  }
   if (data.profile && data.profile.avatarId !== undefined && !isAvatarId(data.profile.avatarId)) {
     data.profile = { ...data.profile }; delete data.profile.avatarId;
     warnings.push('This avatar is not in the catalog. Your study data is kept and a default avatar will be used.');

@@ -61,6 +61,7 @@ export interface StudyEvent {
 
 export interface Profile {
   avatarId?: string;
+  avatarShape?: 'circle' | 'rounded' | 'square' | 'hexagon';
   name: string;
   prn?: string;
   theme: 'light' | 'dark';

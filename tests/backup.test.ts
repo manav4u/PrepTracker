@@ -132,3 +132,12 @@ test('old backup without avatar works and unknown or hostile avatar falls back w
     assert.ok(p.warnings.some(w => /avatar/.test(w)));
   }
 });
+
+test('avatar shape round trips, old profiles default and invalid shapes preserve study data', () => {
+ const s = new Mem(); seed(s); s.setItem(KEYS.profile, JSON.stringify({ ...profile, avatarId: 'cute-002', avatarShape: 'hexagon' }));
+ const b = createBackup(s); const p = parseBackup(JSON.stringify(b),readState(new Mem()));
+ assert.equal(p.data.profile.avatarShape,'hexagon');
+ b.data.profile.avatarShape = 'url(javascript:x)';
+ const safe = parseBackup(JSON.stringify(b),readState(new Mem()));
+ assert.equal(safe.data.profile.avatarShape,'circle');assert.deepEqual(safe.data.progress,progress);assert.ok(safe.warnings.some(w=>/shape/.test(w)));
+});

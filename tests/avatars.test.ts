@@ -12,3 +12,10 @@ test('avatar ids cannot be arbitrary paths or external URLs', () => {
  for(const id of ['../x','https://x.invalid','goofy-000','goofy-049',null,2]){assert.equal(isAvatarId(id),false);assert.equal(avatarSrc(id as any),'/avatars/v1/doodles-001.svg');}
  assert.equal(isAvatarId('cute-048'),true);
 });
+
+test('shape presets are limited to four and default safely', async () => {
+ const { AVATAR_SHAPES, isAvatarShape, avatarFrame } = await import('../lib/avatars.ts');
+ assert.equal(AVATAR_SHAPES.length,4);
+ for(const s of AVATAR_SHAPES) assert.ok(isAvatarShape(s));
+ assert.equal(isAvatarShape('url(x)'),false);assert.equal(avatarFrame('bad').borderRadius,'50%');
+});

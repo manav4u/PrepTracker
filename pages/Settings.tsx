@@ -342,8 +342,8 @@ const SettingsPage: React.FC = () => {
 
       <div className="max-w-3xl mx-auto pt-4 lg:pt-8 px-4">
 
-        {avatarOpen && <Suspense fallback={<p role="status">Loading avatar picker...</p>}><AvatarPicker current={profile.avatarId} name={profile.name} onClose={() => setAvatarOpen(false)} onSave={id => {
-          const next = { ...profile, avatarId: id };
+        {avatarOpen && <Suspense fallback={<p role="status">Loading avatar picker...</p>}><AvatarPicker current={profile.avatarId} shape={profile.avatarShape} name={profile.name} onClose={() => setAvatarOpen(false)} onSave={(id, shape) => {
+          const next = { ...profile, avatarId: id, avatarShape: shape };
           try { localStorage.setItem('sppu_profile', JSON.stringify(next)); setProfile(next); setAvatarOpen(false); }
           catch { alert('Your browser could not save the avatar. Nothing changed. Free some storage and try again.'); }
         }} /></Suspense>}
@@ -361,8 +361,8 @@ const SettingsPage: React.FC = () => {
         {/* HERO */}
         <section className="relative overflow-hidden rounded-3xl border border-white/10 surface-1 p-5 lg:p-7 mb-5 lg:mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
             <div className="relative flex items-center gap-4 min-w-0">
-                <button type="button" onClick={() => setAvatarOpen(true)} aria-label="Change avatar" className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-white overflow-hidden border border-white/20 shrink-0 transition-transform duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
-                    <ProfileAvatar id={profile.avatarId} size={80} className="w-full h-full" />
+                <button type="button" onClick={() => setAvatarOpen(true)} aria-label="Change avatar" className="w-16 h-16 lg:w-20 lg:h-20 shrink-0 transition-transform duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
+                    <ProfileAvatar id={profile.avatarId} shape={profile.avatarShape} size={80} className="w-full h-full" />
                 </button>
                 <div className="min-w-0">
                     <p className="text-2xl lg:text-3xl font-display font-bold text-white truncate">{profile.name || 'Your name'}</p>

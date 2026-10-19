@@ -3,3 +3,4 @@
 @media(prefers-reduced-motion:reduce){.avatar-grid button{transition:none}}
 @media(max-width:640px){.avatar-dialog{max-width:100vw}}
 .avatar-grid button:focus:not(:focus-visible){outline:none}
+.avatar-shapes{border:0;margin:0 0 16px;padding:0}.avatar-shapes legend{font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}.avatar-shapes>div{display:flex;gap:6px;flex-wrap:wrap}.avatar-shapes button{display:flex;align-items:center;gap:7px;min-height:44px;border:1px solid #35353e;border-radius:8px;padding:8px 10px;font-size:11px;color:#ddd;background:#19191e}.avatar-shapes button[aria-pressed=true]{border-color:#f63c49;background:#25171d}.avatar-shapes button span{width:18px;height:18px;background:#eee;display:block}

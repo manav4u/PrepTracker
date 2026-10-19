@@ -20,8 +20,8 @@ const ITEMS = [
 const Avatar: React.FC<{ size: number }> = ({ size }) => {
   const { profile } = useData();
   return (
-    <Link to="/app/settings" aria-label="Settings" className="rounded-full overflow-hidden ring-2 ring-white/10 hover:ring-white/40 transition-[box-shadow] duration-[250ms]" style={{ width: size, height: size }}>
-      <ProfileAvatar id={profile?.avatarId} size={size} />
+    <Link to="/app/settings" aria-label="Settings" className="block" style={{ width: size, height: size }}>
+      <ProfileAvatar id={profile?.avatarId} shape={profile?.avatarShape} size={size} />
     </Link>
   );
 };

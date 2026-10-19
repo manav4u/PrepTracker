@@ -1,3 +1,4 @@
+import type { AvatarShape } from '../lib/avatars';
 
 import React, { useState, useEffect } from 'react';
 import LogoMark from '../components/LogoMark';
@@ -19,6 +20,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
   // Re-pick (Settings > Change subjects) keeps the profile, so greet them by name again.
   const [name, setName] = useState(profile?.name ?? '');
   const [avatarId, setAvatarId] = useState(profile?.avatarId);
+  const [avatarShape, setAvatarShape] = useState<AvatarShape>(profile?.avatarShape || 'circle');
   
   // Processing Stage State
   const [processPercent, setProcessPercent] = useState(0);
@@ -66,6 +68,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
             const newProfile: Profile = {
                 name: name || profile?.name || 'Student',
                 avatarId,
+                avatarShape,
                 theme: 'dark',
                 selectedSubjects: selectedIds,
                 setupComplete: true,
@@ -116,7 +119,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
         <main className={`flex-1 flex flex-col items-center p-6 mx-auto w-full ${stage === 'matrix' ? 'max-w-5xl' : 'max-w-lg justify-center'}`}>
             
             {stage === 'matrix' && (
-                <PickerFlow avatarId={avatarId} setAvatarId={setAvatarId} name={name} setName={setName} onDone={(ids) => handleFinish(ids)} />
+                <PickerFlow avatarShape={avatarShape} setAvatarShape={setAvatarShape} avatarId={avatarId} setAvatarId={setAvatarId} name={name} setName={setName} onDone={(ids) => handleFinish(ids)} />
             )}
 
             {stage === 'processing' && (
