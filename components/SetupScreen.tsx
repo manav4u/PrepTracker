@@ -1,6 +1,7 @@
 import React from 'react';
 import StepArt from './StepArt';
 import CheckRing from './CheckRing';
+import { Shelf, SetupSummary } from './SetupScenes';
 
 const EASE = 'duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)]';
 const STEPS = [
@@ -11,9 +12,13 @@ const STEPS = [
 ];
 
 /** The "setting up" screen: drawing, one solid progress bar, and a checklist that ticks as it goes. */
-const SetupScreen: React.FC<{ percent: number; title: string; log?: string; checklist?: boolean }> = ({ percent, title, log, checklist }) => (
+const SetupScreen: React.FC<{ percent: number; title: string; log?: string; checklist?: boolean; summary?: SetupSummary }> = ({ percent, title, log, checklist, summary }) => {
+  const scene = !!summary;
+  return (
   <div className="w-full max-w-md mx-auto flex flex-col items-center text-center pt-10 pb-6">
-    <StepArt kind="build" className="w-40 h-40 lg:w-48 lg:h-48" />
+    {scene ? (
+      <div className="w-full mb-2"><Shelf s={summary!} percent={percent} /></div>
+    ) : <StepArt kind="build" className="w-40 h-40 lg:w-48 lg:h-48" />}
     <h2 className="mt-6 font-display font-bold text-4xl lg:text-5xl tracking-tight text-white leading-none">{title}<span className="text-[#F63C49]">.</span></h2>
     <p className="mt-3 h-5 text-sm text-slate-500">{log}</p>
 
@@ -27,7 +32,7 @@ const SetupScreen: React.FC<{ percent: number; title: string; log?: string; chec
       </div>
     </div>
 
-    {checklist && (
+    {checklist && !scene && (
       <ul className="mt-8 w-full space-y-2.5 text-left">
         {STEPS.map(s => {
           const done = percent >= s.at;
@@ -41,6 +46,7 @@ const SetupScreen: React.FC<{ percent: number; title: string; log?: string; chec
       </ul>
     )}
   </div>
-);
+  );
+};
 
 export default SetupScreen;

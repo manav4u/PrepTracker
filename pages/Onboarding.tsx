@@ -5,6 +5,7 @@ import { Profile } from '../types';
 import { useData } from '../context/DataContext';
 import PickerFlow from '../components/PickerFlow';
 import SetupScreen from '../components/SetupScreen';
+import { buildSummary } from '../components/SetupScenes';
 
 interface OnboardingProps {}
 
@@ -20,6 +21,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
   // Processing Stage State
   const [processPercent, setProcessPercent] = useState(0);
   const [processLog, setProcessLog] = useState("INITIALIZING...");
+  const [summary, setSummary] = useState<ReturnType<typeof buildSummary> | undefined>();
 
 
   // --- BOOT SEQUENCE LOGIC ---
@@ -40,6 +42,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
   }, [stage]);
 
   const handleFinish = async (ids: string[]) => {
+    setSummary(buildSummary(name, ids));
     setStage('processing');
     
     // Simulate complex processing steps
@@ -114,7 +117,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
             )}
 
             {stage === 'processing' && (
-                <SetupScreen title="Setting up" percent={processPercent} log={processLog} checklist />
+                <SetupScreen title="Setting up" percent={processPercent} log={processLog} checklist summary={summary} />
             )}
 
         </main>

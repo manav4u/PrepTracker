@@ -130,3 +130,6 @@ summary:focus-visible {
 
 
 @media (prefers-reduced-motion: reduce) { .pt-drop { animation: none; } }
+@keyframes pt-grow { from { clip-path: inset(100% 0 0 0); transform: translateY(14px); } to { clip-path: inset(0 0 0 0); transform: none; } }
+.pt-grow { animation: pt-grow 250ms cubic-bezier(0.4, 0, 0.2, 1) both; }
+@media (prefers-reduced-motion: reduce) { .pt-grow { animation: none; } }
