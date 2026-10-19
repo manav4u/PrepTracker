@@ -143,7 +143,7 @@
     letter-spacing:.24em;text-transform:uppercase;color:rgba(247,245,242,.85);white-space:nowrap}.lp2 .ticker-track i{color:var(--red-hi);font-style:normal}@keyframes lp2tick{to{transform:translateX(-50%)}}@media (prefers-reduced-motion: reduce){.lp2 .ticker-track{animation:none}}.lp2 .foot-main{max-width:1400px;margin:0 auto;padding:72px 40px 0}.lp2 .foot-lockup{font-family:var(--grot);font-weight:700;font-size:clamp(52px,11vw,176px);
     letter-spacing:-.035em;line-height:1;margin:0 0 20px;color:var(--ink)}.lp2 .foot-lockup .fl{display:inline-block;transform:translateY(48px);opacity:0;
     transition:transform .7s cubic-bezier(.2,.7,.2,1),opacity .7s ease}.lp2 .foot-lockup.in .fl{transform:none;opacity:1}.lp2 .foot-lockup .rd{color:var(--red)}.lp2 .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;
-    padding-top:24px;border-top:1px solid var(--hair)}.lp2 .foot-about svg{width:34px;height:34px}.lp2 .foot-about p{margin:16px 0 0;font-size:15px;line-height:1.7;color:var(--mut);max-width:340px}.lp2 .foot-about .foot-sign{font-family:var(--mono);font-size:10px;letter-spacing:.2em;
+    padding-top:0;border-top:0}.lp2 .foot-about p{margin:0;font-size:15px;line-height:1.7;color:var(--mut);max-width:340px}.lp2 .foot-about .foot-sign{font-family:var(--mono);font-size:10px;letter-spacing:.2em;
     text-transform:uppercase;color:var(--ink);margin-top:20px}.lp2 .foot-col{display:block;padding:0;background:none;border:none;border-radius:0;box-shadow:none;
     backdrop-filter:none;-webkit-backdrop-filter:none;position:static;max-width:none;margin:0;transform:none;top:auto;left:auto;gap:0}.lp2 .foot-col h3{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;
     color:var(--mut);margin:0 0 16px;font-weight:400}.lp2 .foot-col a{display:block;color:var(--ink);text-decoration:none;font-size:15px;padding:5px 0;
@@ -160,4 +160,4 @@
 @media(max-width:900px){.lp2 .feat-shot img{aspect-ratio:390/844}}
 
 /* Keep the mobile footer compact below the wordmark. */
-@media(max-width:900px){.lp2 .foot-main{padding-top:32px}.lp2 .foot-lockup{margin-bottom:16px}.lp2 .foot-grid{padding-top:20px;gap:24px}.lp2 .foot-bar{margin-top:32px}}
+@media(max-width:900px){.lp2 .foot-main{padding-top:32px}.lp2 .foot-lockup{margin-bottom:16px}.lp2 .foot-grid{padding-top:0;gap:24px}.lp2 .foot-bar{margin-top:32px}}

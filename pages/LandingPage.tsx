@@ -502,7 +502,6 @@ const LandingPage: React.FC = () => {
             </p>
             <div className="foot-grid">
               <div className="foot-about">
-                <LogoMark size={34} />
                 <p>The exam desk. Syllabus progress, study resources and tasks in one place. Free, open source, and private by design.</p>
                 <p className="foot-sign">Built by a student, for students</p>
               </div>
