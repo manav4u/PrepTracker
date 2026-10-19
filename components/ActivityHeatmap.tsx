@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { SUBJECTS } from '../constants';
+import type { Subject } from '../types';
+import { useSubjects } from '../context/SubjectsContext';
 import {
   ActivityProfile,
   StudyEvent,
@@ -17,8 +18,8 @@ const LEVEL_CLASS: Record<HeatLevel, string> = {
   4: 'bg-[#F63C49] shadow-[0_0_8px_rgba(246,60,73,0.5)]',
 };
 
-const eventLine = (e: StudyEvent): { title: string; sub: string } => {
-  const subject = SUBJECTS.find(s => s.id === e.subjectId);
+const eventLine = (e: StudyEvent, allSubjects: Subject[]): { title: string; sub: string } => {
+  const subject = allSubjects.find(s => s.id === e.subjectId);
   const subjectName = subject?.name || e.subjectId;
   const unit = subject?.units.find(u => u.id === e.unitId);
   const unitLabel = unit ? `Unit ${unit.unit_number}` : '';
@@ -35,6 +36,7 @@ const eventLine = (e: StudyEvent): { title: string; sub: string } => {
 };
 
 const ActivityHeatmap: React.FC<{ profile: ActivityProfile; style?: React.CSSProperties }> = ({ profile, style }) => {
+  const { subjects: allSubjects } = useSubjects();
   const today = dayKey(new Date());
   const [selected, setSelected] = useState(today);
   const weeks = useMemo(() => heatmapWeeks(profile, 3), [profile]);
@@ -122,7 +124,7 @@ const ActivityHeatmap: React.FC<{ profile: ActivityProfile; style?: React.CSSPro
             {selectedEvents.length > 0 ? (
               <ul>
                 {selectedEvents.map((e, i) => {
-                  const line = eventLine(e);
+                  const line = eventLine(e, allSubjects);
                   return (
                     <li key={i} className="flex items-start gap-3 lg:gap-4 h-[60px] lg:h-[56px]">
                       <span className="mt-1.5 lg:mt-2 w-1.5 h-1.5 lg:w-2 lg:h-2 rounded-[2px] bg-[#F63C49] shrink-0"></span>

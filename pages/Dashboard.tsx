@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { SUBJECTS } from '../constants';
+import { useSubjects } from '../context/SubjectsContext';
 import SubjectCard from '../components/SubjectCard';
 import { UnitStatus } from '../types';
 import { CalendarDays, Flame, Activity } from 'lucide-react';
@@ -210,6 +210,7 @@ const ProgressGraphCard = ({ data, labels, total }: { data: number[], labels: st
 
 const Dashboard: React.FC = () => {
   const { profile, userProgress } = useData();
+  const { subjects: allSubjects } = useSubjects();
 
   if (!profile) return null;
 
@@ -217,7 +218,7 @@ const Dashboard: React.FC = () => {
 
   // Calculate Progress
   const getSubjectProgress = (subjectId: string) => {
-    const subject = SUBJECTS.find(s => s.id === subjectId);
+    const subject = allSubjects.find(s => s.id === subjectId);
     if (!subject) return { percentage: 0, mastered: 0 };
     const subjectUnitIds = subject.units.map(u => u.id);
     const progForSub = userProgress.filter(p => subjectUnitIds.includes(p.unitId));
@@ -235,7 +236,7 @@ const Dashboard: React.FC = () => {
   };
 
   // Filter Active Subjects
-  const filtered = SUBJECTS.filter(s => selectedIds.includes(s.id));
+  const filtered = allSubjects.filter(s => selectedIds.includes(s.id));
   
   // Aggregate Metrics
   const avgProgress = filtered.length > 0 
@@ -247,7 +248,7 @@ const Dashboard: React.FC = () => {
 
   // Exam timeline: only dates the student set themselves in Settings (built-in
   // schedules go stale every cycle, so PrepTracker never invents exam dates).
-  const timelineExams = subjectExamList(profile, SUBJECTS);
+  const timelineExams = subjectExamList(profile, allSubjects);
   const nextIdx = nextExamIndex(timelineExams);
   // Days to exam comes from the date the student sets in Settings.
   const examStart = profile.examStartDate ? new Date(`${profile.examStartDate}T00:00:00`) : null;

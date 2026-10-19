@@ -2,7 +2,7 @@ import Doodle from '../components/Doodle';
 import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useData } from '../context/DataContext';
-import { SUBJECTS } from '../constants';
+import { useSubjects } from '../context/SubjectsContext';
 import { recordStudy, currentStreak } from '../lib/activity';
 import type { Profile } from '../types';
 import { buildQueue, answer, STEPS, type ReviewItem, type ReviewEntry } from '../lib/revision';
@@ -17,13 +17,14 @@ const dayLabel = (key: string) => {
 
 const Revise: React.FC = () => {
   const { profile, setProfile, userProgress, reviews, setReviews } = useData();
+  const { subjects: allSubjects } = useSubjects();
   const [stopLine, setStopLine] = useState(false);
   // The last tap, kept so one tap can be taken back.
   const [last, setLast] = useState<{ item: ReviewItem; recalled: boolean; prev: ReviewEntry | undefined; profile: Profile | null } | null>(null);
 
   const queue = useMemo(
-    () => buildQueue(SUBJECTS, profile?.selectedSubjects || [], userProgress, profile?.events || [], reviews),
-    [profile?.selectedSubjects, profile?.events, userProgress, reviews]
+    () => buildQueue(allSubjects, profile?.selectedSubjects || [], userProgress, profile?.events || [], reviews),
+    [allSubjects, profile?.selectedSubjects, profile?.events, userProgress, reviews]
   );
 
   const [current, ...rest] = queue.today;

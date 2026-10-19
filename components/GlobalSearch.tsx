@@ -1,7 +1,7 @@
 import React, { useMemo, useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search, X } from 'lucide-react';
-import { SUBJECTS } from '../constants';
+import { useSubjects } from '../context/SubjectsContext';
 import { useData } from '../context/DataContext';
 
 interface Hit { key: string; title: string; sub: string; to: string; group: 'Syllabus' | 'Tasks' | 'Resources'; }
@@ -13,12 +13,13 @@ const GlobalSearch: React.FC<{ selectedSubjects: string[]; overlay?: boolean; on
   const ref = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const { tasks, resources } = useData();
+  const { subjects: allSubjects } = useSubjects();
 
   const hits = useMemo<Hit[]>(() => {
     const term = q.trim().toLowerCase();
     if (term.length < 2) return [];
     const out: Hit[] = [];
-    for (const s of SUBJECTS.filter(x => selectedSubjects.includes(x.id))) {
+    for (const s of allSubjects.filter(x => selectedSubjects.includes(x.id))) {
       if (s.name.toLowerCase().includes(term) || s.code.toLowerCase().includes(term)) {
         out.push({ key: s.id, title: s.name, sub: s.code, to: `/app/subject/${s.id}`, group: 'Syllabus' });
       }
@@ -40,7 +41,7 @@ const GlobalSearch: React.FC<{ selectedSubjects: string[]; overlay?: boolean; on
       }
     }
     return out.slice(0, 10);
-  }, [q, selectedSubjects, tasks, resources]);
+  }, [q, selectedSubjects, tasks, resources, allSubjects]);
 
   useEffect(() => {
     if (overlay) return; // overlay mode closes via its own button

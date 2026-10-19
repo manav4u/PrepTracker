@@ -2,7 +2,7 @@ import React, { useEffect, useLayoutEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useModalA11y } from './useModalA11y';
 import { useData } from '../context/DataContext';
-import { SUBJECTS } from '../constants';
+import { useSubjects } from '../context/SubjectsContext';
 import { buildQueue, dayOf } from '../lib/revision';
 
 const PROMPT_KEY = 'sppu_revise_prompt'; // local day the prompt was last shown
@@ -64,10 +64,11 @@ export default ReviseSheet;
 /** Opens the sheet on the first Dashboard visit of the day, only when reviews are due. */
 export const DailyRevisePrompt: React.FC = () => {
   const { profile, userProgress, reviews } = useData();
+  const { subjects: allSubjects } = useSubjects();
   const [open, setOpen] = useState(false);
   const queue = useMemo(
-    () => buildQueue(SUBJECTS, profile?.selectedSubjects || [], userProgress, profile?.events || [], reviews).today,
-    [profile?.selectedSubjects, profile?.events, userProgress, reviews]
+    () => buildQueue(allSubjects, profile?.selectedSubjects || [], userProgress, profile?.events || [], reviews).today,
+    [allSubjects, profile?.selectedSubjects, profile?.events, userProgress, reviews]
   );
   const subjects = useMemo(() => Array.from(new Set(queue.map((i) => i.subjectName))), [queue]);
   const [snapshot, setSnapshot] = useState<{ count: number; subjects: string[] }>({ count: 0, subjects: [] });

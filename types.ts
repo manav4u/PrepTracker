@@ -11,6 +11,7 @@ export interface Unit {
   unit_number: number;
   title: string;
   weightage?: number; 
+  hours?: number;
   topics: string[]; 
 }
 
@@ -19,10 +20,21 @@ export interface Subject {
   name: string;
   code: string;
   credits: number;
-  theoryCredits: number; // credits for the theory head (CCE 30 + end-sem 70)
-  termWorkCredits: number; // credits for the term work head (25 marks)
+  theoryCredits?: number; // credits for the theory head (CCE 30 + end-sem 70); FE only
+  termWorkCredits?: number; // credits for the term work head (25 marks); FE only
   units: Unit[];
   common?: boolean;
+  // Present on catalog courses (SE and TE). First-year subjects in constants.tsx omit them.
+  year?: 'FE' | 'SE' | 'TE';
+  branch?: string;
+  branchSlug?: string;
+  semester?: number;
+  type?: string; // Core, Minor, Elective
+  electiveGroup?: string; // one course per group
+  trackerReady?: boolean; // false = reference only
+  draft?: boolean;
+  source?: string; // official SPPU PDF the text comes from
+  sourceLabel?: string;
 }
 
 export interface PYQ {

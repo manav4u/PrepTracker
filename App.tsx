@@ -36,6 +36,7 @@ const TodoList = screen(() => import('./pages/TodoList'));
 const LandingPage = screen(() => import('./pages/LandingPage'));
 import { UnitStatus } from './types';
 import { useData } from './context/DataContext';
+import { useSubjects } from './context/SubjectsContext';
 import ErrorBoundary from './components/ErrorBoundary';
 import LogoMark from './components/LogoMark';
 import GlobalSearch from './components/GlobalSearch';
@@ -111,6 +112,7 @@ const NavItem = ({ to, icon: Icon, active, label, short }: { to: string, icon: a
 
 export default function App() {
   const { profile, setProfile, storageFull } = useData();
+  const { ready: subjectsReady } = useSubjects();
   const location = useLocation();
   const [mobileSearchOpen, setMobileSearchOpen] = React.useState(false);
 
@@ -241,7 +243,7 @@ export default function App() {
                         <div className="max-w-[1600px] mx-auto h-full">
                         <ErrorBoundary scope="page" resetKey={location.pathname}>
                         <Suspense fallback={null}>
-                        <Routes>
+                        {subjectsReady && (<Routes>
                             <Route path="/" element={<Dashboard />} />
                             <Route path="subject/:id" element={<SubjectDetail />} />
                             <Route path="resources" element={<Resources />} />
@@ -249,7 +251,7 @@ export default function App() {
                             <Route path="revise" element={<RevisePage />} />
                             <Route path="settings" element={<SettingsPage />} />
                             <Route path="*" element={<Navigate to="/app" replace />} />
-                        </Routes>
+                        </Routes>)}
                         </Suspense>
                         </ErrorBoundary>
                         </div>

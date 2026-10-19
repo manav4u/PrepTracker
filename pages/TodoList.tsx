@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { SUBJECTS } from '../constants';
+import { useSubjects } from '../context/SubjectsContext';
 import { 
   Plus, 
   Trash2, 
@@ -24,7 +24,7 @@ import {
 } from 'lucide-react';
 import { FlameIcon, FlaskIcon, PaperStampIcon, OpenBookIcon, SignalBars, TickDraw } from '../components/TaskIcons';
 import { useData } from '../context/DataContext';
-import { Task, Priority, TaskCategory as Category } from '../types';
+import { Subject, Task, Priority, TaskCategory as Category } from '../types';
 
 // --- CONSTANTS ---
 const CATEGORY_CONFIG: Record<Category, { color: string, icon: any, label: string }> = {
@@ -214,14 +214,11 @@ const TaskRow = React.memo(function TaskRow({ task, open, dragX, editing, draw, 
   );
 });
 
-// Which subject a unit belongs to. Built once, so rows do not search the syllabus on every render.
-let UNIT_INDEX: Map<string, { subjectId: string; text: string }> | null = null;
-const unitLabel = (id: string) => {
-  if (!UNIT_INDEX) {
-    UNIT_INDEX = new Map();
-    for (const s of SUBJECTS) for (const u of s.units) UNIT_INDEX.set(u.id, { subjectId: s.id, text: s.name });
-  }
-  return UNIT_INDEX.get(id) || null;
+// Which subject a unit belongs to. Built once per subject list, so rows do not search the syllabus on every render.
+const buildUnitIndex = (subjects: Subject[]) => {
+  const m = new Map<string, { subjectId: string; text: string }>();
+  for (const s of subjects) for (const u of s.units) m.set(u.id, { subjectId: s.id, text: s.name });
+  return m;
 };
 
 // Rows are drawn in pages as the list is scrolled, so a few hundred tasks never mount at once.
@@ -312,6 +309,9 @@ const CustomSelect = <T extends string>({
 const TodoList: React.FC = () => {
   // State
   const { tasks, setTasks, profile } = useData();
+  const { subjects: allSubjects } = useSubjects();
+  const unitIndex = useMemo(() => buildUnitIndex(allSubjects), [allSubjects]);
+  const unitLabel = (id: string) => unitIndex.get(id) || null;
   const [loading, setLoading] = useState(false);
   const [inputText, setInputText] = useState('');
   const [inputPriority, setInputPriority] = useState<Priority>('NORMAL');
@@ -502,14 +502,14 @@ const TodoList: React.FC = () => {
     { value: 'LOW', label: 'Low', icon: BarsLow, color: 'text-slate-400' }
   ];
 
-  const subjectOfUnit = (id: string) => SUBJECTS.find(x => x.units.some(u => u.id === id))?.id || '';
+  const subjectOfUnit = (id: string) => allSubjects.find(x => x.units.some(u => u.id === id))?.id || '';
   const subjectOptionsFor = (extra: string) => [
     { value: '', label: 'Select subject' },
-    ...SUBJECTS.filter(s => profile?.selectedSubjects?.includes(s.id) || s.id === extra).map(s => ({ value: s.id, label: s.name }))
+    ...allSubjects.filter(s => profile?.selectedSubjects?.includes(s.id) || s.id === extra).map(s => ({ value: s.id, label: s.name }))
   ];
   const unitOptionsFor = (subjectId: string) => [
     { value: '', label: 'No unit' },
-    ...(SUBJECTS.find(s => s.id === subjectId)?.units || []).map(u => ({ value: u.id, label: `Unit ${u.unit_number} · ${u.title}` }))
+    ...(allSubjects.find(s => s.id === subjectId)?.units || []).map(u => ({ value: u.id, label: `Unit ${u.unit_number} · ${u.title}` }))
   ];
 
   const categoryOptions = Object.entries(CATEGORY_CONFIG).map(([key, config]) => ({
