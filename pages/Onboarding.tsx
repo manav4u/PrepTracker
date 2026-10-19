@@ -18,6 +18,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
   const [bootProgress, setBootProgress] = useState(0);
   // Re-pick (Settings > Change subjects) keeps the profile, so greet them by name again.
   const [name, setName] = useState(profile?.name ?? '');
+  const [avatarId, setAvatarId] = useState(profile?.avatarId);
   
   // Processing Stage State
   const [processPercent, setProcessPercent] = useState(0);
@@ -64,6 +65,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
             const selectedIds = ids;
             const newProfile: Profile = {
                 name: name || profile?.name || 'Student',
+                avatarId,
                 theme: 'dark',
                 selectedSubjects: selectedIds,
                 setupComplete: true,
@@ -114,7 +116,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
         <main className={`flex-1 flex flex-col items-center p-6 mx-auto w-full ${stage === 'matrix' ? 'max-w-5xl' : 'max-w-lg justify-center'}`}>
             
             {stage === 'matrix' && (
-                <PickerFlow name={name} setName={setName} onDone={(ids) => handleFinish(ids)} />
+                <PickerFlow avatarId={avatarId} setAvatarId={setAvatarId} name={name} setName={setName} onDone={(ids) => handleFinish(ids)} />
             )}
 
             {stage === 'processing' && (

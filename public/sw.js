@@ -8,7 +8,7 @@ self.addEventListener('install', (e) => {
 
 self.addEventListener('activate', (e) => {
   e.waitUntil(
-    caches.keys().then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k)))).then(() => self.clients.claim())
+    caches.keys().then((keys) => Promise.all(keys.filter((k) => k !== CACHE && k !== 'preptracker-avatars-v1').map((k) => caches.delete(k)))).then(() => self.clients.claim())
   );
 });
 
@@ -31,7 +31,7 @@ self.addEventListener('fetch', (e) => {
     return;
   }
 
-  if (url.pathname.startsWith('/assets/')) {
+  if (url.pathname.startsWith('/assets/') || url.pathname.startsWith('/avatars/v1/')) {
     e.respondWith(
       caches.match(req).then(
         (hit) =>

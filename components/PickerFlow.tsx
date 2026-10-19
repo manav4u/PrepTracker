@@ -1,3 +1,6 @@
+import { lazy, Suspense } from 'react';
+import ProfileAvatar from './ProfileAvatar';
+const AvatarPicker = lazy(() => import('./AvatarPicker'));
 import React, { useMemo, useState } from 'react';
 import { ArrowLeft, ArrowRight, Check } from 'lucide-react';
 import { CATALOG_INDEX } from '../lib/catalogLoader';
@@ -49,8 +52,9 @@ const Heading = ({ children, art, kicker }: { children: React.ReactNode; art: Ar
 );
 
 /** One decision per screen: year, branch, semester, courses. Calls onDone with the chosen course ids. */
-const PickerFlow: React.FC<{ onDone: (ids: string[]) => void; name: string; setName: (v: string) => void }> = ({ onDone, name, setName }) => {
+const PickerFlow: React.FC<{ onDone: (ids: string[]) => void; name: string; setName: (v: string) => void; avatarId?: string; setAvatarId: (v: string) => void }> = ({ onDone, name, setName, avatarId, setAvatarId }) => {
   const [step, setStep] = useState<Step>('name');
+  const [avatarOpen, setAvatarOpen] = useState(false);
   const [year, setYear] = useState<Year | null>(null);
   const [branch, setBranch] = useState<string | null>(null);
   const [sem, setSem] = useState<number | null>(null);
@@ -111,6 +115,7 @@ const PickerFlow: React.FC<{ onDone: (ids: string[]) => void; name: string; setN
 
   return (
     <div className="w-full lg:grid lg:grid-cols-[minmax(0,34rem)_minmax(0,1fr)] lg:gap-16">
+    {avatarOpen && <Suspense fallback={<p role="status">Loading avatar picker...</p>}><AvatarPicker current={avatarId} name={name} onClose={() => setAvatarOpen(false)} onSave={id => { setAvatarId(id); setAvatarOpen(false); }} /></Suspense>}
     <div className={`flex flex-col w-full min-h-[calc(100dvh-6rem)] pb-6 ${step === 'name' ? 'lg:justify-center' : ''}`}>
       <div className="flex gap-1.5 mb-8" role="progressbar" aria-valuemin={1} aria-valuemax={flow.length} aria-valuenow={idx + 1} aria-label="Setup step">
         {flow.map((s, i) => <span key={s} className={`h-1 flex-1 rounded-full transition-colors ${EASE} ${i <= idx ? 'bg-[#F63C49]' : 'bg-white/10'}`} />)}
@@ -148,6 +153,7 @@ const PickerFlow: React.FC<{ onDone: (ids: string[]) => void; name: string; setN
                 />
               </div>
               <p className="mt-3 px-1 text-sm text-slate-500">Used for your greeting. Stays on this device.</p>
+              <button type="button" onClick={() => setAvatarOpen(true)} className="flex items-center gap-3 mt-4 text-sm text-slate-300 min-h-[44px]"><ProfileAvatar id={avatarId} size={40} /><span className="underline underline-offset-4">Choose avatar</span><span className="text-xs text-slate-500">Optional</span></button>
             </div>
           </div>
         )}

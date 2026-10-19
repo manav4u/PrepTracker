@@ -60,6 +60,7 @@ export interface StudyEvent {
 }
 
 export interface Profile {
+  avatarId?: string;
   name: string;
   prn?: string;
   theme: 'light' | 'dark';

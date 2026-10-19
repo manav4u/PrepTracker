@@ -20,7 +20,7 @@ const seed = (s: Mem) => {
 test('export uses the real progress key and round-trips', () => {
   const s = new Mem(); seed(s);
   const b = createBackup(s);
-  assert.equal(b.metadata.version, '4.1.0');
+  assert.equal(b.metadata.version, '4.2.0');
   assert.deepEqual(b.data.progress, progress);
   assert.deepEqual(b.data.marks, { m1: { inSem: 20, endSem: 50 } });
   const t = new Mem();
@@ -112,4 +112,23 @@ test('a malformed review schedule in a file is rejected and in storage refuses e
   assert.throws(() => parseBackup(JSON.stringify(bad), readState(s)), /reviews section of the backup is invalid/);
   s.setItem(KEYS.reviews, '[1,2]');
   assert.throws(() => readState(s), /reviews has an unexpected shape/);
+});
+
+
+test('avatar id round trips and undo restores previous avatar', () => {
+  const s = new Mem(); seed(s); s.setItem(KEYS.profile, JSON.stringify({ ...profile, avatarId: 'goofy-001' }));
+  const b = createBackup(s); const t = new Mem(); seed(t); t.setItem(KEYS.profile, JSON.stringify({ ...profile, avatarId: 'cute-002' }));
+  restoreBackup(t, parseBackup(JSON.stringify(b), readState(t)).data);
+  assert.equal(JSON.parse(t.getItem(KEYS.profile)!).avatarId, 'goofy-001');
+  rollbackRestore(t); assert.equal(JSON.parse(t.getItem(KEYS.profile)!).avatarId, 'cute-002');
+});
+test('old backup without avatar works and unknown or hostile avatar falls back without wiping progress', () => {
+  const s = new Mem(); seed(s); const b = createBackup(s); b.metadata.version = '4.1.0';
+  assert.equal(parseBackup(JSON.stringify(b), readState(new Mem())).data.profile.avatarId, undefined);
+  for (const id of ['https://bad.invalid/a.svg', '<svg onload=alert(1)>', 'goofy-999', 123]) {
+    b.data.profile.avatarId = id;
+    const p = parseBackup(JSON.stringify(b), readState(new Mem()));
+    assert.equal(p.data.profile.avatarId, undefined); assert.deepEqual(p.data.progress, progress);
+    assert.ok(p.warnings.some(w => /avatar/.test(w)));
+  }
 });

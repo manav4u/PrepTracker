@@ -1,3 +1,4 @@
+import ProfileAvatar from '../ProfileAvatar';
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, MotionConfig, LayoutGroup } from 'framer-motion';
@@ -20,7 +21,7 @@ const Avatar: React.FC<{ size: number }> = ({ size }) => {
   const { profile } = useData();
   return (
     <Link to="/app/settings" aria-label="Settings" className="rounded-full overflow-hidden ring-2 ring-white/10 hover:ring-white/40 transition-[box-shadow] duration-[250ms]" style={{ width: size, height: size }}>
-      <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${profile?.name || 'student'}`} alt="User" />
+      <ProfileAvatar id={profile?.avatarId} size={size} />
     </Link>
   );
 };

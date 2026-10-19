@@ -1,3 +1,6 @@
+import ProfileAvatar from '../components/ProfileAvatar';
+import { lazy, Suspense } from 'react';
+const AvatarPicker = lazy(() => import('../components/AvatarPicker'));
 
 import AppFooter from '../components/AppFooter';
 import React, { useRef, useState, useEffect } from 'react';
@@ -288,16 +291,8 @@ const SettingsPage: React.FC = () => {
   // Hidden easter eggs (no persistence, no extra tab stops)
   const [stopPop, setStopPop] = useState(false);
   const [unitIdx, setUnitIdx] = useState(0);
-  const [spin, setSpin] = useState(0);
-  const avatarTaps = useRef({ n: 0, t: 0 as any });
+  const [avatarOpen, setAvatarOpen] = useState(false);
   const popStop = () => { setStopPop(true); setTimeout(() => setStopPop(false), 2200); };
-  const tapAvatar = () => {
-      const a = avatarTaps.current;
-      clearTimeout(a.t);
-      a.n += 1;
-      if (a.n >= 5) { a.n = 0; setSpin(v => v + 1); }
-      else a.t = setTimeout(() => { a.n = 0; }, 1500);
-  };
   const [examOpen, setExamOpen] = useState(false);
   const examSubjects = allSubjects.filter(su => profile.selectedSubjects?.includes(su.id));
   const examSetCount = examSubjects.filter(su => (profile.examDates || {})[su.id]).length;
@@ -347,6 +342,11 @@ const SettingsPage: React.FC = () => {
 
       <div className="max-w-3xl mx-auto pt-4 lg:pt-8 px-4">
 
+        {avatarOpen && <Suspense fallback={<p role="status">Loading avatar picker...</p>}><AvatarPicker current={profile.avatarId} name={profile.name} onClose={() => setAvatarOpen(false)} onSave={id => {
+          const next = { ...profile, avatarId: id };
+          try { localStorage.setItem('sppu_profile', JSON.stringify(next)); setProfile(next); setAvatarOpen(false); }
+          catch { alert('Your browser could not save the avatar. Nothing changed. Free some storage and try again.'); }
+        }} /></Suspense>}
         {/* Header */}
         <header className="relative mb-12 lg:mb-14">
             <span className="inline-flex items-center gap-2 h-7 px-3 rounded-full border border-white/10 bg-white/[0.03] text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400 mb-4">
@@ -361,12 +361,13 @@ const SettingsPage: React.FC = () => {
         {/* HERO */}
         <section className="relative overflow-hidden rounded-3xl border border-white/10 surface-1 p-5 lg:p-7 mb-5 lg:mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
             <div className="relative flex items-center gap-4 min-w-0">
-                <div onClick={tapAvatar} style={{ transform: `rotate(${spin * 360}deg)` }} className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-white overflow-hidden border border-white/20 shrink-0 transition-transform duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
-                    <img src={`https://api.dicebear.com/7.x/notionists/svg?seed=${profile.name}`} alt="" className="w-full h-full object-cover" />
-                </div>
+                <button type="button" onClick={() => setAvatarOpen(true)} aria-label="Change avatar" className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-white overflow-hidden border border-white/20 shrink-0 transition-transform duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
+                    <ProfileAvatar id={profile.avatarId} size={80} className="w-full h-full" />
+                </button>
                 <div className="min-w-0">
                     <p className="text-2xl lg:text-3xl font-display font-bold text-white truncate">{profile.name || 'Your name'}</p>
                     <p className="text-xs font-mono text-slate-400 tracking-widest mt-1 truncate">{profile.prn || 'PRN not set'}</p>
+                    <button className="text-xs text-slate-300 underline underline-offset-4 mt-2 min-h-[44px]" onClick={() => setAvatarOpen(true)}>Change avatar</button>
                 </div>
             </div>
             <div className="relative sm:text-right border-t sm:border-t-0 border-white/10 pt-5 sm:pt-0">

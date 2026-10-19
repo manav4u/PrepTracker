@@ -2,6 +2,7 @@
 // One shared key list is used by the app, export and restore so they cannot drift apart again.
 import { cleanMarks } from './grading.ts';
 import { isReviews } from './revision.ts';
+import { isAvatarId } from './avatars.ts';
 
 export const KEYS = {
   profile: 'sppu_profile',
@@ -21,8 +22,8 @@ export const BACKUP_TYPE = 'SPPU_PREPTRACKER_LOCAL_BACKUP';
 // buggy exporter (3.1.0) that read a key the app never used, so their progress is empty.
 // 4.1.0 adds the spaced-review schedule. Older files have none, so restoring one clears the schedule
 // instead of mixing an old progress list with a newer schedule.
-export const BACKUP_VERSION = '4.1.0';
-export const SUPPORTED_VERSIONS = ['3.1.0', '4.0.0', '4.1.0'];
+export const BACKUP_VERSION = '4.2.0';
+export const SUPPORTED_VERSIONS = ['3.1.0', '4.0.0', '4.1.0', '4.2.0'];
 export const MAX_BYTES = 5 * 1024 * 1024;
 
 export interface StorageLike {
@@ -166,6 +167,10 @@ export function parseBackup(content: string, current: BackupData): Preview {
     }
   }
   if (data.profile === null) data.profile = current.profile;
+  if (data.profile && data.profile.avatarId !== undefined && !isAvatarId(data.profile.avatarId)) {
+    data.profile = { ...data.profile }; delete data.profile.avatarId;
+    warnings.push('This avatar is not in the catalog. Your study data is kept and a default avatar will be used.');
+  }
 
   return {
     data,
