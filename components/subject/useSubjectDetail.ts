@@ -4,6 +4,7 @@ import { SYSTEM_RESOURCES } from '../../constants';
 import { useSubjects } from '../../context/SubjectsContext';
 import { useData } from '../../context/DataContext';
 import { recordStudy } from '../../lib/activity';
+import { resourceMatchesSubject } from '../../lib/resources';
 import { ResourceItem, UnitStatus } from '../../types';
 
 /** All subject-page state and mutations, shared by the page concepts. */
@@ -19,17 +20,13 @@ export function useSubjectDetail() {
 
   useEffect(() => {
     if (!subject) return;
-    const relevantSystem = SYSTEM_RESOURCES.filter(r =>
-      subject.code.startsWith(r.subject) || r.subject === 'GLOBAL'
-    );
+    const relevantSystem = SYSTEM_RESOURCES.filter(r => resourceMatchesSubject(r, subject));
     let relevantCustom: ResourceItem[] = [];
     try {
       const savedCustomRaw = localStorage.getItem('sppu_custom_resources');
       if (savedCustomRaw) {
         const allCustom: ResourceItem[] = JSON.parse(savedCustomRaw);
-        relevantCustom = allCustom.filter(r =>
-          subject.code.startsWith(r.subject) || r.subject === 'GLOBAL'
-        );
+        relevantCustom = allCustom.filter(r => resourceMatchesSubject(r, subject));
       }
     } catch (e) {}
     let finalSystem = relevantSystem;

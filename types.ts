@@ -84,6 +84,8 @@ export interface ResourceItem {
   category: string;
   url: string;
   isSystem?: boolean;
+  /** Branch archive link: matches every course in this branch file. */
+  branchSlug?: string;
 }
 
 export type Priority = 'CRITICAL' | 'NORMAL' | 'LOW';
