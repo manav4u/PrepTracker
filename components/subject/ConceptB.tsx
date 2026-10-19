@@ -17,15 +17,6 @@ const Spine: React.FC<{ status: UnitStatus }> = ({ status }) => (
   </span>
 );
 
-/** The finished-bookmark easter egg: a red ribbon drops from the top of the header. */
-const Bookmark: React.FC = () => (
-  <div className="pt-drop absolute -top-8 right-2 lg:right-10 flex flex-col items-center" aria-hidden>
-    <div className="w-8 h-24 bg-[#D61A40] flex items-end justify-center pb-2" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 12px), 0 100%)' }}>
-      <span className="text-[8px] font-bold uppercase tracking-[0.2em] text-white/90" style={{ writingMode: 'vertical-rl' }}>Finished</span>
-    </div>
-  </div>
-);
-
 /** Concept B - Open shelf. Continues the setup story: the books on your shelf open.
  *  Each unit is a book with a spine strip; opening it shows its pages (topics) and ribbons (PYQs). */
 const ConceptB: React.FC<{ s: SubjectDetailState }> = ({ s }) => {
@@ -41,8 +32,7 @@ const ConceptB: React.FC<{ s: SubjectDetailState }> = ({ s }) => {
         <ArrowLeft size={12} /> Your shelf
       </Link>
 
-      <header className="relative mb-12 pt-8">
-        {allDone && <Bookmark />}
+      <header className="relative mb-12">
         <span className="inline-flex items-center gap-2 h-7 px-3 rounded-full border border-white/10 bg-white/[0.03] text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400 mb-5">
           <span className="w-1.5 h-1.5 rounded-full bg-[#F63C49]"></span>
           From your shelf - {subject.code} - {subject.credits} credits
@@ -66,6 +56,19 @@ const ConceptB: React.FC<{ s: SubjectDetailState }> = ({ s }) => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14">
         {/* The books */}
         <div className="lg:col-span-8 space-y-6">
+          {allDone && (
+            <section className="surface-1 rounded-3xl p-10 lg:p-14 text-center relative overflow-hidden">
+              <div className="flex justify-center gap-1.5 mb-6" aria-hidden>
+                {[0, 1, 2, 3, 4].map(i => (
+                  <span key={i} className="pt-burst-dot w-1.5 h-1.5 rounded-full bg-[#F63C49]" style={{ ['--a' as string]: `${i * 72 - 144}deg`, animationDelay: `${i * 40}ms` }} />
+                ))}
+              </div>
+              <h2 className="font-display font-bold text-3xl lg:text-4xl tracking-tight text-white">
+                All units cleared<span className="text-[#F63C49]">.</span>
+              </h2>
+              <p className="text-sm text-slate-500 mt-2">Revise, solve papers, sleep. You earned it.</p>
+            </section>
+          )}
           {subject.units.map(unit => {
             const p = s.getProg(unit.id);
             const isMastered = p.status === UnitStatus.MASTERED;
@@ -90,7 +93,7 @@ const ConceptB: React.FC<{ s: SubjectDetailState }> = ({ s }) => {
                         {unit.title}
                       </h2>
                     </button>
-                    <StatusSteps value={p.status} onChange={st => s.updateStatus(unit.id, st)} look="pill" />
+                    <StatusSteps value={p.status} onChange={st => s.updateStatus(unit.id, st)} />
                   </div>
 
                   {open && (
@@ -98,7 +101,7 @@ const ConceptB: React.FC<{ s: SubjectDetailState }> = ({ s }) => {
                       {unit.topics && unit.topics.length > 0 && (
                         <div className="border-l-2 border-[#D61A40]/60 pl-5 ml-1 mb-6">
                           <h3 className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-2">Pages to cover</h3>
-                          <TopicList topics={unit.topics} done={p.topicsDone || []} onToggle={t => s.toggleTopic(unit.id, t, unit.topics)} look="page" />
+                          <TopicList topics={unit.topics} done={p.topicsDone || []} onToggle={t => s.toggleTopic(unit.id, t, unit.topics)} />
                         </div>
                       )}
                       <div className="flex items-center gap-4 ml-1">
@@ -108,7 +111,7 @@ const ConceptB: React.FC<{ s: SubjectDetailState }> = ({ s }) => {
                           solved={p.pyqsCompleted || []}
                           onToggle={y => s.togglePyq(unit.id, y)}
                           labelFor={y => `${y} question paper, ${unit.title}: ${(p.pyqsCompleted || []).includes(y) ? 'solved' : 'not solved'}`}
-                          look="ribbon"
+                         
                         />
                       </div>
                     </div>

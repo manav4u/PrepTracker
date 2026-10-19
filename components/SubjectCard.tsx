@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Subject, UnitStatus } from '../types';
 import { ArrowRight, Layers } from 'lucide-react';
-import { conceptFromSearch } from '../pages/SubjectDetail';
 import { useData } from '../context/DataContext';
 
 interface SubjectCardProps {
@@ -12,16 +11,7 @@ interface SubjectCardProps {
   style?: React.CSSProperties;
 }
 
-/** Per-unit blocks: filled red where mastered. Used by concepts b and c. */
-const UnitBlocks: React.FC<{ subject: Subject; filled: number }> = ({ subject, filled }) => (
-  <div className="flex gap-1 h-1">
-    {subject.units.map((u, i) => (
-      <div key={u.id} className={`flex-1 rounded-sm transition-colors duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${i < filled ? 'bg-[#D61A40]' : 'bg-white/10'}`} />
-    ))}
-  </div>
-);
-
-/** Mini shelf for concept b: one small spine per unit, filled by real status. */
+/** Mini shelf: one small spine per unit, filled by real status. Matches the course page. */
 const MiniShelf: React.FC<{ subject: Subject }> = ({ subject }) => {
   const { userProgress } = useData();
   return (
@@ -43,8 +33,6 @@ const MiniShelf: React.FC<{ subject: Subject }> = ({ subject }) => {
 };
 
 const SubjectCard: React.FC<SubjectCardProps> = ({ subject, progress, masteredCount, style }) => {
-  const [params] = useSearchParams();
-  const concept = conceptFromSearch(params.toString() ? `?${params.toString()}` : '');
   const totalUnits = subject.units.length;
   const activeUnitIdx = Math.min(masteredCount, totalUnits - 1);
   const activeUnitTitle = subject.units[activeUnitIdx]?.title || 'Revision Phase';
@@ -52,7 +40,7 @@ const SubjectCard: React.FC<SubjectCardProps> = ({ subject, progress, masteredCo
 
   return (
     <Link
-      to={`/app/subject/${subject.id}${concept === 'a' ? '' : `?c=${concept}`}`}
+      to={`/app/subject/${subject.id}`}
       className="group relative flex flex-col justify-between h-[280px] rounded-3xl surface-1 overflow-hidden animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500 hover:border-white/20 transition-[border-color] duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)]"
       style={style}
     >
@@ -85,31 +73,15 @@ const SubjectCard: React.FC<SubjectCardProps> = ({ subject, progress, masteredCo
             </p>
         </div>
 
-        {/* Bottom Section - per concept */}
         <div className="mt-auto">
             <div className="flex justify-between items-end mb-3">
                 <div className="max-w-[70%]">
-                     <p className="text-[10px] font-bold uppercase tracking-widest text-slate-600 mb-1">
-                       {concept === 'c' ? 'Up next' : 'Current focus'}
-                     </p>
+                     <p className="text-[10px] font-bold uppercase tracking-widest text-slate-600 mb-1">Current focus</p>
                      <p className="text-sm text-white font-bold truncate">{activeUnitTitle}</p>
                 </div>
-                {concept === 'a' ? (
-                  <span className="font-mono text-xs text-slate-400">{masteredCount}/{totalUnits}</span>
-                ) : (
-                  <span className="text-2xl font-display font-bold text-white/50">{pct}%</span>
-                )}
+                <span className="text-2xl font-display font-bold text-white/50">{pct}%</span>
             </div>
-            {concept === 'a' ? (
-              <div className="flex items-baseline gap-3">
-                <span className="flex-1 border-b border-dotted border-white/15 -translate-y-1" />
-                <span className="font-mono text-[10px] text-slate-600">{pct}%</span>
-              </div>
-            ) : concept === 'b' ? (
-              <MiniShelf subject={subject} />
-            ) : (
-              <UnitBlocks subject={subject} filled={masteredCount} />
-            )}
+            <MiniShelf subject={subject} />
         </div>
       </div>
     </Link>
