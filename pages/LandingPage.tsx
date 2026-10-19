@@ -122,7 +122,9 @@ const LandingPage: React.FC = () => {
     const sw = switcherRef.current;
     const pill = pillRef.current;
     if (!sw || !pill) return;
-    const b = sw.querySelectorAll('button')[view] as HTMLElement | undefined;
+    // Long-lived resize/font listeners must measure today's selection, not
+    // the initial render's `view` captured by their closure.
+    const b = sw.querySelector<HTMLButtonElement>('[role="tab"][aria-selected="true"]');
     if (!b) return;
     if (instant) pill.style.transition = 'none';
     pill.style.left = `${b.offsetLeft}px`;
