@@ -1,17 +1,26 @@
 import React from 'react';
 import { CATALOG_INDEX } from '../lib/catalogLoader';
+import { SUBJECTS } from '../constants';
 
 export interface SetupSummary { name: string; year: string; branch: string; sem: number | null; courses: { code: string; name: string }[]; count: number }
 
 export function buildSummary(name: string, ids: string[]): SetupSummary {
-  const found = ids.map(id => CATALOG_INDEX.courses.find(c => c.id === id)).filter(Boolean) as typeof CATALOG_INDEX.courses;
-  const first = found[0];
+  // Catalog covers SE and TE; first-year subjects live in constants.tsx.
+  const courses = ids
+    .map(id => {
+      const c = CATALOG_INDEX.courses.find(c => c.id === id);
+      if (c) return { code: c.code, name: c.name };
+      const f = SUBJECTS.find(s => s.id === id);
+      return f ? { code: f.code, name: f.name } : null;
+    })
+    .filter(Boolean) as { code: string; name: string }[];
+  const first = CATALOG_INDEX.courses.find(c => c.id === ids[0]);
   return {
     name: name.trim() || 'Student',
     year: first ? (first.year === 'SE' ? 'Second year' : 'Third year') : 'First year',
-    branch: first ? first.branch : '',
+    branch: first ? first.branch : courses.length ? 'Common' : '',
     sem: first?.semester ?? null,
-    courses: found.map(c => ({ code: c.code, name: c.name })),
+    courses,
     count: ids.length,
   };
 }
