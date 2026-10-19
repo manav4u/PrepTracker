@@ -154,3 +154,7 @@
       padding:8px 8px 8px 16px;gap:12px;max-width:none}.lp2 nav.hide{transform:translateY(-82px)}.lp2 .nav-links{display:none}.lp2 .hero{padding:104px 20px 0}.lp2 .copyband{display:block}.lp2 .try{justify-content:flex-start;flex-wrap:wrap;gap:8px 12px;letter-spacing:.22em}.lp2 .try .try-sub{flex-basis:100%}.lp2 .switchwrap{justify-content:center}.lp2 .stage{height:auto;margin-top:30px}.lp2 .window{width:100%;margin:0;transform:none;border-radius:14px}.lp2 .window-back{display:none}.lp2 .screen{height:auto;aspect-ratio:390/844}.lp2 .switcher{margin-top:26px;max-width:100%;overflow-x:auto}.lp2 .switcher button{padding:10px 13px;font-size:10.5px;letter-spacing:.12em}.lp2 .strip-track{flex-wrap:nowrap;justify-content:flex-start;width:max-content;
       animation:lp2strip 26s linear infinite}.lp2 .strip .dup{display:flex}.lp2 .strip span.it5::after{display:block}
   }
+/* Responsive screenshots reserve their natural shape without layout shifts. */
+.lp2 .feat-shot picture{display:block}
+.lp2 .feat-shot img{height:auto}
+@media(max-width:900px){.lp2 .feat-shot img{aspect-ratio:390/844}}
