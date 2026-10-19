@@ -2,10 +2,12 @@ import React, { useMemo, useState } from 'react';
 import { ArrowLeft, ArrowRight, Check } from 'lucide-react';
 import { CATALOG_INDEX } from '../lib/catalogLoader';
 import type { CatalogEntry } from '../lib/catalog';
+import NameTiles from './NameTiles';
 import StepArt, { ArtKind } from './StepArt';
+import Ring from './CheckRing';
 
 type Year = 'FE' | 'SE' | 'TE';
-type Step = 'year' | 'branch' | 'semester' | 'courses';
+type Step = 'name' | 'year' | 'branch' | 'semester' | 'courses';
 const SEMESTERS: Record<'SE' | 'TE', number[]> = { SE: [3, 4], TE: [5, 6] };
 const EASE = 'duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)]';
 
@@ -22,21 +24,13 @@ const stat = (f: (c: CatalogEntry) => boolean) => {
   return `${l.length} courses - ${l.reduce((n, c) => n + c.units, 0)} units`;
 };
 
-const Ring = ({ on, className = '' }: { on: boolean; className?: string }) => (
-  <span aria-hidden="true" className={`w-7 h-7 shrink-0 rounded-full border flex items-center justify-center transition-colors ${EASE} ${on ? 'bg-black border-black' : 'border-white/20'} ${on ? 'shadow-[0_2px_6px_rgba(0,0,0,0.35)]' : ''} ${className}`}>
-    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#fff" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M5 12.5l4.5 4.5L19 7.5" pathLength={1} style={{ strokeDasharray: 1, strokeDashoffset: on ? 0 : 1, transition: `stroke-dashoffset 250ms cubic-bezier(0.4,0,0.2,1) ${on ? '60ms' : '0ms'}` }} />
-    </svg>
-  </span>
-);
-
 const card = (on: boolean, off = false) =>
   `group/card relative w-full h-full min-h-[64px] text-left rounded-3xl border p-5 transition-[background-color,border-color,color,transform,box-shadow] ${EASE} ${
     off
       ? 'surface-2 border-white/5 text-slate-600 cursor-default'
       : on
         ? 'bg-white text-black border-white -translate-y-px shadow-[inset_0_1px_0_rgba(255,255,255,1),0_2px_4px_rgba(0,0,0,0.5),0_14px_28px_-12px_rgba(0,0,0,0.9)] active:translate-y-0 active:scale-[0.99] active:shadow-[0_1px_2px_rgba(0,0,0,0.5)]'
-        : 'bg-[#0d0d10] border-white/10 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_1px_2px_rgba(0,0,0,0.6),0_10px_22px_-14px_rgba(0,0,0,0.9)] hover:-translate-y-0.5 hover:border-white/25 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_2px_4px_rgba(0,0,0,0.6),0_16px_28px_-14px_rgba(0,0,0,1)] active:translate-y-0 active:scale-[0.99] active:shadow-[inset_0_2px_6px_rgba(0,0,0,0.6)]'
+        : 'bg-[#18181d] border-white/[0.14] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.09),0_1px_2px_rgba(0,0,0,0.8),0_4px_8px_-2px_rgba(0,0,0,0.7),0_16px_28px_-12px_rgba(0,0,0,1)] hover:-translate-y-0.5 hover:border-white/30 hover:bg-[#1d1d23] active:translate-y-0 active:scale-[0.99] active:shadow-[inset_0_2px_6px_rgba(0,0,0,0.7)]'
   }`;
 
 const Heading = ({ children, art, kicker }: { children: React.ReactNode; art: ArtKind; kicker: string }) => (
@@ -54,8 +48,8 @@ const Heading = ({ children, art, kicker }: { children: React.ReactNode; art: Ar
 );
 
 /** One decision per screen: year, branch, semester, courses. Calls onDone with the chosen course ids. */
-const PickerFlow: React.FC<{ onDone: (ids: string[]) => void; name?: string }> = ({ onDone, name }) => {
-  const [step, setStep] = useState<Step>('year');
+const PickerFlow: React.FC<{ onDone: (ids: string[]) => void; name: string; setName: (v: string) => void }> = ({ onDone, name, setName }) => {
+  const [step, setStep] = useState<Step>('name');
   const [year, setYear] = useState<Year | null>(null);
   const [branch, setBranch] = useState<string | null>(null);
   const [sem, setSem] = useState<number | null>(null);
@@ -85,11 +79,11 @@ const PickerFlow: React.FC<{ onDone: (ids: string[]) => void; name?: string }> =
   }, [courses]);
   const fixed = courses.filter(c => !c.electiveGroup);
 
-  const flow: Step[] = year === 'FE' ? ['year', 'courses'] : ['year', 'branch', 'semester', 'courses'];
+  const flow: Step[] = year === 'FE' ? ['name', 'year', 'courses'] : ['name', 'year', 'branch', 'semester', 'courses'];
   const idx = flow.indexOf(step);
   const last = idx === flow.length - 1;
   const canGo =
-    step === 'year' ? !!year : step === 'branch' ? !!branch : step === 'semester' ? !!sem : year === 'FE' ? true : picked.length > 0;
+    step === 'name' ? name.trim().length > 0 : step === 'year' ? !!year : step === 'branch' ? !!branch : step === 'semester' ? !!sem : year === 'FE' ? true : picked.length > 0;
 
   const toggle = (c: CatalogEntry) => setPicked(p => {
     if (p.includes(c.id)) return p.filter(x => x !== c.id);
@@ -109,22 +103,54 @@ const PickerFlow: React.FC<{ onDone: (ids: string[]) => void; name?: string }> =
   };
   const back = () => { if (idx > 0) { setDir('back'); setStep(flow[idx - 1]); } };
 
-  const title = { year: 'Which year', branch: 'Which branch', semester: 'Which semester', courses: year === 'FE' ? 'Your subjects' : 'Pick your courses' }[step];
+  const title = { name: 'What is your name', year: 'Which year', branch: 'Which branch', semester: 'Which semester', courses: year === 'FE' ? 'Your subjects' : 'Pick your courses' }[step];
 
   const chosen = year === 'FE' ? [] : CATALOG_INDEX.courses.filter(c => picked.includes(c.id));
   const branchName = branches.find(b => b.slug === branch)?.name;
 
   return (
     <div className="w-full lg:grid lg:grid-cols-[minmax(0,34rem)_minmax(0,1fr)] lg:gap-16">
-    <div className="flex flex-col w-full min-h-[calc(100dvh-6rem)] pb-6">
+    <div className={`flex flex-col w-full min-h-[calc(100dvh-6rem)] pb-6 ${step === 'name' ? 'lg:justify-center' : ''}`}>
       <div className="flex gap-1.5 mb-8" role="progressbar" aria-valuemin={1} aria-valuemax={flow.length} aria-valuenow={idx + 1} aria-label="Setup step">
         {flow.map((s, i) => <span key={s} className={`h-1 flex-1 rounded-full transition-colors ${EASE} ${i <= idx ? 'bg-[#F63C49]' : 'bg-white/10'}`} />)}
       </div>
 
-      <div key={step} className={`flex-1 flex flex-col ${dir === 'fwd' ? 'pt-step-fwd' : 'pt-step-back'}`}>
-      <Heading art={step as ArtKind} kicker={`Step ${idx + 1} of ${flow.length}`}>{title}</Heading>
+      <div key={step} className={`${step === 'name' ? 'flex-1 lg:flex-none' : 'flex-1'} flex flex-col ${dir === 'fwd' ? 'pt-step-fwd' : 'pt-step-back'}`}>
+      {step === 'name' ? (
+        <div className="mb-6 lg:mb-8">
+          <span className="inline-flex items-center gap-2 h-7 px-3 rounded-full border border-white/10 bg-white/[0.03] text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400 mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#F63C49]"></span>{`Step ${idx + 1} of ${flow.length}`}
+          </span>
+          <h2 className="font-display font-bold text-4xl lg:text-6xl tracking-tight leading-[0.95] text-white">What is your name<span className="text-[#F63C49]">.</span></h2>
+        </div>
+      ) : (
+        <Heading art={step as ArtKind} kicker={`Step ${idx + 1} of ${flow.length}`}>{title}</Heading>
+      )}
 
-      <div className="flex-1 flex flex-col">
+      <div className={`${step === 'name' ? 'flex-1 lg:flex-none lg:mt-6' : 'flex-1'} flex flex-col`}>
+        {step === 'name' && (
+          <div className="flex-1 flex flex-col gap-4">
+            <div className="lg:hidden flex-1 flex items-center justify-center mt-3"><NameTiles name={name} className="w-full max-w-sm" /></div>
+            <div className="mt-auto">
+              <label htmlFor="setup-name" className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500 mb-2.5 block px-1">What should we call you</label>
+              <div className="rounded-3xl border border-white/[0.14] bg-[#0d0d10] px-5 py-4 shadow-[inset_0_2px_6px_rgba(0,0,0,0.7),0_1px_0_rgba(255,255,255,0.06)] transition-colors duration-[250ms] focus-within:border-[#F63C49]">
+                <input
+                  id="setup-name"
+                  type="text"
+                  value={name}
+                  maxLength={40}
+                  onChange={(e) => setName(e.target.value)}
+                  onKeyDown={(e) => { if (e.key === 'Enter') next(); }}
+                  placeholder="Type your name"
+                  autoComplete="given-name"
+                  className="w-full bg-transparent outline-none font-display font-bold text-3xl tracking-tight text-white placeholder:text-slate-700"
+                />
+              </div>
+              <p className="mt-3 px-1 text-sm text-slate-500">Used for your greeting. Stays on this device.</p>
+            </div>
+          </div>
+        )}
+
         {step === 'year' && (
           <div className="flex-1 grid grid-rows-3 auto-rows-fr gap-3">
             {([['FE', 'First year', 'Common first year - 5 subjects'], ['SE', 'Second year', `Semester 3 and 4`], ['TE', 'Third year', `Semester 5 and 6`]] as const).map(([y, l, sub], i) => (
@@ -243,10 +269,12 @@ const PickerFlow: React.FC<{ onDone: (ids: string[]) => void; name?: string }> =
         <span className="inline-flex self-start items-center gap-2 h-7 px-3 rounded-full border border-white/10 bg-white/[0.03] text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">
           <span className="w-1.5 h-1.5 rounded-full bg-[#F63C49]"></span>Welcome
         </span>
+        {step !== 'name' && (<>
         <p className="mt-6 font-display font-bold text-4xl tracking-tight text-white leading-none">Hi, {name || 'there'}<span className="text-[#F63C49]">.</span></p>
         <p className="mt-3 text-sm text-slate-500 max-w-xs">A few taps and your syllabus is ready to track.</p>
+        </>)}
         <div className="flex-1 flex items-center justify-center py-8">
-          <StepArt kind={step as ArtKind} className="w-64 h-64" />
+          {step === 'name' ? <NameTiles name={name} className="w-full max-w-md" /> : <StepArt kind={step as ArtKind} className="w-64 h-64" />}
         </div>
         <dl className="grid grid-cols-2 gap-x-6 gap-y-4 border-t border-white/10 pt-6">
           {[

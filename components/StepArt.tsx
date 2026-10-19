@@ -1,11 +1,27 @@
 import React, { useEffect, useState } from 'react';
 
-export type ArtKind = 'year' | 'branch' | 'semester' | 'courses';
+export type ArtKind = 'name' | 'year' | 'branch' | 'semester' | 'courses' | 'build';
 
 // Same language as the Revise doodles: one stroke weight, round caps, slate lines with one red accent,
 // drawn once in 250ms ease. Reduced motion shows them at once.
 const circle = (x: number, y: number, r: number) => `M${x - r} ${y}a${r} ${r} 0 1 0 ${r * 2} 0a${r} ${r} 0 1 0 ${-r * 2} 0`;
 const SHAPES: Record<ArtKind, { d: string; accent?: boolean }[]> = {
+  name: [
+    { d: 'M60 20v14' },
+    { d: 'M52 20h16' },
+    { d: 'M24 38h72v62H24Z' },
+    { d: circle(46, 62, 9) },
+    { d: 'M30 90c2-10 10-14 16-14s14 4 16 14' },
+    { d: 'M72 58h16M72 70h12' },
+    { d: 'M72 84h16', accent: true },
+  ],
+  build: [
+    { d: 'M20 100h80' },
+    { d: 'M30 100V80h14v20M53 100V64h14v36' },
+    { d: 'M76 100V44h14v56', accent: true },
+    { d: 'M30 56l23-16 23 4 16-18' },
+    { d: 'M92 26h-8M92 26v8', accent: true },
+  ],
   year: [
     { d: 'M20 104h80' },
     { d: 'M24 104V88h72v16M24 96h72' },
