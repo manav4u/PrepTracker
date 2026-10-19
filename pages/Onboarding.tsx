@@ -12,11 +12,12 @@ interface OnboardingProps {}
 // --- MICRO COMPONENTS ---
 
 const Onboarding: React.FC<OnboardingProps> = () => {
-  const { setProfile } = useData();
+  const { profile, setProfile } = useData();
   // Stages: 'boot' -> 'identity' -> 'matrix' -> 'processing'
   const [stage, setStage] = useState<'boot' | 'matrix' | 'processing'>('boot');
   const [bootProgress, setBootProgress] = useState(0);
-  const [name, setName] = useState('');
+  // Re-pick (Settings > Change subjects) keeps the profile, so greet them by name again.
+  const [name, setName] = useState(profile?.name ?? '');
   
   // Processing Stage State
   const [processPercent, setProcessPercent] = useState(0);
@@ -62,7 +63,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
 
             const selectedIds = ids;
             const newProfile: Profile = {
-                name: name || 'Student',
+                name: name || profile?.name || 'Student',
                 theme: 'dark',
                 selectedSubjects: selectedIds,
                 setupComplete: true,
