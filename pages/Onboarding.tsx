@@ -4,49 +4,27 @@ import { ArrowRight, Zap, Cpu, CheckCircle2, ScanFace, ShieldCheck, HardDrive } 
 import LogoMark from '../components/LogoMark';
 import { Profile } from '../types';
 import { useData } from '../context/DataContext';
-import CoursePicker from '../components/CoursePicker';
+import PickerFlow from '../components/PickerFlow';
 
 interface OnboardingProps {}
 
 // --- MICRO COMPONENTS ---
 
-const BinaryChoice = ({ titleA, codeA, titleB, codeB, selected, onSelect, label }: any) => (
-  <div className="space-y-4">
-    <div className="flex items-center gap-4">
-        <div className="h-px bg-white/10 flex-1"></div>
-        <span className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">{label}</span>
-        <div className="h-px bg-white/10 flex-1"></div>
-    </div>
-    <div className="grid grid-cols-2 gap-4">
-      <button
-        onClick={() => onSelect('A')}
-        className={`group relative p-6 border rounded-2xl text-left transition-all duration-500 overflow-hidden ${
-            selected === 'A' 
-            ? 'bg-white text-black border-white shadow-[0_0_30px_rgba(255,255,255,0.2)]' 
-            : 'bg-black border-white/10 text-slate-500 hover:border-white/30 hover:text-white'
-        }`}
-      >
-        <div className="relative z-10">
-            <span className={`text-[9px] font-bold uppercase tracking-widest block mb-2 ${selected === 'A' ? 'text-black/50' : 'text-slate-600'}`}>{codeA}</span>
-            <span className="text-lg font-bold font-display leading-none">{titleA}</span>
-        </div>
-        {selected === 'A' && <div className="absolute inset-0 bg-gradient-to-br from-white via-slate-200 to-slate-400 opacity-100 z-0"></div>}
-      </button>
+const choiceCls = (on: boolean) =>
+  `relative p-5 rounded-2xl border text-left transition-colors duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
+    on ? 'border-[#F63C49] bg-[#F63C49]/10 text-white' : 'surface-2 border-white/10 text-slate-300 hover:border-white/25'
+  }`;
 
-      <button
-        onClick={() => onSelect('B')}
-        className={`group relative p-6 border rounded-2xl text-left transition-all duration-500 overflow-hidden ${
-            selected === 'B' 
-            ? 'bg-white text-black border-white shadow-[0_0_30px_rgba(255,255,255,0.2)]' 
-            : 'bg-black border-white/10 text-slate-500 hover:border-white/30 hover:text-white'
-        }`}
-      >
-         <div className="relative z-10">
-            <span className={`text-[9px] font-bold uppercase tracking-widest block mb-2 ${selected === 'B' ? 'text-black/50' : 'text-slate-600'}`}>{codeB}</span>
-            <span className="text-lg font-bold font-display leading-none">{titleB}</span>
-         </div>
-         {selected === 'B' && <div className="absolute inset-0 bg-gradient-to-br from-white via-slate-200 to-slate-400 opacity-100 z-0"></div>}
-      </button>
+const BinaryChoice = ({ titleA, codeA, titleB, codeB, selected, onSelect, label }: any) => (
+  <div>
+    <h3 className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/50 mb-3">{label}</h3>
+    <div className="grid grid-cols-2 gap-3">
+      {[['A', titleA, codeA], ['B', titleB, codeB]].map(([k, t, c]) => (
+        <button key={k} onClick={() => onSelect(k)} aria-pressed={selected === k} className={choiceCls(selected === k)}>
+          <span className="block text-[9px] font-mono uppercase tracking-widest text-slate-500 mb-2">{c}</span>
+          <span className="text-base font-medium leading-snug">{t}</span>
+        </button>
+      ))}
     </div>
   </div>
 );
@@ -162,8 +140,6 @@ const Onboarding: React.FC<OnboardingProps> = () => {
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden selection:bg-white selection:text-black">
       
-      {/* Dynamic Grid Background */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none"></div>
 
       <div className="relative z-10 min-h-screen flex flex-col">
         
@@ -177,7 +153,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
         </header>
 
         {/* Content Container */}
-        <main className="flex-1 flex flex-col items-center justify-center p-6 max-w-lg mx-auto w-full">
+        <main className={`flex-1 flex flex-col items-center p-6 mx-auto w-full ${stage === 'matrix' ? 'max-w-5xl' : 'max-w-lg justify-center'}`}>
             
             {stage === 'identity' && (
                 <div className="w-full animate-in fade-in zoom-in-95 duration-700 slide-in-from-bottom-8">
@@ -238,85 +214,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
             )}
 
             {stage === 'matrix' && (
-                <div className="w-full animate-in fade-in zoom-in-95 duration-500 slide-in-from-right-8 pb-10">
-                     <div className="mb-10 text-center lg:text-left">
-                        <span className="inline-block px-3 py-1 rounded-full border border-[#F63C49]/30 bg-[#F63C49]/10 text-[#F63C49] text-[10px] font-bold uppercase tracking-widest mb-4">
-                            Your subjects
-                        </span>
-                        <h2 className="text-4xl font-display font-bold mb-2">Select Your Subjects</h2>
-                        <p className="text-slate-500 text-sm">Customize your dashboard for the current semester.</p>
-                     </div>
-
-                     <div className="mb-8">
-                        <div className="grid grid-cols-3 gap-3">
-                            {([['FE','First year'],['SE','Second year'],['TE','Third year']] as const).map(([y,l]) => (
-                                <button key={y} onClick={() => setYear(y)} aria-pressed={year === y}
-                                    className={`py-4 rounded-2xl border text-sm font-bold transition-colors duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${year === y ? 'bg-white text-black border-white' : 'bg-black border-white/10 text-slate-300 hover:border-white/30'}`}>{l}</button>
-                            ))}
-                        </div>
-                     </div>
-
-                     {year !== 'FE' && <CoursePicker key={year} year={year} onDone={(ids) => handleFinish(ids)} />}
-
-                     {year === 'FE' && (<>
-                     <div className="space-y-8 mb-12">
-                        {/* Mathematics Choice */}
-                        <BinaryChoice
-                            label="Mathematics Module"
-                            titleA="Engineering Maths-I" codeA="BSC-101"
-                            titleB="Engineering Maths-II" codeB="BSC-151"
-                            selected={choices.maths === 'm1' ? 'A' : 'B'}
-                            onSelect={(v: string) => setChoices({...choices, maths: v === 'A' ? 'm1' : 'm2'})}
-                        />
-
-                        {/* Programming Choice */}
-                        <BinaryChoice
-                            label="Programming Module"
-                            titleA="FPL (C Programming)" codeA="ESC-105"
-                            titleB="PPS (Python)" codeB="PCC-151"
-                            selected={choices.programming === 'fpl' ? 'A' : 'B'}
-                            onSelect={(v: string) => setChoices({...choices, programming: v === 'A' ? 'fpl' : 'pps'})}
-                        />
-
-                        {/* Science Choice */}
-                        <BinaryChoice 
-                            label="Applied Science Module"
-                            titleA="Engineering Physics" codeA="BSC-102"
-                            titleB="Engineering Chemistry" codeB="BSC-103"
-                            selected={choices.science === 'phy' ? 'A' : 'B'}
-                            onSelect={(v: string) => setChoices({...choices, science: v === 'A' ? 'phy' : 'chem'})}
-                        />
-
-                        {/* Circuit Choice */}
-                        <BinaryChoice 
-                            label="Circuit Theory Module"
-                            titleA="Basic Electronics" codeA="ESC-101"
-                            titleB="Basic Electrical" codeB="ESC-102"
-                            selected={choices.circuit === 'elect' ? 'A' : 'B'}
-                            onSelect={(v: string) => setChoices({...choices, circuit: v === 'A' ? 'elect' : 'elec'})}
-                        />
-
-                        {/* Core Choice */}
-                        <BinaryChoice 
-                            label="Core Engineering Module"
-                            titleA="Engg. Graphics" codeA="ESC-103"
-                            titleB="Engg. Mechanics" codeB="ESC-104"
-                            selected={choices.core === 'graph' ? 'A' : 'B'}
-                            onSelect={(v: string) => setChoices({...choices, core: v === 'A' ? 'graph' : 'mech'})}
-                        />
-
-                     </div>
-
-                     <p className="text-center text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-4">5 subjects - you can change them later in Settings</p>
-                     <button
-                        onClick={() => handleFinish()}
-                        className="w-full py-6 bg-[#D61A40] text-white font-bold uppercase tracking-[0.2em] rounded-xl hover:bg-[#B3123B] transition-all shadow-[0_0_40px_-10px_#F63C49] hover:shadow-[0_0_60px_-10px_#F63C49] flex items-center justify-center gap-3 group"
-                     >
-                        <Zap size={18} className="fill-white" />
-                        Start PrepTracker
-                     </button>
-                     </>)}
-                </div>
+                <PickerFlow name={name} onDone={(ids) => handleFinish(ids)} />
             )}
 
             {stage === 'processing' && (
