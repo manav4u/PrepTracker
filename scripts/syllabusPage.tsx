@@ -2,6 +2,17 @@ import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { SUBJECTS } from '../constants';
 
+// Unit teaching hours were dropped from the app's constants in the revamp; the
+// library pages still display them, so keep the values verified against the
+// official SPPU FE 2024 syllabus here.
+const HOURS: Record<string, number[]> = {
+  m1: [8, 8, 8, 8, 8], phy: [8, 8, 8, 8, 8], chem: [8, 8, 8, 8, 8], m2: [8, 8, 8, 8, 8],
+  fpl: [6, 6, 6, 6, 6], elect: [6, 6, 6, 6, 6], elec: [6, 6, 6, 6, 6],
+  mech: [6, 6, 6, 6, 6], graph: [6, 6, 6, 6, 6],
+  pps: [4, 4, 3, 4, 4],
+};
+const unitHours = (subjectId: string, u: { hours?: number }, i: number) => u.hours ?? HOURS[subjectId]?.[i] ?? 8;
+
 export const SITE = 'https://preptracker.manavdev.site';
 export const SYLLABUS_PDF = 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/FE%202024%20Pattern%20Syllabus%20-%2016%20July%202024%20(1).pdf';
 export const HANDBOOK = 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf';
@@ -72,7 +83,7 @@ const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
 export function renderSubjectPage(c: SubjectPageConfig): string {
   const s = SUBJECTS.find(x => x.id === c.id)!;
   const PATH = '/syllabus/' + c.slug + '/';
-  const totalHours = s.units.reduce((a, u) => a + u.hours, 0);
+  const totalHours = s.units.reduce((a, u, i) => a + unitHours(c.id, u, i), 0);
   const order = c.order ?? s.units.map((_, i) => i);
   const page = (
     <html lang="en">
@@ -117,10 +128,10 @@ export function renderSubjectPage(c: SubjectPageConfig): string {
 
           <Motif id={c.id} />
           <h2>Unit-wise syllabus</h2>
-          <nav className="upills" aria-label="Jump to a unit">{s.units.map((u, i) => <a key={u.id} href={'#' + u.id}><b>UNIT {ROMAN[i]}</b><small>{u.hours} h</small></a>)}</nav>
+          <nav className="upills" aria-label="Jump to a unit">{s.units.map((u, i) => <a key={u.id} href={'#' + u.id}><b>UNIT {ROMAN[i]}</b><small>{unitHours(c.id, u, i)} h</small></a>)}</nav>
           <div className="units">{s.units.map((u, i) => (
             <section className="card unit" id={u.id} key={u.id}>
-              <div className="uh"><span className="chip up">UNIT {ROMAN[i]}</span><h3>{u.title}</h3><span className="hrs">{u.hours} hours</span></div>
+              <div className="uh"><span className="chip up">UNIT {ROMAN[i]}</span><h3>{u.title}</h3><span className="hrs">{unitHours(c.id, u, i)} hours</span></div>
               <div className="chips tp">{u.topics.map(t => <span className="chip" key={t}>{t}</span>)}</div>
             </section>
           ))}</div>

@@ -3,7 +3,17 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
-// Bundle the landing page for Node, render it to a string, and inject it into dist/index.html.
+// Prerenders the static syllabus library into dist/syllabus/<slug>/index.html so
+// crawlers get real content and the pre-revamp /syllabus/* URLs keep working.
+// The revamp landing is a client-rendered SPA and is intentionally untouched.
+
+// Static pages are separate HTML documents, so they need their own gtag snippet.
+// Production builds (GitHub Pages) get the shared production property; preview
+// builds (Vercel) override it via VITE_GA_MEASUREMENT_ID.
+const GA_ID = process.env.VITE_GA_MEASUREMENT_ID || 'G-PWDXVCDCP8';
+const GA_SNIPPET = `<script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${GA_ID}');</script>`;
+const GA_NOTE = '<p style="font-size:12px;opacity:.7">Anonymous visit stats via Google Analytics.</p>';
+
 const outDir = path.resolve('.prerender-tmp');
 await build({
   logLevel: 'error',
@@ -12,29 +22,29 @@ await build({
 });
 try {
   const mod = await import(pathToFileURL(path.join(outDir, 'prerender.mjs')).href);
-  const html = mod.renderLanding();
-  const file = path.resolve('dist/index.html');
-  const page = fs.readFileSync(file, 'utf8');
-  if (!page.includes('<div id="root"></div>')) throw new Error('empty #root marker not found in dist/index.html');
-  fs.writeFileSync(file, page.replace('<div id="root"></div>', `<div id="root">${html}</div>`));
+  let pages = 0;
   for (const c of mod.SUBJECT_PAGES) {
     const sub = path.resolve('dist/syllabus/' + c.slug + '/');
     fs.mkdirSync(sub, { recursive: true });
     fs.writeFileSync(path.join(sub, 'index.html'), mod.renderSubjectPage(c));
+    pages++;
   }
   for (const c of mod.INFO_PAGES) {
     const sub = path.resolve('dist/syllabus/' + c.slug + '/');
     fs.mkdirSync(sub, { recursive: true });
     fs.writeFileSync(path.join(sub, 'index.html'), mod.renderInfoPage(c));
+    pages++;
   }
   for (const b of mod.SE_BRANCHES) {
     const bd = path.resolve('dist/syllabus/' + b.slug + '/');
     fs.mkdirSync(bd, { recursive: true });
     fs.writeFileSync(path.join(bd, 'index.html'), mod.renderSeBranch(b));
+    pages++;
     for (const c of b.courses) {
       const cd = path.resolve('dist' + mod.coursePath(b, c));
       fs.mkdirSync(cd, { recursive: true });
       fs.writeFileSync(path.join(cd, 'index.html'), mod.renderSeCourse(b, c));
+      pages++;
     }
   }
   const catalog = JSON.parse(fs.readFileSync('catalog/courses.json','utf8'));
@@ -47,10 +57,14 @@ try {
   }
   for (const file of sourceFiles(path.resolve('dist/syllabus'))) {
     let page=fs.readFileSync(file,'utf8');
-    page=page.replace('</head>', `<style>${mod.readingCss}</style></head>`).replace('<body>', '<body>'+mod.readingChrome).replace('</body>', `<script>${mod.readingScript}</script></body>`);
+    page=page
+      .replace('</head>', `<style>${mod.readingCss}</style>${GA_SNIPPET}</head>`)
+      .replace('<body>', '<body>'+mod.readingChrome)
+      .replace('</footer>', GA_NOTE+'</footer>')
+      .replace('</body>', `<script>${mod.readingScript}</script></body>`);
     fs.writeFileSync(file,page);
   }
-  console.log(`prerendered landing page (${html.length} bytes)`);
+  console.log(`prerendered ${pages} library pages (GA ${GA_ID})`);
 } finally {
   fs.rmSync(outDir, { recursive: true, force: true });
 }

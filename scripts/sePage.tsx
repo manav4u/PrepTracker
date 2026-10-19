@@ -1,5 +1,5 @@
 import React from 'react';
-import {deriveOutline} from '../lib/outline.mjs';
+import {deriveOutline} from '../lib/outline';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { css, SITE } from './syllabusPage';
 
