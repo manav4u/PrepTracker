@@ -4,6 +4,7 @@ import { ArrowRight, Zap, Cpu, CheckCircle2, ScanFace, ShieldCheck, HardDrive } 
 import LogoMark from '../components/LogoMark';
 import { Profile } from '../types';
 import { useData } from '../context/DataContext';
+import CoursePicker from '../components/CoursePicker';
 
 interface OnboardingProps {}
 
@@ -56,6 +57,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
   const [stage, setStage] = useState<'boot' | 'identity' | 'matrix' | 'processing'>('boot');
   const [bootProgress, setBootProgress] = useState(0);
   const [name, setName] = useState('');
+  const [year, setYear] = useState<'FE' | 'SE' | 'TE'>('FE');
   
   // Processing Stage State
   const [processPercent, setProcessPercent] = useState(0);
@@ -86,7 +88,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
     }
   }, [stage]);
 
-  const handleFinish = async () => {
+  const handleFinish = async (ids?: string[]) => {
     setStage('processing');
     
     // Simulate complex processing steps
@@ -104,7 +106,7 @@ const Onboarding: React.FC<OnboardingProps> = () => {
         if (currentStep >= steps.length) {
             clearInterval(interval);
 
-            const selectedIds = [choices.maths, choices.programming, choices.science, choices.circuit, choices.core];
+            const selectedIds = ids || [choices.maths, choices.programming, choices.science, choices.circuit, choices.core];
             const newProfile: Profile = {
                 name: name || 'Student',
                 theme: 'dark',
@@ -245,6 +247,18 @@ const Onboarding: React.FC<OnboardingProps> = () => {
                         <p className="text-slate-500 text-sm">Customize your dashboard for the current semester.</p>
                      </div>
 
+                     <div className="mb-8">
+                        <div className="grid grid-cols-3 gap-3">
+                            {([['FE','First year'],['SE','Second year'],['TE','Third year']] as const).map(([y,l]) => (
+                                <button key={y} onClick={() => setYear(y)} aria-pressed={year === y}
+                                    className={`py-4 rounded-2xl border text-sm font-bold transition-colors duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${year === y ? 'bg-white text-black border-white' : 'bg-black border-white/10 text-slate-300 hover:border-white/30'}`}>{l}</button>
+                            ))}
+                        </div>
+                     </div>
+
+                     {year !== 'FE' && <CoursePicker key={year} year={year} onDone={(ids) => handleFinish(ids)} />}
+
+                     {year === 'FE' && (<>
                      <div className="space-y-8 mb-12">
                         {/* Mathematics Choice */}
                         <BinaryChoice
@@ -295,12 +309,13 @@ const Onboarding: React.FC<OnboardingProps> = () => {
 
                      <p className="text-center text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-4">5 subjects - you can change them later in Settings</p>
                      <button
-                        onClick={handleFinish}
+                        onClick={() => handleFinish()}
                         className="w-full py-6 bg-[#D61A40] text-white font-bold uppercase tracking-[0.2em] rounded-xl hover:bg-[#B3123B] transition-all shadow-[0_0_40px_-10px_#F63C49] hover:shadow-[0_0_60px_-10px_#F63C49] flex items-center justify-center gap-3 group"
                      >
                         <Zap size={18} className="fill-white" />
                         Start PrepTracker
                      </button>
+                     </>)}
                 </div>
             )}
 
