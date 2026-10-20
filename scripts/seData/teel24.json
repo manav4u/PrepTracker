@@ -1,0 +1,885 @@
+[
+  {
+    "code": "PCC-301-ELE",
+    "name": "Electrical Machines-II",
+    "hours": 3,
+    "credits": 3,
+    "cce": 30,
+    "ese": 70,
+    "prereq": "Magnetic circuit fundamentals, Working principle and construction DC Machines, transformer & 3-ph induction motor, Phasor diagram and equivalent circuit of single-phase transformer, transmission line",
+    "outcomes": [
+      "Explain the construction and working principle of three-phase synchronous generator",
+      "Test and analyse the given 3-ph alternator by direct loading, EMF, MMF and potier methods for finding the voltage regulation.",
+      "Obtain the characteristics of a three-phase synchronous motor by varying excitation at constant mechanical load",
+      "Compare the 3-ph induction motor Vs induction generator, series motor on AC/DC supply & permanent Magnet motor AC Vs DC.",
+      "Compute the equivalent circuit parameters and efficiency of singlephase induction motor by conducting no load and blocked rotor test."
+    ],
+    "units": [
+      {
+        "roman": "I",
+        "title": "Three phase synchronous machines",
+        "hours": 8,
+        "text": "Three phase Synchronous machines: Construction, rotating-field type and rotating-armature type, salientpole type and non-salient-pole type and their comparison. Excitation Methods for small, medium and large capacity synchronous generators Three phase Synchronous generator (cylindrical rotor type): Principle of operation. Emf equation and winding factors (No derivation), rating of generator. Generator on no-load and on balanced load. Armature reaction and its effect under different load power factors. Voltage drop due to armature resistance, leakage flux and synchronous reactance. Per phase equivalent circuit and Phasor diagram. Power - power angle relation. Three phase Synchronous generator (salient pole type): Armature reaction as per Blondel’s two reaction theory for salient-pole machines, Direct-axis and quadrature-axis synchronous reactance’s and their determination by slip test. Phasor diagram of Salient-pole generator and calculation of voltage regulation."
+      },
+      {
+        "roman": "II",
+        "title": "Voltage regulation of three phase synchronous generator",
+        "hours": 8,
+        "text": "Determination of voltage regulation by direct loading, Open circuit and short circuit test on synchronous generator, determination of voltage regulation by emf, mmf and Potier triangle methods. Short circuit ratio and its significance. Parallel operation of 3-phase alternators: Necessity, conditions, Load sharing between two alternators in parallel (Descriptive treatment only). Process of synchronizing alternator with infinite bus-bar by one dark & two equally bright lamp method and by using synchroscope. Concept of synchronizing current, power and torque."
+      },
+      {
+        "roman": "III",
+        "title": "Three phase synchronous motor",
+        "hours": 8,
+        "text": "Principle of operation. Methods of starting. Equivalent circuit, significance of torque angle, Losses, efficiency and Power flow chart. Operation of 3-phase Synchronous motor with constant load and variable excitation (‘V’ Curves and ‘inverted V’ curves). Phenomenon of hunting and its remedies. Applications of 3-phase synchronous motors. Comparison of 3 phase synchronous motor with 3-phase induction motor."
+      },
+      {
+        "roman": "IV",
+        "title": "Analysis of 3-ph induction motor, Induction generator and special purpose motors",
+        "hours": 8,
+        "text": "Speed control of three phase induction motor by various methods (Stator side and rotor side controls). Action of 3-phase induction motor as induction generator, applications of induction generator. Operation of D.C. series motor on a.c. supply, nature of torque developed, problems associated with AC. operation and remedies, conductively and inductively compensated a c series motor. Applications, Introduction to Energy Efficient three phase Induction Motor. Special Purpose Motors: Construction, principle of working, characteristics ratings and applications of Brush less D.C. motors, Stepper motors (permanent magnet and variable reluctance type only), Permanent Magnet motor (A.C. & D.C.)."
+      },
+      {
+        "roman": "V",
+        "title": "Single phase induction motor",
+        "hours": 8,
+        "text": "Construction of single-phase induction motor, double field revolving theory. Equivalent circuit and torque-slip characteristics on the basis of double revolving field theory. Tests to determine the parameters of equivalent circuit and calculation of performance characteristics of motor. Methods of self-starting. Types of single-phase induction motors: Split-phase motors (Resistor split-phase motor, Capacitor-start motor, Capacitor start and capacitor run motor and permanent capacitor motor). Comparison of 1-phase induction motor with 3-phase induction motor."
+      }
+    ],
+    "textBooks": [
+      "[T1]. Nagrath and Kothari, Electrical Machines, 2nd Ed., Tata McGraw Hill.",
+      "S. K. Bhattacharya, Electrical Machines, Tata McGraw Hill.",
+      "A.S. Langsdorf, Theory of Alternating Current Machinery, Tata McGraw Hill",
+      "P. S. Bimbhra, Electric Machinery, Khanna Publications.",
+      "B.R. Gupta and Vandana Singhal -Fundamentals of Electric Machines, New Age International (P) Ltd.",
+      "B. L Theraja –Electrical Technology vol II , S. Chand publication.",
+      "V. K. Mehta and Rohit Mehta, Principles of Electrical Machines, S Chand Publication",
+      "Krishna Reddy –Electrical Machines vol. II and III, SCITECH publications.",
+      "Ashfaq Husain, Electrical Machines, Dhanpat Rai and Co.",
+      "M V Deshpande, Electrical Machines, Prentice Hall of India"
+    ],
+    "refBooks": [
+      "[R1]. M.G. Say, Performance and Design of A.C. Machines (3rd Ed.), ELBS",
+      "J B Gupta - Theory and performance of Electrical Machines, S K Kataria Publications",
+      "Samarjit Ghosh, Electrical Machines, Pearson Publication.",
+      "Bhag S Guru and Huseyin R Hiziroglu, Electrical Machinary and Transformer, 3rd Edition, Oxford University Press.",
+      "E G Janardanan, Special Electrical Machines, Prentice Hall of India."
+    ],
+    "links": []
+  },
+  {
+    "code": "PCC-302-ELE",
+    "name": "Power Electronics",
+    "hours": 3,
+    "credits": 3,
+    "cce": 30,
+    "ese": 70,
+    "prereq": "PN junction diodes, Zener diodes, BJTs, MOSFETs, and IGBTs. V–I characteristics. Resistors, inductors, capacitors, Ohm’s law, Kirchhoff’s laws. Transient, steady-state behavior of RL and RC circuits. Half-wave, full-wave, and bridge rectifiers, along with ripple, filtering, and efficiency concepts RMS and average values, power factor.",
+    "outcomes": [
+      "Describe the construction, working principles, characteristics and ratings of solid-state power semiconductor devices.",
+      "Analyze the operating principles and performance of DC–DC converters (power choppers) under different configurations and control techniques.",
+      "Distinguish the operating modes and performance characteristics of single-phase and three-phase AC– DC power converters.",
+      "Explain the operating principles, circuit configurations and applications of single-phase and three-phase DC–AC inverters.",
+      "Summarize three-phase inverter operation, PWM techniques and the principle of operation of multilevel inverters for modern drive and EV applications."
+    ],
+    "units": [
+      {
+        "roman": "I",
+        "title": "Power Semiconductor Devices and Protection",
+        "hours": 8,
+        "text": "SCR – construction, static and dynamic characteristics, ratings and specifications, triggering circuits: R, RC and UJT. Commutation techniques: Class C and Class D. TRIAC – construction, four-quadrant operation (light dimmer). Transistor-based devices: MOSFET and IGBT – construction, working, static and dynamic characteristics. Introduction to wide band gap devices: Silicon Carbide (SiC) and Gallium Nitride (GaN) – features and applications (descriptive). Exemplars/Case Studies Design and analyze an RC triggering circuit for an SCR and study its effect on firing angle control. Reference Books R1, R4"
+      },
+      {
+        "roman": "II",
+        "title": "DC–DC Converters and Modern Control Techniques",
+        "hours": 8,
+        "text": "Principle of DC–DC converters (choppers). Classification based on operating quadrants. Control techniques: PWM, CLC, TRC and FM (conceptual). Buck, boost and buck–boost converters – operation with R and RL loads. Bidirectional DC–DC converters and Dual Active Bridge (DAB) converter – concept, operation (descriptive). Applications of DC-DC converters in battery management systems, electric vehicles and renewable energy systems. Exemplars/Case Studies DC-DC converters in Electric Vehicles (EVs) – Analyze how boost/buck converters regulate battery voltage for efficient EV operation. Reference Books R1, R4"
+      },
+      {
+        "roman": "III",
+        "title": "AC–DC Converters (Controlled Rectifiers)",
+        "hours": 8,
+        "text": "Single-phase half-controlled and fully controlled converters. Operation with R and RL loads. Freewheeling diode. Performance parameters of fully controlled converters only: average and RMS output voltage, power factor, THD and TUF (conceptual). Single-phase dual converter (descriptive). Applications in DC motor drives and EV battery chargers. Exemplars/Case Studies EV battery charging system – Study the use of controlled rectifiers for regulated DC charging of EV batteries. Reference Books R1, R4"
+      },
+      {
+        "roman": "IV",
+        "title": "Three-Phase Converters and AC Voltage Controllers",
+        "hours": 8,
+        "text": "Three-phase half-controlled and fully controlled AC–DC converters. Operation with R and RL loads. Performance parameters of fully controlled converters, its characteristics and applications. Single-phase AC voltage controller with R and RL loads. Industrial and power conditioning applications. Exemplars/Case Studies Industrial DC drives – Analyze the use of three-phase converters in speed control of DC motors in industries. Reference Books R1, R4"
+      },
+      {
+        "roman": "V",
+        "title": "DC–AC Inverters and Drive Applications",
+        "hours": 8,
+        "text": "Single-phase full-bridge VSI – operation and waveforms. Three-phase VSI. 120° and 180° modes – comparison. PWM techniques: single pulse modulation and sinusoidal PWM. Multilevel inverters – concept and classification (NPC and cascaded H-bridge). Applications in UPS, induction motor drives and electric vehicle traction systems Exemplars/Case Studies UPS system using VSI inverter – Study how inverters provide uninterrupted power supply during grid failure. Reference Books R1, R4"
+      }
+    ],
+    "textBooks": [
+      "[T1]. Dr. P.S. Bimbhra, Power Electronics, Third Edition, Khanna Publication.",
+      "K. Hari Babu, Power Electronics, Scitech Publication.",
+      "M. D. Singh and K. B. Khandchandani, Power Electronics, Tata McGraw Hill.",
+      "Ashfaq Ahmed- Power Electronics for Technology, LPE Pearson Edition."
+    ],
+    "refBooks": [
+      "[R1]. Vedam Subramanyam - Power Electronics , New Age International, New Delhi",
+      "Dubey, Donalda, Joshi, Sinha, Thyristorised Power controllers, Wiley Eastern New Delhi.",
+      "M. H. Rashid - Power Electronics 2nd Edition, Pearson publication.",
+      "Ned Mohan, T.M. Undel and, W.P. Robbins - Power Electronics, 3rd Edition, John Wiley and Sons."
+    ],
+    "links": []
+  },
+  {
+    "code": "PCC-303-ELE",
+    "name": "Electrical Installation, Design and Condition Based Maintenance",
+    "hours": 3,
+    "credits": 3,
+    "cce": 30,
+    "ese": 70,
+    "prereq": "Basic Electrical Engg, Power System 1, Electrical Machines I and Electrical Machines II",
+    "outcomes": [
+      "Classify the types of distribution supply systems and determine economics of distribution system.",
+      "Enlist the equipment’s used in the substation and analyze the earthing of substation as per IEEE standard 80-2013.",
+      "Demonstrate the breakdown maintenance, planned/preventive maintenance and condition-based maintenance of transformer, induction motors and alternators along with insulation level.",
+      "Prepare detailed estimates, analyze the rates of electrical wires, cables, equipments, and draft the tender documents for the purchase as per specifications.",
+      "Explain the procedure of insulation resistance & Earth resistance testing of residential and commercial installations with necessary safety measures."
+    ],
+    "units": [
+      {
+        "roman": "I",
+        "title": "Economics of Distribution Systems",
+        "hours": 8,
+        "text": "Classification of supply systems (State Only) (i)DC, 2-wire system, (ii) Single phase two wire ac system, (iii) Three phase three wire ac supply system, iv) Three phase four wire ac supply system. Comparison between overhead and underground systems (For above mentioned systems) on the basis of volume requirement for conductor. AC Distribution System: Types of primary and secondary distribution systems, calculation of voltage drops in ac distributors (Uniform and Non Uniform Loading) (Numerical) Economics of power transmission: Economic choice of conductor (Kelvin’s law) (Derivation and Numerical) Distribution Feeders: Design considerations of distribution feeders; radial and ring types of primary feeder’s voltage levels, energy losses in feeders. Exemplars/Case Studies Reference Books"
+      },
+      {
+        "roman": "II",
+        "title": "Substation and Earthing",
+        "hours": 8,
+        "text": "Substation: classification of substations, various equipment’s used in substation with their specifications, bus bar arrangements in the substation: simple arrangements like single bus bar, sectionalized single bus bar, main and transfer bus bar system with relevant diagrams. Earthing: necessity of earthing, types of earthing system (equipment and neutral), and maintenance free earthing system. Methods of testing earth resistance, different electrode configurations (plate and pipe electrode), tolerable step and touch voltages, steps involved in design of substation earthing grid as per IEEE standard 80 – 2013 Exemplars/Case Studies Reference Books"
+      },
+      {
+        "roman": "III",
+        "title": "Maintenance and Condition Monitoring",
+        "hours": 8,
+        "text": "Importance and necessity of maintenance, different maintenance strategies like breakdown maintenance, planned/preventive maintenance and condition-based maintenance. Planned and preventive maintenance of transformer, Induction motor and Alternators. Insulation stressing factors, Insulation deterioration, polarization index, dielectric absorption ratio. Concept of condition monitoring of electrical equipment’s. Advanced tools and techniques of condition monitoring. Induction motor fault diagnostic methods – Vibration Signature Analysis, Motor Current Signature Analysis. Hot Line Maintenance - Meaning and advantages, special types of non-conducting Materials used for tools for hot line maintenance Exemplars/Case Studies Reference Books R1"
+      },
+      {
+        "roman": "IV",
+        "title": "Basics of Estimation and Costing",
+        "hours": 8,
+        "text": "Purpose of estimating and costing, qualities of good estimator, essential elements of estimating and costing, tender, guidelines for inviting tenders, quotation, price catalogue, labour rates, schedule of rates and estimating data (only theory) Estimation of distribution system: Introduction cable sizing, Estimation and conductor size calculations of internal wiring for Residential and Commercial (Numerical) installations and estimate for underground LT service lines. Exemplars/Case Studies Reference Books R6"
+      },
+      {
+        "roman": "V",
+        "title": "Testing of Installation and Electrical Safety",
+        "hours": 8,
+        "text": "Understanding CAT Ratings & Using CAT rated Instrument, Electrical Installation Testing Procedures- Insulation resistance test between installation and earth, Insulation resistance test between conductors (use of GUARD Terminal in IR test & Application) (methods used for IR Testing) Testing of polarity, Testing of earth continuity paths (Applications of PAT Tester “Portable Appliance Tester” in commercial like hotels hospital & Industry also) and Earth resistance test (methods for earth testing 2-pole,3-pole new methods clamp on type where we can performs test in Live) Exemplars/Case Studies"
+      }
+    ],
+    "textBooks": [
+      "[T1]. B. R. Gupta- Power System Analysis and Design, 3rd edition, Wheeler’s publication.",
+      "S. Rao, Testing Commissioning Operation and Maintenance of Electrical Equipment, Khanna publishers.",
+      "S. L. Uppal - Electrical Power - Khanna Publishers Delhi.",
+      "Handbook of condition monitoring by B. K. N. Rao, Elsevier Advance Tech., Oxford (UK).",
+      "S. K. Shastri – Preventive Maintenance of Electrical Apparatus – Katson Publication House.",
+      "B. V. S. Rao – Operation and Maintenance of Electrical Equipment – Asia Publication."
+    ],
+    "refBooks": [
+      "[R1]. P.S. Pabla –Electric Power Distribution, 5th edition, Tata McGraw Hill.",
+      "S. L. Uppal, Electrical Wiring and Costing Estimation, Khanna Publishers, New Delhi.",
+      "Surjit Singh, Electrical wiring, Estimation and Costing, Dhanpat Rai and company, New Delhi.",
+      "Raina K.B. and Bhattacharya S.K., Electrical Design, Estimating and Costing, Tata McGraw Hill, New Delhi.",
+      "B.D. Arora-Electrical Wiring, Estimation and Costing, - New Heights, New Delhi.",
+      "M.V. Deshpande, Elements of Power Station design and practice, Wheelers Publication.",
+      "S. Sivanagaraju and S. Satyanarayana, Electric Power Transmission and Distribution, Pearson Publication.",
+      "Power Equipment Maintenance and Testing (Power Engineering Book 32) by Paul Gill"
+    ],
+    "links": []
+  },
+  {
+    "code": "PEC-321A-ELE",
+    "name": "Microcontroller and Embedded Systems",
+    "hours": 3,
+    "credits": 3,
+    "cce": 30,
+    "ese": 70,
+    "prereq": "Knowledge of Number system and Basic logic components. Programming basics of C language.",
+    "outcomes": [
+      "Explain architecture of PIC 18F458 microcontroller and embedded C concepts.",
+      "Generate time delays using PIC Timers, I/O Ports and C programming",
+      "Generate events using CCP module",
+      "Develop programs in C for internal and External interrupts and ADC",
+      "Use Serial Communication and various serial communication protocols."
+    ],
+    "units": [
+      {
+        "roman": "I",
+        "title": "PIC Architecture and embedded C",
+        "hours": 8,
+        "text": "Introduction to Microprocessor and Microcontroller, Pin diagram and architecture of P18F458 microcontroller, Comparison of CISC and RISC Architectures, Data and Program memory organization, Program Counter, Stack pointer, Status register, I/O Ports, their dual functions and related SFRs. Pre-processor directives for embedded C programming. Self-study Embedded C concepts, Data types, Control loops, functions, bit operations."
+      },
+      {
+        "roman": "II",
+        "title": "Port and Timer Programming",
+        "hours": 8,
+        "text": "I/O port programming in C. PIC 18 Timers with SFRs, Timer 0 details with Programing in C. Delay programming (with and without Timer0). Interfacing of LCD (16x2) in 4-bit mode theory & interfacing diagram. Exemplars/Case Studies Experimental study of LED/buzzer Interfacing with different ports"
+      },
+      {
+        "roman": "III",
+        "title": "CCP module and its applications",
+        "hours": 8,
+        "text": "CCP module in PIC 18 microcontroller, Timers required for CCP Applications, Generation of Square waveform using Compare mode of CCP module. Period measurement of unknown signal using Capture mode in CCP module, Speed control of DC motor using PWM mode of CCP module. Exemplars/Case Studies Experimental study of DC motor speed control for various PWM frequency"
+      },
+      {
+        "roman": "IV",
+        "title": "Interrupt Programming and PIC ADC",
+        "hours": 8,
+        "text": "Interrupt structure of PIC 18F458, SFRs related to Interrupts, Interrupt Programming using C, Programming of Timer0 interrupt, and External hardware interrupt INT0. Basics of ADC, On-chip ADC on PIC 18F458, Programming of ADC using interrupts. Self study Study of DAC"
+      },
+      {
+        "roman": "V",
+        "title": "Serial Communication and Applications",
+        "hours": 8,
+        "text": "Serial Communication structure USART, SFRs related to serial communications. Programming serial port to transmit and receive data, Introduction to communication protocols as SPI MODBUS and CAN Bus. Types of sensors LM35, ACS712 (Hall-effect, ±5A to ±30A range), ZMPT101B for AC voltage. Measurement of temperature and Power using PIC microcontroller. Self study Applications of SPI and MODBUS"
+      }
+    ],
+    "textBooks": [
+      "[T1]. PIC Microcontroller and Embedded Systems Using Assembly and C for PIC18 by Muhammad Ali Mazidi, Rolind D. McKinley, Danny Causey, Pearson Education.",
+      "Fundamentals of Microcontrollers and Applications in Embedded Systems with PIC by Ramesh Gaonkar, Thomson and Delmar learning, First Edition.",
+      "Programming and Customizing the PIC Microcontroller by Myke Predko, TATA McGraw-Hill."
+    ],
+    "refBooks": [
+      "[R1]. PIC18F458 datasheet",
+      "MPLAB IDE user guides",
+      "MICROCHIP Technical Reference Manual of 18F4520 Embedded Design with PIC 18F452 Microcontroller by John B. Peatman, Prentice Hall"
+    ],
+    "links": []
+  },
+  {
+    "code": "PEC-321B-ELE",
+    "name": "Renewable Energy Systems",
+    "hours": 3,
+    "credits": 3,
+    "cce": 30,
+    "ese": 70,
+    "prereq": "Basic knowledge of electrical circuits, electrical machines, and power generation systems. Familiarity with fundamental concepts of energy conversion, basic thermodynamics, and engineering mathematics will help students understand renewable energy technologies and their applications effectively.",
+    "outcomes": [
+      "Explain solar energy systems and their performance analysis.",
+      "Determine wind turbine performance.",
+      "Explain and evaluate biomass resources in an Indian context.",
+      "Illustrate the importance of storage systems.",
+      "Analyze the economics of renewable energy sources."
+    ],
+    "units": [
+      {
+        "roman": "I",
+        "title": "Solar Energy",
+        "hours": 8,
+        "text": "Solar radiation: extra-terrestrial and terrestrial radiation, Solar angles, Measurement of solar radiation, Sun– earth geometry, Solar cell and PV module construction, I-V & P-V Characteristics of solar cell, fill factor, solar PV system component, Design and performance analysis of Solar PV system, Solar thermal collector & types, solar water heating system, its performance analysis. Exemplars/Case Studies Reference Books"
+      },
+      {
+        "roman": "II",
+        "title": "Wind Energy",
+        "hours": 8,
+        "text": "Power Contained in Wind, Thermodynamics of Wind Energy, Efficiency Limit for Wind Energy Conversion, the maximum energy obtained for a Thrust-operated converter (Efficiency limit), Design of Wind Turbine Rotor, Power-Speed Characteristics, Torque-Speed Characteristics, Wind Turbine Control Systems: a) Pitch Angle Control, b) Stall Control, c) Power Electronics Control, d) Yaw Control, Control Strategy, Wind Speed Statistics, Site and Turbine Selection, Extraction of wind energy and wind turbine power. Exemplars/Case Studies Reference Books"
+      },
+      {
+        "roman": "III",
+        "title": "Biomass Energy",
+        "hours": 8,
+        "text": "Biomass Classification, Biomass Resources and their Energy Potential, Biomass Conversion Technologies: Anaerobic Digestion, Ethanol Fermentation, Biomass Gasification: Gasifiers, Fluidized Bed Gasifier, Biogas Technologies and their factor affecting Biogas Production, Biogas Plants: Floating and Fixed Dome type, designing of biogas plant, Introduction to Biodiesel, Power Generation from Municipal Solid Waste (MSW), Landfill Gas, Liquid Waste. Exemplars/Case Studies Reference Books"
+      },
+      {
+        "roman": "IV",
+        "title": "Fuel Cells and Storage Systems",
+        "hours": 7,
+        "text": "A. Fuel Cells: Operating principles of Fuel Cell, Fuel and Oxidant Consumption, Fuel Cell System Characteristics, Introduction to Fuel Cell Technology and its type, application and limits. B. Storage systems: Hydrogen storage: Hydrogen production, relevant properties, Hydrogen as an Engine Fuel, methods of Hydrogen storage. Batteries: Introduction to Batteries, Elements of Electro-Chemical Cell, Battery classification, Battery Parameters, Factors affecting battery performance. Introduction to other storage technologies: pump storage, SMES, compressed air storage. Exemplars/Case Studies Reference Books"
+      },
+      {
+        "roman": "V",
+        "title": "Integration of RES",
+        "hours": 9,
+        "text": "Integration of RES with grid, hybrid system, Grid codes, Concept of Net Metering, policies. Economics of RES: Simple, Initial rate of return, time value, Net present value, Internal rate of return, Life cycle costing, Effect of fuel Escalation, Annualized and levelized cost of energy. Exemplars/Case Studies Reference Books"
+      }
+    ],
+    "textBooks": [
+      "[T1]. G. N. Tiwari, Solar Energy, Fundamentals, Design, Modeling and Applications, Narosa, 2002.",
+      "S. P. Sukhatme and J. K. Nayak, Solar Energy, McGraw Hill, 2017.",
+      "Chetan Singh Solanki, “Solar Photovoltaics-Fundamentals, Technologies and Applications”, PHI Second Edition.",
+      "Mukund R. Patel, “Wind and Solar Power System”, CRC Press",
+      "Gilbert M. Masters, “Renewable and Efficient Electric Power Systems”, Wiley - IEEE Press, August",
+      "[T6]. H. P. Garg and J. Prakash, Solar Energy: Fundamentals and Applications, Tata McGraw Hill, 1997"
+    ],
+    "refBooks": [
+      "[R1]. D.P.Kothari, K.C.Singal, Rakesh Rajan,“Renewable Energy Sources and Emerging Technologies”, PHI Second Edition.",
+      "Tapan Bhattacharya, “Terrestrial Solar Photovoltaics”, Narosa Publishing House",
+      "Paul Gipe, “Wind Energy Comes of Age”, John Wiley & Sons Inc.",
+      "B T.Nijaguna, “Biogas Technology”, New Age International Publishers.",
+      "Donald L.Klass, “Biomass for Renewable Energy, Fuels, and Chemicals, Elsevier, Academic Press",
+      "Thomas Ackermann, “Wind Power in Power Systems”, Wiley Publications."
+    ],
+    "links": []
+  },
+  {
+    "code": "PEC-321C-ELE",
+    "name": "Computer Aided Design of Electrical Machines",
+    "hours": 3,
+    "credits": 3,
+    "cce": 30,
+    "ese": 70,
+    "prereq": "Fundamentals of Electrical and Electronics Engineering, Knowledge of various materials used in electrical machines. Types, construction and working of transformer. Knowledge of types, construction and working of three phase induction motor.",
+    "outcomes": [
+      "Design the core and overall structure of a three-phase transformer based on given specifications.",
+      "Calculate and evaluate transformer parameters such as resistance, reactance, losses, efficiency, and regulation.",
+      "Determine main dimensions and winding details of a three-phase induction motor.",
+      "Analyze performance characteristics of induction motors including losses, efficiency, and no-load current.",
+      "Apply fundamental design concepts of special machines (PMSM, SRM) and implement CAD tools for machine design."
+    ],
+    "units": [
+      {
+        "roman": "I",
+        "title": "Transformer Design: Part I",
+        "hours": 8,
+        "text": "Types and constructional features of core and windings used in transformer and auxiliaries. Heating and cooling time constants. Specifications of three phase transformers as per IS 2026(Part I), Output equation with usual notations, optimum design of transformer for minimum cost and loss. Design of core, estimation of overall dimensions of frame"
+      },
+      {
+        "roman": "II",
+        "title": "Transformer Design: Part II",
+        "hours": 8,
+        "text": "Design of windings of transformer. Estimation of resistance and leakage reactance of transformer. Estimation of no-load current, losses, efficiency and regulation of transformer. Calculation of mechanical forces developed under short circuit conditions, measures to overcome this effect. Methods of cooling of transformer. Design of tank with cooling tubes. Introduction to Computer aided design of transformer, generalized flow chart for design of transformer."
+      },
+      {
+        "roman": "III",
+        "title": "Three phase Induction Motor: Part I",
+        "hours": 8,
+        "text": "Specifications and constructional features. Types of ac windings. Specific electrical and magnetic loadings, ranges of specific loadings. Output equation with usual notations. Calculations for main dimensions, turns per phase and number of stator slots. Suitable combinations of stator and rotor slots. Selection of length of air gap, factors affecting length of air gap, Generalized flow chart for design of induction motor."
+      },
+      {
+        "roman": "IV",
+        "title": "Three phase Induction Motor: Part II",
+        "hours": 8,
+        "text": "Design of rotor slots, size of bars and end rings for cage rotor. Conductor size, turns and area of rotor slots for wound rotor. Leakage flux and leakage reactance: Slot, tooth top, zig - zag, overhang. Leakage reactance calculation for three phase machines. MMF Calculation for air gap, stator teeth, stator core, rotor teeth and rotor core, effect of saturation, effects of ducts on calculations of magnetizing current, calculations of no-load current. Calculations of losses and efficiency"
+      },
+      {
+        "roman": "V",
+        "title": "Introduction to Special machine design",
+        "hours": 8,
+        "text": "Brushless Motor Fundamentals- Torque equation, back emf, magnetic circuit, Multi phases radial flux machines inner rotor and outer rotor, Design Examples of PMSM, Switched Reluctance Machine (SRM) Sizing Equations, Stator and Rotor Design of SRM Reference Books R2"
+      }
+    ],
+    "textBooks": [
+      "[T1]. M. G. Say–Theory and Performance and Design of A.C. Machines,3rd Edition, ELBS London.",
+      "A.K. Sawhney–A Course in Electrical Machine Design, -Dhanpat Rai and sons New Delhi",
+      "K. G. Upadhyay- Design of Electrical Machines, New age publication",
+      "R. K. Agarwal–Principles of Electrical Machine Design, S. K. Katariya and sons."
+    ],
+    "refBooks": [
+      "[R1]. Vishnu Murti, “Computer Aided Design for Electrical Machines”, B. S. Publications.",
+      "Brushless permanent magnet motor design, Dr. Duane Hanselman, Second Edition, Magna Physics Publishing",
+      "Krishnan, R., Switched Reluctance Motor Drives: Modeling, Simulation, Analysis, Design, and Applications, CRC Press, USA."
+    ],
+    "links": []
+  },
+  {
+    "code": "PCC-351-ELE",
+    "name": "Power System Engineering-II",
+    "hours": 3,
+    "credits": 3,
+    "cce": 30,
+    "ese": 70,
+    "prereq": "Knowledge of Power generation techniques, two port network and ABCD parameters of short and medium lines, working of Power system components",
+    "outcomes": [
+      "Estimate ABCD constants and power flow in long transmission line.",
+      "Determine per unit values and develop Y bus matrix for load flow analysis.",
+      "Evaluate fault current and short circuit MVA for Symmetrical fault condition.",
+      "Evaluate fault current and short circuit MVA for unsymmetrical fault condition.",
+      "Interpret reactive power compensation and classify FACTS devices."
+    ],
+    "units": [
+      {
+        "roman": "I",
+        "title": "Power Flow Analysis of long transmission Lines",
+        "hours": 8,
+        "text": "Evaluation of ABCD constants of long transmission lines, Concept of complex power, power flow using generalized constants, Characteristic Impedance and Surge impedance loading, Numerical based on: Calculation of ABCD constants of Long transmission line, Complex power flow calculation at sending end and receiving end. Exemplars/Case Studies"
+      },
+      {
+        "roman": "II",
+        "title": "Per Unit System & Load Flow Analysis",
+        "hours": 8,
+        "text": "A) Per Unit (PU) System: SLD of a typical power system network, Impedance and reactance diagram, per unit quantities, relationships, selection of base, change of base, reduction to common base, advantages and application of per unit system. Numerical based on: Network reduction by using per unit system. B) Load Flow Analysis: Network topology, driving point and transfer admittance, concept of Z-bus and formulation of Y-bus matrix using bus incidence matrix method, Generalized powerflow equations for n bus systems, classification of buses, Newton- Raphson method (polar method) for 3 bus system. Numerical based on: Y Bus Matrix formation Exemplars/Case Studies"
+      },
+      {
+        "roman": "III",
+        "title": "Symmetrical Fault Analysis",
+        "hours": 7,
+        "text": "3-phase short-circuit analysis of unloaded alternator, sub-transient, transient and steady state current and impedances, Estimation of fault current without pre-fault current for simple power systems, selection of circuitbreakers and current limiting reactors and their location in power system (Descriptive treatment Only) Numerical based on: Symmetrical fault analysis (Fault Current and Short Circuit MVA). Exemplars/Case Studies"
+      },
+      {
+        "roman": "IV",
+        "title": "Un-symmetrical fault Analysis",
+        "hours": 9,
+        "text": "Symmetrical components, sequence components, power in terms of symmetrical components, sequence impedance of transmission line and zero sequence networks of transformer, solution of unbalances by symmetrical components, L-L, L-G, and L-L-G fault analysis of unloaded alternator and simple power systems with and without fault impedance. Numerical based on: Symmetrical components, Fault Current and Short Circuit MVA. Exemplars/Case Studies"
+      },
+      {
+        "roman": "V",
+        "title": "Reactive Power Compensation and FACTS Devices",
+        "hours": 8,
+        "text": "Necessity of reactive power compensation, production and absorption of reactive power, Types of compensation – series and shunt. Introduction to FACTS devices, Types of FACTS devices - Series compensation: TCSC, Shunt compensation: STATCOM. circuit diagram, working principle, VI characteristics, applications. Exemplars/Case Studies"
+      }
+    ],
+    "textBooks": [
+      "[T1]. I.J. Nagrath and D.P. Kothari – Modern Power System Analysis – TMH New Delhi.",
+      "Dr B R Gupta - “Power System Analysis and Design”, S. Chand.",
+      "C.L. Wadhwa - “Power System Analysis”, New Age International."
+    ],
+    "refBooks": [
+      "[R1]. Stevenson W.D. Elements of Power System Analysis (4th Ed.) Tata McGraw Hill, New Delhi.",
+      "Hadi Sadat: Power System Analysis, Tata McGraw-Hill New Delhi.",
+      "J. B. Gupta - “A course in power systems” S.K. Kataria Publications.",
+      "Ashfaq Hussain - “Electrical Power Systems”, CBS Publication 5th Edition.",
+      "V. K. Chandana, Power Systems, Cyber tech Publications."
+    ],
+    "links": []
+  },
+  {
+    "code": "PCC-352-ELE",
+    "name": "Control System Engineering",
+    "hours": 3,
+    "credits": 3,
+    "cce": 30,
+    "ese": 70,
+    "prereq": "Laplace Transform, ordinary differential equations",
+    "outcomes": [
+      "Explain the basic principles, terminologies, classifications of control systems, and develop mathematical models of physical systems using transfer function approach.",
+      "Analyse the time-domain response of control systems and evaluate performance indices such as rise time, settling time, peak time, delay time, overshoot and steady-state error.",
+      "Determine the stability of control systems using analytical methods and construct and interpret root locus plots to assess system behaviour.",
+      "Analyse the control system in the frequency domain using Bode plot to assess stability and robustness.",
+      "Design and tune PID controllers to meet desired performance specifications in time-domain Determine transfer functions of lead and lag compensator networks."
+    ],
+    "units": [
+      {
+        "roman": "I",
+        "title": "Basics of Control System",
+        "hours": 8,
+        "text": "Basic concepts of control system, classification of control systems (open loop systems, closed-loop systems, linear time-variant systems, linear time-invariant systems, servo systems, regulatory systems, SISO and MIMO systems), transfer function with poles and zeros, modelling of electrical networks (up to two loops) and Mechanical systems, analogy between electrical and mechanical systems, signal flow graph, Mason’s gain formula. Exemplars/Case Studies Reference Books [T1, T2, T3] [R1, R2]"
+      },
+      {
+        "roman": "II",
+        "title": "Time-Domain Analysis",
+        "hours": 8,
+        "text": "Concept of transient and steady state response, standard test signals: step, ramp, parabolic and impulse signal, type and order of control system, time response of first and second order systems to unit step input, time domain specifications of second order systems, steady state error and static error coefficients. Exemplars/Case Studies Reference Books [T1, T2, T3] [R1, R3]"
+      },
+      {
+        "roman": "III",
+        "title": "Stability Analysis and Root Locus",
+        "hours": 8,
+        "text": "Concept of stability, nature of system response for various locations of poles in S-plane. Routh’s-Hurwitz criterion. Root Locus: Angle and magnitude condition, Basic properties of root locus. Construction of root locus, Stability analysis using root locus. Exemplars/Case Studies Reference Books [T1, T2, T3] [R2, R3]"
+      },
+      {
+        "roman": "IV",
+        "title": "Frequency Domain Analysis",
+        "hours": 8,
+        "text": "Introduction, Frequency domain specifications, correlation between time and frequency domain specifications, introduction to Bode plot, sketching of Bode plot, stability analysis using Bode plot, introduction to polar plot. Exemplars/Case Studies Reference Books [T1, T2, T3] [R1, R3]"
+      },
+      {
+        "roman": "V",
+        "title": "Design of PID Controller",
+        "hours": 8,
+        "text": "Basic concept of P, PI, PID controller, design specifications in time domain, tuning of PID controllers using Ziegler-Nichol methods (two methods), transfer function of lag network and lead network Exemplars/Case Studies Reference Books [T1, T2, T3] [R1, R3] Industrial Visit: Visit to EHV-AC substation (400 kV) / HVDC substation is recommended"
+      }
+    ],
+    "textBooks": [
+      "[T1]. I.J. Nagrath, M. Gopal, “Control System Engineering”, New Age International Publishers, 6th edition,",
+      "[T2]. Katsuhiko Ogata, “Modern control system engineering”, Prentice Hall, 2010.",
+      "Nise N. S. “Control Systems Engineering”, John Wiley & Sons, In"
+    ],
+    "refBooks": [
+      "[R1]. B. C. Kuo, “Automatic Control System”, Wiley India, 8th Edition, 2003. Hadi Sadat: Power System Analysis, Tata McGraw-Hill New Delhi.",
+      "Richard C Dorf and Robert H Bishop, “Modern control system”, Pearson Education, 12th edition,",
+      "[R3]. B. Wayne Bequette, “Process Control: Modeling, Design and Simulation”, PHI, 2003"
+    ],
+    "links": []
+  },
+  {
+    "code": "PEC-361A-ELE",
+    "name": "Electric Vehicles-I",
+    "hours": 3,
+    "credits": 3,
+    "cce": 30,
+    "ese": 70,
+    "prereq": "Battery fundamentals, DC and AC machines, DC–DC converters, inverters, and pulse width modulation (PWM) techniques. single-phase and three-phase systems, power, energy, and efficiency calculations is necessary. Fundamentals of mechanics, including force, torque, power, and motion.",
+    "outcomes": [
+      "Analyze the fundamental concepts, architecture and classification of Hybrid and Electric Vehicles.",
+      "Describe different types of energy storage systems and battery technologies used in electric and hybrid vehicles.",
+      "Explain vehicle dynamics, driving resistances, traction and braking principles influencing the performance and efficiency of electric vehicles.",
+      "Analyze different powertrain configurations, modes of operation and electric drive systems used in hybrid electric vehicles.",
+      "Differentiate Vehicle-to-Home (V2H), Vehicle-to-Vehicle (V2V) and Vehicle-to-Grid (V2G) concepts and evaluate their applications."
+    ],
+    "units": [
+      {
+        "roman": "I",
+        "title": "Introduction to Hybrid and Electric Vehicles",
+        "hours": 8,
+        "text": "Need for electric mobility, energy and environmental issues, Basic components of electric vehicles and their functions. Classification of electric vehicles: BEV, HEV, PHEV and FCEV. Evolution of hybrid and electric vehicles. Comparison of electric vehicles, hybrid vehicles and internal combustion engine vehicles. Advantages, challenges and limitations of electric vehicles. Overview of global electric mobility trends and future EV roadmap (descriptive). Exemplars/Case Studies Study the growth of electric vehicles in India and compare them with petrol vehicles. Identify benefits like low pollution and challenges like charging availability. Reference Books R1"
+      },
+      {
+        "roman": "II",
+        "title": "Energy Storage and Battery Management Systems",
+        "hours": 8,
+        "text": "Energy storage requirements for electric vehicles. Battery technologies used in EVs such as Lithium-ion batteries and their characteristics. Battery performance parameters including voltage, capacity, C-rate and efficiency. Battery Management System (BMS): functions, block diagram and protection features. State of Charge (SOC), State of Health (SOH) and State of Function (SOF) estimation (conceptual). Cell balancing techniques and thermal management. Battery aging, degradation and fast-charging challenges (introductory). Overview of AI-based battery management systems. (Self-Study) Exemplars/Case Studies Analyze how a battery management system monitors battery safety and performance in EVs. Understand basic concepts like SOC, charging, and temperature control. Reference Books R1, R3"
+      },
+      {
+        "roman": "III",
+        "title": "Vehicle Dynamics",
+        "hours": 8,
+        "text": "Tire and wheel fundamentals including tire construction and components, radial and non-radial tires, and wheel and rim fundamentals. Tire–road interaction covering tire footprint, rolling resistance and hydroplaning (aquaplaning). Vehicle classification based on ISO and FHWA standards, passenger car classification and vehicle body styles. Forces acting on a vehicle under stationary conditions, during acceleration and braking. Driving resistances including rolling resistance, aerodynamic drag, gradient resistance and acceleration resistance. Vehicle motion and performance involving conceptual understanding of equation of motion, power and torque requirement, and performance parameters such as speed, gradeability and acceleration. Braking and traction dynamics covering longitudinal tire force, slip, traction and braking force generation with applications in electric vehicles. Exemplars/Case Studies Study how forces like rolling resistance and air drag affect an electric vehicle’s motion. Understand how speed, load, and road conditions influence performance. Reference Books R4, R5, R6"
+      },
+      {
+        "roman": "IV",
+        "title": "EV Drives and Charging Infrastructure",
+        "hours": 7,
+        "text": "Electric motors used in electric vehicles. BLDC, SRM and PMSM motors for EV applications. Comparison of BLDC, SRM and PMSM motors. Power electronics interface for EV drives. EV charging methods: AC and DC charging. EV charging levels and charging standards. Overview of EV supply equipment (EVSE). Introduction to wide band-gap power devices (SiC and GaN) for EV drives and chargers. Thermal challenges in EV drives and charging systems Exemplars/Case Studies Compare different motors used in EVs and their performance. Study basic EV charging methods and types of charging stations. Reference Books R1, R3, R4, R5. R6"
+      },
+      {
+        "roman": "V",
+        "title": "V2H, V2V and V2G Technologies",
+        "hours": 9,
+        "text": "Concept of Vehicle-to-Home (V2H), Vehicle-to-Vehicle (V2V) and Vehicle-to-Grid (V2G). Smart charging concepts and demand response. Electric vehicles as distributed energy resources (DERs). Grid interaction of electric vehicles and impact on power systems. Aggregator concept and coordinated EV charging. Communication standards for EV–grid interaction. Cybersecurity issues in EV charging infrastructure. Future trends in EV–grid integration. Exemplars/Case Studies Understand how electric vehicles can supply power to homes or the grid. Study the concept of smart charging and its benefits to the power system. Reference Books R2"
+      }
+    ],
+    "textBooks": [
+      "[T1]. I James Larminie and John Lowry, “Electrical Vehicle”, John Wiley and Sons, 2012.",
+      "Ronald K. Jurgen, “Electric and Hybrid-Electric Vehicles”, SAE InternationalPublisher.",
+      "K T Chau, “Energy Systems for Electric and Hybrid Vehicles”, The institution of",
+      "Engineering and Technology Publication",
+      "D.A.J Rand, R Woods, R M Dell, “Batteries for Electric Vehicles”, Research studies",
+      "press Ltd, New York, John Willey and Sons",
+      "Electric and Hybrid Vehicles-Design Fundamentals, CRC press",
+      "Mark Warner, The Electric Vehicle Conversion handbook –HP Books, 2011."
+    ],
+    "refBooks": [
+      "[R1]. Mehrdad Ehsani, Yimin Gao and Ali Emadi, “Modern Electrical Hybrid Electric and Fuel Cell Vehicles: Fundamental, Theory and design”, CRC Press, 2009.",
+      "Junwei Lu, Jahangir Hossain, “Vehicle-to-Grid: Linking Electric Vehicles to the",
+      "Smart Grid”, IET Digital Library.",
+      "“Automobile Electrical and Electronic systems”, Tom Denton, SAE International publications.",
+      "“Automotive handbook 5th edition”, Robert Bosch, SAE international publication.",
+      "Vehicle dynamics martin meywerk new york, john willey and sons",
+      "Vehicle dynamics: theory and application, reza n. Jazar,springer publications."
+    ],
+    "links": []
+  },
+  {
+    "code": "PEC-361B-ELE",
+    "name": "PLC and SCADA",
+    "hours": 3,
+    "credits": 3,
+    "cce": 30,
+    "ese": 70,
+    "prereq": "Basic knowledge of Electrical and Electronic circuits including Relays, Contactors, Power supplies. Understanding of Digital Electronics including Logic Gates, Timers, Counters. Introductory knowledge of Microcontrollers and Basic programming Logic. Fundamentals of industrial Sensors, Transducers, and Electrical Machines.",
+    "outcomes": [
+      "Describe the architecture of Programmable Logic Controller (PLC). (BTL-2: Understand).",
+      "Explain the interfacing of PLCs with Analog and Digital Input/Output devices. (BTL-2: Understand).",
+      "Implement PLC programs using ladder logic, timers, counters, and comparison instructions.",
+      "Describe Supervisory Control and Data Acquisition (SCADA) system architecture and its applications.",
+      "Describe industrial communication protocols and fundamentals of Distributed Control Systems (DCS)."
+    ],
+    "units": [
+      {
+        "roman": "I",
+        "title": "Introduction to Industrial Automation and Programmable Logic Controller",
+        "hours": 8,
+        "text": "Introduction to Industrial Automation, Need and Role of Industrial Automation, Evolution of Industrial Automation, Types of Industrial Automation (Fixed Automation, Flexible Automation, Programmable Automation, and Integrated Automation), Benefits and Challenges of Industrial Automation, Applications of Industrial Automation. Necessity of Programmable Logic Controller (PLC), History and Evolution of PLC, Definition as per NEEMA (National Electrical Engineering Manufacturers Association), Types of PLC - Fixed/Modular/Dedicated, Overall PLC system, PLC Input and output modules (along with Interfaces), CPU, programmers and monitors, power supplies, selection criterion, advantages and disadvantages, specifications, comparison of various PLCs. Exemplars/Case Studies Automation of Conveyor System, Bottle Filling System. Reference Books R2, R4."
+      },
+      {
+        "roman": "II",
+        "title": "Programming of PLC",
+        "hours": 7,
+        "text": "Input ON/OFF Switching Devices (Push button, Limit switch, Selector switch, Proximity sensors, Level, Flow, Temperature, switches), Input Analog Devices (LVDT, Load cell, RTD, Transmitters, Incremental and Absolute Encoders), Output ON/OFF Devices (Relays, Contactors, Solenoids), Output Analog Devices (I/P converter, Variable Frequency Drive (VFD), Servo drive), Actuators (Electrical, Pneumatic, Hydraulic) Exemplars/Case Studies PLC Based Motor Control, Tank Level Monitoring System. Reference Books R1, R2"
+      },
+      {
+        "roman": "III",
+        "title": "Programming of PLC",
+        "hours": 8,
+        "text": "Programming languages for PLC, Ladder Diagram fundamentals, Rules for proper construction of ladder diagram, Timer and countertypes along with timing diagrams, Reset instruction, Latch/Unlatch instruction, Master Control Relay (MCR) and control zones. Introduction to Compare instructions (“EQUAL.\" Or \"EQU\", \"NOT EQUAL\" or \"NEQ\", \"LESS THAN\" or \"LES\", \"LESS THAN OR EQUAL\" or \"LEQ\", GREATER THAN\" or \"GRT\", \"GREATER THAN OR EQUAL TO\" or \"GRQ\", \"MASKED COMPARISON FOR EQUAL\" or \"MEQ\", \"LIMIT TEST\" or \"LIM\"), Analog Operation of PLC, PID module using PLC. Exemplars/Case Studies Traffic Light Control, Motor Sequencing. Reference Books R1, R2"
+      },
+      {
+        "roman": "IV",
+        "title": "Supervisory Control and Data Acquisition Systems",
+        "hours": 7,
+        "text": "Introduction, Definitions and History of Supervisory Control and Data Acquisition, Typical SCADA system architecture, Important definitions HMI, MTU, RTU, Communication means, Desirable properties of the SCADA system, Advantages, Disadvantages, and Applications of SCADA. SCADA generations (First Generation - Monolithic, Second Generation - Distributed, Third Generation – Networked Architecture), SCADA systems in Operation and Control of Interconnected Power System, Functions and Features of SCADA systems, Automatic Substation Control, Energy Management Systems (EMS), System Operating States, SCADA systems in Critical Infrastructure: Petroleum Refining Process, Conventional Electric power generation, Water Purification System, Chemical Plant. Exemplars/Case Studies SCADA in Substation Automation. Reference Books R1, R3."
+      },
+      {
+        "roman": "V",
+        "title": "Industrial Communication Protocols and Distributed Control Systems",
+        "hours": 7,
+        "text": "Open Systems Interconnection (OSI) Model, TCP/IP protocol, Modbus model, DNP3 protocol, Industrial Ether Net protocol, Flexible Function Block process (FFB), Process Field bus (Profibus). Distributed Control System: Introduction to DCS - its working & operation, Architecture, Features, Advantages & Applications of DCS, and Comparison between DCS & PLC. Exemplars/Case Studies DCS in Process Industry. Reference Books R3, R4."
+      }
+    ],
+    "textBooks": [
+      "[T1]. J. W. Webb and R. A. Reis, Programmable Logic Controllers: Principles and Applications, 5th ed., Prentice Hall, 2015.",
+      "Garry Dunning, Introduction to Programmable Logic Controllers, 2nd ed., Thomson Learning, 2003.",
+      "F. D. Petruzella, Programmable Logic Controllers, 4th ed., McGraw-Hill Education, 2016."
+    ],
+    "refBooks": [
+      "[R1]. J. R. Hackworth and F. D. Hackworth Jr., Programmable Logic Controllers: Programming Methods and Applications, PHI Learning, 2003.",
+      "C. D. Johnson, Process Control Instrumentation Technology, 8th ed., Pearson Education, 2014.",
+      "G. Clarke and D. Reynders, Practical Modern SCADA Protocols: DNP3, 60870.5 and Related Systems, 1st ed., Newnes (Elsevier), 2004.",
+      "R. L. Krutz, Securing SCADA Systems, Wiley, 2010."
+    ],
+    "links": []
+  },
+  {
+    "code": "PEC-361C-ELE",
+    "name": "Energy Storage & Grid Interconnected Renewable Energy Systems",
+    "hours": 3,
+    "credits": 3,
+    "cce": 30,
+    "ese": 70,
+    "prereq": "Basic knowledge of electrical quantities like voltage, current, power, energy etc.",
+    "outcomes": [
+      "Explain the basics of energy storage systems and grid integration.",
+      "Understand operation of battery energy storage systems.",
+      "Analyze grid-connected renewable energy systems.",
+      "Understand power quality and protection issues in renewable energy systems.",
+      "Apply concepts of smart grid and microgrid systems"
+    ],
+    "units": [
+      {
+        "roman": "I",
+        "title": "Introduction to Energy Storage Systems",
+        "hours": 8,
+        "text": "Need for energy storage systems, Applications of energy storage in renewable energy systems, Types of energy storage systems: Battery storage, Supercapacitor, Flywheel storage, Hydrogen storage Comparison of energy storage systems, Advantages and limitations of energy storage systems, Introduction to Battery Energy Storage System (BESS) Exemplars/Case Studies: Solar power plants, wind farms, backup systems, electric vehicles Reference Books"
+      },
+      {
+        "roman": "II",
+        "title": "Battery Technologies and Battery Management System",
+        "hours": 8,
+        "text": "Introduction to batteries, Types of batteries: Lead-acid battery, Lithium-ion battery, Sodium-ion battery Battery charging and discharging characteristics, State of Charge (SOC) and Depth of Discharge (DOD) Battery Management System (BMS): Monitoring, Protection, Cell balancing Thermal management of batteries, Applications of battery energy storage systems Exemplars/Case Studies: Electric vehicles, UPS systems, renewable energy storage systems Reference Books"
+      },
+      {
+        "roman": "III",
+        "title": "Grid Connected Renewable Energy Systems",
+        "hours": 8,
+        "text": "Basic concept of grid-connected renewable energy systems, Grid synchronization basics Grid-connected solar PV system: Basic block diagram, Working principle Grid-connected wind energy system: Basic block diagram, Working principle, Hybrid renewable energy systems, Net metering concept, Advantages of grid-connected renewable systems Exemplars/Case Studies: Rooftop solar systems, solar farms, wind power plants, smart grids Reference Books"
+      },
+      {
+        "roman": "IV",
+        "title": "Power Electronics and Protection in Renewable Energy Systems",
+        "hours": 8,
+        "text": "Role of power electronics in renewable energy systems, Introduction to: DC-DC converters, Inverters PWM control technique, Power quality issues: Harmonics, Voltage fluctuations Reactive power compensation, Islanding and anti-islanding protection, Grounding and safety practices Exemplars/Case Studies: Grid-connected renewable plants, battery storage systems Reference Books"
+      },
+      {
+        "roman": "V",
+        "title": "Smart Grid and Modern Energy Applications",
+        "hours": 8,
+        "text": "Introduction to smart grid, Smart meters and monitoring systems, Basic concept of microgrid, Modes of operation of microgrid, Electric vehicle charging systems, Vehicle-to-Grid (V2G) concept, Energy management system, Recent trends: AI in energy systems, Smart energy monitoring, Hydrogen energy applications Exemplars/Case Studies: Smart cities, EV charging stations, industrial microgrids Reference Books"
+      }
+    ],
+    "textBooks": [
+      "[T1]. Renewable and Efficient Electric Power Systems, Gilbert M. Masters, Wiley-IEEE Press.",
+      "Power Electronics for Renewable Energy Systems, Bimal K. Bose, Wiley Publication.",
+      "Solar Photovoltaics: Fundamentals, Technologies and Applications, Chetan Singh Solanki, PHI Learning Ltd.",
+      "Energy Storage Systems, S. K. Khaitan and James D. McCalley, Wiley Publication.",
+      "Smart Grid Technology and Applications, Lars T. Berger and Krzysztof Iniewski, Wiley Publication."
+    ],
+    "refBooks": [
+      "[R1]. Renewable Energy Sources and Emerging Technologies, D. P. Kothari, K. C. Singal and Rakesh Ranjan, PHI Learning.",
+      "Battery Management Systems, Gregory L. Plett, Artech House.",
+      "Grid Integration of Wind Energy, Siegfried Heier, Wiley Publication.",
+      "Smart Grid, Janaka Ekanayake, Nick Jenkins, Kithsiri Liyanage, Jianzhong Wu and Akihiko Yokoyama, Wiley Publication.",
+      "Electrical Energy Storage, Benoit Robyns, Bruno François and Philippe Degobert, Wiley Publication.",
+      "Introduction to Modern Power Electronics, Andrzej M. Trzynadlowski, Wiley India.",
+      "Understanding Smart Grids, Yang Xiao, CRC Press.",
+      "Fundamentals of Electric Drives, G. K. Dubey, Narosa Publishing House."
+    ],
+    "links": []
+  },
+  {
+    "code": "PEC-363A-ELE",
+    "name": "Illumination Engineering",
+    "hours": 3,
+    "credits": 3,
+    "cce": 30,
+    "ese": 70,
+    "prereq": "Electrical Engineering fundamentals, physics concepts (light, optics, energy), electrical circuits and measurements",
+    "outcomes": [
+      "Explain the role of lighting in human life, visual perception, and evaluate light properties and measurement techniques.",
+      "Analyze different light sources, their characteristics, and methods of electrical and photometric control used in lighting systems.",
+      "Apply illumination design methods such as the zonal cavity method to determine lighting requirements for indoor spaces.",
+      "Design appropriate lighting schemes for various real-world applications considering technical and aesthetic requirements.",
+      "Evaluate modern lighting technologies and human-centric lighting principles for energy-efficient and user-friendly illumination systems."
+    ],
+    "units": [
+      {
+        "roman": "I",
+        "title": "Importance of Lighting in Human Life",
+        "hours": 8,
+        "text": "Optical systems of human eye, Dependence of human activities on light, performance characteristics of human visual system, External factors of vision-visual acuity, contrast, sensitivity, time illuminance, colour, visual perception, optical radiation hazards, Good and bad effects of lighting and perfect level of illumination, Artificial lighting as substitute to natural light, Ability to control natural light, Production of light, physics of generation of light, Properties of light, Quantification and Measurement of light. Exemplars/Case Studies"
+      },
+      {
+        "roman": "II",
+        "title": "Light Sources and Electrical Control of Light Sources",
+        "hours": 8,
+        "text": "Light Sources- Lamp materials: Filament, glass, ceramics, gases, phosphors and other metals and non-metals. Discharge Lamps: Theory of gas Discharge phenomena, lamp design considerations, characteristics of lowand high-pressure mercury and Sodium vapour lamps, Low Vapour Pressure discharge lamps - Mercury Vapour lamp, Fluorescent Lamp, Compact Fluorescent Lamp (CFL) High Vapour Pressure discharge lamps - Mercury Vapour lamp, Sodium Vapour lamp, Metal halide Lamps, Solid Sodium Argon Neon lamps, SOX lamps, Electro luminescent lamps, Induction lamps. Ballast, ignitors and dimmers for different types of lamps Control of Light Sources Photometric Control of Light Sources and their Quantification: Types of Luminaries, factors to be considered for designing luminaries Types of lighting fixtures. Optical control schemes, design procedure of reflecting and refracting type of luminaries. Lighting Fixture types, use of reflectors and refractors, physical protection of lighting fixtures, types of lighting fixtures according to installation type, types of lighting fixtures according to photometric usages, luminaries standard (IEC-598-Part I). Exemplars/Case Studies"
+      },
+      {
+        "roman": "III",
+        "title": "Design Considerations for illumination schemes",
+        "hours": 8,
+        "text": "Zonal cavity method for general lighting design, determination for zonal cavities and different shaped ceilings using COU (coefficient of utilization), beam angles and polar diagrams. Factors to be considered for design of indoor illumination scheme Exemplars/Case Studies"
+      },
+      {
+        "roman": "IV",
+        "title": "Design of lighting schemes",
+        "hours": 8,
+        "text": "Indoor illumination design for following installations -Residential (Numerical), Educational institute Commercial installation Hospitals, Special purpose lighting schemes Decorative lighting, Theatre lighting Aquarium, swimming pool lighting Exemplars/Case Studies An indoor illumination scheme design project to a group of students may be assigned."
+      },
+      {
+        "roman": "V",
+        "title": "Modern trends in illumination",
+        "hours": 8,
+        "text": "Intelligent LED fixtures, Natural light conduiting, Organic lighting system, Optical fiber, its construction as a light guide, features and applications. Introduction to Human-Centric Lighting (HCL), Definition and concept of HCL, Evolution from conventional lighting to smart and adaptive lighting, Biological and Psychological Effects of Light, Human circadian rhythm and its relation to light Lighting Parameters for HCL-Illuminance (lux levels) ,Correlated Color Temperature (CCT) ,Color Rendering Index (CRI) ,iming, intensity, and spectral distribution.Effect of light on sleep, alertness, mood, and well-being. HCL design principles for indoor environments Exemplars/Case Studies"
+      }
+    ],
+    "textBooks": [
+      "[T1]. H. S. Mamak, “Book on Lighting”, Publisher International lighting Academy..",
+      "Joseph B. Murdoch, “Illumination Engineering from Edison’s Lamp to Lasers” Publisher -York, PA : Visions Communications",
+      "M. A. Cayless, A. M. Marsden, “Lamps and Lighting”, Publisher-Butterworth Heinemann (ISBN 978-0-415-50308-2)",
+      "B.R. Gupta and Vandana Singhal -Fundamentals of Electric Machines, New Age International (P) Ltd",
+      "Tran Quoc Khanh, Peter Bodrogi, Trinh Quang Vinh, “Human Centric Integrative Lighting: Technology, Perception, Non-Visual Effects”, Wiley-VCH (2023)",
+      "Kevin W. Houser, “Human-Centric Lighting: Foundational Considerations and a Five-Step Design Process”, Frontiers in Neurology"
+    ],
+    "refBooks": [
+      "[R1]. “BIS, IEC Standards for Lamps, Lighting Fixtures and Lighting”, Manak Bhavan, New Delhi.",
+      "D. C. Pritchard, “Lighting”, 4th Edition, Longman Scientific and Technical, ISBN 0-582-23422-0",
+      "“IES Lighting Handbook”, (Reference Volume 1984), Illuminating Engineering Society of North America.",
+      "“IES Lighting Handbook”, (Application Volume 1987), Illuminating Engineering Society of North America.",
+      "IESNA lighting Handbook., Illuminating Engineering Society of North America 9th edition 2000",
+      "Applied Illumination Engineering, Jack L. Lindsey FIES (Author), Scott C. Dunning PHD PECEM (Author) ,ISBN-13: 978-0824748098 ISBN-10: 0824748093, 3rdEdition.",
+      "Organic Light Emitting Diodes (OLEDs): Materials, Devices and Applications, Alastair Buckley, University of Sheffieid, UK, ISBN: 978-0-85709-425-4"
+    ],
+    "links": []
+  },
+  {
+    "code": "PEC-363B-ELE",
+    "name": "Energy Management",
+    "hours": 3,
+    "credits": 3,
+    "cce": 30,
+    "ese": 70,
+    "prereq": "Construction, and operation of various electrical equipment, Construction, and operation of different equipment/ industrial process like HVAC, Pumps, Compressors etc.",
+    "outcomes": [
+      "Describe environmental impacts of energy and means to reduce it",
+      "Apply appropriate demand management measures for managing utility systems.",
+      "Elaborate Energy management principles and strategy.",
+      "Analyze energy audit data for assessing energy conservation potential.",
+      "Evaluate economic feasibility of energy conservation projects or energy conservations measures."
+    ],
+    "units": [
+      {
+        "roman": "I",
+        "title": "Energy Scenario and Sustainability",
+        "hours": 8,
+        "text": "Classification of Energy resources, commercial energy production, Indian and Global energy scenario, final energy consumption. Energy needs of growing economy, short terms and long terms policies, energy sector reforms, energy security, energy and environmental impacts, Global Warming and Climate Change: Causes, Effects, and Mitigation. Carbon Footprint Calculation and Reduction Strategies, Environmental Risk Assessment. Salient features of Energy Conservation Act 2001 and Electricity Act 2003. Energy Conservation Building Code (ECBC). Exemplars/Case Studies Study of CDM, UNFCCC, Paris treaty"
+      },
+      {
+        "roman": "II",
+        "title": "Demand Response and management",
+        "hours": 8,
+        "text": "Supply side management (SSM), constraints on SSM. Demand side management (DSM), advantages and barriers, implementation of DSM. Use of demand side management in agricultural, domestic, and commercial consumers. Demand management through tariffs (TOD). Role of renewable energy sources in energy management, Net metering, Role of Energy storage in demand management. Exemplars/Case Studies Study ISO 50001- Energy Management."
+      },
+      {
+        "roman": "III",
+        "title": "Energy Management",
+        "hours": 8,
+        "text": "Definition, Objectives and Principles of Energy Management, Energy Management Strategy, Energy Manager Skills, key elements in energy management, force field analysis, energy policy, Responsibilities and duties of energy manager under the latest Act. Organizational structure, Energy Efficiency Programs., Energy monitoring systems, Role of IoT in demand management, Advance metering infrastructure Exemplars/Case Studies Latest Energy Efficiency Programs in India"
+      },
+      {
+        "roman": "IV",
+        "title": "Energy Audit",
+        "hours": 8,
+        "text": "Definition, need of energy audits, types of audits, steps in audit, data and information analysis, Introduction to Data Analytics, data quality processing, clustering techniques, pattern mining, regression and classification. energy audit instrumentation, energy consumption-production relationship, pie charts. Sankey diagram, Cusum technique, least square method and numerical based on it. Outcome of energy audit and energy saving potential, action plans for implementation of energy conservation options. Benchmarking energy performance of an industry. Energy Audit reporting format-Executive Summary and report Exemplars/Case Studies Energy Audits case studies – Sugar Industry/Steel Industry"
+      },
+      {
+        "roman": "V",
+        "title": "Financial Analysis and Energy Conservation area",
+        "hours": 8,
+        "text": "Financial appraisals; criteria, simple payback period, return on investment, net present value method, time value of money, break even analysis, numerical based on it. Energy Conservation in Commercial and Industrial sector: a) Motive power (motor and drive system). b) Boiler and steam systems c) Cogeneration and waste heat recovery systems d) Utility industries (T and D Sector) Exemplars/Case Studies Energy Audits case studies – Paper and Pulp"
+      }
+    ],
+    "textBooks": [
+      "(available online)",
+      "Guidebooks for National Certification Examination for Energy Managers/Energy Auditors Book 1, General Aspects",
+      "Guidebooks for National Certification Examination for Energy Managers/Energy Auditors Book 2 – Thermal Utilities",
+      "Guidebooks for National Certification Examination for Energy Managers/Energy Auditors Book 3- Electrical Utilities",
+      "Guidebooks for National Certification Examination for Energy Managers/Energy Auditors Book 4"
+    ],
+    "refBooks": [
+      "[R1]. Success stories of Energy Conservation by BEE (www. Bee-india.org)",
+      "Utilization of electrical energy by S.C. Tripathi, Tata McGraw Hill.",
+      "Energy Management by W.R. Murphy and Mackay, B.S. Publication.",
+      "Generation and utilization of Electrical Energy by B.R. Gupta, S. Chand Publication",
+      "Energy Auditing made simple by Balasubramanian, Bala Consultancy Services.",
+      "A General Introduction to Data Analytics by Andre Carvalho and Tomáš Horváth Wiley Inc First Edition"
+    ],
+    "links": []
+  },
+  {
+    "code": "PEC-363C-ELE",
+    "name": "Digital Signal Processing",
+    "hours": 3,
+    "credits": 3,
+    "cce": 30,
+    "ese": 70,
+    "prereq": "Fundamentals of Electrical and Electronics Engineering, Z-transform, ROC and inverse Z-transform, Fourier transform, IIR Systems: direct form, cascade form, Basic Structures for FIR Filters",
+    "outcomes": [
+      "Analyze discrete time signals and systems",
+      "Obtain frequency response of LTI system using DTFT",
+      "Obtain frequency response of LTI system using DFT",
+      "Design and realize IIR and FIR filters",
+      "Apply concepts of DSP in various applications of electrical engineering"
+    ],
+    "units": [
+      {
+        "roman": "I",
+        "title": "Discrete time signal and system",
+        "hours": 8,
+        "text": "Discrete-time and Digital signals, Basic sequences and sequence operations, Discrete time systems, Properties of D. T. Systems, Linear Time Invariant Systems, impulse response, linear convolution and its properties, properties of LTI systems: stability, causality, Periodic Sampling, Sampling Theorem, reconstruction of a band limited Signal, A to D conversion Process: Sampling, quantization and encoding. Linear constant coefficient difference equations, Solution of difference equation using Z-transform. Exemplars/Case Studies"
+      },
+      {
+        "roman": "II",
+        "title": "Discrete Time Fourier Transform",
+        "hours": 8,
+        "text": "Representation of Sequences by Fourier Transform, Symmetry properties of D. T., F. T. theorems: Linearity, time shifting, frequency shifting, time reversal, differentiation, convolution theorem, Frequency response analysis of first and second order system, steady state and transient response Exemplars/Case Studies"
+      },
+      {
+        "roman": "III",
+        "title": "Discrete Fourier Transform",
+        "hours": 8,
+        "text": "Sampling in frequency domain, The Discrete Fourier Transform, Relation with z transform Properties of DFT: Linearity, circular shift, duality, symmetry, Circular Convolution, Linear Convolution using DFT, Effective computation of DFT and FFT, DIT FFT, DIF FFT Exemplars/Case Studies Reference Books"
+      },
+      {
+        "roman": "IV",
+        "title": "Design of IIR filter",
+        "hours": 8,
+        "text": "Ideal frequency selective filters, Concept of filtering, specifications of filter, IIR filter design from continuous time filters: Characteristics of Butterworth and impulse invariant techniques, Design examples (Butterworth low pass filter) Exemplars/Self Studies"
+      },
+      {
+        "roman": "V",
+        "title": "Design of FIR Filter and DSP Applications",
+        "hours": 8,
+        "text": "A) Specifications of properties of commonly used windows, Design Examples using rectangular and hanning windows. Comparison of IIR and FIR Filters B) Applications: Measurement of magnitude and phase of voltage, current, power, frequency. Power factor correction, harmonic Analysis and measurement. Exemplars/Self Studies"
+      }
+    ],
+    "textBooks": [
+      "[T1]. Proakis J., Manolakis D., “Digital signal processing”, 3rd Edition, Prentice Hall, ISBN 81- 203-0720-8",
+      "P. Ramesh Babu, “Digital Signal Processing”, 4th Edition Scitech Publication",
+      "Dr. S. D. Apte, “Digital Signal Processing”,2nd Edition Wiley India Pvt. Ltd ISBN: 97881-265-2142-5"
+    ],
+    "refBooks": [
+      "[R1]. Mitra S., “Digital Signal Processing: A Computer Based Approach”, Tata McGrawHill, 1998, ISBN 0- 07-044705-5",
+      "A.V. Oppenheim, R. W. Schafer, J. R. Buck, ”Discrete Time Signal Processing”, 2nd Edition Prentice Hall, ISBN 978-81-317-0492-9",
+      "Steven W. Smith, “Digital Signal Processing: A Practical Guide for Engineers and Scientists”,1st Edition Elsevier, ISBN: 9780750674447"
+    ],
+    "links": []
+  }
+]
