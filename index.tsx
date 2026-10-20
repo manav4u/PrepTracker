@@ -4,8 +4,11 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import './index.css';
+import { initAnalytics } from './lib/analytics';
 import { DataProvider } from './context/DataContext';
 import { SubjectsProvider } from './context/SubjectsContext';
+
+initAnalytics();
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
