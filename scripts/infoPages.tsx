@@ -7,7 +7,7 @@ export interface InfoPage {
   body: React.ReactNode; faq: [string, string][]; cta?: { href: string; label: string };
 }
 
-const extra = `.scards{display:none}.sc{border:1px solid #222;background:#0f0f0f;border-radius:12px;padding:12px 14px;margin:10px 0}.sc small{display:block;font:500 11px ui-monospace,Menlo,monospace;letter-spacing:.06em;color:#fb7185}.sc b{display:block;color:#fff;margin:2px 0 4px;font-size:15px}.sc .chips{margin:8px 0 0}.sc .chip{font-size:12px;padding:3px 10px}.sc.tot{border-color:#3a1620;background:#1a0a10}@media(max-width:700px){.tw.wide{display:none}.scards{display:block}}.tw{overflow-x:auto;margin:12px 0 4px;-webkit-overflow-scrolling:touch}.tw table{min-width:640px;font-size:13.5px}.tw th,.tw td{padding:7px 9px;border-bottom:1px solid #222;text-align:left;vertical-align:top}.tw th{color:#fb7185;font:600 11px ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase}.tw td.n{text-align:center;white-space:nowrap}.tw tr.tot td{color:#fff;font-weight:600;border-top:1px solid #3a1620}.eq{border:1px solid #2a1018;background:#120a0e;border-radius:10px;padding:14px 16px;margin:14px 0;font:15px/1.7 ui-monospace,Menlo,monospace;color:#fda4af;overflow-x:auto}.rel{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.rel a{text-decoration:none;border:1px solid #2a2a2a;background:#111;border-radius:999px;padding:5px 12px;font-size:13px;color:#ccc}`;
+const extra = `.scards{display:none}@media(max-width:700px){.tw.wide{display:none}.scards{display:block}}.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}.tw table{min-width:640px;font-size:13.5px}.tw th,.tw td{padding:8px 12px;vertical-align:top}.tw td.n{white-space:nowrap}`;
 
 const SUBJECT_LINKS: [string, string][] = [
   ['engineering-mathematics-1', 'Maths-I'], ['engineering-mathematics-2', 'Maths-II'], ['engineering-physics', 'Physics'],
@@ -195,8 +195,8 @@ export function renderInfoPage(c: InfoPage): string {
         <meta name="description" content={c.metaDescription} />
         <link rel="canonical" href={SITE + PATH} />
         <meta name="robots" content="index, follow, max-image-preview:large" />
-        <meta name="theme-color" content="#0a0a0a" />
-        <link rel="icon" type="image/svg+xml" href={SITE + '/favicon.svg'} />
+        <meta name="theme-color" content="#F7F5F2" />
+        <link rel="icon" type="image/svg+xml" href={SITE + '/logo.svg'} />
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content="PrepTracker" />
         <meta property="og:title" content={c.title} />
@@ -204,7 +204,11 @@ export function renderInfoPage(c: InfoPage): string {
         <meta property="og:url" content={SITE + PATH} />
         <meta property="og:image" content={SITE + '/assets/ProjectPrepTracker.png'} />
         <meta name="twitter:card" content="summary_large_image" />
-        <style dangerouslySetInnerHTML={{ __html: css + extra }} />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700&display=swap" rel="stylesheet" />
+    <style dangerouslySetInnerHTML={{ __html: css + extra }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           '@context': 'https://schema.org',
           '@graph': [
