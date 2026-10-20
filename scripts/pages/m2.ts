@@ -8,10 +8,10 @@ const config: SubjectPageConfig = {
   ogTitle: 'Engineering Mathematics-II Syllabus, SPPU FE 2024 Pattern',
   ogDescription: 'Five units, outcomes, marks scheme, books and the NPTEL playlist for BSC-151-BES.',
   lead: 'SPPU First Year Engineering, 2024 pattern, Semester II. Course code BSC-151-BES. Five units, 40 hours of theory, with the marks scheme, outcomes and books taken from the official syllabus book.',
-  chips: ['4 credits (3 theory + 1 tutorial)', 'CCE 30 + End-Sem 70', 'Term work 25', '5 units x 8 hours'],
+  chips: ['4 credits (3 theory + 1 tutorial)', 'CCE 40 + End-Sem 60', 'Term work 25', '5 units x 8 hours'],
   marks: [
-    { head: 'Theory: CCE', marks: 30, credit: 3, span: 2 },
-    { head: 'Theory: End-Semester', marks: 70 },
+    { head: 'Theory: CCE', marks: 40, credit: 3, span: 2 },
+    { head: 'Theory: End-Semester', marks: 60 },
     { head: 'Tutorial / term work', marks: 25, credit: 1 },
   ],
   prereq: 'The prerequisites listed in the syllabus are integration, differential equations and three-dimensional coordinate systems. The course covers advanced integration, curve tracing, solid geometry, multiple integrals and their applications, and mathematical modelling of physical systems with differential equations. Term work is based on assignments on the units, with performance and continuous internal assessment.',
@@ -37,7 +37,7 @@ const config: SubjectPageConfig = {
   videoNote: 'The syllabus lists one playlist for this course, the same one it lists for Engineering Mathematics-I',
   faq: [
     ['How many credits is Engineering Mathematics-II in the SPPU 2024 pattern?', 'BSC-151-BES carries 4 credits: 3 for theory (3 hours a week) and 1 for the tutorial (1 hour a week).'],
-    ['How are the marks split?', 'Theory is graded out of 100: CCE (continuous internal evaluation) 30 and End-Semester 70. Term work is a separate 25 marks tied to the tutorial credit.'],
+    ['How are the marks split?', 'Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the tutorial credit.'],
     ['How many units are there?', 'Five units of 8 hours each, 40 hours in total: integral calculus, curve tracing and solid geometry, multiple integrals, first order ordinary differential equations, and applications of differential equations.'],
     ['How is term work assessed?', 'Through assignments on the units, based on performance and continuous internal assessment. The syllabus sets tutorial batches of at most 22 students.'],
     ['Which books does the syllabus list?', 'Text books: B. V. Ramana and B. S. Grewal, both titled Higher Engineering Mathematics. Six reference books are listed too, including Kreyszig, Thomas\u2019 Calculus and S. L. Ross on differential equations.'],

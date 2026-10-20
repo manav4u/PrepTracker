@@ -8,10 +8,10 @@ const config: SubjectPageConfig = {
   ogTitle: 'Basic Electronics Engineering Syllabus, SPPU FE 2024 Pattern',
   ogDescription: 'Five units, outcomes, marks scheme, lab list, books and NPTEL courses for ESC-101-ETC.',
   lead: 'SPPU First Year Engineering, 2024 pattern. Course code ESC-101-ETC. Five units, 30 hours of theory and a practical component, with the marks scheme, outcomes and books taken from the official syllabus book.',
-  chips: ['3 credits (2 theory + 1 practical)', 'CCE 30 + End-Sem 70', 'Term work 25', '5 units x 6 hours'],
+  chips: ['3 credits (2 theory + 1 practical)', 'CCE 40 + End-Sem 60', 'Term work 25', '5 units x 6 hours'],
   marks: [
-    { head: 'Theory: CCE', marks: 30, credit: 2, span: 2 },
-    { head: 'Theory: End-Semester', marks: 70 },
+    { head: 'Theory: CCE', marks: 40, credit: 2, span: 2 },
+    { head: 'Theory: End-Semester', marks: 60 },
     { head: 'Practical / term work', marks: 25, credit: 1 },
   ],
   prereq: 'The prerequisites listed in the syllabus are basic physics and mathematics, semiconductor physics, digital electronics, circuit theory, analog electronics, and sensors and transducers. The course covers diodes, transistors, digital circuits, op-amps with instruments, and sensors with communication systems. The practical side is 2 hours a week, and any 8 experiments from a list of 10 are performed.',
@@ -46,7 +46,7 @@ const config: SubjectPageConfig = {
   videoNote: 'The syllabus lists three NPTEL courses for this subject',
   faq: [
     ['How many credits is Basic Electronics Engineering in the SPPU 2024 pattern?', 'ESC-101-ETC carries 3 credits: 2 for theory (2 hours a week) and 1 for practical (2 hours a week).'],
-    ['How are the marks split?', 'Theory is graded out of 100: CCE (continuous internal evaluation) 30 and End-Semester 70. Term work is a separate 25 marks tied to the practical credit.'],
+    ['How are the marks split?', 'Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the practical credit.'],
     ['How many units are there?', 'Five units of 6 hours each, 30 hours in total: diodes, transistors and technology, logic gates and digital circuits, op-amp with electronic instruments, and sensors with communication systems.'],
     ['How many experiments do I have to do?', 'Any 8 from the list of 10 in the syllabus. They include component study, CRO and multimeter measurements, diode V-I characteristics, a rectifier power supply, a CE amplifier, op-amp circuits, gate truth tables and sensors.'],
     ['Which books does the syllabus list?', 'Six text books, led by Floyd\u2019s Electronic Devices and Jain\u2019s Modern Digital Electronics, and four reference books including Floyd\u2019s Digital Fundamentals.'],

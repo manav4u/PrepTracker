@@ -14,7 +14,7 @@ const HOURS: Record<string, number[]> = {
 const unitHours = (subjectId: string, u: { hours?: number }, i: number) => u.hours ?? HOURS[subjectId]?.[i] ?? 8;
 
 export const SITE = 'https://preptracker.manavdev.site';
-export const SYLLABUS_PDF = 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/FE%202024%20Pattern%20Syllabus%20-%2016%20July%202024%20(1).pdf';
+export const SYLLABUS_PDF = 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf';
 export const HANDBOOK = 'http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf';
 
 export interface SubjectPageConfig {
@@ -230,7 +230,7 @@ export function renderSubjectPage(c: SubjectPageConfig): string {
           {c.faq.map(([q, a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}
 
           <footer>
-            <p>Sources: <a href={SYLLABUS_PDF} rel="noopener">SPPU First Year Engineering 2024 pattern syllabus (official PDF)</a> and the <a href={HANDBOOK} rel="noopener">SPPU credit framework handbook</a>. PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.</p>
+            <p>Sources: <a href={SYLLABUS_PDF} rel="noopener">SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)</a> and the <a href={HANDBOOK} rel="noopener">SPPU credit framework handbook</a>. PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.</p>
             <p><a href={SITE + '/'}>PrepTracker home</a> · <a href={SITE + '/syllabus/first-year-scheme-credits/'}>FE scheme and credits</a> · <a href={SITE + '/syllabus/grading-system-sgpa/'}>Grading and SGPA</a> · <a href={SITE + '/syllabus/cce-end-sem-exam-pattern/'}>Exam pattern</a></p>
           </footer>
         </main>

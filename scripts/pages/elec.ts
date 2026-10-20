@@ -8,10 +8,10 @@ const config: SubjectPageConfig = {
   ogTitle: 'Basic Electrical Engineering Syllabus, SPPU FE 2024 Pattern',
   ogDescription: 'Five units, outcomes, marks scheme, lab list, books and the NPTEL course for ESE-102-ELE.',
   lead: 'SPPU First Year Engineering, 2024 pattern. Course code ESE-102-ELE. Five units, 30 hours of theory and a practical component, with the marks scheme, outcomes and books taken from the official syllabus book.',
-  chips: ['3 credits (2 theory + 1 practical)', 'CCE 30 + End-Sem 70', 'Term work 25', '5 units x 6 hours'],
+  chips: ['3 credits (2 theory + 1 practical)', 'CCE 40 + End-Sem 60', 'Term work 25', '5 units x 6 hours'],
   marks: [
-    { head: 'Theory: CCE', marks: 30, credit: 2, span: 2 },
-    { head: 'Theory: End-Semester', marks: 70 },
+    { head: 'Theory: CCE', marks: 40, credit: 2, span: 2 },
+    { head: 'Theory: End-Semester', marks: 60 },
     { head: 'Practical / term work', marks: 25, credit: 1 },
   ],
   prereq: 'The prerequisites listed in the syllabus are electric charges and fields, Coulomb\u2019s laws, voltage, potential, current, Ohm\u2019s law, magnetism, EMF, Faraday\u2019s laws, alternating current, the AC generator and power. The course covers AC and DC circuit analysis, the working of basic electric machines, wiring components and schemes, and the electricity bill. The practical side is 2 hours a week, and any 8 experiments from a list of 10 are performed.',
@@ -37,7 +37,7 @@ const config: SubjectPageConfig = {
   videoNote: 'The syllabus lists one NPTEL course for this subject',
   faq: [
     ['How many credits is Basic Electrical Engineering in the SPPU 2024 pattern?', 'ESE-102-ELE carries 3 credits: 2 for theory (2 hours a week) and 1 for practical (2 hours a week).'],
-    ['How are the marks split?', 'Theory is graded out of 100: CCE (continuous internal evaluation) 30 and End-Semester 70. Term work is a separate 25 marks tied to the practical credit.'],
+    ['How are the marks split?', 'Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the practical credit.'],
     ['How many units are there?', 'Five units of 6 hours each, 30 hours in total: elementary concepts and DC circuits, electromagnetism, AC fundamentals, AC circuits, and an introduction to electric machines.'],
     ['How many experiments do I have to do?', 'Any 8 from the list of 10 in the syllabus. They include verifying Kirchhoff\u2019s laws and the superposition theorem, a transformer loading test, RLC resonance, three-phase star and delta relations, and reading a single-phase LT electricity bill.'],
     ['Which books does the syllabus list?', 'Two text books (Theraja and Theraja, and Kulshreshtha) and three reference books (Wadhwa, Bhattacharya, and Nagsarkar and Sukhija).'],

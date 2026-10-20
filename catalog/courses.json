@@ -77,14 +77,14 @@
       "branch": "Common First Year",
       "branchSlug": "fe",
       "pattern": "2024",
-      "source": "http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/FE%202024%20Pattern%20Syllabus%20-%2016%20July%202024%20(1).pdf",
-      "sourceLabel": "Official FE 2024 syllabus",
+      "source": "http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf",
+      "sourceLabel": "Official FE 2024 syllabus (revised 2025)",
       "draft": false,
       "trackerReady": true,
       "type": "FE course",
       "path": "/syllabus/engineering-mathematics-1/",
-      "cce": 30,
-      "ese": 70
+      "cce": 40,
+      "ese": 60
     },
     {
       "id": "fpl",
@@ -158,14 +158,14 @@
       "branch": "Common First Year",
       "branchSlug": "fe",
       "pattern": "2024",
-      "source": "http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/FE%202024%20Pattern%20Syllabus%20-%2016%20July%202024%20(1).pdf",
-      "sourceLabel": "Official FE 2024 syllabus",
+      "source": "http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf",
+      "sourceLabel": "Official FE 2024 syllabus (revised 2025)",
       "draft": false,
       "trackerReady": true,
       "type": "FE course",
       "path": "/syllabus/fundamentals-of-programming-languages/",
-      "cce": 30,
-      "ese": 70
+      "cce": 40,
+      "ese": 60
     },
     {
       "id": "phy",
@@ -243,14 +243,14 @@
       "branch": "Common First Year",
       "branchSlug": "fe",
       "pattern": "2024",
-      "source": "http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/FE%202024%20Pattern%20Syllabus%20-%2016%20July%202024%20(1).pdf",
-      "sourceLabel": "Official FE 2024 syllabus",
+      "source": "http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf",
+      "sourceLabel": "Official FE 2024 syllabus (revised 2025)",
       "draft": false,
       "trackerReady": true,
       "type": "FE course",
       "path": "/syllabus/engineering-physics/",
-      "cce": 30,
-      "ese": 70
+      "cce": 40,
+      "ese": 60
     },
     {
       "id": "chem",
@@ -324,14 +324,14 @@
       "branch": "Common First Year",
       "branchSlug": "fe",
       "pattern": "2024",
-      "source": "http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/FE%202024%20Pattern%20Syllabus%20-%2016%20July%202024%20(1).pdf",
-      "sourceLabel": "Official FE 2024 syllabus",
+      "source": "http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf",
+      "sourceLabel": "Official FE 2024 syllabus (revised 2025)",
       "draft": false,
       "trackerReady": true,
       "type": "FE course",
       "path": "/syllabus/engineering-chemistry/",
-      "cce": 30,
-      "ese": 70
+      "cce": 40,
+      "ese": 60
     },
     {
       "id": "elect",
@@ -404,14 +404,14 @@
       "branch": "Common First Year",
       "branchSlug": "fe",
       "pattern": "2024",
-      "source": "http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/FE%202024%20Pattern%20Syllabus%20-%2016%20July%202024%20(1).pdf",
-      "sourceLabel": "Official FE 2024 syllabus",
+      "source": "http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf",
+      "sourceLabel": "Official FE 2024 syllabus (revised 2025)",
       "draft": false,
       "trackerReady": true,
       "type": "FE course",
       "path": "/syllabus/basic-electronics-engineering/",
-      "cce": 30,
-      "ese": 70
+      "cce": 40,
+      "ese": 60
     },
     {
       "id": "elec",
@@ -487,14 +487,14 @@
       "branch": "Common First Year",
       "branchSlug": "fe",
       "pattern": "2024",
-      "source": "http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/FE%202024%20Pattern%20Syllabus%20-%2016%20July%202024%20(1).pdf",
-      "sourceLabel": "Official FE 2024 syllabus",
+      "source": "http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf",
+      "sourceLabel": "Official FE 2024 syllabus (revised 2025)",
       "draft": false,
       "trackerReady": true,
       "type": "FE course",
       "path": "/syllabus/basic-electrical-engineering/",
-      "cce": 30,
-      "ese": 70
+      "cce": 40,
+      "ese": 60
     },
     {
       "id": "mech",
@@ -565,14 +565,14 @@
       "branch": "Common First Year",
       "branchSlug": "fe",
       "pattern": "2024",
-      "source": "http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/FE%202024%20Pattern%20Syllabus%20-%2016%20July%202024%20(1).pdf",
-      "sourceLabel": "Official FE 2024 syllabus",
+      "source": "http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf",
+      "sourceLabel": "Official FE 2024 syllabus (revised 2025)",
       "draft": false,
       "trackerReady": true,
       "type": "FE course",
       "path": "/syllabus/engineering-mechanics/",
-      "cce": 30,
-      "ese": 70
+      "cce": 40,
+      "ese": 60
     },
     {
       "id": "graph",
@@ -641,14 +641,14 @@
       "branch": "Common First Year",
       "branchSlug": "fe",
       "pattern": "2024",
-      "source": "http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/FE%202024%20Pattern%20Syllabus%20-%2016%20July%202024%20(1).pdf",
-      "sourceLabel": "Official FE 2024 syllabus",
+      "source": "http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf",
+      "sourceLabel": "Official FE 2024 syllabus (revised 2025)",
       "draft": false,
       "trackerReady": true,
       "type": "FE course",
       "path": "/syllabus/engineering-graphics/",
-      "cce": 30,
-      "ese": 70
+      "cce": 40,
+      "ese": 60
     },
     {
       "id": "m2",
@@ -729,14 +729,14 @@
       "branch": "Common First Year",
       "branchSlug": "fe",
       "pattern": "2024",
-      "source": "http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/FE%202024%20Pattern%20Syllabus%20-%2016%20July%202024%20(1).pdf",
-      "sourceLabel": "Official FE 2024 syllabus",
+      "source": "http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf",
+      "sourceLabel": "Official FE 2024 syllabus (revised 2025)",
       "draft": false,
       "trackerReady": true,
       "type": "FE course",
       "path": "/syllabus/engineering-mathematics-2/",
-      "cce": 30,
-      "ese": 70
+      "cce": 40,
+      "ese": 60
     },
     {
       "id": "pps",
@@ -803,14 +803,14 @@
       "branch": "Common First Year",
       "branchSlug": "fe",
       "pattern": "2024",
-      "source": "http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/FE%202024%20Pattern%20Syllabus%20-%2016%20July%202024%20(1).pdf",
-      "sourceLabel": "Official FE 2024 syllabus",
+      "source": "http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf",
+      "sourceLabel": "Official FE 2024 syllabus (revised 2025)",
       "draft": false,
       "trackerReady": true,
       "type": "FE course",
       "path": "/syllabus/programming-and-problem-solving/",
-      "cce": 30,
-      "ese": 70
+      "cce": 40,
+      "ese": 60
     },
     {
       "id": "se-computer-engineering:2024:PCC-201-COM",

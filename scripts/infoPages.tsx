@@ -20,26 +20,26 @@ type Row = [string, string, string, string, string, string, string, string, stri
 // code, course, TH h, TUT h, PR h, CCE, ESE, TW, credits (TH/TUT/PR as "3 / 1 / -"), total
 const th = ['Code', 'Course', 'Hrs: Th', 'Hrs: Tut', 'Hrs: Pr', 'CCE', 'End-Sem', 'Term work', 'Credits Th / Tut / Pr', 'Credits'];
 const SEM1: Row[] = [
-  ['BSC-101-BES', 'Engineering Mathematics-I', '3', '1', '-', '30', '70', '25', '3 / 1 / -', '4'],
-  ['BSC-102-BES / BSC-103-BES', 'Engineering Physics / Engineering Chemistry', '3', '-', '2', '30', '70', '25', '3 / - / 1', '4'],
-  ['ESC-101-ETC / ESC-102-ELE', 'Basic Electronics Engineering / Basic Electrical Engineering', '2', '-', '2', '30', '70', '25', '2 / - / 1', '3'],
-  ['ESC-103-MEC / ESC-104-CVL', 'Engineering Graphics / Engineering Mechanics', '2', '-', '2', '30', '70', '25', '2 / - / 1', '3'],
-  ['ESC-105-COM', 'Fundamentals of Programming Languages', '2', '-', '2', '30', '70', '25', '2 / - / 1', '3'],
+  ['BSC-101-BES', 'Engineering Mathematics-I', '3', '1', '-', '40', '60', '25', '3 / 1 / -', '4'],
+  ['BSC-102-BES / BSC-103-BES', 'Engineering Physics / Engineering Chemistry', '3', '-', '2', '40', '60', '25', '3 / - / 1', '4'],
+  ['ESC-101-ETC / ESC-102-ELE', 'Basic Electronics Engineering / Basic Electrical Engineering', '2', '-', '2', '40', '60', '25', '2 / - / 1', '3'],
+  ['ESC-103-MEC / ESC-104-CVL', 'Engineering Graphics / Engineering Mechanics', '2', '-', '2', '40', '60', '25', '2 / - / 1', '3'],
+  ['ESC-105-COM', 'Fundamentals of Programming Languages', '2', '-', '2', '40', '60', '25', '2 / - / 1', '3'],
   ['VSE-101 / VSE-102', 'Manufacturing Practice Workshop / Design Thinking and Idea Lab', '-', '-', '2', '-', '-', '25', '- / - / 1', '1'],
   ['AEC-101', 'Professional Communication Skills', '-', '2', '-', '-', '-', '25', '- / 2 / -', '2'],
   ['CCC-101', 'Co-Curricular Course-I', '-', '-', '4', '-', '-', '25', '- / - / 2', '2'],
-  ['Total', '', '12', '3', '14', '150', '350', '200', '12 / 3 / 7', '22'],
+  ['Total', '', '12', '3', '14', '200', '300', '200', '12 / 3 / 7', '22'],
 ];
 const SEM2: Row[] = [
-  ['BSC-151-BES', 'Engineering Mathematics-II', '3', '1', '-', '30', '70', '25', '3 / 1 / -', '4'],
-  ['BSC-103-BES / BSC-102-BES', 'Engineering Chemistry / Engineering Physics', '3', '-', '2', '30', '70', '25', '3 / - / 1', '4'],
-  ['ESC-102-ELE / ESC-101-ETC', 'Basic Electrical Engineering / Basic Electronics Engineering', '2', '-', '2', '30', '70', '25', '2 / - / 1', '3'],
-  ['ESC-104-CVL / ESC-103-MEC', 'Engineering Mechanics / Engineering Graphics', '2', '-', '2', '30', '70', '25', '2 / - / 1', '3'],
-  ['PCC-151-ITT', 'Programming and Problem Solving', '2', '-', '2', '30', '70', '25', '2 / - / 1', '3'],
+  ['BSC-151-BES', 'Engineering Mathematics-II', '3', '1', '-', '40', '60', '25', '3 / 1 / -', '4'],
+  ['BSC-103-BES / BSC-102-BES', 'Engineering Chemistry / Engineering Physics', '3', '-', '2', '40', '60', '25', '3 / - / 1', '4'],
+  ['ESC-102-ELE / ESC-101-ETC', 'Basic Electrical Engineering / Basic Electronics Engineering', '2', '-', '2', '40', '60', '25', '2 / - / 1', '3'],
+  ['ESC-104-CVL / ESC-103-MEC', 'Engineering Mechanics / Engineering Graphics', '2', '-', '2', '40', '60', '25', '2 / - / 1', '3'],
+  ['PCC-151-ITT', 'Programming and Problem Solving', '2', '-', '2', '40', '60', '25', '2 / - / 1', '3'],
   ['VSE-102 / VSE-101', 'Design Thinking and Idea Lab / Manufacturing Practice Workshop', '-', '-', '2', '-', '-', '25', '- / - / 1', '1'],
   ['IKS-151', 'Indian Knowledge System', '-', '2', '-', '-', '-', '25', '- / 2 / -', '2'],
   ['CCC-151', 'Co-Curricular Course-II', '-', '-', '4', '-', '-', '25', '- / - / 2', '2'],
-  ['Total', '', '12', '3', '14', '150', '350', '200', '12 / 3 / 7', '22'],
+  ['Total', '', '12', '3', '14', '200', '300', '200', '12 / 3 / 7', '22'],
 ];
 
 function SchemeTable({ rows }: { rows: Row[] }) {
@@ -79,18 +79,18 @@ export const INFO_PAGES: InfoPage[] = [
   {
     slug: 'first-year-scheme-credits',
     title: 'SPPU First Year Engineering 2024 Pattern: Scheme, Credits and Marks',
-    metaDescription: 'Semester I and II teaching scheme, credits and marks for SPPU First Year Engineering, 2024 pattern: hours per week, CCE 30 and End-Sem 70, term work 25, 22 credits a semester. Straight from the official syllabus book.',
+    metaDescription: 'Semester I and II teaching scheme, credits and marks for SPPU First Year Engineering, 2024 pattern: hours per week, CCE 40 and End-Sem 60, term work 25, 22 credits a semester. Straight from the official syllabus book.',
     h1: 'First Year Engineering scheme, credits and marks',
     crumb: 'FE scheme and credits',
     lead: 'SPPU First Year Engineering, 2024 pattern (NEP 2020 compliant, Level 4.5). Both semesters carry 22 credits. This page copies the structure table from the official syllabus book and adds nothing to it.',
     body: (
       <>
-        <div className="chips"><span className="chip">22 credits per semester</span><span className="chip">Theory: CCE 30 + End-Sem 70</span><span className="chip">Term work 25 per course</span></div>
+        <div className="chips"><span className="chip">22 credits per semester</span><span className="chip">Theory: CCE 40 + End-Sem 60</span><span className="chip">Term work 25 per course</span></div>
         <h2>Semester I</h2>
         <SchemeTable rows={SEM1} />
         <h2>Semester II</h2>
         <SchemeTable rows={SEM2} />
-        <p className="note">Hrs are hours per week (Th theory, Tut tutorial, Pr practical). Where the book lists two courses with a slash, the pair is split across the two semesters, and the order flips in Semester II. CCE is Comprehensive Continuous Evaluation. The book leaves the oral and practical exam columns empty for every course.</p>
+        <p className="note">Hrs are hours per week (Th theory, Tut tutorial, Pr practical). Where the book lists two courses with a slash, the pair is split across the two semesters, and the order flips in Semester II. CCE is Comprehensive Continuous Evaluation. The book leaves the oral and practical exam columns empty for every course. Marks follow the revised FE book issued in 2025, with effect from academic year 2025-26; the original July 2024 book had CCE 30 and End-Sem 70.</p>
         <h2>Read it course by course</h2>
         <p>Each subject has its own page with units, outcomes and books:</p>
         <div className="rel">{SUBJECT_LINKS.map(([s, n]) => <a key={s} href={SITE + '/syllabus/' + s + '/'}>{n}</a>)}</div>
@@ -100,7 +100,7 @@ export const INFO_PAGES: InfoPage[] = [
     faq: [
       ['How many credits does First Year Engineering have in the SPPU 2024 pattern?', 'Each semester carries 22 credits: 12 theory, 3 tutorial and 7 practical or term-work credits. The SPPU credit framework handbook also sets a minimum of 22 credits per semester.'],
       ['Which subjects are in Semester I and Semester II?', 'Engineering Mathematics-I is in Semester I and Engineering Mathematics-II in Semester II. Fundamentals of Programming Languages is in Semester I and Programming and Problem Solving in Semester II. The book pairs Physics with Chemistry, Electronics with Electrical, and Graphics with Mechanics, with one half of each pair in each semester. The full lists are in the tables above.'],
-      ['How many marks is each course?', 'A theory course is CCE 30 plus End-Sem 70, with 25 marks of term work on top. Courses without theory (workshop or lab, communication skills, co-curricular, Indian Knowledge System) carry 25 term-work marks only.'],
+      ['How many marks is each course?', 'A theory course is CCE 40 plus End-Sem 60, with 25 marks of term work on top. Courses without theory (workshop or lab, communication skills, co-curricular, Indian Knowledge System) carry 25 term-work marks only.'],
     ],
   },
   {
@@ -147,25 +147,26 @@ export const INFO_PAGES: InfoPage[] = [
   },
   {
     slug: 'cce-end-sem-exam-pattern',
-    title: 'SPPU FE 2024 Pattern Exam Pattern: CCE 30 Marks, End-Sem 70, Term Work',
-    metaDescription: 'How SPPU First Year Engineering 2024 pattern marks are earned: CCE 30 marks (unit test 12, assignments 12, seminar or quiz 6), End-Sem 70 by the university, and term work 25 from your journal.',
+    title: 'SPPU FE 2024 Pattern Exam Pattern: CCE 40 Marks, End-Sem 60, Term Work',
+    metaDescription: 'How SPPU First Year Engineering 2024 pattern marks are earned: CCE 40 marks (unit test 12, assignments 12, seminar or quiz 6, mini project 10), End-Sem 60 by the university, and term work 25 from your journal.',
     h1: 'CCE, End-Sem and term work: how the marks are earned',
     crumb: 'Exam pattern',
-    lead: 'The First Year 2024 pattern syllabus book has a guidelines section for examination scheme. This page restates it in plain words, with nothing added.',
+    lead: 'The revised First Year 2024 pattern syllabus book (effective 2025-26) has a guidelines section for examination scheme. This page restates it in plain words, with nothing added.',
     body: (
       <>
-        <div className="chips"><span className="chip">CCE 30</span><span className="chip">End-Sem 70</span><span className="chip">Term work 25</span></div>
-        <h2>CCE: 30 marks, run by your college</h2>
+        <div className="chips"><span className="chip">CCE 40</span><span className="chip">End-Sem 60</span><span className="chip">Term work 25</span></div>
+        <h2>CCE: 40 marks, run by your college</h2>
         <p>Comprehensive Continuous Evaluation covers all five units and is held at institute level.</p>
         <div className="tw"><table style={{ minWidth: 300 }}><thead><tr><th>Part</th><th>Marks</th><th>Units</th></tr></thead><tbody>
           <tr><td>Unit test</td><td className="n">12</td><td>Units I and II</td></tr>
           <tr><td>Assignments or case study</td><td className="n">12</td><td>Units III and IV</td></tr>
           <tr><td>Seminar presentation, open book test or quiz</td><td className="n">6</td><td>Unit V</td></tr>
+          <tr><td>Mini project, project-based learning or group activity</td><td className="n">10</td><td>Any unit</td></tr>
         </tbody></table></div>
         <p>The book's example timeline: Units I and II in weeks 1 to 4 with the unit test in week 5, Units III and IV in weeks 6 to 8 with assignments collected in week 9, Unit V in weeks 10 to 12 and the seminar, open book test or quiz in week 13. The unit test is built on Bloom's taxonomy levels. For the seminar, you give a talk on a Unit V topic and answer questions, with slides and a 2 to 3 page summary.</p>
-        <h2>End-Sem: 70 marks, set by the university</h2>
+        <h2>End-Sem: 60 marks, set by the university</h2>
         <p>A written theory paper on all five units, scheduled by the university, with question papers delivered through QPD (Question Paper Delivery). It is designed on Bloom's taxonomy, from remembering up to creating.</p>
-        <p className="note">We do not show a marks split per unit. The book says 14 marks per unit for the 70, then also says 12 marks per unit, and the two cannot both be right. Do not rely on any unit-wise weightage you see quoted.</p>
+        <p className="note">The revised book allocates 12 marks per unit across the five units for the 60, with questions set on Bloom's taxonomy levels.</p>
         <h2>Term work: 25 marks, from your journal</h2>
         <p>Term work is continuous assessment of the journal of practical assignments, with a reflection on each. The book's evaluation criteria:</p>
         <div className="tw"><table style={{ minWidth: 300 }}><thead><tr><th>Criterion</th><th>Weight</th></tr></thead><tbody>
@@ -177,8 +178,8 @@ export const INFO_PAGES: InfoPage[] = [
       </>
     ),
     faq: [
-      ['How is the 30 marks CCE divided in SPPU 2024 pattern?', 'Unit test 12 marks on Units I and II, assignments or case study 12 marks on Units III and IV, and a seminar, open book test or quiz for 6 marks on Unit V.'],
-      ['Who conducts the End-Sem exam?', 'The university. It is a 70 mark written paper on all five units, and the question paper is delivered through QPD.'],
+      ['How is the 40 marks CCE divided in SPPU 2024 pattern?', 'Unit test 12 marks on Units I and II, assignments or case study 12 marks on Units III and IV, a seminar, open book test or quiz for 6 marks on Unit V, and a mini project or group activity for 10 marks on any unit.'],
+      ['Who conducts the End-Sem exam?', 'The university. It is a 60 mark written paper on all five units, and the question paper is delivered through QPD.'],
       ['What decides the term work marks?', 'Your journal of practical assignments, judged on completeness, quality, organization, presentation and creativity, as described in the syllabus book.'],
     ],
   },
@@ -227,7 +228,7 @@ export function renderInfoPage(c: InfoPage): string {
           <h2>FAQ</h2>
           {c.faq.map(([q, a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}
           <footer>
-            <p>Sources: <a href={SYLLABUS_PDF} rel="noopener">SPPU First Year Engineering 2024 pattern syllabus (official PDF)</a> and the <a href={HANDBOOK} rel="noopener">SPPU credit framework handbook</a>. PrepTracker is an independent student project, not affiliated with SPPU. Check the official documents for the latest rules.</p>
+            <p>Sources: <a href={SYLLABUS_PDF} rel="noopener">SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)</a> and the <a href={HANDBOOK} rel="noopener">SPPU credit framework handbook</a>. PrepTracker is an independent student project, not affiliated with SPPU. Check the official documents for the latest rules.</p>
             <p><a href={SITE + '/'}>PrepTracker home</a></p>
           </footer>
         </main>

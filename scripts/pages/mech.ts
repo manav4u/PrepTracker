@@ -8,10 +8,10 @@ const config: SubjectPageConfig = {
   ogTitle: 'Engineering Mechanics Syllabus, SPPU FE 2024 Pattern',
   ogDescription: 'Five units, outcomes, marks scheme, lab list and books for ESC-104-CVL.',
   lead: 'SPPU First Year Engineering, 2024 pattern. Course code ESC-104-CVL. Five units, 30 hours of theory and a practical component, with the marks scheme, outcomes and books taken from the official syllabus book.',
-  chips: ['3 credits (2 theory + 1 practical)', 'CCE 30 + End-Sem 70', 'Term work 25', '5 units x 6 hours'],
+  chips: ['3 credits (2 theory + 1 practical)', 'CCE 40 + End-Sem 60', 'Term work 25', '5 units x 6 hours'],
   marks: [
-    { head: 'Theory: CCE', marks: 30, credit: 2, span: 2 },
-    { head: 'Theory: End-Semester', marks: 70 },
+    { head: 'Theory: CCE', marks: 40, credit: 2, span: 2 },
+    { head: 'Theory: End-Semester', marks: 60 },
     { head: 'Practical / term work', marks: 25, credit: 1 },
   ],
   prereq: 'The prerequisites listed in the syllabus are basic calculus, trigonometry, geometrical expressions, laws of motion, the concept of mass and acceleration, with a base in engineering mathematics and physics. The course teaches the basics of mechanics and applies them to forces, loads and moments. The practical side is 2 hours a week: four compulsory experiments, four graphical solutions and an assignment of at least four examples per unit.',
@@ -38,7 +38,7 @@ const config: SubjectPageConfig = {
   videoNote: 'The syllabus lists no NPTEL or video resources for this subject',
   faq: [
     ['How many credits is Engineering Mechanics in the SPPU 2024 pattern?', 'ESC-104-CVL carries 3 credits: 2 for theory (2 hours a week) and 1 for practical (2 hours a week).'],
-    ['How are the marks split?', 'Theory is graded out of 100: CCE (continuous internal evaluation) 30 and End-Semester 70. Term work is a separate 25 marks tied to the practical credit.'],
+    ['How are the marks split?', 'Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the practical credit.'],
     ['How many units are there?', 'Five units of 6 hours each, 30 hours in total: force systems and resultants, equilibrium, friction and trusses, kinematics of a particle, and kinetics of a particle.'],
     ['What does the lab journal contain?', 'Four compulsory experiments (polygon law of forces, support reaction of a beam, coefficient of friction, coefficient of restitution), four graphical solutions (concurrent and parallel equilibrium, truss member forces, moment of inertia) and an assignment of at least four examples on each unit.'],
     ['Which books does the syllabus list?', 'Two text books (Singer, and Hibbeler) and four reference books, including Timoshenko and Young, Beer and Johnston (statics and dynamics) and Meriam and Kraige.'],

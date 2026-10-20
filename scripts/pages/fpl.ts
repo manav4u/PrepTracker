@@ -8,10 +8,10 @@ const config: SubjectPageConfig = {
   ogTitle: 'Fundamentals of Programming Languages Syllabus, SPPU FE 2024 Pattern',
   ogDescription: 'Five units of C programming, outcomes, marks scheme, lab assignments, books and NPTEL courses for ESC-105-COM.',
   lead: 'SPPU First Year Engineering, 2024 pattern. Course code ESC-105-COM. Five units of C programming, 30 hours of theory and a practical component, with the marks scheme, outcomes and books taken from the official syllabus book.',
-  chips: ['3 credits (2 theory + 1 practical)', 'CCE 30 + End-Sem 70', 'Term work 25', '5 units x 6 hours'],
+  chips: ['3 credits (2 theory + 1 practical)', 'CCE 40 + End-Sem 60', 'Term work 25', '5 units x 6 hours'],
   marks: [
-    { head: 'Theory: CCE', marks: 30, credit: 2, span: 2 },
-    { head: 'Theory: End-Semester', marks: 70 },
+    { head: 'Theory: CCE', marks: 40, credit: 2, span: 2 },
+    { head: 'Theory: End-Semester', marks: 60 },
     { head: 'Practical / term work', marks: 25, credit: 1 },
   ],
   prereq: 'The prerequisites listed in the syllabus are basics of computers and basic mathematics. The course teaches C programming: algorithms, operators, control flow, arrays and strings, and user defined functions with structures. The practical side is 2 hours a week: any 6 to 8 programming assignments from a list of 10, and the syllabus also suggests four mini-projects such as a calculator, a dice roller and a number guessing game.',
@@ -40,7 +40,7 @@ const config: SubjectPageConfig = {
   videoNote: 'The syllabus lists two NPTEL courses for this subject',
   faq: [
     ['How many credits is Fundamentals of Programming Languages in the SPPU 2024 pattern?', 'ESC-105-COM carries 3 credits: 2 for theory (2 hours a week) and 1 for practical (2 hours a week).'],
-    ['How are the marks split?', 'Theory is graded out of 100: CCE (continuous internal evaluation) 30 and End-Semester 70. Term work is a separate 25 marks tied to the practical credit.'],
+    ['How are the marks split?', 'Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the practical credit.'],
     ['Which language does the course use?', 'C. The five units cover program planning and the basics of C, operators and expressions, control flow, arrays and strings, and user defined functions with structures.'],
     ['How many lab assignments do I have to do?', 'Any 6 to 8 from the list of 10 in the syllabus. They include prime and factorial programs, a Fibonacci series, array operations, string operations and a structure for employee details. Instructors may also assign a mini-project.'],
     ['Which books does the syllabus list?', 'One text book, Programming in ANSI C by E. Balagurusamy, and six reference books including Kernighan and Ritchie\u2019s The C Programming Language and Deitel and Deitel\u2019s C: How to Program.'],

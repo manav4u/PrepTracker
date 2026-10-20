@@ -8,10 +8,10 @@ const config: SubjectPageConfig = {
   ogTitle: 'Engineering Graphics Syllabus, SPPU FE 2024 Pattern',
   ogDescription: 'Five units, outcomes, marks scheme, drawing assignments, books and NPTEL links for ESC-103-MEC.',
   lead: 'SPPU First Year Engineering, 2024 pattern. Course code ESC-103-MEC. Five units, 30 hours of theory and a drawing practical, with the marks scheme, outcomes and books taken from the official syllabus book.',
-  chips: ['3 credits (2 theory + 1 practical)', 'CCE 30 + End-Sem 70', 'Term work 25', '5 units x 6 hours'],
+  chips: ['3 credits (2 theory + 1 practical)', 'CCE 40 + End-Sem 60', 'Term work 25', '5 units x 6 hours'],
   marks: [
-    { head: 'Theory: CCE', marks: 30, credit: 2, span: 2 },
-    { head: 'Theory: End-Semester', marks: 70 },
+    { head: 'Theory: CCE', marks: 40, credit: 2, span: 2 },
+    { head: 'Theory: End-Semester', marks: 60 },
     { head: 'Practical / term work', marks: 25, credit: 1 },
   ],
   prereq: 'The prerequisites listed in the syllabus are basic geometric shapes, basic linear and angular measurements and construction, the lines, circles and polygons of coordinate geometry, and computer literacy. The course builds the ability to draw physical objects for engineering communication and introduces drawing and design software. For the practical, the assignments are drawn on A2 sheets, and two problems must be drawn in a CAD software.',
@@ -44,7 +44,7 @@ const config: SubjectPageConfig = {
   videoNote: 'The syllabus lists NPTEL resources, including',
   faq: [
     ['How many credits is Engineering Graphics in the SPPU 2024 pattern?', 'ESC-103-MEC carries 3 credits: 2 for theory (2 hours a week) and 1 for practical (2 hours a week).'],
-    ['How are the marks split?', 'Theory is graded out of 100: CCE (continuous internal evaluation) 30 and End-Semester 70. Term work is a separate 25 marks tied to the practical credit.'],
+    ['How are the marks split?', 'Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the practical credit.'],
     ['How many units are there?', 'Five units of 6 hours each, 30 hours in total: fundamentals with projection of points and lines, projection of planes, engineering curves with development of surfaces, orthographic projection, and isometric projection.'],
     ['What are the drawing assignments?', 'Five sets of two problems each: projection of lines, projection of planes, engineering curves with development of lateral surfaces, orthographic projections and isometric projections. They are drawn on A2 sheets, and two problems must be drawn using CAD software.'],
     ['Which angle of projection is used?', 'The syllabus covers both first angle and third angle methods in orthographic projection. Typical problems are solved by the first angle method, and projection of lines is taught in first angle projection.'],
