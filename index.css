@@ -133,3 +133,15 @@ summary:focus-visible {
 @keyframes pt-grow { from { clip-path: inset(100% 0 0 0); transform: translateY(14px); } to { clip-path: inset(0 0 0 0); transform: none; } }
 .pt-grow { animation: pt-grow 250ms cubic-bezier(0.4, 0, 0.2, 1) both; }
 @media (prefers-reduced-motion: reduce) { .pt-grow { animation: none; } }
+
+/* Analytics consent banner (landing + app shell) */
+.consent-banner{position:fixed;left:16px;bottom:16px;z-index:90;max-width:min(340px,calc(100vw - 32px));background:#F7F5F2;color:#141419;border:1px solid rgba(20,20,25,.14);border-radius:16px;padding:16px 16px 14px;box-shadow:0 12px 32px -12px rgba(20,20,25,.35);font-family:'Satoshi','Space Grotesk',system-ui,sans-serif}
+.consent-title{margin:0 0 6px;font-weight:700;font-size:14px;letter-spacing:-.01em}
+.consent-copy{margin:0;font-size:12.5px;line-height:1.55;color:rgba(20,20,25,.72)}
+.consent-actions{display:flex;gap:8px;margin-top:12px}
+.consent-actions button{border-radius:999px;padding:9px 16px;font:700 12px 'Satoshi','Space Grotesk',sans-serif;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease}
+.consent-accept{border:0;background:#D61A40;color:#fff}
+.consent-accept:hover{transform:translateY(-1px);box-shadow:0 8px 18px -6px rgba(214,26,64,.55)}
+.consent-decline{border:1px solid rgba(20,20,25,.18);background:transparent;color:rgba(20,20,25,.75)}
+.consent-decline:hover{border-color:rgba(20,20,25,.45);color:#141419}
+@media (prefers-reduced-motion:reduce){.consent-actions button{transition:none}}

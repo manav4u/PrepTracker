@@ -7,5 +7,6 @@ export { INFO_PAGES, renderInfoPage } from './infoPages';
 export { renderSeCourse, renderSeBranch, coursePath } from './sePage';
 export { SE_BRANCHES } from './seBranches';
 
-export { readingCss, readingChrome, readingScript } from './readingEdition';
+export { readingCss, readingChrome, readingScript, consentCss, consentScript } from './readingEdition';
+export { renderPrivacyPage } from './privacyPage';
 export { renderSyllabusHub } from './hubPage';

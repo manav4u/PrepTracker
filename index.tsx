@@ -7,6 +7,7 @@ import './index.css';
 import { initAnalytics } from './lib/analytics';
 import { DataProvider } from './context/DataContext';
 import { SubjectsProvider } from './context/SubjectsContext';
+import ConsentBanner from './components/ConsentBanner';
 
 initAnalytics();
 
@@ -21,6 +22,7 @@ const appTree = (
       <DataProvider>
       <SubjectsProvider>
         <App />
+        <ConsentBanner />
       </SubjectsProvider>
       </DataProvider>
     </BrowserRouter>
