@@ -15,8 +15,7 @@ if (!rootElement) {
   throw new Error("Could not find root element to mount to");
 }
 
-const root = ReactDOM.createRoot(rootElement);
-root.render(
+const appTree = (
   <React.StrictMode>
     <BrowserRouter basename={(import.meta as any).env?.BASE_URL || '/'}>
       <DataProvider>
@@ -27,6 +26,16 @@ root.render(
     </BrowserRouter>
   </React.StrictMode>
 );
+
+if (rootElement.hasChildNodes()) {
+  // The landing was prerendered at build time: hydrate it. Pre-import the
+  // lazily loaded LandingPage so it resolves synchronously during hydration.
+  import('./pages/LandingPage').then(() => {
+    ReactDOM.hydrateRoot(rootElement, appTree);
+  });
+} else {
+  ReactDOM.createRoot(rootElement).render(appTree);
+}
 
 if ('serviceWorker' in navigator && (import.meta as any).env?.PROD) {
   window.addEventListener('load', () => {

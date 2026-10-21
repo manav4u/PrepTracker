@@ -12,13 +12,17 @@ const FOLD_PATH = "M 44.7 62.8 L 100.6 62.8 L 101.3 104.8 L 67.0 108.3 Z";
 type LogoMarkProps = {
   /** Rendered width in px. Height follows the 149:146 source aspect. */
   size?: number;
+  /** Deterministic id prefix for SVG defs. Required on pages prerendered at
+   * build time so server and client markup match for hydration. Must be
+   * unique per instance on the page. */
+  idPrefix?: string;
   /** gradient: brand red gradient + fold. mono: solid ink. white: solid white for dark surfaces. */
   variant?: 'gradient' | 'mono' | 'white';
   className?: string;
 };
 
-const LogoMark: React.FC<LogoMarkProps> = ({ size = 32, variant = 'gradient', className }) => {
-  const uid = useId().replace(/[^a-zA-Z0-9]/g, '');
+const LogoMark: React.FC<LogoMarkProps> = ({ size = 32, variant = 'gradient', className, idPrefix }) => {
+  const uid = (idPrefix ?? useId()).replace(/[^a-zA-Z0-9]/g, '');
   const gid = `ptg-${uid}`;
   const fid = `ptfold-${uid}`;
   const cid = `ptglyph-${uid}`;

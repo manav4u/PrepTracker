@@ -260,7 +260,7 @@ const LandingPage: React.FC = () => {
     <div className="lp2">
       <nav id="lp2-nav" aria-label="Main">
         <Link className="brand" to="/" aria-label="PrepTracker home">
-          <LogoMark size={27} />
+          <LogoMark size={27} idPrefix="lpnav" />
           <b>PrepTracker</b>
         </Link>
         <div className="nav-links">
@@ -473,7 +473,7 @@ const LandingPage: React.FC = () => {
               </svg>
             </div>
             <div className="fp-rules"></div>
-            <LogoMark variant="white" size={560} className="fp-ghost" />
+            <LogoMark variant="white" size={560} className="fp-ghost" idPrefix="lpghost" />
             <h2>Walk in knowing<br />what&rsquo;s <em style={{ color: '#fff', textDecoration: 'underline', textUnderlineOffset: '10px', textDecorationThickness: '4px' }}>left.</em></h2>
             <p className="subf">Two minutes to set up. Then the app counts the days, the units and the topics. You just study.</p>
             <Link className="cta-white" to={ctaTo}>{isSetup ? 'Open PrepTracker' : 'Start tracking'}
