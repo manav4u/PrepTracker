@@ -508,6 +508,7 @@ const LandingPage: React.FC = () => {
               <nav className="foot-col" aria-label="Product">
                 <h3>Product</h3>
                 <Link to={ctaTo}>Open the app</Link>
+                <a href="/syllabus/">Syllabus</a>
                 <a href="#features">Features</a>
                 <a href="#how">How it works</a>
               </nav>
