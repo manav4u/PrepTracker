@@ -145,3 +145,5 @@ summary:focus-visible {
 .consent-decline{border:1px solid rgba(20,20,25,.18);background:transparent;color:rgba(20,20,25,.75)}
 .consent-decline:hover{border-color:rgba(20,20,25,.45);color:#141419}
 @media (prefers-reduced-motion:reduce){.consent-actions button{transition:none}}
+
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
