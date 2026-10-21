@@ -412,17 +412,17 @@ const LandingPage: React.FC = () => {
           <div className="steps">
             <div className="step reveal">
               <p className="n">01<i>.</i></p>
-              <h4>Pick your subjects</h4>
+              <h3>Pick your subjects</h3>
               <p>Choose your subjects in the app. Each one shows its units and topics laid out. Select yours and you&rsquo;re done.</p>
             </div>
             <div className="step reveal">
               <p className="n">02<i>.</i></p>
-              <h4>Tick topics as you study</h4>
+              <h3>Tick topics as you study</h3>
               <p>Finished a topic? Tick it. That one habit is the entire system. The app does every calculation after that.</p>
             </div>
             <div className="step reveal">
               <p className="n">03<i>.</i></p>
-              <h4>See what&rsquo;s left, every morning</h4>
+              <h3>See what&rsquo;s left, every morning</h3>
               <p>Progress, streaks and the countdown update themselves. You always know exactly what&rsquo;s left before the exam.</p>
             </div>
           </div>
@@ -496,7 +496,7 @@ const LandingPage: React.FC = () => {
             </div>
           </div>
           <div className="foot-main">
-            <p className="foot-lockup reveal-fl" aria-label="PrepTracker">
+            <p className="foot-lockup reveal-fl"><span className="sr-only">PrepTracker.</span>
               {'PrepTracker.'.split('').map((ch, i) => (
                 <span key={i} className={`fl${ch === '.' ? ' rd' : ''}`} style={{ transitionDelay: `${i * 0.05}s` }} aria-hidden="true">{ch}</span>
               ))}
