@@ -231,7 +231,7 @@ export function renderSubjectPage(c: SubjectPageConfig): string {
 
           <footer>
             <p>Sources: <a href={SYLLABUS_PDF} rel="noopener">SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)</a> and the <a href={HANDBOOK} rel="noopener">SPPU credit framework handbook</a>. PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.</p>
-            <p><a href={SITE + '/'}>PrepTracker home</a> · <a href={SITE + '/syllabus/'}>Syllabus</a> · <a href={SITE + '/syllabus/first-year-scheme-credits/'}>FE scheme and credits</a> · <a href={SITE + '/syllabus/grading-system-sgpa/'}>Grading and SGPA</a> · <a href={SITE + '/syllabus/cce-end-sem-exam-pattern/'}>Exam pattern</a></p>
+            <p><a href={SITE + '/'}>PrepTracker home</a> · <a href={SITE + '/syllabus/'}>Syllabus</a> · <a href={SITE + '/syllabus/first-year-scheme-credits/'}>FE scheme and credits</a> · <a href={SITE + '/syllabus/grading-system-sgpa/'}>Grading and SGPA</a> · <a href={SITE + '/syllabus/cce-end-sem-exam-pattern/'}>Exam pattern</a> · <a href={SITE + '/privacy/'}>Privacy</a></p>
           </footer>
         </main>
       </body>

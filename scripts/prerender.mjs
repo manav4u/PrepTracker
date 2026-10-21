@@ -11,8 +11,10 @@ import { pathToFileURL } from 'node:url';
 // Production builds (GitHub Pages) get the shared production property; preview
 // builds (Vercel) override it via VITE_GA_MEASUREMENT_ID.
 const GA_ID = process.env.VITE_GA_MEASUREMENT_ID || 'G-PWDXVCDCP8';
-const GA_SNIPPET = `<script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${GA_ID}');</script>`;
-const GA_NOTE = '<p style="font-size:12px;opacity:.7">Anonymous visit stats via Google Analytics.</p>';
+// Consent Mode v2: storage denied until the visitor accepts on the banner
+// (choice shared with the app via the pt_ga_consent key).
+const GA_SNIPPET = `<script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});try{if(localStorage.getItem('pt_ga_consent')==='granted')gtag('consent','update',{analytics_storage:'granted'})}catch(e){}gtag('js',new Date());gtag('config','${GA_ID}');</script>`;
+const GA_NOTE = '<p style="font-size:12px;opacity:.7">Visit stats via Google Analytics, only with your OK. <a href="/privacy/" style="color:inherit">Privacy</a></p>';
 
 const outDir = path.resolve('.prerender-tmp');
 await build({
@@ -49,6 +51,9 @@ try {
   }
   fs.writeFileSync(path.resolve('dist/syllabus/index.html'), mod.renderSyllabusHub(mod.SUBJECT_PAGES, mod.INFO_PAGES, mod.SE_BRANCHES));
   pages++;
+  fs.mkdirSync(path.resolve('dist/privacy'), { recursive: true });
+  fs.writeFileSync(path.resolve('dist/privacy/index.html'), mod.renderPrivacyPage());
+  pages++;
   const catalog = JSON.parse(fs.readFileSync('catalog/courses.json','utf8'));
   for(const c of catalog.courses){
     const file=path.resolve('dist'+c.path+'index.html');
@@ -57,14 +62,16 @@ try {
       fs.writeFileSync(file,fs.readFileSync(file,'utf8').replace('</main>',link+'<p><a href="/#/directory">Browse all syllabus courses</a></p></main>'));
     }
   }
-  for (const file of sourceFiles(path.resolve('dist/syllabus'))) {
-    let page=fs.readFileSync(file,'utf8');
-    page=page
-      .replace('</head>', `<style>${mod.readingCss}</style>${GA_SNIPPET}</head>`)
-      .replace('<body>', '<body>'+mod.readingChrome)
-      .replace('</footer>', GA_NOTE+'</footer>')
-      .replace('</body>', `<script>${mod.readingScript}</script></body>`);
-    fs.writeFileSync(file,page);
+  for (const root of ['dist/syllabus', 'dist/privacy']) {
+    for (const file of sourceFiles(path.resolve(root))) {
+      let page=fs.readFileSync(file,'utf8');
+      page=page
+        .replace('</head>', `<style>${mod.readingCss}${mod.consentCss}</style>${GA_SNIPPET}</head>`)
+        .replace('<body>', '<body>'+mod.readingChrome)
+        .replace('</footer>', GA_NOTE+'</footer>')
+        .replace('</body>', `<script>${mod.readingScript};${mod.consentScript}</script></body>`);
+      fs.writeFileSync(file,page);
+    }
   }
   console.log(`prerendered ${pages} library pages (GA ${GA_ID})`);
 } finally {

@@ -67,7 +67,7 @@ export function renderSyllabusHub(subjects: SubjectPageConfig[], infos: InfoPage
       <div className="crs">{infos.map(c => link('/syllabus/' + c.slug + '/', c.crumb, 'Guide'))}</div>
       <footer>
         <p>Sources: the official SPPU syllabus PDF linked from each subject and branch page. PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.</p>
-        <p><a href={SITE + '/'}>PrepTracker home</a> · <a href={SITE + '/syllabus/grading-system-sgpa/'}>Grading and SGPA</a> · <a href={SITE + '/syllabus/first-year-scheme-credits/'}>FE scheme and credits</a></p>
+        <p><a href={SITE + '/'}>PrepTracker home</a> · <a href={SITE + '/syllabus/grading-system-sgpa/'}>Grading and SGPA</a> · <a href={SITE + '/syllabus/first-year-scheme-credits/'}>FE scheme and credits</a> · <a href={SITE + '/privacy/'}>Privacy</a></p>
       </footer>
     </main></body></html>);
   return '<!doctype html>' + renderToStaticMarkup(page);

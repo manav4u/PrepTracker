@@ -107,7 +107,7 @@ const Foot = ({ b }: { b: SeBranch }) => <footer>
   {b.slug === 'te-information-technology' && <p>Source note: Web Application Development uses PEC-321C-IT Advanced Database Management System uses PEC-321B-IT, and Image Processing Computer Vision uses PEC-321D-IT from the curriculum table. Detailed course headings conflict with that table. The PDF prints only four outcomes for Cloud Computing and High Performance Computing. Unit hours are shown as printed even where they differ from the weekly scheme. Tutorial and lab courses are excluded.</p>}
   {b.slug === 'te-electrical' && <p>Source note: Computer Aided Design uses PEC-321C-ELE from the curriculum table; its detailed theory heading omits C. Unit hours are copied as printed (usually 40 total; PLC and SCADA 37) rather than forced to match weekly hours. Tutorials and labs are excluded.</p>}
   <p>Source: <a href={b.pdf} rel="noopener">{b.pdfLabel} (official SPPU PDF)</a>. PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.</p>
-  <p><a href={SITE + '/'}>PrepTracker home</a> · <a href={SITE + '/syllabus/'}>Syllabus</a> · <a href={SITE + '/syllabus/' + b.slug + '/'}>{b.short} subjects</a> · <a href={SITE + '/syllabus/grading-system-sgpa/'}>Grading and SGPA</a></p>
+  <p><a href={SITE + '/'}>PrepTracker home</a> · <a href={SITE + '/syllabus/'}>Syllabus</a> · <a href={SITE + '/syllabus/' + b.slug + '/'}>{b.short} subjects</a> · <a href={SITE + '/syllabus/grading-system-sgpa/'}>Grading and SGPA</a> · <a href={SITE + '/privacy/'}>Privacy</a></p>
 </footer>;
 
 export function renderSeCourse(b: SeBranch, c: SeCourse): string {

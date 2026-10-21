@@ -517,12 +517,13 @@ const LandingPage: React.FC = () => {
                 <h3>Project</h3>
                 <a href="https://github.com/manav4u/PrepTracker">Source on GitHub</a>
                 <a href="https://github.com/manav4u/PrepTracker/issues">Report an issue</a>
+                <a href="/privacy/">Privacy</a>
               </nav>
             </div>
             <div className="foot-bar">
               <span>&copy; 2026 PrepTracker</span>
               <span className="foot-sign2">See you in the exam hall.</span>
-              <span>Free &middot; No ads &middot; Anonymous visit stats via Google Analytics</span>
+              <span>Free &middot; No ads &middot; Visit stats via Google Analytics, only with your OK</span>
             </div>
           </div>
         </footer>
