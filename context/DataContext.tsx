@@ -25,9 +25,14 @@ interface DataContextType {
 
 const DataContext = createContext<DataContextType | undefined>(undefined);
 
+// The landing prerenders server-side at build time, where localStorage does
+// not exist; initializers skip it quietly instead of tripping the catch.
+const storageAvailable = () => typeof localStorage !== 'undefined';
+
 export const DataProvider = ({ children }: { children: ReactNode }) => {
   const [profile, setProfileState] = useState<Profile | null>(() => {
     try {
+      if (!storageAvailable()) return null;
       const saved = localStorage.getItem('sppu_profile');
       return saved ? JSON.parse(saved) : null;
     } catch (e) {
@@ -38,6 +43,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
 
   const [userProgress, setUserProgressState] = useState<UserProgress[]>(() => {
     try {
+      if (!storageAvailable()) return [];
       const saved = localStorage.getItem('sppu_progress');
       return saved ? JSON.parse(saved) : [];
     } catch (e) {
@@ -48,6 +54,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
 
   const [tasks, setTasksState] = useState<Task[]>(() => {
     try {
+      if (!storageAvailable()) return [];
       const saved = localStorage.getItem('sppu_tasks');
       return saved ? JSON.parse(saved) : [];
     } catch (e) {
@@ -58,6 +65,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
 
   const [marks, setMarks] = useState<MarksMap>(() => {
     try {
+      if (!storageAvailable()) return {};
       const saved = localStorage.getItem('sppu_calculator_marks');
       return saved ? cleanMarks(JSON.parse(saved)) : {};
     } catch (e) {
@@ -68,6 +76,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
 
   const [reviews, setReviews] = useState<Reviews>(() => {
     try {
+      if (!storageAvailable()) return {};
       const saved = localStorage.getItem('sppu_reviews');
       return saved ? cleanReviews(JSON.parse(saved)) : {};
     } catch (e) {
@@ -78,6 +87,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
 
   const [customResources, setCustomResources] = useState<ResourceItem[]>(() => {
     try {
+      if (!storageAvailable()) return [];
       const saved = localStorage.getItem('sppu_custom_resources');
       return saved ? JSON.parse(saved) : [];
     } catch (e) {
@@ -88,6 +98,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
 
   const [deletedResourceIds, setDeletedResourceIds] = useState<string[]>(() => {
     try {
+      if (!storageAvailable()) return [];
       const saved = localStorage.getItem('sppu_deleted_system_ids');
       return saved ? JSON.parse(saved) : [];
     } catch (e) {
