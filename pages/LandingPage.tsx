@@ -238,9 +238,10 @@ const LandingPage: React.FC = () => {
     };
   }, []);
 
-  // Intro motion (skipped under reduced motion).
+  // Intro motion (skipped under reduced motion and after a prerendered
+  // load: the hero is already painted, replaying would hide it again).
   useGSAP(() => {
-    if (reduceMotion()) return;
+    if (reduceMotion() || (window as unknown as { __PT_PRERENDERED__?: boolean }).__PT_PRERENDERED__) return;
     gsap.fromTo('.lp2 .line', { yPercent: 112 }, { yPercent: 0, duration: 1, ease: 'power4.out', stagger: 0.1, delay: 0.15 });
     gsap.fromTo(['.lp2 .sub', '.lp2 .cta-row', '.lp2 .fud'], { y: 18, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.8, ease: 'power3.out', stagger: 0.08, delay: 0.35 });
     gsap.fromTo(['.lp2 .try', '.lp2 .switcher'], { y: 16, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.7, ease: 'power3.out', delay: 0.75 });
