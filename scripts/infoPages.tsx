@@ -229,7 +229,7 @@ export function renderInfoPage(c: InfoPage): string {
           {c.faq.map(([q, a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}
           <footer>
             <p>Sources: <a href={SYLLABUS_PDF} rel="noopener">SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)</a> and the <a href={HANDBOOK} rel="noopener">SPPU credit framework handbook</a>. PrepTracker is an independent student project, not affiliated with SPPU. Check the official documents for the latest rules.</p>
-            <p><a href={SITE + '/'}>PrepTracker home</a></p>
+            <p><a href={SITE + '/'}>PrepTracker home</a> · <a href={SITE + '/syllabus/'}>Syllabus</a></p>
           </footer>
         </main>
       </body>
