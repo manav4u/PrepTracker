@@ -8,3 +8,4 @@ export { renderSeCourse, renderSeBranch, coursePath } from './sePage';
 export { SE_BRANCHES } from './seBranches';
 
 export { readingCss, readingChrome, readingScript } from './readingEdition';
+export { renderSyllabusHub } from './hubPage';
