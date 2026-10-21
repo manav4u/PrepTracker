@@ -30,6 +30,9 @@ const appTree = (
 if (rootElement.hasChildNodes()) {
   // The landing was prerendered at build time: hydrate it. Pre-import the
   // lazily loaded LandingPage so it resolves synchronously during hydration.
+  // Flag the prerender so the landing skips its intro animation: the content
+  // is already painted, replaying the intro would hide it and re-trigger LCP.
+  (window as unknown as { __PT_PRERENDERED__?: boolean }).__PT_PRERENDERED__ = true;
   import('./pages/LandingPage').then(() => {
     ReactDOM.hydrateRoot(rootElement, appTree);
   });
