@@ -47,6 +47,8 @@ try {
       pages++;
     }
   }
+  fs.writeFileSync(path.resolve('dist/syllabus/index.html'), mod.renderSyllabusHub(mod.SUBJECT_PAGES, mod.INFO_PAGES, mod.SE_BRANCHES));
+  pages++;
   const catalog = JSON.parse(fs.readFileSync('catalog/courses.json','utf8'));
   for(const c of catalog.courses){
     const file=path.resolve('dist'+c.path+'index.html');
