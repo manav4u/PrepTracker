@@ -13,6 +13,7 @@ import { pathToFileURL } from 'node:url';
 const GA_ID = process.env.VITE_GA_MEASUREMENT_ID || 'G-PWDXVCDCP8';
 // Consent Mode v2: storage denied until the visitor accepts on the banner
 // (choice shared with the app via the pt_ga_consent key).
+const SENTRY_SNIPPET = '<script src="https://js.sentry-cdn.com/c5e41db25dc0f73bfdac78df0f8c403e.min.js" crossorigin="anonymous"></script>';
 const GA_SNIPPET = `<script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});try{if(localStorage.getItem('pt_ga_consent')==='granted')gtag('consent','update',{analytics_storage:'granted'})}catch(e){}gtag('js',new Date());gtag('config','${GA_ID}');</script>`;
 const GA_NOTE = '<p style="font-size:12px;color:rgba(20,20,25,.62)">Optional analytics cookies, only with your OK. <a href="/privacy/" style="color:inherit">Privacy</a></p>';
 
@@ -69,6 +70,7 @@ try {
         .replace('</head>', `<style>${mod.readingCss}${mod.consentCss}</style>${GA_SNIPPET}</head>`)
         .replace('<body>', '<body>'+mod.readingChrome)
         .replace('</footer>', GA_NOTE+'</footer>')
+        .replace('</head>', SENTRY_SNIPPET + '</head>')
         .replace('</body>', `<script>${mod.readingScript};${mod.consentScript}</script></body>`);
       fs.writeFileSync(file,page);
     }
