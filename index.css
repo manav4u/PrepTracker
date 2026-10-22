@@ -144,6 +144,17 @@ summary:focus-visible {
 .consent-accept:hover{transform:translateY(-1px);box-shadow:0 8px 18px -6px rgba(214,26,64,.55)}
 .consent-decline{border:1px solid rgba(20,20,25,.18);background:transparent;color:rgba(20,20,25,.75)}
 .consent-decline:hover{border-color:rgba(20,20,25,.45);color:#141419}
-@media (prefers-reduced-motion:reduce){.consent-actions button{transition:none}}
+.consent-manage{border:0;background:none;text-decoration:underline;padding:9px 6px;color:rgba(20,20,25,.6)}
+.consent-manage:hover{color:#141419}
+.consent-panel{margin-top:12px;border-top:1px solid rgba(20,20,25,.14);padding-top:12px}
+.consent-row{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
+.consent-row b{font-size:12.5px}
+.consent-row span{display:block;color:rgba(20,20,25,.6);font-size:11px;line-height:1.5}
+.consent-always{color:rgba(20,20,25,.5);font-size:11px;white-space:nowrap}
+.consent-toggle{flex:none;width:42px;height:24px;border-radius:999px;border:1px solid rgba(20,20,25,.25);background:rgba(20,20,25,.08);position:relative;cursor:pointer;padding:0}
+.consent-toggle::after{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(20,20,25,.3);transition:left .15s ease}
+.consent-toggle[aria-checked="true"]{background:#D61A40;border-color:#D61A40}
+.consent-toggle[aria-checked="true"]::after{left:20px}
+@media (prefers-reduced-motion:reduce){.consent-actions button,.consent-toggle::after{transition:none}}
 
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
