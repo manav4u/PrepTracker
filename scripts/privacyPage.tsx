@@ -53,10 +53,14 @@ export function renderPrivacyPage(): string {
       <p>Your choice is remembered on this device. To change it, use the <b>Cookie settings</b> button below to reset the banner, or clear this site's data in your browser.</p>
       <p><button type="button" id="cookie-reset" style={{borderRadius:999,padding:'9px 16px',font:"700 12px 'Satoshi','Space Grotesk',sans-serif",cursor:'pointer',border:0,background:'#D61A40',color:'#fff'}}>Cookie settings</button></p>
 
+      <h2>Error reports</h2>
+      <p>If something breaks while you use the app or read the library, the site sends a short error report to an error-monitoring provider so the bug can be found and fixed. A report contains the error message, the page address, and your browser and operating system type. It includes no name, email or account details, and none of your study data. Error reports are kept for up to 90 days, then deleted.</p>
+
       <h2>Third parties that process data for this site</h2>
       <ul>
         <li><b>Hosting and content delivery</b> - serves the site's files and sees the technical data any web server sees (IP address, browser type, time of request), used to deliver pages and prevent abuse.</li>
         <li><b>Analytics provider</b> - processes the anonymous visit statistics described above, only when you have accepted analytics cookies.</li>
+        <li><b>Error-monitoring provider</b> - receives the error reports described above.</li>
       </ul>
       <p>Each provider processes only what its service needs, under its own privacy terms. Data may be processed on servers outside India; where it is, the providers apply their standard contractual safeguards. Analytics visit data is kept for no more than 14 months.</p>
 
