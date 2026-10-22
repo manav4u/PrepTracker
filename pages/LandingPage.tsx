@@ -523,7 +523,6 @@ const LandingPage: React.FC = () => {
             <div className="foot-bar">
               <span>&copy; 2026 PrepTracker</span>
               <span className="foot-sign2">See you in the exam hall.</span>
-              <span>Free &middot; No ads &middot; Optional analytics cookies, only with your OK</span>
             </div>
           </div>
         </footer>
