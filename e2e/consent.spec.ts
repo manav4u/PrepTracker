@@ -2,32 +2,46 @@ import { test, expect } from '@playwright/test';
 
 const KEY = 'pt_ga_consent';
 
-test.describe('analytics consent', () => {
+test.describe('cookie consent', () => {
   test('banner offers both choices and defaults to denied', async ({ page }) => {
     await page.goto('/');
-    const banner = page.getByRole('region', { name: 'Analytics consent' });
+    const banner = page.getByRole('region', { name: 'Cookie consent' });
     await expect(banner).toBeVisible();
-    await expect(banner.getByRole('button', { name: 'Allow stats' })).toBeVisible();
-    await expect(banner.getByRole('button', { name: 'No thanks' })).toBeVisible();
+    await expect(banner.getByRole('button', { name: 'Accept' })).toBeVisible();
+    await expect(banner.getByRole('button', { name: 'Reject' })).toBeVisible();
+    await expect(banner.getByRole('button', { name: 'Manage' })).toBeVisible();
     const consent = await page.evaluate(() => (window as any).dataLayer?.find(
       (a: unknown[]) => a[0] === 'consent' && a[1] === 'default'));
     expect(consent?.[2]).toMatchObject({ analytics_storage: 'denied', ad_storage: 'denied' });
   });
 
-  test('No thanks stores denied and hides the banner for later visits', async ({ page }) => {
+  test('Reject stores denied and hides the banner for later visits', async ({ page }) => {
     await page.goto('/');
-    const banner = page.getByRole('region', { name: 'Analytics consent' });
-    await banner.getByRole('button', { name: 'No thanks' }).click();
+    const banner = page.getByRole('region', { name: 'Cookie consent' });
+    await banner.getByRole('button', { name: 'Reject' }).click();
     await expect(banner).toBeHidden();
     expect(await page.evaluate((k) => localStorage.getItem(k), KEY)).toBe('denied');
     await page.reload();
-    await expect(page.getByRole('region', { name: 'Analytics consent' })).toHaveCount(0);
+    await expect(page.getByRole('region', { name: 'Cookie consent' })).toHaveCount(0);
   });
 
-  test('Allow stats grants storage and carries over to library pages', async ({ page }) => {
+  test('Manage opens preferences and Save choices stores the toggle', async ({ page }) => {
     await page.goto('/');
-    await page.getByRole('region', { name: 'Analytics consent' })
-      .getByRole('button', { name: 'Allow stats' }).click();
+    const banner = page.getByRole('region', { name: 'Cookie consent' });
+    await banner.getByRole('button', { name: 'Manage' }).click();
+    const toggle = banner.getByRole('switch', { name: 'Analytics cookies' });
+    await expect(toggle).toBeVisible();
+    await expect(toggle).toHaveAttribute('aria-checked', 'false');
+    await toggle.click();
+    await banner.getByRole('button', { name: 'Save choices' }).click();
+    await expect(banner).toBeHidden();
+    expect(await page.evaluate((k) => localStorage.getItem(k), KEY)).toBe('granted');
+  });
+
+  test('Accept grants storage and carries over to library pages', async ({ page }) => {
+    await page.goto('/');
+    await page.getByRole('region', { name: 'Cookie consent' })
+      .getByRole('button', { name: 'Accept' }).click();
     expect(await page.evaluate((k) => localStorage.getItem(k), KEY)).toBe('granted');
     // The static library pages share the key; no second banner there.
     await page.goto('/syllabus/');
@@ -40,6 +54,7 @@ test.describe('analytics consent', () => {
     await page.goto('/syllabus/se-cyber-security/');
     const banner = page.locator('.pt-consent');
     await expect(banner).toBeVisible();
+    await expect(banner.locator('.c-t')).toHaveText('We use cookies');
     await banner.locator('.c-n').click();
     await expect(banner).toHaveCount(0);
     expect(await page.evaluate((k) => localStorage.getItem(k), KEY)).toBe('denied');
