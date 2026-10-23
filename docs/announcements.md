@@ -31,4 +31,4 @@ Message the announcement text to Sia. She writes the entry, opens the pull reque
 - `tag`: `Update`, `Exam alert`, or `Resource`.
 - `link`: optional, https only. Delete the line when you do not need it.
 - To retract an announcement, delete its entry and PR the change.
-- If the file is ever malformed, students keep seeing the last good copy - fix the JSON and it recovers on the next publish.
+- If the file fails to load or fails validation, the app keeps showing the last good copy saved on the device (covered by unit tests). Fix the JSON and it recovers on the next publish.
