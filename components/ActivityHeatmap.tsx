@@ -40,6 +40,12 @@ const ActivityHeatmap: React.FC<{ profile: ActivityProfile; style?: React.CSSPro
   const today = dayKey(new Date());
   const [selected, setSelected] = useState(today);
   const weeks = useMemo(() => heatmapWeeks(profile, 3), [profile]);
+  // Roving tabindex: the day grid is one tab stop, arrow keys move between days.
+  const cellRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const flatDays = useMemo(() => weeks.flatMap(w => w.cells), [weeks]);
+  const cellCount = flatDays.length;
+  const todayIdx = Math.max(0, flatDays.findIndex(c => c.day === today));
+  const [focusedCell, setFocusedCell] = useState(todayIdx);
   const monthLabel = new Date().toLocaleDateString('en-US', { month: 'long' });
   const selectedEvents = eventsForDay(profile, selected);
   const listRef = useRef<HTMLDivElement>(null);
@@ -75,16 +81,30 @@ const ActivityHeatmap: React.FC<{ profile: ActivityProfile; style?: React.CSSPro
       <div className="relative flex flex-col lg:flex-row lg:items-stretch gap-5">
         <div className="w-full lg:w-[340px] lg:flex-none min-w-0 lg:flex lg:flex-col">
           {/* 4 rows x 7 columns: each row is one week, Monday to Sunday */}
-          <div className="flex flex-col gap-[2px] lg:flex-1">
-            {weeks.map((w, wi) => (
+          <div className="flex flex-col gap-[2px] lg:flex-1" role="group" aria-label="Activity days. Use arrow keys to move between days.">
+            {(() => { let idx = -1; return weeks.map((w, wi) => (
               <div key={wi} className="grid grid-cols-7 gap-[2px] lg:flex-1">
                 {w.cells.map((c) => {
+                  idx++;
+                  const cellIdx = idx;
                   const isToday = c.day === today;
                   const isSelected = c.day === selected;
                   return (
                     <button
                       key={c.day}
                       type="button"
+                      ref={(el) => { cellRefs.current[cellIdx] = el; }}
+                      tabIndex={cellIdx === focusedCell ? 0 : -1}
+                      onFocus={() => setFocusedCell(cellIdx)}
+                      onKeyDown={(e) => {
+                        const moves: Record<string, number> = { ArrowLeft: -1, ArrowRight: 1, ArrowUp: -7, ArrowDown: 7 };
+                        const d = moves[e.key];
+                        if (d === undefined) return;
+                        e.preventDefault();
+                        const next = Math.min(cellCount - 1, Math.max(0, cellIdx + d));
+                        setFocusedCell(next);
+                        cellRefs.current[next]?.focus();
+                      }}
                       aria-label={`${c.day}: ${c.future ? 'upcoming' : c.count + ' study actions'}`}
                       onClick={() => !c.future && setSelected(c.day)}
                       className={`w-full h-[26px] lg:h-auto lg:min-h-[28px] rounded-[3px] transition-all duration-200 ${LEVEL_CLASS[c.level]}
@@ -95,7 +115,7 @@ const ActivityHeatmap: React.FC<{ profile: ActivityProfile; style?: React.CSSPro
                   );
                 })}
               </div>
-            ))}
+            )); })()}
           </div>
 
           {/* Legend */}

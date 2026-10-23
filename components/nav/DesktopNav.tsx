@@ -40,7 +40,7 @@ const SaveHint: React.FC = () => {
 const Avatar: React.FC<{ size: number }> = ({ size }) => {
   const { profile } = useData();
   return (
-    <Link to="/app/settings" aria-label="Settings" className="block" style={{ width: size, height: size }}>
+    <Link to="/app/settings" aria-label="Profile settings" title="Profile settings" className="block" style={{ width: size, height: size }}>
       <ProfileAvatar id={profile?.avatarId} shape={profile?.avatarShape} size={size} />
     </Link>
   );
