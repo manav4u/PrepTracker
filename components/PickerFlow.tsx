@@ -183,7 +183,7 @@ const PickerFlow: React.FC<{ onDone: (ids: string[]) => void; name: string; setN
                   <span className="text-base font-medium leading-snug">{b.name}</span>
                   {b.ready
                     ? <span className="text-[10px] font-bold uppercase tracking-[0.14em] shrink-0 opacity-50">{stat(c => c.branchSlug === b.slug)}</span>
-                    : <span className="text-[9px] font-bold uppercase tracking-[0.18em] shrink-0">Reference only</span>}
+                    : <span className="text-[10px] font-bold uppercase tracking-[0.18em] shrink-0">Reference only</span>}
                   {b.ready && <Ring on={branch === b.slug} />}
                 </button>
               ))}
@@ -213,7 +213,7 @@ const PickerFlow: React.FC<{ onDone: (ids: string[]) => void; name: string; setN
                   {[f.a, f.b].map(([id, code, name]) => (
                     <button key={id} aria-pressed={fe[f.key] === id} onClick={() => setFe({ ...fe, [f.key]: id })} className={card(fe[f.key] === id)}>
                       <Ring on={fe[f.key] === id} className="absolute right-3 top-3" />
-                      <span className={`block text-[9px] font-mono uppercase tracking-widest mb-2 ${fe[f.key] === id ? 'text-black/50' : 'text-slate-500'}`}>{code}</span>
+                      <span className={`block text-[10px] font-mono uppercase tracking-widest mb-2 ${fe[f.key] === id ? 'text-black/50' : 'text-slate-500'}`}>{code}</span>
                       <span className="text-base font-medium leading-snug">{name}</span>
                     </button>
                   ))}
@@ -229,7 +229,7 @@ const PickerFlow: React.FC<{ onDone: (ids: string[]) => void; name: string; setN
               {fixed.map(c => (
                 <button key={c.id} aria-pressed={picked.includes(c.id)} onClick={() => toggle(c)} className={card(picked.includes(c.id))}>
                   <Ring on={picked.includes(c.id)} className="absolute right-4 top-1/2 -translate-y-1/2" />
-                  <span className={`block text-[9px] font-mono uppercase tracking-widest mb-1.5 ${picked.includes(c.id) ? 'text-black/50' : 'text-slate-500'}`}>{c.code}{c.type === 'Minor' ? ' - optional' : ''}</span>
+                  <span className={`block text-[10px] font-mono uppercase tracking-widest mb-1.5 ${picked.includes(c.id) ? 'text-black/50' : 'text-slate-500'}`}>{c.code}{c.type === 'Minor' ? ' - optional' : ''}</span>
                   <span className="text-base font-medium leading-snug">{c.name}</span>
                 </button>
               ))}
@@ -241,7 +241,7 @@ const PickerFlow: React.FC<{ onDone: (ids: string[]) => void; name: string; setN
                   {list.map(c => (
                     <button key={c.id} aria-pressed={picked.includes(c.id)} onClick={() => toggle(c)} className={card(picked.includes(c.id))}>
                   <Ring on={picked.includes(c.id)} className="absolute right-4 top-1/2 -translate-y-1/2" />
-                      <span className={`block text-[9px] font-mono uppercase tracking-widest mb-1.5 ${picked.includes(c.id) ? 'text-black/50' : 'text-slate-500'}`}>{c.code}</span>
+                      <span className={`block text-[10px] font-mono uppercase tracking-widest mb-1.5 ${picked.includes(c.id) ? 'text-black/50' : 'text-slate-500'}`}>{c.code}</span>
                       <span className="text-base font-medium leading-snug">{c.name}</span>
                     </button>
                   ))}
