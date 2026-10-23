@@ -20,6 +20,9 @@ test.describe('prerendered landing', () => {
 
   test('footer links to the privacy page', async ({ page }) => {
     await page.goto('/');
+    // Use the banner as a visitor would: rejecting clears it off the footer.
+    const banner = page.getByRole('region', { name: 'Cookie consent' });
+    if (await banner.isVisible()) await banner.getByRole('button', { name: 'Reject' }).click();
     const link = page.locator('footer a[href="/privacy/"]');
     await expect(link.first()).toBeVisible();
     await link.first().click();
