@@ -43,7 +43,7 @@ const MasteryCard = ({ mastered, total, style }: { mastered: number; total: numb
         aria-label={`${mastered} of ${total} units mastered`}
       >
         {Array.from({ length: total }, (_, i) => (
-          <span key={i} className={`aspect-square rounded-[2px] transition-colors duration-[250ms] ${i < mastered ? 'bg-[#F63C49]' : 'bg-white/10'}`}></span>
+          <span key={i} className={`w-full max-w-[20px] lg:max-w-[24px] aspect-square justify-self-center rounded-[2px] transition-colors duration-[250ms] ${i < mastered ? 'bg-[#F63C49]' : 'bg-white/10'}`}></span>
         ))}
       </div>
     ) : (
