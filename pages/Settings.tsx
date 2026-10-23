@@ -78,7 +78,7 @@ const ConfirmModal = ({ isOpen, title, description, onConfirm, onCancel, isDange
 // --- MAIN COMPONENT ---
 
 const SettingsPage: React.FC = () => {
-  const { profile, setProfile } = useData();
+  const { profile, setProfile, lastSavedAt, saveFailed } = useData();
   const { subjects: allSubjects } = useSubjects();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -492,8 +492,15 @@ const SettingsPage: React.FC = () => {
             {/* BACKUP */}
             <section className="surface-1 rounded-3xl p-5 lg:p-7">
                 <h2 className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/50 mb-3">Data Portability</h2>
-                <p className="text-sm text-slate-400 leading-relaxed mb-5">
+                <p className="text-sm text-slate-400 leading-relaxed mb-3">
                     Save your progress, tasks, marks and links to a JSON file. Restoring shows what will change first and keeps an undo copy.
+                </p>
+                <p className="text-xs text-slate-500 leading-relaxed mb-5" role="status">
+                    {saveFailed.length > 0 ? (
+                        <span className="text-[#F63C49] font-bold">A save just failed - the browser refused to store your latest change. Export a backup now and free up browser storage.</span>
+                    ) : (
+                        <>Everything saves automatically to this browser's site data{lastSavedAt ? <> - last saved {new Date(lastSavedAt).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: false })}</> : null}. Clearing this browser's site data erases it, so keep a backup file if it matters.</>
+                    )}
                 </p>
 
                 {nudgeDue && (

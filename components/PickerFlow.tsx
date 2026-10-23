@@ -251,6 +251,11 @@ const PickerFlow: React.FC<{ onDone: (ids: string[]) => void; name: string; setN
 
       </div>
 
+      {last && (
+        <p className="mt-6 px-1 text-xs leading-relaxed text-slate-500 max-w-md">
+          No account - everything you track is saved only in this browser's site data. Clearing the browser's site data erases it. You can export a backup file in Settings anytime.
+        </p>
+      )}
       <div className="mt-8 flex items-center gap-3">
         {idx > 0 && (
           <button onClick={back} aria-label="Back" className={`group h-16 w-16 shrink-0 rounded-full border border-white/15 bg-[#0d0d10] text-slate-300 flex items-center justify-center transition-[border-color,color,transform,box-shadow] ${EASE} shadow-[inset_0_1px_0_rgba(255,255,255,0.07),0_1px_2px_rgba(0,0,0,0.6),0_8px_18px_-8px_rgba(0,0,0,0.9)] hover:border-white/40 hover:text-white hover:-translate-y-px active:translate-y-px active:shadow-[inset_0_2px_5px_rgba(0,0,0,0.6)]`}>

@@ -17,6 +17,26 @@ const ITEMS = [
   { label: 'Settings', short: 'Settings', to: '/app/settings', icon: Settings, match: (p: string) => p === '/app/settings' },
 ];
 
+const SaveHint: React.FC = () => {
+  const { lastSavedAt, saveFailed } = useData();
+  const failed = saveFailed.length > 0;
+  const time = lastSavedAt
+    ? new Date(lastSavedAt).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: false })
+    : null;
+  const label = failed
+    ? `Saving failed for ${saveFailed.length} item${saveFailed.length === 1 ? '' : 's'}. Open Settings to export a backup.`
+    : time
+      ? `All progress saved in this browser. Last saved ${time}.`
+      : 'Progress saves automatically in this browser.';
+  return (
+    <div role="status" aria-label={label} title={label}
+      className={`w-10 h-10 rounded-full bg-white/5 border flex flex-col items-center justify-center ${failed ? 'border-[#F63C49] text-[#F63C49]' : 'border-white/10 text-[#F63C49]'}`}>
+      <HardDrive size={failed ? 15 : 17} aria-hidden="true" />
+      {failed && <span aria-hidden="true" className="text-[8px] font-mono font-bold leading-none mt-0.5">!</span>}
+    </div>
+  );
+};
+
 const Avatar: React.FC<{ size: number }> = ({ size }) => {
   const { profile } = useData();
   return (
@@ -52,7 +72,7 @@ const DesktopNav: React.FC = () => {
         </LayoutGroup>
       </MotionConfig>
       <div className="mt-2 pt-6 border-t border-white/[0.07] w-full flex flex-col items-center gap-5">
-        <span className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#F63C49]" title="Local storage active"><HardDrive size={17} /></span>
+        <SaveHint />
         <Avatar size={40} />
       </div>
     </aside>
