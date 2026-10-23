@@ -117,7 +117,7 @@ const PickerFlow: React.FC<{ onDone: (ids: string[]) => void; name: string; setN
   return (
     <div className="w-full lg:grid lg:grid-cols-[minmax(0,34rem)_minmax(0,1fr)] lg:gap-16">
     {avatarOpen && <Suspense fallback={<p role="status">Loading avatar picker...</p>}><AvatarPicker current={avatarId} shape={avatarShape} name={name} onClose={() => setAvatarOpen(false)} onSave={(id, shape) => { setAvatarId(id); setAvatarShape(shape); setAvatarOpen(false); }} /></Suspense>}
-    <div className={`flex flex-col w-full min-h-[calc(100dvh-6rem)] pb-6 ${step === 'name' ? 'lg:justify-center' : ''}`}>
+    <div className={`picker-flow flex flex-col w-full pb-6 ${step === 'name' ? 'lg:justify-center' : ''}`}>
       {/* Step count is only honest once the year is picked (first year has 3
           steps, other years 5), so the bar appears from the third step on and
           never changes length mid-flow. */}
@@ -129,18 +129,18 @@ const PickerFlow: React.FC<{ onDone: (ids: string[]) => void; name: string; setN
       {step === 'name' ? (
         <div className="mb-6 lg:mb-8">
           <span className="inline-flex items-center gap-2 h-7 px-3 rounded-full border border-white/10 bg-white/[0.03] text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400 mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#F63C49]"></span>{`Step ${idx + 1} of ${flow.length}`}
+            <span className="w-1.5 h-1.5 rounded-full bg-[#F63C49]"></span>{`Step ${idx + 1}${idx >= 2 ? ` of ${flow.length}` : ''}`}
           </span>
           <h2 className="font-display font-bold text-4xl lg:text-6xl tracking-tight leading-[0.95] text-white">What is your name<span className="text-[#F63C49]">.</span></h2>
         </div>
       ) : (
-        <Heading art={step as ArtKind} kicker={`Step ${idx + 1} of ${flow.length}`}>{title}</Heading>
+        <Heading art={step as ArtKind} kicker={`Step ${idx + 1}${idx >= 2 ? ` of ${flow.length}` : ''}`}>{title}</Heading>
       )}
 
       <div className={`${step === 'name' ? 'flex-1 lg:flex-none lg:mt-6' : 'flex-1'} flex flex-col`}>
         {step === 'name' && (
           <div className="flex-1 flex flex-col gap-4">
-            <div className="lg:hidden flex-1 flex items-center justify-center mt-3"><NameTiles name={name} className="w-full max-w-sm" /></div>
+            <div className="nt-mobile lg:hidden flex-1 min-h-0 flex items-center justify-center mt-3"><NameTiles name={name} className="w-full max-w-sm" /></div>
             <div className="mt-auto">
               <label htmlFor="setup-name" className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500 mb-2.5 block px-1">What should we call you</label>
               <div className="rounded-3xl border border-white/[0.14] bg-[#0d0d10] px-5 py-4 shadow-[inset_0_2px_6px_rgba(0,0,0,0.7),0_1px_0_rgba(255,255,255,0.06)] transition-colors duration-[250ms] focus-within:border-[#F63C49]">
@@ -254,6 +254,11 @@ const PickerFlow: React.FC<{ onDone: (ids: string[]) => void; name: string; setN
 
       </div>
 
+      {last && (
+        <p className="mt-6 px-1 text-xs leading-relaxed text-slate-500 max-w-md">
+          No account - everything you track is saved only in this browser's site data. Clearing the browser's site data erases it. You can export a backup file in Settings anytime.
+        </p>
+      )}
       <div className="mt-8 flex items-center gap-3">
         {idx > 0 && (
           <button onClick={back} aria-label="Back" className={`group h-16 w-16 shrink-0 rounded-full border border-white/15 bg-[#0d0d10] text-slate-300 flex items-center justify-center transition-[border-color,color,transform,box-shadow] ${EASE} shadow-[inset_0_1px_0_rgba(255,255,255,0.07),0_1px_2px_rgba(0,0,0,0.6),0_8px_18px_-8px_rgba(0,0,0,0.9)] hover:border-white/40 hover:text-white hover:-translate-y-px active:translate-y-px active:shadow-[inset_0_2px_5px_rgba(0,0,0,0.6)]`}>

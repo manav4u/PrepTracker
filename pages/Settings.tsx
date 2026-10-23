@@ -78,7 +78,7 @@ const ConfirmModal = ({ isOpen, title, description, onConfirm, onCancel, isDange
 // --- MAIN COMPONENT ---
 
 const SettingsPage: React.FC = () => {
-  const { profile, setProfile } = useData();
+  const { profile, setProfile, lastSavedAt, saveFailed } = useData();
   const { subjects: allSubjects } = useSubjects();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -285,7 +285,7 @@ const SettingsPage: React.FC = () => {
     ? Math.round((examStart.getTime() - startOfToday.getTime()) / 86400000)
     : null;
   const examValue = examDiff === null ? '--' : examDiff > 0 ? `${examDiff}d` : examDiff === 0 ? 'Today' : 'Now';
-  const examSub = examDiff === null ? 'Set exam date below' : examDiff >= 0 && examStart
+  const examSub = examDiff === null ? 'Set exam date' : examDiff >= 0 && examStart
     ? `Starts ${examStart.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}`
     : 'Exams started';
   // Hidden easter eggs (no persistence, no extra tab stops)
@@ -367,7 +367,7 @@ const SettingsPage: React.FC = () => {
                 <div className="min-w-0">
                     <p className="text-2xl lg:text-3xl font-display font-bold text-white truncate">{profile.name || 'Your name'}</p>
                     <p className="text-xs font-mono text-slate-400 tracking-widest mt-1 truncate">{profile.prn || 'PRN not set'}</p>
-                    <button className="text-xs text-slate-300 underline underline-offset-4 mt-2 min-h-[44px]" onClick={() => setAvatarOpen(true)}>Change avatar</button>
+
                 </div>
             </div>
             <div className="relative sm:text-right border-t sm:border-t-0 border-white/10 pt-5 sm:pt-0">
@@ -386,7 +386,7 @@ const SettingsPage: React.FC = () => {
                 <div className="space-y-5">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         <div className="space-y-2">
-                            <label htmlFor="profile-name" className="text-[9px] font-mono text-slate-500 uppercase tracking-widest block">Your Name</label>
+                            <label htmlFor="profile-name" className="text-[10px] font-mono text-slate-500 uppercase tracking-widest block">Your Name</label>
                             <input
                                 id="profile-name"
                                 type="text"
@@ -396,7 +396,7 @@ const SettingsPage: React.FC = () => {
                             />
                         </div>
                         <div className="space-y-2">
-                            <label htmlFor="profile-prn" className="text-[9px] font-mono text-slate-500 uppercase tracking-widest block">Student ID / PRN</label>
+                            <label htmlFor="profile-prn" className="text-[10px] font-mono text-slate-500 uppercase tracking-widest block">Student ID / PRN</label>
                             <input
                                 id="profile-prn"
                                 type="text"
@@ -409,7 +409,7 @@ const SettingsPage: React.FC = () => {
                     </div>
 
                     <div className="space-y-2">
-                        <label htmlFor="exam-start" className="text-[9px] font-mono text-slate-500 uppercase tracking-widest block">First exam date (for Days to Exam)</label>
+                        <label htmlFor="exam-start" className="text-[10px] font-mono text-slate-500 uppercase tracking-widest block">First exam date (for Days to Exam)</label>
                         <div className="relative group">
                             <input
                                 id="exam-start"
@@ -492,8 +492,15 @@ const SettingsPage: React.FC = () => {
             {/* BACKUP */}
             <section className="surface-1 rounded-3xl p-5 lg:p-7">
                 <h2 className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/50 mb-3">Data Portability</h2>
-                <p className="text-sm text-slate-400 leading-relaxed mb-5">
+                <p className="text-sm text-slate-400 leading-relaxed mb-3">
                     Save your progress, tasks, marks and links to a JSON file. Restoring shows what will change first and keeps an undo copy.
+                </p>
+                <p className="text-xs text-slate-500 leading-relaxed mb-5" role="status">
+                    {saveFailed.length > 0 ? (
+                        <span className="text-[#F63C49] font-bold">A save just failed - the browser refused to store your latest change. Export a backup now and free up browser storage.</span>
+                    ) : (
+                        <>Everything saves automatically to this browser's site data{lastSavedAt ? <> - last saved {new Date(lastSavedAt).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: false })}</> : null}. Clearing this browser's site data erases it, so keep a backup file if it matters.</>
+                    )}
                 </p>
 
                 {nudgeDue && (
@@ -514,14 +521,16 @@ const SettingsPage: React.FC = () => {
                     </button>
                     <p className="text-[11px] text-slate-500 text-center">{lastBackupLabel ? `Last backup ${lastBackupLabel}` : 'Not backed up yet'}</p>
 
-                    <div
+                    <button
+                        type="button"
+                        aria-label="Restore backup from a JSON file"
                         onDragEnter={handleDrag}
                         onDragLeave={handleDrag}
                         onDragOver={handleDrag}
                         onDrop={handleDrop}
                         onClick={() => fileInputRef.current?.click()}
                         className={`
-                            border border-dashed rounded-2xl h-14 flex items-center justify-center gap-3 text-center transition-colors duration-[250ms] cursor-pointer
+                            w-full border border-dashed rounded-2xl h-14 flex items-center justify-center gap-3 text-center transition-colors duration-[250ms] cursor-pointer
                             ${dragActive
                                 ? 'border-[#F63C49] bg-[#F63C49]/10'
                                 : 'border-white/15 hover:border-white/30 hover:bg-white/[0.03]'
@@ -530,7 +539,7 @@ const SettingsPage: React.FC = () => {
                     >
                         <Upload size={16} className={dragActive ? 'text-[#F63C49]' : 'text-slate-400'} />
                         <span className="text-xs font-bold text-white uppercase tracking-[0.18em]">Restore Backup</span>
-                    </div>
+                    </button>
                     <input
                         type="file"
                         ref={fileInputRef}

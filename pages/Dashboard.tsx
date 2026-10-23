@@ -30,7 +30,7 @@ const BLOCK_LIMIT = 40;
 // Past BLOCK_LIMIT units the blocks become a plain bar so the card keeps its height.
 const MasteryCard = ({ mastered, total, style }: { mastered: number; total: number; style?: React.CSSProperties }) => (
   <div style={style} className="p-5 rounded-3xl flex flex-col justify-between h-36 lg:h-40 surface-1 transition-all duration-300 hover:border-white/15 hover:-translate-y-1 animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500">
-    <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-slate-500">Units Mastered</span>
+    <span className="text-[10px] uppercase tracking-[0.25em] font-bold text-slate-500">Units Mastered</span>
     <p className="flex items-baseline gap-2 text-white">
       <span className="text-4xl lg:text-5xl font-display font-bold tracking-tighter tabular-nums leading-none">{mastered}</span>
       <span className="text-[10px] lg:text-[11px] font-bold uppercase tracking-widest text-slate-500">of {total} {total === 1 ? 'unit' : 'units'}</span>
@@ -43,7 +43,7 @@ const MasteryCard = ({ mastered, total, style }: { mastered: number; total: numb
         aria-label={`${mastered} of ${total} units mastered`}
       >
         {Array.from({ length: total }, (_, i) => (
-          <span key={i} className={`aspect-square rounded-[2px] transition-colors duration-[250ms] ${i < mastered ? 'bg-[#F63C49]' : 'bg-white/10'}`}></span>
+          <span key={i} className={`w-full max-w-[20px] lg:max-w-[24px] aspect-square justify-self-center rounded-[2px] transition-colors duration-[250ms] ${i < mastered ? 'bg-[#F63C49]' : 'bg-white/10'}`}></span>
         ))}
       </div>
     ) : (
@@ -65,7 +65,7 @@ const StatPill = ({ label, value, sub, active = false, gradient = false, icon: I
         : 'surface-1 hover:border-white/15'
   }`}>
     <div className="flex justify-between items-start">
-      <span className={`text-[9px] uppercase tracking-[0.25em] font-bold ${
+      <span className={`text-[10px] uppercase tracking-[0.25em] font-bold ${
         gradient ? 'text-white/80' : active ? 'text-[#F63C49]' : 'text-slate-500'
       }`}>{label}</span>
       <Icon size={16} className={gradient ? 'text-white' : 'text-[#F63C49]'} />
@@ -94,20 +94,20 @@ const StreakCard = ({ streak, today, goal, style }: any) => {
       {/* Label row: flame sits inline as a small mark, no floating chip */}
       <div className="relative flex items-center gap-1.5">
         <Flame size={10} strokeWidth={2.5} className="text-[#F63C49] -mt-px" />
-        <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-[#8a8172]">Study Streak</span>
+        <span className="text-[10px] uppercase tracking-[0.25em] font-bold text-[#8a8172]">Study Streak</span>
       </div>
 
       {/* Hero figure with quiet baseline caption */}
       <div className="relative flex items-end gap-2">
         <p className="text-5xl lg:text-6xl font-display font-bold tracking-tighter text-[#17171c] leading-[0.85]">{streak}</p>
-        <p className="text-[9px] lg:text-[10px] font-bold uppercase tracking-widest text-[#4a443a] mb-0.5 whitespace-nowrap">Day Streak</p>
+        <p className="text-[10px] lg:text-[10px] font-bold uppercase tracking-widest text-[#4a443a] mb-0.5 whitespace-nowrap">Day Streak</p>
       </div>
 
       {/* Daily goal: today's actions against a fixed target, Duolingo-style */}
       <div className="relative">
         <div className="flex justify-between items-end mb-1.5">
-          <span className="text-[8px] lg:text-[9px] font-bold uppercase tracking-widest text-[#8a8172]">Today</span>
-          <span className="text-[9px] lg:text-[10px] font-bold font-mono text-[#4a443a]">{today}/{goal}</span>
+          <span className="text-[8px] lg:text-[10px] font-bold uppercase tracking-widest text-[#8a8172]">Today</span>
+          <span className="text-[10px] lg:text-[10px] font-bold font-mono text-[#4a443a]">{today}/{goal}</span>
         </div>
         <div className="h-1.5 w-full rounded-full bg-black/[0.06] overflow-hidden ring-1 ring-inset ring-black/10">
           <div className="h-full rounded-full bg-[#F63C49] transition-all duration-700" style={{ width: `${goalPct}%` }}></div>
@@ -136,7 +136,7 @@ const ProgressGraphCard = ({ data, labels, total }: { data: number[], labels: st
     return (
         <div className="p-6 rounded-3xl surface-1 flex flex-col justify-between h-36 lg:h-40 relative overflow-hidden group hover:border-white/20 transition-all animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500" style={{ animationDelay: '90ms' }}>
             <div className="flex justify-between items-start z-10">
-                <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-slate-500">Last 7 days</span>
+                <span className="text-[10px] uppercase tracking-[0.25em] font-bold text-slate-500">Last 7 days</span>
                 <div className="flex items-center gap-2">
                     <span className="relative flex h-1.5 w-1.5">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D61A40] opacity-75"></span>
@@ -356,7 +356,7 @@ const Dashboard: React.FC = () => {
               <Link to={`/app/subject/${exam.subjectId}`} key={exam.subjectId} style={{ animationDelay: `${i * 50}ms` }} className={`group animate-in fade-in slide-in-from-bottom-2 fill-mode-both duration-500 flex items-center gap-5 p-3 rounded-2xl hover:bg-white/5 transition-all cursor-pointer border border-transparent hover:border-white/5 ${i !== nextIdx && nextIdx !== -1 && i < nextIdx ? 'opacity-40' : ''}`}>
                 {/* Date Ticket */}
                 <div className="w-14 h-14 rounded-xl surface-2 flex flex-col items-center justify-center shrink-0 group-hover:border-[#F63C49] transition-colors">
-                  <span className="text-[9px] font-bold uppercase tracking-widest text-slate-500">{exam.date.toLocaleString('default', { month: 'short' })}</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">{exam.date.toLocaleString('default', { month: 'short' })}</span>
                   <span className="text-xl font-display font-bold text-white leading-none mt-0.5">{exam.date.getDate()}</span>
                 </div>
 

@@ -17,10 +17,30 @@ const ITEMS = [
   { label: 'Settings', short: 'Settings', to: '/app/settings', icon: Settings, match: (p: string) => p === '/app/settings' },
 ];
 
+const SaveHint: React.FC = () => {
+  const { lastSavedAt, saveFailed } = useData();
+  const failed = saveFailed.length > 0;
+  const time = lastSavedAt
+    ? new Date(lastSavedAt).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: false })
+    : null;
+  const label = failed
+    ? `Saving failed for ${saveFailed.length} item${saveFailed.length === 1 ? '' : 's'}. Open Settings to export a backup.`
+    : time
+      ? `All progress saved in this browser. Last saved ${time}.`
+      : 'Progress saves automatically in this browser.';
+  return (
+    <div role="status" aria-label={label} title={label}
+      className={`w-10 h-10 rounded-full bg-white/5 border flex flex-col items-center justify-center ${failed ? 'border-[#F63C49] text-[#F63C49]' : 'border-white/10 text-[#F63C49]'}`}>
+      <HardDrive size={failed ? 15 : 17} aria-hidden="true" />
+      {failed && <span aria-hidden="true" className="text-[8px] font-mono font-bold leading-none mt-0.5">!</span>}
+    </div>
+  );
+};
+
 const Avatar: React.FC<{ size: number }> = ({ size }) => {
   const { profile } = useData();
   return (
-    <Link to="/app/settings" aria-label="Settings" className="block" style={{ width: size, height: size }}>
+    <Link to="/app/settings" aria-label="Profile settings" title="Profile settings" className="block" style={{ width: size, height: size }}>
       <ProfileAvatar id={profile?.avatarId} shape={profile?.avatarShape} size={size} />
     </Link>
   );
@@ -39,12 +59,14 @@ const DesktopNav: React.FC = () => {
               const active = it.match(pathname);
               return (
                 <Link key={it.to} to={it.to} aria-label={it.short} title={it.label} aria-current={active ? 'page' : undefined}
-                  className={`relative w-12 h-12 rounded-2xl flex items-center justify-center transition-colors ${EASE} ${active ? 'bg-white text-black' : 'text-white/40 hover:text-white hover:bg-white/5'}`}>
+                  className={`group relative w-12 h-12 rounded-2xl flex items-center justify-center transition-colors ${EASE} ${active ? 'bg-white text-black' : 'text-white/60 hover:text-white hover:bg-white/5'}`}>
                   {active && (
                     <motion.span layoutId="spine-strip" transition={SPRING}
                       className="absolute -left-[13px] top-1/2 -translate-y-1/2 w-[3px] h-7 rounded-full bg-[#F63C49]" />
                   )}
                   <it.icon size={21} strokeWidth={active ? 2.4 : 1.9} />
+                
+                  <span aria-hidden="true" className="pointer-events-none absolute left-full ml-3 top-1/2 -translate-y-1/2 px-2.5 py-1.5 rounded-lg bg-white text-black text-[10px] font-bold uppercase tracking-widest whitespace-nowrap opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100 shadow-xl z-50">{it.label}</span>
                 </Link>
               );
             })}
@@ -52,7 +74,7 @@ const DesktopNav: React.FC = () => {
         </LayoutGroup>
       </MotionConfig>
       <div className="mt-2 pt-6 border-t border-white/[0.07] w-full flex flex-col items-center gap-5">
-        <span className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#F63C49]" title="Local storage active"><HardDrive size={17} /></span>
+        <SaveHint />
         <Avatar size={40} />
       </div>
     </aside>
