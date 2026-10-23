@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "sample-announcements-preview",
+      "date": "2026-10-24",
+      "tag": "Update",
+      "title": "Announcements are coming to PrepTracker",
+      "body": "This is a sample entry so you can see how the panel looks. Real notes from Manav - updates, exam alerts, new resources - will show up here."
+    }
+  ]
+}
