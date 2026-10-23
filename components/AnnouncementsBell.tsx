@@ -58,7 +58,9 @@ const Panel: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const ref = useModalA11y(true, onClose);
   useLayoutEffect(() => { ref.current?.focus(); }, [ref]);
   const state = useSyncExternalStore(subscribeAnnouncements, getAnnouncementsState);
-  const freshIds = React.useMemo(() => new Set(unreadAnnouncements(state).map((a) => a.id)), [state]);
+  // Frozen when the sheet opens: which entries were unread right then. Opening
+  // marks everything seen, but the "new" dots stay for this viewing.
+  const [freshIds] = React.useState(() => new Set(unreadAnnouncements(getAnnouncementsState()).map((a) => a.id)));
 
   // Opening the panel marks everything seen and re-checks for new posts.
   useEffect(() => {
