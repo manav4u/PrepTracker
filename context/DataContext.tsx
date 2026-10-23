@@ -19,6 +19,10 @@ interface DataContextType {
   setMarks: React.Dispatch<React.SetStateAction<MarksMap>>;
   resources: ResourceItem[];
   storageFull: boolean;
+  // Keys whose last save the browser refused (storage full, private mode, blocked).
+  saveFailed: string[];
+  // Time of the last save the browser accepted. Never stamped on a failed write.
+  lastSavedAt: number | null;
   addResource: (resource: ResourceItem) => void;
   deleteResources: (ids: string[]) => void;
 }
@@ -115,8 +119,10 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
 
   // Persistence Effects. A refused save is remembered per key so the app can say so once.
   const [failed, setFailed] = useState<string[]>([]);
+  const [lastSavedAt, setLastSavedAt] = useState<number | null>(null);
   const save = (key: string, value: unknown) => {
     const ok = persist(localStorage, key, value);
+    if (ok) setLastSavedAt(Date.now());
     setFailed(f => (ok ? (f.includes(key) ? f.filter(k => k !== key) : f) : (f.includes(key) ? f : [...f, key])));
   };
   useEffect(() => {
@@ -185,6 +191,8 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
       setMarks,
       resources,
       storageFull: failed.length > 0,
+      saveFailed: failed,
+      lastSavedAt,
       addResource,
       deleteResources
     }}>
