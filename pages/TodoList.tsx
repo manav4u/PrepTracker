@@ -71,9 +71,9 @@ interface RowActions {
   touchEnd: (id: string) => void;
 }
 const ACTIONS_W = 144;
-const TaskRow = React.memo(function TaskRow({ task, open, dragX, editing, draw, unit, act }: {
+const TaskRow = React.memo(function TaskRow({ task, open, dragX, editing, draw, unit, subjectName, act }: {
   task: Task; open: boolean; dragX: number | null; editing: boolean; draw: boolean;
-  unit: { subjectId: string; text: string } | null; act: RowActions;
+  unit: { subjectId: string; text: string } | null; subjectName?: string | null; act: RowActions;
 }) {
   const catConfig = CATEGORY_CONFIG[task.category] || CATEGORY_CONFIG['GENERAL'];
   const priConfig = PRIORITY_CONFIG[task.priority] || PRIORITY_CONFIG['NORMAL'];
@@ -164,8 +164,14 @@ const TaskRow = React.memo(function TaskRow({ task, open, dragX, editing, draw, 
                                         </span>
 
                                         {task.unitId && unit && (
-                                                    <Link to={`/subject/${unit!.subjectId}`} className="text-[10px] font-bold uppercase tracking-wider text-slate-400 hover:text-white border border-white/10 rounded-full px-2 py-0.5">
+                                                    <Link to={`/app/subject/${unit!.subjectId}`} className="text-[10px] font-bold uppercase tracking-wider text-slate-400 hover:text-white border border-white/10 rounded-full px-2 py-0.5">
                                                         {unit!.text}
+                                                    </Link>
+                                                )}
+
+                                        {!task.unitId && task.subjectId && subjectName && (
+                                                    <Link to={`/app/subject/${task.subjectId}`} className="text-[10px] font-bold uppercase tracking-wider text-slate-400 hover:text-white border border-white/10 rounded-full px-2 py-0.5">
+                                                        {subjectName}
                                                     </Link>
                                                 )}
 
@@ -259,7 +265,7 @@ const CustomSelect = <T extends string>({
 
   return (
     <div className={`relative ${compact ? 'space-y-1 lg:space-y-2' : 'space-y-2'}`} ref={containerRef}>
-      <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">{label}</label>
+      <label className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">{label}</label>
       <button
         type="button"
         disabled={disabled}
@@ -355,8 +361,8 @@ const TodoList: React.FC = () => {
     if (editingId) {
       setTasks(prev => prev.map(t => {
         if (t.id !== editingId) return t;
-        const { unitId: _drop, ...rest } = t;
-        return { ...rest, text: inputText.trim(), priority: inputPriority, category: inputCategory, dueDate: inputDate || '', ...(inputUnit ? { unitId: inputUnit } : {}) };
+        const { unitId: _drop, subjectId: _dropSubject, ...rest } = t;
+        return { ...rest, text: inputText.trim(), priority: inputPriority, category: inputCategory, dueDate: inputDate || '', ...(inputSubject ? { subjectId: inputSubject } : {}), ...(inputUnit ? { unitId: inputUnit } : {}) };
       }));
       const editedId = editingId;
       resetForm();
@@ -374,6 +380,7 @@ const TodoList: React.FC = () => {
       priority: inputPriority,
       category: inputCategory,
       dueDate: inputDate || '',
+      ...(inputSubject ? { subjectId: inputSubject } : {}),
       ...(inputUnit ? { unitId: inputUnit } : {}),
       createdAt: new Date().toISOString()
     };
@@ -541,7 +548,7 @@ const TodoList: React.FC = () => {
 
             <div className="relative flex items-end justify-between gap-4">
                 <div className="flex flex-col gap-2">
-                    <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-[#8a8172]">Tasks done</span>
+                    <span className="text-[10px] uppercase tracking-[0.25em] font-bold text-[#8a8172]">Tasks done</span>
                     <span className="relative inline-block">
                         <span className={`font-display font-bold tracking-tighter text-[#17171c] leading-[0.85] ${allClear || totalCount >= 100 ? 'text-4xl' : 'text-4xl lg:text-5xl'}`} data-testid="tasks-done">{totalCount === 0 ? '--' : allClear ? 'All clear' : `${completedCount}/${totalCount}`}</span>
                         {burst && allClear && (
@@ -579,7 +586,7 @@ const TodoList: React.FC = () => {
                     
                     {/* Text Input */}
                     <div className="space-y-2">
-                        <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Task Title</label>
+                        <label className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Task Title</label>
                         <input 
                             type="text" 
                             value={inputText}
@@ -623,7 +630,7 @@ const TodoList: React.FC = () => {
 
                     {/* Date Input */}
                     <div className="space-y-2">
-                        <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Due date (optional)</label>
+                        <label className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Due date (optional)</label>
                         <div className="relative group">
                             <Calendar size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-[#F63C49] transition-colors" />
                             <input 
@@ -654,6 +661,9 @@ const TodoList: React.FC = () => {
                         {editingId ? <Check size={16} /> : <Plus size={16} />} {editingId ? 'Save changes' : 'Add Task'}
                     </button>
                     </div>
+                    {!editingId && !inputText.trim() && (
+                        <p className="text-xs text-slate-500 -mt-2">Type a title above to enable Add Task.</p>
+                    )}
                 </form>
             </div>
         </div>
@@ -706,7 +716,7 @@ const TodoList: React.FC = () => {
                     </div>
                 ) : (
                     visibleTasks.map(task => (
-                        <TaskRow key={task.id} task={task} open={openId === task.id} dragX={drag?.id === task.id ? drag.x : null} editing={editingId === task.id} draw={drawId === task.id} unit={task.unitId ? unitLabel(task.unitId) : null} act={act} />
+                        <TaskRow key={task.id} task={task} open={openId === task.id} dragX={drag?.id === task.id ? drag.x : null} editing={editingId === task.id} draw={drawId === task.id} unit={task.unitId ? unitLabel(task.unitId) : null} subjectName={task.subjectId ? allSubjects.find(s => s.id === task.subjectId)?.name ?? null : null} act={act} />
                     ))
                 )}
                 {moreLeft && <div ref={sentinel} aria-hidden="true" className="h-px" />}

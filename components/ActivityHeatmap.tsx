@@ -73,8 +73,8 @@ const ActivityHeatmap: React.FC<{ profile: ActivityProfile; style?: React.CSSPro
     >
       {/* Header */}
       <div className="relative flex items-center gap-3 mb-4">
-        <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-slate-500">Activity</span>
-        <span className="text-[9px] font-mono uppercase tracking-widest text-slate-600">{monthLabel}</span>
+        <span className="text-[10px] uppercase tracking-[0.25em] font-bold text-slate-500">Activity</span>
+        <span className="text-[10px] font-mono uppercase tracking-widest text-slate-600">{monthLabel}</span>
       </div>
 
       {/* Grid + day detail: side by side on desktop, stacked on phone */}
@@ -132,7 +132,7 @@ const ActivityHeatmap: React.FC<{ profile: ActivityProfile; style?: React.CSSPro
         <div className="relative rounded-2xl surface-2 p-5 lg:p-7 w-full lg:flex-1 flex flex-col">
           <div className="flex items-center justify-between mb-3 lg:mb-4 shrink-0">
             <p className="text-sm lg:text-lg font-display font-bold text-white tracking-tight">{selectedLabel}</p>
-            <span className="text-[9px] lg:text-[10px] font-bold uppercase tracking-widest text-slate-500">
+            <span className="text-[10px] lg:text-[10px] font-bold uppercase tracking-widest text-slate-500">
               {selectedCount === 0 ? 'No study' : `${selectedCount} action${selectedCount === 1 ? '' : 's'}`}
             </span>
           </div>

@@ -100,6 +100,7 @@ export interface Task {
   priority: Priority;
   category: TaskCategory;
   dueDate?: string;
+  subjectId?: string; // optional link to a syllabus subject (kept even without a unit)
   unitId?: string; // optional link to a syllabus unit
   createdAt: string;
 }
