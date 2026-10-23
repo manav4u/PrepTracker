@@ -1,4 +1,5 @@
 import React, { useEffect, useLayoutEffect, useSyncExternalStore } from 'react';
+import { createPortal } from 'react-dom';
 import { Bell, X } from 'lucide-react';
 import { useModalA11y } from './useModalA11y';
 import {
@@ -50,7 +51,9 @@ const AnnouncementCard: React.FC<{ item: Announcement; fresh: boolean }> = ({ it
   </article>
 );
 
-/** Bottom sheet on phone, centered card on desktop - same pattern as the Revise sheet. */
+/** Bottom sheet on phone, centered card on desktop - same pattern as the Revise sheet.
+    Rendered in a portal: the mobile header's backdrop-blur would otherwise trap the
+    fixed overlay inside the header box. */
 const Panel: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const ref = useModalA11y(true, onClose);
   useLayoutEffect(() => { ref.current?.focus(); }, [ref]);
@@ -63,7 +66,7 @@ const Panel: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     refreshAnnouncements(FEED_URL);
   }, []);
 
-  return (
+  return createPortal(
     <div className="fixed inset-0 z-[80] flex items-end lg:items-center justify-center">
       <div onClick={onClose} aria-hidden="true" className={`absolute inset-0 bg-black/70 animate-in fade-in ${EASE}`}></div>
       <div
@@ -97,7 +100,8 @@ const Panel: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           )}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 
