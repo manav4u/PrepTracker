@@ -118,7 +118,10 @@ const PickerFlow: React.FC<{ onDone: (ids: string[]) => void; name: string; setN
     <div className="w-full lg:grid lg:grid-cols-[minmax(0,34rem)_minmax(0,1fr)] lg:gap-16">
     {avatarOpen && <Suspense fallback={<p role="status">Loading avatar picker...</p>}><AvatarPicker current={avatarId} shape={avatarShape} name={name} onClose={() => setAvatarOpen(false)} onSave={(id, shape) => { setAvatarId(id); setAvatarShape(shape); setAvatarOpen(false); }} /></Suspense>}
     <div className={`picker-flow flex flex-col w-full pb-6 ${step === 'name' ? 'lg:justify-center' : ''}`}>
-      <div className="flex gap-1.5 mb-8" role="progressbar" aria-valuemin={1} aria-valuemax={flow.length} aria-valuenow={idx + 1} aria-label="Setup step">
+      {/* Step count is only honest once the year is picked (first year has 3
+          steps, other years 5), so the bar appears from the third step on and
+          never changes length mid-flow. */}
+      <div className="flex gap-1.5 mb-8" role="progressbar" aria-valuemin={1} aria-valuemax={flow.length} aria-valuenow={idx + 1} aria-label="Setup step" style={{ visibility: idx >= 2 ? 'visible' : 'hidden' }}>
         {flow.map((s, i) => <span key={s} className={`h-1 flex-1 rounded-full transition-colors ${EASE} ${i <= idx ? 'bg-[#F63C49]' : 'bg-white/10'}`} />)}
       </div>
 
@@ -126,12 +129,12 @@ const PickerFlow: React.FC<{ onDone: (ids: string[]) => void; name: string; setN
       {step === 'name' ? (
         <div className="mb-6 lg:mb-8">
           <span className="inline-flex items-center gap-2 h-7 px-3 rounded-full border border-white/10 bg-white/[0.03] text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400 mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#F63C49]"></span>{`Step ${idx + 1} of ${flow.length}`}
+            <span className="w-1.5 h-1.5 rounded-full bg-[#F63C49]"></span>{`Step ${idx + 1}${idx >= 2 ? ` of ${flow.length}` : ''}`}
           </span>
           <h2 className="font-display font-bold text-4xl lg:text-6xl tracking-tight leading-[0.95] text-white">What is your name<span className="text-[#F63C49]">.</span></h2>
         </div>
       ) : (
-        <Heading art={step as ArtKind} kicker={`Step ${idx + 1} of ${flow.length}`}>{title}</Heading>
+        <Heading art={step as ArtKind} kicker={`Step ${idx + 1}${idx >= 2 ? ` of ${flow.length}` : ''}`}>{title}</Heading>
       )}
 
       <div className={`${step === 'name' ? 'flex-1 lg:flex-none lg:mt-6' : 'flex-1'} flex flex-col`}>
