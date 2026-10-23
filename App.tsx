@@ -116,6 +116,8 @@ export default function App() {
   const { profile, setProfile, storageFull } = useData();
   const { ready: subjectsReady } = useSubjects();
   const location = useLocation();
+  // GitHub Pages 301s bare /app to /app/ on direct hits, so compare without the trailing slash.
+  const navPath = location.pathname.replace(/\/+$/, '');
   const [mobileSearchOpen, setMobileSearchOpen] = React.useState(false);
 
   // ROUTING LOGIC:
@@ -207,11 +209,11 @@ export default function App() {
                         </div>
 
                         <MotionConfig reducedMotion="user" transition={NAV_SPRING}><LayoutGroup><nav className="flex flex-row lg:flex-col w-full justify-evenly lg:gap-6 items-center">
-                        <NavItem label="Dashboard" to="/app" short="Home" icon={LayoutGrid} active={location.pathname === '/app'} />
-                        <NavItem label="Resources" to="/app/resources" short="Library" icon={Library} active={location.pathname === '/app/resources'} />
-                        <NavItem label="Tasks" to="/app/tasks" short="Tasks" icon={ListTodo} active={location.pathname === '/app/tasks'} />
-                        <NavItem label="Revise" to="/app/revise" short="Revise" icon={Repeat} active={location.pathname === '/app/revise'} />
-                        <NavItem label="Settings" to="/app/settings" short="Settings" icon={Settings} active={location.pathname === '/app/settings'} />
+                        <NavItem label="Dashboard" to="/app" short="Home" icon={LayoutGrid} active={navPath === '/app'} />
+                        <NavItem label="Resources" to="/app/resources" short="Library" icon={Library} active={navPath === '/app/resources'} />
+                        <NavItem label="Tasks" to="/app/tasks" short="Tasks" icon={ListTodo} active={navPath === '/app/tasks'} />
+                        <NavItem label="Revise" to="/app/revise" short="Revise" icon={Repeat} active={navPath === '/app/revise'} />
+                        <NavItem label="Settings" to="/app/settings" short="Settings" icon={Settings} active={navPath === '/app/settings'} />
                         </nav></LayoutGroup></MotionConfig>
 
                         <div className="hidden lg:flex mt-4 pt-8 border-t border-white/5 w-full flex-col items-center gap-6">
