@@ -10,6 +10,14 @@ const ConsentBanner: React.FC = () => {
   useEffect(() => {
     if (readAnalyticsConsent() === null) setVisible(true);
   }, []);
+  // While the banner is up it must never cover page controls: the root class
+  // reserves its height so bottom-anchored layouts (onboarding) lift clear.
+  useEffect(() => {
+    const root = document.documentElement;
+    if (visible) root.classList.add('consent-open');
+    else root.classList.remove('consent-open');
+    return () => root.classList.remove('consent-open');
+  }, [visible]);
   if (!visible) return null;
 
   const choose = (granted: boolean) => {

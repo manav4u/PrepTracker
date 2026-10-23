@@ -78,6 +78,9 @@ const Onboarding: React.FC<OnboardingProps> = () => {
 
             setTimeout(() => {
                 setProfile(newProfile);
+                // Best-effort: ask the browser not to evict this site's data under
+                // storage pressure. Not a guarantee and never promised as one.
+                try { navigator.storage?.persist?.(); } catch { /* unsupported or refused */ }
             }, 800);
             return;
         }
