@@ -49,6 +49,15 @@
          <picture> sources in the prerendered landing. -->
     <link rel="preload" as="image" href="/landing/v2/dash-390.webp" media="(max-width: 900px)" fetchpriority="high" />
     <link rel="preload" as="image" href="/landing/v2/dash-1440.webp" media="(min-width: 901px)" fetchpriority="high" />
+    <!-- Hero view switcher: the other three shots (Subjects, Tasks, Library) render
+         only when their tab is clicked. Preload them at low priority so the click
+         swaps instantly from cache instead of starting the download on click. -->
+    <link rel="preload" as="image" href="/landing/v2/subject-390.webp" media="(max-width: 900px)" fetchpriority="low" />
+    <link rel="preload" as="image" href="/landing/v2/subject-1440.webp" media="(min-width: 901px)" fetchpriority="low" />
+    <link rel="preload" as="image" href="/landing/v2/tasks-390.webp" media="(max-width: 900px)" fetchpriority="low" />
+    <link rel="preload" as="image" href="/landing/v2/tasks-1440.webp" media="(min-width: 901px)" fetchpriority="low" />
+    <link rel="preload" as="image" href="/landing/v2/library-390.webp" media="(max-width: 900px)" fetchpriority="low" />
+    <link rel="preload" as="image" href="/landing/v2/library-1440.webp" media="(min-width: 901px)" fetchpriority="low" />
     <!-- Font stylesheets load non-blocking (print-swap pattern) so they no
          longer hold first paint; display=swap already covers the font swap. -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Caveat:wght@600&family=Instrument+Serif&display=swap">
