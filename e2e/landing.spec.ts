@@ -19,6 +19,8 @@ test.describe('prerendered landing', () => {
   });
 
   test('footer links to the privacy page', async ({ page }) => {
+    // Pre-set the cookie choice so the consent banner cannot cover the footer.
+    await page.addInitScript(() => localStorage.setItem('pt_ga_consent', 'denied'));
     await page.goto('/');
     const link = page.locator('footer a[href="/privacy/"]');
     await expect(link.first()).toBeVisible();
