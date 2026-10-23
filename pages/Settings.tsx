@@ -521,14 +521,16 @@ const SettingsPage: React.FC = () => {
                     </button>
                     <p className="text-[11px] text-slate-500 text-center">{lastBackupLabel ? `Last backup ${lastBackupLabel}` : 'Not backed up yet'}</p>
 
-                    <div
+                    <button
+                        type="button"
+                        aria-label="Restore backup from a JSON file"
                         onDragEnter={handleDrag}
                         onDragLeave={handleDrag}
                         onDragOver={handleDrag}
                         onDrop={handleDrop}
                         onClick={() => fileInputRef.current?.click()}
                         className={`
-                            border border-dashed rounded-2xl h-14 flex items-center justify-center gap-3 text-center transition-colors duration-[250ms] cursor-pointer
+                            w-full border border-dashed rounded-2xl h-14 flex items-center justify-center gap-3 text-center transition-colors duration-[250ms] cursor-pointer
                             ${dragActive
                                 ? 'border-[#F63C49] bg-[#F63C49]/10'
                                 : 'border-white/15 hover:border-white/30 hover:bg-white/[0.03]'
@@ -537,7 +539,7 @@ const SettingsPage: React.FC = () => {
                     >
                         <Upload size={16} className={dragActive ? 'text-[#F63C49]' : 'text-slate-400'} />
                         <span className="text-xs font-bold text-white uppercase tracking-[0.18em]">Restore Backup</span>
-                    </div>
+                    </button>
                     <input
                         type="file"
                         ref={fileInputRef}
