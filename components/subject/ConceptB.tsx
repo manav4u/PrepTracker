@@ -147,7 +147,7 @@ const ConceptB: React.FC<{ s: SubjectDetailState }> = ({ s }) => {
                       </span>
                       <span className="min-w-0">
                         <span className="block text-sm font-bold text-white truncate">{r.title}</span>
-                        <span className="block text-[9px] font-bold uppercase tracking-wider text-slate-600">{r.category} - {r.author}</span>
+                        <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-600">{r.category} - {r.author}</span>
                       </span>
                     </button>
                   );

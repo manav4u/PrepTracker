@@ -86,7 +86,7 @@ const GlobalSearch: React.FC<{ selectedSubjects: string[]; overlay?: boolean; on
             const header = h.group !== lastGroup ? (lastGroup = h.group, h.group) : null;
             return (
               <React.Fragment key={h.key}>
-                {header && <p className="px-4 pt-3 pb-1 text-[9px] font-mono font-bold uppercase tracking-[0.25em] text-slate-600">{header}</p>}
+                {header && <p className="px-4 pt-3 pb-1 text-[10px] font-mono font-bold uppercase tracking-[0.25em] text-slate-600">{header}</p>}
                 <button
                   role="option"
                   aria-selected={i === active}

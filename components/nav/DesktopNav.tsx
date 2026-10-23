@@ -59,12 +59,14 @@ const DesktopNav: React.FC = () => {
               const active = it.match(pathname);
               return (
                 <Link key={it.to} to={it.to} aria-label={it.short} title={it.label} aria-current={active ? 'page' : undefined}
-                  className={`relative w-12 h-12 rounded-2xl flex items-center justify-center transition-colors ${EASE} ${active ? 'bg-white text-black' : 'text-white/40 hover:text-white hover:bg-white/5'}`}>
+                  className={`group relative w-12 h-12 rounded-2xl flex items-center justify-center transition-colors ${EASE} ${active ? 'bg-white text-black' : 'text-white/60 hover:text-white hover:bg-white/5'}`}>
                   {active && (
                     <motion.span layoutId="spine-strip" transition={SPRING}
                       className="absolute -left-[13px] top-1/2 -translate-y-1/2 w-[3px] h-7 rounded-full bg-[#F63C49]" />
                   )}
                   <it.icon size={21} strokeWidth={active ? 2.4 : 1.9} />
+                
+                  <span aria-hidden="true" className="pointer-events-none absolute left-full ml-3 top-1/2 -translate-y-1/2 px-2.5 py-1.5 rounded-lg bg-white text-black text-[10px] font-bold uppercase tracking-widest whitespace-nowrap opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100 shadow-xl z-50">{it.label}</span>
                 </Link>
               );
             })}

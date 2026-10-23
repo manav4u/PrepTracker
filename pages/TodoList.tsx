@@ -259,7 +259,7 @@ const CustomSelect = <T extends string>({
 
   return (
     <div className={`relative ${compact ? 'space-y-1 lg:space-y-2' : 'space-y-2'}`} ref={containerRef}>
-      <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">{label}</label>
+      <label className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">{label}</label>
       <button
         type="button"
         disabled={disabled}
@@ -541,7 +541,7 @@ const TodoList: React.FC = () => {
 
             <div className="relative flex items-end justify-between gap-4">
                 <div className="flex flex-col gap-2">
-                    <span className="text-[9px] uppercase tracking-[0.25em] font-bold text-[#8a8172]">Tasks done</span>
+                    <span className="text-[10px] uppercase tracking-[0.25em] font-bold text-[#8a8172]">Tasks done</span>
                     <span className="relative inline-block">
                         <span className={`font-display font-bold tracking-tighter text-[#17171c] leading-[0.85] ${allClear || totalCount >= 100 ? 'text-4xl' : 'text-4xl lg:text-5xl'}`} data-testid="tasks-done">{totalCount === 0 ? '--' : allClear ? 'All clear' : `${completedCount}/${totalCount}`}</span>
                         {burst && allClear && (
@@ -579,7 +579,7 @@ const TodoList: React.FC = () => {
                     
                     {/* Text Input */}
                     <div className="space-y-2">
-                        <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Task Title</label>
+                        <label className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Task Title</label>
                         <input 
                             type="text" 
                             value={inputText}
@@ -623,7 +623,7 @@ const TodoList: React.FC = () => {
 
                     {/* Date Input */}
                     <div className="space-y-2">
-                        <label className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">Due date (optional)</label>
+                        <label className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Due date (optional)</label>
                         <div className="relative group">
                             <Calendar size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-[#F63C49] transition-colors" />
                             <input 
