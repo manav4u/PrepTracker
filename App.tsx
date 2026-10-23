@@ -73,7 +73,7 @@ const NavItem = ({ to, icon: Icon, active, label, short }: { to: string, icon: a
       aria-label={short || label}
       title={label}
       aria-current={active ? 'page' : undefined}
-      className={`relative group flex flex-row items-center justify-center h-11 rounded-full transition-colors duration-300 ${active ? 'px-4 text-white' : 'w-11 text-white/45 hover:text-white/80'} ${desk}`}
+      className={`relative group flex flex-col items-center justify-center h-12 min-w-[3.25rem] px-2 rounded-2xl transition-colors duration-300 ${active ? 'text-white' : 'text-white/60 hover:text-white/85'} ${desk}`}
     >
       {active && (
         <motion.span
@@ -90,21 +90,9 @@ const NavItem = ({ to, icon: Icon, active, label, short }: { to: string, icon: a
       >
         <Icon size={20} strokeWidth={active ? 2.4 : 1.9} className="lg:w-[22px] lg:h-[22px]" />
       </motion.span>
-      <AnimatePresence initial={false}>
-        {active && (
-          <motion.span
-            key="lbl"
-            layout="position"
-            initial={{ opacity: 0, x: -6 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, transition: { duration: 0.08 } }}
-            transition={{ ...NAV_SPRING, opacity: { duration: 0.2, delay: 0.05, ease: 'easeOut' } }}
-            className="lg:hidden relative z-10 ml-2 whitespace-nowrap text-[10px] font-bold uppercase tracking-[0.18em] leading-none"
-          >
-            {short || label}
-          </motion.span>
-        )}
-      </AnimatePresence>
+      <span className="lg:hidden relative z-10 mt-1 whitespace-nowrap text-[10px] font-bold uppercase tracking-[0.12em] leading-none">
+        {short || label}
+      </span>
       {active && (
         <span className="hidden lg:block absolute top-1/2 -right-2 w-1.5 h-1.5 bg-[#D61A40] rounded-full shadow-[0_0_10px_#F63C49]"></span>
       )}

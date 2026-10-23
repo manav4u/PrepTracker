@@ -108,7 +108,7 @@ const CustomSelect = ({ label, options, value, onChange, placeholder = "Select..
                      {selectedOption ? (
                         <>
                             <span className="text-white font-medium">{selectedOption.label}</span>
-                            {selectedOption.sub && <span className="text-[9px] text-slate-500 font-mono uppercase tracking-wider">{selectedOption.sub}</span>}
+                            {selectedOption.sub && <span className="text-[10px] text-slate-500 font-mono uppercase tracking-wider">{selectedOption.sub}</span>}
                         </>
                      ) : (
                         <span className="text-slate-500">{placeholder}</span>
@@ -131,7 +131,7 @@ const CustomSelect = ({ label, options, value, onChange, placeholder = "Select..
                                 <span className={`text-sm font-medium ${value === opt.value ? 'text-[#F63C49]' : 'text-slate-300 group-hover:text-white'}`}>
                                     {opt.label}
                                 </span>
-                                {opt.sub && <span className="text-[9px] text-slate-600 font-mono uppercase tracking-wider">{opt.sub}</span>}
+                                {opt.sub && <span className="text-[10px] text-slate-600 font-mono uppercase tracking-wider">{opt.sub}</span>}
                             </div>
                             {value === opt.value && <Check size={14} className="text-[#F63C49]" />}
                         </button>
@@ -178,7 +178,7 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ item, onClick, isSelectionM
                         {isYoutube ? <Youtube size={16} /> : item.type === 'video' ? <Video size={16} /> : <FileText size={16} />}
                     </div>
                     <div className="flex flex-col">
-                        <span className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mb-0.5">{item.category}</span>
+                        <span className="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-0.5">{item.category}</span>
                         <span className="text-[10px] font-bold text-white bg-white/[0.07] border border-white/5 px-1.5 py-0.5 rounded-md w-fit">{item.subject}</span>
                     </div>
                 </div>
@@ -441,7 +441,7 @@ const Resources: React.FC = () => {
           </div>
           <span className="inline-flex items-center gap-2 h-10 px-4 rounded-full border border-white/10 surface-1 shrink-0 mb-2">
             <span className="font-sans font-semibold text-white text-lg tabular-nums">{resources.length}</span>
-            <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Items</span>
+            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Items</span>
           </span>
         </div>
       </header>

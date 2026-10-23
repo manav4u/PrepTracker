@@ -386,7 +386,7 @@ const SettingsPage: React.FC = () => {
                 <div className="space-y-5">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         <div className="space-y-2">
-                            <label htmlFor="profile-name" className="text-[9px] font-mono text-slate-500 uppercase tracking-widest block">Your Name</label>
+                            <label htmlFor="profile-name" className="text-[10px] font-mono text-slate-500 uppercase tracking-widest block">Your Name</label>
                             <input
                                 id="profile-name"
                                 type="text"
@@ -396,7 +396,7 @@ const SettingsPage: React.FC = () => {
                             />
                         </div>
                         <div className="space-y-2">
-                            <label htmlFor="profile-prn" className="text-[9px] font-mono text-slate-500 uppercase tracking-widest block">Student ID / PRN</label>
+                            <label htmlFor="profile-prn" className="text-[10px] font-mono text-slate-500 uppercase tracking-widest block">Student ID / PRN</label>
                             <input
                                 id="profile-prn"
                                 type="text"
@@ -409,7 +409,7 @@ const SettingsPage: React.FC = () => {
                     </div>
 
                     <div className="space-y-2">
-                        <label htmlFor="exam-start" className="text-[9px] font-mono text-slate-500 uppercase tracking-widest block">First exam date (for Days to Exam)</label>
+                        <label htmlFor="exam-start" className="text-[10px] font-mono text-slate-500 uppercase tracking-widest block">First exam date (for Days to Exam)</label>
                         <div className="relative group">
                             <input
                                 id="exam-start"
