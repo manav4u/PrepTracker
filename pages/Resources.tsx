@@ -521,7 +521,7 @@ const Resources: React.FC = () => {
             type="button"
             aria-pressed={subjectFilter === o.value}
             onClick={() => setSubjectFilter(o.value)}
-            className={`px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.12em] whitespace-nowrap border transition-all ${
+            className={`inline-flex items-center px-4 h-10 rounded-full text-[11px] font-bold uppercase tracking-[0.12em] whitespace-nowrap border transition-all ${
               subjectFilter === o.value ? 'bg-[#F63C49]/10 border-[#F63C49]/40 text-[#F63C49]' : 'border-white/10 text-slate-500 hover:text-white hover:bg-white/5'
             }`}
           >

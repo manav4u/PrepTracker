@@ -71,9 +71,9 @@ interface RowActions {
   touchEnd: (id: string) => void;
 }
 const ACTIONS_W = 144;
-const TaskRow = React.memo(function TaskRow({ task, open, dragX, editing, draw, unit, act }: {
+const TaskRow = React.memo(function TaskRow({ task, open, dragX, editing, draw, unit, subjectName, act }: {
   task: Task; open: boolean; dragX: number | null; editing: boolean; draw: boolean;
-  unit: { subjectId: string; text: string } | null; act: RowActions;
+  unit: { subjectId: string; text: string } | null; subjectName?: string | null; act: RowActions;
 }) {
   const catConfig = CATEGORY_CONFIG[task.category] || CATEGORY_CONFIG['GENERAL'];
   const priConfig = PRIORITY_CONFIG[task.priority] || PRIORITY_CONFIG['NORMAL'];
@@ -164,8 +164,14 @@ const TaskRow = React.memo(function TaskRow({ task, open, dragX, editing, draw, 
                                         </span>
 
                                         {task.unitId && unit && (
-                                                    <Link to={`/subject/${unit!.subjectId}`} className="text-[10px] font-bold uppercase tracking-wider text-slate-400 hover:text-white border border-white/10 rounded-full px-2 py-0.5">
+                                                    <Link to={`/app/subject/${unit!.subjectId}`} className="text-[10px] font-bold uppercase tracking-wider text-slate-400 hover:text-white border border-white/10 rounded-full px-2 py-0.5">
                                                         {unit!.text}
+                                                    </Link>
+                                                )}
+
+                                        {!task.unitId && task.subjectId && subjectName && (
+                                                    <Link to={`/app/subject/${task.subjectId}`} className="text-[10px] font-bold uppercase tracking-wider text-slate-400 hover:text-white border border-white/10 rounded-full px-2 py-0.5">
+                                                        {subjectName}
                                                     </Link>
                                                 )}
 
@@ -355,8 +361,8 @@ const TodoList: React.FC = () => {
     if (editingId) {
       setTasks(prev => prev.map(t => {
         if (t.id !== editingId) return t;
-        const { unitId: _drop, ...rest } = t;
-        return { ...rest, text: inputText.trim(), priority: inputPriority, category: inputCategory, dueDate: inputDate || '', ...(inputUnit ? { unitId: inputUnit } : {}) };
+        const { unitId: _drop, subjectId: _dropSubject, ...rest } = t;
+        return { ...rest, text: inputText.trim(), priority: inputPriority, category: inputCategory, dueDate: inputDate || '', ...(inputSubject ? { subjectId: inputSubject } : {}), ...(inputUnit ? { unitId: inputUnit } : {}) };
       }));
       const editedId = editingId;
       resetForm();
@@ -374,6 +380,7 @@ const TodoList: React.FC = () => {
       priority: inputPriority,
       category: inputCategory,
       dueDate: inputDate || '',
+      ...(inputSubject ? { subjectId: inputSubject } : {}),
       ...(inputUnit ? { unitId: inputUnit } : {}),
       createdAt: new Date().toISOString()
     };
@@ -654,6 +661,9 @@ const TodoList: React.FC = () => {
                         {editingId ? <Check size={16} /> : <Plus size={16} />} {editingId ? 'Save changes' : 'Add Task'}
                     </button>
                     </div>
+                    {!editingId && !inputText.trim() && (
+                        <p className="text-xs text-slate-500 -mt-2">Type a title above to enable Add Task.</p>
+                    )}
                 </form>
             </div>
         </div>
@@ -706,7 +716,7 @@ const TodoList: React.FC = () => {
                     </div>
                 ) : (
                     visibleTasks.map(task => (
-                        <TaskRow key={task.id} task={task} open={openId === task.id} dragX={drag?.id === task.id ? drag.x : null} editing={editingId === task.id} draw={drawId === task.id} unit={task.unitId ? unitLabel(task.unitId) : null} act={act} />
+                        <TaskRow key={task.id} task={task} open={openId === task.id} dragX={drag?.id === task.id ? drag.x : null} editing={editingId === task.id} draw={drawId === task.id} unit={task.unitId ? unitLabel(task.unitId) : null} subjectName={task.subjectId ? allSubjects.find(s => s.id === task.subjectId)?.name ?? null : null} act={act} />
                     ))
                 )}
                 {moreLeft && <div ref={sentinel} aria-hidden="true" className="h-px" />}

@@ -132,6 +132,7 @@ export default function App() {
             {/* PUBLIC ROUTES */}
             <Route path="/" element={<LandingPage />} />
             <Route path="/landing" element={<Navigate to="/" replace />} />
+            <Route path="/library" element={<Navigate to="/app/resources" replace />} />
             <Route path="/onboarding" element={isSetupComplete ? <Navigate to="/app" replace /> : <Onboarding />} />
 
             {/* APP ROUTES (Protected by Setup Check) */}

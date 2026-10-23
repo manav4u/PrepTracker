@@ -285,7 +285,7 @@ const SettingsPage: React.FC = () => {
     ? Math.round((examStart.getTime() - startOfToday.getTime()) / 86400000)
     : null;
   const examValue = examDiff === null ? '--' : examDiff > 0 ? `${examDiff}d` : examDiff === 0 ? 'Today' : 'Now';
-  const examSub = examDiff === null ? 'Set exam date below' : examDiff >= 0 && examStart
+  const examSub = examDiff === null ? 'Set exam date' : examDiff >= 0 && examStart
     ? `Starts ${examStart.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}`
     : 'Exams started';
   // Hidden easter eggs (no persistence, no extra tab stops)
@@ -367,7 +367,7 @@ const SettingsPage: React.FC = () => {
                 <div className="min-w-0">
                     <p className="text-2xl lg:text-3xl font-display font-bold text-white truncate">{profile.name || 'Your name'}</p>
                     <p className="text-xs font-mono text-slate-400 tracking-widest mt-1 truncate">{profile.prn || 'PRN not set'}</p>
-                    <button className="text-xs text-slate-300 underline underline-offset-4 mt-2 min-h-[44px]" onClick={() => setAvatarOpen(true)}>Change avatar</button>
+
                 </div>
             </div>
             <div className="relative sm:text-right border-t sm:border-t-0 border-white/10 pt-5 sm:pt-0">
