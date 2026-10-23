@@ -20,9 +20,9 @@ test.describe('static library', () => {
   test('privacy page covers data storage, analytics and contact', async ({ page }) => {
     await page.goto('/privacy/');
     await expect(page.getByRole('heading', { name: 'Privacy', level: 1 })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /study data stays on your device/i })).toBeVisible();
-    await expect(page.getByRole('heading', { name: /Visit statistics/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: 'sia@manavdev.site' })).toHaveAttribute('href', 'mailto:sia@manavdev.site');
+    await expect(page.getByRole('heading', { name: /what stays on your device/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /cookies and similar storage/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'sia@manavdev.site' }).first()).toHaveAttribute('href', 'mailto:sia@manavdev.site');
   });
 
   test('reading-mode toggle and print control work', async ({ page }) => {
