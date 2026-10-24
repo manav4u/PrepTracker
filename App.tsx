@@ -27,6 +27,7 @@ const screen = <T extends { default: React.ComponentType<any> }>(load: () => Pro
     throw err;
   }));
 
+const AnnouncementPublisherDemo = screen(() => import('./pages/AnnouncementPublisherDemo'));
 const Dashboard = screen(() => import('./pages/Dashboard'));
 const SubjectDetail = screen(() => import('./pages/SubjectDetail'));
 const Resources = screen(() => import('./pages/Resources'));
@@ -41,6 +42,7 @@ import { useSubjects } from './context/SubjectsContext';
 import ErrorBoundary from './components/ErrorBoundary';
 import LogoMark from './components/LogoMark';
 import DesktopNav from './components/nav/DesktopNav';
+import AnnouncementsBell from './components/AnnouncementsBell';
 import GlobalSearch from './components/GlobalSearch';
 
 const NotFound = () => (
@@ -143,6 +145,7 @@ export default function App() {
     <ErrorBoundary scope="app">
         <Suspense fallback={<div className="min-h-screen bg-[#030303]" />}>
         <Routes>
+            <Route path="/publisher-demo" element={<AnnouncementPublisherDemo />} />
             {/* PUBLIC ROUTES */}
             <Route path="/" element={<LandingPage />} />
             <Route path="/landing" element={<Navigate to="/" replace />} />
@@ -166,6 +169,7 @@ export default function App() {
                         <span className="font-bold tracking-widest uppercase text-xs text-white">PrepTracker</span>
                         </div>
                         <div className="flex items-center gap-2">
+                        <AnnouncementsBell />
                         <button
                         type="button"
                         onClick={() => setMobileSearchOpen(true)}
@@ -242,6 +246,7 @@ export default function App() {
                         </div>
 
                         <div className="flex items-center gap-4">
+                            <AnnouncementsBell />
                             <GlobalSearch selectedSubjects={profile.selectedSubjects || []} />
                         </div>
                         </div>

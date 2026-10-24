@@ -1,0 +1,27 @@
+import { test, expect } from '@playwright/test';
+test('sample publisher validates fields, blocks a simulated failure and never publishes',async({page})=>{
+ await page.goto('/publisher-demo');
+ await expect(page.getByText('No real sign-in, repository changes or publishing.')).toBeVisible();
+ await page.getByRole('button',{name:'Enter sample editor'}).click();
+ await page.getByLabel('Title',{exact:true}).fill('');
+ await page.getByRole('button',{name:'Preview sample',exact:true}).click();
+ await expect(page.getByRole('alert')).toContainText('title is required');
+ await page.getByLabel('Title',{exact:true}).fill('Sample: preview from phone');
+ await page.getByRole('button',{name:'Preview sample',exact:true}).click();
+ await page.getByLabel('Test a failed check',{exact:true}).check();
+ await page.getByRole('button',{name:'Run sample checks'}).click();
+ await expect(page.getByRole('heading',{name:'Sample check failed'})).toBeVisible();
+ await expect(page.getByRole('button',{name:'Simulate publish (not live)',exact:true})).toHaveCount(0);
+ await page.getByLabel('Test a failed check',{exact:true}).uncheck();
+ await page.getByRole('button',{name:'Run sample checks'}).click();
+ await page.getByLabel('Test a deployment failure').check();
+ await page.getByRole('button',{name:'Simulate publish (not live)',exact:true}).click();
+ await expect(page.getByRole('heading',{name:'Simulated deployment failed'})).toBeVisible();
+ await page.getByRole('button',{name:'Start another sample'}).click();
+ await page.getByRole('button',{name:'Preview sample',exact:true}).click();
+ await page.getByRole('button',{name:'Run sample checks'}).click();
+ await page.getByRole('button',{name:'Simulate publish (not live)',exact:true}).click();
+ await expect(page.getByRole('heading',{name:'Demo complete. Nothing is live.'})).toBeVisible();
+ await page.getByRole('button',{name:'Start another sample'}).click();
+ await expect(page.getByLabel('Title',{exact:true})).toHaveValue('Sample: a note from Manav');
+});
