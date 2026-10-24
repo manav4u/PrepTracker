@@ -74,6 +74,11 @@ test('unread is everything not yet seen; marking seen clears it', () => {
 test('invalid schema, invalid entries and network errors retain current notices; intentional empty feed clears', async () => {
   const { refreshAnnouncements } = await import('../lib/announcements.ts');
   const original = globalThis.fetch;
+  const originalStorage=globalThis.localStorage;
+  const stored=new Map<string,string>();
+  globalThis.localStorage={getItem:(k:string)=>stored.get(k)??null,setItem:(k:string,v:string)=>{stored.set(k,v);},removeItem:(k:string)=>{stored.delete(k);},clear:()=>stored.clear(),key:()=>null,get length(){return stored.size;}};
+  const oldCache=JSON.stringify({items:[good]});
+  stored.set('sppu_announcements_cache',oldCache);
   try {
     for (const raw of [{version:2,items:[]},{version:1,items:[{id:'broken'}]},{version:1,items:[good,{...good}]}]) {
       __resetAnnouncementsForTests({items:[good], seen:[], loaded:false});
@@ -81,6 +86,7 @@ test('invalid schema, invalid entries and network errors retain current notices;
       await refreshAnnouncements('/sample.json');
       assert.deepEqual(getAnnouncementsState().items,[good]);
       assert.equal(getAnnouncementsState().loaded,true);
+      assert.equal(stored.get('sppu_announcements_cache'),oldCache);
     }
     globalThis.fetch = async () => new Response('{bad-json', {status:200});
     await refreshAnnouncements('/sample.json');
@@ -94,5 +100,6 @@ test('invalid schema, invalid entries and network errors retain current notices;
     globalThis.fetch = async () => new Response(JSON.stringify({version:1,items:[]}));
     await refreshAnnouncements('/sample.json');
     assert.deepEqual(getAnnouncementsState().items,[]);
-  } finally { globalThis.fetch=original; }
+    assert.deepEqual(JSON.parse(stored.get('sppu_announcements_cache')!).items,[]);
+  } finally { globalThis.fetch=original; globalThis.localStorage=originalStorage; }
 });

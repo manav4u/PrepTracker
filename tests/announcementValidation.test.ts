@@ -12,4 +12,5 @@ test('strict feed rejects invalid dates, duplicate IDs, bad links, fields and li
  assert.ok(validate([item,item]).length);
  assert.ok(validate(Array.from({length:21},(_,i)=>({...item,id:`s${i}`}))).length);
  assert.ok(validateAnnouncementFeed({version:2,items:[]}).length);
+ assert.ok(validateAnnouncementFeed({version:1,items:[],extra:true}).length);
 });

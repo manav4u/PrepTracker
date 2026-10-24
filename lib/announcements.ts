@@ -19,7 +19,7 @@ const isNonEmptyString = (v: unknown): v is string => typeof v === 'string' && v
 const safeLink = (v: unknown): string | undefined =>
   typeof v === 'string' && /^https:\/\/\S+$/.test(v) ? v : undefined;
 
-/** Validate the published file strictly. Anything off-shape is dropped, never thrown. */
+/** Forgiving display/cache parser. Network acceptance uses the strict validator first. */
 export function parseAnnouncements(raw: unknown): Announcement[] {
   if (!raw || typeof raw !== 'object') return [];
   const file = raw as { version?: unknown; items?: unknown };

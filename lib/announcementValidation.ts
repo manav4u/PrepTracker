@@ -8,6 +8,7 @@ export function validateAnnouncementFeed(raw: unknown): string[] {
   const f = raw as Record<string, unknown>;
   if (f.version !== 1 || !Array.isArray(f.items)) return ['Feed needs version 1 and an items array.'];
   const errors: string[] = [];
+  if (Object.keys(f).some(k => !['version','items'].includes(k))) errors.push('Feed has an unknown field.');
   if (f.items.length > 20) errors.push('Keep at most 20 notices; remove an older notice first.');
   const ids = new Set<string>();
   f.items.forEach((entry, i) => {
