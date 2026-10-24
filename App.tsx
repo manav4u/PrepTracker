@@ -41,6 +41,7 @@ import { useSubjects } from './context/SubjectsContext';
 import ErrorBoundary from './components/ErrorBoundary';
 import LogoMark from './components/LogoMark';
 import DesktopNav from './components/nav/DesktopNav';
+import AnnouncementsBell from './components/AnnouncementsBell';
 import GlobalSearch from './components/GlobalSearch';
 
 const NotFound = () => (
@@ -166,6 +167,7 @@ export default function App() {
                         <span className="font-bold tracking-widest uppercase text-xs text-white">PrepTracker</span>
                         </div>
                         <div className="flex items-center gap-2">
+                        <AnnouncementsBell />
                         <button
                         type="button"
                         onClick={() => setMobileSearchOpen(true)}
@@ -242,6 +244,7 @@ export default function App() {
                         </div>
 
                         <div className="flex items-center gap-4">
+                            <AnnouncementsBell />
                             <GlobalSearch selectedSubjects={profile.selectedSubjects || []} />
                         </div>
                         </div>
