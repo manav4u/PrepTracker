@@ -18,6 +18,8 @@ export default function AnnouncementPublisherDemo() {
  const update = (key: keyof Announcement, value: string) => {setDraft(d=>({...d,[key]:value}));setErrors([]);};
  const review = () => { const e=validateAnnouncementFeed(feed);setErrors(e);if(!e.length)setPhase('preview'); };
  const reset = () => { setPhase('write');setDraft({...SAMPLE});setErrors([]);setFailChecks(false);setFailDeploy(false); };
+ const headingRef = React.useRef<HTMLHeadingElement>(null);
+ React.useEffect(()=>{if(phase!=='write')headingRef.current?.focus();},[phase]);
  const step = phase==='write'?0:phase==='preview'?1:phase==='checked'||phase==='failed'?2:3;
  const primary='min-h-12 px-6 rounded-full bg-[#D61A40] hover:bg-[#F63C49] text-white font-bold text-sm transition-colors disabled:opacity-40 disabled:cursor-not-allowed';
  const secondary='min-h-12 px-5 rounded-full border border-white/15 hover:bg-white/5 text-sm text-slate-200 transition-colors';
@@ -49,13 +51,13 @@ export default function AnnouncementPublisherDemo() {
        <label className="block text-xs text-slate-400 mt-5">Title<input className={input} value={draft.title} maxLength={120} onChange={e=>update('title',e.target.value)} /></label>
        <label className="block text-xs text-slate-400 mt-5">Message<textarea className={input+' min-h-36 resize-y'} value={draft.body} maxLength={2000} onChange={e=>update('body',e.target.value)}/></label>
        <div className="flex justify-end text-[10px] text-slate-500 mt-1">{draft.body.length}/2000</div>
-       <label className="block text-xs text-slate-400 mt-4">Date<input type="date" className={input} value={draft.date} onChange={e=>update('date',e.target.value)}/></label>
+       <label className="block text-xs text-slate-400 mt-4">Date<input type="date" style={{colorScheme:'dark'}} className={input} value={draft.date} onChange={e=>update('date',e.target.value)}/></label>
        <label className="block text-xs text-slate-400 mt-5">HTTPS link <span className="text-slate-600">(optional)</span><input type="url" className={input} placeholder="https://" value={draft.link||''} onChange={e=>{const v=e.target.value;setDraft(d=>{const n={...d};if(v)n.link=v;else delete n.link;return n;});setErrors([]);}}/></label>
        {errors.length>0&&<div role="alert" className="text-xs text-red-300 leading-relaxed mt-5">{errors.map(e=><p key={e}>{e}</p>)}</div>}
        <button type="submit" className={primary+' mt-7 w-full'}>Preview sample</button>
       </form> : <div key={phase} className="animate-in fade-in duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
-       <h2 className="text-xl font-bold">{phase==='preview'?'Ready for a closer look?':phase==='failed'?'Sample check failed':phase==='checked'?'Sample checks passed':failDeploy?'Simulated deployment failed':'Demo complete. Nothing is live.'}</h2>
-       <p role="status" className="text-sm text-slate-400 leading-relaxed mt-4">{phase==='preview'?'The original announcement card is shown beside this form (below on phone). Review the words and link before sending for checks.':phase==='failed'?'This is a deliberately simulated failure. Publish stays blocked. Edit the draft or turn the test failure off and retry.':phase==='checked'?'The demo feed passes local validation. CI and repository access are simulated, not actually connected.':failDeploy?'In the real publisher, a failed deployment must show Not live. A merge alone is not a successful publication.':'This sample completed the flow in memory only. No PR was created, no notices were published, and no students were contacted.'}</p>
+       <h2 ref={headingRef} tabIndex={-1} className="text-xl font-bold outline-none">{phase==='preview'?'Ready for a closer look?':phase==='failed'?'Sample check failed':phase==='checked'?'Sample checks passed':failDeploy?'Simulated deployment failed':'Demo complete. Nothing is live.'}</h2>
+       <p role="status" className="text-sm text-slate-400 leading-relaxed mt-4">{phase==='preview'?'The original announcement card is shown beside this form (above on phone). Review the words and link before sending for checks.':phase==='failed'?'This is a deliberately simulated failure. Publish stays blocked. Edit the draft or turn the test failure off and retry.':phase==='checked'?'The demo feed passes local validation. CI and repository access are simulated, not actually connected.':failDeploy?'In the real publisher, a failed deployment must show Not live. A merge alone is not a successful publication.':'This sample completed the flow in memory only. No PR was created, no notices were published, and no students were contacted.'}</p>
        {phase==='preview'&&<div className="mt-6 rounded-2xl bg-black/30 border border-white/10 p-4 text-xs leading-relaxed text-slate-400"><strong className="text-slate-200">Real-workflow privacy note:</strong> PrepTracker’s repository is public. Sending for checks would make the text public in a PR before final publication.</div>}
        {(phase==='preview'||phase==='failed')&&<label className="flex items-center gap-3 text-xs text-slate-400 mt-6 min-h-11"><input type="checkbox" checked={failChecks} onChange={e=>setFailChecks(e.target.checked)}/> Test a failed check</label>}
        {phase==='checked'&&<><ul className="space-y-3 mt-6 text-sm text-slate-300">{['Feed validation passed locally','CI checks: simulated','Commit review: simulated'].map(t=><li key={t} className="flex gap-2 items-center"><Check size={15} className="text-[#F63C49]"/>{t}</li>)}</ul><label className="flex items-center gap-3 text-xs text-slate-400 mt-6 min-h-11"><input type="checkbox" checked={failDeploy} onChange={e=>setFailDeploy(e.target.checked)}/> Test a deployment failure</label></>}
@@ -67,7 +69,7 @@ export default function AnnouncementPublisherDemo() {
        </div>
       </div>}
      </section>
-     <aside className="lg:sticky lg:top-8 space-y-4">
+     <aside className={'lg:sticky lg:top-8 space-y-4 '+(phase!=='write'?'order-first lg:order-last':'')}>
       <div className="rounded-3xl border border-white/10 bg-[#0a0a0a] p-6 lg:p-8">
        <div className="flex items-center gap-2 text-slate-400 text-[10px] uppercase tracking-[0.18em] mb-5"><Bell size={15}/> Student card preview</div>
        <AnnouncementCard item={draft} fresh={true}/>

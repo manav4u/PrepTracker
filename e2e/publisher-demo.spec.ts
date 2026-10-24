@@ -14,6 +14,12 @@ test('sample publisher validates fields, blocks a simulated failure and never pu
  await expect(page.getByRole('button',{name:'Simulate publish (not live)',exact:true})).toHaveCount(0);
  await page.getByLabel('Test a failed check',{exact:true}).uncheck();
  await page.getByRole('button',{name:'Run sample checks'}).click();
+ await page.getByLabel('Test a deployment failure').check();
+ await page.getByRole('button',{name:'Simulate publish (not live)',exact:true}).click();
+ await expect(page.getByRole('heading',{name:'Simulated deployment failed'})).toBeVisible();
+ await page.getByRole('button',{name:'Start another sample'}).click();
+ await page.getByRole('button',{name:'Preview sample',exact:true}).click();
+ await page.getByRole('button',{name:'Run sample checks'}).click();
  await page.getByRole('button',{name:'Simulate publish (not live)',exact:true}).click();
  await expect(page.getByRole('heading',{name:'Demo complete. Nothing is live.'})).toBeVisible();
  await page.getByRole('button',{name:'Start another sample'}).click();
