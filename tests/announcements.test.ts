@@ -70,3 +70,29 @@ test('unread is everything not yet seen; marking seen clears it', () => {
   __resetAnnouncementsForTests({ items: [good, { ...good, id: 'a2' }, { ...good, id: 'a3' }], seen: getAnnouncementsState().seen, loaded: true });
   assert.deepEqual(unreadAnnouncements().map((a) => a.id), ['a3']);
 });
+
+test('invalid schema, invalid entries and network errors retain current notices; intentional empty feed clears', async () => {
+  const { refreshAnnouncements } = await import('../lib/announcements.ts');
+  const original = globalThis.fetch;
+  try {
+    for (const raw of [{version:2,items:[]},{version:1,items:[{id:'broken'}]},{version:1,items:[good,{...good}]}]) {
+      __resetAnnouncementsForTests({items:[good], seen:[], loaded:false});
+      globalThis.fetch = async () => new Response(JSON.stringify(raw), {status:200});
+      await refreshAnnouncements('/sample.json');
+      assert.deepEqual(getAnnouncementsState().items,[good]);
+      assert.equal(getAnnouncementsState().loaded,true);
+    }
+    globalThis.fetch = async () => new Response('{bad-json', {status:200});
+    await refreshAnnouncements('/sample.json');
+    assert.deepEqual(getAnnouncementsState().items,[good]);
+    globalThis.fetch = async () => {throw Error('offline');};
+    await refreshAnnouncements('/sample.json');
+    assert.deepEqual(getAnnouncementsState().items,[good]);
+    globalThis.fetch = async () => new Response('', {status:500});
+    await refreshAnnouncements('/sample.json');
+    assert.deepEqual(getAnnouncementsState().items,[good]);
+    globalThis.fetch = async () => new Response(JSON.stringify({version:1,items:[]}));
+    await refreshAnnouncements('/sample.json');
+    assert.deepEqual(getAnnouncementsState().items,[]);
+  } finally { globalThis.fetch=original; }
+});

@@ -1,17 +1,11 @@
 // Announcements: short broadcast notes from the site owner, published as a static
 // announcements.json next to the app. No backend - the file is the database.
 // The last good copy is kept in browser storage, so the panel works offline and
-// a malformed publish can never break the app.
+// invalid JSON or an invalid feed retains the last validated copy.
 import { persist } from './persist.ts';
 
-export interface Announcement {
-  id: string;
-  date: string; // YYYY-MM-DD
-  tag: string;  // e.g. Update, Exam alert, Resource
-  title: string;
-  body: string;
-  link?: string; // https only
-}
+import { validateAnnouncementFeed, type Announcement } from './announcementValidation.ts';
+export type { Announcement } from './announcementValidation.ts';
 
 const CACHE_KEY = 'sppu_announcements_cache';
 const SEEN_KEY = 'sppu_announcements_seen';
@@ -111,8 +105,10 @@ export function refreshAnnouncements(url: string): Promise<void> {
       const timer = setTimeout(() => controller.abort(), 6000);
       const res = await fetch(url, { cache: 'no-store', signal: controller.signal });
       clearTimeout(timer);
-      if (!res.ok) return;
-      const items = parseAnnouncements(await res.json());
+      if (!res.ok) throw new Error('Feed unavailable');
+      const raw = await res.json();
+      if (validateAnnouncementFeed(raw).length) throw new Error('Invalid announcement feed');
+      const items = parseAnnouncements(raw);
       state = { ...state, items, loaded: true };
       if (storageAvailable()) persist(localStorage, CACHE_KEY, { fetchedAt: Date.now(), items });
       emit();

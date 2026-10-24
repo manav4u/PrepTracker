@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/generate-catalog.mjs && vite build && node scripts/postbuild.mjs && node scripts/prerender-landing.mjs && node scripts/prerender.mjs",
+    "build": "npm run validate:announcements && node scripts/generate-catalog.mjs && vite build && node scripts/postbuild.mjs && node scripts/prerender-landing.mjs && node scripts/prerender.mjs",
     "preview": "vite preview",
     "test": "node --test tests/*.test.ts",
     "typecheck": "tsc --noEmit",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "validate:announcements": "node scripts/validate-announcements.ts"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

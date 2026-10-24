@@ -31,7 +31,7 @@ const TagPill: React.FC<{ tag: string }> = ({ tag }) => (
   </span>
 );
 
-const AnnouncementCard: React.FC<{ item: Announcement; fresh: boolean }> = ({ item, fresh }) => (
+export const AnnouncementCard: React.FC<{ item: Announcement; fresh: boolean }> = ({ item, fresh }) => (
   <article className="rounded-2xl border border-white/[0.07] bg-white/[0.02] p-4">
     <div className="flex items-center justify-between gap-3">
       <TagPill tag={item.tag} />

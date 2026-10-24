@@ -27,6 +27,7 @@ const screen = <T extends { default: React.ComponentType<any> }>(load: () => Pro
     throw err;
   }));
 
+const AnnouncementPublisherDemo = screen(() => import('./pages/AnnouncementPublisherDemo'));
 const Dashboard = screen(() => import('./pages/Dashboard'));
 const SubjectDetail = screen(() => import('./pages/SubjectDetail'));
 const Resources = screen(() => import('./pages/Resources'));
@@ -144,6 +145,7 @@ export default function App() {
     <ErrorBoundary scope="app">
         <Suspense fallback={<div className="min-h-screen bg-[#030303]" />}>
         <Routes>
+            <Route path="/publisher-demo" element={<AnnouncementPublisherDemo />} />
             {/* PUBLIC ROUTES */}
             <Route path="/" element={<LandingPage />} />
             <Route path="/landing" element={<Navigate to="/" replace />} />

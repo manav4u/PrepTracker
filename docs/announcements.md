@@ -31,4 +31,4 @@ Message the announcement text to Sia. She writes the entry, opens the pull reque
 - `tag`: `Update`, `Exam alert`, or `Resource`.
 - `link`: optional, https only. Delete the line when you do not need it.
 - To retract an announcement, delete its entry and PR the change.
-- If the file fails to load or fails validation, the app keeps showing the last good copy saved on the device (covered by unit tests). Fix the JSON and it recovers on the next publish.
+- The network reader validates the whole feed before replacing its cached notices. Network errors, invalid JSON, invalid schemas and invalid entries retain the previous notices (regression-tested). A valid empty items array deliberately clears them. The build also validates the checked-in feed: unique IDs, real dates, supported tags, field limits, HTTPS links and a maximum of 20 entries.
