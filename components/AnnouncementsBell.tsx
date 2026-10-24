@@ -14,54 +14,25 @@ import {
 const EASE = 'duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)]';
 const FEED_URL = `${(import.meta as any).env?.BASE_URL || '/'}announcements.json`;
 
-const TAG_DOT: Record<string, string> = {
-  'Exam alert': 'bg-[#F63C49] shadow-[0_0_8px_#F63C49]',
-  Update: 'bg-white/70',
-  Resource: 'bg-slate-500',
+const TAG_STYLE: Record<string, string> = {
+  'Exam alert': 'text-[#F63C49] border-[#F63C49]/30 bg-[#F63C49]/10',
+  Update: 'text-slate-200 border-white/15 bg-white/[0.04]',
+  Resource: 'text-slate-300 border-white/10 bg-white/[0.02]',
 };
 
 const formatDate = (iso: string) => {
   const d = new Date(`${iso}T00:00:00`);
-  return Number.isNaN(d.getTime()) ? iso : d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
+  return Number.isNaN(d.getTime()) ? iso : d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
 };
 
-/** Compact row: tag dot, title, date; tap to unfold the body. */
-const Row: React.FC<{ item: Announcement; fresh: boolean }> = ({ item, fresh }) => {
-  const [open, setOpen] = React.useState(false);
-  return (
-    <div className="border-b border-white/[0.06] last:border-0">
-      <button
-        type="button"
-        onClick={() => setOpen((o) => !o)}
-        aria-expanded={open}
-        className="w-full flex items-center gap-3 px-5 py-3.5 text-left hover:bg-white/[0.03] transition-colors"
-      >
-        <span aria-hidden="true" className={`w-1.5 h-1.5 rounded-full shrink-0 ${TAG_DOT[item.tag] ?? TAG_DOT.Resource}`} />
-        <span className="flex-1 min-w-0">
-          <span className="block text-xs font-bold text-white truncate">{item.title}</span>
-          <span className="block text-[9px] font-bold uppercase tracking-[0.14em] text-slate-500 mt-0.5">{item.tag}</span>
-        </span>
-        {fresh && <span aria-label="New" title="New" className="w-1.5 h-1.5 rounded-full bg-[#F63C49] shadow-[0_0_8px_#F63C49] shrink-0" />}
-        <time dateTime={item.date} className="text-[10px] font-mono text-slate-500 shrink-0">{formatDate(item.date)}</time>
-      </button>
-      {open && (
-        <div className="px-5 pb-4 pl-9">
-          <p className="text-xs leading-relaxed text-slate-400 whitespace-pre-line">{item.body}</p>
-          {item.link && (
-            <a href={item.link} target="_blank" rel="noopener noreferrer"
-              className="mt-3 inline-flex items-center h-8 px-4 rounded-full border border-white/15 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-200 hover:border-white/40 hover:text-white transition-colors">
-              Open link
-            </a>
-          )}
-        </div>
-      )}
-    </div>
-  );
-};
+const TagPill: React.FC<{ tag: string }> = ({ tag }) => (
+  <span className={`inline-flex items-center h-6 px-2.5 rounded-full border text-[9px] font-bold uppercase tracking-[0.14em] ${TAG_STYLE[tag] ?? TAG_STYLE.Resource}`}>
+    {tag}
+  </span>
+);
 
-/** Notification-center popover: drop-down sheet under the header on phone,
-    anchored dropdown under the top bar on desktop. Portal-mounted so the app
-    header can't clip it. */
+/** Full-screen bulletin: notices as the main event. Newest featured large,
+    earlier ones on a dated rail below. Same on phone and desktop. */
 const Panel: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const ref = useModalA11y(true, onClose);
   useLayoutEffect(() => { ref.current?.focus(); }, [ref]);
@@ -73,39 +44,85 @@ const Panel: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     refreshAnnouncements(FEED_URL);
   }, []);
 
+  const [featured, ...earlier] = state.items;
+
   return createPortal(
-    <div className="fixed inset-0 z-[80]" >
-      <div onClick={onClose} aria-hidden="true" className={`absolute inset-0 bg-black/60 lg:bg-black/40 animate-in fade-in ${EASE}`}></div>
+    <div className="fixed inset-0 z-[80] bg-[#030303] animate-in fade-in slide-in-from-bottom-4 duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]">
       <div
         ref={ref}
         role="dialog"
         aria-modal="true"
         aria-labelledby="announcements-title"
         tabIndex={-1}
-        className={`absolute outline-none overflow-hidden flex flex-col surface-1 border-white/10
-          inset-x-0 top-0 max-h-[75vh] rounded-b-3xl border-b animate-in fade-in slide-in-from-top-4
-          lg:inset-x-auto lg:top-20 lg:right-12 lg:w-96 lg:max-h-[70vh] lg:rounded-3xl lg:border lg:slide-in-from-top-2 ${EASE}`}
+        className="outline-none h-full w-full overflow-y-auto"
       >
-        <div className="flex items-center justify-between gap-4 px-5 pt-5 pb-3">
-          <p id="announcements-title" className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">
-            Announcements
-          </p>
-          <button
-            type="button"
-            onClick={onClose}
-            aria-label="Close announcements"
-            className="w-8 h-8 rounded-full flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-colors"
-          >
-            <X size={16} />
-          </button>
-        </div>
-        <div className="overflow-y-auto">
-          {state.items.length === 0 ? (
-            <p className="text-xs leading-relaxed text-slate-500 py-8 px-5 text-center">
+        <div className="max-w-2xl mx-auto px-6 pt-8 lg:pt-14 pb-16">
+          <div className="flex items-start justify-between gap-4">
+            <p id="announcements-title" className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#F63C49]">
+              Announcements
+            </p>
+            <button
+              type="button"
+              onClick={onClose}
+              aria-label="Close announcements"
+              className="w-10 h-10 rounded-full flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-colors"
+            >
+              <X size={20} />
+            </button>
+          </div>
+
+          {!featured ? (
+            <p className="mt-24 text-center text-sm text-slate-500">
               {state.loaded ? 'No announcements yet. When PrepTracker has news, it shows up here.' : 'Checking for announcements…'}
             </p>
           ) : (
-            state.items.map((item) => <Row key={item.id} item={item} fresh={freshIds.has(item.id)} />)
+            <>
+              <article className="mt-10 lg:mt-14">
+                <div className="flex items-center gap-3">
+                  <TagPill tag={featured.tag} />
+                  {freshIds.has(featured.id) && <span aria-label="New" title="New" className="w-1.5 h-1.5 rounded-full bg-[#F63C49] shadow-[0_0_8px_#F63C49]" />}
+                  <time dateTime={featured.date} className="text-[11px] font-mono text-slate-500">{formatDate(featured.date)}</time>
+                </div>
+                <h2 className="mt-4 text-3xl lg:text-5xl font-bold text-white tracking-tight leading-[1.05]">
+                  {featured.title}
+                </h2>
+                <p className="mt-4 text-sm lg:text-base leading-relaxed text-slate-400 whitespace-pre-line max-w-prose">
+                  {featured.body}
+                </p>
+                {featured.link && (
+                  <a href={featured.link} target="_blank" rel="noopener noreferrer"
+                    className="mt-6 inline-flex items-center h-11 px-6 rounded-full bg-[#D61A40] text-[11px] font-bold uppercase tracking-[0.14em] text-white hover:bg-[#F63C49] transition-colors">
+                    Open link
+                  </a>
+                )}
+              </article>
+
+              {earlier.length > 0 && (
+                <section aria-label="Earlier announcements" className="mt-14 lg:mt-20">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500">Earlier</p>
+                  <div className="mt-5 border-l border-white/10">
+                    {earlier.map((item) => (
+                      <article key={item.id} className="relative pl-6 pb-8 last:pb-0">
+                        <span aria-hidden="true" className={`absolute -left-[3px] top-1.5 w-1.5 h-1.5 rounded-full ${item.tag === 'Exam alert' ? 'bg-[#F63C49] shadow-[0_0_8px_#F63C49]' : 'bg-white/30'}`} />
+                        <div className="flex items-center gap-3 flex-wrap">
+                          <time dateTime={item.date} className="text-[10px] font-mono text-slate-500">{formatDate(item.date)}</time>
+                          <TagPill tag={item.tag} />
+                          {freshIds.has(item.id) && <span aria-label="New" title="New" className="w-1.5 h-1.5 rounded-full bg-[#F63C49] shadow-[0_0_8px_#F63C49]" />}
+                        </div>
+                        <h3 className="mt-2 text-sm font-bold text-white leading-snug">{item.title}</h3>
+                        <p className="mt-1.5 text-xs leading-relaxed text-slate-400 whitespace-pre-line">{item.body}</p>
+                        {item.link && (
+                          <a href={item.link} target="_blank" rel="noopener noreferrer"
+                            className="mt-3 inline-flex items-center h-8 px-4 rounded-full border border-white/15 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-200 hover:border-white/40 hover:text-white transition-colors">
+                            Open link
+                          </a>
+                        )}
+                      </article>
+                    ))}
+                  </div>
+                </section>
+              )}
+            </>
           )}
         </div>
       </div>
@@ -114,7 +131,7 @@ const Panel: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   );
 };
 
-/** Bell with an unread dot. Lives in the app headers; opens the announcements popover. */
+/** Bell with an unread dot. Lives in the app headers; opens the bulletin. */
 const AnnouncementsBell: React.FC = () => {
   const [open, setOpen] = React.useState(false);
   const state = useSyncExternalStore(subscribeAnnouncements, getAnnouncementsState);
