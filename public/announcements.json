@@ -2,11 +2,26 @@
   "version": 1,
   "items": [
     {
-      "id": "sample-announcements-preview",
+      "id": "sample-exam-alert",
       "date": "2026-10-24",
+      "tag": "Exam alert",
+      "title": "In-sem schedule is out",
+      "body": "This is a sample exam alert so you can judge the design. Real alerts from Manav will show up here.",
+      "link": "https://preptracker.manavdev.site"
+    },
+    {
+      "id": "sample-update",
+      "date": "2026-10-23",
       "tag": "Update",
       "title": "Announcements are coming to PrepTracker",
-      "body": "This is a sample entry so you can see how the panel looks. Real notes from Manav - updates, exam alerts, new resources - will show up here."
+      "body": "This is a sample update entry. Real notes - updates, exam alerts, new resources - will show up here."
+    },
+    {
+      "id": "sample-resource",
+      "date": "2026-10-21",
+      "tag": "Resource",
+      "title": "SE IT 2024 pattern question papers added",
+      "body": "This is a sample resource entry. Real resource drops from Manav will show up here."
     }
   ]
 }
