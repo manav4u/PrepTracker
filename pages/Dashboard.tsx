@@ -9,6 +9,7 @@ import { useData } from '../context/DataContext';
 import { currentStreak, lastDays, todayCount, DAILY_GOAL } from '../lib/activity';
 import { DailyRevisePrompt } from '../components/ReviseSheet';
 import ActivityHeatmap from '../components/ActivityHeatmap';
+import AnnouncementNotice from '../components/AnnouncementNotice';
 import { subjectExamList, nextExamIndex } from '../lib/exams';
 
 const SHORT_NAMES: Record<string, string> = {
@@ -319,6 +320,9 @@ const Dashboard: React.FC = () => {
            <StreakCard streak={validStreak} today={todayActions} goal={DAILY_GOAL} style={{ animationDelay: '180ms' }} />
         </div>
       </section>
+
+      {/* Latest announcement, seen without opening anything */}
+      <AnnouncementNotice />
 
       {/* Activity heatmap: full-width strip under the greeting row */}
       <section>
