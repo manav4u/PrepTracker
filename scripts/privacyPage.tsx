@@ -54,7 +54,7 @@ export function renderPrivacyPage(): string {
       <p><button type="button" id="cookie-reset" style={{borderRadius:999,padding:'9px 16px',font:"700 12px 'Satoshi','Space Grotesk',sans-serif",cursor:'pointer',border:0,background:'#D61A40',color:'#fff'}}>Cookie settings</button></p>
 
       <h2>Error reports</h2>
-      <p>If something breaks while you use the app or read the library, the site sends a short error report to an error-monitoring provider so the bug can be found and fixed. A report contains the error message, the page address, and your browser and operating system type. It includes no name, email or account details, and none of your study data. Error reports are kept for up to 90 days, then deleted.</p>
+      <p>If something breaks while you use the app or read the library, the site sends a short error report to an error-monitoring provider so the bug can be found and fixed. A report contains the error message, the page address, and your browser and operating system type. It includes no name, email or account details, and none of your study data. How long the monitoring provider keeps reports depends on its own settings and terms.</p>
 
       <h2>Third parties that process data for this site</h2>
       <ul>
@@ -63,7 +63,7 @@ export function renderPrivacyPage(): string {
         <li><b>Analytics provider</b> - processes the pseudonymous visit statistics described above, only when you have accepted analytics cookies.</li>
         <li><b>Error-monitoring provider</b> - receives the error reports described above.</li>
       </ul>
-      <p>Each provider processes only what its service needs, under its own privacy terms. Data may be processed on servers outside India; what safeguards apply is set out in each provider's own privacy terms. Event-level analytics data is kept for at most 14 months, the longest retention setting the analytics provider offers; summarised reports can be kept longer.</p>
+      <p>Each provider processes only what its service needs, under its own privacy terms. Data may be processed on servers outside India; what safeguards apply is set out in each provider's own privacy terms and settings. How long each provider keeps data depends on its own settings and terms, which this policy does not fix.</p>
 
       <h2>What PrepTracker does not do</h2>
       <ul>
