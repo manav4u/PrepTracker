@@ -27,7 +27,7 @@ export function renderPrivacyPage(): string {
       <nav className="crumbs"><a href={SITE + '/'}>PrepTracker</a> / Privacy</nav>
       <h1>Privacy policy</h1>
       <p className="lead">The short version: your study data never leaves your browser, there is no account, and analytics cookies run only if you accept them.</p>
-      <p className="draft"><b>Last updated: 22 October 2026.</b> PrepTracker is an independent student project, not affiliated with Savitribai Phule Pune University.</p>
+      <p className="draft"><b>Last updated: 25 October 2026.</b> PrepTracker is an independent student project, not affiliated with Savitribai Phule Pune University.</p>
 
       <h2>Who we are</h2>
       <p>PrepTracker (<a href={SITE + '/'}>preptracker.manavdev.site</a>) is an independent study planner for SPPU students. For anything in this policy, contact <a href="mailto:sia@manavdev.site">sia@manavdev.site</a>.</p>
@@ -58,7 +58,8 @@ export function renderPrivacyPage(): string {
 
       <h2>Third parties that process data for this site</h2>
       <ul>
-        <li><b>Hosting and content delivery</b> - serves the site's files and sees the technical data any web server sees (IP address, browser type, time of request), used to deliver pages and prevent abuse.</li>
+        <li><b>Hosting and content delivery</b> - serves the site's files and sees the technical data any web server sees (IP address, browser type, time of request), used to deliver pages and prevent abuse. It also runs a page-performance measurement script that sets no cookies.</li>
+        <li><b>Font providers</b> - the site's typefaces are loaded from external font services when a page opens, so these providers see your IP address, browser type and time of request. This happens before you make a cookie choice.</li>
         <li><b>Analytics provider</b> - processes the anonymous visit statistics described above, only when you have accepted analytics cookies.</li>
         <li><b>Error-monitoring provider</b> - receives the error reports described above.</li>
       </ul>
