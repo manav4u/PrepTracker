@@ -11,10 +11,11 @@ import { pathToFileURL } from 'node:url';
 // Production builds (GitHub Pages) get the shared production property; preview
 // builds (Vercel) override it via VITE_GA_MEASUREMENT_ID.
 const GA_ID = process.env.VITE_GA_MEASUREMENT_ID || 'G-PWDXVCDCP8';
-// Consent Mode v2: storage denied until the visitor accepts on the banner
+// Consent Mode v2: Google's script is requested only after the visitor accepts
+// on the banner, and storage stays denied until then
 // (choice shared with the app via the pt_ga_consent key).
 const SENTRY_SNIPPET = '<script src="https://js.sentry-cdn.com/c5e41db25dc0f73bfdac78df0f8c403e.min.js" crossorigin="anonymous"></script>';
-const GA_SNIPPET = `<script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});try{if(localStorage.getItem('pt_ga_consent')==='granted')gtag('consent','update',{analytics_storage:'granted'})}catch(e){}gtag('js',new Date());gtag('config','${GA_ID}');</script>`;
+const GA_SNIPPET = `<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});var ptGaStarted=false;window.ptStartAnalytics=function(){if(ptGaStarted)return;ptGaStarted=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=${GA_ID}';document.head.appendChild(s);gtag('js',new Date());gtag('config','${GA_ID}')};try{if(localStorage.getItem('pt_ga_consent')==='granted'){gtag('consent','update',{analytics_storage:'granted'});window.ptStartAnalytics()}}catch(e){}</script>`;
 const GA_NOTE = '<p style="font-size:12px;color:rgba(20,20,25,.62)"><a href="/privacy/" style="color:inherit">Privacy</a></p>';
 
 const outDir = path.resolve('.prerender-tmp');
