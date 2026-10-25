@@ -84,4 +84,12 @@ test.describe('cookie consent', () => {
       await expect.poll(() => google.some((u) => u.includes('googletagmanager.com/gtag/js'))).toBe(true);
     });
   }
+
+  test('after Accept the app sends a GA collect request', async ({ page }) => {
+    const collect: string[] = [];
+    page.on('request', (r) => { if (/google-analytics\.com\/g\/collect/.test(r.url())) collect.push(r.url()); });
+    await page.goto('/', { waitUntil: 'networkidle' });
+    await page.getByRole('region', { name: 'Cookie consent' }).getByRole('button', { name: 'Accept' }).click();
+    await expect.poll(() => collect.length).toBeGreaterThan(0);
+  });
 });

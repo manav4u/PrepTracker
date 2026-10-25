@@ -20,7 +20,9 @@ declare global {
 
 function push(...args: unknown[]) {
   window.dataLayer = window.dataLayer || [];
-  window.gtag = window.gtag || ((...a: unknown[]) => { window.dataLayer!.push(a); });
+  // gtag.js reads commands from the data layer as `arguments` objects; plain
+  // arrays pushed from a rest-args wrapper are not treated as gtag commands.
+  window.gtag = window.gtag || function gtag() { window.dataLayer!.push(arguments); };
   window.gtag(...args);
 }
 
