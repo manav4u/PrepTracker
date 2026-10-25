@@ -54,7 +54,7 @@ export function renderPrivacyPage(): string {
       <p><button type="button" id="cookie-reset" style={{borderRadius:999,padding:'9px 16px',font:"700 12px 'Satoshi','Space Grotesk',sans-serif",cursor:'pointer',border:0,background:'#D61A40',color:'#fff'}}>Cookie settings</button></p>
 
       <h2>Error reports</h2>
-      <p>If something breaks while you use the app or read the library, the site sends a short error report to an error-monitoring provider so the bug can be found and fixed. A report contains the error message, the page address, and your browser and operating system type. It includes no name, email or account details, and none of your study data. How long the monitoring provider keeps reports depends on its own settings and terms.</p>
+      <p>If something breaks while you use the app or read the library, the site sends a short error report to an error-monitoring provider so the bug can be found and fixed. A report contains the error message, the page address, and your browser and operating system type. How long the monitoring provider keeps reports depends on its own settings and terms.</p>
 
       <h2>Third parties that process data for this site</h2>
       <ul>
@@ -75,7 +75,7 @@ export function renderPrivacyPage(): string {
 
       <h2>Your rights</h2>
       <p>Most of your data never leaves your device, so you can exercise most rights directly: view or delete your stored study data and cookie choice at any time through the app's Settings or your browser settings.</p>
-      <p>If you are in India, the Digital Personal Data Protection Act, 2023 gives you the right to access, correct and erase your personal data, and to grievance redressal. Because this site collects so little, these rights usually mean the optional analytics data described above. To exercise any of them, email <a href="mailto:sia@manavdev.site">sia@manavdev.site</a>; requests are answered within 30 days.</p>
+      <p>India's Digital Personal Data Protection Act, 2023 sets out rights to access, correct and erase personal data and to grievance redressal. Under the Government of India's notification of 13 November 2025, those provisions start 18 months after that date, so they are not yet in force. This page does not decide whether or how the Act applies to this site. To ask about your data, such as the analytics and error data described above, email <a href="mailto:sia@manavdev.site">sia@manavdev.site</a>.</p>
 
       <h2>Children</h2>
       <p>PrepTracker is a general study tool and does not knowingly collect personal data from children. Since there are no accounts and analytics is opt-in, no age-specific data is gathered.</p>
@@ -84,7 +84,7 @@ export function renderPrivacyPage(): string {
       <p>If this policy changes, the "last updated" date at the top changes with it. Material changes are also flagged in the app for a reasonable time.</p>
 
       <h2>Contact and grievances</h2>
-      <p>Questions, requests or complaints: <a href="mailto:sia@manavdev.site">sia@manavdev.site</a>. If a grievance is not resolved, you may also raise it with the Data Protection Board of India once its complaint mechanism is operational.</p>
+      <p>Questions, requests or complaints: <a href="mailto:sia@manavdev.site">sia@manavdev.site</a>. The Data Protection Board of India is set up under the Act, but its complaint provisions are not yet in force.</p>
 
       <script dangerouslySetInnerHTML={{ __html: "document.getElementById('cookie-reset').addEventListener('click',function(){try{localStorage.removeItem('pt_ga_consent')}catch(e){}location.reload()});" }} />
 
