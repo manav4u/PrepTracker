@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>document.documentElement.classList.add('js');</script>
+    <script src="https://js.sentry-cdn.com/c5e41db25dc0f73bfdac78df0f8c403e.min.js" crossorigin="anonymous"></script>
+    <script>
+      // Legacy hash-route redirect: the app lived under /#/... before moving to real paths.
+      // Map any saved or shared hash link to its new URL, then let the app boot.
+      (function () {
+        var h = location.hash;
+        if (!h || h.charAt(1) !== '/') return;
+        var p = h.slice(1);
+        if (p === '/') p = '/app';
+        else if (p === '/landing') p = '/';
+        else if (p.indexOf('/app') !== 0 && p !== '/onboarding') p = '/app' + p;
+        var base = location.pathname.replace(/index\.html$/, '');
+        if (base.charAt(base.length - 1) !== '/') base += '/';
+        history.replaceState(null, '', base + p.slice(1) + location.search);
+      })();
+    </script>
+    <meta name="google-site-verification" content="AcckUvi06ITWMeVvurL4iPfRUDu84uArHnRtNlY-ccc" />
+    <title>PrepTracker | SPPU syllabus coverage tracker</title>
+    <meta name="description" content="Track your SPPU syllabus unit by unit, revise it on a spaced schedule, and keep exam tasks in one place. Free, runs in your browser." />
+    <meta name="theme-color" content="#000000" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <link rel="canonical" href="https://preptracker.manavdev.site/" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="PrepTracker" />
+    <meta property="og:title" content="PrepTracker | SPPU syllabus coverage tracker" />
+    <meta property="og:description" content="Unit-by-unit syllabus tracking and spaced revision for SPPU students." />
+    <meta property="og:url" content="https://preptracker.manavdev.site/" />
+    <meta property="og:image" content="https://preptracker.manavdev.site/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://preptracker.manavdev.site/og.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://api.fontshare.com">
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- LCP image: the hero dashboard screenshot. Media-conditioned preload so
+         mobile fetches the 390px crop and desktop the 1440px one, matching the
+         <picture> sources in the prerendered landing. -->
+    <link rel="preload" as="image" href="/landing/v2/dash-390.webp" media="(max-width: 900px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/landing/v2/dash-1440.webp" media="(min-width: 901px)" fetchpriority="high" />
+    <!-- Hero view switcher: the other three shots (Subjects, Tasks, Library) render
+         only when their tab is clicked. Preload them at low priority so the click
+         swaps instantly from cache instead of starting the download on click. -->
+    <link rel="preload" as="image" href="/landing/v2/subject-390.webp" media="(max-width: 900px)" fetchpriority="low" />
+    <link rel="preload" as="image" href="/landing/v2/subject-1440.webp" media="(min-width: 901px)" fetchpriority="low" />
+    <link rel="preload" as="image" href="/landing/v2/tasks-390.webp" media="(max-width: 900px)" fetchpriority="low" />
+    <link rel="preload" as="image" href="/landing/v2/tasks-1440.webp" media="(min-width: 901px)" fetchpriority="low" />
+    <link rel="preload" as="image" href="/landing/v2/library-390.webp" media="(max-width: 900px)" fetchpriority="low" />
+    <link rel="preload" as="image" href="/landing/v2/library-1440.webp" media="(min-width: 901px)" fetchpriority="low" />
+    <!-- Font stylesheets load non-blocking (print-swap pattern) so they no
+         longer hold first paint; display=swap already covers the font swap. -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Caveat:wght@600&family=Instrument+Serif&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Caveat:wght@600&family=Instrument+Serif&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="preload" as="style" href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700&display=swap">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Caveat:wght@600&family=Instrument+Serif&display=swap" rel="stylesheet">
+      <link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700&display=swap" rel="stylesheet">
+    </noscript>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "PrepTracker",
+      "url": "https://preptracker.manavdev.site/",
+      "description": "Track your SPPU syllabus unit by unit, revise it on a spaced schedule, and keep exam tasks in one place. Free, runs in your browser.",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "inLanguage": "en"
+    }
+    </script>
+  <script type="module" crossorigin src="/assets/index-BtCLQgsP.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/react-CHTDwUuV.js">
+  <link rel="modulepreload" crossorigin href="/assets/router-DFB2yiS-.js">
+  <link rel="modulepreload" crossorigin href="/assets/motion-BKZ0Ge4Y.js">
+  <link rel="stylesheet" crossorigin href="/assets/index-C7fbsUnm.css">
+  <meta name="robots" content="noindex">
+</head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <div style="max-width:640px;margin:64px auto;padding:0 24px;font-family:Georgia,serif;color:#141419;line-height:1.7">
+        <h1 style="font-size:32px;letter-spacing:-.02em">PrepTracker</h1>
+        <p>PrepTracker breaks the SPPU syllabus into units and topics, counts the days to your exam, and tells you what to study today. Free, no account, and your data stays in your browser.</p>
+        <p>The tracker itself needs JavaScript, but the full syllabus library works without it:</p>
+        <p><a href="/syllabus/" style="color:#D61A40">Browse the SPPU syllabus library</a> &middot; <a href="/syllabus/grading-system-sgpa/" style="color:#D61A40">Grading and SGPA</a> &middot; <a href="/syllabus/cce-end-sem-exam-pattern/" style="color:#D61A40">Exam pattern</a></p>
+      </div>
+    </noscript>
+  </body>
+</html>
