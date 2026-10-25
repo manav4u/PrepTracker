@@ -1,6 +1,6 @@
 // Google Analytics 4 loader with Consent Mode v2.
-// Default is denied: GA loads but stores nothing and sends only cookieless
-// pings until the visitor accepts on the consent banner. The choice is shared
+// Nothing is requested from Google and storage stays denied until the visitor
+// accepts on the consent banner; Reject never loads it. The choice is shared
 // with the static syllabus pages via the pt_ga_consent localStorage key.
 //
 // Measurement ID comes from VITE_GA_MEASUREMENT_ID so each deployment can use
@@ -38,12 +38,30 @@ export function setAnalyticsConsent(granted: boolean): void {
     localStorage.setItem(GA_CONSENT_KEY, granted ? 'granted' : 'denied');
   } catch { /* storage blocked: choice applies to this page only */ }
   push('consent', 'update', { analytics_storage: granted ? 'granted' : 'denied' });
+  if (granted) startAnalytics();
+}
+
+let started = false;
+
+function measurementId(): string {
+  return (import.meta as any).env?.VITE_GA_MEASUREMENT_ID || PRODUCTION_MEASUREMENT_ID;
+}
+
+// Requests Google's script. Called only once the visitor has accepted.
+function startAnalytics(): void {
+  const id = measurementId();
+  if (started || !/^G-[A-Z0-9]+$/.test(id)) return;
+  started = true;
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = `https://www.googletagmanager.com/gtag/js?id=${id}`;
+  document.head.appendChild(s);
+  push('js', new Date());
+  push('config', id);
 }
 
 export function initAnalytics(): void {
-  const id =
-    (import.meta as any).env?.VITE_GA_MEASUREMENT_ID || PRODUCTION_MEASUREMENT_ID;
-  if (!/^G-[A-Z0-9]+$/.test(id)) return;
+  if (!/^G-[A-Z0-9]+$/.test(measurementId())) return;
 
   push('consent', 'default', {
     analytics_storage: 'denied',
@@ -53,13 +71,6 @@ export function initAnalytics(): void {
   });
   if (readAnalyticsConsent() === 'granted') {
     push('consent', 'update', { analytics_storage: 'granted' });
+    startAnalytics();
   }
-
-  const s = document.createElement('script');
-  s.async = true;
-  s.src = `https://www.googletagmanager.com/gtag/js?id=${id}`;
-  document.head.appendChild(s);
-
-  push('js', new Date());
-  push('config', id);
 }
