@@ -48,7 +48,7 @@ export function renderPrivacyPage(): string {
       <p>This site uses two categories:</p>
       <ul>
         <li><b>Strictly necessary</b> - the on-device storage described above. The site cannot function without it, so it is always on and is never sent to us.</li>
-        <li><b>Analytics cookies</b> - optional. They measure anonymous visit statistics: which pages are viewed, how long visits last, the approximate region (country or city level, derived from a truncated IP address), and the device and browser type. They are set only after you press <b>Accept</b> on the cookie banner, and they never track you across other websites.</li>
+        <li><b>Analytics cookies</b> - optional. They measure visit statistics: which pages are viewed, how long visits last, the approximate region (country or city level, worked out by the analytics provider), and the device and browser type. Visits are told apart by a random ID stored in the cookie, so the data is pseudonymous rather than anonymous. They are set only after you press <b>Accept</b> on the cookie banner, and advertising storage and ad personalization stay switched off.</li>
       </ul>
       <p>Your choice is remembered on this device. To change it, use the <b>Cookie settings</b> button below to reset the banner, or clear this site's data in your browser.</p>
       <p><button type="button" id="cookie-reset" style={{borderRadius:999,padding:'9px 16px',font:"700 12px 'Satoshi','Space Grotesk',sans-serif",cursor:'pointer',border:0,background:'#D61A40',color:'#fff'}}>Cookie settings</button></p>
@@ -60,10 +60,10 @@ export function renderPrivacyPage(): string {
       <ul>
         <li><b>Hosting and content delivery</b> - serves the site's files and sees the technical data any web server sees (IP address, browser type, time of request), used to deliver pages and prevent abuse. It also runs a page-performance measurement script that sets no cookies.</li>
         <li><b>Font providers</b> - the site's typefaces are loaded from external font services when a page opens, so these providers see your IP address, browser type and time of request. This happens before you make a cookie choice.</li>
-        <li><b>Analytics provider</b> - processes the anonymous visit statistics described above, only when you have accepted analytics cookies.</li>
+        <li><b>Analytics provider</b> - processes the pseudonymous visit statistics described above, only when you have accepted analytics cookies.</li>
         <li><b>Error-monitoring provider</b> - receives the error reports described above.</li>
       </ul>
-      <p>Each provider processes only what its service needs, under its own privacy terms. Data may be processed on servers outside India; where it is, the providers apply their standard contractual safeguards. Analytics visit data is kept for no more than 14 months.</p>
+      <p>Each provider processes only what its service needs, under its own privacy terms. Data may be processed on servers outside India; what safeguards apply is set out in each provider's own privacy terms. Event-level analytics data is kept for at most 14 months, the longest retention setting the analytics provider offers; summarised reports can be kept longer.</p>
 
       <h2>What PrepTracker does not do</h2>
       <ul>
@@ -78,7 +78,7 @@ export function renderPrivacyPage(): string {
       <p>If you are in India, the Digital Personal Data Protection Act, 2023 gives you the right to access, correct and erase your personal data, and to grievance redressal. Because this site collects so little, these rights usually mean the optional analytics data described above. To exercise any of them, email <a href="mailto:sia@manavdev.site">sia@manavdev.site</a>; requests are answered within 30 days.</p>
 
       <h2>Children</h2>
-      <p>PrepTracker is a general study tool and does not knowingly collect personal data from children. Since there are no accounts and analytics is opt-in and anonymous, no age-specific data is gathered.</p>
+      <p>PrepTracker is a general study tool and does not knowingly collect personal data from children. Since there are no accounts and analytics is opt-in, no age-specific data is gathered.</p>
 
       <h2>Changes to this policy</h2>
       <p>If this policy changes, the "last updated" date at the top changes with it. Material changes are also flagged in the app for a reasonable time.</p>
