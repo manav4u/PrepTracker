@@ -200,6 +200,19 @@ test('recordEvents is idempotent and does not change the action count', () => {
   assert.equal(twice.streak, 2);
 });
 
+test('today and past exam dates stay distinct from missing dates', () => {
+  const today = at('2026-10-10');
+  const p = buildPlan(subjects, ['a', 'b'], { a: '2026-10-10', b: '2026-10-09' }, [], [], today);
+  assert.deepEqual(p.examsToday, [{ subjectId: 'a', name: 'Alpha' }]);
+  assert.deepEqual(p.pastExams, [{ subjectId: 'b', name: 'Beta' }]);
+  assert.deepEqual(p.undated, []);
+  assert.equal(p.target, 0);
+  const mixed = buildPlan(subjects, ['a', 'b'], { a: '2026-10-10', b: '2026-10-24' }, [], [], today);
+  assert.equal(mixed.examsToday.length, 1);
+  assert.equal(mixed.subjects.length, 1);
+  assert.equal(mixed.subjects[0].subjectId, 'b');
+});
+
 test('extra work in one subject never fills another subject goal', () => {
   const now = at('2026-10-10');
   const ev = topics('a', 7).map(topic => ({ day: '2026-10-10', unitId: 'a1', topic, kind: 'topic' }));

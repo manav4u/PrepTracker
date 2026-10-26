@@ -35,6 +35,8 @@ export interface PlanSubject {
 
 export interface Plan {
   subjects: PlanSubject[]; // subjects with an upcoming exam date, soonest first
+  examsToday: { subjectId: string; name: string }[];
+  pastExams: { subjectId: string; name: string }[];
   undated: { subjectId: string; name: string }[]; // selected subjects with no usable date
   target: number; // M in "N left of M"
   remaining: number; // N
@@ -69,12 +71,17 @@ export const buildPlan = (
 
   const out: PlanSubject[] = [];
   const undated: Plan['undated'] = [];
+  const examsToday: Plan['examsToday'] = [];
+  const pastExams: Plan['pastExams'] = [];
   for (const s of subjects) {
     if (!selected.includes(s.id)) continue;
     const date = examDates?.[s.id];
     if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date) || isNaN(parse(date).getTime())) { undated.push({ subjectId: s.id, name: s.name }); continue; }
     const daysToExam = daysBetween(today, date);
-    if (daysToExam < 1) continue; // exam today or past: Revise covers it
+    if (daysToExam < 1) {
+      (daysToExam === 0 ? examsToday : pastExams).push({ subjectId: s.id, name: s.name });
+      continue; // exam today or past: no new study target
+    }
     const todo: PlanTopic[] = [];
     const doneList: PlanTopic[] = [];
     let left = 0;
@@ -108,7 +115,7 @@ export const buildPlan = (
     const days = Math.max(1, s.studyDays - 1);
     return n + Math.ceil(rest / days);
   }, 0);
-  return { subjects: out, undated, target, remaining, doneToday, creditedToday, extraToday, nothingLeft: out.length > 0 && out.every((s) => s.left === 0), perDay };
+  return { subjects: out, undated, examsToday, pastExams, target, remaining, doneToday, creditedToday, extraToday, nothingLeft: out.length > 0 && out.every((s) => s.left === 0), perDay };
 };
 
 /** Next local midnight, for the timer that refreshes the plan while the app stays open. */
