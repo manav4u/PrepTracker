@@ -28,3 +28,4 @@ export function renderLanding(): string {
     </StaticRouter>,
   );
 }
+export { landingToMarkdown } from './htmlToMarkdown';
