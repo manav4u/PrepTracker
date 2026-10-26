@@ -27,6 +27,7 @@ const screen = <T extends { default: React.ComponentType<any> }>(load: () => Pro
     throw err;
   }));
 
+const Guide = screen(() => import('./pages/Guide'));
 const Dashboard = screen(() => import('./pages/Dashboard'));
 const SubjectDetail = screen(() => import('./pages/SubjectDetail'));
 const Resources = screen(() => import('./pages/Resources'));
@@ -145,6 +146,8 @@ export default function App() {
         <Suspense fallback={<div className="min-h-screen bg-[#030303]" />}>
         <Routes>
             {/* PUBLIC ROUTES */}
+            <Route path="/guide" element={<Guide />} />
+            <Route path="/guide/:chapter" element={<Guide />} />
             <Route path="/" element={<LandingPage />} />
             <Route path="/landing" element={<Navigate to="/" replace />} />
             <Route path="/library" element={<Navigate to="/app/resources" replace />} />

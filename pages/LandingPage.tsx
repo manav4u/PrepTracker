@@ -517,6 +517,7 @@ const LandingPage: React.FC = () => {
                 <h3>Project</h3>
                 <a href="https://github.com/manav4u/PrepTracker">Source on GitHub</a>
                 <a href="https://github.com/manav4u/PrepTracker/issues">Report an issue</a>
+                <Link to="/guide">How to use PrepTracker</Link>
                 <a href="/privacy/">Privacy</a>
               </nav>
             </div>
