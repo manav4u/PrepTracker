@@ -47,7 +47,7 @@ const PlanTab: React.FC = () => {
   const { subjects } = useSubjects();
   const now = useNow();
   const plan = usePlan();
-  const pct = plan.target === 0 ? 0 : Math.round((plan.doneToday / plan.target) * 100);
+  const pct = plan.target === 0 ? 0 : Math.round((plan.creditedToday / plan.target) * 100);
 
   const toggle = (subjectId: string, unitId: string, topic: string) => {
     const unit = subjects.find((s) => s.id === subjectId)?.units.find((u) => u.id === unitId);
@@ -96,13 +96,16 @@ const PlanTab: React.FC = () => {
             left
           </p>
           <p className="text-sm lg:text-base text-slate-300 tabular-nums text-right">
-            <span className="text-white font-semibold">{plan.doneToday}</span> done of {Math.max(plan.target, plan.doneToday)}
+            <span className="text-white font-semibold">{plan.creditedToday}</span> done of {plan.target}
           </p>
         </div>
-        <div className="mt-3 h-1 rounded-full bg-white/10 overflow-hidden" role="progressbar" aria-valuemin={0} aria-valuemax={plan.target} aria-valuenow={Math.min(plan.doneToday, plan.target)} aria-label="Topics done today">
+        <div className="mt-3 h-1 rounded-full bg-white/10 overflow-hidden" role="progressbar" aria-valuemin={0} aria-valuemax={plan.target} aria-valuenow={plan.creditedToday} aria-label="Daily topic goals completed">
           <div className={`h-full rounded-full bg-[#F63C49] transition-[width] ${EASE}`} style={{ width: `${Math.min(100, pct)}%` }}></div>
         </div>
         {dateNotices}
+        {plan.extraToday > 0 && (
+          <p className="mt-2 text-xs text-slate-300 leading-relaxed">+{plan.extraToday} extra {plan.extraToday === 1 ? 'topic' : 'topics'} studied. Extra work in one subject does not replace another subject's goal.</p>
+        )}
         {plan.nothingLeft ? (
           <p className="mt-3 text-xs text-slate-300 leading-relaxed">Every topic is ticked for your dated subjects.</p>
         ) : (
