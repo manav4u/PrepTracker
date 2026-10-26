@@ -199,3 +199,23 @@ test('recordEvents is idempotent and does not change the action count', () => {
   assert.equal(twice.activity!['2026-10-10'], 3);
   assert.equal(twice.streak, 2);
 });
+
+test('extra work in one subject never fills another subject goal', () => {
+  const now = at('2026-10-10');
+  const ev = topics('a', 7).map(topic => ({ day: '2026-10-10', unitId: 'a1', topic, kind: 'topic' }));
+  const first = buildPlan(subjects, ['a', 'b'], dates, [{ unitId: 'a1', topicsDone: topics('a', 7) }], ev, now);
+  assert.equal(first.target, 6);
+  assert.equal(first.doneToday, 7);
+  assert.equal(first.creditedToday, 4);
+  assert.equal(first.extraToday, 3);
+  assert.equal(first.remaining, 2);
+  assert.equal(first.creditedToday + first.remaining, first.target);
+  const added = topics('b', 2).map(topic => ({ day: '2026-10-10', unitId: 'b1', topic, kind: 'topic' }));
+  const finished = buildPlan(subjects, ['a', 'b'], dates, [{ unitId: 'a1', topicsDone: topics('a', 7) }, { unitId: 'b1', topicsDone: topics('b', 2) }], [...ev, ...added], now);
+  assert.equal(finished.creditedToday, finished.target);
+  assert.equal(finished.remaining, 0);
+  assert.equal(finished.extraToday, 3);
+  const unticked = buildPlan(subjects, ['a', 'b'], dates, [{ unitId: 'a1', topicsDone: topics('a', 7) }, { unitId: 'b1', topicsDone: ['b1'] }], [...ev, ...added], now);
+  assert.equal(unticked.creditedToday, 5);
+  assert.equal(unticked.remaining, 1);
+});
