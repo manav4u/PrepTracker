@@ -10,6 +10,7 @@ import { currentStreak, lastDays, todayCount, DAILY_GOAL } from '../lib/activity
 import { DailyRevisePrompt } from '../components/ReviseSheet';
 import ActivityHeatmap from '../components/ActivityHeatmap';
 import { subjectExamList, nextExamIndex } from '../lib/exams';
+import { usePlan } from '../components/PlanTab';
 
 const SHORT_NAMES: Record<string, string> = {
   'm1': 'M1',
@@ -54,7 +55,7 @@ const MasteryCard = ({ mastered, total, style }: { mastered: number; total: numb
   </div>
 );
 
-const StatPill = ({ label, value, sub, active = false, gradient = false, icon: Icon = Activity, to, style }: any) => {
+const StatPill = ({ label, value, sub, foot, active = false, gradient = false, icon: Icon = Activity, to, style }: any) => {
   const Wrap: any = to ? Link : 'div';
   return (
   <Wrap {...(to ? { to } : {})} style={style} className={`p-6 rounded-3xl flex flex-col justify-between h-36 lg:h-40 transition-all duration-300 group hover:-translate-y-1 animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500 ${
@@ -77,6 +78,7 @@ const StatPill = ({ label, value, sub, active = false, gradient = false, icon: I
       <p className={`text-[10px] lg:text-[11px] font-bold uppercase tracking-widest ${
         gradient ? 'text-white/80' : active ? 'text-[#F63C49]/90' : 'text-slate-500'
       }`}>{sub}</p>
+      {foot && <p className="mt-1.5 text-[10px] lg:text-[11px] font-bold tracking-wide text-slate-200 group-hover:text-white">{foot} <span aria-hidden="true">›</span></p>}
     </div>
   </Wrap>
   );
@@ -256,6 +258,8 @@ const Dashboard: React.FC = () => {
   const examDiff = examStart && !isNaN(examStart.getTime())
     ? Math.round((examStart.getTime() - startOfToday.getTime()) / 86400000)
     : null;
+  const plan = usePlan();
+  const planFoot = plan.subjects.length === 0 ? '' : plan.nothingLeft ? 'Plan: all ticked' : plan.remaining === 0 ? 'Plan: done today' : `${plan.remaining} ${plan.remaining === 1 ? 'topic' : 'topics'} left today`;
   const examValue = examDiff === null ? '--' : examDiff > 0 ? `${examDiff}d` : examDiff === 0 ? 'Today' : 'Now';
   const examSub = examDiff === null ? 'Set exam date' : examDiff >= 0 && examStart
     ? `Starts ${examStart.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}`
@@ -315,7 +319,7 @@ const Dashboard: React.FC = () => {
            {/* Dynamic Graph Replacement for Forecast */}
            <ProgressGraphCard data={graphData} labels={graphLabels} total={weekTotal} />
 
-           <StatPill label="Days to Exam" value={examValue} sub={examSub} icon={CalendarDays} to={examDiff === null ? '/app/settings' : undefined} style={{ animationDelay: '120ms' }} />
+           <StatPill label="Days to Exam" value={examValue} sub={examSub} foot={planFoot} icon={CalendarDays} to={planFoot ? '/app/revise?tab=plan' : examDiff === null ? '/app/settings' : undefined} style={{ animationDelay: '120ms' }} />
            <StreakCard streak={validStreak} today={todayActions} goal={DAILY_GOAL} style={{ animationDelay: '180ms' }} />
         </div>
       </section>

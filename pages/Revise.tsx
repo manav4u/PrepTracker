@@ -1,6 +1,7 @@
 import Doodle from '../components/Doodle';
 import React, { useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
+import PlanTab from '../components/PlanTab';
 import { useData } from '../context/DataContext';
 import { useSubjects } from '../context/SubjectsContext';
 import { recordStudy, currentStreak } from '../lib/activity';
@@ -19,6 +20,9 @@ const Revise: React.FC = () => {
   const { profile, setProfile, userProgress, reviews, setReviews } = useData();
   const { subjects: allSubjects } = useSubjects();
   const [stopLine, setStopLine] = useState(false);
+  const [params, setParams] = useSearchParams();
+  const tab: 'review' | 'plan' = params.get('tab') === 'plan' ? 'plan' : 'review';
+  const setTab = (t: 'review' | 'plan') => setParams(t === 'plan' ? { tab: 'plan' } : {}, { replace: true });
   // The last tap, kept so one tap can be taken back.
   const [last, setLast] = useState<{ item: ReviewItem; recalled: boolean; prev: ReviewEntry | undefined; profile: Profile | null } | null>(null);
 
@@ -72,7 +76,7 @@ const Revise: React.FC = () => {
     <div className="max-w-7xl mx-auto animate-in fade-in duration-700">
       <header className="relative mb-6 lg:mb-12">
         <span className="inline-flex items-center gap-2 h-7 px-3 rounded-full border border-white/10 bg-white/[0.03] text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400 mb-4">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#F63C49]"></span>Daily revision
+          <span className="w-1.5 h-1.5 rounded-full bg-[#F63C49]"></span>{tab === 'plan' ? 'Daily plan' : 'Daily revision'}
         </span>
         <h1 className="text-white leading-[0.95]">
           <span className="block text-6xl lg:text-8xl tracking-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>
@@ -80,9 +84,24 @@ const Revise: React.FC = () => {
             <span onClick={() => setStopLine((v) => !v)} className="inline-block text-[#F63C49] cursor-default">.</span>
           </span>
         </h1>
+        <div role="tablist" aria-label="Revise views" className="mt-5 inline-flex items-center p-1 rounded-full border border-white/10 bg-white/[0.03]">
+          {(['review', 'plan'] as const).map((t) => (
+            <button
+              key={t}
+              type="button"
+              role="tab"
+              aria-selected={tab === t}
+              onClick={() => setTab(t)}
+              className={`h-9 px-5 rounded-full text-[10px] font-bold uppercase tracking-[0.18em] transition-colors ${EASE} ${tab === t ? 'bg-[#F63C49] text-white' : 'text-slate-300 hover:text-white'}`}
+            >
+              {t === 'review' ? 'Review' : 'Plan'}
+            </button>
+          ))}
+        </div>
         <p aria-hidden="true" className={`absolute left-0 -bottom-6 text-xs text-slate-500 transition-opacity ${EASE} ${stopLine ? 'opacity-100' : 'opacity-0'}`}>Little and often beats all night.</p>
       </header>
 
+      {tab === 'plan' ? <PlanTab /> : (
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-x-8 lg:gap-y-5 items-start">
         {/* Compact stats: a strip above the topic card on phone, top of the right column on desktop */}
         <section
@@ -174,6 +193,7 @@ const Revise: React.FC = () => {
           </section>
         )}
       </div>
+      )}
     </div>
   );
 };
