@@ -107,3 +107,64 @@ test('msToMidnight is positive and under a day', () => {
   const ms = msToMidnight(at('2026-10-10', 23));
   assert.ok(ms > 0 && ms <= 86400000);
 });
+
+test('same inputs give the same plan on every reload', () => {
+  const prog = [{ unitId: 'a1', topicsDone: ['a1', 'a2'] }];
+  const ev = [{ day: '2026-10-10', unitId: 'a1', topic: 'a1', kind: 'topic' }, { day: '2026-10-10', unitId: 'a1', topic: 'a2', kind: 'topic' }];
+  const one = buildPlan(subjects, ['a', 'b'], dates, prog, ev, at('2026-10-10', 9));
+  const two = buildPlan(subjects, ['a', 'b'], dates, prog, ev, at('2026-10-10', 23));
+  assert.deepEqual(one, two);
+});
+
+test('tick then untick returns exactly the starting plan', () => {
+  const start = buildPlan(subjects, ['a', 'b'], dates, [], [], at('2026-10-10'));
+  const ev = [{ day: '2026-10-10', unitId: 'a1', topic: 'a1', kind: 'topic' }];
+  const ticked = buildPlan(subjects, ['a', 'b'], dates, [{ unitId: 'a1', topicsDone: ['a1'] }], ev, at('2026-10-10'));
+  assert.equal(ticked.target, start.target);
+  assert.equal(ticked.remaining, start.remaining - 1);
+  const unticked = buildPlan(subjects, ['a', 'b'], dates, [{ unitId: 'a1', topicsDone: [] }], ev, at('2026-10-10'));
+  assert.deepEqual(unticked.subjects.map((s) => [s.target, s.remaining]), start.subjects.map((s) => [s.target, s.remaining]));
+});
+
+test('changing an exam date or the subject list recomputes from the new inputs', () => {
+  const base = buildPlan(subjects, ['a', 'b'], dates, [], [], at('2026-10-10'));
+  const sooner = buildPlan(subjects, ['a', 'b'], { ...dates, b: '2026-10-14' }, [], [], at('2026-10-10'));
+  assert.ok(sooner.subjects.find((s) => s.subjectId === 'b')!.target > base.subjects.find((s) => s.subjectId === 'b')!.target);
+  const dropped = buildPlan(subjects, ['a'], dates, [], [], at('2026-10-10'));
+  assert.equal(dropped.target, 4);
+});
+
+test('the day rolls over at local midnight: yesterday ticks stop counting', () => {
+  const prog = [{ unitId: 'a1', topicsDone: ['a1'] }];
+  const ev = [{ day: '2026-10-10', unitId: 'a1', topic: 'a1', kind: 'topic' }];
+  const late = buildPlan(subjects, ['a'], dates, prog, ev, new Date('2026-10-10T23:59:59'));
+  const early = buildPlan(subjects, ['a'], dates, prog, ev, new Date('2026-10-11T00:00:01'));
+  assert.equal(late.subjects[0].doneToday, 1);
+  assert.equal(early.subjects[0].doneToday, 0);
+  assert.equal(early.subjects[0].daysToExam, 9);
+});
+
+test('day counts hold across a daylight saving change', () => {
+  const prev = process.env.TZ;
+  process.env.TZ = 'America/New_York';
+  try {
+    // US clocks go back on 2026-11-01: that day is 25 hours long.
+    const p = buildPlan(subjects, ['a'], { a: '2026-11-05' }, [], [], new Date(2026, 9, 30, 10, 0, 0));
+    assert.equal(p.subjects[0].daysToExam, 6);
+    const q = buildPlan(subjects, ['a'], { a: '2026-11-05' }, [], [], new Date(2026, 10, 1, 23, 30, 0));
+    assert.equal(q.subjects[0].daysToExam, 4);
+    // Clocks go forward on 2026-03-08: that day is 23 hours long.
+    const r = buildPlan(subjects, ['a'], { a: '2026-03-10' }, [], [], new Date(2026, 2, 7, 12, 0, 0));
+    assert.equal(r.subjects[0].daysToExam, 3);
+    assert.ok(msToMidnight(new Date(2026, 10, 1, 0, 30, 0)) > 24 * 3600 * 1000 - 1);
+  } finally {
+    if (prev === undefined) delete process.env.TZ; else process.env.TZ = prev;
+  }
+});
+
+test('exam today and no date cases never produce a target', () => {
+  const p = buildPlan(subjects, ['a', 'b'], { a: '2026-10-10' }, [], [], at('2026-10-10'));
+  assert.equal(p.target, 0);
+  assert.equal(p.remaining, 0);
+  assert.equal(p.undated.length, 1);
+});
