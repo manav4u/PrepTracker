@@ -2,7 +2,7 @@ import type { AvatarShape } from '../lib/avatars';
 
 import React, { useState } from 'react';
 import LogoMark from '../components/LogoMark';
-import { Profile } from '../types';
+import { finishSetup } from '../lib/onboarding';
 import { useData } from '../context/DataContext';
 import PickerFlow from '../components/PickerFlow';
 
@@ -19,16 +19,12 @@ const Onboarding: React.FC = () => {
   const [avatarShape, setAvatarShape] = useState<AvatarShape>(profile?.avatarShape || 'circle');
 
   const handleFinish = (ids: string[]) => {
-    const newProfile: Profile = {
+    const newProfile = finishSetup(profile, {
       name: name || profile?.name || 'Student',
       avatarId,
       avatarShape,
-      theme: 'dark',
       selectedSubjects: ids,
-      setupComplete: true,
-      streak: 0,
-      lastStudyDate: new Date().toISOString()
-    };
+    });
     setProfile(newProfile);
     // Best-effort: ask the browser not to evict this site's data under
     // storage pressure. Not a guarantee and never promised as one.
