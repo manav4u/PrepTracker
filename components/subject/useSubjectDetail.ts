@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { SYSTEM_RESOURCES } from '../../constants';
 import { useSubjects } from '../../context/SubjectsContext';
 import { useData } from '../../context/DataContext';
-import { recordStudy } from '../../lib/activity';
+import { recordStudy, recordEvents } from '../../lib/activity';
 import { resourceMatchesSubject } from '../../lib/resources';
 import { ResourceItem, UnitStatus } from '../../types';
 
@@ -63,7 +63,13 @@ export function useSubjectDetail() {
       next = [...userProgress, { unitId: uId, status, pyqsCompleted: [], ...patch }];
     }
     setUserProgress(next);
-    if (profile) setProfile(recordStudy(profile, new Date(), { subjectId: subject.id, unitId: uId, kind: 'unit' }));
+    if (profile) {
+      const now = new Date();
+      const before = new Set(idx > -1 ? userProgress[idx].topicsDone || [] : []);
+      // Marking a unit Mastered ticks its topics. Log each newly ticked topic so today's plan counts them as done work.
+      const ticked = status === UnitStatus.MASTERED ? unitTopics.filter(t => !before.has(t)).map(topic => ({ subjectId: subject.id, unitId: uId, topic, kind: 'topic' as const })) : [];
+      setProfile(recordEvents(recordStudy(profile, now, { subjectId: subject.id, unitId: uId, kind: 'unit' }), now, ticked));
+    }
   };
 
   const toggleTopic = (uId: string, topic: string, allTopics: string[]) => {

@@ -25,6 +25,7 @@ import {
 import { FlameIcon, FlaskIcon, PaperStampIcon, OpenBookIcon, SignalBars, TickDraw } from '../components/TaskIcons';
 import { useData } from '../context/DataContext';
 import { Subject, Task, Priority, TaskCategory as Category } from '../types';
+import { dayOf } from '../lib/revision';
 
 // --- CONSTANTS ---
 const CATEGORY_CONFIG: Record<Category, { color: string, icon: any, label: string }> = {
@@ -142,7 +143,7 @@ const TaskRow = React.memo(function TaskRow({ task, open, dragX, editing, draw, 
                                         {task.dueDate && (() => {
                                             const due = dueWords(task.dueDate);
                                             return (
-                                                <span className={`lg:hidden shrink-0 mt-[3px] text-[10px] font-bold flex items-center gap-1 uppercase tracking-wider ${due.overdue && !task.completed ? 'text-[#F63C49]' : 'text-slate-500'}`}>
+                                                <span className={`lg:hidden shrink-0 mt-[3px] text-[10px] font-bold flex items-center gap-1 uppercase tracking-wider ${'text-slate-400'}`}>
                                                     <Clock size={10} />
                                                     {due.text}
                                                 </span>
@@ -179,7 +180,7 @@ const TaskRow = React.memo(function TaskRow({ task, open, dragX, editing, draw, 
                                         {task.dueDate && (() => {
                                             const due = dueWords(task.dueDate);
                                             return (
-                                                <span className={`text-[10px] font-bold hidden lg:flex items-center gap-1 uppercase tracking-wider ml-auto ${due.overdue && !task.completed ? 'text-[#F63C49]' : 'text-slate-500'}`}>
+                                                <span className={`text-[10px] font-bold hidden lg:flex items-center gap-1 uppercase tracking-wider ml-auto ${'text-slate-400'}`}>
                                                     <Clock size={10} />
                                                     {due.text}
                                                 </span>
@@ -481,6 +482,16 @@ const TodoList: React.FC = () => {
   const visibleTasks = filteredTasks.length > shown ? filteredTasks.slice(0, shown) : filteredTasks;
   const sentinel = useRef<HTMLDivElement>(null);
   const moreLeft = filteredTasks.length > shown;
+  // Missed tasks wait in their own group. Their dates only change when the student moves them.
+  const todayKey = dayOf(new Date());
+  const isCarried = (t: Task) => !t.completed && !!t.dueDate && t.dueDate < todayKey;
+  const carriedAll = filter === 'COMPLETED' ? [] : filteredTasks.filter(isCarried);
+  const carriedShown = visibleTasks.filter(t => carriedAll.some(c => c.id === t.id));
+  const restShown = carriedAll.length ? visibleTasks.filter(t => !carriedAll.some(c => c.id === t.id)) : visibleTasks;
+  const moveCarried = () => {
+    const ids = new Set(carriedAll.map(t => t.id));
+    setTasks(prev => prev.map(t => ids.has(t.id) ? { ...t, dueDate: todayKey } : t));
+  };
   useEffect(() => {
     const el = sentinel.current;
     if (!el || !moreLeft) return;
@@ -715,9 +726,26 @@ const TodoList: React.FC = () => {
                         <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">No Active Tasks</p>
                     </div>
                 ) : (
-                    visibleTasks.map(task => (
+                    <>
+                    {carriedAll.length > 0 && (
+                        <div className="rounded-3xl border border-white/10 p-3 lg:p-4 space-y-3" data-testid="carried-over">
+                            <div className="flex items-center justify-between gap-3 px-2 pt-1">
+                                <h2 className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-300">Carried over</h2>
+                                <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-300">{carriedAll.length} {carriedAll.length === 1 ? 'task' : 'tasks'}</span>
+                            </div>
+                            {carriedShown.map(task => (
+                                <TaskRow key={task.id} task={task} open={openId === task.id} dragX={drag?.id === task.id ? drag.x : null} editing={editingId === task.id} draw={drawId === task.id} unit={task.unitId ? unitLabel(task.unitId) : null} subjectName={task.subjectId ? allSubjects.find(s => s.id === task.subjectId)?.name ?? null : null} act={act} />
+                            ))}
+                            <div className="flex flex-wrap items-center gap-3 px-2 pb-1">
+                                <button type="button" onClick={moveCarried} className="h-10 px-5 rounded-full border border-white/15 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-200 transition-colors duration-[250ms] hover:border-white/40 hover:text-white">Move to today</button>
+                                <p className="text-xs text-slate-400">Dates stay as you set them until you move a task.</p>
+                            </div>
+                        </div>
+                    )}
+                    {restShown.map(task => (
                         <TaskRow key={task.id} task={task} open={openId === task.id} dragX={drag?.id === task.id ? drag.x : null} editing={editingId === task.id} draw={drawId === task.id} unit={task.unitId ? unitLabel(task.unitId) : null} subjectName={task.subjectId ? allSubjects.find(s => s.id === task.subjectId)?.name ?? null : null} act={act} />
-                    ))
+                    ))}
+                    </>
                 )}
                 {moreLeft && <div ref={sentinel} aria-hidden="true" className="h-px" />}
             </div>

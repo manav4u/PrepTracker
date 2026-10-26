@@ -69,6 +69,21 @@ export const recordStudy = <T extends ActivityProfile>(p: T, now: Date = new Dat
   return { ...p, streak, lastStudyDate: now.toISOString(), activity, ...(events ? { events } : {}) };
 };
 
+/** Adds history lines for work already counted as an action (for example the topics a unit
+ *  "Mastered" tap ticked), so the day's list and the daily plan see them. It does not touch
+ *  the action count or the streak. Same one-line-per-thing-per-day rule as recordStudy. */
+export const recordEvents = <T extends ActivityProfile>(p: T, now: Date, add: StudyEventInput[]): T => {
+  if (add.length === 0) return p;
+  const key = dayKey(now);
+  const cutoff = dayKey(new Date(now.getFullYear(), now.getMonth(), now.getDate() - KEEP_DAYS));
+  const events = (p.events || []).filter(e => e.day >= cutoff);
+  for (const ev of add) {
+    const dup = events.some(e => e.day === key && e.kind === ev.kind && e.subjectId === ev.subjectId && e.unitId === ev.unitId && e.topic === ev.topic);
+    if (!dup) events.push({ ...ev, day: key });
+  }
+  return { ...p, events };
+};
+
 /** What was studied on one local day, oldest first. */
 export const eventsForDay = (p: ActivityProfile, key: string): StudyEvent[] =>
   (p.events || []).filter(e => e.day === key);
