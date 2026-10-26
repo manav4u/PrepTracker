@@ -173,7 +173,7 @@ import { recordEvents, recordStudy } from '../lib/activity.ts';
 
 test('marking a unit Mastered counts its newly ticked topics as done today and keeps the target', () => {
   const now = at('2026-10-10');
-  const profile = { streak: 0, lastStudyDate: '', events: [] as any[] };
+  const profile: any = { streak: 0, lastStudyDate: '', events: [] as any[] };
   const before = buildPlan(subjects, ['a'], dates, [{ unitId: 'a1', topicsDone: ['a1'] }], [], now);
   const ev1 = [{ day: '2026-10-10', unitId: 'a1', topic: 'a1', kind: 'topic' }];
   const start = buildPlan(subjects, ['a'], dates, [{ unitId: 'a1', topicsDone: ['a1'] }], ev1, now).subjects[0].target;
