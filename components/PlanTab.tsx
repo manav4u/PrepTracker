@@ -59,16 +59,29 @@ const PlanTab: React.FC = () => {
 
   const dayText = now.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
 
+  const dateNotices = <>
+    {plan.examsToday.length > 0 && (
+      <p className="mt-3 text-sm text-slate-300 leading-relaxed">Exam today: {plan.examsToday.map(s => s.name).join(', ')}. No new study target is set on exam day. <Link to="/app/revise" className="text-slate-200 underline underline-offset-2">Open Review</Link></p>
+    )}
+    {plan.pastExams.length > 0 && (
+      <p className="mt-3 text-sm text-slate-400 leading-relaxed">Past exam dates: {plan.pastExams.map(s => s.name).join(', ')}. These subjects are not in today's plan. <Link to="/app/settings" className="text-slate-200 underline underline-offset-2">Edit dates</Link></p>
+    )}
+  </>;
+
   if (plan.subjects.length === 0) {
+    const hasDates = plan.examsToday.length > 0 || plan.pastExams.length > 0;
     return (
-      <section className="rounded-3xl border border-white/10 surface-1 p-5 lg:p-8 max-w-2xl">
-        <p className="text-2xl lg:text-3xl text-white leading-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>Add an exam date to get a plan.</p>
-        <p className="mt-3 text-sm text-slate-400 leading-relaxed">
+      <section className="rounded-3xl border border-white/10 surface-1 p-5 lg:p-8 max-w-2xl" data-testid="plan-empty">
+        <p className="text-2xl lg:text-3xl text-white leading-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>
+          {plan.examsToday.length > 0 ? 'Exam day.' : hasDates ? 'No upcoming exams to plan for.' : 'Add an exam date to get a plan.'}
+        </p>
+        {dateNotices}
+        {(!hasDates || plan.undated.length > 0) && <p className="mt-3 text-sm text-slate-400 leading-relaxed">
           Each subject is planned on its own exam date. PrepTracker never guesses one.
           {plan.undated.length > 0 && <> Missing a date: {plan.undated.map((u) => u.name).join(', ')}.</>}
-        </p>
-        <Link to="/app/settings" className={`mt-6 inline-flex items-center h-11 px-5 rounded-full border border-white/15 text-xs font-bold uppercase tracking-[0.14em] text-slate-200 transition-colors ${EASE} hover:border-white/40 hover:text-white`}>
-          Open Settings
+        </p>}
+        <Link to={plan.examsToday.length > 0 ? '/app/revise' : '/app/settings'} className={`mt-6 inline-flex items-center h-11 px-5 rounded-full border border-white/15 text-xs font-bold uppercase tracking-[0.14em] text-slate-200 transition-colors ${EASE} hover:border-white/40 hover:text-white`}>
+          {plan.examsToday.length > 0 ? 'Open Review' : hasDates ? 'Edit exam dates' : 'Open Settings'}
         </Link>
       </section>
     );
@@ -89,6 +102,7 @@ const PlanTab: React.FC = () => {
         <div className="mt-3 h-1 rounded-full bg-white/10 overflow-hidden" role="progressbar" aria-valuemin={0} aria-valuemax={plan.target} aria-valuenow={Math.min(plan.doneToday, plan.target)} aria-label="Topics done today">
           <div className={`h-full rounded-full bg-[#F63C49] transition-[width] ${EASE}`} style={{ width: `${Math.min(100, pct)}%` }}></div>
         </div>
+        {dateNotices}
         {plan.nothingLeft ? (
           <p className="mt-3 text-xs text-slate-300 leading-relaxed">Every topic is ticked for your dated subjects.</p>
         ) : (
