@@ -61,4 +61,35 @@ test.describe('cookie consent', () => {
     await page.reload();
     await expect(page.locator('.pt-consent')).toHaveCount(0);
   });
+
+  for (const path of ['/', '/syllabus/grading-system-sgpa/']) {
+    test(`sends nothing to Google before a choice or after Reject, loads it after Accept (${path})`, async ({ page }) => {
+      const google: string[] = [];
+      page.on('request', (r) => {
+        if (/google-analytics\.com|googletagmanager\.com/.test(r.url())) google.push(r.url());
+      });
+
+      await page.goto(path, { waitUntil: 'networkidle' });
+      const banner = page.getByRole('region', { name: 'Cookie consent' });
+      await expect(banner).toBeVisible();
+      expect(google).toEqual([]);
+
+      await banner.getByRole('button', { name: 'Reject' }).click();
+      await page.reload({ waitUntil: 'networkidle' });
+      expect(google).toEqual([]);
+
+      await page.evaluate((k) => localStorage.removeItem(k), KEY);
+      await page.reload({ waitUntil: 'networkidle' });
+      await page.getByRole('region', { name: 'Cookie consent' }).getByRole('button', { name: 'Accept' }).click();
+      await expect.poll(() => google.some((u) => u.includes('googletagmanager.com/gtag/js'))).toBe(true);
+    });
+  }
+
+  test('after Accept the app sends a GA collect request', async ({ page }) => {
+    const collect: string[] = [];
+    page.on('request', (r) => { if (/google-analytics\.com\/g\/collect/.test(r.url())) collect.push(r.url()); });
+    await page.goto('/', { waitUntil: 'networkidle' });
+    await page.getByRole('region', { name: 'Cookie consent' }).getByRole('button', { name: 'Accept' }).click();
+    await expect.poll(() => collect.length).toBeGreaterThan(0);
+  });
 });

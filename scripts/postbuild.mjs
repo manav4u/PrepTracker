@@ -13,4 +13,14 @@ for (const file of ['dist/app/index.html', 'dist/404.html']) {
     writeFileSync(file, html.replace('</head>', `  ${NOINDEX}\n</head>`));
   }
 }
+// Real client routes must exist as real files so GitHub Pages serves them
+// with a 200, not a 404 status on the shell. Anything else still falls back
+// to the noindex 404.html. /app/subject/:id is user-data-driven, so it stays
+// on the fallback (renders fine in the browser; noindexed by design).
+const SHELL_ROUTES = ['onboarding', 'library', 'app/resources', 'app/tasks', 'app/revise', 'app/settings'];
+for (const route of SHELL_ROUTES) {
+  mkdirSync(`dist/${route}`, { recursive: true });
+  copyFileSync('dist/app/index.html', `dist/${route}/index.html`);
+}
 console.log('postbuild: copied index.html to app/index.html and 404.html (noindex on both)');
+console.log(`postbuild: materialized ${SHELL_ROUTES.length} client routes with 200 status (noindex shell)`);

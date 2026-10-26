@@ -56,7 +56,7 @@ const ConsentBanner: React.FC = () => {
           <div className="consent-row">
             <div>
               <b>Analytics cookies</b>
-              <span>Anonymous visit statistics: pages viewed, rough region, device type.</span>
+              <span>Visit statistics: pages viewed, rough region, device type.</span>
             </div>
             <button
               type="button"

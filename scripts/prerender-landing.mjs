@@ -41,6 +41,18 @@ try {
 
   index = index.replace('<div id="root"></div>', `<div id="root">${html}</div>`);
   fs.writeFileSync(indexPath, index);
+
+  // Plain-text markdown mirror of the landing (dist/index.md). Built from the
+  // same SSR markup, with the demo testimonial section excluded. Loud checks
+  // so landing copy drift fails the build instead of shipping a stale mirror.
+  const landingMd = mod.landingToMarkdown(html, 'https://preptracker.manavdev.site/');
+  if (landingMd.length < 800) throw new Error(`landing markdown suspiciously small (${landingMd.length} bytes)`);
+  for (const needle of ['Know exactly', 'left.', 'No account', 'syllabus']) {
+    if (!landingMd.includes(needle)) throw new Error(`landing markdown lost expected copy: "${needle}"`);
+  }
+  if (/own words|data-placeholder/i.test(landingMd)) throw new Error('landing markdown still contains the placeholder testimonial section');
+  fs.writeFileSync(path.resolve('dist/index.md'), landingMd);
+  console.log(`landing markdown mirror written (${landingMd.length} bytes)`);
   console.log(`prerendered landing into dist/index.html (${html.length} bytes of markup, inlined ${cssName})`);
 } finally {
   fs.rmSync(outDir, { recursive: true, force: true });
