@@ -84,15 +84,14 @@ const Revise: React.FC = () => {
             <span onClick={() => setStopLine((v) => !v)} className="inline-block text-[#F63C49] cursor-default">.</span>
           </span>
         </h1>
-        <div role="tablist" aria-label="Revise views" className="mt-5 inline-flex items-center p-1 rounded-full border border-white/10 bg-white/[0.03]">
+        <div role="group" aria-label="Revise views" className="mt-5 inline-flex items-center p-1 rounded-full border border-white/10 bg-white/[0.03]">
           {(['review', 'plan'] as const).map((t) => (
             <button
               key={t}
               type="button"
-              role="tab"
-              aria-selected={tab === t}
+              aria-pressed={tab === t}
               onClick={() => setTab(t)}
-              className={`h-9 px-5 rounded-full text-[10px] font-bold uppercase tracking-[0.18em] transition-colors ${EASE} ${tab === t ? 'bg-[#F63C49] text-white' : 'text-slate-300 hover:text-white'}`}
+              className={`h-9 px-5 rounded-full text-[10px] font-bold uppercase tracking-[0.18em] transition-colors ${EASE} ${tab === t ? 'bg-[#D61A40] text-white' : 'text-slate-300 hover:text-white'}`}
             >
               {t === 'review' ? 'Review' : 'Plan'}
             </button>
