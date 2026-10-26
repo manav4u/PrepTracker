@@ -1,0 +1,202 @@
+# PrepTracker
+
+> PrepTracker is a free, no-account study planner for SPPU engineering students. This file indexes a plain-text markdown mirror of the site's public pages. The mirrors carry the same text as the HTML pages, with no scripts, tracking or app chrome. Draft branches still in review are not mirrored.
+
+## Pages
+- [PrepTracker home](https://preptracker.manavdev.site/index.md)
+- [SPPU syllabus library](https://preptracker.manavdev.site/syllabus/index.md)
+- [Privacy policy](https://preptracker.manavdev.site/privacy/index.md)
+
+## Scheme, grading and exam pattern guides
+- [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/index.md)
+- [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/index.md)
+- [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/index.md)
+
+## First Year subjects
+- [Engineering Mathematics-I Syllabus, SPPU FE 2024 Pattern](https://preptracker.manavdev.site/syllabus/engineering-mathematics-1/index.md)
+- [Engineering Physics Syllabus, SPPU FE 2024 Pattern](https://preptracker.manavdev.site/syllabus/engineering-physics/index.md)
+- [Engineering Chemistry Syllabus, SPPU FE 2024 Pattern](https://preptracker.manavdev.site/syllabus/engineering-chemistry/index.md)
+- [Basic Electronics Engineering Syllabus, SPPU FE 2024 Pattern](https://preptracker.manavdev.site/syllabus/basic-electronics-engineering/index.md)
+- [Basic Electrical Engineering Syllabus, SPPU FE 2024 Pattern](https://preptracker.manavdev.site/syllabus/basic-electrical-engineering/index.md)
+- [Engineering Mechanics Syllabus, SPPU FE 2024 Pattern](https://preptracker.manavdev.site/syllabus/engineering-mechanics/index.md)
+- [Fundamentals of Programming Languages Syllabus, SPPU FE 2024 Pattern](https://preptracker.manavdev.site/syllabus/fundamentals-of-programming-languages/index.md)
+- [Engineering Graphics Syllabus, SPPU FE 2024 Pattern](https://preptracker.manavdev.site/syllabus/engineering-graphics/index.md)
+- [Engineering Mathematics-II Syllabus, SPPU FE 2024 Pattern](https://preptracker.manavdev.site/syllabus/engineering-mathematics-2/index.md)
+- [Programming and Problem Solving (Python) Syllabus, SPPU FE 2024 Pattern](https://preptracker.manavdev.site/syllabus/programming-and-problem-solving/index.md)
+
+## Second and Third Year branches
+
+### SE Computer Engineering
+- [SE Computer Engineering syllabus](https://preptracker.manavdev.site/syllabus/se-computer-engineering/index.md)
+- [Data Structures (PCC-201-COM)](https://preptracker.manavdev.site/syllabus/se-computer-engineering/data-structures/index.md)
+- [Object Oriented programming and Computer Graphics (PCC-202-COM)](https://preptracker.manavdev.site/syllabus/se-computer-engineering/object-oriented-programming-and-computer-graphics/index.md)
+- [Operating Systems (PCC-203-COM)](https://preptracker.manavdev.site/syllabus/se-computer-engineering/operating-systems/index.md)
+- [Digital Electronics and Logic Design (MDM-221-COM)](https://preptracker.manavdev.site/syllabus/se-computer-engineering/digital-electronics-and-logic-design/index.md)
+- [Database Management Systems (PCC-251-COM)](https://preptracker.manavdev.site/syllabus/se-computer-engineering/database-management-systems/index.md)
+- [Discrete Mathematics (PCC-252-COM)](https://preptracker.manavdev.site/syllabus/se-computer-engineering/discrete-mathematics/index.md)
+- [Computer Organization and Microprocessor (PCC-253-COM)](https://preptracker.manavdev.site/syllabus/se-computer-engineering/computer-organization-and-microprocessor/index.md)
+- [Internet of Things (MDM-271-COM)](https://preptracker.manavdev.site/syllabus/se-computer-engineering/internet-of-things/index.md)
+
+### SE Computer Science and Engineering
+- [SE Computer Science and Engineering syllabus](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/index.md)
+- [Data Structures (PCC-201-CSE)](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/data-structures/index.md)
+- [Object Oriented programming and Computer Graphics (PCC-202-CSE)](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/object-oriented-programming-and-computer-graphics/index.md)
+- [Operating Systems (PCC-203-CSE)](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/operating-systems/index.md)
+- [Digital Electronics and Logic Design (MDM-221-CSE)](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/digital-electronics-and-logic-design/index.md)
+- [Database Management Systems (PCC-251-CSE)](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/database-management-systems/index.md)
+- [Discrete Mathematics (PCC-252-CSE)](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/discrete-mathematics/index.md)
+- [Computer Organization and Microprocessor (PCC-253-CSE)](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/computer-organization-and-microprocessor/index.md)
+- [Internet of Things (MDM-271-CSE)](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/internet-of-things/index.md)
+
+### SE Artificial Intelligence and Data Science
+- [SE Artificial Intelligence and Data Science syllabus](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/index.md)
+- [Data Structures (PCC-201-AID)](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/data-structures/index.md)
+- [Artificial Intelligence (PCC-202-AID)](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/artificial-intelligence/index.md)
+- [Operating System (PCC-203-AID)](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/operating-system/index.md)
+- [Digital Electronics and Logic Design (MDM-221-AID)](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/digital-electronics-and-logic-design/index.md)
+- [Database Management Systems (PCC-251-AID)](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/database-management-systems/index.md)
+- [Data Science (PCC-252-AID)](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/data-science/index.md)
+- [Probability and Statistics (PCC-253-AID)](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/probability-and-statistics/index.md)
+- [Embedded Systems (MDM-271-AID)](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/embedded-systems/index.md)
+
+### SE Electrical Engineering
+- [SE Electrical Engineering syllabus](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/index.md)
+- [Electrical Measurements & Instrumentation (PCC-201-ELE)](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/electrical-measurements-and-instrumentation/index.md)
+- [Analog and Digital Electronics (PCC-202-ELE)](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/analog-and-digital-electronics/index.md)
+- [Power System Engineering-I (PCC-203-ELE)](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/power-system-engineering-i/index.md)
+- [Engineering Mathematics-III (MDM-222-ELE)](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/engineering-mathematics-iii/index.md)
+- [Electrical Machines-I (PCC-251-ELE)](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/electrical-machines-i/index.md)
+- [Numerical Methods and Computer Programming (PCC-252-ELE)](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/numerical-methods-and-computer-programming/index.md)
+- [Network Analysis (PCC-253-ELE)](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/network-analysis/index.md)
+- [Fundamentals of Data science & Machine Learning (MDM-272-ELE)](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/fundamentals-of-data-science-and-machine-learning/index.md)
+
+### SE Information Technology
+- [SE Information Technology syllabus](https://preptracker.manavdev.site/syllabus/se-information-technology/index.md)
+- [Data Structures & Algorithms (PCC-201-ITT)](https://preptracker.manavdev.site/syllabus/se-information-technology/data-structures-and-algorithms/index.md)
+- [Object Oriented Programming (PCC-202-ITT)](https://preptracker.manavdev.site/syllabus/se-information-technology/object-oriented-programming/index.md)
+- [Basics of Computer Network (PCC-203-ITT)](https://preptracker.manavdev.site/syllabus/se-information-technology/basics-of-computer-network/index.md)
+- [Digital Electronics and Logic Design (MDM-221-ITT)](https://preptracker.manavdev.site/syllabus/se-information-technology/digital-electronics-and-logic-design/index.md)
+- [Database Management System (PCC-251-ITT)](https://preptracker.manavdev.site/syllabus/se-information-technology/database-management-system/index.md)
+- [Computer Graphics (PCC-252-ITT)](https://preptracker.manavdev.site/syllabus/se-information-technology/computer-graphics/index.md)
+- [Processor Architecture (MDM-271-ITT)](https://preptracker.manavdev.site/syllabus/se-information-technology/processor-architecture/index.md)
+
+### SE Civil Engineering
+- [SE Civil Engineering syllabus](https://preptracker.manavdev.site/syllabus/se-civil-engineering/index.md)
+- [Mechanics of Structures (PCC-201-CVL)](https://preptracker.manavdev.site/syllabus/se-civil-engineering/mechanics-of-structures/index.md)
+- [Surveying (PCC-202-CVL)](https://preptracker.manavdev.site/syllabus/se-civil-engineering/surveying/index.md)
+- [Building Construction and Materials (PCC-203-CVL)](https://preptracker.manavdev.site/syllabus/se-civil-engineering/building-construction-and-materials/index.md)
+- [Engineering Mathematics - III (MDM-221-CVL)](https://preptracker.manavdev.site/syllabus/se-civil-engineering/engineering-mathematics-iii/index.md)
+- [Fluid Mechanics (PCC-251-CVL)](https://preptracker.manavdev.site/syllabus/se-civil-engineering/fluid-mechanics/index.md)
+- [Structural Analysis (PCC-252-CVL)](https://preptracker.manavdev.site/syllabus/se-civil-engineering/structural-analysis/index.md)
+- [Concrete Technology (PCC-253-CVL)](https://preptracker.manavdev.site/syllabus/se-civil-engineering/concrete-technology/index.md)
+- [Engineering Geology (MDM-271-CVL)](https://preptracker.manavdev.site/syllabus/se-civil-engineering/engineering-geology/index.md)
+
+### SE Instrumentation and Control Engineering
+- [SE Instrumentation and Control Engineering syllabus](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/index.md)
+- [Sensors and Transducers (PCC-201-INC)](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/sensors-and-transducers/index.md)
+- [Signals and Systems (PCC-202-INC)](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/signals-and-systems/index.md)
+- [Linear Integrated Circuits (PCC-203-INC)](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/linear-integrated-circuits/index.md)
+- [Data Structures (MDM-221-INC)](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/data-structures/index.md)
+- [Feedback Control Systems (PCC-251-INC)](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/feedback-control-systems/index.md)
+- [Control System Components (PCC-252-INC)](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/control-system-components/index.md)
+- [Digital Electronics (PCC-253-INC)](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/digital-electronics/index.md)
+- [Data Science (MDM-271-INC)](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/data-science/index.md)
+
+### SE Mechanical Engineering
+- [SE Mechanical Engineering syllabus](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/index.md)
+- [Solid Mechanics (PCC-201-MEC)](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/solid-mechanics/index.md)
+- [Engineering Thermodynamics (PCC-202-MEC)](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/engineering-thermodynamics/index.md)
+- [Engineering Materials & Metallurgy (PCC-203-MEC)](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/engineering-materials-and-metallurgy/index.md)
+- [Engineering Mathematics-III (MDM-221-MEC)](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/engineering-mathematics-iii/index.md)
+- [Fluid Mechanics (PCC-251-MEC)](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/fluid-mechanics/index.md)
+- [Manufacturing Processes-I (PCC-252-MEC)](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/manufacturing-processes-i/index.md)
+- [Applied Thermodynamics (PCC-253-MEC)](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/applied-thermodynamics/index.md)
+
+### SE Cyber Security
+- [SE Cyber Security syllabus](https://preptracker.manavdev.site/syllabus/se-cyber-security/index.md)
+- [Data Structures and Algorithms (PCC-201-CYB)](https://preptracker.manavdev.site/syllabus/se-cyber-security/data-structures-and-algorithms/index.md)
+- [Discrete Mathematics (PCC-203-CYB)](https://preptracker.manavdev.site/syllabus/se-cyber-security/discrete-mathematics/index.md)
+- [Digital Electronics and Logic Design (MDM-221-CYB)](https://preptracker.manavdev.site/syllabus/se-cyber-security/digital-electronics-and-logic-design/index.md)
+- [Database Management Systems (PCC-251-CYB)](https://preptracker.manavdev.site/syllabus/se-cyber-security/database-management-systems/index.md)
+- [Advanced Data Structures (PCC-252-CYB)](https://preptracker.manavdev.site/syllabus/se-cyber-security/advanced-data-structures/index.md)
+- [Probability and Statistics (PCC-253-CYB)](https://preptracker.manavdev.site/syllabus/se-cyber-security/probability-and-statistics/index.md)
+- [Internet of Things (MDM-271-CYB)](https://preptracker.manavdev.site/syllabus/se-cyber-security/internet-of-things/index.md)
+
+### TE Robotics and Artificial Intelligence
+- [TE Robotics and Artificial Intelligence syllabus](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/index.md)
+- [Dynamics and Control of Robotic Systems (PCC-301-RAI)](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/dynamics-and-control-of-robotic-systems/index.md)
+- [Machine Learning for Robotics (PCC-302-RAI)](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/machine-learning-for-robotics/index.md)
+- [Robot Modeling and Simulation (PCC-303-RAI)](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/robot-modeling-and-simulation/index.md)
+- [Advances in Robotics and Artificial Intelligence (PCC-304-RAI)](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/advances-in-robotics-and-artificial-intelligence/index.md)
+- [Design of Robot Elements (PCC-305-RAI)](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/design-of-robot-elements/index.md)
+- [Deep Learning and Neural Networks (PCC-351-RAI)](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/deep-learning-and-neural-networks/index.md)
+- [Robotic Process Automation (PCC-352-RAI)](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/robotic-process-automation/index.md)
+- [Robot Operating System (PCC-353-RAI)](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/robot-operating-system/index.md)
+
+### TE Mechanical Engineering
+- [TE Mechanical Engineering syllabus](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/index.md)
+- [Heat & Mass Transfer (PCC-301-MEC)](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/heat-and-mass-transfer/index.md)
+- [Theory of Machines (PCC-302-MEC)](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/theory-of-machines/index.md)
+- [Design of Machine Elements (PCC-303-MEC)](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/design-of-machine-elements/index.md)
+- [Manufacturing Process-II (PCC-304-MEC)](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/manufacturing-process-ii/index.md)
+- [Metrology and Quality Control (PCC-305-MEC)](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/metrology-and-quality-control/index.md)
+- [Computer Integrated Manufacturing (PCC-351-MEC)](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/computer-integrated-manufacturing/index.md)
+- [Refrigeration & Air-conditioning (PCC-352-MEC)](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/refrigeration-and-air-conditioning/index.md)
+- [Transmission System Design (PCC-353-MEC)](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/transmission-system-design/index.md)
+
+### TE Computer Engineering
+- [TE Computer Engineering syllabus](https://preptracker.manavdev.site/syllabus/te-computer-engineering/index.md)
+- [Artificial Intelligence (PCC301COM)](https://preptracker.manavdev.site/syllabus/te-computer-engineering/artificial-intelligence/index.md)
+- [Computer Networks (PCC302COM)](https://preptracker.manavdev.site/syllabus/te-computer-engineering/computer-networks/index.md)
+- [Theory Of Computations (PCC303COM)](https://preptracker.manavdev.site/syllabus/te-computer-engineering/theory-of-computations/index.md)
+- [Data Mining and Data Warehousing (PEC321ACOM)](https://preptracker.manavdev.site/syllabus/te-computer-engineering/data-mining-and-data-warehousing/index.md)
+- [Cloud Computing (PEC321BCOM)](https://preptracker.manavdev.site/syllabus/te-computer-engineering/cloud-computing/index.md)
+- [Mobile Computing (PEC321CCOM)](https://preptracker.manavdev.site/syllabus/te-computer-engineering/mobile-computing/index.md)
+- [Embedded System (PEC321DCOM)](https://preptracker.manavdev.site/syllabus/te-computer-engineering/embedded-system/index.md)
+- [Machine Learning (PCC351COM)](https://preptracker.manavdev.site/syllabus/te-computer-engineering/machine-learning/index.md)
+- [Software Engineering and Modeling (PCC352COM)](https://preptracker.manavdev.site/syllabus/te-computer-engineering/software-engineering-and-modeling/index.md)
+- [Quantum Computing (PEC361ACOM)](https://preptracker.manavdev.site/syllabus/te-computer-engineering/quantum-computing/index.md)
+- [Distributed Systems (PEC361BCOM)](https://preptracker.manavdev.site/syllabus/te-computer-engineering/distributed-systems/index.md)
+- [User Interface and User Experience Design (PEC361CCOM)](https://preptracker.manavdev.site/syllabus/te-computer-engineering/user-interface-and-user-experience-design/index.md)
+- [System Programming (PEC361DCOM)](https://preptracker.manavdev.site/syllabus/te-computer-engineering/system-programming/index.md)
+- [Information Retrieval (PEC362ACOM)](https://preptracker.manavdev.site/syllabus/te-computer-engineering/information-retrieval/index.md)
+- [Data Visualization and Analytics (PEC362BCOM)](https://preptracker.manavdev.site/syllabus/te-computer-engineering/data-visualization-and-analytics/index.md)
+- [Cryptography and Network Security (PEC362CCOM)](https://preptracker.manavdev.site/syllabus/te-computer-engineering/cryptography-and-network-security/index.md)
+- [Advanced Databases (PEC362DCOM)](https://preptracker.manavdev.site/syllabus/te-computer-engineering/advanced-databases/index.md)
+
+### TE Information Technology
+- [TE Information Technology syllabus](https://preptracker.manavdev.site/syllabus/te-information-technology/index.md)
+- [Operating System (PCC-301-IT)](https://preptracker.manavdev.site/syllabus/te-information-technology/operating-system/index.md)
+- [Artificial Intelligence & Machine Learning (PCC-302-IT)](https://preptracker.manavdev.site/syllabus/te-information-technology/artificial-intelligence-and-machine-learning/index.md)
+- [Theory of Computation (PCC-303-IT)](https://preptracker.manavdev.site/syllabus/te-information-technology/theory-of-computation/index.md)
+- [Cloud Computing (PEC-321A-IT)](https://preptracker.manavdev.site/syllabus/te-information-technology/cloud-computing/index.md)
+- [Web Application Development (PEC-321C-IT)](https://preptracker.manavdev.site/syllabus/te-information-technology/web-application-development/index.md)
+- [Image Processing Computer Vision (PEC-321D-IT)](https://preptracker.manavdev.site/syllabus/te-information-technology/image-processing-computer-vision/index.md)
+- [Advanced Database Management System (PEC-321B-IT)](https://preptracker.manavdev.site/syllabus/te-information-technology/advanced-database-management-system/index.md)
+- [Data Science & Big Data Analytics (PCC-351-IT)](https://preptracker.manavdev.site/syllabus/te-information-technology/data-science-and-big-data-analytics/index.md)
+- [Software Engineering & Project Management (PCC352-ITT)](https://preptracker.manavdev.site/syllabus/te-information-technology/software-engineering-and-project-management/index.md)
+- [DevOps (PEC-361A-IT)](https://preptracker.manavdev.site/syllabus/te-information-technology/devops/index.md)
+- [Quantum Computing (PEC-361B-IT)](https://preptracker.manavdev.site/syllabus/te-information-technology/quantum-computing/index.md)
+- [Blockchain Technology (PEC-361C-IT)](https://preptracker.manavdev.site/syllabus/te-information-technology/blockchain-technology/index.md)
+- [Natural Language Processing (PEC-361D-IT)](https://preptracker.manavdev.site/syllabus/te-information-technology/natural-language-processing/index.md)
+- [Power BI & Tableau (PEC-362A-IT)](https://preptracker.manavdev.site/syllabus/te-information-technology/power-bi-and-tableau/index.md)
+- [High Performance Computing (PEC-362B-IT)](https://preptracker.manavdev.site/syllabus/te-information-technology/high-performance-computing/index.md)
+- [Mobile Application Development (PEC-362C-IT)](https://preptracker.manavdev.site/syllabus/te-information-technology/mobile-application-development/index.md)
+- [Cyber Security & Risk Management (PEC-362D-IT)](https://preptracker.manavdev.site/syllabus/te-information-technology/cyber-security-and-risk-management/index.md)
+
+### TE Electrical Engineering
+- [TE Electrical Engineering syllabus](https://preptracker.manavdev.site/syllabus/te-electrical/index.md)
+- [Electrical Machines-II (PCC-301-ELE)](https://preptracker.manavdev.site/syllabus/te-electrical/electrical-machines-ii/index.md)
+- [Power Electronics (PCC-302-ELE)](https://preptracker.manavdev.site/syllabus/te-electrical/power-electronics/index.md)
+- [Electrical Installation, Design and Condition Based Maintenance (PCC-303-ELE)](https://preptracker.manavdev.site/syllabus/te-electrical/electrical-installation-design-and-condition-based-maintenance/index.md)
+- [Microcontroller and Embedded Systems (PEC-321A-ELE)](https://preptracker.manavdev.site/syllabus/te-electrical/microcontroller-and-embedded-systems/index.md)
+- [Renewable Energy Systems (PEC-321B-ELE)](https://preptracker.manavdev.site/syllabus/te-electrical/renewable-energy-systems/index.md)
+- [Computer Aided Design of Electrical Machines (PEC-321C-ELE)](https://preptracker.manavdev.site/syllabus/te-electrical/computer-aided-design-of-electrical-machines/index.md)
+- [Power System Engineering-II (PCC-351-ELE)](https://preptracker.manavdev.site/syllabus/te-electrical/power-system-engineering-ii/index.md)
+- [Control System Engineering (PCC-352-ELE)](https://preptracker.manavdev.site/syllabus/te-electrical/control-system-engineering/index.md)
+- [Electric Vehicles-I (PEC-361A-ELE)](https://preptracker.manavdev.site/syllabus/te-electrical/electric-vehicles-i/index.md)
+- [PLC and SCADA (PEC-361B-ELE)](https://preptracker.manavdev.site/syllabus/te-electrical/plc-and-scada/index.md)
+- [Energy Storage & Grid Interconnected Renewable Energy Systems (PEC-361C-ELE)](https://preptracker.manavdev.site/syllabus/te-electrical/energy-storage-and-grid-interconnected-renewable-energy-systems/index.md)
+- [Illumination Engineering (PEC-363A-ELE)](https://preptracker.manavdev.site/syllabus/te-electrical/illumination-engineering/index.md)
+- [Energy Management (PEC-363B-ELE)](https://preptracker.manavdev.site/syllabus/te-electrical/energy-management/index.md)
+- [Digital Signal Processing (PEC-363C-ELE)](https://preptracker.manavdev.site/syllabus/te-electrical/digital-signal-processing/index.md)
