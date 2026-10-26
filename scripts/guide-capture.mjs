@@ -1,27 +1,109 @@
-import { chromium } from '@playwright/test';
-import fs from 'node:fs';
-const browser = await chromium.launch({executablePath:'/usr/bin/google-chrome',headless:true,args:['--no-sandbox']});
-const context = await browser.newContext({ viewport:{width:390,height:844},deviceScaleFactor:2 });
-const page = await context.newPage();
-await page.clock.install({time:new Date('2026-10-27T10:00:00')});
-await page.addInitScript(()=>{
- if(sessionStorage.getItem('guide-seed'))return;
- localStorage.setItem('pt_ga_consent','denied');
- localStorage.setItem('sppu_revise_prompt_day','2026-10-27');
- const maths=['Rolle’s Theorem','Mean Value Theorems',"Taylor's and Maclaurin's Series",'Indeterminate Forms',"L' Hospital's Rule",'Fourier series (Full range & Half range)','Harmonic analysis'];
- localStorage.setItem('sppu_profile',JSON.stringify({name:'Aarya',theme:'dark',selectedSubjects:['m1','phy'],setupComplete:true,streak:4,lastStudyDate:'2026-10-27T09:00:00',prn:'DEMO 2026',avatarId:'01',examStartDate:'2026-11-05',examDates:{m1:'2026-11-05',phy:'2026-11-07'},activity:{'2026-10-24':2,'2026-10-25':4,'2026-10-26':3,'2026-10-27':7},events:maths.map(topic=>({day:'2026-10-27',subjectId:'m1',unitId:'m1-u1',topic,kind:'topic'}))}));
- localStorage.setItem('sppu_progress',JSON.stringify([{unitId:'m1-u1',status:'Mastered',topicsDone:maths,pyqsCompleted:['2023']} ]));
- localStorage.setItem('sppu_tasks',JSON.stringify([{id:'demo-task',text:'Solve Physics Unit 1 PYQs',completed:false,priority:'CRITICAL',category:'EXAM',subjectId:'phy',unitId:'phy-u1',dueDate:'2026-10-26',createdAt:'2026-10-24T09:00:00'}]));
- sessionStorage.setItem('guide-seed','yes');
+import { chromium } from "@playwright/test";
+import fs from "node:fs";
+const browser = await chromium.launch({
+  executablePath: "/usr/bin/google-chrome",
+  headless: true,
+  args: ["--no-sandbox"],
 });
-fs.mkdirSync('public/guide',{recursive:true});
-await page.goto('http://127.0.0.1:5173/app/revise?tab=plan');
-await page.getByTestId('plan-tab').waitFor();
+const context = await browser.newContext({
+  viewport: { width: 390, height: 844 },
+  deviceScaleFactor: 2,
+});
+const page = await context.newPage();
+await page.clock.install({ time: new Date("2026-10-27T10:00:00") });
+await page.addInitScript(() => {
+  if (sessionStorage.getItem("guide-seed")) return;
+  localStorage.setItem("pt_ga_consent", "denied");
+  localStorage.setItem("sppu_revise_prompt_day", "2026-10-27");
+  const maths = [
+    "Rolle’s Theorem",
+    "Mean Value Theorems",
+    "Taylor's and Maclaurin's Series",
+    "Indeterminate Forms",
+    "L' Hospital's Rule",
+    "Fourier series (Full range & Half range)",
+    "Harmonic analysis",
+  ];
+  localStorage.setItem(
+    "sppu_profile",
+    JSON.stringify({
+      name: "Aarya",
+      theme: "dark",
+      selectedSubjects: ["m1", "phy"],
+      setupComplete: true,
+      streak: 4,
+      lastStudyDate: "2026-10-27T09:00:00",
+      prn: "DEMO 2026",
+      avatarId: "01",
+      examStartDate: "2026-11-05",
+      examDates: { m1: "2026-11-05", phy: "2026-11-07" },
+      activity: {
+        "2026-10-24": 2,
+        "2026-10-25": 4,
+        "2026-10-26": 3,
+        "2026-10-27": 7,
+      },
+      events: maths.map((topic) => ({
+        day: "2026-10-27",
+        subjectId: "m1",
+        unitId: "m1-u1",
+        topic,
+        kind: "topic",
+      })),
+    }),
+  );
+  localStorage.setItem(
+    "sppu_progress",
+    JSON.stringify([
+      {
+        unitId: "m1-u1",
+        status: "Mastered",
+        topicsDone: maths,
+        pyqsCompleted: ["2023"],
+      },
+    ]),
+  );
+  localStorage.setItem(
+    "sppu_tasks",
+    JSON.stringify([
+      {
+        id: "demo-task",
+        text: "Solve Physics Unit 1 PYQs",
+        completed: false,
+        priority: "CRITICAL",
+        category: "EXAM",
+        subjectId: "phy",
+        unitId: "phy-u1",
+        dueDate: "2026-10-26",
+        createdAt: "2026-10-24T09:00:00",
+      },
+    ]),
+  );
+  sessionStorage.setItem("guide-seed", "yes");
+});
+fs.mkdirSync("public/guide", { recursive: true });
+await page.goto("http://127.0.0.1:5173/app/revise?tab=plan");
+await page.getByTestId("plan-tab").waitFor();
 await page.clock.runFor(1800);
-await page.getByTestId('plan-tab').locator('section').screenshot({path:'public/guide/plan-goal.png'});
-await page.getByTestId('plan-tab').locator('div.order-2').screenshot({path:'public/guide/plan-topics.png'});
-await page.goto('http://127.0.0.1:5173/app/settings');
-await page.getByRole('button',{name:/Exam date per subject/}).click();
+await page
+  .getByTestId("plan-tab")
+  .locator("section")
+  .screenshot({ path: "public/guide/plan-goal.png" });
+await page
+  .getByTestId("plan-tab")
+  .locator("div.order-2")
+  .screenshot({ path: "public/guide/plan-topics.png" });
+await page.goto("http://127.0.0.1:5173/app/settings");
+await page.getByRole("button", { name: /Exam date per subject/ }).click();
 await page.clock.runFor(1500);
-await page.locator('section').filter({has:page.locator('#exam-start')}).screenshot({path:'public/guide/plan-dates.png'}).catch(async()=>{await page.locator('#exam-start').locator('../..').screenshot({path:'public/guide/plan-dates.png'});});
+await page
+  .locator("section")
+  .filter({ has: page.locator("#exam-start") })
+  .screenshot({ path: "public/guide/plan-dates.png" })
+  .catch(async () => {
+    await page
+      .locator("#exam-start")
+      .locator("../..")
+      .screenshot({ path: "public/guide/plan-dates.png" });
+  });
 await browser.close();

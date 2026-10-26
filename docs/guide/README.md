@@ -17,3 +17,12 @@ Setup and course eligibility; Home metrics/calendar; topic checklist, bulk state
 
 ## Scope exclusions
 No app-wide redesign, new calculator route, cloud sync, native app, automatic task rescheduling, or unrelated Settings contrast fix. No production release in this PR.
+
+Regenerate screenshots with the guide capture scripts, then run `python3 scripts/guide-optimize.py` to mark focus targets and generate WebP. Keep the PNG captures out of the published asset set. Screenshots use cropped app controls; the small red dot marks the focus target named in the text. Full labels stay visible.
+
+## Review build verification (2026-10-27)
+- 104 unit tests, typecheck and production build pass.
+- 66 browser checks at 390px and 1440px pass with zero retries, including all 42 guide steps, image loads, overflow, axe, reduced motion, keyboard dismissal/focus return, Settings entry and existing-data preservation.
+- Previously loaded guide chapter reloads offline after the service worker takes control. A not-yet-visited Settings route failed offline in the same clean profile. The guide explicitly says to open needed screens while online, and does not promise every route or external resource offline.
+- All first-step phone compositions and representative desktop compositions visually reviewed. Screenshot enlargement uses a vertically scrollable image with a fixed close control.
+- Preview is on the existing isolated catchup project, with noindex/noarchive headers and robots disallow. It is not the live product release. The host uses a separate browser-storage origin; no production study data is copied.
