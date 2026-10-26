@@ -37,3 +37,27 @@ test('extra Maths work cannot complete the Physics goal', async ({ page }, info)
   await expect(plan).toContainText('0left');
   await expect(bar).toHaveAttribute('aria-valuenow', '8');
 });
+
+test('bulk Done counts extra work without stealing another subject goal', async ({ page }) => {
+  await page.clock.install({ time: new Date('2026-10-27T10:00:00') });
+  await page.addInitScript(() => {
+    if (sessionStorage.getItem('qa-seeded')) return;
+    localStorage.setItem('pt_ga_consent', 'denied');
+    localStorage.setItem('sppu_profile', JSON.stringify({ name: 'QA', theme: 'dark', selectedSubjects: ['m1', 'phy'], setupComplete: true, streak: 0, lastStudyDate: '', examDates: { m1: '2026-11-05', phy: '2026-11-07' } }));
+    sessionStorage.setItem('qa-seeded', 'yes');
+  });
+  await page.goto('/app/subject/m1');
+  await page.getByRole('group', { name: 'Unit status', exact: true }).first().getByRole('button', { name: 'Mark unit as Done', exact: true }).click();
+  await page.goto('/app/revise?tab=plan');
+  const plan = page.getByTestId('plan-tab');
+  await expect(plan).toContainText('4 done of 8');
+  await expect(plan).toContainText('4left');
+  await expect(plan).toContainText('+3 extra topics studied');
+  await page.reload();
+  await expect(plan).toContainText('4 done of 8');
+  await expect(page.getByRole('progressbar', { name: 'Daily topic goals completed' })).toHaveAttribute('aria-valuenow', '4');
+  await page.getByRole('button', { name: 'Mark not done: Rolle’s Theorem', exact: true }).focus();
+  await page.keyboard.press('Enter');
+  await expect(plan).toContainText('+2 extra topics studied');
+  await expect(plan).toContainText('4 done of 8');
+});
