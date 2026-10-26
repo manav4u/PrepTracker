@@ -348,7 +348,7 @@ const TodoList: React.FC = () => {
     setInputCategory(t.category);
     setInputDate(t.dueDate || '');
     setInputUnit(t.unitId || '');
-    setInputSubject(subjectOfUnit(t.unitId || ''));
+    setInputSubject(t.subjectId || subjectOfUnit(t.unitId || ''));
     setOpenId(null);
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     requestAnimationFrame(() => formRef.current?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }));
