@@ -39,6 +39,8 @@ export interface Plan {
   target: number; // M in "N left of M"
   remaining: number; // N
   doneToday: number;
+  creditedToday: number; // completed toward each subject goal, capped per subject
+  extraToday: number; // work beyond a subject goal, never substitutes for another subject
   nothingLeft: boolean; // every dated subject is fully ticked
   perDay: number; // topics a day needed from tomorrow on, for the pace line
 }
@@ -98,13 +100,15 @@ export const buildPlan = (
   const target = out.reduce((n, s) => n + s.target, 0);
   const doneToday = out.reduce((n, s) => n + s.doneToday, 0);
   const remaining = out.reduce((n, s) => n + s.remaining, 0);
+  const creditedToday = out.reduce((n, s) => n + Math.min(s.doneToday, s.target), 0);
+  const extraToday = doneToday - creditedToday;
   // Pace from tomorrow: what is still unticked after today's remaining, over the days after today.
   const perDay = out.reduce((n, s) => {
     const rest = Math.max(0, s.left - s.remaining);
     const days = Math.max(1, s.studyDays - 1);
     return n + Math.ceil(rest / days);
   }, 0);
-  return { subjects: out, undated, target, remaining, doneToday, nothingLeft: out.length > 0 && out.every((s) => s.left === 0), perDay };
+  return { subjects: out, undated, target, remaining, doneToday, creditedToday, extraToday, nothingLeft: out.length > 0 && out.every((s) => s.left === 0), perDay };
 };
 
 /** Next local midnight, for the timer that refreshes the plan while the app stays open. */
