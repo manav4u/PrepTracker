@@ -284,7 +284,7 @@ const Dashboard: React.FC = () => {
 
       {/* HUD Header */}
       <section className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-        <div className="lg:col-span-2 rounded-3xl surface-1 p-8 lg:p-10 relative overflow-hidden group flex flex-col justify-between">
+        <div data-tour="overview" className="lg:col-span-2 rounded-3xl surface-1 p-8 lg:p-10 relative overflow-hidden group flex flex-col justify-between">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
           
           <div className="relative z-10">
@@ -330,7 +330,7 @@ const Dashboard: React.FC = () => {
       </section>
 
       {/* Main Grid */}
-      <section>
+      <section data-tour="courses">
         <div className="flex items-end justify-between mb-8 px-1">
           <div>
             <h2 className="text-3xl font-display font-bold text-white mb-1 tracking-tight">Active Courses</h2>

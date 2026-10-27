@@ -26,3 +26,6 @@ Regenerate screenshots with the guide capture scripts, then run `python3 scripts
 - Previously loaded guide chapter reloads offline after the service worker takes control. A not-yet-visited Settings route failed offline in the same clean profile. The guide explicitly says to open needed screens while online, and does not promise every route or external resource offline.
 - All first-step phone compositions and representative desktop compositions visually reviewed. Screenshot enlargement uses a vertically scrollable image with a fixed close control.
 - Preview is on the existing isolated catchup project, with noindex/noarchive headers and robots disallow. It is not the live product release. The host uses a separate browser-storage origin; no production study data is copied.
+
+## Interaction correction, 2026-10-27
+User clarified the intended guide is a first-open in-app popup tour, not the separate reader. The first Home tour is a design sample triggered by `/app?tour=sample`; it also carries through setup in the current tab. It is not yet enabled automatically or marked completed persistently. No other-screen tour rollout until sample approval. The earlier reader is retained in draft only, not treated as fulfilling the corrected request.
