@@ -173,7 +173,7 @@ export default function App() {
                         </div>
                         <span className="font-bold tracking-widest uppercase text-xs text-white">PrepTracker</span>
                         </div>
-                        <div className="flex items-center gap-2">
+                        <div data-tour="header-tools" className="flex items-center gap-2">
                         <AnnouncementsBell />
                         <button
                         type="button"
@@ -250,7 +250,7 @@ export default function App() {
                             <span>{new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</span>
                         </div>
 
-                        <div className="flex items-center gap-4">
+                        <div data-tour="header-tools" className="flex items-center gap-4">
                             <AnnouncementsBell />
                             <GlobalSearch selectedSubjects={profile.selectedSubjects || []} />
                         </div>

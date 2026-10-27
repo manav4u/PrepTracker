@@ -596,7 +596,7 @@ const TodoList: React.FC = () => {
                 <form onSubmit={addTask} className="space-y-5">
                     
                     {/* Text Input */}
-                    <div className="space-y-2">
+                    <div data-tour="task-title" className="space-y-2">
                         <label className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Task Title</label>
                         <input 
                             type="text" 
@@ -624,7 +624,7 @@ const TodoList: React.FC = () => {
                         />
                     </div>
 
-                    <CustomSelect
+                    <div data-tour="task-links"><CustomSelect
                         label="Subject"
                         value={inputSubject}
                         onChange={(v) => { setInputSubject(v); setInputUnit(''); }}
@@ -637,10 +637,10 @@ const TodoList: React.FC = () => {
                         onChange={(v) => setInputUnit(v)}
                         options={unitOptionsFor(inputSubject)}
                         disabled={!inputSubject}
-                    />
+                    /></div>
 
                     {/* Date Input */}
-                    <div className="space-y-2">
+                    <div data-tour="task-date" className="space-y-2">
                         <label className="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Due date (optional)</label>
                         <div className="relative group">
                             <Calendar size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-[#F63C49] transition-colors" />
@@ -683,7 +683,7 @@ const TodoList: React.FC = () => {
         <div className="lg:col-span-8">
             
             {/* Controls */}
-            <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+            <div data-tour="task-filters" className="flex flex-wrap items-center justify-between gap-4 mb-6">
                 <div className="flex gap-1">
                     {(['ALL', 'ACTIVE', 'COMPLETED'] as const).map((f) => (
                         <button
@@ -711,7 +711,7 @@ const TodoList: React.FC = () => {
             </div>
 
             {/* List */}
-            <div className="space-y-3">
+            <div data-tour="task-list" className="space-y-3">
                 {loading ? (
                     <div className="py-20 text-center">
                         <Loader2 size={48} className="mx-auto text-[#F63C49] animate-spin mb-4" />

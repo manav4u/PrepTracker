@@ -85,7 +85,7 @@ const ConceptB: React.FC<{ s: SubjectDetailState }> = ({ s }) => {
 
                 <div className="pl-7 pr-5 lg:pl-9 lg:pr-7 py-6">
                   <div className="flex flex-wrap items-start justify-between gap-4">
-                    <button type="button" onClick={() => s.toggleCollapsed(unit.id)} aria-expanded={open} className="text-left min-w-0 group">
+                    <button data-tour="unit-heading" type="button" onClick={() => s.toggleCollapsed(unit.id)} aria-expanded={open} className="text-left min-w-0 group">
                       <span className="block text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-1">
                         Unit {String(unit.unit_number).padStart(2, '0')} - {topicsDone}/{(unit.topics || []).length} topics
                       </span>
@@ -93,18 +93,18 @@ const ConceptB: React.FC<{ s: SubjectDetailState }> = ({ s }) => {
                         {unit.title}
                       </h2>
                     </button>
-                    <StatusSteps value={p.status} onChange={st => s.updateStatus(unit.id, st)} />
+                    <div data-tour="unit-status"><StatusSteps value={p.status} onChange={st => s.updateStatus(unit.id, st)} /></div>
                   </div>
 
                   {open && (
                     <div className="mt-6">
                       {unit.topics && unit.topics.length > 0 && (
-                        <div className="border-l-2 border-[#D61A40]/60 pl-5 ml-1 mb-6">
+                        <div data-tour="unit-topics" className="border-l-2 border-[#D61A40]/60 pl-5 ml-1 mb-6">
                           <h3 className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-2">Pages to cover</h3>
                           <TopicList topics={unit.topics} done={p.topicsDone || []} onToggle={t => s.toggleTopic(unit.id, t, unit.topics)} />
                         </div>
                       )}
-                      <div className="flex items-center gap-4 ml-1">
+                      <div data-tour="unit-pyq" className="flex items-center gap-4 ml-1">
                         <h3 className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em]">Paper ribbons</h3>
                         <PyqRow
                           years={YEARS}
@@ -123,7 +123,7 @@ const ConceptB: React.FC<{ s: SubjectDetailState }> = ({ s }) => {
         </div>
 
         {/* From the library */}
-        <aside className="lg:col-span-4">
+        <aside data-tour="course-resources" className="lg:col-span-4">
           <div className="surface-1 rounded-2xl p-6 lg:sticky lg:top-24">
             <h3 className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-5 flex items-center justify-between">
               From the library

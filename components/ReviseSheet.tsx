@@ -74,7 +74,7 @@ export const DailyRevisePrompt: React.FC = () => {
   const [snapshot, setSnapshot] = useState<{ count: number; subjects: string[] }>({ count: 0, subjects: [] });
 
   useEffect(() => {
-    if (open || queue.length === 0) return;
+    if (open || queue.length === 0 || document.documentElement.classList.contains("pt-tour-open")) return;
     let seen: string | null = null;
     try { seen = localStorage.getItem(PROMPT_KEY); } catch { /* storage blocked: show once per visit */ }
     const today = dayOf(new Date());

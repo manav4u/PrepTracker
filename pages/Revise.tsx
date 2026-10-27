@@ -103,7 +103,7 @@ const Revise: React.FC = () => {
       {tab === 'plan' ? <PlanTab /> : (
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-x-8 lg:gap-y-5 items-start">
         {/* Compact stats: a strip above the topic card on phone, top of the right column on desktop */}
-        <section
+        <section data-tour="review-stats"
           aria-live="polite"
           className="order-1 lg:col-start-8 lg:col-span-5 lg:row-start-1 rounded-2xl lg:rounded-3xl border border-white/10 surface-1 px-4 py-3.5 lg:px-6 lg:py-5"
         >
@@ -123,9 +123,9 @@ const Revise: React.FC = () => {
           {queue.waiting > 0 && <p className="mt-2 text-right text-xs text-slate-500 tabular-nums">{queue.waiting} more tomorrow</p>}
         </section>
 
-        <div className="order-2 lg:col-span-7 lg:col-start-1 lg:row-start-1 lg:row-span-2 space-y-5">
+        <div data-tour="review-content" className="order-2 lg:col-span-7 lg:col-start-1 lg:row-start-1 lg:row-span-2 space-y-5">
           {current ? (
-            <section key={current.key} className={`rounded-3xl border border-white/10 surface-1 p-5 lg:p-8 animate-in fade-in ${EASE}`}>
+            <section data-tour="review-card" key={current.key} className={`rounded-3xl border border-white/10 surface-1 p-5 lg:p-8 animate-in fade-in ${EASE}`}>
               <div className="flex flex-wrap items-center gap-2">
                 <span className="inline-flex items-center h-7 px-3 rounded-full border border-white/10 bg-white/[0.03] text-[10px] font-bold uppercase tracking-[0.12em] text-slate-300 max-w-full truncate">{current.subjectName}</span>
                 <span className="text-[10px] font-mono uppercase tracking-widest text-slate-500 whitespace-nowrap">Unit {current.unitNumber}</span>
@@ -136,14 +136,14 @@ const Revise: React.FC = () => {
                 {current.shaky && ' · you forgot it last time'}
               </p>
               <div className="grid grid-cols-2 gap-3 mt-5 lg:mt-8">
-                <button
+                <button data-tour="review-answer"
                   type="button"
                   onClick={() => respond(current, false)}
                   className={`h-14 rounded-full border border-white/15 text-xs font-bold uppercase tracking-[0.14em] text-slate-200 whitespace-nowrap transition-colors ${EASE} hover:border-white/40 hover:text-white active:bg-white/5`}
                 >
                   Forgot
                 </button>
-                <button
+                <button data-tour="review-answer"
                   type="button"
                   onClick={() => respond(current, true)}
                   className={`h-14 rounded-full bg-[#F63C49] text-xs font-bold uppercase tracking-[0.14em] text-white whitespace-nowrap transition-colors ${EASE} hover:bg-[#ff5560] active:bg-[#d92f3b]`}

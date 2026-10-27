@@ -302,7 +302,7 @@ const Dashboard: React.FC = () => {
             </h1>
           </div>
           
-          <div className="relative z-10 mt-8">
+          <div data-tour="overall-progress" className="relative z-10 mt-8">
                <div className="flex justify-between items-end mb-4">
                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Overall Progress</span>
                  <span className="text-4xl font-display font-bold text-white tracking-tighter">{avgProgress}%</span>
@@ -313,7 +313,7 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
 
-        <div className="lg:col-span-2 grid grid-cols-2 gap-4 lg:gap-6">
+        <div data-tour="home-stats" className="lg:col-span-2 grid grid-cols-2 gap-4 lg:gap-6">
            <MasteryCard mastered={totalMastered} total={totalUnits} style={{ animationDelay: '60ms' }} />
 
            {/* Dynamic Graph Replacement for Forecast */}
@@ -325,7 +325,7 @@ const Dashboard: React.FC = () => {
       </section>
 
       {/* Activity heatmap: full-width strip under the greeting row */}
-      <section>
+      <section data-tour="activity">
         <ActivityHeatmap profile={profile} style={{ animationDelay: '200ms' }} />
       </section>
 
@@ -348,7 +348,7 @@ const Dashboard: React.FC = () => {
       </section>
 
       {/* Footer / Deadlines */}
-      <section className="grid grid-cols-1 lg:grid-cols-3 gap-10 pt-10 border-t border-white/5">
+      <section data-tour="timeline" className="grid grid-cols-1 lg:grid-cols-3 gap-10 pt-10 border-t border-white/5">
         <div className="lg:col-span-3 max-w-2xl">
           <div className="flex items-center gap-3 mb-8">
             <CalendarDays size={18} className="text-[#F63C49]" />

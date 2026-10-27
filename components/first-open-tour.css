@@ -223,3 +223,106 @@
     transition: none !important;
   }
 }
+.pt-tour-replay {
+  position: fixed;
+  z-index: 55;
+  right: 16px;
+  bottom: 98px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 13px;
+  border-radius: 30px;
+  background: #17141a;
+  border: 1px solid #ffffff25;
+  color: #e2d8e5;
+  font-size: 11px;
+  min-height: 40px;
+  box-shadow: 0 4px 18px #0006;
+}
+.pt-tour-unavailable {
+  padding: 10px;
+  border-left: 2px solid #f63c49;
+  background: #f63c4908;
+  font-size: 11px !important;
+}
+.pt-tour-settings {
+  padding: 24px;
+  border: 1px solid #ffffff20;
+  border-radius: 22px;
+  margin-top: 25px;
+  background: #0f0e12;
+}
+.pt-tour-settings h2 {
+  font-weight: 600;
+  font-size: 17px;
+  color: #f5f0f7;
+  margin: 0 0 10px;
+}
+.pt-tour-settings p,
+.pt-tour-settings label {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #c0b5c8;
+}
+.pt-tour-settings label {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 18px 0;
+}
+.pt-tour-settings input {
+  accent-color: #d61a40;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.pt-tour-settings > div {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+.pt-tour-settings button {
+  min-height: 44px;
+  padding: 8px 15px;
+  border-radius: 25px;
+  border: 1px solid #ffffff25;
+  color: #dfd7e5;
+  font-size: 12px;
+}
+.pt-tour-settings small {
+  display: block;
+  margin-top: 14px;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #a69aac;
+}
+@media (min-width: 1024px) {
+  .pt-tour-replay {
+    bottom: 20px;
+    right: 24px;
+  }
+}
+@media (min-width: 760px) and (max-width: 1023px) {
+  .pt-tour-card {
+    left: 16px;
+    width: 390px;
+  }
+}
+@media (max-height: 700px) and (max-width: 1023px) {
+  .pt-tour-card:not(.is-welcome) {
+    padding: 17px;
+  }
+  .pt-tour-card:not(.is-welcome) h2 {
+    font-size: 22px;
+  }
+  .pt-tour-card:not(.is-welcome) .pt-tour-top {
+    margin-bottom: 12px;
+  }
+  .pt-tour-card:not(.is-welcome) p {
+    margin-bottom: 12px;
+  }
+  .pt-tour-card:not(.is-welcome) .pt-tour-progress {
+    margin-bottom: 14px;
+  }
+}
