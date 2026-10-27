@@ -113,155 +113,296 @@ export default function Guide() {
               </p>
             </div>
           </aside>
-          <article className="guide-article">
-            <Link to="/guide" className="guide-back guide-phone-back">
-              <ArrowLeft size={15} /> All chapters
-            </Link>
-            <div className="guide-article-heading">
-              <p className="guide-eyebrow">
-                <span>CHAPTER {chapter.number}</span>
-                <span>{chapter.minutes} MIN READ</span>
-              </p>
-              <h1>{chapter.title}</h1>
-              <p>{chapter.summary}</p>
-            </div>
-            <nav className="guide-step-nav" aria-label="Walkthrough steps">
-              {chapter.steps.map((s, i) => (
-                <button
-                  key={s.title}
-                  type="button"
-                  aria-current={i === step ? "step" : undefined}
-                  aria-controls="guide-active-step"
-                  onClick={() => setStep(i)}
-                >
-                  <span>{String(i + 1).padStart(2, "0")}</span>
-                  <strong>{s.title}</strong>
-                </button>
-              ))}
-            </nav>
-            <div className="guide-lesson" id="guide-active-step">
-              <div className="guide-instructions" aria-live="polite">
-                <p className="guide-eyebrow">
-                  STEP {step + 1} OF {chapter.steps.length}
-                </p>
-                <h2>{active?.title}</h2>
-                <p className="guide-active-body">{active?.body}</p>
-                {active?.focus && (
-                  <div className="guide-focus-note">
-                    <span className="guide-focus-number">•</span>
-                    <p>{active.focus}</p>
-                  </div>
-                )}
-                {active?.tip && (
-                  <div className="guide-tip">
-                    <span>WORTH KNOWING</span>
-                    <p>{active.tip}</p>
-                  </div>
-                )}
-              </div>
-              <figure
-                id="guide-visual"
-                className="guide-visual"
-                aria-live="polite"
-              >
-                <div className="guide-visual-heading">
-                  <span>
-                    <span className="guide-red-dot" />{" "}
-                    {active?.diagram ? "HOW IT WORKS" : "EXAMPLE SCREEN"}
-                  </span>
-                  <span>
-                    {step + 1} / {chapter.steps.length}
-                  </span>
+          <article
+            className={
+              chapter.id === "daily-plan"
+                ? "guide-article guide-sample-v2"
+                : "guide-article"
+            }
+          >
+            {chapter.id === "daily-plan" ? (
+              <>
+                <div className="v2-topline">
+                  <Link to="/guide">
+                    <ArrowLeft size={16} /> All guides
+                  </Link>
+                  <span>04 / 11</span>
                 </div>
-                {active?.image ? (
-                  <button
-                    ref={imageButton}
-                    className="guide-image-button"
-                    type="button"
-                    onClick={() => setZoom(true)}
-                    aria-label="Enlarge example screenshot"
-                  >
-                    <img src={"/guide/" + active.image} alt={active.alt} />
-                    <span className="guide-zoom">
-                      <ZoomIn size={14} /> Enlarge
-                    </span>
-                  </button>
-                ) : (
-                  <GuideDiagram kind={active?.diagram} />
-                )}
-                {active?.focus && (
-                  <p className="guide-visual-focus">
-                    <span>•</span>
-                    {active.focus}
+                <div className="v2-title">
+                  <h1>Daily plan</h1>
+                  <p>Know what to study today.</p>
+                </div>
+                <nav
+                  className="v2-progress guide-step-nav"
+                  aria-label="Walkthrough steps"
+                >
+                  {chapter.steps.map((s, i) => (
+                    <button
+                      key={s.title}
+                      aria-label={`Step ${i + 1}: ${s.title}`}
+                      aria-current={step === i ? "step" : undefined}
+                      aria-controls="guide-active-step"
+                      onClick={() => setStep(i)}
+                    >
+                      <span>
+                        {step > i ? (
+                          <Check size={13} />
+                        ) : (
+                          String(i + 1).padStart(2, "0")
+                        )}
+                      </span>
+                      <strong>
+                        {
+                          [
+                            "Set dates",
+                            "Find Plan",
+                            "Log topics",
+                            "Read totals",
+                          ][i]
+                        }
+                      </strong>
+                    </button>
+                  ))}
+                </nav>
+                <div
+                  id="guide-active-step"
+                  className="v2-active"
+                  aria-live="polite"
+                >
+                  <p className="v2-step-label">
+                    STEP {step + 1} OF {chapter.steps.length}
                   </p>
-                )}
-                <figcaption>
-                  {active?.caption || "A simple model of the current app"}
-                  <span>
-                    {active?.image
-                      ? "Synthetic example. Not your saved data."
-                      : "Explanatory diagram, not an app screenshot."}
-                  </span>
-                </figcaption>
-                <div className="guide-step-controls">
+                  <h2>{active?.title}</h2>
+                  <p className="v2-action">{active?.focus || active?.body}</p>
+                  <figure className="v2-visual">
+                    <div className="v2-example">
+                      <span className="guide-red-dot" /> EXAMPLE SCREEN{" "}
+                      <span>Aarya · Demo</span>
+                    </div>
+                    {active?.image ? (
+                      <button
+                        ref={imageButton}
+                        className="guide-image-button"
+                        aria-label="Enlarge example screenshot"
+                        onClick={() => setZoom(true)}
+                      >
+                        <img src={"/guide/" + active.image} alt={active.alt} />
+                        <span className="v2-enlarge">
+                          <ZoomIn size={14} /> Enlarge
+                        </span>
+                      </button>
+                    ) : (
+                      <GuideDiagram kind={active?.diagram} />
+                    )}
+                    <figcaption>
+                      Synthetic example. Your saved data is untouched.
+                    </figcaption>
+                  </figure>
+                  <details className="v2-details" key={active?.title}>
+                    <summary>
+                      How this works <ChevronRight size={16} />
+                    </summary>
+                    <p>{active?.body}</p>
+                    {active?.tip && (
+                      <div>
+                        <strong>Worth knowing</strong>
+                        <p>{active.tip}</p>
+                      </div>
+                    )}
+                    <small>{active?.caption}</small>
+                  </details>
+                  {step === chapter.steps.length - 1 && (
+                    <div className="v2-finish">
+                      <Check size={18} />
+                      <p>{chapter.takeaway}</p>
+                    </div>
+                  )}
+                </div>
+                <div className="v2-controls guide-step-controls">
                   <button
-                    type="button"
                     disabled={step === 0}
                     onClick={() => {
                       setStep((s) => s - 1);
-                      document
-                        .querySelector(".guide-step-nav")
-                        ?.scrollIntoView({ block: "start" });
+                      window.scrollTo(0, 0);
                     }}
+                    aria-label="Previous step"
                   >
-                    <ArrowLeft size={17} />
-                    Previous
+                    <ArrowLeft size={18} />
+                    <span>Back</span>
                   </button>
-                  <button
-                    type="button"
-                    disabled={step === chapter.steps.length - 1}
-                    onClick={() => {
-                      setStep((s) => s + 1);
-                      document
-                        .querySelector(".guide-step-nav")
-                        ?.scrollIntoView({ block: "start" });
-                    }}
-                  >
-                    Next step
-                    <ArrowRight size={17} />
-                  </button>
+                  <span>
+                    {step + 1} / {chapter.steps.length}
+                  </span>
+                  {step < chapter.steps.length - 1 ? (
+                    <button
+                      onClick={() => {
+                        setStep((s) => s + 1);
+                        window.scrollTo(0, 0);
+                      }}
+                      aria-label="Next step"
+                    >
+                      <span>Next step</span>
+                      <ArrowRight size={18} />
+                    </button>
+                  ) : (
+                    <Link to={chapter.destination}>
+                      Open Plan <ArrowUpRight size={18} />
+                    </Link>
+                  )}
                 </div>
-              </figure>
-            </div>
-            <div className="guide-takeaway">
-              <span>
-                <Check size={20} />
-              </span>
-              <div>
-                <p className="guide-eyebrow">THE SHORT VERSION</p>
-                <p>{chapter.takeaway}</p>
-              </div>
-            </div>
-            <div className="guide-bottom">
-              <Link to="/guide">
-                Back to all chapters <ArrowLeft size={16} />
-              </Link>
-              <Link to={chapter.destination} className="guide-primary">
-                {chapter.destinationLabel}
-                <ArrowUpRight size={16} />
-              </Link>
-            </div>
-            {nextChapter && (
-              <Link
-                to={"/guide/" + nextChapter.id}
-                className="guide-next-chapter"
-              >
-                <span>
-                  <small>NEXT CHAPTER</small>
-                  <strong>{nextChapter.title}</strong>
-                </span>
-                <ArrowRight size={20} />
-              </Link>
+              </>
+            ) : (
+              <>
+                <Link to="/guide" className="guide-back guide-phone-back">
+                  <ArrowLeft size={15} /> All chapters
+                </Link>
+                <div className="guide-article-heading">
+                  <p className="guide-eyebrow">
+                    <span>CHAPTER {chapter.number}</span>
+                    <span>{chapter.minutes} MIN READ</span>
+                  </p>
+                  <h1>{chapter.title}</h1>
+                  <p>{chapter.summary}</p>
+                </div>
+                <nav className="guide-step-nav" aria-label="Walkthrough steps">
+                  {chapter.steps.map((s, i) => (
+                    <button
+                      key={s.title}
+                      type="button"
+                      aria-current={i === step ? "step" : undefined}
+                      aria-controls="guide-active-step"
+                      onClick={() => setStep(i)}
+                    >
+                      <span>{String(i + 1).padStart(2, "0")}</span>
+                      <strong>{s.title}</strong>
+                    </button>
+                  ))}
+                </nav>
+                <div className="guide-lesson" id="guide-active-step">
+                  <div className="guide-instructions" aria-live="polite">
+                    <p className="guide-eyebrow">
+                      STEP {step + 1} OF {chapter.steps.length}
+                    </p>
+                    <h2>{active?.title}</h2>
+                    <p className="guide-active-body">{active?.body}</p>
+                    {active?.focus && (
+                      <div className="guide-focus-note">
+                        <span className="guide-focus-number">•</span>
+                        <p>{active.focus}</p>
+                      </div>
+                    )}
+                    {active?.tip && (
+                      <div className="guide-tip">
+                        <span>WORTH KNOWING</span>
+                        <p>{active.tip}</p>
+                      </div>
+                    )}
+                  </div>
+                  <figure
+                    id="guide-visual"
+                    className="guide-visual"
+                    aria-live="polite"
+                  >
+                    <div className="guide-visual-heading">
+                      <span>
+                        <span className="guide-red-dot" />{" "}
+                        {active?.diagram ? "HOW IT WORKS" : "EXAMPLE SCREEN"}
+                      </span>
+                      <span>
+                        {step + 1} / {chapter.steps.length}
+                      </span>
+                    </div>
+                    {active?.image ? (
+                      <button
+                        ref={imageButton}
+                        className="guide-image-button"
+                        type="button"
+                        onClick={() => setZoom(true)}
+                        aria-label="Enlarge example screenshot"
+                      >
+                        <img src={"/guide/" + active.image} alt={active.alt} />
+                        <span className="guide-zoom">
+                          <ZoomIn size={14} /> Enlarge
+                        </span>
+                      </button>
+                    ) : (
+                      <GuideDiagram kind={active?.diagram} />
+                    )}
+                    {active?.focus && (
+                      <p className="guide-visual-focus">
+                        <span>•</span>
+                        {active.focus}
+                      </p>
+                    )}
+                    <figcaption>
+                      {active?.caption || "A simple model of the current app"}
+                      <span>
+                        {active?.image
+                          ? "Synthetic example. Not your saved data."
+                          : "Explanatory diagram, not an app screenshot."}
+                      </span>
+                    </figcaption>
+                    <div className="guide-step-controls">
+                      <button
+                        type="button"
+                        disabled={step === 0}
+                        onClick={() => {
+                          setStep((s) => s - 1);
+                          document
+                            .querySelector(".guide-step-nav")
+                            ?.scrollIntoView({ block: "start" });
+                        }}
+                      >
+                        <ArrowLeft size={17} />
+                        Previous
+                      </button>
+                      <button
+                        type="button"
+                        disabled={step === chapter.steps.length - 1}
+                        onClick={() => {
+                          setStep((s) => s + 1);
+                          document
+                            .querySelector(".guide-step-nav")
+                            ?.scrollIntoView({ block: "start" });
+                        }}
+                      >
+                        Next step
+                        <ArrowRight size={17} />
+                      </button>
+                    </div>
+                  </figure>
+                </div>
+                <div className="guide-takeaway">
+                  <span>
+                    <Check size={20} />
+                  </span>
+                  <div>
+                    <p className="guide-eyebrow">THE SHORT VERSION</p>
+                    <p>{chapter.takeaway}</p>
+                  </div>
+                </div>
+                <div className="guide-bottom">
+                  <Link to="/guide">
+                    Back to all chapters <ArrowLeft size={16} />
+                  </Link>
+                  <Link to={chapter.destination} className="guide-primary">
+                    {chapter.destinationLabel}
+                    <ArrowUpRight size={16} />
+                  </Link>
+                </div>
+                {nextChapter && (
+                  <Link
+                    to={"/guide/" + nextChapter.id}
+                    className="guide-next-chapter"
+                  >
+                    <span>
+                      <small>NEXT CHAPTER</small>
+                      <strong>{nextChapter.title}</strong>
+                    </span>
+                    <ArrowRight size={20} />
+                  </Link>
+                )}
+              </>
             )}
           </article>
         </main>
