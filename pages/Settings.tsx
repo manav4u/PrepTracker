@@ -3,7 +3,6 @@ import ProfileAvatar from '../components/ProfileAvatar';
 import { lazy, Suspense } from 'react';
 const AvatarPicker = lazy(() => import('../components/AvatarPicker'));
 
-import { Link } from 'react-router-dom';
 import AppFooter from '../components/AppFooter';
 import React, { useRef, useState, useEffect } from 'react';
 import { RotateCcw, Trash2, Terminal, AlertTriangle, Upload, Download, Check, AlertOctagon, Loader2, ChevronDown, Share2, X } from 'lucide-react';
@@ -584,7 +583,6 @@ const SettingsPage: React.FC = () => {
         </div>
 
         <TourSettings />
-        <Link to="/guide" className="mt-8 flex items-center justify-between gap-4 rounded-2xl border border-white/15 px-5 py-5 text-slate-200 hover:border-white/30 transition-colors"><span><span className="block text-sm font-semibold">The PrepTracker guide</span><span className="block mt-1 text-xs text-slate-400">Real screens. Clear steps for every part of your prep.</span></span><span aria-hidden="true">↗</span></Link>
       <AppFooter />
       </div>
     </div>

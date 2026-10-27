@@ -17,7 +17,7 @@ for (const file of ['dist/app/index.html', 'dist/404.html']) {
 // with a 200, not a 404 status on the shell. Anything else still falls back
 // to the noindex 404.html. /app/subject/:id is user-data-driven, so it stays
 // on the fallback (renders fine in the browser; noindexed by design).
-const SHELL_ROUTES = ['onboarding', 'library', 'app/resources', 'app/tasks', 'app/revise', 'app/settings', 'guide', 'guide/get-started', 'guide/home', 'guide/syllabus', 'guide/daily-plan', 'guide/review', 'guide/tasks', 'guide/library', 'guide/search-updates', 'guide/settings', 'guide/backup-restore', 'guide/offline-privacy'];
+const SHELL_ROUTES = ['onboarding', 'library', 'app/resources', 'app/tasks', 'app/revise', 'app/settings'];
 for (const route of SHELL_ROUTES) {
   mkdirSync(`dist/${route}`, { recursive: true });
   copyFileSync('dist/app/index.html', `dist/${route}/index.html`);
