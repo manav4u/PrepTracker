@@ -37,7 +37,7 @@ test("guide works before setup, searches, and keeps reader state out of study da
     .filter({ hasText: "Know what to study today." })
     .click();
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-    "Know what to study today.",
+    "Daily plan",
   );
   await page.getByRole("button", { name: "Next step", exact: true }).click();
   await expect(page.getByRole("heading", { level: 2 })).toHaveText(
@@ -79,7 +79,7 @@ test("every chapter and step has a working visual and no overflow", async ({
   for (const chapter of GUIDE_CHAPTERS) {
     await page.goto("/guide/" + chapter.id);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-      chapter.title,
+      chapter.id === "daily-plan" ? "Daily plan" : chapter.title,
     );
     for (let i = 0; i < chapter.steps.length; i++) {
       await page.locator(".guide-step-nav button").nth(i).click();
@@ -231,4 +231,38 @@ test("guide preserves existing study records and links from Settings", async ({
     ),
   );
   expect(after).toEqual(before);
+});
+
+test("Daily Plan sample keeps details available and bottom controls clear", async ({
+  page,
+}, info) => {
+  await page.goto("/guide/daily-plan");
+  await expect(page.locator(".v2-active h2")).toBeVisible();
+  const details = page.locator(".v2-details");
+  if (info.project.name === "mobile") {
+    await expect(details).not.toHaveAttribute("open", "");
+    await details.locator("summary").click();
+  } else await expect(details).toHaveAttribute("open", "");
+  await expect(details).toContainText(
+    "No date? That subject stays outside Plan.",
+  );
+  await details.locator("small").scrollIntoViewIfNeeded();
+  const clearance = await page.evaluate(() => {
+    const last = document
+      .querySelector(".v2-details small")!
+      .getBoundingClientRect();
+    const bar = document.querySelector(".v2-controls")!.getBoundingClientRect();
+    return last.bottom <= bar.top;
+  });
+  expect(clearance).toBeTruthy();
+  for (let i = 0; i < 4; i++) {
+    await page.locator(".v2-progress button").nth(i).click();
+    await expect(page.locator(".v2-progress button").nth(i)).toHaveAttribute(
+      "aria-current",
+      "step",
+    );
+    await expect(page.locator(".v2-active h2")).toBeVisible();
+  }
+  await expect(page.locator(".v2-finish")).toBeVisible();
+  await expect(page.locator(".v2-controls a")).toHaveText("Open Plan");
 });

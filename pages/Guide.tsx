@@ -27,6 +27,15 @@ export default function Guide() {
   const [query, setQuery] = useState("");
   const [step, setStep] = useState(0);
   const [zoom, setZoom] = useState(false);
+  const [wide, setWide] = useState(
+    () => window.matchMedia("(min-width: 1100px)").matches,
+  );
+  useEffect(() => {
+    const media = window.matchMedia("(min-width: 1100px)");
+    const update = () => setWide(media.matches);
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
   const close = useRef<HTMLButtonElement>(null);
   const imageButton = useRef<HTMLButtonElement>(null);
   useEffect(() => {
@@ -198,7 +207,11 @@ export default function Guide() {
                       Synthetic example. Your saved data is untouched.
                     </figcaption>
                   </figure>
-                  <details className="v2-details" key={active?.title}>
+                  <details
+                    open={wide}
+                    className="v2-details"
+                    key={active?.title}
+                  >
                     <summary>
                       How this works <ChevronRight size={16} />
                     </summary>
