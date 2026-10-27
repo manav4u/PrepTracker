@@ -1,9 +1,14 @@
+// Spot-illustration scenes rendered inside the walkthrough card. Each id
+// names a semantic scene in components/TourArt.tsx; add ids here as more
+// steps get their own illustration.
+export type TourArtId = "progress-average";
 export type TourStep = {
   title: string;
   body: string;
   target?: string;
   fallback?: string;
   dock?: boolean;
+  art?: TourArtId;
 };
 export type TourId =
   "home" | "library" | "tasks" | "review" | "plan" | "settings" | "course";
@@ -20,6 +25,7 @@ export const TOURS: Record<
         title: "Your progress, at a glance.",
         body: "Overall Progress averages unit states across your selected courses. Start contributes 0, Studying 33 and Done 100. This is not the percentage of topics ticked.",
         target: '[data-tour="overall-progress"]',
+        art: "progress-average",
       },
       {
         title: "Small actions build a study day.",

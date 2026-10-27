@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { ArrowRight, ArrowLeft, X, Compass, Check } from "lucide-react";
 import LogoMark from "./LogoMark";
+import TourArt from "./TourArt";
 import { useModalA11y } from "./useModalA11y";
 import "./first-open-tour.css";
 
@@ -50,6 +51,7 @@ export default function FirstOpenTour() {
       label: tour.name.toUpperCase(),
       target: undefined,
       dock: false,
+      art: undefined,
     },
     ...tour.steps.map((s) => ({ ...s, label: tour.name.toUpperCase() })),
   ];
@@ -311,6 +313,11 @@ export default function FirstOpenTour() {
               <Compass size={18} />
               <span>Recall it later</span>
             </div>
+          </div>
+        )}
+        {active.art && (
+          <div className="pt-tour-art" aria-hidden="true">
+            <TourArt kind={active.art} key={`${id}:${step}`} />
           </div>
         )}
         <h2 id="pt-tour-title">{active.title}</h2>
