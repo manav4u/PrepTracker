@@ -54,7 +54,7 @@ const DesktopNav: React.FC = () => {
       <div className="w-11 h-11 flex items-center justify-center mb-1"><LogoMark size={30} /></div>
       <MotionConfig reducedMotion="user" transition={SPRING}>
         <LayoutGroup>
-          <nav className="flex flex-col gap-5 items-center">
+          <nav data-tour="navigation" className="flex flex-col gap-5 items-center">
             {ITEMS.map(it => {
               const active = it.match(pathname);
               return (

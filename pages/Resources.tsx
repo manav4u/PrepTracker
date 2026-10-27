@@ -9,7 +9,7 @@ import { useModalA11y } from '../components/useModalA11y';
 import { useData } from '../context/DataContext';
 
 // Horizontally scrolling row with soft edge fades. Fades only show on a side that has more content.
-const FadeRow: React.FC<{ className?: string; children: React.ReactNode; role?: string; ariaLabel?: string }> = ({ className = '', children, role, ariaLabel }) => {
+const FadeRow: React.FC<{ className?: string; children: React.ReactNode; role?: string; ariaLabel?: string; 'data-tour'?: string }> = ({ className = '', children, role, ariaLabel, 'data-tour': tour }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [edges, setEdges] = useState({ left: false, right: false });
   const update = () => {
@@ -31,6 +31,7 @@ const FadeRow: React.FC<{ className?: string; children: React.ReactNode; role?: 
   return (
     <div
       ref={ref}
+      data-tour={tour}
       onScroll={update}
       role={role}
       aria-label={ariaLabel}
@@ -447,7 +448,7 @@ const Resources: React.FC = () => {
       </header>
 
       {/* Control Deck */}
-      <div className="sticky top-24 lg:top-8 z-30 surface-1 backdrop-blur-xl rounded-3xl p-2 mb-8 transition-all">
+      <div data-tour="library-filters" className="sticky top-24 lg:top-8 z-30 surface-1 backdrop-blur-xl rounded-3xl p-2 mb-8 transition-all">
          <div className="flex flex-col lg:flex-row gap-2 lg:gap-3 items-center">
             
             {/* Selection Mode Controls */}
@@ -474,7 +475,7 @@ const Resources: React.FC = () => {
                 </div>
             ) : (
                 <button 
-                    onClick={() => setIsSelectionMode(true)}
+                    data-tour="library-select" onClick={() => setIsSelectionMode(true)}
                     className="w-full lg:w-auto px-6 h-12 rounded-2xl surface-2 text-slate-400 hover:text-white hover:bg-white/[0.07] font-bold uppercase text-[10px] tracking-widest flex items-center justify-center gap-2 transition-all shrink-0"
                 >
                     <MousePointer2 size={16} /> Select
@@ -514,7 +515,7 @@ const Resources: React.FC = () => {
       </div>
 
       {/* Subject filter */}
-      <FadeRow className="flex overflow-x-auto no-scrollbar gap-2 mb-8 -mt-6" role="group" ariaLabel="Filter by subject">
+      <FadeRow className="flex overflow-x-auto no-scrollbar gap-2 mb-8 -mt-6" data-tour="library-subjects" role="group" ariaLabel="Filter by subject">
         {[{ label: 'All subjects', value: 'ALL' }, ...userSubjectOptions].map((o) => (
           <button
             key={o.value}
@@ -531,10 +532,10 @@ const Resources: React.FC = () => {
       </FadeRow>
 
       {/* Data Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6">
+      <div data-tour="library-items" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6">
          {/* Add New Node Card */}
          <button 
-            onClick={() => setIsAddModalOpen(true)}
+            data-tour="library-add" onClick={() => setIsAddModalOpen(true)}
             className="group relative rounded-3xl border border-dashed border-white/10 bg-white/[0.01] hover:bg-white/[0.05] hover:border-[#F63C49]/50 transition-all flex flex-row md:flex-col items-center justify-center p-5 lg:p-8 h-[88px] md:h-auto md:min-h-[200px] gap-4"
          >
              <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-white/5 flex items-center justify-center text-slate-500 group-hover:text-[#F63C49] group-hover:bg-[#F63C49]/10 transition-all duration-500">

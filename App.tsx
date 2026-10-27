@@ -43,6 +43,7 @@ import LogoMark from './components/LogoMark';
 import DesktopNav from './components/nav/DesktopNav';
 import AnnouncementsBell from './components/AnnouncementsBell';
 import GlobalSearch from './components/GlobalSearch';
+import FirstOpenTour from './components/FirstOpenTour';
 
 const NotFound = () => (
   <div className="min-h-screen bg-[#030303] text-slate-200 flex flex-col items-center justify-center gap-8 px-6 text-center">
@@ -127,6 +128,9 @@ export default function App() {
   // 3. If setup complete -> Show Dashboard/App Shell.
 
   const isSetupComplete = profile && profile.setupComplete;
+  React.useEffect(() => {
+    if (new URLSearchParams(location.search).get('tour') === 'sample') sessionStorage.setItem('pt_tour_sample', 'yes');
+  }, [location.search]);
 
   // Once the first screen is up, fetch the other screens in the background so tapping a tab is instant.
   React.useEffect(() => {
@@ -156,7 +160,7 @@ export default function App() {
                     <Navigate to="/onboarding" replace />
                 ) : (
                     // APP SHELL
-                    <div className="flex flex-col lg:flex-row min-h-screen bg-[#030303] text-slate-200 selection:bg-[#D61A40] selection:text-white overflow-hidden">
+                    <><FirstOpenTour/><div data-tour="shell" className="flex flex-col lg:flex-row min-h-screen bg-[#030303] text-slate-200 selection:bg-[#D61A40] selection:text-white overflow-hidden">
 
                     {/* Mobile Branding Header */}
                     <header className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-[#030303]/80 backdrop-blur-xl border-b border-white/5 px-6 py-4 flex justify-between items-center">
@@ -166,7 +170,7 @@ export default function App() {
                         </div>
                         <span className="font-bold tracking-widest uppercase text-xs text-white">PrepTracker</span>
                         </div>
-                        <div className="flex items-center gap-2">
+                        <div data-tour="header-tools" className="flex items-center gap-2">
                         <AnnouncementsBell />
                         <button
                         type="button"
@@ -210,7 +214,7 @@ export default function App() {
                         <LogoMark size={34} />
                         </div>
 
-                        <MotionConfig reducedMotion="user" transition={NAV_SPRING}><LayoutGroup><nav className="flex flex-row lg:flex-col w-full justify-evenly lg:gap-6 items-center">
+                        <MotionConfig reducedMotion="user" transition={NAV_SPRING}><LayoutGroup><nav data-tour="navigation" className="flex flex-row lg:flex-col w-full justify-evenly lg:gap-6 items-center">
                         <NavItem label="Dashboard" to="/app" short="Home" icon={LayoutGrid} active={navPath === '/app'} />
                         <NavItem label="Resources" to="/app/resources" short="Library" icon={Library} active={navPath === '/app/resources'} />
                         <NavItem label="Tasks" to="/app/tasks" short="Tasks" icon={ListTodo} active={navPath === '/app/tasks'} />
@@ -243,7 +247,7 @@ export default function App() {
                             <span>{new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</span>
                         </div>
 
-                        <div className="flex items-center gap-4">
+                        <div data-tour="header-tools" className="flex items-center gap-4">
                             <AnnouncementsBell />
                             <GlobalSearch selectedSubjects={profile.selectedSubjects || []} />
                         </div>
@@ -276,7 +280,7 @@ export default function App() {
                     {/* Background Decor */}
                     <div className="fixed top-0 right-0 w-[500px] lg:w-[800px] h-[500px] lg:h-[800px] bg-[#D61A40] opacity-[0.03] blur-[100px] lg:blur-[150px] rounded-full pointer-events-none -z-10 translate-x-1/3 -translate-y-1/3"></div>
                     <div className="fixed bottom-0 left-0 w-[400px] lg:w-[600px] h-[400px] lg:h-[600px] bg-blue-600 opacity-[0.03] blur-[100px] lg:blur-[150px] rounded-full pointer-events-none -z-10 -translate-x-1/3 translate-y-1/3"></div>
-                    </div>
+                    </div></>
                 )
             } />
             <Route path="*" element={<NotFound />} />

@@ -1,3 +1,4 @@
+import TourSettings from '../components/TourSettings';
 import ProfileAvatar from '../components/ProfileAvatar';
 import { lazy, Suspense } from 'react';
 const AvatarPicker = lazy(() => import('../components/AvatarPicker'));
@@ -468,7 +469,7 @@ const SettingsPage: React.FC = () => {
             </section>
 
             {/* SUBJECTS */}
-            <section className="surface-1 rounded-3xl p-5 lg:p-7">
+            <section data-tour="settings-subjects" className="surface-1 rounded-3xl p-5 lg:p-7">
                 <div className="flex items-center justify-between gap-4 mb-5">
                     <h2 className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/50 whitespace-nowrap">Your subjects</h2>
                     <button
@@ -514,7 +515,7 @@ const SettingsPage: React.FC = () => {
 
                 <div className="space-y-3">
                     <button
-                        onClick={exportData}
+                        data-tour="backup-save" onClick={exportData}
                         className="w-full h-12 bg-[#F63C49] hover:bg-[#e0303c] text-white text-xs font-bold uppercase tracking-[0.2em] rounded-2xl transition-colors duration-[250ms] flex items-center justify-center gap-2 whitespace-nowrap"
                     >
                         {canShareFile ? <Share2 size={14} /> : <Download size={14} />} {canShareFile ? 'Share Backup' : 'Save Backup'}
@@ -566,7 +567,7 @@ const SettingsPage: React.FC = () => {
             </section>
 
             {/* DANGER ZONE */}
-            <section className="rounded-3xl p-5 lg:p-7 border border-[#F63C49]/25 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
+            <section data-tour="settings-danger" className="rounded-3xl p-5 lg:p-7 border border-[#F63C49]/25 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
                 <div>
                     <h2 className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#F63C49] mb-2">Danger Zone</h2>
                     <p className="text-sm text-slate-400 leading-relaxed">Irreversible action. Wipes all data from this device.</p>
@@ -581,7 +582,8 @@ const SettingsPage: React.FC = () => {
 
         </div>
 
-        <AppFooter />
+        <TourSettings />
+      <AppFooter />
       </div>
     </div>
   );

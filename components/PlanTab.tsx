@@ -89,7 +89,7 @@ const PlanTab: React.FC = () => {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-x-8 items-start" data-testid="plan-tab">
-      <section aria-live="polite" className="order-1 lg:order-2 lg:col-span-5 rounded-2xl lg:rounded-3xl border border-white/10 surface-1 px-4 py-3.5 lg:px-6 lg:py-5">
+      <section data-tour="plan-stats" aria-live="polite" className="order-1 lg:order-2 lg:col-span-5 rounded-2xl lg:rounded-3xl border border-white/10 surface-1 px-4 py-3.5 lg:px-6 lg:py-5">
         <div className="flex items-baseline justify-between gap-4">
           <p className="flex items-baseline gap-2 text-sm lg:text-base text-slate-300">
             <span className={`text-4xl lg:text-5xl leading-none tabular-nums ${plan.remaining > 0 ? 'text-[#F63C49]' : 'text-slate-500'}`} style={{ fontFamily: "'Instrument Serif', serif" }}>{plan.remaining}</span>
@@ -123,7 +123,7 @@ const PlanTab: React.FC = () => {
 
       <div className="order-2 lg:order-1 lg:col-span-7 rounded-3xl border border-white/10 surface-1 p-4 lg:p-6 space-y-5">
         {plan.subjects.map((s) => (
-          <div key={s.subjectId}>
+          <div data-tour="plan-subject" key={s.subjectId}>
             <div className="flex items-baseline justify-between gap-3 mb-1">
               <h2 className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-300 truncate">{s.name}</h2>
               <p className="shrink-0 text-[10px] font-bold uppercase tracking-[0.18em] text-slate-300">Exam {shortDate(s.examDate)}</p>
