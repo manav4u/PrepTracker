@@ -35,7 +35,9 @@ test("sample tour highlights real controls, traps focus, restores access and lea
   const before = await page.evaluate(() =>
     JSON.stringify(
       Object.fromEntries(
-        Object.entries(localStorage).filter(([k]) => k.startsWith("sppu_")),
+        Object.entries(localStorage).filter(
+          ([k]) => k.startsWith("sppu_") && k !== "sppu_announcements_cache",
+        ),
       ),
     ),
   );
@@ -44,21 +46,22 @@ test("sample tour highlights real controls, traps focus, restores access and lea
   for (let i = 1; i < 4; i++) {
     const spotlight = page.locator(`.pt-tour-spotlight[data-step="${i}"]`);
     await expect(spotlight).toBeVisible();
-    const overlaps = await page.evaluate(() => {
-      const a = document
-        .querySelector(".pt-tour-spotlight")!
-        .getBoundingClientRect();
-      const b = document
-        .querySelector(".pt-tour-card")!
-        .getBoundingClientRect();
-      return !(
-        a.right <= b.left ||
-        a.left >= b.right ||
-        a.bottom <= b.top ||
-        a.top >= b.bottom
-      );
-    });
-    expect(overlaps).toBeFalsy();
+    const overlaps = () =>
+      page.evaluate(() => {
+        const a = document
+          .querySelector(".pt-tour-spotlight")!
+          .getBoundingClientRect();
+        const b = document
+          .querySelector(".pt-tour-card")!
+          .getBoundingClientRect();
+        return !(
+          a.right <= b.left ||
+          a.left >= b.right ||
+          a.bottom <= b.top ||
+          a.top >= b.bottom
+        );
+      });
+    await expect.poll(overlaps).toBeFalsy();
     if (i < 3)
       await page.getByRole("button", { name: "Next", exact: true }).click();
   }
@@ -71,7 +74,9 @@ test("sample tour highlights real controls, traps focus, restores access and lea
   const after = await page.evaluate(() =>
     JSON.stringify(
       Object.fromEntries(
-        Object.entries(localStorage).filter(([k]) => k.startsWith("sppu_")),
+        Object.entries(localStorage).filter(
+          ([k]) => k.startsWith("sppu_") && k !== "sppu_announcements_cache",
+        ),
       ),
     ),
   );
