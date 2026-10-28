@@ -299,19 +299,21 @@ export default function FirstOpenTour() {
             <X size={18} />
           </button>
         </div>
-        {active.art && (
-          <div className="pt-tour-art" aria-hidden="true">
-            <TourArt kind={active.art} key={`${id}:${step}`} />
-          </div>
-        )}
-        <h2 id="pt-tour-title">{active.title}</h2>
-        <p id="pt-tour-body">{active.body}</p>
-        {unavailable && (
-          <p className="pt-tour-unavailable" role="status">
-            This control is not shown in your current screen state. You can
-            continue or replay after opening it.
-          </p>
-        )}
+        <div className="pt-tour-scroll">
+          {active.art && (
+            <div className="pt-tour-art" aria-hidden="true">
+              <TourArt kind={active.art} key={`${id}:${step}`} />
+            </div>
+          )}
+          <h2 id="pt-tour-title">{active.title}</h2>
+          <p id="pt-tour-body">{active.body}</p>
+          {unavailable && (
+            <p className="pt-tour-unavailable" role="status">
+              This control is not shown in your current screen state. You can
+              continue or replay after opening it.
+            </p>
+          )}
+        </div>
         <div
           role="group"
           className="pt-tour-progress"

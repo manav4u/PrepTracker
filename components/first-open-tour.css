@@ -53,7 +53,13 @@
   box-shadow: 0 24px 90px #0009;
   padding: 26px;
   max-height: calc(100dvh - 50px);
-  overflow: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.pt-tour-scroll {
+  overflow-y: auto;
+  min-height: 0;
 }
 .pt-tour-card.is-welcome {
   left: 50%;
