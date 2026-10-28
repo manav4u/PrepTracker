@@ -428,6 +428,44 @@ const LandingPage: React.FC = () => {
           </div>
         </section>
 
+
+        {/* 6c. FAQ - short, visible answers to the questions a student asks
+            before trusting a tracker. Native <details> so answers are real
+            content in the prerendered HTML and readable without JS. No FAQPage
+            JSON-LD: Google limits FAQ rich results to government/health sites
+            since 2023, so the markup would satisfy a scanner heuristic without
+            demonstrated benefit here. The visible answers are the value. */}
+        <section className="sec faq" id="faq" aria-label="Common questions">
+          <p className="eyebrow reveal">Questions</p>
+          <h2 className="reveal">Fair questions, <em>straight answers.</em></h2>
+          <div className="faq-list reveal">
+            <details>
+              <summary>What is PrepTracker?</summary>
+              <p>A free progress tracker for the SPPU engineering syllabus. Each subject is broken into its real units and topics. Tick them off as you study, and the app counts the days to your exam and sizes each day&rsquo;s tasks to what&rsquo;s left.</p>
+            </details>
+            <details>
+              <summary>Is PrepTracker free?</summary>
+              <p>Yes. Free, and open source under the MIT license. The whole codebase is on GitHub.</p>
+            </details>
+            <details>
+              <summary>Do I need an account?</summary>
+              <p>No sign-up. Open the app, pick your subjects, and start ticking. Your progress stays in your browser, on your device.</p>
+            </details>
+            <details>
+              <summary>Does it work offline?</summary>
+              <p>Yes. The app caches itself on your device as you use it, so the tracker keeps working when your connection drops.</p>
+            </details>
+            <details>
+              <summary>Who is PrepTracker for?</summary>
+              <p>SPPU engineering students. The syllabus library covers the theory courses PrepTracker tracks across first, second and third year, copied from the official SPPU PDFs.</p>
+            </details>
+            <details>
+              <summary>What does it track?</summary>
+              <p>Progress per subject, daily tasks, streaks, spaced revision, and the days left until your exam. You can also keep your own question papers and resources next to the units they belong to.</p>
+            </details>
+          </div>
+        </section>
+
         {/* 7. TESTIMONIALS - editorial pull quote + endless marquee of note cards.
             PLACEHOLDER SECTION: every quote below is DEMO copy. The owner chose to
             ship it on production for now and will replace it with real, collected

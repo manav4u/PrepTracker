@@ -6,6 +6,7 @@ test.describe('prerendered landing', () => {
     const page = await context.newPage();
     await page.goto('/');
     await expect(page.getByRole('heading', { name: /Know exactly what/i })).toBeVisible();
+    await expect(page.getByText('What is PrepTracker?')).toBeVisible();
     await expect(page.locator('.foot-lockup')).toContainText('PrepTracker.');
     await context.close();
   });

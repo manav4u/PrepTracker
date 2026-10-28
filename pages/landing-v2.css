@@ -161,3 +161,19 @@
 
 /* Keep the mobile footer compact below the wordmark. */
 @media(max-width:900px){.lp2 .foot-main{padding-top:32px}.lp2 .foot-lockup{margin-bottom:16px}.lp2 .foot-grid{padding-top:0;gap:24px}.lp2 .foot-bar{margin-top:32px}}
+
+/* ---------- 6c. FAQ ---------- */
+.lp2 .faq{border-top:1px solid var(--hair)}
+.lp2 .faq-list{margin-top:56px;border-top:1px solid var(--hair)}
+.lp2 .faq-list details{border-bottom:1px solid var(--hair)}
+.lp2 .faq-list summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:22px 0;font-size:clamp(17px,2vw,21px);font-weight:600;letter-spacing:-.015em;color:var(--ink)}
+.lp2 .faq-list summary::-webkit-details-marker{display:none}
+.lp2 .faq-list summary::after{content:'+';font-family:var(--mono);font-weight:400;font-size:18px;color:var(--red);flex:none;transition:transform .25s ease}
+.lp2 .faq-list details[open] summary::after{transform:rotate(45deg)}
+.lp2 .faq-list summary:hover{color:var(--red)}
+.lp2 .faq-list details p{margin:0;padding:0 0 24px;max-width:640px;font-size:15.5px;line-height:1.75;color:var(--mut)}
+@media(max-width:900px){
+.lp2 .faq-list{margin-top:40px}
+.lp2 .faq-list summary{padding:18px 0;font-size:16.5px}
+.lp2 .faq-list details p{font-size:15px;padding-bottom:20px}
+}
