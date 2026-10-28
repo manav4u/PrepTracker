@@ -161,3 +161,19 @@
 
 /* Keep the mobile footer compact below the wordmark. */
 @media(max-width:900px){.lp2 .foot-main{padding-top:32px}.lp2 .foot-lockup{margin-bottom:16px}.lp2 .foot-grid{padding-top:0;gap:24px}.lp2 .foot-bar{margin-top:32px}}
+
+/* ---------- 6b. SYLLABUS LIBRARY ---------- */
+.lp2 .lib{border-top:1px solid var(--hair)}
+.lp2 .lib-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:56px}
+.lp2 .lib-group{background:#fff;border:1px solid var(--hair);border-radius:18px;padding:34px 30px 38px}
+.lp2 .lib-group h3{font-family:var(--sat);font-weight:700;font-size:19px;letter-spacing:-.01em}
+.lp2 .lib-group>p{margin-top:10px;font-size:14.5px;line-height:1.65;color:var(--mut)}
+.lp2 .lib-group ul{list-style:none;margin:22px 0 0;padding:0}
+.lp2 .lib-group li+li{border-top:1px solid var(--hair)}
+.lp2 .lib-group a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;font-size:14.5px;line-height:1.4;color:var(--ink);text-decoration:none}
+.lp2 .lib-group a:hover{color:var(--red)}
+.lp2 .lib-group a::after{content:'\2192';color:var(--red);flex:none}
+.lp2 .lib-more{margin-top:36px;text-align:center}
+.lp2 .lib-more a{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);text-decoration:none}
+.lp2 .lib-more a:hover{color:var(--red)}
+@media(max-width:900px){.lp2 .lib-groups{grid-template-columns:1fr}}

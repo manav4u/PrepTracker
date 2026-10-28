@@ -428,6 +428,62 @@ const LandingPage: React.FC = () => {
           </div>
         </section>
 
+        {/* 6b. SYLLABUS LIBRARY - visible, grouped links to the public guide
+            pages. One homepage footer link used to carry all 200+ of them. */}
+        <section className="sec lib" id="library" aria-label="Syllabus library">
+          <p className="eyebrow reveal">Syllabus library</p>
+          <h2 className="reveal">The SPPU syllabus, <em>already laid out.</em></h2>
+          <p className="lead reveal">Every guide below is free to read, no account needed. PrepTracker tracks the same units and topics once you pick your subjects.</p>
+          <div className="lib-groups">
+            <div className="lib-group reveal">
+              <h3>First year</h3>
+              <p>Scheme, credits, grading and the exam pattern, plus every subject guide.</p>
+              <ul>
+                <li><a href="/syllabus/first-year-scheme-credits/">FE scheme and credits</a></li>
+                <li><a href="/syllabus/grading-system-sgpa/">Grading and SGPA</a></li>
+                <li><a href="/syllabus/cce-end-sem-exam-pattern/">CCE and end-sem exam pattern</a></li>
+                <li><a href="/syllabus/engineering-mathematics-1/">Engineering Mathematics I</a></li>
+                <li><a href="/syllabus/engineering-mathematics-2/">Engineering Mathematics II</a></li>
+                <li><a href="/syllabus/engineering-physics/">Engineering Physics</a></li>
+                <li><a href="/syllabus/engineering-chemistry/">Engineering Chemistry</a></li>
+                <li><a href="/syllabus/basic-electrical-engineering/">Basic Electrical Engineering</a></li>
+                <li><a href="/syllabus/basic-electronics-engineering/">Basic Electronics Engineering</a></li>
+                <li><a href="/syllabus/engineering-mechanics/">Engineering Mechanics</a></li>
+                <li><a href="/syllabus/engineering-graphics/">Engineering Graphics</a></li>
+                <li><a href="/syllabus/fundamentals-of-programming-languages/">Fundamentals of Programming Languages</a></li>
+                <li><a href="/syllabus/programming-and-problem-solving/">Programming and Problem Solving</a></li>
+              </ul>
+            </div>
+            <div className="lib-group reveal">
+              <h3>Second year</h3>
+              <p>Branch hubs with every course laid out unit by unit.</p>
+              <ul>
+                <li><a href="/syllabus/se-computer-engineering/">SE Computer Engineering</a></li>
+                <li><a href="/syllabus/se-computer-science-and-engineering/">SE Computer Science and Engineering</a></li>
+                <li><a href="/syllabus/se-artificial-intelligence-and-data-science/">SE AI and Data Science</a></li>
+                <li><a href="/syllabus/se-information-technology/">SE Information Technology</a></li>
+                <li><a href="/syllabus/se-electrical-engineering/">SE Electrical Engineering</a></li>
+                <li><a href="/syllabus/se-civil-engineering/">SE Civil Engineering</a></li>
+                <li><a href="/syllabus/se-mechanical-engineering/">SE Mechanical Engineering</a></li>
+                <li><a href="/syllabus/se-instrumentation-and-control-engineering/">SE Instrumentation and Control</a></li>
+                <li><a href="/syllabus/se-cyber-security/">SE Cyber Security</a></li>
+              </ul>
+            </div>
+            <div className="lib-group reveal">
+              <h3>Third year</h3>
+              <p>Branch hubs with every course laid out unit by unit.</p>
+              <ul>
+                <li><a href="/syllabus/te-computer-engineering/">TE Computer Engineering</a></li>
+                <li><a href="/syllabus/te-information-technology/">TE Information Technology</a></li>
+                <li><a href="/syllabus/te-electrical/">TE Electrical Engineering</a></li>
+                <li><a href="/syllabus/te-mechanical-engineering/">TE Mechanical Engineering</a></li>
+                <li><a href="/syllabus/te-robotics-and-ai/">TE Robotics and AI</a></li>
+              </ul>
+            </div>
+          </div>
+          <p className="lib-more reveal"><a href="/syllabus/">Browse the whole syllabus library</a></p>
+        </section>
+
         {/* 7. TESTIMONIALS - editorial pull quote + endless marquee of note cards.
             PLACEHOLDER SECTION: every quote below is DEMO copy. The owner chose to
             ship it on production for now and will replace it with real, collected
