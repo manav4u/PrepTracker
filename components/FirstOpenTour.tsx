@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { ArrowRight, ArrowLeft, X, Compass, Check } from "lucide-react";
+import { ArrowRight, ArrowLeft, X, Compass } from "lucide-react";
 import LogoMark from "./LogoMark";
 import TourArt from "./TourArt";
 import { useModalA11y } from "./useModalA11y";
 import "./first-open-tour.css";
 
 import { useLocation } from "react-router-dom";
-import { TOURS, TOUR_VERSION, type TourId } from "../lib/tours";
+import { TOURS, TOUR_VERSION, type TourArtId, type TourId } from "../lib/tours";
 const memorySeen: Record<string, string> = {};
 function readSeen(): Record<string, string> {
   try {
@@ -51,7 +51,7 @@ export default function FirstOpenTour() {
       label: tour.name.toUpperCase(),
       target: undefined,
       dock: false,
-      art: undefined,
+      art: `welcome-${id}` as TourArtId,
     },
     ...tour.steps.map((s) => ({ ...s, label: tour.name.toUpperCase() })),
   ];
@@ -299,22 +299,6 @@ export default function FirstOpenTour() {
             <X size={18} />
           </button>
         </div>
-        {step === 0 && (
-          <div className="pt-tour-welcome-art" aria-hidden="true">
-            <div>
-              <Check size={18} />
-              <span>Pick your courses</span>
-            </div>
-            <div>
-              <span className="pt-tour-art-dot" />
-              <span>Cover a little today</span>
-            </div>
-            <div>
-              <Compass size={18} />
-              <span>Recall it later</span>
-            </div>
-          </div>
-        )}
         {active.art && (
           <div className="pt-tour-art" aria-hidden="true">
             <TourArt kind={active.art} key={`${id}:${step}`} />
