@@ -437,15 +437,15 @@ const LandingPage: React.FC = () => {
           <h2 className="reveal">The SPPU syllabus, <em>already laid out.</em></h2>
           <p className="lead reveal">Unit-wise guides for the theory courses PrepTracker tracks, copied from the official SPPU PDFs. Free to read, no account.</p>
           <div className="lib-card reveal">
+            <div className="lib-col guides">
+              <h3>Start here</h3>
+              <ul>
+                <li><a href="/syllabus/first-year-scheme-credits/">FE scheme and credits</a></li>
+                <li><a href="/syllabus/grading-system-sgpa/">Grading and SGPA</a></li>
+                <li><a href="/syllabus/cce-end-sem-exam-pattern/">CCE and end-sem exam pattern</a></li>
+              </ul>
+            </div>
             <div className="lib-cols">
-              <div className="lib-col guides">
-                <h3>Guides</h3>
-                <ul>
-                  <li><a href="/syllabus/first-year-scheme-credits/">FE scheme and credits</a></li>
-                  <li><a href="/syllabus/grading-system-sgpa/">Grading and SGPA</a></li>
-                  <li><a href="/syllabus/cce-end-sem-exam-pattern/">CCE and end-sem exam pattern</a></li>
-                </ul>
-              </div>
               <div className="lib-col">
                 <h3>First year</h3>
                 <ul>
