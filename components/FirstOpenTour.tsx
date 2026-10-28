@@ -299,7 +299,7 @@ export default function FirstOpenTour() {
             <X size={18} />
           </button>
         </div>
-        <div className="pt-tour-scroll">
+        <div className="pt-tour-scroll" tabIndex={0} role="group" aria-label="Walkthrough step content">
           {active.art && (
             <div className="pt-tour-art" aria-hidden="true">
               <TourArt kind={active.art} key={`${id}:${step}`} />
