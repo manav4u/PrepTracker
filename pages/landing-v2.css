@@ -175,4 +175,12 @@
 .lp2 .lib-note{margin:28px 0 0;padding:18px 0 4px;border-top:1px solid var(--hair);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-size:13px;line-height:1.6;color:var(--mut)}
 .lp2 .lib-note a{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);text-decoration:none;white-space:nowrap}
 .lp2 .lib-note a:hover{color:var(--red)}
-@media(max-width:900px){.lp2 .lib-card{padding:30px 22px 20px;margin-top:44px}.lp2 .lib-cols{grid-template-columns:1fr 1fr;gap:22px}.lp2 .lib-col a{font-size:13.5px;padding:8px 0}}
+@media(max-width:900px){
+.lp2 .lib-card{padding:30px 22px 20px;margin-top:44px}
+.lp2 .lib-cols{grid-template-columns:1fr;gap:26px}
+.lp2 .lib-col.guides ul{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.lp2 .lib-col.guides li+li{border-top:0}
+.lp2 .lib-col.guides a{padding:7px 12px;border:1px solid var(--hair);border-radius:999px;font-size:12.5px}
+.lp2 .lib-col.guides a::after{content:none}
+.lp2 .lib-col a{font-size:13.5px;padding:8px 0}
+}
