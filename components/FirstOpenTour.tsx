@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { ArrowRight, ArrowLeft, X, Compass } from "lucide-react";
 import LogoMark from "./LogoMark";
@@ -56,6 +56,7 @@ export default function FirstOpenTour() {
     ...tour.steps.map((s) => ({ ...s, label: tour.name.toUpperCase() })),
   ];
   const [open, setOpen] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const [step, setStep] = useState(0);
   const [unavailable, setUnavailable] = useState(false);
   const [box, setBox] = useState<(Box & { step: number }) | null>(null);
@@ -128,6 +129,11 @@ export default function FirstOpenTour() {
     window.addEventListener("resize", change);
     return () => window.removeEventListener("resize", change);
   }, []);
+  useEffect(() => {
+    // Fresh entry on every step/back/tour change: the scroll region is one
+    // persistent node, so without this a long step's scrollTop carries over.
+    scrollRef.current?.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [step, open, id]);
   const modal = useModalA11y(open, () => close());
   useEffect(() => {
     if (!open) return;
@@ -169,7 +175,9 @@ export default function FirstOpenTour() {
         ),
         height: Math.min(
           r.height + 14,
-          innerWidth < 1024 ? Math.max(100, innerHeight - 475) : 370,
+          // Reserve >= ~430px below the spotlight for the card so the
+          // illustration, title and body start are readable at step entry.
+          innerWidth < 1024 ? Math.max(100, innerHeight - 560) : 370,
         ),
       });
     };
@@ -299,7 +307,7 @@ export default function FirstOpenTour() {
             <X size={18} />
           </button>
         </div>
-        <div className="pt-tour-scroll" tabIndex={0} role="group" aria-label="Walkthrough step content">
+        <div ref={scrollRef} className="pt-tour-scroll" tabIndex={0} role="group" aria-label="Walkthrough step content">
           {active.art && (
             <div className="pt-tour-art" aria-hidden="true">
               <TourArt kind={active.art} key={`${id}:${step}`} />

@@ -180,11 +180,19 @@
     padding: 22px;
     border-radius: 23px;
   }
+  .pt-tour-art {
+    margin: -4px 0 12px;
+    padding: 8px 14px;
+  }
+  .pt-tour-art svg {
+    height: 100px;
+  }
   .pt-tour-card.is-welcome {
     left: 50%;
   }
   .pt-tour-card h2 {
     font-size: 25px;
+    margin: 0 0 10px;
   }
   .pt-tour-top {
     margin-bottom: 18px;
