@@ -219,10 +219,10 @@ const SCENES: Record<TourArtId, { d: string; accent?: boolean }[]> = {
 
   // Review welcome: the recall cycle - a card comes back around.
   'welcome-review': [
-    { d: 'M120 36A24 24 0 0 1 139.4 74.1M139.4 74.1l-9 5 10 2' },
-    { d: R(108, 50, 24, 20, 4) },
-    { d: 'M114 60h12' },
-    { d: 'M120 84A24 24 0 0 0 100.6 45.9M100.6 45.9l9-5-2 10', accent: true },
+    { d: 'M120 32A28 28 0 0 1 144 82M144 82l-10 4 11 4' },
+    { d: R(109, 51, 22, 18, 4) },
+    { d: 'M114 60h10' },
+    { d: 'M120 88A28 28 0 0 1 96 38M96 38l10-4-11-4', accent: true },
   ],
   // Review step 1: the Review / Plan toggle.
   'revise-tabs': [
