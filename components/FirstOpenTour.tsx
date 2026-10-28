@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { ArrowRight, ArrowLeft, X, Compass, Check } from "lucide-react";
+import { ArrowRight, ArrowLeft, X, Compass } from "lucide-react";
 import LogoMark from "./LogoMark";
+import TourArt from "./TourArt";
 import { useModalA11y } from "./useModalA11y";
 import "./first-open-tour.css";
 
 import { useLocation } from "react-router-dom";
-import { TOURS, TOUR_VERSION, type TourId } from "../lib/tours";
+import { TOURS, TOUR_VERSION, type TourArtId, type TourId } from "../lib/tours";
 const memorySeen: Record<string, string> = {};
 function readSeen(): Record<string, string> {
   try {
@@ -50,10 +51,12 @@ export default function FirstOpenTour() {
       label: tour.name.toUpperCase(),
       target: undefined,
       dock: false,
+      art: `welcome-${id}` as TourArtId,
     },
     ...tour.steps.map((s) => ({ ...s, label: tour.name.toUpperCase() })),
   ];
   const [open, setOpen] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const [step, setStep] = useState(0);
   const [unavailable, setUnavailable] = useState(false);
   const [box, setBox] = useState<(Box & { step: number }) | null>(null);
@@ -126,6 +129,11 @@ export default function FirstOpenTour() {
     window.addEventListener("resize", change);
     return () => window.removeEventListener("resize", change);
   }, []);
+  useEffect(() => {
+    // Fresh entry on every step/back/tour change: the scroll region is one
+    // persistent node, so without this a long step's scrollTop carries over.
+    scrollRef.current?.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [step, open, id]);
   const modal = useModalA11y(open, () => close());
   useEffect(() => {
     if (!open) return;
@@ -167,7 +175,9 @@ export default function FirstOpenTour() {
         ),
         height: Math.min(
           r.height + 14,
-          innerWidth < 1024 ? Math.max(100, innerHeight - 475) : 370,
+          // Reserve >= ~430px below the spotlight for the card so the
+          // illustration, title and body start are readable at step entry.
+          innerWidth < 1024 ? Math.max(100, innerHeight - 560) : 370,
         ),
       });
     };
@@ -297,30 +307,21 @@ export default function FirstOpenTour() {
             <X size={18} />
           </button>
         </div>
-        {step === 0 && (
-          <div className="pt-tour-welcome-art" aria-hidden="true">
-            <div>
-              <Check size={18} />
-              <span>Pick your courses</span>
+        <div ref={scrollRef} className="pt-tour-scroll" tabIndex={0} role="group" aria-label="Walkthrough step content">
+          {active.art && (
+            <div className="pt-tour-art" aria-hidden="true">
+              <TourArt kind={active.art} key={`${id}:${step}`} />
             </div>
-            <div>
-              <span className="pt-tour-art-dot" />
-              <span>Cover a little today</span>
-            </div>
-            <div>
-              <Compass size={18} />
-              <span>Recall it later</span>
-            </div>
-          </div>
-        )}
-        <h2 id="pt-tour-title">{active.title}</h2>
-        <p id="pt-tour-body">{active.body}</p>
-        {unavailable && (
-          <p className="pt-tour-unavailable" role="status">
-            This control is not shown in your current screen state. You can
-            continue or replay after opening it.
-          </p>
-        )}
+          )}
+          <h2 id="pt-tour-title">{active.title}</h2>
+          <p id="pt-tour-body">{active.body}</p>
+          {unavailable && (
+            <p className="pt-tour-unavailable" role="status">
+              This control is not shown in your current screen state. You can
+              continue or replay after opening it.
+            </p>
+          )}
+        </div>
         <div
           role="group"
           className="pt-tour-progress"
