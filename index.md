@@ -151,6 +151,36 @@ Unit-wise guides for the theory courses PrepTracker tracks, copied from the offi
 
 Labs, open electives and some courses aren’t in the library yet. [Browse the whole library](/syllabus/)
 
+Questions 6
+
+## Fair questions, straight answers.
+
+The six things SPPU students ask before trusting a tracker with their semester.
+
+**01What is PrepTracker?**
+
+A free progress tracker for the SPPU engineering syllabus. Each subject is broken into its real units and topics. Tick them off as you study, and the app counts the days to your exam and sizes each day’s tasks to what’s left.
+
+**02Is PrepTracker free?**
+
+Yes. Free, and open source under the MIT license. The whole codebase is on GitHub.
+
+**03Do I need an account?**
+
+No sign-up. Open the app, pick your subjects, and start ticking. Your progress stays in your browser, on your device.
+
+**04Does it work offline?**
+
+Yes. The app caches itself on your device as you use it, so the tracker keeps working when your connection drops.
+
+**05Who is PrepTracker for?**
+
+SPPU engineering students. The syllabus library covers the theory courses PrepTracker tracks across first, second and third year, copied from the official SPPU PDFs.
+
+**06What does it track?**
+
+Progress per subject, daily tasks, streaks, spaced revision, and the days left until your exam. You can also keep your own question papers and resources next to the units they belong to.
+
 ## Walk in knowing what’s left.
 
 Two minutes to set up. Then the app counts the days, the units and the topics. You just study.
