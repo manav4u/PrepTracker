@@ -248,8 +248,10 @@ const LandingPage: React.FC = () => {
     const apply = () => {
       const groups = document.querySelectorAll('.lib-group');
       if (mq.matches) {
-        // Phone: collapsed accordion, summaries are real disclosure controls.
+        // Phone: collapsed EXCLUSIVE accordion (native name-grouping = one
+        // year open at a time), summaries are real disclosure controls.
         groups.forEach((d) => {
+          d.setAttribute('name', 'lib-years');
           d.removeAttribute('open');
           const s = d.querySelector('summary');
           if (s) {
@@ -263,6 +265,7 @@ const LandingPage: React.FC = () => {
         // give them heading semantics, drop them from the tab order, and
         // pointer-events:none (CSS) removes mouse toggling.
         groups.forEach((d) => {
+          d.removeAttribute('name');
           d.setAttribute('open', '');
           const s = d.querySelector('summary');
           if (s) {
@@ -474,7 +477,7 @@ const LandingPage: React.FC = () => {
             official SPPU PDFs, no completeness claim. */}
         <section className="sec lib" id="library" aria-label="Syllabus library">
           <p className="eyebrow reveal">Syllabus library</p>
-          <h2 className="reveal">The SPPU syllabus, <em>already laid out.</em></h2>
+          <h2 className="reveal">The SPPU syllabus, <em className="scu">already laid out.<svg viewBox="0 0 100 12" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M2 8 C 20 3, 40 11, 60 6 C 75 3, 88 9, 98 6" stroke="#F63C49" strokeWidth="3.5" strokeLinecap="round"/></svg></em></h2>
           <p className="lead reveal">Unit-wise guides for the theory courses PrepTracker tracks, copied from the official SPPU PDFs. Free to read, no account.</p>
           <div className="lib-card reveal">
             <div className="lib-col guides">
@@ -489,40 +492,40 @@ const LandingPage: React.FC = () => {
               <details className="lib-col lib-group" open>
                 <summary><h3>First year <span className="lib-count">10</span></h3></summary>
                 <ul>
-                  <li><a href="/syllabus/engineering-mathematics-1/">Engineering Mathematics I</a></li>
-                  <li><a href="/syllabus/engineering-mathematics-2/">Engineering Mathematics II</a></li>
-                  <li><a href="/syllabus/engineering-physics/">Engineering Physics</a></li>
-                  <li><a href="/syllabus/engineering-chemistry/">Engineering Chemistry</a></li>
-                  <li><a href="/syllabus/basic-electrical-engineering/">Basic Electrical Engineering</a></li>
-                  <li><a href="/syllabus/basic-electronics-engineering/">Basic Electronics Engineering</a></li>
-                  <li><a href="/syllabus/engineering-mechanics/">Engineering Mechanics</a></li>
-                  <li><a href="/syllabus/engineering-graphics/">Engineering Graphics</a></li>
-                  <li><a href="/syllabus/fundamentals-of-programming-languages/">Fundamentals of Programming Languages</a></li>
-                  <li><a href="/syllabus/programming-and-problem-solving/">Programming and Problem Solving</a></li>
+                  <li><a href="/syllabus/engineering-mathematics-1/"><span className="lib-idx">01</span>Engineering Mathematics I</a></li>
+                  <li><a href="/syllabus/engineering-mathematics-2/"><span className="lib-idx">02</span>Engineering Mathematics II</a></li>
+                  <li><a href="/syllabus/engineering-physics/"><span className="lib-idx">03</span>Engineering Physics</a></li>
+                  <li><a href="/syllabus/engineering-chemistry/"><span className="lib-idx">04</span>Engineering Chemistry</a></li>
+                  <li><a href="/syllabus/basic-electrical-engineering/"><span className="lib-idx">05</span>Basic Electrical Engineering</a></li>
+                  <li><a href="/syllabus/basic-electronics-engineering/"><span className="lib-idx">06</span>Basic Electronics Engineering</a></li>
+                  <li><a href="/syllabus/engineering-mechanics/"><span className="lib-idx">07</span>Engineering Mechanics</a></li>
+                  <li><a href="/syllabus/engineering-graphics/"><span className="lib-idx">08</span>Engineering Graphics</a></li>
+                  <li><a href="/syllabus/fundamentals-of-programming-languages/"><span className="lib-idx">09</span>Fundamentals of Programming Languages</a></li>
+                  <li><a href="/syllabus/programming-and-problem-solving/"><span className="lib-idx">10</span>Programming and Problem Solving</a></li>
                 </ul>
               </details>
               <details className="lib-col lib-group" open>
                 <summary><h3>Second year <span className="lib-count">9</span></h3></summary>
                 <ul>
-                  <li><a href="/syllabus/se-computer-engineering/">SE Computer Engineering</a></li>
-                  <li><a href="/syllabus/se-computer-science-and-engineering/">SE Computer Science &amp; Engineering</a></li>
-                  <li><a href="/syllabus/se-artificial-intelligence-and-data-science/">SE AI and Data Science</a></li>
-                  <li><a href="/syllabus/se-information-technology/">SE Information Technology</a></li>
-                  <li><a href="/syllabus/se-electrical-engineering/">SE Electrical Engineering</a></li>
-                  <li><a href="/syllabus/se-civil-engineering/">SE Civil Engineering</a></li>
-                  <li><a href="/syllabus/se-mechanical-engineering/">SE Mechanical Engineering</a></li>
-                  <li><a href="/syllabus/se-instrumentation-and-control-engineering/">SE Instrumentation &amp; Control</a></li>
-                  <li><a href="/syllabus/se-cyber-security/">SE Cyber Security</a></li>
+                  <li><a href="/syllabus/se-computer-engineering/"><span className="lib-idx">01</span>SE Computer Engineering</a></li>
+                  <li><a href="/syllabus/se-computer-science-and-engineering/"><span className="lib-idx">02</span>SE Computer Science &amp; Engineering</a></li>
+                  <li><a href="/syllabus/se-artificial-intelligence-and-data-science/"><span className="lib-idx">03</span>SE AI and Data Science</a></li>
+                  <li><a href="/syllabus/se-information-technology/"><span className="lib-idx">04</span>SE Information Technology</a></li>
+                  <li><a href="/syllabus/se-electrical-engineering/"><span className="lib-idx">05</span>SE Electrical Engineering</a></li>
+                  <li><a href="/syllabus/se-civil-engineering/"><span className="lib-idx">06</span>SE Civil Engineering</a></li>
+                  <li><a href="/syllabus/se-mechanical-engineering/"><span className="lib-idx">07</span>SE Mechanical Engineering</a></li>
+                  <li><a href="/syllabus/se-instrumentation-and-control-engineering/"><span className="lib-idx">08</span>SE Instrumentation &amp; Control</a></li>
+                  <li><a href="/syllabus/se-cyber-security/"><span className="lib-idx">09</span>SE Cyber Security</a></li>
                 </ul>
               </details>
               <details className="lib-col lib-group" open>
                 <summary><h3>Third year <span className="lib-count">5</span></h3></summary>
                 <ul>
-                  <li><a href="/syllabus/te-computer-engineering/">TE Computer Engineering</a></li>
-                  <li><a href="/syllabus/te-information-technology/">TE Information Technology</a></li>
-                  <li><a href="/syllabus/te-electrical/">TE Electrical Engineering</a></li>
-                  <li><a href="/syllabus/te-mechanical-engineering/">TE Mechanical Engineering</a></li>
-                  <li><a href="/syllabus/te-robotics-and-ai/">TE Robotics and AI</a></li>
+                  <li><a href="/syllabus/te-computer-engineering/"><span className="lib-idx">01</span>TE Computer Engineering</a></li>
+                  <li><a href="/syllabus/te-information-technology/"><span className="lib-idx">02</span>TE Information Technology</a></li>
+                  <li><a href="/syllabus/te-electrical/"><span className="lib-idx">03</span>TE Electrical Engineering</a></li>
+                  <li><a href="/syllabus/te-mechanical-engineering/"><span className="lib-idx">04</span>TE Mechanical Engineering</a></li>
+                  <li><a href="/syllabus/te-robotics-and-ai/"><span className="lib-idx">05</span>TE Robotics and AI</a></li>
                 </ul>
               </details>
             </div>

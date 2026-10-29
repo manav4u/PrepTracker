@@ -206,3 +206,23 @@
   .lp2 .lib-group[open] summary::after{content:'\2212'}
   .lp2 .lib-group ul{margin-top:2px;padding-bottom:16px}
 }
+
+/* Library premium pass: catalog indices, open-group red count, staggered
+   reveal. All in the site's own flat/mono/hand-drawn language. */
+.lp2 .lib-col a{justify-content:flex-start;gap:12px}
+.lp2 .lib-col a::after{margin-left:auto}
+.lp2 .lib-idx{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--mut);flex:none;transform:translateY(-1px)}
+.lp2 .lib-group[open] .lib-count{border-color:var(--red);color:var(--red)}
+@media (prefers-reduced-motion: no-preference){
+  .lp2 .lib-group[open] li{animation:libIn .34s cubic-bezier(.2,.7,.2,1) both}
+  .lp2 .lib-group[open] li:nth-child(2){animation-delay:.03s}
+  .lp2 .lib-group[open] li:nth-child(3){animation-delay:.06s}
+  .lp2 .lib-group[open] li:nth-child(4){animation-delay:.09s}
+  .lp2 .lib-group[open] li:nth-child(5){animation-delay:.12s}
+  .lp2 .lib-group[open] li:nth-child(6){animation-delay:.15s}
+  .lp2 .lib-group[open] li:nth-child(7){animation-delay:.18s}
+  .lp2 .lib-group[open] li:nth-child(8){animation-delay:.21s}
+  .lp2 .lib-group[open] li:nth-child(9){animation-delay:.24s}
+  .lp2 .lib-group[open] li:nth-child(10){animation-delay:.27s}
+  @keyframes libIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+}
