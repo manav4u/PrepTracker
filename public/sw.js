@@ -1,6 +1,9 @@
 // Offline shell. Navigation is network-first so a new deploy is picked up as soon as the student is online.
-// Hashed build assets never change, so they are cache-first. Nothing else is cached.
-const CACHE = 'preptracker-shell-v2';
+// Visited documents are cached under their own URLs; the install-time landing document is the
+// offline fallback of last resort. Hashed build assets never change, so they are cache-first.
+// v3: fixes the single-slot navigation cache that overwrote the landing fallback on every visit.
+// Old caches are deleted on activate, so existing users migrate on their next online visit.
+const CACHE = 'preptracker-shell-v3';
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(['./', './app', './manifest.webmanifest', './icon-192.png'])).then(() => self.skipWaiting()));
@@ -22,11 +25,16 @@ self.addEventListener('fetch', (e) => {
     e.respondWith(
       fetch(req)
         .then((res) => {
+          // Cache each visited document under its own URL so an offline
+          // revisit serves the right page. Never overwrite './': the
+          // install-time landing document stays the last-resort fallback.
           const copy = res.clone();
-          caches.open(CACHE).then((c) => c.put('./', copy));
+          caches.open(CACHE).then((c) => c.put(req, copy));
           return res;
         })
-        .catch(() => caches.match('./'))
+        .catch(() =>
+          caches.match(req, { ignoreSearch: true }).then((hit) => hit || caches.match('./'))
+        )
     );
     return;
   }
