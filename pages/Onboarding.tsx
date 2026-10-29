@@ -105,9 +105,9 @@ const Onboarding: React.FC = () => {
                     <p className="font-mono text-[10px] uppercase tracking-widest text-slate-500">Add to your plan</p>
                     <h1 className="text-2xl font-semibold">We could not find that course</h1>
                     <p className="text-slate-400 text-sm">The link may be old. The library always has the current list.</p>
-                    <div className="flex gap-3">
-                      <button onClick={() => navigate('/syllabus/')} className="h-12 px-6 rounded-full bg-white text-black font-medium hover:bg-slate-200 transition-colors">Open the library</button>
-                      <button onClick={() => navigate('/app', { replace: true })} className="h-12 px-6 rounded-full border border-white/15 text-slate-300 hover:border-white/40 hover:text-white transition-colors">Back to app</button>
+                    <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                      <button onClick={() => navigate('/syllabus/')} className="h-12 px-6 rounded-full bg-white text-black font-medium whitespace-nowrap hover:bg-slate-200 transition-colors">Open the library</button>
+                      <button onClick={() => navigate('/app', { replace: true })} className="h-12 px-6 rounded-full border border-white/15 text-slate-300 whitespace-nowrap hover:border-white/40 hover:text-white transition-colors">Back to app</button>
                     </div>
                   </div>
                   <StepArt kind="courses" className="w-28 h-28 lg:w-44 lg:h-44 justify-self-center" />
@@ -133,9 +133,9 @@ const Onboarding: React.FC = () => {
                     ) : (
                       <>
                         <p className="text-slate-400 text-sm">You keep your {existing.length} tracked {existing.length === 1 ? 'subject' : 'subjects'}. Only this course is added.</p>
-                        <div className="flex gap-3">
-                          <button onClick={() => handleFinish([addTarget.id])} className="h-12 px-8 rounded-full bg-white text-black font-medium hover:bg-slate-200 transition-colors">Add to my plan</button>
-                          <button onClick={() => navigate('/app', { replace: true })} className="h-12 px-6 rounded-full border border-white/15 text-slate-300 hover:border-white/40 hover:text-white transition-colors">Not now</button>
+                        <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                          <button onClick={() => handleFinish([addTarget.id])} className="h-12 px-8 rounded-full bg-white text-black font-medium whitespace-nowrap hover:bg-slate-200 transition-colors">Add to my plan</button>
+                          <button onClick={() => navigate('/app', { replace: true })} className="h-12 px-6 rounded-full border border-white/15 text-slate-300 whitespace-nowrap hover:border-white/40 hover:text-white transition-colors">Not now</button>
                         </div>
                       </>
                     )}
