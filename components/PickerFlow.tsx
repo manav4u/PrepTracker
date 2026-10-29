@@ -2,7 +2,7 @@ import type { AvatarShape } from '../lib/avatars';
 import { lazy, Suspense } from 'react';
 import ProfileAvatar from './ProfileAvatar';
 const AvatarPicker = lazy(() => import('./AvatarPicker'));
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import { ArrowLeft, ArrowRight, Check } from 'lucide-react';
 import { CATALOG_INDEX } from '../lib/catalogLoader';
 import type { CatalogEntry } from '../lib/catalog';
@@ -62,6 +62,9 @@ const PickerFlow: React.FC<{ onDone: (ids: string[]) => void; name: string; setN
   const [branch, setBranch] = useState<string | null>(initialBranch);
   const [sem, setSem] = useState<number | null>(initialSem);
   const [picked, setPicked] = useState<string[]>(initialPicked);
+  // Deep-link seeds (the clicked course, an existing student's subjects)
+  // survive step changes; incidental picks still reset like before.
+  const lockedPicks = useRef<string[]>(initialPicked);
   const [dir, setDir] = useState<'fwd' | 'back'>('fwd');
   const [fe, setFe] = useState<Record<string, string>>({ ...DEFAULT_FE, ...(initialFe || {}) });
 
@@ -107,7 +110,7 @@ const PickerFlow: React.FC<{ onDone: (ids: string[]) => void; name: string; setN
       // Keep anything seeded (a deep-linked course, an existing student's
       // subjects) while pre-selecting this semester's core courses.
       const core = CATALOG_INDEX.courses.filter(c => c.branchSlug === branch && c.semester === sem && c.trackerReady && !c.electiveGroup && c.type !== 'Minor').map(c => c.id);
-      setPicked(prev => [...new Set([...prev, ...core])]);
+      setPicked(prev => [...new Set([...prev.filter(id => lockedPicks.current.includes(id)), ...core])]);
     }
     setDir('fwd');
     setStep(flow[idx + 1]);

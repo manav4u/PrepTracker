@@ -50,11 +50,15 @@ const Onboarding: React.FC = () => {
 
   const navigate = useNavigate();
   const handleFinish = (ids: string[]) => {
+    // Library deep links (?add=) are additive: an existing student keeps the
+    // subjects they already track and the new course joins them. Plain setup
+    // and Settings > Change subjects (no ?add=) keep replace semantics.
+    const finalIds = addId ? [...new Set([...(profile?.selectedSubjects || []), ...ids])] : ids;
     const newProfile = finishSetup(profile, {
       name: name || profile?.name || 'Student',
       avatarId,
       avatarShape,
-      selectedSubjects: ids,
+      selectedSubjects: finalIds,
     });
     setProfile(newProfile);
     // Best-effort: ask the browser not to evict this site's data under
