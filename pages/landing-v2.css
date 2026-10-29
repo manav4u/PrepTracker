@@ -226,3 +226,33 @@
   .lp2 .lib-group[open] li:nth-child(10){animation-delay:.27s}
   @keyframes libIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 }
+
+/* ---------- 6c. FAQ ---------- */
+.lp2 .faq{border-top:1px solid var(--hair)}
+.lp2 .faq-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.7fr);gap:90px;align-items:start;margin-top:8px}
+.lp2 .faq-rail{position:sticky;top:120px}
+.lp2 .faq-count{margin-left:10px;padding:2px 8px;border:1px solid var(--hair);border-radius:999px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--mut);vertical-align:2px}
+.lp2 .faq-note{margin:38px 0 0;max-width:300px;font-size:14px;line-height:1.7;color:var(--mut)}
+.lp2 .faq-list{margin-top:12px;border-top:1px solid var(--hair)}
+.lp2 .faq-list details{border-bottom:1px solid var(--hair)}
+.lp2 .faq-list summary{cursor:pointer;list-style:none;display:flex;align-items:baseline;gap:18px;padding:22px 0;font-size:clamp(17px,2vw,21px);font-weight:600;letter-spacing:-.015em;color:var(--ink)}
+.lp2 .faq-num{font-family:var(--mono);font-weight:400;font-size:11px;letter-spacing:.1em;color:var(--mut);flex:none;transform:translateY(-3px)}
+.lp2 .faq-list details[open] .faq-num{color:var(--red)}
+.lp2 .faq-list summary::-webkit-details-marker{display:none}
+.lp2 .faq-list summary::after{content:'+';font-family:var(--mono);font-weight:400;font-size:18px;color:var(--red);flex:none;margin-left:auto;transition:transform .25s ease}
+.lp2 .faq-list details[open] summary::after{transform:rotate(45deg)}
+.lp2 .faq-list summary:hover{color:var(--red)}
+.lp2 .faq-list details p{margin:0 0 0 2px;padding:0 0 24px;max-width:640px;font-size:15.5px;line-height:1.75;color:var(--mut)}
+.lp2 .faq-list details[open] p{border-left:1px solid var(--red);padding-left:18px;margin-left:2px}
+@media (prefers-reduced-motion: no-preference){
+  .lp2 .faq-list details[open] p{animation:faqA .28s ease-out}
+  @keyframes faqA{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+}
+@media(max-width:900px){
+.lp2 .faq-grid{grid-template-columns:1fr;gap:24px}
+.lp2 .faq-rail{position:static}
+.lp2 .faq-note{max-width:none}
+.lp2 .faq-list{margin-top:8px}
+.lp2 .faq-list summary{padding:18px 0;font-size:16.5px}
+.lp2 .faq-list details p{font-size:15px;padding-bottom:20px}
+}

@@ -529,6 +529,48 @@ const LandingPage: React.FC = () => {
           </div>
         </section>
 
+        {/* 6c. FAQ - short, visible answers to the questions a student asks
+            before trusting a tracker. Native <details> so answers are real
+            content in the prerendered HTML and readable without JS. No FAQPage
+            JSON-LD: Google limits FAQ rich results to government/health sites
+            since 2023, so the markup would satisfy a scanner heuristic without
+            demonstrated benefit here. The visible answers are the value. */}
+        <section className="sec faq" id="faq" aria-label="Common questions">
+          <div className="faq-grid">
+            <div className="faq-rail">
+              <p className="eyebrow reveal">Questions <span className="faq-count">6</span></p>
+              <h2 className="reveal">Fair questions, <em className="scu">straight answers.<svg viewBox="0 0 100 12" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M2 8 C 20 3, 40 11, 60 6 C 75 3, 88 9, 98 6" stroke="#F63C49" strokeWidth="3.5" strokeLinecap="round"/></svg></em></h2>
+              <p className="faq-note reveal">The six things SPPU students ask before trusting a tracker with their semester.</p>
+            </div>
+            <div className="faq-list reveal">
+            <details>
+              <summary><span className="faq-num">01</span><span>What is PrepTracker?</span></summary>
+              <p>A free progress tracker for the SPPU engineering syllabus. Each subject is broken into its real units and topics. Tick them off as you study, and the app counts the days to your exam and sizes each day&rsquo;s tasks to what&rsquo;s left.</p>
+            </details>
+            <details>
+              <summary><span className="faq-num">02</span><span>Is PrepTracker free?</span></summary>
+              <p>Yes. Free, and open source under the MIT license. The whole codebase is on GitHub.</p>
+            </details>
+            <details>
+              <summary><span className="faq-num">03</span><span>Do I need an account?</span></summary>
+              <p>No sign-up. Open the app, pick your subjects, and start ticking. Your progress stays in your browser, on your device.</p>
+            </details>
+            <details>
+              <summary><span className="faq-num">04</span><span>Does it work offline?</span></summary>
+              <p>Yes. The app caches itself on your device as you use it, so the tracker keeps working when your connection drops.</p>
+            </details>
+            <details>
+              <summary><span className="faq-num">05</span><span>Who is PrepTracker for?</span></summary>
+              <p>SPPU engineering students. The syllabus library covers the theory courses PrepTracker tracks across first, second and third year, copied from the official SPPU PDFs.</p>
+            </details>
+            <details>
+              <summary><span className="faq-num">06</span><span>What does it track?</span></summary>
+              <p>Progress per subject, daily tasks, streaks, spaced revision, and the days left until your exam. You can also keep your own question papers and resources next to the units they belong to.</p>
+            </details>
+            </div>
+          </div>
+        </section>
+
         {/* 7. TESTIMONIALS - editorial pull quote + endless marquee of note cards.
             PLACEHOLDER SECTION: every quote below is DEMO copy. The owner chose to
             ship it on production for now and will replace it with real, collected
