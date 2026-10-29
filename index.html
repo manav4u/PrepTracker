@@ -15,6 +15,8 @@
         var p = h.slice(1);
         if (p === '/') p = '/app';
         else if (p === '/landing') p = '/';
+        else if (p === '/directory') { location.replace('/syllabus/'); return; }
+        else if (p.indexOf('/add/') === 0) p = '/onboarding?add=' + p.slice(5);
         else if (p.indexOf('/app') !== 0 && p !== '/onboarding') p = '/app' + p;
         var base = location.pathname.replace(/index\.html$/, '');
         if (base.charAt(base.length - 1) !== '/') base += '/';

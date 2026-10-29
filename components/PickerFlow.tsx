@@ -53,15 +53,17 @@ const Heading = ({ children, art, kicker }: { children: React.ReactNode; art: Ar
 );
 
 /** One decision per screen: year, branch, semester, courses. Calls onDone with the chosen course ids. */
-const PickerFlow: React.FC<{ onDone: (ids: string[]) => void; name: string; setName: (v: string) => void; avatarShape: AvatarShape; setAvatarShape: (v: AvatarShape) => void; avatarId?: string; setAvatarId: (v: string) => void }> = ({ onDone, name, setName, avatarId, setAvatarId, avatarShape, setAvatarShape }) => {
+const DEFAULT_FE: Record<string, string> = { maths: 'm1', programming: 'fpl', science: 'phy', circuit: 'elect', core: 'mech' };
+
+const PickerFlow: React.FC<{ onDone: (ids: string[]) => void; name: string; setName: (v: string) => void; avatarShape: AvatarShape; setAvatarShape: (v: AvatarShape) => void; avatarId?: string; setAvatarId: (v: string) => void; initialYear?: Year | null; initialBranch?: string | null; initialSem?: number | null; initialPicked?: string[]; initialFe?: Record<string, string> }> = ({ onDone, name, setName, avatarId, setAvatarId, avatarShape, setAvatarShape, initialYear = null, initialBranch = null, initialSem = null, initialPicked = [], initialFe }) => {
   const [step, setStep] = useState<Step>('name');
   const [avatarOpen, setAvatarOpen] = useState(false);
-  const [year, setYear] = useState<Year | null>(null);
-  const [branch, setBranch] = useState<string | null>(null);
-  const [sem, setSem] = useState<number | null>(null);
-  const [picked, setPicked] = useState<string[]>([]);
+  const [year, setYear] = useState<Year | null>(initialYear);
+  const [branch, setBranch] = useState<string | null>(initialBranch);
+  const [sem, setSem] = useState<number | null>(initialSem);
+  const [picked, setPicked] = useState<string[]>(initialPicked);
   const [dir, setDir] = useState<'fwd' | 'back'>('fwd');
-  const [fe, setFe] = useState<Record<string, string>>({ maths: 'm1', programming: 'fpl', science: 'phy', circuit: 'elect', core: 'mech' });
+  const [fe, setFe] = useState<Record<string, string>>({ ...DEFAULT_FE, ...(initialFe || {}) });
 
   const branches = useMemo(() => {
     const m = new Map<string, { slug: string; name: string; ready: boolean }>();
@@ -102,7 +104,10 @@ const PickerFlow: React.FC<{ onDone: (ids: string[]) => void; name: string; setN
     if (last) return onDone(year === 'FE' ? FE_CHOICES.map(f => fe[f.key]) : picked);
     if (step === 'semester') {
       // core courses start selected; minors and electives are the student's choice
-      setPicked(CATALOG_INDEX.courses.filter(c => c.branchSlug === branch && c.semester === sem && c.trackerReady && !c.electiveGroup && c.type !== 'Minor').map(c => c.id));
+      // Keep anything seeded (a deep-linked course, an existing student's
+      // subjects) while pre-selecting this semester's core courses.
+      const core = CATALOG_INDEX.courses.filter(c => c.branchSlug === branch && c.semester === sem && c.trackerReady && !c.electiveGroup && c.type !== 'Minor').map(c => c.id);
+      setPicked(prev => [...new Set([...prev, ...core])]);
     }
     setDir('fwd');
     setStep(flow[idx + 1]);

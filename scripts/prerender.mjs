@@ -76,8 +76,8 @@ try {
   for(const c of catalog.courses){
     const file=path.resolve('dist'+c.path+'index.html');
     if(fs.existsSync(file)){
-      const link=c.trackerReady ? `<p><a class="cta" href="/#/add/${encodeURIComponent(c.id)}">Add to my plan</a></p>` : '<p>Reference only. Tracking metadata for this branch is not yet reviewed.</p>';
-      fs.writeFileSync(file,fs.readFileSync(file,'utf8').replace('</main>',link+'<p><a href="/#/directory">Browse all syllabus courses</a></p></main>'));
+      const link=c.trackerReady ? `<p><a class="cta" href="/onboarding?add=${encodeURIComponent(c.id)}">Add to my plan</a></p>` : '<p>Reference only. Tracking metadata for this branch is not yet reviewed.</p>';
+      fs.writeFileSync(file,fs.readFileSync(file,'utf8').replace('</main>',link+'<p><a href="/syllabus/">Browse all syllabus courses</a></p></main>'));
     }
   }
   for (const root of ['dist/syllabus', 'dist/privacy']) {

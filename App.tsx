@@ -1,7 +1,7 @@
 import ProfileAvatar from './components/ProfileAvatar';
 import { motion, AnimatePresence, MotionConfig, LayoutGroup } from 'framer-motion';
 import React, { Suspense, lazy } from 'react';
-import { Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
+import { Routes, Route, Link, useLocation, useSearchParams, Navigate } from 'react-router-dom';
 import {
   LayoutGrid,
   Search,
@@ -114,6 +114,14 @@ const NavItem = ({ to, icon: Icon, active, label, short }: { to: string, icon: a
   );
 };
 
+// Library "Add to my plan" links reach onboarding with ?add=<id>; that intent
+// must reach the picker even for a student whose setup is already complete.
+const OnboardingGate: React.FC<{ isSetupComplete: boolean }> = ({ isSetupComplete }) => {
+  const [params] = useSearchParams();
+  if (isSetupComplete && !params.get('add')) return <Navigate to="/app" replace />;
+  return <Onboarding />;
+};
+
 export default function App() {
   const { profile, setProfile, storageFull } = useData();
   const { ready: subjectsReady } = useSubjects();
@@ -152,7 +160,7 @@ export default function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/landing" element={<Navigate to="/" replace />} />
             <Route path="/library" element={<Navigate to="/app/resources" replace />} />
-            <Route path="/onboarding" element={isSetupComplete ? <Navigate to="/app" replace /> : <Onboarding />} />
+            <Route path="/onboarding" element={<OnboardingGate isSetupComplete={isSetupComplete} />} />
 
             {/* APP ROUTES (Protected by Setup Check) */}
             <Route path="/app/*" element={
