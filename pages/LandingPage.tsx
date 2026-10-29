@@ -241,8 +241,12 @@ const LandingPage: React.FC = () => {
   // Library year groups: markup ships them open (desktop + no-JS default).
   // Phones: collapse them - the prerendered page already did this inline
   // during parse; repeat after hydration in case React re-applied the open
-  // attribute. Desktop: the summaries act as static column headings there,
-  // so give them heading semantics and drop them from the tab order.
+  // attribute. Heading semantics come from the real h3 inside each summary
+  // (valid in summary content, announced inside the disclosure button);
+  // role=heading on summary itself is an axe aria-allowed-role violation.
+  // Desktop only: drop the always-visible column headings from the tab
+  // order so keyboard users are not offered a toggle that contradicts the
+  // static 3-column layout.
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 900px)');
     const apply = () => {
@@ -254,25 +258,17 @@ const LandingPage: React.FC = () => {
           d.setAttribute('name', 'lib-years');
           d.removeAttribute('open');
           const s = d.querySelector('summary');
-          if (s) {
-            s.removeAttribute('role');
-            s.removeAttribute('aria-level');
-            s.removeAttribute('tabindex');
-          }
+          if (s) s.removeAttribute('tabindex');
         });
       } else {
-        // Desktop: lists stay visible; summaries act as static headings, so
-        // give them heading semantics, drop them from the tab order, and
-        // pointer-events:none (CSS) removes mouse toggling.
+        // Desktop: lists stay visible; summaries act as static headings
+        // (the h3 inside carries the semantics), so drop them from the tab
+        // order, and pointer-events:none (CSS) removes mouse toggling.
         groups.forEach((d) => {
           d.removeAttribute('name');
           d.setAttribute('open', '');
           const s = d.querySelector('summary');
-          if (s) {
-            s.setAttribute('role', 'heading');
-            s.setAttribute('aria-level', '3');
-            s.tabIndex = -1;
-          }
+          if (s) s.tabIndex = -1;
         });
       }
     };
