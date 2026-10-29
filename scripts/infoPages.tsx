@@ -7,7 +7,7 @@ export interface InfoPage {
   body: React.ReactNode; faq: [string, string][]; cta?: { href: string; label: string };
 }
 
-const extra = `.scards{display:none}@media(max-width:700px){.tw.wide{display:none}.scards{display:block}}.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}.tw table{min-width:640px;font-size:13.5px}.tw th,.tw td{padding:8px 12px;vertical-align:top}.tw td.n{white-space:nowrap}`;
+const extra = `.scards{display:none}@media(max-width:700px){.tw.wide{display:none}.scards{display:block}}.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;background-image:linear-gradient(to right,#fff 40%,rgba(255,255,255,0)),linear-gradient(to left,#fff 40%,rgba(255,255,255,0)),radial-gradient(farthest-side at 0 50%,rgba(20,20,25,.25),rgba(20,20,25,0)),radial-gradient(farthest-side at 100% 50%,rgba(20,20,25,.25),rgba(20,20,25,0));background-repeat:no-repeat;background-size:32px 100%,32px 100%,14px 100%,14px 100%;background-position:0 0,100% 0,0 0,100% 0;background-attachment:local,local,scroll,scroll}.tw table{min-width:640px;font-size:13.5px}.tw th,.tw td{padding:8px 12px;vertical-align:top}.tw td.n{white-space:nowrap}`;
 
 const SUBJECT_LINKS: [string, string][] = [
   ['engineering-mathematics-1', 'Maths-I'], ['engineering-mathematics-2', 'Maths-II'], ['engineering-physics', 'Physics'],
