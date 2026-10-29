@@ -38,7 +38,7 @@ Each graded row counts with its own credits, theory and term work or practical a
 
 SGPA = 59 / 7 = 8.43. This example is ours. The handbook's own sample table shows 98 credit points over 22 credits as an SGPA of 8.9, which does not add up, so we did not copy it.
 
-[Use the SGPA calculator](https://preptracker.manavdev.site/#/calculator)
+To work out your own SGPA, put your rows through the same steps as the worked example above: credits times grade points for each course, summed, divided by total credits.
 
 ## CGPA and class of degree
 
