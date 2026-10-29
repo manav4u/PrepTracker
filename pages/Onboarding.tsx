@@ -39,10 +39,22 @@ const resolveAddSeed = (addId: string | null, existing: string[]): AddSeed | nul
  * the app opens. There is no simulated boot or processing progress - real
  * failures surface through the global storage-full alert and Settings.
  */
+type AddTarget = { id: string; name: string; code?: string };
+
 const Onboarding: React.FC = () => {
   const { profile, setProfile } = useData();
   const addId = new URLSearchParams(useLocation().search).get('add');
-  const addSeed = useMemo(() => resolveAddSeed(addId, profile?.selectedSubjects || []), [addId]);
+  const existing = profile?.selectedSubjects || [];
+  const addSeed = useMemo(() => resolveAddSeed(addId, existing), [addId]);
+  // The course a library "Add to my plan" link points at, if it is real.
+  const addTarget = useMemo<AddTarget | null | undefined>(() => {
+    if (!addId) return null;
+    const feSub = SUBJECTS.find(s => s.id === addId);
+    if (feSub) return { id: feSub.id, name: feSub.name, code: feSub.code };
+    const c = CATALOG_INDEX.courses.find(c => c.id === addId && c.trackerReady);
+    if (c) return { id: c.id, name: c.name, code: c.code };
+    return undefined; // unknown course id
+  }, [addId]);
   // Re-pick (Settings > Change subjects) keeps the profile, so greet them by name again.
   const [name, setName] = useState(profile?.name ?? '');
   const [avatarId, setAvatarId] = useState(profile?.avatarId);
@@ -84,7 +96,45 @@ const Onboarding: React.FC = () => {
 
         {/* Content Container */}
         <main className="flex-1 flex flex-col items-center p-6 mx-auto w-full max-w-5xl">
+            {addId && addTarget === undefined ? (
+              /* The link named a course we do not have - say so plainly. */
+              <div className="flex-1 flex flex-col items-center justify-center text-center gap-6 max-w-md">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-slate-500">Add to your plan</p>
+                <h1 className="text-2xl font-semibold">We could not find that course</h1>
+                <p className="text-slate-400 text-sm">The link may be old. The library always has the current list.</p>
+                <div className="flex gap-3">
+                  <button onClick={() => navigate('/syllabus/')} className="h-12 px-6 rounded-full bg-white text-black font-medium hover:bg-slate-200 transition-colors">Open the library</button>
+                  <button onClick={() => navigate('/app', { replace: true })} className="h-12 px-6 rounded-full border border-white/15 text-slate-300 hover:border-white/40 hover:text-white transition-colors">Back to app</button>
+                </div>
+              </div>
+            ) : addId && addTarget && existing.length > 0 ? (
+              /* Existing student + library add: add exactly the course they
+                 clicked, keep everything they track, and say so before it
+                 happens. No picker detour, no extra auto-enrolments. */
+              <div className="flex-1 flex flex-col items-center justify-center text-center gap-6 max-w-md">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-slate-500">Add to your plan</p>
+                <div>
+                  <h1 className="text-3xl font-semibold">{addTarget.name}</h1>
+                  {addTarget.code && <p className="font-mono text-xs text-slate-500 mt-2">{addTarget.code}</p>}
+                </div>
+                {existing.includes(addTarget.id) ? (
+                  <>
+                    <p className="text-slate-400 text-sm">Already in your plan, along with your other {existing.length - 1} {existing.length - 1 === 1 ? 'subject' : 'subjects'}.</p>
+                    <button onClick={() => navigate('/app', { replace: true })} className="h-12 px-8 rounded-full bg-white text-black font-medium hover:bg-slate-200 transition-colors">Back to app</button>
+                  </>
+                ) : (
+                  <>
+                    <p className="text-slate-400 text-sm">Your plan keeps the {existing.length} {existing.length === 1 ? 'subject' : 'subjects'} you already track. Only this course is added.</p>
+                    <div className="flex gap-3">
+                      <button onClick={() => handleFinish([addTarget.id])} className="h-12 px-8 rounded-full bg-white text-black font-medium hover:bg-slate-200 transition-colors">Add to my plan</button>
+                      <button onClick={() => navigate('/app', { replace: true })} className="h-12 px-6 rounded-full border border-white/15 text-slate-300 hover:border-white/40 hover:text-white transition-colors">Not now</button>
+                    </div>
+                  </>
+                )}
+              </div>
+            ) : (
             <PickerFlow avatarShape={avatarShape} setAvatarShape={setAvatarShape} avatarId={avatarId} setAvatarId={setAvatarId} name={name} setName={setName} onDone={(ids) => handleFinish(ids)} initialYear={addSeed?.year ?? null} initialBranch={addSeed?.branch ?? null} initialSem={addSeed?.sem ?? null} initialPicked={addSeed?.picked ?? []} initialFe={addSeed?.fe} />
+            )}
         </main>
       </div>
     </div>
