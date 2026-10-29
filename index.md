@@ -1,3 +1,5 @@
+[Skip to content](https://preptracker.manavdev.site/#main)
+
 # Know exactly what’s left.
 
 PrepTracker breaks the syllabus into units and topics, counts the days to your exam, and tells you what to study today.
