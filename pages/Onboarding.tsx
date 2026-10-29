@@ -6,6 +6,7 @@ import LogoMark from '../components/LogoMark';
 import { finishSetup } from '../lib/onboarding';
 import { useData } from '../context/DataContext';
 import PickerFlow from '../components/PickerFlow';
+import StepArt from '../components/StepArt';
 import { SUBJECTS } from '../constants';
 import { CATALOG_INDEX } from '../lib/catalogLoader';
 
@@ -98,39 +99,49 @@ const Onboarding: React.FC = () => {
         <main className="flex-1 flex flex-col items-center p-6 mx-auto w-full max-w-5xl">
             {addId && addTarget === undefined ? (
               /* The link named a course we do not have - say so plainly. */
-              <div className="flex-1 flex flex-col items-center justify-center text-center gap-6 max-w-md">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-slate-500">Add to your plan</p>
-                <h1 className="text-2xl font-semibold">We could not find that course</h1>
-                <p className="text-slate-400 text-sm">The link may be old. The library always has the current list.</p>
-                <div className="flex gap-3">
-                  <button onClick={() => navigate('/syllabus/')} className="h-12 px-6 rounded-full bg-white text-black font-medium hover:bg-slate-200 transition-colors">Open the library</button>
-                  <button onClick={() => navigate('/app', { replace: true })} className="h-12 px-6 rounded-full border border-white/15 text-slate-300 hover:border-white/40 hover:text-white transition-colors">Back to app</button>
+              <div className="flex-1 flex items-center justify-center w-full">
+                <div className="w-full max-w-3xl rounded-3xl border border-white/10 bg-[#0b0b0d] p-8 lg:p-12 grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] items-center shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_18px_40px_-24px_rgba(0,0,0,0.9)]">
+                  <div className="flex flex-col gap-5 text-center lg:text-left items-center lg:items-start">
+                    <p className="font-mono text-[10px] uppercase tracking-widest text-slate-500">Add to your plan</p>
+                    <h1 className="text-2xl font-semibold">We could not find that course</h1>
+                    <p className="text-slate-400 text-sm">The link may be old. The library always has the current list.</p>
+                    <div className="flex gap-3">
+                      <button onClick={() => navigate('/syllabus/')} className="h-12 px-6 rounded-full bg-white text-black font-medium hover:bg-slate-200 transition-colors">Open the library</button>
+                      <button onClick={() => navigate('/app', { replace: true })} className="h-12 px-6 rounded-full border border-white/15 text-slate-300 hover:border-white/40 hover:text-white transition-colors">Back to app</button>
+                    </div>
+                  </div>
+                  <StepArt kind="courses" className="w-28 h-28 lg:w-44 lg:h-44 justify-self-center" />
                 </div>
               </div>
             ) : addId && addTarget && existing.length > 0 ? (
               /* Existing student + library add: add exactly the course they
                  clicked, keep everything they track, and say so before it
                  happens. No picker detour, no extra auto-enrolments. */
-              <div className="flex-1 flex flex-col items-center justify-center text-center gap-6 max-w-md">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-slate-500">Add to your plan</p>
-                <div>
-                  <h1 className="text-3xl font-semibold">{addTarget.name}</h1>
-                  {addTarget.code && <p className="font-mono text-xs text-slate-500 mt-2">{addTarget.code}</p>}
-                </div>
-                {existing.includes(addTarget.id) ? (
-                  <>
-                    <p className="text-slate-400 text-sm">Already in your plan, along with your other {existing.length - 1} {existing.length - 1 === 1 ? 'subject' : 'subjects'}.</p>
-                    <button onClick={() => navigate('/app', { replace: true })} className="h-12 px-8 rounded-full bg-white text-black font-medium hover:bg-slate-200 transition-colors">Back to app</button>
-                  </>
-                ) : (
-                  <>
-                    <p className="text-slate-400 text-sm">Your plan keeps the {existing.length} {existing.length === 1 ? 'subject' : 'subjects'} you already track. Only this course is added.</p>
-                    <div className="flex gap-3">
-                      <button onClick={() => handleFinish([addTarget.id])} className="h-12 px-8 rounded-full bg-white text-black font-medium hover:bg-slate-200 transition-colors">Add to my plan</button>
-                      <button onClick={() => navigate('/app', { replace: true })} className="h-12 px-6 rounded-full border border-white/15 text-slate-300 hover:border-white/40 hover:text-white transition-colors">Not now</button>
+              <div className="flex-1 flex items-center justify-center w-full">
+                <div className="w-full max-w-3xl rounded-3xl border border-white/10 bg-[#0b0b0d] p-8 lg:p-12 grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] items-center shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_18px_40px_-24px_rgba(0,0,0,0.9)]">
+                  <div className="flex flex-col gap-5 text-center lg:text-left items-center lg:items-start">
+                    <p className="font-mono text-[10px] uppercase tracking-widest text-slate-500">Add to your plan</p>
+                    <div>
+                      <h1 className="text-3xl font-semibold">{addTarget.name}</h1>
+                      {addTarget.code && <p className="font-mono text-xs text-slate-500 mt-2">{addTarget.code}</p>}
                     </div>
-                  </>
-                )}
+                    {existing.includes(addTarget.id) ? (
+                      <>
+                        <p className="text-slate-400 text-sm">Already in your plan{existing.length > 1 ? `, along with your ${existing.length - 1} other tracked ${existing.length - 1 === 1 ? 'subject' : 'subjects'}` : ''}.</p>
+                        <button onClick={() => navigate('/app', { replace: true })} className="h-12 px-8 rounded-full bg-white text-black font-medium hover:bg-slate-200 transition-colors">Back to app</button>
+                      </>
+                    ) : (
+                      <>
+                        <p className="text-slate-400 text-sm">You keep your {existing.length} tracked {existing.length === 1 ? 'subject' : 'subjects'}. Only this course is added.</p>
+                        <div className="flex gap-3">
+                          <button onClick={() => handleFinish([addTarget.id])} className="h-12 px-8 rounded-full bg-white text-black font-medium hover:bg-slate-200 transition-colors">Add to my plan</button>
+                          <button onClick={() => navigate('/app', { replace: true })} className="h-12 px-6 rounded-full border border-white/15 text-slate-300 hover:border-white/40 hover:text-white transition-colors">Not now</button>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                  <StepArt kind="courses" className="w-28 h-28 lg:w-44 lg:h-44 justify-self-center" />
+                </div>
               </div>
             ) : (
             <PickerFlow avatarShape={avatarShape} setAvatarShape={setAvatarShape} avatarId={avatarId} setAvatarId={setAvatarId} name={name} setName={setName} onDone={(ids) => handleFinish(ids)} initialYear={addSeed?.year ?? null} initialBranch={addSeed?.branch ?? null} initialSem={addSeed?.sem ?? null} initialPicked={addSeed?.picked ?? []} initialFe={addSeed?.fe} />
