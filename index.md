@@ -98,6 +98,59 @@ Finished a topic? Tick it. That one habit is the entire system. The app does eve
 
 Progress, streaks and the countdown update themselves. You always know exactly what’s left before the exam.
 
+Syllabus library
+
+## The SPPU syllabus, already laid out.
+
+Unit-wise guides for the theory courses PrepTracker tracks, copied from the official SPPU PDFs. Free to read, no account.
+
+### Start here
+
+- [FE scheme and credits](/syllabus/first-year-scheme-credits/)
+- [Grading and SGPA](/syllabus/grading-system-sgpa/)
+- [CCE and end-sem exam pattern](/syllabus/cce-end-sem-exam-pattern/)
+
+###
+
+**First year 10**
+
+- [01 Engineering Mathematics I](/syllabus/engineering-mathematics-1/)
+- [02 Engineering Mathematics II](/syllabus/engineering-mathematics-2/)
+- [03 Engineering Physics](/syllabus/engineering-physics/)
+- [04 Engineering Chemistry](/syllabus/engineering-chemistry/)
+- [05 Basic Electrical Engineering](/syllabus/basic-electrical-engineering/)
+- [06 Basic Electronics Engineering](/syllabus/basic-electronics-engineering/)
+- [07 Engineering Mechanics](/syllabus/engineering-mechanics/)
+- [08 Engineering Graphics](/syllabus/engineering-graphics/)
+- [09 Fundamentals of Programming Languages](/syllabus/fundamentals-of-programming-languages/)
+- [10 Programming and Problem Solving](/syllabus/programming-and-problem-solving/)
+
+###
+
+**Second year 9**
+
+- [01 SE Computer Engineering](/syllabus/se-computer-engineering/)
+- [02 SE Computer Science & Engineering](/syllabus/se-computer-science-and-engineering/)
+- [03 SE AI and Data Science](/syllabus/se-artificial-intelligence-and-data-science/)
+- [04 SE Information Technology](/syllabus/se-information-technology/)
+- [05 SE Electrical Engineering](/syllabus/se-electrical-engineering/)
+- [06 SE Civil Engineering](/syllabus/se-civil-engineering/)
+- [07 SE Mechanical Engineering](/syllabus/se-mechanical-engineering/)
+- [08 SE Instrumentation & Control](/syllabus/se-instrumentation-and-control-engineering/)
+- [09 SE Cyber Security](/syllabus/se-cyber-security/)
+
+###
+
+**Third year 5**
+
+- [01 TE Computer Engineering](/syllabus/te-computer-engineering/)
+- [02 TE Information Technology](/syllabus/te-information-technology/)
+- [03 TE Electrical Engineering](/syllabus/te-electrical/)
+- [04 TE Mechanical Engineering](/syllabus/te-mechanical-engineering/)
+- [05 TE Robotics and AI](/syllabus/te-robotics-and-ai/)
+
+Labs, open electives and some courses aren’t in the library yet. [Browse the whole library](/syllabus/)
+
 ## Walk in knowing what’s left.
 
 Two minutes to set up. Then the app counts the days, the units and the topics. You just study.
