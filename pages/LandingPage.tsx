@@ -439,7 +439,7 @@ const LandingPage: React.FC = () => {
           <div className="faq-grid">
             <div className="faq-rail">
               <p className="eyebrow reveal">Questions <span className="faq-count">6</span></p>
-              <h2 className="reveal">Fair questions, <em>straight answers.</em></h2>
+              <h2 className="reveal">Fair questions, <em className="scu">straight answers.<svg viewBox="0 0 100 12" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M2 8 C 20 3, 40 11, 60 6 C 75 3, 88 9, 98 6" stroke="#F63C49" strokeWidth="3.5" strokeLinecap="round"/></svg></em></h2>
               <p className="faq-note reveal">The six things SPPU students ask before trusting a tracker with their semester.</p>
             </div>
             <div className="faq-list reveal">
