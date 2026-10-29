@@ -298,6 +298,7 @@ const LandingPage: React.FC = () => {
 
   return (
     <div className="lp2">
+      <a className="skip-link" href="#main">Skip to content</a>
       <nav id="lp2-nav" aria-label="Main">
         <Link className="brand" to="/" aria-label="PrepTracker home">
           <LogoMark size={27} idPrefix="lpnav" />
@@ -311,7 +312,7 @@ const LandingPage: React.FC = () => {
         <Link className="nav-cta" id="lp2-navCta" to={ctaTo}>{isSetup ? 'Open app' : 'Start'}</Link>
       </nav>
 
-      <main>
+      <main id="main">
         <section className="hero" aria-label="Hero">
           <div className="copyband">
             <div className="copy-left">
