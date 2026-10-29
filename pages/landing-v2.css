@@ -167,7 +167,7 @@
 .lp2 .faq-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.7fr);gap:90px;align-items:start;margin-top:8px}
 .lp2 .faq-rail{position:sticky;top:120px}
 .lp2 .faq-count{margin-left:10px;padding:2px 8px;border:1px solid var(--hair);border-radius:999px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--mut);vertical-align:2px}
-.lp2 .faq-note{margin:20px 0 0;max-width:300px;font-size:14px;line-height:1.7;color:var(--mut)}
+.lp2 .faq-note{margin:38px 0 0;max-width:300px;font-size:14px;line-height:1.7;color:var(--mut)}
 .lp2 .faq-list{margin-top:12px;border-top:1px solid var(--hair)}
 .lp2 .faq-list details{border-bottom:1px solid var(--hair)}
 .lp2 .faq-list summary{cursor:pointer;list-style:none;display:flex;align-items:baseline;gap:18px;padding:22px 0;font-size:clamp(17px,2vw,21px);font-weight:600;letter-spacing:-.015em;color:var(--ink)}
