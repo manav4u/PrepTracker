@@ -238,6 +238,14 @@ const LandingPage: React.FC = () => {
     };
   }, []);
 
+  // Mobile: year groups start collapsed (markup default is open so no-JS
+  // and desktop keep every guide visible). Matches the 900px CSS breakpoint.
+  useEffect(() => {
+    if (window.matchMedia('(max-width: 900px)').matches) {
+      document.querySelectorAll('.lib-group[open]').forEach((d) => d.removeAttribute('open'));
+    }
+  }, []);
+
   // Intro motion (skipped under reduced motion and after a prerendered
   // load: the hero is already painted, replaying would hide it again).
   useGSAP(() => {
@@ -446,8 +454,8 @@ const LandingPage: React.FC = () => {
               </ul>
             </div>
             <div className="lib-cols">
-              <div className="lib-col">
-                <h3>First year</h3>
+              <details className="lib-col lib-group" open>
+                <summary><h3>First year <span className="lib-count">10</span></h3></summary>
                 <ul>
                   <li><a href="/syllabus/engineering-mathematics-1/">Engineering Mathematics I</a></li>
                   <li><a href="/syllabus/engineering-mathematics-2/">Engineering Mathematics II</a></li>
@@ -460,9 +468,9 @@ const LandingPage: React.FC = () => {
                   <li><a href="/syllabus/fundamentals-of-programming-languages/">Fundamentals of Programming Languages</a></li>
                   <li><a href="/syllabus/programming-and-problem-solving/">Programming and Problem Solving</a></li>
                 </ul>
-              </div>
-              <div className="lib-col">
-                <h3>Second year</h3>
+              </details>
+              <details className="lib-col lib-group" open>
+                <summary><h3>Second year <span className="lib-count">9</span></h3></summary>
                 <ul>
                   <li><a href="/syllabus/se-computer-engineering/">SE Computer Engineering</a></li>
                   <li><a href="/syllabus/se-computer-science-and-engineering/">SE Computer Science &amp; Engineering</a></li>
@@ -474,9 +482,9 @@ const LandingPage: React.FC = () => {
                   <li><a href="/syllabus/se-instrumentation-and-control-engineering/">SE Instrumentation &amp; Control</a></li>
                   <li><a href="/syllabus/se-cyber-security/">SE Cyber Security</a></li>
                 </ul>
-              </div>
-              <div className="lib-col">
-                <h3>Third year</h3>
+              </details>
+              <details className="lib-col lib-group" open>
+                <summary><h3>Third year <span className="lib-count">5</span></h3></summary>
                 <ul>
                   <li><a href="/syllabus/te-computer-engineering/">TE Computer Engineering</a></li>
                   <li><a href="/syllabus/te-information-technology/">TE Information Technology</a></li>
@@ -484,7 +492,7 @@ const LandingPage: React.FC = () => {
                   <li><a href="/syllabus/te-mechanical-engineering/">TE Mechanical Engineering</a></li>
                   <li><a href="/syllabus/te-robotics-and-ai/">TE Robotics and AI</a></li>
                 </ul>
-              </div>
+              </details>
             </div>
             <p className="lib-note"><span>Labs, open electives and some courses aren&rsquo;t in the library yet.</span><a href="/syllabus/">Browse the whole library</a></p>
           </div>

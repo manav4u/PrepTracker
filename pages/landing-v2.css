@@ -186,3 +186,23 @@
 .lp2 .lib-cols{grid-template-columns:1fr;gap:26px}
 .lp2 .lib-col a{font-size:13.5px;padding:8px 0}
 }
+
+/* Library: year groups collapse into an accordion on phones (progressive
+   disclosure), while desktop keeps every guide visible. Closed <details>
+   content is re-shown via author override of the UA hiding rule. */
+.lp2 .lib-group summary{list-style:none}
+.lp2 .lib-group summary::-webkit-details-marker{display:none}
+.lp2 .lib-count{margin-left:8px;padding:2px 8px;border:1px solid var(--hair);border-radius:999px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--mut);vertical-align:1px}
+@media (min-width:901px){
+  .lp2 .lib-group summary{pointer-events:none}
+}
+@media (max-width:900px){
+  .lp2 .lib-cols{gap:0}
+  .lp2 .lib-group{border-top:1px solid var(--hair)}
+  .lp2 .lib-group:last-child{border-bottom:1px solid var(--hair)}
+  .lp2 .lib-group summary{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:15px 2px;cursor:pointer}
+  .lp2 .lib-group summary h3{display:flex;align-items:center}
+  .lp2 .lib-group summary::after{content:'+';font-family:var(--mono);font-size:15px;color:var(--red);flex:none}
+  .lp2 .lib-group[open] summary::after{content:'\2212'}
+  .lp2 .lib-group ul{margin-top:2px;padding-bottom:16px}
+}
