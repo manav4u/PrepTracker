@@ -238,12 +238,44 @@ const LandingPage: React.FC = () => {
     };
   }, []);
 
-  // Mobile: year groups start collapsed (markup default is open so no-JS
-  // and desktop keep every guide visible). Matches the 900px CSS breakpoint.
+  // Library year groups: markup ships them open (desktop + no-JS default).
+  // Phones: collapse them - the prerendered page already did this inline
+  // during parse; repeat after hydration in case React re-applied the open
+  // attribute. Desktop: the summaries act as static column headings there,
+  // so give them heading semantics and drop them from the tab order.
   useEffect(() => {
-    if (window.matchMedia('(max-width: 900px)').matches) {
-      document.querySelectorAll('.lib-group[open]').forEach((d) => d.removeAttribute('open'));
-    }
+    const mq = window.matchMedia('(max-width: 900px)');
+    const apply = () => {
+      const groups = document.querySelectorAll('.lib-group');
+      if (mq.matches) {
+        // Phone: collapsed accordion, summaries are real disclosure controls.
+        groups.forEach((d) => {
+          d.removeAttribute('open');
+          const s = d.querySelector('summary');
+          if (s) {
+            s.removeAttribute('role');
+            s.removeAttribute('aria-level');
+            s.removeAttribute('tabindex');
+          }
+        });
+      } else {
+        // Desktop: lists stay visible; summaries act as static headings, so
+        // give them heading semantics, drop them from the tab order, and
+        // pointer-events:none (CSS) removes mouse toggling.
+        groups.forEach((d) => {
+          d.setAttribute('open', '');
+          const s = d.querySelector('summary');
+          if (s) {
+            s.setAttribute('role', 'heading');
+            s.setAttribute('aria-level', '3');
+            s.tabIndex = -1;
+          }
+        });
+      }
+    };
+    apply();
+    mq.addEventListener('change', apply);
+    return () => mq.removeEventListener('change', apply);
   }, []);
 
   // Intro motion (skipped under reduced motion and after a prerendered
