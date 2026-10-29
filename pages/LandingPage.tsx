@@ -238,6 +238,45 @@ const LandingPage: React.FC = () => {
     };
   }, []);
 
+  // Library year groups: markup ships them open (desktop + no-JS default).
+  // Phones: collapse them - the prerendered page already did this inline
+  // during parse; repeat after hydration in case React re-applied the open
+  // attribute. Heading semantics come from the real h3 inside each summary
+  // (valid in summary content, announced inside the disclosure button);
+  // role=heading on summary itself is an axe aria-allowed-role violation.
+  // Desktop only: drop the always-visible column headings from the tab
+  // order so keyboard users are not offered a toggle that contradicts the
+  // static 3-column layout.
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 900px)');
+    const apply = () => {
+      const groups = document.querySelectorAll('.lib-group');
+      if (mq.matches) {
+        // Phone: collapsed EXCLUSIVE accordion (native name-grouping = one
+        // year open at a time), summaries are real disclosure controls.
+        groups.forEach((d) => {
+          d.setAttribute('name', 'lib-years');
+          d.removeAttribute('open');
+          const s = d.querySelector('summary');
+          if (s) s.removeAttribute('tabindex');
+        });
+      } else {
+        // Desktop: lists stay visible; summaries act as static headings
+        // (the h3 inside carries the semantics), so drop them from the tab
+        // order, and pointer-events:none (CSS) removes mouse toggling.
+        groups.forEach((d) => {
+          d.removeAttribute('name');
+          d.setAttribute('open', '');
+          const s = d.querySelector('summary');
+          if (s) s.tabIndex = -1;
+        });
+      }
+    };
+    apply();
+    mq.addEventListener('change', apply);
+    return () => mq.removeEventListener('change', apply);
+  }, []);
+
   // Intro motion (skipped under reduced motion and after a prerendered
   // load: the hero is already painted, replaying would hide it again).
   useGSAP(() => {
@@ -425,6 +464,68 @@ const LandingPage: React.FC = () => {
               <h3>See what&rsquo;s left, every morning</h3>
               <p>Progress, streaks and the countdown update themselves. You always know exactly what&rsquo;s left before the exam.</p>
             </div>
+          </div>
+        </section>
+
+        {/* 6b. SYLLABUS LIBRARY - visible, grouped links to the public guide
+            pages. One homepage footer link used to carry all 200+ of them.
+            Copy mirrors the library hub: unit-wise theory courses from the
+            official SPPU PDFs, no completeness claim. */}
+        <section className="sec lib" id="library" aria-label="Syllabus library">
+          <p className="eyebrow reveal">Syllabus library</p>
+          <h2 className="reveal">The SPPU syllabus, <em className="scu">already laid out.<svg viewBox="0 0 100 12" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M2 8 C 20 3, 40 11, 60 6 C 75 3, 88 9, 98 6" stroke="#F63C49" strokeWidth="3.5" strokeLinecap="round"/></svg></em></h2>
+          <p className="lead reveal">Unit-wise guides for the theory courses PrepTracker tracks, copied from the official SPPU PDFs. Free to read, no account.</p>
+          <div className="lib-card reveal">
+            <div className="lib-col guides">
+              <h3>Start here</h3>
+              <ul>
+                <li><a href="/syllabus/first-year-scheme-credits/">FE scheme and credits</a></li>
+                <li><a href="/syllabus/grading-system-sgpa/">Grading and SGPA</a></li>
+                <li><a href="/syllabus/cce-end-sem-exam-pattern/">CCE and end-sem exam pattern</a></li>
+              </ul>
+            </div>
+            <div className="lib-cols">
+              <details className="lib-col lib-group" open>
+                <summary><h3>First year <span className="lib-count">10</span></h3></summary>
+                <ul>
+                  <li><a href="/syllabus/engineering-mathematics-1/"><span className="lib-idx">01</span>Engineering Mathematics I</a></li>
+                  <li><a href="/syllabus/engineering-mathematics-2/"><span className="lib-idx">02</span>Engineering Mathematics II</a></li>
+                  <li><a href="/syllabus/engineering-physics/"><span className="lib-idx">03</span>Engineering Physics</a></li>
+                  <li><a href="/syllabus/engineering-chemistry/"><span className="lib-idx">04</span>Engineering Chemistry</a></li>
+                  <li><a href="/syllabus/basic-electrical-engineering/"><span className="lib-idx">05</span>Basic Electrical Engineering</a></li>
+                  <li><a href="/syllabus/basic-electronics-engineering/"><span className="lib-idx">06</span>Basic Electronics Engineering</a></li>
+                  <li><a href="/syllabus/engineering-mechanics/"><span className="lib-idx">07</span>Engineering Mechanics</a></li>
+                  <li><a href="/syllabus/engineering-graphics/"><span className="lib-idx">08</span>Engineering Graphics</a></li>
+                  <li><a href="/syllabus/fundamentals-of-programming-languages/"><span className="lib-idx">09</span>Fundamentals of Programming Languages</a></li>
+                  <li><a href="/syllabus/programming-and-problem-solving/"><span className="lib-idx">10</span>Programming and Problem Solving</a></li>
+                </ul>
+              </details>
+              <details className="lib-col lib-group" open>
+                <summary><h3>Second year <span className="lib-count">9</span></h3></summary>
+                <ul>
+                  <li><a href="/syllabus/se-computer-engineering/"><span className="lib-idx">01</span>SE Computer Engineering</a></li>
+                  <li><a href="/syllabus/se-computer-science-and-engineering/"><span className="lib-idx">02</span>SE Computer Science &amp; Engineering</a></li>
+                  <li><a href="/syllabus/se-artificial-intelligence-and-data-science/"><span className="lib-idx">03</span>SE AI and Data Science</a></li>
+                  <li><a href="/syllabus/se-information-technology/"><span className="lib-idx">04</span>SE Information Technology</a></li>
+                  <li><a href="/syllabus/se-electrical-engineering/"><span className="lib-idx">05</span>SE Electrical Engineering</a></li>
+                  <li><a href="/syllabus/se-civil-engineering/"><span className="lib-idx">06</span>SE Civil Engineering</a></li>
+                  <li><a href="/syllabus/se-mechanical-engineering/"><span className="lib-idx">07</span>SE Mechanical Engineering</a></li>
+                  <li><a href="/syllabus/se-instrumentation-and-control-engineering/"><span className="lib-idx">08</span>SE Instrumentation &amp; Control</a></li>
+                  <li><a href="/syllabus/se-cyber-security/"><span className="lib-idx">09</span>SE Cyber Security</a></li>
+                </ul>
+              </details>
+              <details className="lib-col lib-group" open>
+                <summary><h3>Third year <span className="lib-count">5</span></h3></summary>
+                <ul>
+                  <li><a href="/syllabus/te-computer-engineering/"><span className="lib-idx">01</span>TE Computer Engineering</a></li>
+                  <li><a href="/syllabus/te-information-technology/"><span className="lib-idx">02</span>TE Information Technology</a></li>
+                  <li><a href="/syllabus/te-electrical/"><span className="lib-idx">03</span>TE Electrical Engineering</a></li>
+                  <li><a href="/syllabus/te-mechanical-engineering/"><span className="lib-idx">04</span>TE Mechanical Engineering</a></li>
+                  <li><a href="/syllabus/te-robotics-and-ai/"><span className="lib-idx">05</span>TE Robotics and AI</a></li>
+                </ul>
+              </details>
+            </div>
+            <p className="lib-note"><span>Labs, open electives and some courses aren&rsquo;t in the library yet.</span><a href="/syllabus/">Browse the whole library</a></p>
           </div>
         </section>
 

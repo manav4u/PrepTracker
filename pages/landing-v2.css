@@ -161,3 +161,68 @@
 
 /* Keep the mobile footer compact below the wordmark. */
 @media(max-width:900px){.lp2 .foot-main{padding-top:32px}.lp2 .foot-lockup{margin-bottom:16px}.lp2 .foot-grid{padding-top:0;gap:24px}.lp2 .foot-bar{margin-top:32px}}
+
+/* ---------- 6b. SYLLABUS LIBRARY ---------- */
+.lp2 .lib{border-top:1px solid var(--hair)}
+.lp2 .lib-card{background:#fff;border:1px solid var(--hair);border-radius:18px;padding:40px 36px 26px;margin-top:56px}
+.lp2 .lib-col.guides{margin-bottom:32px}
+.lp2 .lib-col.guides ul{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.lp2 .lib-col.guides li+li{border-top:0}
+.lp2 .lib-col.guides a{padding:7px 12px;border:1px solid var(--hair);border-radius:999px;font-size:12.5px}
+.lp2 .lib-col.guides a::after{content:none}
+.lp2 .lib-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.lp2 .lib-col h3{font-family:var(--mono);font-weight:400;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+.lp2 .lib-col ul{list-style:none;margin:18px 0 0;padding:0}
+.lp2 .lib-col li+li{border-top:1px solid var(--hair)}
+.lp2 .lib-col a{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:9px 0;font-size:14px;line-height:1.4;color:var(--ink);text-decoration:none}
+.lp2 .lib-col a:hover{color:var(--red)}
+.lp2 .lib-col a::after{content:'\2192';color:var(--red);flex:none}
+.lp2 .lib-note{margin:28px 0 0;padding:18px 0 4px;border-top:1px solid var(--hair);display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;font-size:13px;line-height:1.6;color:var(--mut)}
+.lp2 .lib-note a{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);text-decoration:none;white-space:nowrap}
+.lp2 .lib-note a:hover{color:var(--red)}
+@media(max-width:900px){
+.lp2 .lib-card{padding:30px 22px 20px;margin-top:44px}
+.lp2 .lib-col.guides{margin-bottom:26px}
+.lp2 .lib-cols{grid-template-columns:1fr;gap:26px}
+.lp2 .lib-col a{font-size:13.5px;padding:8px 0}
+}
+
+/* Library: year groups collapse into an accordion on phones (progressive
+   disclosure), while desktop keeps every guide visible. Closed <details>
+   content is re-shown via author override of the UA hiding rule. */
+.lp2 .lib-group summary{list-style:none}
+.lp2 .lib-group summary::-webkit-details-marker{display:none}
+.lp2 .lib-count{margin-left:8px;padding:2px 8px;border:1px solid var(--hair);border-radius:999px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--mut);vertical-align:1px}
+@media (min-width:901px){
+  .lp2 .lib-group summary{pointer-events:none}
+}
+@media (max-width:900px){
+  .lp2 .lib-cols{gap:0}
+  .lp2 .lib-group{border-top:1px solid var(--hair)}
+  .lp2 .lib-group:last-child{border-bottom:1px solid var(--hair)}
+  .lp2 .lib-group summary{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:15px 2px;cursor:pointer}
+  .lp2 .lib-group summary h3{display:flex;align-items:center}
+  .lp2 .lib-group summary::after{content:'+';font-family:var(--mono);font-size:15px;color:var(--red);flex:none}
+  .lp2 .lib-group[open] summary::after{content:'\2212'}
+  .lp2 .lib-group ul{margin-top:2px;padding-bottom:16px}
+}
+
+/* Library premium pass: catalog indices, open-group red count, staggered
+   reveal. All in the site's own flat/mono/hand-drawn language. */
+.lp2 .lib-col a{justify-content:flex-start;gap:12px}
+.lp2 .lib-col a::after{margin-left:auto}
+.lp2 .lib-idx{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--mut);flex:none;transform:translateY(-1px)}
+.lp2 .lib-group[open] .lib-count{border-color:var(--red);color:var(--red)}
+@media (prefers-reduced-motion: no-preference){
+  .lp2 .lib-group[open] li{animation:libIn .34s cubic-bezier(.2,.7,.2,1) both}
+  .lp2 .lib-group[open] li:nth-child(2){animation-delay:.03s}
+  .lp2 .lib-group[open] li:nth-child(3){animation-delay:.06s}
+  .lp2 .lib-group[open] li:nth-child(4){animation-delay:.09s}
+  .lp2 .lib-group[open] li:nth-child(5){animation-delay:.12s}
+  .lp2 .lib-group[open] li:nth-child(6){animation-delay:.15s}
+  .lp2 .lib-group[open] li:nth-child(7){animation-delay:.18s}
+  .lp2 .lib-group[open] li:nth-child(8){animation-delay:.21s}
+  .lp2 .lib-group[open] li:nth-child(9){animation-delay:.24s}
+  .lp2 .lib-group[open] li:nth-child(10){animation-delay:.27s}
+  @keyframes libIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+}

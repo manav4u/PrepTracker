@@ -40,6 +40,15 @@ try {
   index = index.replace('</head>', `<style data-prerender="landing">${css}</style></head>`);
 
   index = index.replace('<div id="root"></div>', `<div id="root">${html}</div>`);
+
+  // Collapse the library's year groups on phones while the HTML is still
+  // parsing. The markup ships them open (desktop + no-JS default); doing it
+  // inline means no waiting on the client bundle, so mobile never flashes
+  // the long lists. The client effect repeats this after hydration.
+  index = index.replace(
+    '</body>',
+    `<script data-prerender="lib-collapse">if(matchMedia('(max-width:900px)').matches)document.querySelectorAll('.lib-group[open]').forEach(function(d){d.removeAttribute('open')})</script></body>`
+  );
   fs.writeFileSync(indexPath, index);
 
   // Plain-text markdown mirror of the landing (dist/index.md). Built from the
