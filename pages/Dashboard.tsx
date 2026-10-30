@@ -43,11 +43,15 @@ const MasteryCard = ({ mastered, total, style }: { mastered: number; total: numb
 );
 
 const StatPill = ({ label, value, sub, foot, active = false, icon: Icon = Activity, to, style }: any) => {
-  const Wrap: any = to ? Link : 'div';
+  const isLink = !!to;
+  const Wrap: any = isLink ? Link : 'div';
+  const sharedClasses = `p-5 rounded-2xl flex flex-col justify-between h-32 lg:h-36 transition-all duration-200 group hover:-translate-y-1 animate-in fade-in slide-in-from-bottom-4 duration-500 ${active ? 'surface-1 ring-1 ring-[#F63C49]/40' : 'surface-1 hover:border-white/15'}`;
   return (
-  <Wrap {...(to ? { to } : {})} style={style} className={`p-5 rounded-2xl flex flex-col justify-between h-32 lg:h-36 transition-all duration-200 group hover:-translate-y-1 animate-in fade-in slide-in-from-bottom-4 duration-500 ${
-    active ? 'surface-1 ring-1 ring-[#F63C49]/40' : 'surface-1 hover:border-white/15'
-  }`}>
+  <Wrap
+    {...(isLink ? { to } : { role: 'button', tabIndex: 0 })}
+    style={style}
+    className={sharedClasses}
+  >
     <div className="flex justify-between items-start">
       <span className={`text-[9px] uppercase tracking-[0.15em] font-bold ${
         active ? 'text-[#F63C49]' : 'text-slate-500'
