@@ -27,58 +27,41 @@ const SHORT_NAMES: Record<string, string> = {
 
 const BLOCK_LIMIT = 40;
 
-// Units Mastered: the count, and one block per unit (red once mastered).
-// Past BLOCK_LIMIT units the blocks become a plain bar so the card keeps its height.
 const MasteryCard = ({ mastered, total, style }: { mastered: number; total: number; style?: React.CSSProperties }) => (
-  <div style={style} className="p-5 rounded-3xl flex flex-col justify-between h-36 lg:h-40 surface-1 transition-all duration-300 hover:border-white/15 hover:-translate-y-1 animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500">
-    <span className="text-[10px] uppercase tracking-[0.25em] font-bold text-slate-500">Units Mastered</span>
-    <p className="flex items-baseline gap-2 text-white">
-      <span className="text-4xl lg:text-5xl font-display font-bold tracking-tighter tabular-nums leading-none">{mastered}</span>
-      <span className="text-[10px] lg:text-[11px] font-bold uppercase tracking-widest text-slate-500">of {total} {total === 1 ? 'unit' : 'units'}</span>
+  <div style={style} className="p-4 rounded-2xl flex flex-col justify-between h-28 lg:h-32 surface-1 transition-colors duration-200 hover:border-white/10">
+    <span className="text-[9px] uppercase tracking-[0.15em] font-bold text-slate-500">Units Mastered</span>
+    <p className="flex items-baseline gap-1 text-white">
+      <span className="text-3xl lg:text-4xl font-display font-bold tracking-tighter tabular-nums leading-none">{mastered}</span>
+      <span className="text-[9px] lg:text-[10px] font-bold uppercase tracking-widest text-slate-500">of {total} {total === 1 ? 'unit' : 'units'}</span>
     </p>
-    {total <= BLOCK_LIMIT ? (
-      <div
-        className="grid gap-[3px] grid-cols-[repeat(var(--cm),minmax(0,1fr))] lg:grid-cols-[repeat(var(--cd),minmax(0,1fr))]"
-        style={{ '--cm': Math.ceil(total / 2), '--cd': total <= 30 ? total : Math.ceil(total / 2) } as React.CSSProperties}
-        role="img"
-        aria-label={`${mastered} of ${total} units mastered`}
-      >
-        {Array.from({ length: total }, (_, i) => (
-          <span key={i} className={`w-full max-w-[20px] lg:max-w-[24px] aspect-square justify-self-center rounded-[2px] transition-colors duration-[250ms] ${i < mastered ? 'bg-[#F63C49]' : 'bg-white/10'}`}></span>
-        ))}
-      </div>
-    ) : (
-      <div className="h-2 rounded-full bg-white/10 overflow-hidden" role="img" aria-label={`${mastered} of ${total} units mastered`}>
-        <div className="h-full rounded-full bg-[#F63C49]" style={{ width: `${total ? (mastered / total) * 100 : 0}%` }}></div>
-      </div>
-    )}
+    <div className="flex gap-1.5" style={{ height: '16px' }}>
+      {Array.from({ length: total }, (_, i) => (
+        <span key={i} className={`flex-1 rounded-full transition-colors duration-200 ${i < mastered ? 'bg-[#F63C49]' : 'bg-white/10'}`}></span>
+      ))}
+    </div>
   </div>
 );
 
-const StatPill = ({ label, value, sub, foot, active = false, gradient = false, icon: Icon = Activity, to, style }: any) => {
+const StatPill = ({ label, value, sub, foot, active = false, icon: Icon = Activity, to, style }: any) => {
   const Wrap: any = to ? Link : 'div';
   return (
-  <Wrap {...(to ? { to } : {})} style={style} className={`p-6 rounded-3xl flex flex-col justify-between h-36 lg:h-40 transition-all duration-300 group hover:-translate-y-1 animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500 ${
-    gradient
-      ? 'bg-gradient-to-br from-[#F63C49] to-[#9f1239] shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_14px_44px_-12px_rgba(246,60,73,0.5)] border border-white/10'
-      : active
-        ? 'surface-1 ring-1 ring-[#F63C49]/40 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_1px_2px_rgba(0,0,0,0.55),0_0_36px_-10px_rgba(246,60,73,0.45)]'
-        : 'surface-1 hover:border-white/15'
+  <Wrap {...(to ? { to } : {})} style={style} className={`p-5 rounded-2xl flex flex-col justify-between h-32 lg:h-36 transition-all duration-200 group hover:-translate-y-1 animate-in fade-in slide-in-from-bottom-4 duration-500 ${
+    active ? 'surface-1 ring-1 ring-[#F63C49]/40' : 'surface-1 hover:border-white/15'
   }`}>
     <div className="flex justify-between items-start">
-      <span className={`text-[10px] uppercase tracking-[0.25em] font-bold ${
-        gradient ? 'text-white/80' : active ? 'text-[#F63C49]' : 'text-slate-500'
+      <span className={`text-[9px] uppercase tracking-[0.15em] font-bold ${
+        active ? 'text-[#F63C49]' : 'text-slate-500'
       }`}>{label}</span>
-      <Icon size={16} className={gradient ? 'text-white' : 'text-[#F63C49]'} />
+      <Icon size={16} className={active ? 'text-[#F63C49]' : 'text-slate-400'} />
     </div>
     <div>
-      <p className={`text-4xl lg:text-5xl font-display font-bold tracking-tighter mb-2 ${
-        gradient ? 'text-white' : 'text-white'
+      <p className={`text-3xl lg:text-4xl font-display font-bold tracking-tighter mb-1 ${
+        active ? 'text-white' : 'text-white'
       }`}>{value}</p>
-      <p className={`text-[10px] lg:text-[11px] font-bold uppercase tracking-widest ${
-        gradient ? 'text-white/80' : active ? 'text-[#F63C49]/90' : 'text-slate-500'
+      <p className={`text-[9px] lg:text-[10px] font-bold uppercase tracking-widest ${
+        active ? 'text-[#F63C49]/90' : 'text-slate-500'
       }`}>{sub}</p>
-      {foot && <p className="mt-1.5 text-[10px] lg:text-[11px] font-bold tracking-wide text-slate-200 group-hover:text-white">{foot} <span aria-hidden="true">›</span></p>}
+      {foot && <p className="mt-1 text-[9px] lg:text-[10px] font-bold tracking-wide text-slate-200 group-hover:text-white">{foot} <span aria-hidden="true">›</span></p>}
     </div>
   </Wrap>
   );
@@ -87,32 +70,24 @@ const StatPill = ({ label, value, sub, foot, active = false, gradient = false, i
 const StreakCard = ({ streak, today, goal, style }: any) => {
   const goalPct = Math.min(100, Math.round((today / goal) * 100));
   return (
-    <div style={style} className="relative p-5 rounded-3xl flex flex-col justify-between h-36 lg:h-40 overflow-hidden group hover:-translate-y-1 transition-all duration-300 animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500 bg-[linear-gradient(180deg,#FDFBF6_0%,#F6F1E8_52%,#EEE8DC_100%)] shadow-[0_1px_2px_rgba(0,0,0,0.45),0_18px_38px_-22px_rgba(0,0,0,0.85),0_0_34px_-10px_rgba(255,247,235,0.22)]">
-      {/* Ivory material: bright top sheen, warm bottom vignette, crisp inner highlight */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-transparent to-black/[0.05] pointer-events-none"></div>
-      <div className="absolute inset-0 rounded-3xl shadow-[inset_0_1px_0_rgba(255,255,255,0.9),inset_0_-1px_0_rgba(0,0,0,0.05)] pointer-events-none"></div>
-      <div className="absolute inset-0 rounded-3xl ring-1 ring-black/[0.06] pointer-events-none"></div>
-
-      {/* Label row: flame sits inline as a small mark, no floating chip */}
+    <div style={style} className="relative p-4 rounded-2xl flex flex-col justify-between h-28 lg:h-32 overflow-hidden">
       <div className="relative flex items-center gap-1.5">
-        <Flame size={10} strokeWidth={2.5} className="text-[#F63C49] -mt-px" />
-        <span className="text-[10px] uppercase tracking-[0.25em] font-bold text-[#8a8172]">Study Streak</span>
+        <span className="text-[#F63C49] text-[9px] -mt-0.5">⏱</span>
+        <span className="text-[9px] uppercase tracking-[0.15em] font-bold text-slate-400">Study Streak</span>
       </div>
 
-      {/* Hero figure with quiet baseline caption */}
       <div className="relative flex items-end gap-2">
-        <p className="text-5xl lg:text-6xl font-display font-bold tracking-tighter text-[#17171c] leading-[0.85]">{streak}</p>
-        <p className="text-[10px] lg:text-[10px] font-bold uppercase tracking-widest text-[#4a443a] mb-0.5 whitespace-nowrap">Day Streak</p>
+        <p className="text-4xl lg:text-5xl font-display font-bold tracking-tighter text-white">{streak}</p>
+        <p className="text-[9px] lg:text-[9px] font-bold uppercase tracking-widest text-slate-300">Day Streak</p>
       </div>
 
-      {/* Daily goal: today's actions against a fixed target, Duolingo-style */}
       <div className="relative">
-        <div className="flex justify-between items-end mb-1.5">
-          <span className="text-[8px] lg:text-[10px] font-bold uppercase tracking-widest text-[#8a8172]">Today</span>
-          <span className="text-[10px] lg:text-[10px] font-bold font-mono text-[#4a443a]">{today}/{goal}</span>
+        <div className="flex justify-between items-end mb-1">
+          <span className="text-[8px] lg:text-[9px] font-bold uppercase tracking-widest text-slate-300">Today</span>
+          <span className="text-[9px] lg:text-[9px] font-bold font-mono text-slate-300">{today}/{goal}</span>
         </div>
-        <div className="h-1.5 w-full rounded-full bg-black/[0.06] overflow-hidden ring-1 ring-inset ring-black/10">
-          <div className="h-full rounded-full bg-[#F63C49] transition-all duration-700" style={{ width: `${goalPct}%` }}></div>
+        <div className="h-1 w-full rounded-full bg-black/[0.06] overflow-hidden">
+          <div className="h-1 rounded-full bg-[#F63C49]" style={{ width: `${goalPct}%` }}></div>
         </div>
       </div>
     </div>
@@ -120,94 +95,52 @@ const StreakCard = ({ streak, today, goal, style }: any) => {
 };
 
 const ProgressGraphCard = ({ data, labels, total }: { data: number[], labels: string[], total: number }) => {
-    const hasData = total > 0;
+  const hasData = total > 0;
 
-    // Y-Axis Padding Logic: 
-    // Map 0% -> 85 (Bottom with padding)
-    // Map 100% -> 15 (Top with padding)
-    const mapY = (val: number) => 68 - (val * 0.40);
+  const mapY = (val: number) => 56 - (val * 0.30);
 
-    const mapX = (i: number) => 6 + (i / (data.length - 1 || 1)) * 88;
+  const mapX = (i: number) => 8 + (i / (data.length - 1 || 1)) * 80;
 
-    const points = data.map((val, i) => `${mapX(i)},${mapY(val)}`).join(' ');
+  const points = data.map((val, i) => `${mapX(i)},${mapY(val)}`).join(' ');
 
-    // Fill spans the full tile width and height; flat shelves carry the
-    // endpoint levels to the edges while the line itself ends inside.
-    const fillPath = `M 0,${mapY(data[0])} ${data.map((val, i) => `L ${mapX(i)},${mapY(val)}`).join(' ')} L 100,${mapY(data[data.length - 1])} L 100,100 L 0,100 Z`;
+  const fillPath = `M 0,${mapY(data[0])} ${data.map((val, i) => `L ${mapX(i)},${mapY(val)}`).join(' ')} L 100,${mapY(data[data.length - 1])} L 100,0 L 0,0 Z`;
 
-    return (
-        <div className="p-6 rounded-3xl surface-1 flex flex-col justify-between h-36 lg:h-40 relative overflow-hidden group hover:border-white/20 transition-all animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500" style={{ animationDelay: '90ms' }}>
-            <div className="flex justify-between items-start z-10">
-                <span className="text-[10px] uppercase tracking-[0.25em] font-bold text-slate-500">Last 7 days</span>
-                <div className="flex items-center gap-2">
-                    <span className="relative flex h-1.5 w-1.5">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D61A40] opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#D61A40]"></span>
-                    </span>
-                    <Activity size={16} className="text-white/20 group-hover:text-[#F63C49] transition-colors" />
-                </div>
-            </div>
-            
-            {hasData ? (
-                <div className="absolute inset-0 w-full h-full">
-                    <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                         <defs>
-                            <linearGradient id="grad" x1="0" x2="0" y1="0" y2="1">
-                                <stop offset="0%" stopColor="#F63C49" stopOpacity="0.4" />
-                                <stop offset="100%" stopColor="#F63C49" stopOpacity="0" />
-                            </linearGradient>
-                            <linearGradient id="edgefade" x1="0" x2="1" y1="0" y2="0">
-                                <stop offset="0%" stopColor="white" stopOpacity="0" />
-                                <stop offset="7%" stopColor="white" stopOpacity="1" />
-                                <stop offset="93%" stopColor="white" stopOpacity="1" />
-                                <stop offset="100%" stopColor="white" stopOpacity="0" />
-                            </linearGradient>
-                            <mask id="fillfade" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
-                                <rect x="0" y="0" width="100" height="100" fill="url(#edgefade)" />
-                            </mask>
-                         </defs>
-                         
-                         {/* Grid Lines */}
-                         <line x1="0" y1="28" x2="100" y2="28" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" strokeDasharray="2 2" />
-                         <line x1="0" y1="48" x2="100" y2="48" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" strokeDasharray="2 2" />
-                         <line x1="0" y1="68" x2="100" y2="68" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" strokeDasharray="2 2" />
-
-                         {/* Area Fill */}
-                         <path d={fillPath} fill="url(#grad)" mask="url(#fillfade)" className="transition-all duration-700 ease-in-out" />
-                         
-                         {/* Stroke Line */}
-                         <polyline 
-                            points={points} 
-                            fill="none" 
-                            stroke="#F63C49" 
-                            strokeWidth="2" 
-                            vectorEffect="non-scaling-stroke"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="drop-shadow-[0_0_8px_rgba(246,60,73,0.5)] transition-all duration-700 ease-in-out"
-                         />
-                         
-                    </svg>
-                </div>
-            ) : (
-                <div className="flex-1 flex items-center justify-center">
-                    <p className="text-[10px] font-mono text-slate-600 uppercase tracking-widest">No study yet</p>
-                </div>
-            )}
-            
-            {/* Label band scrim: fades the fill out under the day labels */}
-            {hasData && <div className="absolute bottom-0 inset-x-0 h-12 bg-gradient-to-t from-[#0b0b0d] via-[#0b0b0d]/80 to-transparent pointer-events-none z-[5]"></div>}
-
-            <div className="flex justify-between items-end relative z-10 mt-auto px-1">
-                 {labels.map((l, i) => (
-                     <span key={i} className="text-[8px] font-mono font-bold text-slate-400 uppercase w-full text-center truncate">{l}</span>
-                 ))}
-            </div>
-    
-            {/* Background Texture */}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:10px_10px] opacity-20 pointer-events-none"></div>
+  return (
+    <div className="p-4 rounded-2xl surface-1 flex flex-col justify-between h-28 lg:h-32 relative overflow-hidden group animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500" style={{ animationDelay: '90ms' }}>
+      <div className="flex justify-between items-start">
+        <span className="text-[9px] uppercase tracking-[0.15em] font-bold text-slate-500">Last 7 days</span>
+        <span className="text-[8px] text-slate-400">
+          <Flame size={12} className="text-[#F63C49]"/>&nbsp;
+          <span>{total > 0 ? total + ' sessions' : ''}</span>
+        </span>
+      </div>
+      
+      {hasData ? (
+        <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path d={fillPath} fill="#F63C49" opacity={0.3} className="transition-all duration-500 ease-in-out" />
+          <polyline 
+             points={points} 
+             fill="none" 
+             stroke="#F63C49" 
+             strokeWidth="1.5" 
+             vectorEffect="non-scaling-stroke"
+             strokeLinecap="round"
+             strokeLinejoin="round"
+          />
+        </svg>
+      ) : (
+        <div className="flex-1 flex items-center justify-center">
+          <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">No study yet</p>
         </div>
-    );
+      )}
+      
+      <div className="flex justify-between items-end px-1">
+        {labels.map((l, i) => (
+          <span key={i} className="text-[7px] font-mono font-bold text-slate-400 uppercase w-full text-center truncate">{l}</span>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 const Dashboard: React.FC = () => {
@@ -218,7 +151,6 @@ const Dashboard: React.FC = () => {
 
   const selectedIds = profile.selectedSubjects || [];
 
-  // Calculate Progress
   const getSubjectProgress = (subjectId: string) => {
     const subject = allSubjects.find(s => s.id === subjectId);
     if (!subject) return { percentage: 0, mastered: 0 };
@@ -237,10 +169,8 @@ const Dashboard: React.FC = () => {
     return { percentage: Math.round(score / subject.units.length), mastered };
   };
 
-  // Filter Active Subjects
   const filtered = allSubjects.filter(s => selectedIds.includes(s.id));
   
-  // Aggregate Metrics
   const avgProgress = filtered.length > 0 
     ? Math.round(filtered.reduce((a, s) => a + getSubjectProgress(s.id).percentage, 0) / filtered.length)
     : 0;
@@ -248,11 +178,8 @@ const Dashboard: React.FC = () => {
   const totalMastered = filtered.reduce((a, s) => a + getSubjectProgress(s.id).mastered, 0);
   const totalUnits = filtered.reduce((a, s) => a + s.units.length, 0);
 
-  // Exam timeline: only dates the student set themselves in Settings (built-in
-  // schedules go stale every cycle, so PrepTracker never invents exam dates).
   const timelineExams = subjectExamList(profile, allSubjects);
   const nextIdx = nextExamIndex(timelineExams);
-  // Days to exam comes from the date the student sets in Settings.
   const examStart = profile.examStartDate ? new Date(`${profile.examStartDate}T00:00:00`) : null;
   const startOfToday = new Date(); startOfToday.setHours(0, 0, 0, 0);
   const examDiff = examStart && !isNaN(examStart.getTime())
@@ -265,12 +192,9 @@ const Dashboard: React.FC = () => {
     ? `Starts ${examStart.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}`
     : 'Exams started';
 
-  // Streak Validation Logic
   const validStreak = currentStreak(profile);
   const todayActions = todayCount(profile);
 
-  // Graph Data Preparation
-  // Ensure we display something even if 0
   const week = lastDays(profile, 7);
   const weekMax = Math.max(3, ...week.counts);
   const graphData = week.counts.map(c => Math.round((c / weekMax) * 100));
@@ -278,113 +202,92 @@ const Dashboard: React.FC = () => {
   const weekTotal = week.counts.reduce((a, b) => a + b, 0);
 
   return (
-    <div className="space-y-12 lg:space-y-20 animate-in fade-in slide-in-from-bottom-8 duration-700">
-      
+    <div className="space-y-8 lg:space-y-16">
       <DailyRevisePrompt />
 
-      {/* HUD Header */}
       <section className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-        <div data-tour="overview" className="lg:col-span-2 rounded-3xl surface-1 p-8 lg:p-10 relative overflow-hidden group flex flex-col justify-between">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-          
-          <div className="relative z-10">
-            <div className="flex items-center gap-3 mb-8">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D61A40] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#D61A40]"></span>
-                </span>
-                <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-[#F63C49]">
-                    {(() => { const h = new Date().getHours(); const g = h < 5 ? 'Good night' : h < 12 ? 'Good morning' : h < 17 ? 'Good afternoon' : h < 21 ? 'Good evening' : 'Good night'; return `${g}, ${profile.name}`; })()}
-                </span>
-            </div>
-            <h1 className="text-5xl lg:text-6xl font-display font-bold text-white mb-2 leading-[0.9] tracking-tighter">
-              Study <br/><span className="text-white/40">Progress</span>
-            </h1>
+        <div data-tour="overview" className="lg:col-span-2 rounded-2xl surface-1 p-6 lg:p-8 flex flex-col justify-between">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="relative flex h-2 w-2">
+              <span className="rounded-full bg-[#F63C49]"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#F63C49]"></span>
+            </span>
+            <span className="text-[9px] font-bold tracking-[0.15em] uppercase text-[#F63C49]">
+              {(() => { const h = new Date().getHours(); const g = h < 5 ? 'Good night' : h < 12 ? 'Good morning' : h < 17 ? 'Good afternoon' : h < 21 ? 'Good evening' : 'Good night'; return `${g}, ${profile.name}`; })()}
+            </span>
           </div>
+          <h1 className="text-4xl lg:text-5xl font-display font-bold text-white mb-2 leading-[0.9] tracking-tighter">
+            Study <br/><span className="text-white/40">Progress</span>
+          </h1>
           
-          <div data-tour="overall-progress" className="relative z-10 mt-8">
-               <div className="flex justify-between items-end mb-4">
-                 <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Overall Progress</span>
-                 <span className="text-4xl font-display font-bold text-white tracking-tighter">{avgProgress}%</span>
-               </div>
-               <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
-                 <div className="h-full bg-gradient-to-r from-[#F63C49] to-[#D61A40] shadow-[0_0_20px_rgba(246,60,73,0.5)] transition-all duration-1000 cubic-bezier(0.4, 0, 0.2, 1)" style={{ width: `${avgProgress}%` }}></div>
-               </div>
+          <div data-tour="overall-progress" className="mt-4">
+            <div className="flex justify-between items-end mb-2">
+              <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Overall Progress</span>
+              <span className="text-3xl font-display font-bold text-white tracking-tighter">{avgProgress}%</span>
+            </div>
+            <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+              <div className="h-1.5 bg-[#F63C49]" style={{ width: `${avgProgress}%` }}></div>
+            </div>
           </div>
         </div>
 
         <div data-tour="home-stats" className="lg:col-span-2 grid grid-cols-2 gap-4 lg:gap-6">
-           <MasteryCard mastered={totalMastered} total={totalUnits} style={{ animationDelay: '60ms' }} />
-
-           {/* Dynamic Graph Replacement for Forecast */}
-           <ProgressGraphCard data={graphData} labels={graphLabels} total={weekTotal} />
-
-           <StatPill label="Days to Exam" value={examValue} sub={examSub} foot={planFoot} icon={CalendarDays} to={planFoot ? '/app/revise?tab=plan' : examDiff === null ? '/app/settings' : undefined} style={{ animationDelay: '120ms' }} />
-           <StreakCard streak={validStreak} today={todayActions} goal={DAILY_GOAL} style={{ animationDelay: '180ms' }} />
+          <MasteryCard mastered={totalMastered} total={totalUnits} />
+          <ProgressGraphCard data={graphData} labels={graphLabels} total={weekTotal} />
+          <StatPill label="Days to Exam" value={examValue} sub={examSub} foot={planFoot} icon={CalendarDays} to={planFoot ? '/app/revise?tab=plan' : examDiff === null ? '/app/settings' : undefined} style={{ animationDelay: '120ms' }} />
+          <StreakCard streak={validStreak} today={todayActions} goal={DAILY_GOAL} style={{ animationDelay: '180ms' }} />
         </div>
       </section>
 
-      {/* Activity heatmap: full-width strip under the greeting row */}
       <section data-tour="activity">
         <ActivityHeatmap profile={profile} style={{ animationDelay: '200ms' }} />
       </section>
 
-      {/* Main Grid */}
       <section data-tour="courses">
-        <div className="flex items-end justify-between mb-8 px-1">
+        <div className="flex items-end justify-between mb-6 px-1">
           <div>
-            <h2 className="text-3xl font-display font-bold text-white mb-1 tracking-tight">Active Courses</h2>
-            <p className="text-slate-500 text-xs font-bold tracking-[0.2em] uppercase">Syllabus Tracking</p>
+            <h2 className="text-2xl font-display font-bold text-white mb-1 tracking-tight">Active Courses</h2>
+            <p className="text-slate-500 text-xs font-bold tracking-[0.15em] uppercase">Syllabus Tracking</p>
           </div>
-
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
-          {filtered.map((sub, i) => {
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4">
+          {filtered.map((sub) => {
             const { percentage, mastered } = getSubjectProgress(sub.id);
-            return <SubjectCard key={sub.id} subject={sub} progress={percentage} masteredCount={mastered} style={{ animationDelay: `${i * 70}ms` }} />;
+            return <SubjectCard key={sub.id} subject={sub} progress={percentage} masteredCount={mastered} />;
           })}
         </div>
       </section>
 
-      {/* Footer / Deadlines */}
-      <section data-tour="timeline" className="grid grid-cols-1 lg:grid-cols-3 gap-10 pt-10 border-t border-white/5">
-        <div className="lg:col-span-3 max-w-2xl">
-          <div className="flex items-center gap-3 mb-8">
-            <CalendarDays size={18} className="text-[#F63C49]" />
-            <h3 className="text-lg font-display font-bold text-white tracking-tight">Exam Timeline</h3>
-          </div>
-          
-          <div className="space-y-3">
-            {timelineExams.length > 0 ? timelineExams.map((exam, i) => (
-              <Link to={`/app/subject/${exam.subjectId}`} key={exam.subjectId} style={{ animationDelay: `${i * 50}ms` }} className={`group animate-in fade-in slide-in-from-bottom-2 fill-mode-both duration-500 flex items-center gap-5 p-3 rounded-2xl hover:bg-white/5 transition-all cursor-pointer border border-transparent hover:border-white/5 ${i !== nextIdx && nextIdx !== -1 && i < nextIdx ? 'opacity-40' : ''}`}>
-                {/* Date Ticket */}
-                <div className="w-14 h-14 rounded-xl surface-2 flex flex-col items-center justify-center shrink-0 group-hover:border-[#F63C49] transition-colors">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">{exam.date.toLocaleString('default', { month: 'short' })}</span>
-                  <span className="text-xl font-display font-bold text-white leading-none mt-0.5">{exam.date.getDate()}</span>
-                </div>
-
-                {/* Details */}
-                <div className="flex-1 min-w-0">
-                   <div className="flex justify-between items-center mb-1">
-                      <p className="text-sm font-bold text-white truncate pr-2 group-hover:text-[#F63C49] transition-colors">{exam.name}</p>
-                      {i === nextIdx && <span className="w-2 h-2 rounded-full bg-[#D61A40] shadow-[0_0_10px_#F63C49]"></span>}
-                   </div>
-                   <div className="flex items-center gap-3">
-                      <span className="text-[10px] font-mono text-slate-500 bg-white/5 px-1.5 py-0.5 rounded border border-white/5">{exam.code}</span>
-                      {nextIdx !== -1 && i < nextIdx && <span className="text-[10px] font-bold text-slate-600 uppercase tracking-wider">Done</span>}
-                   </div>
-                </div>
-              </Link>
-            )) : (
-              <Link to="/app/settings" className="block p-6 rounded-2xl border border-dashed border-white/10 text-center hover:border-[#F63C49]/40 transition-colors group">
-                 <p className="text-xs font-medium text-slate-500 uppercase tracking-widest group-hover:text-slate-300">No exam dates set</p>
-                 <p className="text-[10px] font-mono text-[#F63C49] mt-2 uppercase tracking-widest">Set them in Settings</p>
-              </Link>
-            )}
-          </div>
+      <section data-tour="timeline" className="pt-8 border-t border-white/5">
+        <div className="flex items-center gap-3 mb-6">
+          <CalendarDays size={18} className="text-[#F63C49]" />
+          <h3 className="text-lg font-display font-bold text-white tracking-tight">Exam Timeline</h3>
         </div>
-        
+        <div className="space-y-3">
+          {timelineExams.length > 0 ? timelineExams.map((exam, i) => (
+            <Link to={`/app/subject/${exam.subjectId}`} key={exam.subjectId} style={{ animationDelay: `${i * 50}ms` }} className={`flex items-center gap-4 p-3 rounded-xl hover:bg-white/5 transition-all cursor-pointer border border-transparent hover:border-white/5 ${i !== nextIdx && nextIdx !== -1 && i < nextIdx ? 'opacity-40' : ''}`}>
+              <div className="w-12 h-12 rounded-xl flex flex-col items-center justify-center shrink-0 group-hover:border-[#F63C49] transition-colors">
+                <span className="text-[9px] font-bold uppercase tracking-widest text-slate-500">{exam.date.toLocaleString('default', { month: 'short' })}</span>
+                <span className="text-xl font-display font-bold text-white leading-none mt-0.5">{exam.date.getDate()}</span>
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex justify-between items-center mb-1">
+                  <p className="text-sm font-bold text-white truncate pr-2 group-hover:text-[#F63C49] transition-colors">{exam.name}</p>
+                  {i === nextIdx && <span className="w-1.5 h-1.5 rounded-full bg-[#F63C49]"></span>}
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-[9px] font-mono text-slate-500 bg-white/5 px-1 py-0.5 rounded border border-white/5">{exam.code}</span>
+                  {nextIdx !== -1 && i < nextIdx && <span className="text-[9px] font-bold text-slate-600 uppercase tracking-wider">Done</span>}
+                </div>
+              </div>
+            </Link>
+          )) : (
+            <Link to="/app/settings" className="block p-4 rounded-xl text-center hover:border-[#F63C49]/40 transition-colors group">
+              <p className="text-xs font-medium text-slate-500 uppercase tracking-widest group-hover:text-slate-300">No exam dates set</p>
+              <p className="text-[9px] font-mono text-[#F63C49] mt-1 uppercase tracking-widest">Set them in Settings</p>
+            </Link>
+          )}
+        </div>
       </section>
     </div>
   );

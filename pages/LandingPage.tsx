@@ -22,7 +22,7 @@ type Tile = {
   hl?: { t: string; c: string };
   sc?: { t: string; c: string };
   circ?: { t: string; c: string };
-  dd?: ({ k: 'tape'; st: React.CSSProperties } | { k: 'star' | 'squig'; st: React.CSSProperties; c: string })[];
+  dd?: ({ k: string; st: Record<string, unknown>; c?: string })[];
 };
 
 const QUOTES: { pull: { q: string; mark: string; name: string; tag: string }; clusterA: Tile[]; clusterB: Tile[] } = {
