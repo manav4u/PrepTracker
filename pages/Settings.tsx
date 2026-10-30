@@ -354,7 +354,7 @@ const SettingsPage: React.FC = () => {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#F63C49]"></span>Saved on this device
             </span>
             <h1 className="text-white leading-[0.95]">
-                <span className="block text-6xl lg:text-8xl tracking-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>Settings<span onClick={popStop} className={`inline-block text-[#F63C49] transition-transform duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${stopPop ? 'scale-[1.6]' : 'scale-100'}`}>.</span></span>
+                <span className="block text-6xl lg:text-8xl tracking-tight" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>Settings<span onClick={popStop} className={`inline-block text-[#F63C49] transition-transform duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${stopPop ? 'scale-[1.6]' : 'scale-100'}`}>.</span></span>
             </h1>
             <p aria-hidden="true" className={`absolute left-0 -bottom-6 text-xs text-slate-500 transition-opacity duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${stopPop ? 'opacity-100' : 'opacity-0'}`}>Full stop. Literally.</p>
         </header>
@@ -373,7 +373,7 @@ const SettingsPage: React.FC = () => {
             </div>
             <div className="relative sm:text-right border-t sm:border-t-0 border-white/10 pt-5 sm:pt-0">
                 <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">{examDiff !== null && examDiff > 0 ? `${unit} to exam` : 'Days to exam'}</p>
-                <p onClick={() => setUnitIdx(i => (i + 1) % 3)} className="leading-none text-6xl lg:text-7xl mt-2 text-[#F63C49]" style={{ fontFamily: "'Instrument Serif', serif" }}>{shownValue}</p>
+                <p onClick={() => setUnitIdx(i => (i + 1) % 3)} className="leading-none text-6xl lg:text-7xl mt-2 text-[#F63C49]" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>{shownValue}</p>
                 <p className="text-xs text-slate-500 mt-2">{examSub}</p>
             </div>
         </section>

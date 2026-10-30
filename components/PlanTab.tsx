@@ -72,7 +72,7 @@ const PlanTab: React.FC = () => {
     const hasDates = plan.examsToday.length > 0 || plan.pastExams.length > 0;
     return (
       <section className="rounded-3xl border border-white/10 surface-1 p-5 lg:p-8 max-w-2xl" data-testid="plan-empty">
-        <p className="text-2xl lg:text-3xl text-white leading-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>
+        <p className="text-2xl lg:text-3xl text-white leading-tight" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
           {plan.examsToday.length > 0 ? 'Exam day.' : hasDates ? 'No upcoming exams to plan for.' : 'Add an exam date to get a plan.'}
         </p>
         {dateNotices}
@@ -92,7 +92,7 @@ const PlanTab: React.FC = () => {
       <section data-tour="plan-stats" aria-live="polite" className="order-1 lg:order-2 lg:col-span-5 rounded-2xl lg:rounded-3xl border border-white/10 surface-1 px-4 py-3.5 lg:px-6 lg:py-5">
         <div className="flex items-baseline justify-between gap-4">
           <p className="flex items-baseline gap-2 text-sm lg:text-base text-slate-300">
-            <span className={`text-4xl lg:text-5xl leading-none tabular-nums ${plan.remaining > 0 ? 'text-[#F63C49]' : 'text-slate-500'}`} style={{ fontFamily: "'Instrument Serif', serif" }}>{plan.remaining}</span>
+            <span className={`text-4xl lg:text-5xl leading-none tabular-nums ${plan.remaining > 0 ? 'text-[#F63C49]' : 'text-slate-500'}`} style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>{plan.remaining}</span>
             left
           </p>
           <p className="text-sm lg:text-base text-slate-300 tabular-nums text-right">

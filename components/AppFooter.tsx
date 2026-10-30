@@ -6,7 +6,7 @@ const AppFooter: React.FC = () => (
     <p
       aria-hidden="true"
       className="[--wm:23.5cqw] select-none whitespace-nowrap text-slate-100 leading-[0.8] tracking-tight"
-      style={{ fontFamily: "'Instrument Serif', serif", fontSize: 'var(--wm)' }}
+      style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', fontSize: 'var(--wm)' }}
     >
       PrepTracker<span className="text-[#F63C49]">.</span>
     </p>

@@ -547,7 +547,7 @@ const TodoList: React.FC = () => {
               <span className="w-1.5 h-1.5 rounded-full bg-[#F63C49]"></span>Local Task Management
            </span>
            <h1 className="text-white leading-[0.95]">
-              <span className="block text-6xl lg:text-8xl tracking-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>Task List<span className="text-[#F63C49]">.</span></span>
+              <span className="block text-6xl lg:text-8xl tracking-tight" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>Task List<span className="text-[#F63C49]">.</span></span>
            </h1>
         </div>
 

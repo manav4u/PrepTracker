@@ -29,7 +29,7 @@ const ReviseSheet: React.FC<{ count: number; subjects: string[]; onClose: () => 
         <p id="revise-sheet-title" className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">
           {count === 1 ? 'Topic to revise today' : 'Topics to revise today'}
         </p>
-        <p className="mt-2 leading-none text-7xl lg:text-8xl tabular-nums text-[#F63C49]" style={{ fontFamily: "'Instrument Serif', serif" }}>{count}</p>
+        <p className="mt-2 leading-none text-7xl lg:text-8xl tabular-nums text-[#F63C49]" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>{count}</p>
         <div className="flex flex-wrap gap-2 mt-5">
           {shown.map((n) => (
             <span key={n} className="inline-flex items-center h-7 px-3 rounded-full border border-white/10 bg-white/[0.03] text-[10px] font-bold uppercase tracking-[0.12em] text-slate-300 max-w-full truncate">{n}</span>

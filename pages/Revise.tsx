@@ -79,7 +79,7 @@ const Revise: React.FC = () => {
           <span className="w-1.5 h-1.5 rounded-full bg-[#F63C49]"></span>{tab === 'plan' ? 'Daily plan' : 'Daily revision'}
         </span>
         <h1 className="text-white leading-[0.95]">
-          <span className="block text-6xl lg:text-8xl tracking-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>
+          <span className="block text-6xl lg:text-8xl tracking-tight" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
             Revise
             <span onClick={() => setStopLine((v) => !v)} className="inline-block text-[#F63C49] cursor-default">.</span>
           </span>
@@ -109,7 +109,7 @@ const Revise: React.FC = () => {
         >
           <div className="flex items-baseline justify-between gap-4">
             <p className="flex items-baseline gap-2 text-sm lg:text-base text-slate-400">
-              <span className={`text-4xl lg:text-5xl leading-none tabular-nums ${left > 0 ? 'text-[#F63C49]' : 'text-slate-700'}`} style={{ fontFamily: "'Instrument Serif', serif" }}>{left}</span>
+              <span className={`text-4xl lg:text-5xl leading-none tabular-nums ${left > 0 ? 'text-[#F63C49]' : 'text-slate-700'}`} style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>{left}</span>
               left
             </p>
             <p className="text-sm lg:text-base text-slate-400 tabular-nums text-right">
@@ -130,7 +130,7 @@ const Revise: React.FC = () => {
                 <span className="inline-flex items-center h-7 px-3 rounded-full border border-white/10 bg-white/[0.03] text-[10px] font-bold uppercase tracking-[0.12em] text-slate-300 max-w-full truncate">{current.subjectName}</span>
                 <span className="text-[10px] font-mono uppercase tracking-widest text-slate-500 whitespace-nowrap">Unit {current.unitNumber}</span>
               </div>
-              <p className="mt-5 lg:mt-8 text-3xl lg:text-5xl leading-[1.1] text-white" style={{ fontFamily: "'Instrument Serif', serif" }}>{current.topic}</p>
+              <p className="mt-5 lg:mt-8 text-3xl lg:text-5xl leading-[1.1] text-white" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>{current.topic}</p>
               <p className="mt-3 text-xs text-slate-500 tabular-nums">
                 Topic {queue.doneToday + 1} of {total}
                 {current.shaky && ' · you forgot it last time'}
@@ -156,7 +156,7 @@ const Revise: React.FC = () => {
           ) : queue.trackedTopics === 0 && queue.doneToday === 0 ? (
             <section className="rounded-3xl border border-white/10 surface-1 p-5 lg:p-8 relative">
               <Doodle kind="sprout" className="absolute right-5 bottom-5 lg:right-8 lg:bottom-8 w-20 h-20 lg:w-28 lg:h-28" />
-              <p className="text-2xl lg:text-3xl text-white leading-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>Nothing to revise yet.</p>
+              <p className="text-2xl lg:text-3xl text-white leading-tight" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>Nothing to revise yet.</p>
               <p className="mt-3 text-sm text-slate-400 leading-relaxed max-w-md">
                 Tick topics as you study them. Each one comes back here after {STEPS.slice(0, -1).join(', ')} and {STEPS[STEPS.length - 1]} days.
               </p>
@@ -167,7 +167,7 @@ const Revise: React.FC = () => {
           ) : (
             <section className="rounded-3xl border border-white/10 surface-1 p-5 lg:p-8 relative">
               <Doodle kind={queue.doneToday > 0 ? 'moon' : 'sprout'} className="absolute right-5 bottom-5 lg:right-8 lg:bottom-8 w-20 h-20 lg:w-28 lg:h-28" />
-              <p className="text-2xl lg:text-3xl text-white leading-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>
+              <p className="text-2xl lg:text-3xl text-white leading-tight" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
                 {queue.doneToday > 0 ? 'All done for today.' : 'Nothing due today.'}
               </p>
               {nextLine && <p className="mt-3 text-sm text-slate-400 leading-relaxed">{nextLine}</p>}

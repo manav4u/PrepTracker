@@ -32,7 +32,7 @@ const MasteryCard = ({ mastered, total, style }: { mastered: number; total: numb
     <span className="text-[9px] uppercase tracking-[0.15em] font-bold text-slate-500">Units Mastered</span>
     <p className="flex items-baseline gap-1 text-white">
       <span className="text-3xl lg:text-4xl font-display font-bold tracking-tighter tabular-nums leading-none">{mastered}</span>
-      <span className="text-[9px] lg:text-[10px] font-bold uppercase tracking-widest text-slate-500">of {total} {total === 1 ? 'unit' : 'units'}</span>
+      <span className="text-[9px] lg:text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500">of {total} {total === 1 ? 'unit' : 'units'}</span>
     </p>
     <div className="flex gap-1.5" style={{ height: '16px' }}>
       {Array.from({ length: total }, (_, i) => (
@@ -58,7 +58,7 @@ const StatPill = ({ label, value, sub, foot, active = false, icon: Icon = Activi
       <p className={`text-3xl lg:text-4xl font-display font-bold tracking-tighter mb-1 ${
         active ? 'text-white' : 'text-white'
       }`}>{value}</p>
-      <p className={`text-[9px] lg:text-[10px] font-bold uppercase tracking-widest ${
+      <p className={`text-[9px] lg:text-[10px] font-bold uppercase tracking-[0.15em] ${
         active ? 'text-[#F63C49]/90' : 'text-slate-500'
       }`}>{sub}</p>
       {foot && <p className="mt-1 text-[9px] lg:text-[10px] font-bold tracking-wide text-slate-200 group-hover:text-white">{foot} <span aria-hidden="true">›</span></p>}
@@ -78,12 +78,12 @@ const StreakCard = ({ streak, today, goal, style }: any) => {
 
       <div className="relative flex items-end gap-2">
         <p className="text-4xl lg:text-5xl font-display font-bold tracking-tighter text-white">{streak}</p>
-        <p className="text-[9px] lg:text-[9px] font-bold uppercase tracking-widest text-slate-300">Day Streak</p>
+        <span className="text-[9px] lg:text-[9px] font-bold uppercase tracking-[0.15em] text-slate-300">Day Streak</span>
       </div>
 
       <div className="relative">
         <div className="flex justify-between items-end mb-1">
-          <span className="text-[8px] lg:text-[9px] font-bold uppercase tracking-widest text-slate-300">Today</span>
+          <span className="text-[8px] lg:text-[9px] font-bold uppercase tracking-[0.15em] text-slate-300">Today</span>
           <span className="text-[9px] lg:text-[9px] font-bold font-mono text-slate-300">{today}/{goal}</span>
         </div>
         <div className="h-1 w-full rounded-full bg-black/[0.06] overflow-hidden">
@@ -130,7 +130,7 @@ const ProgressGraphCard = ({ data, labels, total }: { data: number[], labels: st
         </svg>
       ) : (
         <div className="flex-1 flex items-center justify-center">
-          <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest">No study yet</p>
+          <p className="text-[9px] font-mono text-slate-500 uppercase tracking-[0.15em]">No study yet</p>
         </div>
       )}
       
@@ -222,7 +222,7 @@ const Dashboard: React.FC = () => {
           
           <div data-tour="overall-progress" className="mt-4">
             <div className="flex justify-between items-end mb-2">
-              <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Overall Progress</span>
+              <span className="text-[9px] font-bold text-slate-500 uppercase tracking-[0.15em]">Overall Progress</span>
               <span className="text-3xl font-display font-bold text-white tracking-tighter">{avgProgress}%</span>
             </div>
             <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
@@ -267,7 +267,7 @@ const Dashboard: React.FC = () => {
           {timelineExams.length > 0 ? timelineExams.map((exam, i) => (
             <Link to={`/app/subject/${exam.subjectId}`} key={exam.subjectId} style={{ animationDelay: `${i * 50}ms` }} className={`flex items-center gap-4 p-3 rounded-xl hover:bg-white/5 transition-all cursor-pointer border border-transparent hover:border-white/5 ${i !== nextIdx && nextIdx !== -1 && i < nextIdx ? 'opacity-40' : ''}`}>
               <div className="w-12 h-12 rounded-xl flex flex-col items-center justify-center shrink-0 group-hover:border-[#F63C49] transition-colors">
-                <span className="text-[9px] font-bold uppercase tracking-widest text-slate-500">{exam.date.toLocaleString('default', { month: 'short' })}</span>
+                <span className="text-[9px] font-bold uppercase tracking-[0.15em] text-slate-500">{exam.date.toLocaleString('default', { month: 'short' })}</span>
                 <span className="text-xl font-display font-bold text-white leading-none mt-0.5">{exam.date.getDate()}</span>
               </div>
               <div className="flex-1 min-w-0">
@@ -283,8 +283,8 @@ const Dashboard: React.FC = () => {
             </Link>
           )) : (
             <Link to="/app/settings" className="block p-4 rounded-xl text-center hover:border-[#F63C49]/40 transition-colors group">
-              <p className="text-xs font-medium text-slate-500 uppercase tracking-widest group-hover:text-slate-300">No exam dates set</p>
-              <p className="text-[9px] font-mono text-[#F63C49] mt-1 uppercase tracking-widest">Set them in Settings</p>
+              <p className="text-xs font-medium text-slate-500 uppercase tracking-[0.15em] group-hover:text-slate-300">No exam dates set</p>
+              <p className="text-[9px] font-mono text-[#F63C49] mt-1 uppercase tracking-[0.15em]">Set them in Settings</p>
             </Link>
           )}
         </div>

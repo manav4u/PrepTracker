@@ -408,7 +408,6 @@ const LandingPage: React.FC = () => {
 
           <div className="feat-row reveal">
             <div className="feat-copy">
-              <p className="feat-num">01</p>
               <h3>Your whole exam, on one screen</h3>
               <p>Progress across every subject, the days left, and today&rsquo;s streak. The numbers you used to guess, counted for you.</p>
             </div>
@@ -417,7 +416,6 @@ const LandingPage: React.FC = () => {
 
           <div className="feat-row flip reveal">
             <div className="feat-copy">
-              <p className="feat-num">02</p>
               <h3>Every unit, every topic, one tick at a time</h3>
               <p>Each subject broken into its real units and topics. Tick them off as you study and watch the unit flip to mastered.</p>
             </div>
@@ -426,7 +424,6 @@ const LandingPage: React.FC = () => {
 
           <div className="feat-row reveal">
             <div className="feat-copy">
-              <p className="feat-num">03</p>
               <h3>Wake up to today&rsquo;s list</h3>
               <p>No planning session every morning. Open the app and the day&rsquo;s tasks are already there, sized to the days left.</p>
             </div>
@@ -435,7 +432,6 @@ const LandingPage: React.FC = () => {
 
           <div className="feat-row flip reveal">
             <div className="feat-copy">
-              <p className="feat-num">04</p>
               <h3>Question papers where you study</h3>
               <p>Previous-year papers and resources sit next to the units they belong to, not in a drive folder you never open.</p>
             </div>

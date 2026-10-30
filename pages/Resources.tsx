@@ -437,7 +437,7 @@ const Resources: React.FC = () => {
             </span>
             <h1 className="text-white leading-[0.95]">
               <span className="block font-display font-medium text-base lg:text-lg tracking-[0.02em] text-slate-500 mb-1">The</span>
-              <span className="block text-6xl lg:text-8xl tracking-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>Library<span className="text-[#F63C49]">.</span></span>
+              <span className="block text-6xl lg:text-8xl tracking-tight" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>Library<span className="text-[#F63C49]">.</span></span>
             </h1>
           </div>
           <span className="inline-flex items-center gap-2 h-10 px-4 rounded-full border border-white/10 surface-1 shrink-0 mb-2">
