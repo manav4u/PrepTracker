@@ -35,15 +35,15 @@ const QUOTES: { pull: { q: string; mark: string; name: string; tag: string }; cl
   clusterA: [
     { q: 'I stopped rewriting my timetable every Sunday. The list just meets me in the morning.', name: 'Priya', tag: 'sem 5', size: 't-tall', fill: 't-cream',
       hl: { t: 'meets me in the morning', c: 'hl-y' }, dd: [{ k: 'tape', st: { left: 18 } }] },
-    { q: 'Streak at 11. I have never kept anything alive for 11 days.', name: 'Karan', tag: 'sem 7', size: 't-wide t-big', fill: 't-red',
+    { q: 'Streak at 11. I have never kept anything alive for 11 days.', name: 'Karan', tag: 'sem 7', size: 't-wide', fill: 't-red',
       sc: { t: '11 days', c: 'rgba(247,245,242,.9)' }, dd: [{ k: 'star', st: { top: -7, right: -6, width: 24, transform: 'rotate(12deg)' }, c: '#F7F5F2' }] },
     { q: 'Two minutes to set up. I spent longer choosing a pen.', name: 'Ishita', tag: 'sem 3', size: '', fill: 't-ink',
-      dd: [{ k: 'star', st: { bottom: -6, right: -5, width: 20, transform: 'rotate(-8deg)' }, c: '#F63C49' }] },
+      dd: [{ k: 'tape', st: { bottom: -6, right: -5, width: 20, transform: 'rotate(-8deg)' }, c: '#F63C49' }] },
     { q: 'Eleven days out, and I already know what Tuesday looks like.', name: 'Rohan', tag: 'sem 3', size: '', fill: 't-ink',
       circ: { t: 'Tuesday', c: '#F63C49' }, dd: [{ k: 'squig', st: { bottom: 36, right: 12, width: 38, transform: 'rotate(-6deg)' }, c: '#F63C49' }] },
     { q: 'PYQs next to the units they belong to. Whoever thought of that, thank you.', name: 'Neha', tag: 'sem 7', size: '', fill: 't-cream',
       sc: { t: 'thank you', c: '#D61A40' } },
-    { q: 'Offline in the reading hall, no account, no ads. It respects the grind.', name: 'Dev', tag: 'sem 7', size: '', fill: 't-cream',
+    { q: 'Offline in the reading hall, no account, no ads. It respects the grind.', name: 'Dev', tag: 'sem 7', size: 't-tall', fill: 't-cream',
       dd: [{ k: 'tape', st: { right: 16, left: 'auto', transform: 'rotate(6deg)' } }] },
   ],
   clusterB: [
@@ -51,14 +51,14 @@ const QUOTES: { pull: { q: string; mark: string; name: string; tag: string }; cl
       hl: { t: 'what is left', c: 'hl-y' } },
     { q: 'The syllabus finally looks finite. That alone lowered my blood pressure.', name: 'Sneha', tag: 'sem 3', size: '', fill: 't-cream',
       circ: { t: 'finite', c: '#D61A40' } },
-    { q: 'The countdown used to scare me. Now it just plans for me.', name: 'Rahul', tag: 'sem 1', size: 't-wide t-big', fill: 't-ink',
-      sc: { t: 'plans for me', c: '#F63C49' }, dd: [{ k: 'star', st: { top: -7, right: -6, width: 22, transform: 'rotate(-10deg)' }, c: '#F63C49' }] },
+    { q: 'The countdown used to scare me. Now it just plans for me.', name: 'Rahul', tag: 'sem 1', size: 't-wide', fill: 't-ink',
+      sc: { t: 'plans for me', c: '#F63C49' }, dd: [{ k: 'star', st: { top: -7, right: -6, width: 22, transform: 'rotate(-10deg)' }, c: '#F7F5F2' }] },
     { q: 'Ticked one unit, watched the bar move, felt weirdly calm. Then ticked another.', name: 'Arjun', tag: 'sem 1', size: '', fill: 't-red',
       sc: { t: 'weirdly calm', c: 'rgba(247,245,242,.9)' }, dd: [{ k: 'star', st: { top: -7, right: -5, width: 18, transform: 'rotate(14deg)' }, c: '#F7F5F2' }] },
     { q: 'I know exactly what is left. That sentence used to be a joke.', name: 'Anaya', tag: 'sem 3', size: '', fill: 't-cream',
       hl: { t: 'exactly what is left', c: 'hl-y' } },
-    { q: 'My group chat still argues about portions. I just open one tab.', name: 'Tanvi', tag: 'sem 5', size: '', fill: 't-cream',
-      sc: { t: 'one tab', c: '#D61A40' }, dd: [{ k: 'tape', st: { left: 16 } }] },
+    { q: 'My group chat still argues about portions. I just open one tab.', name: 'Tanvi', tag: 'sem 5', size: 't-tall', fill: 't-cream',
+      dd: [{ k: 'tape', st: { left: 16 } }] },
   ],
 };
 
@@ -368,7 +368,6 @@ const LandingPage: React.FC = () => {
 
         {/* 4. PROBLEM - visual-led problem */}
         <section className="sec problem" id="problem" aria-label="The problem">
-          <p className="eyebrow reveal">The problem</p>
           <h2 className="reveal">It&rsquo;s 2 AM and the syllabus<br />still isn&rsquo;t <em>a plan.</em></h2>
           <p className="lead reveal">Nineteen days out, you have a folder of PDFs, four group chats, and no honest answer to one simple question: what exactly is left?</p>
           <div className="scene reveal" aria-hidden="true">
@@ -405,7 +404,6 @@ const LandingPage: React.FC = () => {
 
         {/* 5. FEATURE SHOWCASE - shown not told */}
         <section className="sec feat" id="features" aria-label="Features">
-          <p className="eyebrow reveal">The fix</p>
           <h2 className="reveal">Everything the syllabus hides, <em>laid out.</em></h2>
 
           <div className="feat-row reveal">
@@ -447,7 +445,6 @@ const LandingPage: React.FC = () => {
 
         {/* 6. HOW IT WORKS */}
         <section className="sec hiw" id="how" aria-label="How it works">
-          <p className="eyebrow reveal">How it works</p>
           <h2 className="reveal">Set up once. <em>Tracked every day.</em></h2>
           <div className="steps">
             <div className="step reveal">
@@ -468,12 +465,8 @@ const LandingPage: React.FC = () => {
           </div>
         </section>
 
-        {/* 6b. SYLLABUS LIBRARY - visible, grouped links to the public guide
-            pages. One homepage footer link used to carry all 200+ of them.
-            Copy mirrors the library hub: unit-wise theory courses from the
-            official SPPU PDFs, no completeness claim. */}
+        {/* 6b. SYLLABUS LIBRARY */}
         <section className="sec lib" id="library" aria-label="Syllabus library">
-          <p className="eyebrow reveal">Syllabus library</p>
           <h2 className="reveal">The SPPU syllabus, <em className="scu">already laid out.<svg viewBox="0 0 100 12" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M2 8 C 20 3, 40 11, 60 6 C 75 3, 88 9, 98 6" stroke="#F63C49" strokeWidth="3.5" strokeLinecap="round"/></svg></em></h2>
           <p className="lead reveal">Unit-wise guides for the theory courses PrepTracker tracks, copied from the official SPPU PDFs. Free to read, no account.</p>
           <div className="lib-card reveal">
@@ -572,13 +565,8 @@ const LandingPage: React.FC = () => {
           </div>
         </section>
 
-        {/* 7. TESTIMONIALS - editorial pull quote + endless marquee of note cards.
-            PLACEHOLDER SECTION: every quote below is DEMO copy. The owner chose to
-            ship it on production for now and will replace it with real, collected
-            quotes. Every node carries data-placeholder="testimonial". Edit the
-            single QUOTES object at the top of this file to swap. */}
+        {/* 7. TESTIMONIALS - editorial pull quote + endless marquee of note cards. */}
         <section className="sec testi" aria-label="What students say">
-          <p className="eyebrow reveal">Word of mouth</p>
           <h2 className="reveal">In their <em>own words.</em></h2>
           <figure className="pull reveal" data-placeholder="testimonial">
             <blockquote>

@@ -587,7 +587,7 @@ const TodoList: React.FC = () => {
         
         {/* INPUT CONSOLE */}
         <div className="lg:col-span-4 space-y-6">
-            <div ref={formRef} className={`surface-1 rounded-3xl p-5 lg:p-7 sticky top-8 scroll-mt-24 transition-shadow duration-[250ms] ${editingId ? 'ring-1 ring-[#F63C49]/50' : ''}`}>
+            <div ref={formRef} className={`surface-1 rounded-3xl p-5 lg:p-7 scroll-mt-24 transition-shadow duration-[250ms] ${editingId ? 'ring-1 ring-[#F63C49]/50' : ''}`}>
                 <div className="flex items-center gap-2 mb-5 text-white/50">
                     <LayoutList size={16} />
                     <h2 className="text-[10px] font-bold uppercase tracking-[0.18em]">{editingId ? 'Edit Task' : 'Add New Task'}</h2>

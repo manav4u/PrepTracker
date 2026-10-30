@@ -39,7 +39,7 @@ const SubjectCard: React.FC<SubjectCardProps> = ({ subject, progress, masteredCo
   return (
     <Link
       to={`/app/subject/${subject.id}`}
-      className="group relative flex flex-col justify-between h-[280px] rounded-3xl surface-1 overflow-hidden animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500 hover:border-white/20 transition-[border-color] duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)]"
+      className="group relative flex flex-col justify-between min-h-[280px] rounded-3xl surface-1 overflow-hidden animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-500 hover:border-white/20 transition-[border-color] duration-[250ms] ease-[cubic-bezier(0.4,0,0.2,1)]"
       style={style}
     >
       <div className="relative z-10 p-7 flex flex-col h-full">
