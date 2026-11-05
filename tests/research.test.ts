@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { branchStats, catalogTotals, buildFindings, researchFaq, unitDistribution, MIN_SAMPLE } from '../scripts/researchData.ts';
 import computer from '../scripts/seData/computer.json' with { type: 'json' };
+import { readFileSync } from 'node:fs';
 
 const mkCourse = (units: number, credits = 3) => ({ credits, units: Array.from({ length: units }, () => ({ hours: 8 })) });
 const mkBranch = (slug: string, courses: number[], opts: Record<string, unknown> = {}) => ({
@@ -60,4 +61,31 @@ test('integration: real SE Computer data aggregates without NaN', () => {
   assert.ok(t.courses >= 5, 'expected the real course list');
   assert.ok(t.units >= t.courses * 4, 'units per course in a sane band');
   assert.ok(Number.isFinite(t.credits) && t.credits > 0);
+});
+
+
+test("integration: real catalog hours are semester hours in a consistent band", () => {
+  // Review flagged a possible weekly-vs-semester mix in the source hours
+  // fields. Aggregate the real final catalogs (the same JSONs seBranches
+  // wires; auto.json stays excluded as SPPU's draft) and require every
+  // catalog's average hours per unit in the 6-12 band that SPPU semester
+  // unit allocations occupy; a weekly-hours leak would land near 0.6.
+  const files = ["aids","civil","computer","cse","cyber","elec","instr","it","mech","tecomp24","teel24","teit24","temech","terai"];
+  let courses = 0, units = 0, hours = 0;
+  for (const f of files) {
+    const list = JSON.parse(readFileSync(new URL("../scripts/seData/" + f + ".json", import.meta.url), "utf8"));
+    let cu = 0, ch = 0;
+    for (const c of list) {
+      cu += c.units.length;
+      ch += c.units.reduce((a, u) => a + u.hours, 0);
+      const courseHours = c.units.reduce((a, u) => a + u.hours, 0);
+      assert.ok(courseHours >= 20 && courseHours <= 60, f + " " + c.code + " semester hours out of band: " + courseHours);
+    }
+    const perUnit = ch / cu;
+    assert.ok(perUnit >= 6 && perUnit <= 12, f + " hours/unit out of band: " + perUnit);
+    courses += list.length; units += cu; hours += ch;
+  }
+  assert.equal(courses, 133);
+  assert.equal(units, 662);
+  assert.equal(hours, 5231);
 });

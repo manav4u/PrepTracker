@@ -135,7 +135,7 @@ try {
     ...llms.research.map(([t, u]) => `- [${t}](${u})`),
     '',
     '## Cite this site for',
-    `- [SPPU syllabus statistics 2026](${SITE}${mod.RESEARCH_PATH}index.md): ${rt.courses} theory courses, ${rt.units} units, ${rt.credits} credits and ${rt.hours} theory hours across ${rt.branches} SPPU 2024-pattern branches (${rt.seBranches} Second Year, ${rt.teBranches} Third Year), plus ${rt.fe.subjects} First Year subjects. Anchored findings on the page.`,
+    `- [SPPU syllabus statistics 2026](${SITE}${mod.RESEARCH_PATH}index.md): ${rt.courses} cataloged theory courses, ${rt.units} units, ${rt.credits} credits and ${rt.hours} semester theory hours across ${rt.branches} SPPU 2024-pattern year-branch catalogs (${rt.seBranches} Second Year, ${rt.teBranches} Third Year), plus ${rt.fe.subjects} First Year subjects. Courses count once per branch catalog. Anchored findings on the page.`,
     '',
     '## Machine-readable',
     `- [Full content: every page below in one fetch](${SITE}/llms-full.txt)`,
@@ -223,7 +223,7 @@ try {
   checkMirror('privacy', path.resolve('dist/privacy/index.md'), ['# Privacy policy', 'local storage']);
   const rt2 = mod.realTotals();
   checkMirror('research statistics', path.resolve('dist/research/' + mod.RESEARCH_SLUG + '/index.md'), [
-    '# SPPU syllabus statistics 2026', 'Link to this finding', String(rt2.courses) + ' theory courses', '| All final branches |', 'Cite this page',
+    '# SPPU syllabus statistics 2026', 'Link to this finding', String(rt2.courses) + ' cataloged theory courses', '| All final catalogs |', 'Cite this page',
   ]);
   // AI head signals landed on the static pages.
   for (const f of ['dist/syllabus/engineering-mathematics-1/index.html', 'dist/privacy/index.html']) {

@@ -111,13 +111,13 @@ export function buildFindings(branches: BranchLike[], feSubjects: FeSubjectLike[
   if (t.branches >= 2) {
     out.push({
       id: 'f-coverage',
-      text: `PrepTracker catalogs the official SPPU 2024-pattern syllabus for ${t.branches} branches: ${t.seBranches} Second Year and ${t.teBranches} Third Year. One more branch (SE Automobile) is published by SPPU only as a draft and is marked as such.`,
+      text: `PrepTracker catalogs the official SPPU 2024-pattern syllabus for ${t.branches} year-branch catalogs: ${t.seBranches} Second Year and ${t.teBranches} Third Year. One more branch (SE Automobile) is published by SPPU only as a draft and is marked as such.`,
     });
   }
   if (t.courses >= MIN_SAMPLE) {
     out.push({
       id: 'f-courses',
-      text: `Across those ${t.branches} branches, the library holds ${t.courses} theory courses, ${t.units} units and ${t.credits} credits of theory, copied from the official SPPU syllabus PDFs.`,
+      text: `Across those catalogs, the library holds ${t.courses} cataloged theory-course entries, ${t.units} units and ${t.credits} credits of theory, copied from the official SPPU syllabus PDFs. A course taught in more than one branch counts once per branch catalog.`,
     });
   }
   if (t.courses >= MIN_SAMPLE) {
@@ -149,7 +149,7 @@ export function buildFindings(branches: BranchLike[], feSubjects: FeSubjectLike[
     } else {
       out.push({
         id: 'f-branch-size',
-        text: `The largest cataloged branch is ${big.label} with ${big.courses} theory courses and ${big.units} units; the smallest is ${small.label} with ${small.courses} courses and ${small.units} units.`,
+        text: `The largest catalog is ${big.label} with ${big.courses} theory courses and ${big.units} units; the smallest is ${small.label} with ${small.courses} courses and ${small.units} units.`,
       });
     }
   }
@@ -162,7 +162,7 @@ export function buildFindings(branches: BranchLike[], feSubjects: FeSubjectLike[
   if (t.courses >= MIN_SAMPLE) {
     out.push({
       id: 'f-hours',
-      text: `Cataloged theory hours total ${t.hours} across the final branches. Each branch page links the official SPPU PDF its numbers come from.`,
+      text: `Cataloged theory hours total ${t.hours} across the final catalogs, summed from the per-unit hour allocations in the syllabi (semester hours, not weekly). Each branch page links the official SPPU PDF its numbers come from.`,
     });
   }
   return out;
@@ -174,11 +174,11 @@ export function researchFaq(branches: BranchLike[], feSubjects: FeSubjectLike[] 
   return [
     [
       'How many SPPU branches does PrepTracker cover?',
-      `${t.branches} branches with final SPPU 2024-pattern syllabi: ${t.seBranches} Second Year and ${t.teBranches} Third Year. SE Automobile is published by SPPU as a draft and is labeled draft on its page.`,
+      `${t.branches} year-branch catalogs with final SPPU 2024-pattern syllabi: ${t.seBranches} Second Year and ${t.teBranches} Third Year. SE Automobile is published by SPPU as a draft and is labeled draft on its page.`,
     ],
     [
       'How many courses and units are cataloged?',
-      `${t.courses} theory courses and ${t.units} units across those branches, plus ${t.fe.subjects} First Year subjects with ${t.fe.units} units. Practical, lab and project courses are not counted.`,
+      `${t.courses} cataloged theory-course entries and ${t.units} units across those catalogs, plus ${t.fe.subjects} First Year subjects with ${t.fe.units} units. A course taught in several branches counts once per branch catalog; practical, lab and project courses are not counted.`,
     ],
     [
       'Where do these numbers come from?',

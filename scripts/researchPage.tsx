@@ -59,8 +59,8 @@ export function renderSyllabusStats(generated: string): string {
   const stats = realBranchStats().filter((b) => !b.draft);
   const findings = realFindings();
   const faq = realResearchFaq();
-  const title = `SPPU syllabus statistics 2026: ${t.courses} theory courses analyzed`;
-  const desc = `${t.courses} theory courses, ${t.units} units and ${t.credits} credits across ${t.branches} SPPU 2024-pattern branches, plus ${t.fe.subjects} First Year subjects. Every number computed from the official syllabus catalog.`;
+  const title = `SPPU syllabus statistics 2026: ${t.courses} cataloged theory courses analyzed`;
+  const desc = `${t.courses} cataloged theory courses, ${t.units} units and ${t.credits} credits across ${t.branches} SPPU 2024-pattern year-branch catalogs, plus ${t.fe.subjects} First Year subjects. Every number computed from the official syllabus catalog.`;
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -88,7 +88,7 @@ export function renderSyllabusStats(generated: string): string {
     </head><body><main>
       <nav className="crumbs"><a href={SITE + '/'}>PrepTracker</a> / <a href={SITE + '/research/'}>Research</a> / Syllabus statistics</nav>
       <h1>SPPU syllabus statistics 2026</h1>
-      <p className="lead">{t.courses} theory courses, {t.units} units, {t.credits} credits and {t.hours} theory hours across {t.branches} SPPU 2024-pattern branches, computed from the same syllabus data that powers the subject pages. Data date {generated}.</p>
+      <p className="lead">{t.courses} cataloged theory courses, {t.units} units, {t.credits} credits and {t.hours} theory hours across {t.branches} SPPU 2024-pattern year-branch catalogs, computed from the same syllabus data that powers the subject pages. A course taught in several branches counts once per branch catalog. Data date {generated}.</p>
 
       <h2>Key findings</h2>
       <FindingList findings={findings} />
@@ -100,7 +100,7 @@ export function renderSyllabusStats(generated: string): string {
           {[...stats].sort((a, b) => a.year.localeCompare(b.year) || a.label.localeCompare(b.label)).map((b) => (
             <tr key={b.slug}><td><a href={SITE + '/syllabus/' + b.slug + '/'}>{b.label}</a></td><td>{b.year}</td><td>{b.courses}</td><td>{b.units}</td><td>{b.credits}</td><td>{b.hours}</td></tr>
           ))}
-          <tr className="total"><td>All final branches</td><td></td><td>{t.courses}</td><td>{t.units}</td><td>{t.credits}</td><td>{t.hours}</td></tr>
+          <tr className="total"><td>All final catalogs</td><td></td><td>{t.courses}</td><td>{t.units}</td><td>{t.credits}</td><td>{t.hours}</td></tr>
           <tr><td>First Year subjects (all branches)</td><td>FE</td><td>{t.fe.subjects}</td><td>{t.fe.units}</td><td>{t.fe.credits}</td><td></td></tr>
         </tbody>
       </table>
@@ -109,13 +109,14 @@ export function renderSyllabusStats(generated: string): string {
       <ul className="method">
         <li>Source: the official SPPU syllabus PDFs, one linked at the bottom of every branch page. Counts are computed at build time from the catalog that renders those pages, so this page cannot drift from them.</li>
         <li>Included: theory courses on branches whose 2024-pattern syllabus SPPU has published as final, and the ten First Year subjects.</li>
+        <li>Counting rule: courses are cataloged per branch and year, so a course taught in several branch catalogs counts once per catalog ({t.courses} entries, fewer unique titles). Hours are semester hours summed from each unit's hour allocation in the syllabus, not weekly hours.</li>
         <li>Excluded: SE Automobile (SPPU publishes it as a draft; its page is labeled draft), practical, lab and project courses, and the 2019-pattern TE pages kept for reference.</li>
         <li>Percentages are rounded to whole numbers; counts are exact.</li>
         <li>The data date is when the catalog last changed, not when the page was rebuilt.</li>
       </ul>
 
       <h2>Cite this page</h2>
-      <p className="cite">PrepTracker (2026). SPPU syllabus statistics 2026: {t.courses} theory courses analyzed. {SITE + RESEARCH_PATH} (data as of {generated}).</p>
+      <p className="cite">PrepTracker (2026). SPPU syllabus statistics 2026: {t.courses} cataloged theory courses analyzed. {SITE + RESEARCH_PATH} (data as of {generated}).</p>
 
       <h2>FAQ</h2>
       {faq.map(([q, a], i) => (
@@ -140,7 +141,7 @@ export function renderResearchHub(generated: string): string {
       <p className="lead">Numbers computed from PrepTracker's own syllabus catalog, with the method and a suggested citation on each report. Nothing here is estimated or user-submitted.</p>
       <h2>Reports</h2>
       <div className="crs">
-        <a href={SITE + RESEARCH_PATH}><span>SPPU syllabus statistics 2026</span><small>{t.courses} courses · {t.units} units · {t.branches} branches · data {generated}</small></a>
+        <a href={SITE + RESEARCH_PATH}><span>SPPU syllabus statistics 2026</span><small>{t.courses} courses · {t.units} units · {t.branches} year-branch catalogs · data {generated}</small></a>
       </div>
       <ResearchFoot />
     </main></body></html>
