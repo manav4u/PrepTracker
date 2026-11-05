@@ -39,6 +39,15 @@ try {
   const css = fs.readFileSync(path.join('dist/assets', cssName), 'utf8');
   index = index.replace('</head>', `<style data-prerender="landing">${css}</style></head>`);
 
+  // AI-agent head signals on the landing: ai-summary (from the page's own
+  // og:description), the markdown mirror link, and Organization + WebSite
+  // JSON-LD from the same site constants as ai.txt and llms.txt.
+  const landingDesc = (index.match(/property="og:description" content="([^"]*)"/) || [])[1] || '';
+  index = index.replace(
+    '</head>',
+    mod.aiSummaryTag(landingDesc) + mod.markdownAlternateTag('https://preptracker.manavdev.site/') + mod.siteJsonLdScript() + '</head>'
+  );
+
   index = index.replace('<div id="root"></div>', `<div id="root">${html}</div>`);
 
   // Collapse the library's year groups on phones while the HTML is still
@@ -60,6 +69,9 @@ try {
     if (!landingMd.includes(needle)) throw new Error(`landing markdown lost expected copy: "${needle}"`);
   }
   if (/own words|data-placeholder/i.test(landingMd)) throw new Error('landing markdown still contains the placeholder testimonial section');
+  if (!index.includes('name="ai-summary"')) throw new Error('landing lost its ai-summary meta');
+  if (!index.includes('"@type":"Organization"')) throw new Error('landing lost its Organization JSON-LD');
+  if (!index.includes('rel="alternate" type="text/markdown"')) throw new Error('landing lost its markdown alternate link');
   fs.writeFileSync(path.resolve('dist/index.md'), landingMd);
   console.log(`landing markdown mirror written (${landingMd.length} bytes)`);
   console.log(`prerendered landing into dist/index.html (${html.length} bytes of markup, inlined ${cssName})`);

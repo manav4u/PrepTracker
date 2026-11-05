@@ -83,7 +83,13 @@ try {
   for (const root of ['dist/syllabus', 'dist/privacy']) {
     for (const file of sourceFiles(path.resolve(root))) {
       let page=fs.readFileSync(file,'utf8');
+      // AI-agent head signals: a factual ai-summary (defaulting to the page's
+      // og:description) and the link advertising this page's markdown mirror.
+      const pageUrl = SITE + '/' + path.relative(path.resolve('dist'), file).replace(/index\.html$/, '');
+      const ogDesc = (page.match(/property="og:description" content="([^"]*)"/) || page.match(/name="description" content="([^"]*)"/) || [])[1] || '';
+      const aiHead = mod.aiSummaryTag(ogDesc) + mod.markdownAlternateTag(pageUrl);
       page=page
+        .replace('</head>', aiHead + '</head>')
         .replace('</head>', `<style>${mod.readingCss}${mod.consentCss}</style>${GA_SNIPPET}</head>`)
         .replace('<body>', '<body>'+mod.readingChrome)
         .replace('</footer>', GA_NOTE+'</footer>')
@@ -113,8 +119,39 @@ try {
   for (const b of llms.branches) {
     lines.push('', `### ${b.label}`, `- [${b.label} syllabus](${b.hub})`, ...b.courses.map(([t, u]) => `- [${t}](${u})`));
   }
-  lines.push('');
+  lines.push(
+    '',
+    '## Machine-readable',
+    `- [Full content: every page below in one fetch](${SITE}/llms-full.txt)`,
+    `- [AI usage policy](${SITE}/ai.txt)`,
+    `- [Sitemap](${SITE}/sitemap.xml)`,
+    '',
+  );
   fs.writeFileSync(path.resolve('dist/llms.txt'), lines.join('\n'));
+
+  // llms-full.txt + ai.txt, built from the same mirrors and constants so they
+  // can never drift from llms.txt. Order: core pages, guides, subjects and
+  // branches, legal (privacy) last.
+  const today = new Date().toISOString().slice(0, 10);
+  const mirrorOf = (u) => path.resolve('dist', u.replace(SITE + '/', ''));
+  const fullEntries = [];
+  const seen = new Set();
+  const pushEntry = (title, u) => {
+    if (seen.has(u)) return;
+    seen.add(u);
+    const file = mirrorOf(u);
+    if (!fs.existsSync(file)) throw new Error('llms.txt entry has no mirror file: ' + u);
+    fullEntries.push({ title, url: u.replace(/index\.md$/, ''), markdown: fs.readFileSync(file, 'utf8') });
+  };
+  for (const [t, u] of llms.pages) { if (!/privacy/.test(u)) pushEntry(t, u); }
+  for (const [t, u] of llms.guides) pushEntry(t, u);
+  for (const [t, u] of llms.fe) pushEntry(t, u);
+  let courseMirrors = 0;
+  for (const b of llms.branches) { pushEntry(b.label + ' syllabus', b.hub); courseMirrors += b.courses.length; }
+  for (const [t, u] of llms.pages) { if (/privacy/.test(u)) pushEntry(t, u); }
+  fs.writeFileSync(path.resolve('dist/llms-full.txt'), mod.buildLlmsFull(today, fullEntries, { count: courseMirrors, label: 'per-course syllabus mirrors' }));
+  fs.writeFileSync(path.resolve('dist/ai.txt'), mod.buildAiTxt(today));
+  console.log(`llms-full.txt: ${fullEntries.length} pages joined; ai.txt written`);
 
   // Coverage assertion: every indexable static page must have a markdown
   // mirror, and no noindex shell or draft page may have one. The noindex meta
@@ -168,6 +205,19 @@ try {
     '# SPPU syllabus library', '](https://preptracker.manavdev.site/syllabus/se-computer-engineering/)',
   ]);
   checkMirror('privacy', path.resolve('dist/privacy/index.md'), ['# Privacy policy', 'local storage']);
+  // AI head signals landed on the static pages.
+  for (const f of ['dist/syllabus/engineering-mathematics-1/index.html', 'dist/privacy/index.html']) {
+    const h = fs.readFileSync(path.resolve(f), 'utf8');
+    if (!h.includes('name="ai-summary"')) throw new Error('missing ai-summary meta: ' + f);
+    if (!h.includes('rel="alternate" type="text/markdown"')) throw new Error('missing markdown alternate link: ' + f);
+  }
+  const fullText = fs.readFileSync(path.resolve('dist/llms-full.txt'), 'utf8');
+  if ((fullText.match(/\n<!-- /g) || []).length !== fullEntries.length) throw new Error('llms-full.txt page marker count mismatch');
+  const aiText = fs.readFileSync(path.resolve('dist/ai.txt'), 'utf8');
+  for (const sec of ['[identity]', '[permissions]', '[restrictions]', '[attribution]', '[scope]', '[contact]']) {
+    if (!aiText.includes(sec)) throw new Error('ai.txt missing section ' + sec);
+  }
+  if (!fs.readFileSync(path.resolve('dist/llms.txt'), 'utf8').includes('llms-full.txt')) throw new Error('llms.txt does not link llms-full.txt');
   const llmsText = fs.readFileSync(path.resolve('dist/llms.txt'), 'utf8');
   for (const b of mod.SE_BRANCHES) {
     if (b.draft && llmsText.includes('/syllabus/' + b.slug + '/')) {
