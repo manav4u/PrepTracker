@@ -10,6 +10,24 @@ MDM-271-COM 2 h/week theory CCE 40 + End-sem 60
 
 02 . credits
 
+## At a glance
+
+Course codeMDM-271-COM
+
+Year and branchSecond Year Computer Engineering
+
+PatternSPPU 2024
+
+Units5
+
+Theory hours30
+
+Credits2
+
+MarksCCE 40 + end-semester 60
+
+PrerequisiteDigital Electronics and Logic Design, if any
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -139,16 +157,22 @@ Listed in the official syllabus:
 
 Internet of Things (MDM-271-COM) has 5 units and 30 hours of theory: Unit I Introduction to IoT (6 h); Unit II Introduction to Sensors, Actuator (6 h); Unit III Protocols for IoT (6 h); Unit IV Cloud for IoT (6 h); Unit V IoT Applications (6 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-computer-engineering/internet-of-things/#faq-1)
+
 **What is the marks scheme for Internet of Things?**
 
 The official Computer Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 40 marks and the end-semester exam for 60 marks, for 2 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-computer-engineering/internet-of-things/#faq-2)
 
 **What should I know before Internet of Things?**
 
 Prerequisite listed in the syllabus: Digital Electronics and Logic Design, if any.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-computer-engineering/internet-of-things/#faq-3)
+
 ---
 
 Source: [SPPU SE Computer Engineering 2024 pattern syllabus (revised June 2026, effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/SE%20-%20Computer%20Engineering%20-%202024%20Pattern%20Revised_13062026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Computer subjects](https://preptracker.manavdev.site/syllabus/se-computer-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Computer subjects](https://preptracker.manavdev.site/syllabus/se-computer-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

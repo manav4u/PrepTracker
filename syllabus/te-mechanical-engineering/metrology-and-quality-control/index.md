@@ -8,6 +8,22 @@ PCC-305-MEC 3 h/week theory CCE 30 + End-sem 70
 
 03 . credits
 
+## At a glance
+
+Course codePCC-305-MEC
+
+Year and branchThird Year Mechanical Engineering
+
+PatternSPPU 2024
+
+Units5
+
+Credits3
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteFundamentals of engineering measurements and instrumentation, Basic knowledge of manufacturing processes and machine tools, statistics and probability concepts.
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -144,16 +160,22 @@ Prerequisite: Fundamentals of engineering measurements and instrumentation, Basi
 
 Metrology and Quality Control (PCC-305-MEC) has 5 units: Unit I Modern Measurement Systems and Metrology Fundamentals (8 h); Unit II Advanced Metrology and Industrial Inspection Systems (8 h); Unit III Introduction to Quality and Quality Tools (8 h); Unit IV Statistical Quality Control (7 h); Unit V Advanced Quality Engineering (8 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/metrology-and-quality-control/#faq-1)
+
 **What is the marks scheme for Metrology and Quality Control?**
 
 The official Mechanical Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 3 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/metrology-and-quality-control/#faq-2)
 
 **What should I know before Metrology and Quality Control?**
 
 Prerequisite listed in the syllabus: Fundamentals of engineering measurements and instrumentation, Basic knowledge of manufacturing processes and machine tools, statistics and probability concepts..
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/metrology-and-quality-control/#faq-3)
+
 ---
 
 Source: [SPPU TE Mechanical Engineering 2024 pattern syllabus (May 2026) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/R10_%20TE%20(2024%20PATT)%20Mechanical%20Engineering%20Syllabus%20(30.5.2026)_04062026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Mechanical subjects](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Mechanical subjects](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

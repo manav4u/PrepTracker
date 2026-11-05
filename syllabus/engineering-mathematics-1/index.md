@@ -10,6 +10,20 @@ SPPU First Year Engineering, 2024 pattern. Course code BSC-101-BES. Five units, 
 
 04 . credits
 
+## At a glance
+
+Course codeBSC-101-BES
+
+LevelFirst Year Engineering, SPPU 2024 pattern
+
+Units5
+
+Named topics27
+
+Theory hours40
+
+Credits4 (3 theory + 1 tutorial)
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -102,28 +116,40 @@ Tick off each unit as you finish it, and keep your own notes and links in one pl
 
 BSC-101-BES carries 4 credits: 3 for theory (3 hours a week) and 1 for the tutorial (1 hour a week).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-1/#faq-1)
+
 **How are the marks split?**
 
 Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the tutorial credit.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-1/#faq-2)
 
 **How many units are there?**
 
 Five units of 8 hours each, 40 hours in total: single variable calculus and Fourier series, partial differentiation, its applications, matrices and linear systems, and eigen values with diagonalization.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-1/#faq-3)
+
 **What do I need to pass the theory head?**
 
 The college copy of the SPPU rules asks for a minimum score in each head, CCE and End-Semester, plus at least 40 marks in total. The exact per-head numbers are not in the official book, so check your own college notice for the rule that applies to you.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-1/#faq-4)
 
 **Which books does the syllabus list?**
 
 Text books: B. V. Ramana and B. S. Grewal, both titled Higher Engineering Mathematics. Six reference books are listed too, including Kreyszig and Thomas’ Calculus.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-1/#faq-5)
+
 **Is there an official video course?**
 
 The syllabus lists one NPTEL / YouTube playlist for this course. It is linked on this page.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-1/#faq-6)
 
 ---
 
 Sources: [SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf) and the [SPPU credit framework handbook](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

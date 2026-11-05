@@ -8,6 +8,22 @@ PCC-305-RAI 3 h/week theory CCE 30 + End-sem 70
 
 03 . credits
 
+## At a glance
+
+Course codePCC-305-RAI
+
+Year and branchThird Year Robotics and Artificial Intelligence
+
+PatternSPPU 2024
+
+Units5
+
+Credits3
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteMaterials and Manufacturing (PCC-202-RAI) Mechanics of Materials (PCC-253-RAI)
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -151,16 +167,22 @@ Listed in the official syllabus:
 
 Design of Robot Elements (PCC-305-RAI) has 5 units: Unit I Design against Static and Fluctuating Loads (7 h); Unit II Design of Shaft and Bearings (7 h); Unit III Design of Power Transmission Elements (7 h); Unit IV Design of Robot End Effectors (7 h); Unit V Design of Fasteners and Springs (7 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/design-of-robot-elements/#faq-1)
+
 **What is the marks scheme for Design of Robot Elements?**
 
 The official Robotics and Artificial Intelligence 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 3 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/design-of-robot-elements/#faq-2)
 
 **What should I know before Design of Robot Elements?**
 
 Prerequisite listed in the syllabus: Materials and Manufacturing (PCC-202-RAI) Mechanics of Materials (PCC-253-RAI).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/design-of-robot-elements/#faq-3)
+
 ---
 
 Source: [SPPU TE Robotics and Artificial Intelligence 2024 pattern syllabus (June 2026) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/TE_Robotics%20and%20AI_Syllabus_2024%20Pattern%20(1)_13062026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Robotics and AI subjects](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Robotics and AI subjects](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

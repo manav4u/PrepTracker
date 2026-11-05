@@ -8,6 +8,22 @@ PCC-201-ITT 3 h/week theory CCE 30 + End-sem 70
 
 03 . credits
 
+## At a glance
+
+Course codePCC-201-ITT
+
+Year and branchSecond Year Information Technology
+
+PatternSPPU 2024
+
+Units5
+
+Credits3
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteFundamental knowledge of programming language and basics of algorithms
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -140,16 +156,22 @@ Listed in the official syllabus:
 
 Data Structures & Algorithms (PCC-201-ITT) has 5 units: Unit I Introduction to Data Structures & Algorithms (7 h); Unit II Linear Data Structures (7 h); Unit III Non- Linear data Structures (9 h); Unit IV Hashing, String processing Applications (8 h); Unit V Advanced Algorithms (7 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-information-technology/data-structures-and-algorithms/#faq-1)
+
 **What is the marks scheme for Data Structures & Algorithms?**
 
 The official Information Technology 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 3 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-information-technology/data-structures-and-algorithms/#faq-2)
 
 **What should I know before Data Structures & Algorithms?**
 
 Prerequisite listed in the syllabus: Fundamental knowledge of programming language and basics of algorithms.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-information-technology/data-structures-and-algorithms/#faq-3)
+
 ---
 
 Source: [SPPU SE Information Technology 2024 pattern syllabus (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE%20IT%202024%20Pattern%20Syllabus_15072025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE IT subjects](https://preptracker.manavdev.site/syllabus/se-information-technology/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE IT subjects](https://preptracker.manavdev.site/syllabus/se-information-technology/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

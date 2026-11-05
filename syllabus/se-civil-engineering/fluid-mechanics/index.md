@@ -8,6 +8,22 @@ PCC-251-CVL 3 h/week theory CCE 30 + End-sem 70
 
 03 . credits
 
+## At a glance
+
+Course codePCC-251-CVL
+
+Year and branchSecond Year Civil Engineering
+
+PatternSPPU 2024
+
+Units5
+
+Credits3
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteEngineering Mathematics and Engineering Mechanics
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -144,16 +160,22 @@ Prerequisite: Engineering Mathematics and Engineering Mechanics.
 
 Fluid Mechanics (PCC-251-CVL) has 5 units: Unit I Properties of Fluids and Fluid Statics (8 h); Unit II Fluid Kinematics (8 h); Unit III Fluid Dynamics (8 h); Unit IV Flow Through Pipes (8 h); Unit V Open Channel Flow (8 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-civil-engineering/fluid-mechanics/#faq-1)
+
 **What is the marks scheme for Fluid Mechanics?**
 
 The official Civil Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 3 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-civil-engineering/fluid-mechanics/#faq-2)
 
 **What should I know before Fluid Mechanics?**
 
 Prerequisite listed in the syllabus: Engineering Mathematics and Engineering Mechanics.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-civil-engineering/fluid-mechanics/#faq-3)
+
 ---
 
 Source: [SPPU SE Civil Engineering 2024 pattern syllabus (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE-Civil2024_pattern-_final_version_22072025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Civil subjects](https://preptracker.manavdev.site/syllabus/se-civil-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Civil subjects](https://preptracker.manavdev.site/syllabus/se-civil-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

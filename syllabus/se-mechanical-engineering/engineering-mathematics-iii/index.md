@@ -8,6 +8,22 @@ MDM-221-MEC 3 h/week theory CCE 40 + End-sem 60
 
 03 . credits
 
+## At a glance
+
+Course codeMDM-221-MEC
+
+Year and branchSecond Year Mechanical Engineering
+
+PatternSPPU 2024
+
+Units5
+
+Credits3
+
+MarksCCE 40 + end-semester 60
+
+PrerequisiteDifferential & Integral calculus, Differential equations of first order & first degree, Fourier series, Collection, classification and representation of data and Vector algebra
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -143,16 +159,22 @@ Listed in the official syllabus:
 
 Engineering Mathematics-III (MDM-221-MEC) has 5 units: Unit I Linear Differential Equations (LDE) and Applications (7 h); Unit II Statistics & Probability (8 h); Unit III Numerical methods for solving algebraic and transcendental equations (8 h); Unit IV Numerical Interpolation and solution of ODE (8 h); Unit V Vector Calculus (8 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/engineering-mathematics-iii/#faq-1)
+
 **What is the marks scheme for Engineering Mathematics-III?**
 
 The official Mechanical Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 40 marks and the end-semester exam for 60 marks, for 3 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/engineering-mathematics-iii/#faq-2)
 
 **What should I know before Engineering Mathematics-III?**
 
 Prerequisite listed in the syllabus: Differential & Integral calculus, Differential equations of first order & first degree, Fourier series, Collection, classification and representation of data and Vector algebra.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/engineering-mathematics-iii/#faq-3)
+
 ---
 
 Source: [SPPU SE Mechanical Engineering 2024 pattern syllabus (revised June 2026, effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/SE%20(2024)%20Revised%20Mechanical%20Engineering%20Syllabus_08062026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Mechanical subjects](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Mechanical subjects](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

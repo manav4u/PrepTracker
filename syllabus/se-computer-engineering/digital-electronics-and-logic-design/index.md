@@ -10,6 +10,24 @@ MDM-221-COM 2 h/week theory CCE 30 + End-sem 70
 
 02 . credits
 
+## At a glance
+
+Course codeMDM-221-COM
+
+Year and branchSecond Year Computer Engineering
+
+PatternSPPU 2024
+
+Units5
+
+Theory hours30
+
+Credits2
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteBasic Electronics Engineering (ESE-101-ETC), if any
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -148,16 +166,22 @@ Listed in the official syllabus:
 
 Digital Electronics and Logic Design (MDM-221-COM) has 5 units and 30 hours of theory: Unit I Boolean Algebra and Simplification Techniques (6 h); Unit II Combinational Logic Design (6 h); Unit III Sequential Circuits (6 h); Unit IV Algorithmic State Machines and Logic Families (6 h); Unit V Programmable Logic Devices (6 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-computer-engineering/digital-electronics-and-logic-design/#faq-1)
+
 **What is the marks scheme for Digital Electronics and Logic Design?**
 
 The official Computer Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 2 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-computer-engineering/digital-electronics-and-logic-design/#faq-2)
 
 **What should I know before Digital Electronics and Logic Design?**
 
 Prerequisite listed in the syllabus: Basic Electronics Engineering (ESE-101-ETC), if any.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-computer-engineering/digital-electronics-and-logic-design/#faq-3)
+
 ---
 
 Source: [SPPU SE Computer Engineering 2024 pattern syllabus (revised June 2026, effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/SE%20-%20Computer%20Engineering%20-%202024%20Pattern%20Revised_13062026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Computer subjects](https://preptracker.manavdev.site/syllabus/se-computer-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Computer subjects](https://preptracker.manavdev.site/syllabus/se-computer-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

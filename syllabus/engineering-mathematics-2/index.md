@@ -10,6 +10,20 @@ SPPU First Year Engineering, 2024 pattern, Semester II. Course code BSC-151-BES.
 
 04 . credits
 
+## At a glance
+
+Course codeBSC-151-BES
+
+LevelFirst Year Engineering, SPPU 2024 pattern
+
+Units5
+
+Named topics31
+
+Theory hours40
+
+Credits4 (3 theory + 1 tutorial)
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -102,24 +116,34 @@ Tick off each unit as you finish it, and keep your own notes and links in one pl
 
 BSC-151-BES carries 4 credits: 3 for theory (3 hours a week) and 1 for the tutorial (1 hour a week).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-2/#faq-1)
+
 **How are the marks split?**
 
 Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the tutorial credit.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-2/#faq-2)
 
 **How many units are there?**
 
 Five units of 8 hours each, 40 hours in total: integral calculus, curve tracing and solid geometry, multiple integrals, first order ordinary differential equations, and applications of differential equations.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-2/#faq-3)
+
 **How is term work assessed?**
 
 Through assignments on the units, based on performance and continuous internal assessment. The syllabus sets tutorial batches of at most 22 students.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-2/#faq-4)
 
 **Which books does the syllabus list?**
 
 Text books: B. V. Ramana and B. S. Grewal, both titled Higher Engineering Mathematics. Six reference books are listed too, including Kreyszig, Thomas’ Calculus and S. L. Ross on differential equations.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-2/#faq-5)
+
 ---
 
 Sources: [SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf) and the [SPPU credit framework handbook](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

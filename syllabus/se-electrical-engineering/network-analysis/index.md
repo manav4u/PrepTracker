@@ -10,6 +10,24 @@ PCC-253-ELE 2 h/week theory CCE 30 + End-sem 70
 
 02 . credits
 
+## At a glance
+
+Course codePCC-253-ELE
+
+Year and branchSecond Year Electrical Engineering
+
+PatternSPPU 2024
+
+Units5
+
+Theory hours30
+
+Credits2
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteTerminology of electrical networks, series and parallel combinations of resistance, Laplace transforms, linear differential equations
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -149,16 +167,22 @@ Listed in the official syllabus:
 
 Network Analysis (PCC-253-ELE) has 5 units and 30 hours of theory: Unit I Types of Networks, Mesh and Nodal analysis (6 h); Unit II Network Theorems (6 h); Unit III Transient Analysis in RLC circuit-Time domain approach (6 h); Unit IV Transient Analysis in RLC circuit: Laplace Transform approach (6 h); Unit V Network Functions and Filters (6 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/network-analysis/#faq-1)
+
 **What is the marks scheme for Network Analysis?**
 
 The official Electrical Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 2 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/network-analysis/#faq-2)
 
 **What should I know before Network Analysis?**
 
 Prerequisite listed in the syllabus: Terminology of electrical networks, series and parallel combinations of resistance, Laplace transforms, linear differential equations.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/network-analysis/#faq-3)
+
 ---
 
 Source: [SPPU SE Electrical Engineering 2024 pattern syllabus (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE_Electrical_Syllabus_2024_pattern_14th_July_15072025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Electrical subjects](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Electrical subjects](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

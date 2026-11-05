@@ -20,6 +20,22 @@ MDM-221-CYB 2 h/week theory CCE 40 + End-sem 60
 
 02 . credits
 
+## At a glance
+
+Course codeMDM-221-CYB
+
+Year and branchSecond Year Cyber Security
+
+PatternSPPU 2024
+
+Units5
+
+Credits2
+
+MarksCCE 40 + end-semester 60
+
+Prerequisite1. Basic Electronics Engineering (ESE-101-ETC)
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -174,16 +190,22 @@ Listed in the official syllabus:
 
 Digital Electronics and Logic Design (MDM-221-CYB) has 5 units: Unit I Introduction to Digital Systems (6 h); Unit II Combinational Logic Circuits (6 h); Unit III Sequential Logic Circuits (6 h); Unit IV Digital System Design (6 h); Unit V Applications of Digital Logic (5 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-cyber-security/digital-electronics-and-logic-design/#faq-1)
+
 **What is the marks scheme for Digital Electronics and Logic Design?**
 
 The official Cyber Security 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 40 marks and the end-semester exam for 60 marks, for 2 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-cyber-security/digital-electronics-and-logic-design/#faq-2)
 
 **What should I know before Digital Electronics and Logic Design?**
 
 Prerequisite listed in the syllabus: 1. Basic Electronics Engineering (ESE-101-ETC).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-cyber-security/digital-electronics-and-logic-design/#faq-3)
+
 ---
 
 Source: [SPPU SE Cyber Security 2024 pattern syllabus (effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/SE%20-%20Cyber%20Security%20-%202024%20Pattern.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Cyber Security subjects](https://preptracker.manavdev.site/syllabus/se-cyber-security/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Cyber Security subjects](https://preptracker.manavdev.site/syllabus/se-cyber-security/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

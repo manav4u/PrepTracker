@@ -10,6 +10,24 @@ PCC-251-COM 3 h/week theory CCE 40 + End-sem 60
 
 03 . credits
 
+## At a glance
+
+Course codePCC-251-COM
+
+Year and branchSecond Year Computer Engineering
+
+PatternSPPU 2024
+
+Units5
+
+Theory hours45
+
+Credits3
+
+MarksCCE 40 + end-semester 60
+
+PrerequisiteDiscrete Mathematics, Data Structures and Algorithms
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -147,16 +165,22 @@ Listed in the official syllabus:
 
 Database Management Systems (PCC-251-COM) has 5 units and 45 hours of theory: Unit I Introduction to Database Management System (9 h); Unit II SQL and PL/SQL (9 h); Unit III Relational Database Design (9 h); Unit IV Database Transactions (9 h); Unit V NoSQL Database (9 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-computer-engineering/database-management-systems/#faq-1)
+
 **What is the marks scheme for Database Management Systems?**
 
 The official Computer Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 40 marks and the end-semester exam for 60 marks, for 3 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-computer-engineering/database-management-systems/#faq-2)
 
 **What should I know before Database Management Systems?**
 
 Prerequisite listed in the syllabus: Discrete Mathematics, Data Structures and Algorithms.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-computer-engineering/database-management-systems/#faq-3)
+
 ---
 
 Source: [SPPU SE Computer Engineering 2024 pattern syllabus (revised June 2026, effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/SE%20-%20Computer%20Engineering%20-%202024%20Pattern%20Revised_13062026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Computer subjects](https://preptracker.manavdev.site/syllabus/se-computer-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Computer subjects](https://preptracker.manavdev.site/syllabus/se-computer-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

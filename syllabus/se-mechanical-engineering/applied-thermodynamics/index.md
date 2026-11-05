@@ -8,6 +8,22 @@ PCC-253-MEC 3 h/week theory CCE 40 + End-sem 60
 
 03 . credits
 
+## At a glance
+
+Course codePCC-253-MEC
+
+Year and branchSecond Year Mechanical Engineering
+
+PatternSPPU 2024
+
+Units5
+
+Credits3
+
+MarksCCE 40 + end-semester 60
+
+PrerequisiteSystems in Mechanical Engineering, Basics of Engineering Thermodynamics, Engineering Chemistry & Engineering Mathematics
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -145,16 +161,22 @@ Listed in the official syllabus:
 
 Applied Thermodynamics (PCC-253-MEC) has 5 units: Unit I Fundamentals of IC Engines & Fuel, Air and Actual Cycle Cycles (7 h); Unit II Combustion in IC Engines & Fuel Technology (7 h); Unit III Engine Performance & Testing, Emission Control Technologies (7 h); Unit IV Engine Systems & Recent Trends in I.C Engine (7 h); Unit V Positive Displacement Compressor (7 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/applied-thermodynamics/#faq-1)
+
 **What is the marks scheme for Applied Thermodynamics?**
 
 The official Mechanical Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 40 marks and the end-semester exam for 60 marks, for 3 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/applied-thermodynamics/#faq-2)
 
 **What should I know before Applied Thermodynamics?**
 
 Prerequisite listed in the syllabus: Systems in Mechanical Engineering, Basics of Engineering Thermodynamics, Engineering Chemistry & Engineering Mathematics.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/applied-thermodynamics/#faq-3)
+
 ---
 
 Source: [SPPU SE Mechanical Engineering 2024 pattern syllabus (revised June 2026, effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/SE%20(2024)%20Revised%20Mechanical%20Engineering%20Syllabus_08062026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Mechanical subjects](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Mechanical subjects](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

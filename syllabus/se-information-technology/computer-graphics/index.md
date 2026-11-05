@@ -8,6 +8,22 @@ PCC-252-ITT 3 h/week theory CCE 30 + End-sem 70
 
 03 . credits
 
+## At a glance
+
+Course codePCC-252-ITT
+
+Year and branchSecond Year Information Technology
+
+PatternSPPU 2024
+
+Units5
+
+Credits3
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteBasic Mathematics
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -133,16 +149,22 @@ Listed in the official syllabus:
 
 Computer Graphics (PCC-252-ITT) has 5 units: Unit I Graphics Primitives and OpenGL Basics (6 h); Unit II Rasterization, Filling, and Clipping Algorithms (7 h); Unit III 2D, 3D Transformations and Projections (7 h); Unit IV Color, Shading, and Hidden Surfaces (5 h); Unit V Curves, Fractals, and Introduction to Animation (5 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-information-technology/computer-graphics/#faq-1)
+
 **What is the marks scheme for Computer Graphics?**
 
 The official Information Technology 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 3 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-information-technology/computer-graphics/#faq-2)
 
 **What should I know before Computer Graphics?**
 
 Prerequisite listed in the syllabus: Basic Mathematics.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-information-technology/computer-graphics/#faq-3)
+
 ---
 
 Source: [SPPU SE Information Technology 2024 pattern syllabus (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE%20IT%202024%20Pattern%20Syllabus_15072025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE IT subjects](https://preptracker.manavdev.site/syllabus/se-information-technology/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE IT subjects](https://preptracker.manavdev.site/syllabus/se-information-technology/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

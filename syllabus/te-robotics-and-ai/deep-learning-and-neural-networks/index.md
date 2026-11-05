@@ -8,6 +8,22 @@ PCC-351-RAI 4 h/week theory CCE 30 + End-sem 70
 
 04 . credits
 
+## At a glance
+
+Course codePCC-351-RAI
+
+Year and branchThird Year Robotics and Artificial Intelligence
+
+PatternSPPU 2024
+
+Units5
+
+Credits4
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteMachine Learning for Robotics (PCC-302-RAI)
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -141,16 +157,22 @@ Listed in the official syllabus:
 
 Deep Learning and Neural Networks (PCC-351-RAI) has 5 units: Unit I Foundations of Neural Networks Analytics (8 h); Unit II Training and Backpropagation (8 h); Unit III Regularization and Training Stability (8 h); Unit IV Autoencoders (8 h); Unit V Advanced Architectures (8 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/deep-learning-and-neural-networks/#faq-1)
+
 **What is the marks scheme for Deep Learning and Neural Networks?**
 
 The official Robotics and Artificial Intelligence 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 4 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/deep-learning-and-neural-networks/#faq-2)
 
 **What should I know before Deep Learning and Neural Networks?**
 
 Prerequisite listed in the syllabus: Machine Learning for Robotics (PCC-302-RAI).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/deep-learning-and-neural-networks/#faq-3)
+
 ---
 
 Source: [SPPU TE Robotics and Artificial Intelligence 2024 pattern syllabus (June 2026) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/TE_Robotics%20and%20AI_Syllabus_2024%20Pattern%20(1)_13062026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Robotics and AI subjects](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Robotics and AI subjects](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

@@ -10,6 +10,24 @@ PCC-302-IT 3 h/week theory CCE 30 + End-sem 70
 
 03 . credits
 
+## At a glance
+
+Course codePCC-302-IT
+
+Year and branchThird Year Information Technology
+
+PatternSPPU 2024
+
+Units5
+
+Theory hours45
+
+Credits3
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteProgramming and Problem Solving, Data Structures, Discrete Mathematics, Probability and Statistics
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -132,13 +150,19 @@ Prerequisite: Programming and Problem Solving, Data Structures, Discrete Mathema
 
 Artificial Intelligence & Machine Learning (PCC-302-IT) has 5 units and 45 hours of theory: Unit I Introduction to Artificial Intelligence and Intelligent Agents (9 h); Unit II Problem Solving, Search and Knowledge Representation (9 h); Unit III Machine Learning Fundamentals and Supervised Learning (9 h); Unit IV Unsupervised Learning and Advanced Machine Learning Techniques (9 h); Unit V Advanced Machine Learning, Model Optimization and AI Applications (9 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-information-technology/artificial-intelligence-and-machine-learning/#faq-1)
+
 **What is the marks scheme for Artificial Intelligence & Machine Learning?**
 
 The official Information Technology 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 3 credits.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-information-technology/artificial-intelligence-and-machine-learning/#faq-2)
+
 **What should I know before Artificial Intelligence & Machine Learning?**
 
 Prerequisite listed in the syllabus: Programming and Problem Solving, Data Structures, Discrete Mathematics, Probability and Statistics.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-information-technology/artificial-intelligence-and-machine-learning/#faq-3)
 
 ---
 
@@ -146,4 +170,4 @@ Source note: Web Application Development uses PEC-321C-IT Advanced Database Mana
 
 Source: [SPPU TE Information Technology 2024 pattern syllabus (October 9, 2026, effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/TE%20IT%202024%20Pattern%20Final_09102026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE IT subjects](https://preptracker.manavdev.site/syllabus/te-information-technology/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE IT subjects](https://preptracker.manavdev.site/syllabus/te-information-technology/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

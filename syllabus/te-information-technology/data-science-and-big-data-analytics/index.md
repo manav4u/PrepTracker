@@ -10,6 +10,24 @@ PCC-351-IT 3 h/week theory CCE 30 + End-sem 70
 
 03 . credits
 
+## At a glance
+
+Course codePCC-351-IT
+
+Year and branchThird Year Information Technology
+
+PatternSPPU 2024
+
+Units5
+
+Theory hours45
+
+Credits3
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteProbability and Statistics, Database Management Systems, Programming Fundamentals
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -146,13 +164,19 @@ Prerequisite: Probability and Statistics, Database Management Systems, Programmi
 
 Data Science & Big Data Analytics (PCC-351-IT) has 5 units and 45 hours of theory: Unit I Big Data Overview (9 h); Unit II Data Analytics Using Python (9 h); Unit III Hadoop Storage And Processing (9 h); Unit IV Spark Processing (9 h); Unit V Big Data Visualization (9 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-information-technology/data-science-and-big-data-analytics/#faq-1)
+
 **What is the marks scheme for Data Science & Big Data Analytics?**
 
 The official Information Technology 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 3 credits.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-information-technology/data-science-and-big-data-analytics/#faq-2)
+
 **What should I know before Data Science & Big Data Analytics?**
 
 Prerequisite listed in the syllabus: Probability and Statistics, Database Management Systems, Programming Fundamentals.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-information-technology/data-science-and-big-data-analytics/#faq-3)
 
 ---
 
@@ -160,4 +184,4 @@ Source note: Web Application Development uses PEC-321C-IT Advanced Database Mana
 
 Source: [SPPU TE Information Technology 2024 pattern syllabus (October 9, 2026, effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/TE%20IT%202024%20Pattern%20Final_09102026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE IT subjects](https://preptracker.manavdev.site/syllabus/te-information-technology/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE IT subjects](https://preptracker.manavdev.site/syllabus/te-information-technology/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

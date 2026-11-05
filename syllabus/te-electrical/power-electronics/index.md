@@ -8,6 +8,22 @@ PCC-302-ELE 3 h/week theory CCE 30 + End-sem 70
 
 03 . credits
 
+## At a glance
+
+Course codePCC-302-ELE
+
+Year and branchThird Year Electrical Engineering
+
+PatternSPPU 2024
+
+Units5
+
+Credits3
+
+MarksCCE 30 + end-semester 70
+
+PrerequisitePN junction diodes, Zener diodes, BJTs, MOSFETs, and IGBTs. V–I characteristics. Resistors, inductors, capacitors, Ohm’s law, Kirchhoff’s laws. Transient, steady-state behavior of RL and RC circuits. Half-wave, full-wave, and bridge rectifiers, along with ripple, filtering, and efficiency concepts RMS and average values, power factor.
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -160,13 +176,19 @@ Prerequisite: PN junction diodes, Zener diodes, BJTs, MOSFETs, and IGBTs. V–I 
 
 Power Electronics (PCC-302-ELE) has 5 units: Unit I Power Semiconductor Devices and Protection (8 h); Unit II DC–DC Converters and Modern Control Techniques (8 h); Unit III AC–DC Converters (Controlled Rectifiers) (8 h); Unit IV Three-Phase Converters and AC Voltage Controllers (8 h); Unit V DC–AC Inverters and Drive Applications (8 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-electrical/power-electronics/#faq-1)
+
 **What is the marks scheme for Power Electronics?**
 
 The official Electrical Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 3 credits.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-electrical/power-electronics/#faq-2)
+
 **What should I know before Power Electronics?**
 
 Prerequisite listed in the syllabus: PN junction diodes, Zener diodes, BJTs, MOSFETs, and IGBTs. V–I characteristics. Resistors, inductors, capacitors, Ohm’s law, Kirchhoff’s laws. Transient, steady-state behavior of RL and RC circuits. Half-wave, full-wave, and bridge rectifiers, along with ripple, filtering, and efficiency concepts RMS and average values, power factor..
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-electrical/power-electronics/#faq-3)
 
 ---
 
@@ -174,4 +196,4 @@ Source note: Computer Aided Design uses PEC-321C-ELE from the curriculum table; 
 
 Source: [SPPU TE Electrical Engineering 2024 pattern syllabus (July 20, 2026, effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/TE_Electrical_Engg_2024_Pattern_Syllabus_17_july_2026_20072026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Electrical subjects](https://preptracker.manavdev.site/syllabus/te-electrical/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Electrical subjects](https://preptracker.manavdev.site/syllabus/te-electrical/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

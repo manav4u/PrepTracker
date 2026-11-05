@@ -10,6 +10,20 @@ SPPU First Year Engineering, 2024 pattern, Semester II. Course code PCC-151-ITT.
 
 03 . credits
 
+## At a glance
+
+Course codePCC-151-ITT
+
+LevelFirst Year Engineering, SPPU 2024 pattern
+
+Units5
+
+Named topics17
+
+Theory hours19
+
+Credits3 (2 theory + 1 tutorial)
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -101,28 +115,40 @@ Tick off each unit as you finish it, and keep your own notes and links in one pl
 
 PCC-151-ITT carries 3 credits in the book’s semester scheme table: 2 for theory (2 hours a week) and 1 for practical (2 hours a week).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/programming-and-problem-solving/#faq-1)
+
 **How are the marks split?**
 
 Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the practical credit.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/programming-and-problem-solving/#faq-2)
 
 **Which language does the course use?**
 
 Python. The five units cover problem solving and Python basics, advanced data types with decision control, functions and strings, file handling with dictionaries, and object oriented programming.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/programming-and-problem-solving/#faq-3)
+
 **Is everything in the syllabus examined in theory?**
 
 No. The Unit IV case study, on the design, features and use of a popular system built with Python, is excluded from the theory examination.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/programming-and-problem-solving/#faq-4)
 
 **What are the lab assignments?**
 
 Group A has practicals for each of the five units, from installing Python and operators to string operations, file handling and classes. Group B has assignments from Electrical, Mechanical and Civil application domains, designed with faculty from those branches.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/programming-and-problem-solving/#faq-5)
+
 **Which books does the syllabus list?**
 
 Two text books (Reema Thareja, and R. Nageswara Rao) and several reference books including Dromey, Fabrizio Romano’s Learning Python and Paul Barry’s Head First Python.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/programming-and-problem-solving/#faq-6)
 
 ---
 
 Sources: [SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf) and the [SPPU credit framework handbook](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

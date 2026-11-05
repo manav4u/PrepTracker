@@ -8,6 +8,22 @@ PCC-202-MEC 3 h/week theory CCE 40 + End-sem 60
 
 03 . credits
 
+## At a glance
+
+Course codePCC-202-MEC
+
+Year and branchSecond Year Mechanical Engineering
+
+PatternSPPU 2024
+
+Units5
+
+Credits3
+
+MarksCCE 40 + end-semester 60
+
+PrerequisiteHigher Secondary Science Courses, Engineering Physics, Engineering Mathematics–I and II
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -143,16 +159,22 @@ Prerequisite: Higher Secondary Science Courses, Engineering Physics, Engineering
 
 Engineering Thermodynamics (PCC-202-MEC) has 5 units: Unit I Fundamentals and First Law of Thermodynamics (7 h); Unit II Ideal Gas Equations and Second Law of Thermodynamics (7 h); Unit III Entropy and Availability (7 h); Unit IV Properties of Pure substances & Vapour Power Cycle (7 h); Unit V Steam Generators & Boiler Draught (7 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/engineering-thermodynamics/#faq-1)
+
 **What is the marks scheme for Engineering Thermodynamics?**
 
 The official Mechanical Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 40 marks and the end-semester exam for 60 marks, for 3 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/engineering-thermodynamics/#faq-2)
 
 **What should I know before Engineering Thermodynamics?**
 
 Prerequisite listed in the syllabus: Higher Secondary Science Courses, Engineering Physics, Engineering Mathematics–I and II.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/engineering-thermodynamics/#faq-3)
+
 ---
 
 Source: [SPPU SE Mechanical Engineering 2024 pattern syllabus (revised June 2026, effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/SE%20(2024)%20Revised%20Mechanical%20Engineering%20Syllabus_08062026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Mechanical subjects](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Mechanical subjects](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

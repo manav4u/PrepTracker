@@ -8,6 +8,22 @@ PEC-361B-ELE 3 h/week theory CCE 30 + End-sem 70
 
 03 . credits
 
+## At a glance
+
+Course codePEC-361B-ELE
+
+Year and branchThird Year Electrical Engineering
+
+PatternSPPU 2024
+
+Units5
+
+Credits3
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteBasic knowledge of Electrical and Electronic circuits including Relays, Contactors, Power supplies. Understanding of Digital Electronics including Logic Gates, Timers, Counters. Introductory knowledge of Microcontrollers and Basic programming Logic. Fundamentals of industrial Sensors, Transducers, and Electrical Machines.
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -141,13 +157,19 @@ Prerequisite: Basic knowledge of Electrical and Electronic circuits including Re
 
 PLC and SCADA (PEC-361B-ELE) has 5 units: Unit I Introduction to Industrial Automation and Programmable Logic Controller (8 h); Unit II Programming of PLC (7 h); Unit III Programming of PLC (8 h); Unit IV Supervisory Control and Data Acquisition Systems (7 h); Unit V Industrial Communication Protocols and Distributed Control Systems (7 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-electrical/plc-and-scada/#faq-1)
+
 **What is the marks scheme for PLC and SCADA?**
 
 The official Electrical Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 3 credits.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-electrical/plc-and-scada/#faq-2)
+
 **What should I know before PLC and SCADA?**
 
 Prerequisite listed in the syllabus: Basic knowledge of Electrical and Electronic circuits including Relays, Contactors, Power supplies. Understanding of Digital Electronics including Logic Gates, Timers, Counters. Introductory knowledge of Microcontrollers and Basic programming Logic. Fundamentals of industrial Sensors, Transducers, and Electrical Machines..
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-electrical/plc-and-scada/#faq-3)
 
 ---
 
@@ -155,4 +177,4 @@ Source note: Computer Aided Design uses PEC-321C-ELE from the curriculum table; 
 
 Source: [SPPU TE Electrical Engineering 2024 pattern syllabus (July 20, 2026, effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/TE_Electrical_Engg_2024_Pattern_Syllabus_17_july_2026_20072026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Electrical subjects](https://preptracker.manavdev.site/syllabus/te-electrical/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Electrical subjects](https://preptracker.manavdev.site/syllabus/te-electrical/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

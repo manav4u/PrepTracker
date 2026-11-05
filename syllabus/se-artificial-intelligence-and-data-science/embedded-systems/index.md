@@ -10,6 +10,24 @@ MDM-271-AID 2 h/week theory CCE 30 + End-sem 70
 
 02 . credits
 
+## At a glance
+
+Course codeMDM-271-AID
+
+Year and branchSecond Year Artificial Intelligence and Data Science
+
+PatternSPPU 2024
+
+Units5
+
+Theory hours30
+
+Credits2
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteDigital Electronics and Logic Design, Operating Systems
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -145,16 +163,22 @@ Listed in the official syllabus:
 
 Embedded Systems (MDM-271-AID) has 5 units and 30 hours of theory: Unit I Introduction to Embedded Systems (6 h); Unit II Microcontrollers in Embedded System (6 h); Unit III Sensors , ADCs and Actuators (6 h); Unit IV ARM Processor (6 h); Unit V Real time operating systems (6 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/embedded-systems/#faq-1)
+
 **What is the marks scheme for Embedded Systems?**
 
 The official Artificial Intelligence and Data Science 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 2 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/embedded-systems/#faq-2)
 
 **What should I know before Embedded Systems?**
 
 Prerequisite listed in the syllabus: Digital Electronics and Logic Design, Operating Systems.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/embedded-systems/#faq-3)
+
 ---
 
 Source: [SPPU SE AI and Data Science 2024 pattern syllabus (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE%20-%20AIandDS%20-%202024%20Pattern_18072025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE AI&DS subjects](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE AI&DS subjects](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

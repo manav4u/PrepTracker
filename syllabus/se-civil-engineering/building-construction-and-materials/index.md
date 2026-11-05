@@ -8,6 +8,22 @@ PCC-203-CVL 3 h/week theory CCE 30 + End-sem 70
 
 03 . credits
 
+## At a glance
+
+Course codePCC-203-CVL
+
+Year and branchSecond Year Civil Engineering
+
+PatternSPPU 2024
+
+Units5
+
+Credits3
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteBasic & Engineering Science Course
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -137,16 +153,22 @@ Prerequisite: Basic & Engineering Science Course.
 
 Building Construction and Materials (PCC-203-CVL) has 5 units: Unit I Introduction to Building Technology (8 h); Unit II Conventional Building Materials and Techniques (8 h); Unit III Modern Construction Techniques (8 h); Unit IV Green Building planning and Sustainable Materials (8 h); Unit V Building Bye-Laws and Drawings (8 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-civil-engineering/building-construction-and-materials/#faq-1)
+
 **What is the marks scheme for Building Construction and Materials?**
 
 The official Civil Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 3 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-civil-engineering/building-construction-and-materials/#faq-2)
 
 **What should I know before Building Construction and Materials?**
 
 Prerequisite listed in the syllabus: Basic & Engineering Science Course.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-civil-engineering/building-construction-and-materials/#faq-3)
+
 ---
 
 Source: [SPPU SE Civil Engineering 2024 pattern syllabus (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE-Civil2024_pattern-_final_version_22072025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Civil subjects](https://preptracker.manavdev.site/syllabus/se-civil-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Civil subjects](https://preptracker.manavdev.site/syllabus/se-civil-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

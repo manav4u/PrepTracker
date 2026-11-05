@@ -10,6 +10,20 @@ SPPU First Year Engineering, 2024 pattern. Course code BSC-103-BES. Five units, 
 
 04 . credits
 
+## At a glance
+
+Course codeBSC-103-BES
+
+LevelFirst Year Engineering, SPPU 2024 pattern
+
+Units5
+
+Named topics24
+
+Theory hours40
+
+Credits4 (3 theory + 1 tutorial)
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -103,28 +117,40 @@ Tick off each unit as you finish it, and keep your own notes and links in one pl
 
 BSC-103-BES carries 4 credits: 3 for theory (3 hours a week) and 1 for practical (2 hours a week).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-chemistry/#faq-1)
+
 **How are the marks split?**
 
 Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the practical credit.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-chemistry/#faq-2)
 
 **How many units are there?**
 
 Five units of 8 hours each, 40 hours in total: water technology, instrumental methods of analysis, advanced engineering materials, energy sources, and corrosion and its prevention.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-chemistry/#faq-3)
+
 **How many experiments do I have to do?**
 
 Any 8 from the list of 11 in the syllabus. They include hardness by EDTA, alkalinity, pH and conductometric titrations, proximate analysis of coal and preparing biodiesel.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-chemistry/#faq-4)
 
 **Which books does the syllabus list?**
 
 Three text books (Dara and Umare, Palanna, Rattan) and six reference books, including Khopkar, Chatwal and Anand, Kalsi and Shriver and Atkins.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-chemistry/#faq-5)
+
 **Is there an official video course?**
 
 The syllabus lists one NPTEL course, number 113104082. It is linked on this page.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-chemistry/#faq-6)
 
 ---
 
 Sources: [SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf) and the [SPPU credit framework handbook](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

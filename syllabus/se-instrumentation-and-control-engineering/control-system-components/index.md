@@ -8,6 +8,22 @@ PCC-252-INC 3 h/week theory CCE 30 + End-sem 70
 
 03 . credits
 
+## At a glance
+
+Course codePCC-252-INC
+
+Year and branchSecond Year Instrumentation and Control Engineering
+
+PatternSPPU 2024
+
+Units5
+
+Credits3
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteBasic Circuit Theory, Motor Fundamentals, Basics of Control Circuit, Mechanical Elements, Semiconductor Device.
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -152,16 +168,22 @@ Prerequisite: Basic Circuit Theory, Motor Fundamentals, Basics of Control Circui
 
 Control System Components (PCC-252-INC) has 5 units: Unit I Industrial Control Devices (8 h); Unit II Sequencing & Interlocking for Motors (8 h); Unit III Introduction to Pneumatic & Hydraulic Systems (8 h); Unit IV Power Control Elements (8 h); Unit V Control valves (8 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/control-system-components/#faq-1)
+
 **What is the marks scheme for Control System Components?**
 
 The official Instrumentation and Control Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 3 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/control-system-components/#faq-2)
 
 **What should I know before Control System Components?**
 
 Prerequisite listed in the syllabus: Basic Circuit Theory, Motor Fundamentals, Basics of Control Circuit, Mechanical Elements, Semiconductor Device..
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/control-system-components/#faq-3)
+
 ---
 
 Source: [SPPU SE Instrumentation and Control Engineering 2024 pattern syllabus (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE_Instrumentation%20and%20Control_2024%20Course_Updated_3rd%20July%202025_10072025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Instrumentation subjects](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Instrumentation subjects](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

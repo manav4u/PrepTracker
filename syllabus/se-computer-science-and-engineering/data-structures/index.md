@@ -10,6 +10,24 @@ PCC-201-CSE 3 h/week theory CCE 40 + End-sem 60
 
 03 . credits
 
+## At a glance
+
+Course codePCC-201-CSE
+
+Year and branchSecond Year Computer Science and Engineering
+
+PatternSPPU 2024
+
+Units5
+
+Theory hours45
+
+Credits3
+
+MarksCCE 40 + end-semester 60
+
+PrerequisiteProgramming and Problem Solving, Fundamentals of Programming Languages
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -138,16 +156,22 @@ Listed in the official syllabus:
 
 Data Structures (PCC-201-CSE) has 5 units and 45 hours of theory: Unit I Introduction to Data Structures and Algorithms (9 h); Unit II Linear Data Structures, searching and sorting (9 h); Unit III Stacks, Queues and Linked Lists (9 h); Unit IV Hashing (9 h); Unit V Graphs and Trees (9 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/data-structures/#faq-1)
+
 **What is the marks scheme for Data Structures?**
 
 The official Computer Science and Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 40 marks and the end-semester exam for 60 marks, for 3 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/data-structures/#faq-2)
 
 **What should I know before Data Structures?**
 
 Prerequisite listed in the syllabus: Programming and Problem Solving, Fundamentals of Programming Languages.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/data-structures/#faq-3)
+
 ---
 
 Source: [SPPU SE Computer Science and Engineering 2024 pattern syllabus (revised June 2026) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/SE%20Computer%20Science%20and%20Engineering%20-%202024%20Pattern%20-%20Revised_13062026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE CSE subjects](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE CSE subjects](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

@@ -8,6 +8,22 @@ PCC-302-MEC 3 h/week theory CCE 30 + End-sem 70
 
 03 . credits
 
+## At a glance
+
+Course codePCC-302-MEC
+
+Year and branchThird Year Mechanical Engineering
+
+PatternSPPU 2024
+
+Units5
+
+Credits3
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteEngineering Mathematics - I and II, Engineering Physics, Engineering Mechanics, Geometric Modelling & Drafting
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -145,16 +161,22 @@ Listed in the official syllabus:
 
 Theory of Machines (PCC-302-MEC) has 5 units: Unit I Fundamentals of Mechanism (7 h); Unit II Kinematic Analysis of Mechanisms: Analytical Method & Graphical (7 h); Unit III Synthesis of Mechanisms (7 h); Unit IV Kinematics of Gears (8 h); Unit V Cams & Followers (8 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/theory-of-machines/#faq-1)
+
 **What is the marks scheme for Theory of Machines?**
 
 The official Mechanical Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 3 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/theory-of-machines/#faq-2)
 
 **What should I know before Theory of Machines?**
 
 Prerequisite listed in the syllabus: Engineering Mathematics - I and II, Engineering Physics, Engineering Mechanics, Geometric Modelling & Drafting.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/theory-of-machines/#faq-3)
+
 ---
 
 Source: [SPPU TE Mechanical Engineering 2024 pattern syllabus (May 2026) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/R10_%20TE%20(2024%20PATT)%20Mechanical%20Engineering%20Syllabus%20(30.5.2026)_04062026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Mechanical subjects](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Mechanical subjects](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

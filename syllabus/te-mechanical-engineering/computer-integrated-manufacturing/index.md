@@ -8,6 +8,22 @@ PCC-351-MEC 4 h/week theory CCE 30 + End-sem 70
 
 04 . credits
 
+## At a glance
+
+Course codePCC-351-MEC
+
+Year and branchThird Year Mechanical Engineering
+
+PatternSPPU 2024
+
+Units5
+
+Credits4
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteSolid Modelling and Drafting, Computer Aided Engineering, Industrial Engineering, Basic Programming, Machining Knowledge
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -165,16 +181,22 @@ Listed in the official syllabus:
 
 Computer Integrated Manufacturing (PCC-351-MEC) has 5 units: Unit I Foundations of CIM, Automation and Networking (8 h); Unit II Hardware Integration: CNC, Robotics and Material Handling (7 h); Unit III Digital Manufacturing & Simulation (7 h); Unit IV Information Integration: CAPP, CAI, ERP & MES (7 h); Unit V Industry 4.0/5.0, Sustainability (7 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/computer-integrated-manufacturing/#faq-1)
+
 **What is the marks scheme for Computer Integrated Manufacturing?**
 
 The official Mechanical Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 4 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/computer-integrated-manufacturing/#faq-2)
 
 **What should I know before Computer Integrated Manufacturing?**
 
 Prerequisite listed in the syllabus: Solid Modelling and Drafting, Computer Aided Engineering, Industrial Engineering, Basic Programming, Machining Knowledge.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/computer-integrated-manufacturing/#faq-3)
+
 ---
 
 Source: [SPPU TE Mechanical Engineering 2024 pattern syllabus (May 2026) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/R10_%20TE%20(2024%20PATT)%20Mechanical%20Engineering%20Syllabus%20(30.5.2026)_04062026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Mechanical subjects](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Mechanical subjects](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

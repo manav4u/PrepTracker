@@ -8,6 +8,22 @@ PCC-302-RAI 3 h/week theory CCE 30 + End-sem 70
 
 03 . credits
 
+## At a glance
+
+Course codePCC-302-RAI
+
+Year and branchThird Year Robotics and Artificial Intelligence
+
+PatternSPPU 2024
+
+Units5
+
+Credits3
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteProgramming and Problem Solving (PCC-151-ITT), Basics of Robotics & AI (PCC-201-RAI )
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -140,16 +156,22 @@ Listed in the official syllabus:
 
 Machine Learning for Robotics (PCC-302-RAI) has 5 units: Unit I Foundations of Learning & Probability (7 h); Unit II Regression and Probabilistic Supervised Learning (7 h); Unit III Advanced Classifiers (7 h); Unit IV Unsupervised Learning & Dimensionality Reduction (7 h); Unit V Model Evaluation, Ensemble Learning & ML Practice (7 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/machine-learning-for-robotics/#faq-1)
+
 **What is the marks scheme for Machine Learning for Robotics?**
 
 The official Robotics and Artificial Intelligence 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 3 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/machine-learning-for-robotics/#faq-2)
 
 **What should I know before Machine Learning for Robotics?**
 
 Prerequisite listed in the syllabus: Programming and Problem Solving (PCC-151-ITT), Basics of Robotics & AI (PCC-201-RAI ).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/machine-learning-for-robotics/#faq-3)
+
 ---
 
 Source: [SPPU TE Robotics and Artificial Intelligence 2024 pattern syllabus (June 2026) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/TE_Robotics%20and%20AI_Syllabus_2024%20Pattern%20(1)_13062026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Robotics and AI subjects](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Robotics and AI subjects](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

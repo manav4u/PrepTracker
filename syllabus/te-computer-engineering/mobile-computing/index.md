@@ -10,6 +10,24 @@ PEC321CCOM 3 h/week theory CCE 30 + End-sem 70
 
 03 . credits
 
+## At a glance
+
+Course codePEC321CCOM
+
+Year and branchThird Year Computer Engineering
+
+PatternSPPU 2024
+
+Units5
+
+Theory hours45
+
+Credits3
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteOperating Systems, Computer Networks & Security
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -145,13 +163,19 @@ Prerequisite: Operating Systems, Computer Networks & Security.
 
 Mobile Computing (PEC321CCOM) has 5 units and 45 hours of theory: Unit I Introduction to Mobile Computing & Wireless Transmission (9 h); Unit II Telecommunication Systems (9 h); Unit III Mobile Network , Transport Layer ,& Ad-Hoc Networks (9 h); Unit IV Mobile Application Layer Protocols & Databases (9 h); Unit V Mobile App Development & Security (9 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-computer-engineering/mobile-computing/#faq-1)
+
 **What is the marks scheme for Mobile Computing?**
 
 The official Computer Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 3 credits.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-computer-engineering/mobile-computing/#faq-2)
+
 **What should I know before Mobile Computing?**
 
 Prerequisite listed in the syllabus: Operating Systems, Computer Networks & Security.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-computer-engineering/mobile-computing/#faq-3)
 
 ---
 
@@ -159,4 +183,4 @@ Source note: Mobile Computing uses PEC321CCOM from the curriculum table; its det
 
 Source: [SPPU TE Computer Engineering 2024 pattern syllabus (September 22, 2026, effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/TE%20-%20Computer%20Engineering%20-%202024%2022092026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Computer subjects](https://preptracker.manavdev.site/syllabus/te-computer-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Computer subjects](https://preptracker.manavdev.site/syllabus/te-computer-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

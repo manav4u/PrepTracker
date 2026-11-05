@@ -8,6 +8,22 @@ PCC-253-CVL 3 h/week theory CCE 30 + End-sem 70
 
 03 . credits
 
+## At a glance
+
+Course codePCC-253-CVL
+
+Year and branchSecond Year Civil Engineering
+
+PatternSPPU 2024
+
+Units5
+
+Credits3
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteEngineering Chemistry
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -152,16 +168,22 @@ Prerequisite: Engineering Chemistry.
 
 Concrete Technology (PCC-253-CVL) has 5 units: Unit I Fundamentals of Concrete Technology (6 h); Unit II Properties of Fresh and Hardened Concrete (6 h); Unit III Concrete Mix Design (6 h); Unit IV Durability and Sustainability of Concrete (6 h); Unit V Advanced and Special Concretes (6 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-civil-engineering/concrete-technology/#faq-1)
+
 **What is the marks scheme for Concrete Technology?**
 
 The official Civil Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 3 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-civil-engineering/concrete-technology/#faq-2)
 
 **What should I know before Concrete Technology?**
 
 Prerequisite listed in the syllabus: Engineering Chemistry.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-civil-engineering/concrete-technology/#faq-3)
+
 ---
 
 Source: [SPPU SE Civil Engineering 2024 pattern syllabus (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE-Civil2024_pattern-_final_version_22072025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Civil subjects](https://preptracker.manavdev.site/syllabus/se-civil-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Civil subjects](https://preptracker.manavdev.site/syllabus/se-civil-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

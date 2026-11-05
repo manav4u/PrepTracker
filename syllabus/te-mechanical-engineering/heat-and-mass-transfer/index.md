@@ -8,6 +8,22 @@ PCC-301-MEC 4 h/week theory CCE 30 + End-sem 70
 
 04 . credits
 
+## At a glance
+
+Course codePCC-301-MEC
+
+Year and branchThird Year Mechanical Engineering
+
+PatternSPPU 2024
+
+Units5
+
+Credits4
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteFluid Mechanics, Engineering Thermodynamics, Engineering Mathematics
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -162,16 +178,22 @@ Listed in the official syllabus:
 
 Heat & Mass Transfer (PCC-301-MEC) has 5 units: Unit I Introduction and Conduction (Steady State) (8 h); Unit II Finned Surfaces, Thermal Insulation and Transient Heat Conduction. (8 h); Unit III Convective Heat Transfer, Mass Transfer (8 h); Unit IV Radiation Heat Transfer (6 h); Unit V Heat Exchangers, Boiling and Condensation (7 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/heat-and-mass-transfer/#faq-1)
+
 **What is the marks scheme for Heat & Mass Transfer?**
 
 The official Mechanical Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 4 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/heat-and-mass-transfer/#faq-2)
 
 **What should I know before Heat & Mass Transfer?**
 
 Prerequisite listed in the syllabus: Fluid Mechanics, Engineering Thermodynamics, Engineering Mathematics.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/heat-and-mass-transfer/#faq-3)
+
 ---
 
 Source: [SPPU TE Mechanical Engineering 2024 pattern syllabus (May 2026) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/R10_%20TE%20(2024%20PATT)%20Mechanical%20Engineering%20Syllabus%20(30.5.2026)_04062026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Mechanical subjects](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Mechanical subjects](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

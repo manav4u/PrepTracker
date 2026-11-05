@@ -8,6 +8,22 @@ PCC-202-ELE 3 h/week theory CCE 30 + End-sem 70
 
 03 . credits
 
+## At a glance
+
+Course codePCC-202-ELE
+
+Year and branchSecond Year Electrical Engineering
+
+PatternSPPU 2024
+
+Units5
+
+Credits3
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteBasic Electronics Engineering, Numbering system, Logic Gates and flip flops, Diode and BJT
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -149,16 +165,22 @@ Listed in the official syllabus:
 
 Analog and Digital Electronics (PCC-202-ELE) has 5 units: Unit I Design of combinational circuit (8 h); Unit II Design of Sequential circuit (8 h); Unit III Operational Amplifier Applications (8 h); Unit IV Other Analog circuits (8 h); Unit V Diode rectifier (Uncontrolled Rectifier) (8 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/analog-and-digital-electronics/#faq-1)
+
 **What is the marks scheme for Analog and Digital Electronics?**
 
 The official Electrical Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 3 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/analog-and-digital-electronics/#faq-2)
 
 **What should I know before Analog and Digital Electronics?**
 
 Prerequisite listed in the syllabus: Basic Electronics Engineering, Numbering system, Logic Gates and flip flops, Diode and BJT.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/analog-and-digital-electronics/#faq-3)
+
 ---
 
 Source: [SPPU SE Electrical Engineering 2024 pattern syllabus (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE_Electrical_Syllabus_2024_pattern_14th_July_15072025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Electrical subjects](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Electrical subjects](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

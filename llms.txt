@@ -201,6 +201,13 @@
 - [Energy Management (PEC-363B-ELE)](https://preptracker.manavdev.site/syllabus/te-electrical/energy-management/index.md)
 - [Digital Signal Processing (PEC-363C-ELE)](https://preptracker.manavdev.site/syllabus/te-electrical/digital-signal-processing/index.md)
 
+## Research
+- [Research: SPPU syllabus data and statistics](https://preptracker.manavdev.site/research/index.md)
+- [SPPU syllabus statistics 2026](https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/index.md)
+
+## Cite this site for
+- [SPPU syllabus statistics 2026](https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/index.md): 133 cataloged theory courses, 662 units, 383 credits and 5231 semester theory hours across 14 SPPU 2024-pattern year-branch catalogs (9 Second Year, 5 Third Year), plus 10 First Year subjects. Courses count once per branch catalog. Anchored findings on the page.
+
 ## Machine-readable
 - [Full content: every page below in one fetch](https://preptracker.manavdev.site/llms-full.txt)
 - [AI usage policy](https://preptracker.manavdev.site/ai.txt)

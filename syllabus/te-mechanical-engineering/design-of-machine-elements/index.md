@@ -8,6 +8,22 @@ PCC-303-MEC 4 h/week theory CCE 30 + End-sem 70
 
 04 . credits
 
+## At a glance
+
+Course codePCC-303-MEC
+
+Year and branchThird Year Mechanical Engineering
+
+PatternSPPU 2024
+
+Units5
+
+Credits4
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteThe basics of material elastic behavior, stress, strain, its relationship, failure modes, different theories of failure and its applications. The design cycle, basis of design considerations like strength, rigidity, manufacture, assembly and cost, standards and codes. The preferred sizes and series, tolerances and types of fits. Construction of SMD and BMD. Roots of equations, Interpolation rule.
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -138,16 +154,22 @@ Prerequisite: The basics of material elastic behavior, stress, strain, its relat
 
 Design of Machine Elements (PCC-303-MEC) has 5 units: Unit I Fundamentals of Machine Design and Material Selection (7 h); Unit II Design of Shafts, Keys and Couplings (7 h); Unit III Design of Mechanical Joints (8 h); Unit IV Design of Springs and Mechanical Components under Variable (8 h); Unit V Design of Power Screw (8 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/design-of-machine-elements/#faq-1)
+
 **What is the marks scheme for Design of Machine Elements?**
 
 The official Mechanical Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 4 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/design-of-machine-elements/#faq-2)
 
 **What should I know before Design of Machine Elements?**
 
 Prerequisite listed in the syllabus: The basics of material elastic behavior, stress, strain, its relationship, failure modes, different theories of failure and its applications. The design cycle, basis of design considerations like strength, rigidity, manufacture, assembly and cost, standards and codes. The preferred sizes and series, tolerances and types of fits. Construction of SMD and BMD. Roots of equations, Interpolation rule..
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/design-of-machine-elements/#faq-3)
+
 ---
 
 Source: [SPPU TE Mechanical Engineering 2024 pattern syllabus (May 2026) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/R10_%20TE%20(2024%20PATT)%20Mechanical%20Engineering%20Syllabus%20(30.5.2026)_04062026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Mechanical subjects](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Mechanical subjects](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

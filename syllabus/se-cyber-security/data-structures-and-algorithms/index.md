@@ -22,6 +22,24 @@ PCC-201-CYB 3 h/week theory CCE 40 + End-sem 60
 
 03 . credits
 
+## At a glance
+
+Course codePCC-201-CYB
+
+Year and branchSecond Year Cyber Security
+
+PatternSPPU 2024
+
+Units5
+
+Theory hours45
+
+Credits3
+
+MarksCCE 40 + end-semester 60
+
+Prerequisite1. Fundamentals of Programming Languages 2. Programming and Problem Solving
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -151,16 +169,22 @@ Prerequisite: 1. Fundamentals of Programming Languages 2. Programming and Proble
 
 Data Structures and Algorithms (PCC-201-CYB) has 5 units and 45 hours of theory: Unit I Introduction to Algorithm and Data Structure (9 h); Unit II Array and Linked List (9 h); Unit III Searching and Sorting (9 h); Unit IV Stack (9 h); Unit V Queue (9 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-cyber-security/data-structures-and-algorithms/#faq-1)
+
 **What is the marks scheme for Data Structures and Algorithms?**
 
 The official Cyber Security 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 40 marks and the end-semester exam for 60 marks, for 3 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-cyber-security/data-structures-and-algorithms/#faq-2)
 
 **What should I know before Data Structures and Algorithms?**
 
 Prerequisite listed in the syllabus: 1. Fundamentals of Programming Languages 2. Programming and Problem Solving.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-cyber-security/data-structures-and-algorithms/#faq-3)
+
 ---
 
 Source: [SPPU SE Cyber Security 2024 pattern syllabus (effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/SE%20-%20Cyber%20Security%20-%202024%20Pattern.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Cyber Security subjects](https://preptracker.manavdev.site/syllabus/se-cyber-security/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Cyber Security subjects](https://preptracker.manavdev.site/syllabus/se-cyber-security/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

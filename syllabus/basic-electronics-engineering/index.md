@@ -10,6 +10,20 @@ SPPU First Year Engineering, 2024 pattern. Course code ESC-101-ETC. Five units, 
 
 03 . credits
 
+## At a glance
+
+Course codeESC-101-ETC
+
+LevelFirst Year Engineering, SPPU 2024 pattern
+
+Units5
+
+Named topics23
+
+Theory hours30
+
+Credits3 (2 theory + 1 tutorial)
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -104,28 +118,40 @@ Tick off each unit as you finish it, and keep your own notes and links in one pl
 
 ESC-101-ETC carries 3 credits: 2 for theory (2 hours a week) and 1 for practical (2 hours a week).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electronics-engineering/#faq-1)
+
 **How are the marks split?**
 
 Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the practical credit.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electronics-engineering/#faq-2)
 
 **How many units are there?**
 
 Five units of 6 hours each, 30 hours in total: diodes, transistors and technology, logic gates and digital circuits, op-amp with electronic instruments, and sensors with communication systems.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electronics-engineering/#faq-3)
+
 **How many experiments do I have to do?**
 
 Any 8 from the list of 10 in the syllabus. They include component study, CRO and multimeter measurements, diode V-I characteristics, a rectifier power supply, a CE amplifier, op-amp circuits, gate truth tables and sensors.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electronics-engineering/#faq-4)
 
 **Which books does the syllabus list?**
 
 Six text books, led by Floyd’s Electronic Devices and Jain’s Modern Digital Electronics, and four reference books including Floyd’s Digital Fundamentals.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electronics-engineering/#faq-5)
+
 **Are there official video courses?**
 
 The syllabus lists three NPTEL courses: 117103063, 117103064 and 106105166. All are linked on this page.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electronics-engineering/#faq-6)
 
 ---
 
 Sources: [SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf) and the [SPPU credit framework handbook](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

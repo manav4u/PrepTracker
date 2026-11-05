@@ -3,7 +3,7 @@
 > PrepTracker is a free, no-account study planner for SPPU engineering students: unit-wise syllabus tracking, an exam countdown, daily tasks and spaced revision. Data stays in the browser.
 
 Generated: 2026-11-05
-Pages: 30
+Pages: 32
 Note: 133 per-course syllabus mirrors are not repeated here to keep this file small. Find each of them in llms.txt (https://preptracker.manavdev.site/llms.txt) and fetch its markdown directly.
 
 ---
@@ -303,6 +303,131 @@ Sources: the official SPPU syllabus PDF linked from each subject and branch page
 
 ---
 
+<!-- https://preptracker.manavdev.site/research/ -->
+
+# Research
+
+Numbers computed from PrepTracker's own syllabus catalog, with the method and a suggested citation on each report. Nothing here is estimated or user-submitted.
+
+## Reports
+
+[SPPU syllabus statistics 2026 133 courses · 662 units · 14 year-branch catalogs · data 2026-11-05](https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/)
+
+---
+
+Method: every figure is computed at build time from the same syllabus catalog that renders the subject pages, and the catalog is copied from the official SPPU syllabus PDFs linked at the bottom of each branch page. PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/ -->
+
+# SPPU syllabus statistics 2026
+
+133 cataloged theory courses, 662 units, 383 credits and 5231 theory hours across 14 SPPU 2024-pattern year-branch catalogs, computed from the same syllabus data that powers the subject pages. A course taught in several branches counts once per branch catalog. Data date 2026-11-05.
+
+## Key findings
+
+1.
+
+PrepTracker catalogs the official SPPU 2024-pattern syllabus for 14 year-branch catalogs: 9 Second Year and 5 Third Year. One more branch (SE Automobile) is published by SPPU only as a draft and is marked as such.
+
+[Link to this finding](https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/#f-coverage)
+2.
+
+Across those catalogs, the library holds 133 cataloged theory-course entries, 662 units and 383 credits of theory, copied from the official SPPU syllabus PDFs. A course taught in more than one branch counts once per branch catalog.
+
+[Link to this finding](https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/#f-courses)
+3.
+
+The most common course size is 5 units: 130 of 133 theory courses (98%, rounded) have exactly 5 units.
+
+[Link to this finding](https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/#f-units)
+4.
+
+The largest catalog is TE Computer Engineering with 17 theory courses and 85 units; the smallest is SE Cyber Security with 7 courses and 35 units.
+
+[Link to this finding](https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/#f-branch-size)
+5.
+
+The First Year section covers 10 subjects with 50 units and 240 named topics, 34 credits in total, from the SPPU FE 2024-pattern syllabus.
+
+[Link to this finding](https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/#f-fe)
+6.
+
+Cataloged theory hours total 5231 across the final catalogs, summed from the per-unit hour allocations in the syllabi (semester hours, not weekly). Each branch page links the official SPPU PDF its numbers come from.
+
+[Link to this finding](https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/#f-hours)
+
+## Branch breakdown
+
+| Branch | Year | Theory courses | Units | Credits | Theory hours |
+| --- | --- | --- | --- | --- | --- |
+| [SE Artificial Intelligence and Data Science](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/) | SE | 8 | 40 | 21 | 315 |
+| [SE Civil Engineering](https://preptracker.manavdev.site/syllabus/se-civil-engineering/) | SE | 8 | 40 | 23 | 300 |
+| [SE Computer Engineering](https://preptracker.manavdev.site/syllabus/se-computer-engineering/) | SE | 8 | 40 | 21 | 315 |
+| [SE Computer Science and Engineering](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/) | SE | 8 | 40 | 21 | 315 |
+| [SE Cyber Security](https://preptracker.manavdev.site/syllabus/se-cyber-security/) | SE | 7 | 35 | 18 | 269 |
+| [SE Electrical Engineering](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/) | SE | 8 | 40 | 20 | 280 |
+| [SE Information Technology](https://preptracker.manavdev.site/syllabus/se-information-technology/) | SE | 7 | 35 | 19 | 236 |
+| [SE Instrumentation and Control Engineering](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/) | SE | 8 | 37 | 21 | 278 |
+| [SE Mechanical Engineering](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/) | SE | 7 | 35 | 21 | 253 |
+| [TE Computer Engineering](https://preptracker.manavdev.site/syllabus/te-computer-engineering/) | TE | 17 | 85 | 50 | 750 |
+| [TE Electrical Engineering](https://preptracker.manavdev.site/syllabus/te-electrical/) | TE | 14 | 70 | 42 | 557 |
+| [TE Information Technology](https://preptracker.manavdev.site/syllabus/te-information-technology/) | TE | 17 | 85 | 50 | 763 |
+| [TE Mechanical Engineering](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/) | TE | 8 | 40 | 28 | 300 |
+| [TE Robotics and Artificial Intelligence](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/) | TE | 8 | 40 | 28 | 300 |
+| All final catalogs |  | 133 | 662 | 383 | 5231 |
+| First Year subjects (all branches) | FE | 10 | 50 | 34 |  |
+
+## Methodology
+
+- Source: the official SPPU syllabus PDFs, one linked at the bottom of every branch page. Counts are computed at build time from the catalog that renders those pages, so this page cannot drift from them.
+- Included: theory courses on branches whose 2024-pattern syllabus SPPU has published as final, and the ten First Year subjects.
+- Counting rule: courses are cataloged per branch and year, so a course taught in several branch catalogs counts once per catalog (133 entries, fewer unique titles). Hours are semester hours summed from each unit's hour allocation in the syllabus, not weekly hours.
+- Excluded: SE Automobile (SPPU publishes it as a draft; its page is labeled draft), practical, lab and project courses, and the 2019-pattern TE pages kept for reference.
+- Percentages are rounded to whole numbers; counts are exact.
+- The data date is when the catalog last changed, not when the page was rebuilt.
+
+## Cite this page
+
+PrepTracker (2026). SPPU syllabus statistics 2026: 133 cataloged theory courses analyzed. https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/ (data as of 2026-11-05).
+
+## FAQ
+
+**How many SPPU branches does PrepTracker cover?**
+
+14 year-branch catalogs with final SPPU 2024-pattern syllabi: 9 Second Year and 5 Third Year. SE Automobile is published by SPPU as a draft and is labeled draft on its page.
+
+[Link to this answer](https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/#faq-1)
+
+**How many courses and units are cataloged?**
+
+133 cataloged theory-course entries and 662 units across those catalogs, plus 10 First Year subjects with 50 units. A course taught in several branches counts once per branch catalog; practical, lab and project courses are not counted.
+
+[Link to this answer](https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/#faq-2)
+
+**Where do these numbers come from?**
+
+Every count is computed at build time from the same syllabus data that renders the subject pages, and that data is copied from the official SPPU syllabus PDF linked at the bottom of each branch page. Nothing is estimated.
+
+[Link to this answer](https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/#faq-3)
+
+**How often do these numbers change?**
+
+When SPPU publishes a new or revised syllabus and the catalog is updated. The date on this page is the data date, not a page rebuild date.
+
+[Link to this answer](https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/#faq-4)
+
+---
+
+Method: every figure is computed at build time from the same syllabus catalog that renders the subject pages, and the catalog is copied from the official SPPU syllabus PDFs linked at the bottom of each branch page. PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
 <!-- https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/ -->
 
 # First Year Engineering scheme, credits and marks
@@ -555,6 +680,20 @@ SPPU First Year Engineering, 2024 pattern. Course code BSC-101-BES. Five units, 
 
 04 . credits
 
+## At a glance
+
+Course codeBSC-101-BES
+
+LevelFirst Year Engineering, SPPU 2024 pattern
+
+Units5
+
+Named topics27
+
+Theory hours40
+
+Credits4 (3 theory + 1 tutorial)
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -647,31 +786,43 @@ Tick off each unit as you finish it, and keep your own notes and links in one pl
 
 BSC-101-BES carries 4 credits: 3 for theory (3 hours a week) and 1 for the tutorial (1 hour a week).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-1/#faq-1)
+
 **How are the marks split?**
 
 Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the tutorial credit.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-1/#faq-2)
 
 **How many units are there?**
 
 Five units of 8 hours each, 40 hours in total: single variable calculus and Fourier series, partial differentiation, its applications, matrices and linear systems, and eigen values with diagonalization.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-1/#faq-3)
+
 **What do I need to pass the theory head?**
 
 The college copy of the SPPU rules asks for a minimum score in each head, CCE and End-Semester, plus at least 40 marks in total. The exact per-head numbers are not in the official book, so check your own college notice for the rule that applies to you.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-1/#faq-4)
 
 **Which books does the syllabus list?**
 
 Text books: B. V. Ramana and B. S. Grewal, both titled Higher Engineering Mathematics. Six reference books are listed too, including Kreyszig and Thomas’ Calculus.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-1/#faq-5)
+
 **Is there an official video course?**
 
 The syllabus lists one NPTEL / YouTube playlist for this course. It is linked on this page.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-1/#faq-6)
 
 ---
 
 Sources: [SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf) and the [SPPU credit framework handbook](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
 
 ---
 
@@ -688,6 +839,20 @@ SPPU First Year Engineering, 2024 pattern. Course code BSC-102-BES. Five units, 
 05 . units
 
 04 . credits
+
+## At a glance
+
+Course codeBSC-102-BES
+
+LevelFirst Year Engineering, SPPU 2024 pattern
+
+Units5
+
+Named topics28
+
+Theory hours40
+
+Credits4 (3 theory + 1 tutorial)
 
 ## Unit-wise syllabus
 
@@ -780,31 +945,43 @@ Tick off each unit as you finish it, and keep your own notes and links in one pl
 
 BSC-102-BES carries 4 credits: 3 for theory (3 hours a week) and 1 for practical (2 hours a week).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-physics/#faq-1)
+
 **How are the marks split?**
 
 Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the practical credit.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-physics/#faq-2)
 
 **How many units are there?**
 
 Five units of 8 hours each, 40 hours in total: photonics, quantum physics, wave optics, semiconductor physics with ultrasonics, and nanoparticles with superconductivity.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-physics/#faq-3)
+
 **How many experiments do I have to do?**
 
 Any 8 from the list of 12 in the syllabus. One of the 8 may be an in-house experiment or a virtual lab experiment instead.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-physics/#faq-4)
 
 **Which books does the syllabus list?**
 
 Text books: Avadhanulu, Kshirsagar and Arun Murthy (S. Chand), and Gaur and Gupta (Dhanpat Rai). Five reference books are listed too, including Ghatak’s Optics and Kittel’s Solid State Physics.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-physics/#faq-5)
+
 **Are there official video lectures?**
 
 The syllabus lists Walter Lewin’s lectures and Prof. H. C. Verma’s quantum mechanics series. Both are linked on this page.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-physics/#faq-6)
 
 ---
 
 Sources: [SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf) and the [SPPU credit framework handbook](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
 
 ---
 
@@ -821,6 +998,20 @@ SPPU First Year Engineering, 2024 pattern. Course code BSC-103-BES. Five units, 
 05 . units
 
 04 . credits
+
+## At a glance
+
+Course codeBSC-103-BES
+
+LevelFirst Year Engineering, SPPU 2024 pattern
+
+Units5
+
+Named topics24
+
+Theory hours40
+
+Credits4 (3 theory + 1 tutorial)
 
 ## Unit-wise syllabus
 
@@ -915,31 +1106,43 @@ Tick off each unit as you finish it, and keep your own notes and links in one pl
 
 BSC-103-BES carries 4 credits: 3 for theory (3 hours a week) and 1 for practical (2 hours a week).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-chemistry/#faq-1)
+
 **How are the marks split?**
 
 Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the practical credit.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-chemistry/#faq-2)
 
 **How many units are there?**
 
 Five units of 8 hours each, 40 hours in total: water technology, instrumental methods of analysis, advanced engineering materials, energy sources, and corrosion and its prevention.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-chemistry/#faq-3)
+
 **How many experiments do I have to do?**
 
 Any 8 from the list of 11 in the syllabus. They include hardness by EDTA, alkalinity, pH and conductometric titrations, proximate analysis of coal and preparing biodiesel.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-chemistry/#faq-4)
 
 **Which books does the syllabus list?**
 
 Three text books (Dara and Umare, Palanna, Rattan) and six reference books, including Khopkar, Chatwal and Anand, Kalsi and Shriver and Atkins.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-chemistry/#faq-5)
+
 **Is there an official video course?**
 
 The syllabus lists one NPTEL course, number 113104082. It is linked on this page.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-chemistry/#faq-6)
 
 ---
 
 Sources: [SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf) and the [SPPU credit framework handbook](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
 
 ---
 
@@ -956,6 +1159,20 @@ SPPU First Year Engineering, 2024 pattern. Course code ESC-101-ETC. Five units, 
 05 . units
 
 03 . credits
+
+## At a glance
+
+Course codeESC-101-ETC
+
+LevelFirst Year Engineering, SPPU 2024 pattern
+
+Units5
+
+Named topics23
+
+Theory hours30
+
+Credits3 (2 theory + 1 tutorial)
 
 ## Unit-wise syllabus
 
@@ -1051,31 +1268,43 @@ Tick off each unit as you finish it, and keep your own notes and links in one pl
 
 ESC-101-ETC carries 3 credits: 2 for theory (2 hours a week) and 1 for practical (2 hours a week).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electronics-engineering/#faq-1)
+
 **How are the marks split?**
 
 Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the practical credit.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electronics-engineering/#faq-2)
 
 **How many units are there?**
 
 Five units of 6 hours each, 30 hours in total: diodes, transistors and technology, logic gates and digital circuits, op-amp with electronic instruments, and sensors with communication systems.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electronics-engineering/#faq-3)
+
 **How many experiments do I have to do?**
 
 Any 8 from the list of 10 in the syllabus. They include component study, CRO and multimeter measurements, diode V-I characteristics, a rectifier power supply, a CE amplifier, op-amp circuits, gate truth tables and sensors.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electronics-engineering/#faq-4)
 
 **Which books does the syllabus list?**
 
 Six text books, led by Floyd’s Electronic Devices and Jain’s Modern Digital Electronics, and four reference books including Floyd’s Digital Fundamentals.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electronics-engineering/#faq-5)
+
 **Are there official video courses?**
 
 The syllabus lists three NPTEL courses: 117103063, 117103064 and 106105166. All are linked on this page.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electronics-engineering/#faq-6)
 
 ---
 
 Sources: [SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf) and the [SPPU credit framework handbook](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
 
 ---
 
@@ -1092,6 +1321,20 @@ SPPU First Year Engineering, 2024 pattern. Course code ESE-102-ELE. Five units, 
 05 . units
 
 03 . credits
+
+## At a glance
+
+Course codeESC-102-ELE
+
+LevelFirst Year Engineering, SPPU 2024 pattern
+
+Units5
+
+Named topics26
+
+Theory hours30
+
+Credits3 (2 theory + 1 tutorial)
 
 ## Unit-wise syllabus
 
@@ -1182,31 +1425,43 @@ Tick off each unit as you finish it, and keep your own notes and links in one pl
 
 ESE-102-ELE carries 3 credits: 2 for theory (2 hours a week) and 1 for practical (2 hours a week).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electrical-engineering/#faq-1)
+
 **How are the marks split?**
 
 Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the practical credit.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electrical-engineering/#faq-2)
 
 **How many units are there?**
 
 Five units of 6 hours each, 30 hours in total: elementary concepts and DC circuits, electromagnetism, AC fundamentals, AC circuits, and an introduction to electric machines.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electrical-engineering/#faq-3)
+
 **How many experiments do I have to do?**
 
 Any 8 from the list of 10 in the syllabus. They include verifying Kirchhoff’s laws and the superposition theorem, a transformer loading test, RLC resonance, three-phase star and delta relations, and reading a single-phase LT electricity bill.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electrical-engineering/#faq-4)
 
 **Which books does the syllabus list?**
 
 Two text books (Theraja and Theraja, and Kulshreshtha) and three reference books (Wadhwa, Bhattacharya, and Nagsarkar and Sukhija).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electrical-engineering/#faq-5)
+
 **Is there an official video course?**
 
 The syllabus lists one NPTEL course, number 108105112. It is linked on this page.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electrical-engineering/#faq-6)
 
 ---
 
 Sources: [SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf) and the [SPPU credit framework handbook](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
 
 ---
 
@@ -1223,6 +1478,20 @@ SPPU First Year Engineering, 2024 pattern. Course code ESC-104-CVL. Five units, 
 05 . units
 
 03 . credits
+
+## At a glance
+
+Course codeESC-104-CVL
+
+LevelFirst Year Engineering, SPPU 2024 pattern
+
+Units5
+
+Named topics21
+
+Theory hours30
+
+Credits3 (2 theory + 1 tutorial)
 
 ## Unit-wise syllabus
 
@@ -1314,27 +1583,37 @@ Tick off each unit as you finish it, and keep your own notes and links in one pl
 
 ESC-104-CVL carries 3 credits: 2 for theory (2 hours a week) and 1 for practical (2 hours a week).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mechanics/#faq-1)
+
 **How are the marks split?**
 
 Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the practical credit.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mechanics/#faq-2)
 
 **How many units are there?**
 
 Five units of 6 hours each, 30 hours in total: force systems and resultants, equilibrium, friction and trusses, kinematics of a particle, and kinetics of a particle.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mechanics/#faq-3)
+
 **What does the lab journal contain?**
 
 Four compulsory experiments (polygon law of forces, support reaction of a beam, coefficient of friction, coefficient of restitution), four graphical solutions (concurrent and parallel equilibrium, truss member forces, moment of inertia) and an assignment of at least four examples on each unit.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mechanics/#faq-4)
 
 **Which books does the syllabus list?**
 
 Two text books (Singer, and Hibbeler) and four reference books, including Timoshenko and Young, Beer and Johnston (statics and dynamics) and Meriam and Kraige.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mechanics/#faq-5)
+
 ---
 
 Sources: [SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf) and the [SPPU credit framework handbook](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
 
 ---
 
@@ -1351,6 +1630,20 @@ SPPU First Year Engineering, 2024 pattern. Course code ESC-105-COM. Five units o
 05 . units
 
 03 . credits
+
+## At a glance
+
+Course codeESC-105-COM
+
+LevelFirst Year Engineering, SPPU 2024 pattern
+
+Units5
+
+Named topics24
+
+Theory hours30
+
+Credits3 (2 theory + 1 tutorial)
 
 ## Unit-wise syllabus
 
@@ -1443,31 +1736,43 @@ Tick off each unit as you finish it, and keep your own notes and links in one pl
 
 ESC-105-COM carries 3 credits: 2 for theory (2 hours a week) and 1 for practical (2 hours a week).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/fundamentals-of-programming-languages/#faq-1)
+
 **How are the marks split?**
 
 Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the practical credit.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/fundamentals-of-programming-languages/#faq-2)
 
 **Which language does the course use?**
 
 C. The five units cover program planning and the basics of C, operators and expressions, control flow, arrays and strings, and user defined functions with structures.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/fundamentals-of-programming-languages/#faq-3)
+
 **How many lab assignments do I have to do?**
 
 Any 6 to 8 from the list of 10 in the syllabus. They include prime and factorial programs, a Fibonacci series, array operations, string operations and a structure for employee details. Instructors may also assign a mini-project.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/fundamentals-of-programming-languages/#faq-4)
 
 **Which books does the syllabus list?**
 
 One text book, Programming in ANSI C by E. Balagurusamy, and six reference books including Kernighan and Ritchie’s The C Programming Language and Deitel and Deitel’s C: How to Program.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/fundamentals-of-programming-languages/#faq-5)
+
 **Are there official video courses?**
 
 The syllabus lists two NPTEL courses, noc22_cs40 and noc23_cs53. Both are linked on this page.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/fundamentals-of-programming-languages/#faq-6)
 
 ---
 
 Sources: [SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf) and the [SPPU credit framework handbook](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
 
 ---
 
@@ -1484,6 +1789,20 @@ SPPU First Year Engineering, 2024 pattern. Course code ESC-103-MEC. Five units, 
 05 . units
 
 03 . credits
+
+## At a glance
+
+Course codeESC-103-MEC
+
+LevelFirst Year Engineering, SPPU 2024 pattern
+
+Units5
+
+Named topics19
+
+Theory hours30
+
+Credits3 (2 theory + 1 tutorial)
 
 ## Unit-wise syllabus
 
@@ -1578,31 +1897,43 @@ Tick off each unit as you finish it, and keep your own notes and links in one pl
 
 ESC-103-MEC carries 3 credits: 2 for theory (2 hours a week) and 1 for practical (2 hours a week).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-graphics/#faq-1)
+
 **How are the marks split?**
 
 Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the practical credit.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-graphics/#faq-2)
 
 **How many units are there?**
 
 Five units of 6 hours each, 30 hours in total: fundamentals with projection of points and lines, projection of planes, engineering curves with development of surfaces, orthographic projection, and isometric projection.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-graphics/#faq-3)
+
 **What are the drawing assignments?**
 
 Five sets of two problems each: projection of lines, projection of planes, engineering curves with development of lateral surfaces, orthographic projections and isometric projections. They are drawn on A2 sheets, and two problems must be drawn using CAD software.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-graphics/#faq-4)
 
 **Which angle of projection is used?**
 
 The syllabus covers both first angle and third angle methods in orthographic projection. Typical problems are solved by the first angle method, and projection of lines is taught in first angle projection.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-graphics/#faq-5)
+
 **Which books does the syllabus list?**
 
 Four text books (Bhatt and Panchal, Venugopal, Jolhe, Rathnam) and five reference books, including Madsen and Madsen, Dhawan and Giesecke.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-graphics/#faq-6)
 
 ---
 
 Sources: [SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf) and the [SPPU credit framework handbook](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
 
 ---
 
@@ -1619,6 +1950,20 @@ SPPU First Year Engineering, 2024 pattern, Semester II. Course code BSC-151-BES.
 05 . units
 
 04 . credits
+
+## At a glance
+
+Course codeBSC-151-BES
+
+LevelFirst Year Engineering, SPPU 2024 pattern
+
+Units5
+
+Named topics31
+
+Theory hours40
+
+Credits4 (3 theory + 1 tutorial)
 
 ## Unit-wise syllabus
 
@@ -1712,27 +2057,37 @@ Tick off each unit as you finish it, and keep your own notes and links in one pl
 
 BSC-151-BES carries 4 credits: 3 for theory (3 hours a week) and 1 for the tutorial (1 hour a week).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-2/#faq-1)
+
 **How are the marks split?**
 
 Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the tutorial credit.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-2/#faq-2)
 
 **How many units are there?**
 
 Five units of 8 hours each, 40 hours in total: integral calculus, curve tracing and solid geometry, multiple integrals, first order ordinary differential equations, and applications of differential equations.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-2/#faq-3)
+
 **How is term work assessed?**
 
 Through assignments on the units, based on performance and continuous internal assessment. The syllabus sets tutorial batches of at most 22 students.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-2/#faq-4)
 
 **Which books does the syllabus list?**
 
 Text books: B. V. Ramana and B. S. Grewal, both titled Higher Engineering Mathematics. Six reference books are listed too, including Kreyszig, Thomas’ Calculus and S. L. Ross on differential equations.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-2/#faq-5)
+
 ---
 
 Sources: [SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf) and the [SPPU credit framework handbook](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
 
 ---
 
@@ -1749,6 +2104,20 @@ SPPU First Year Engineering, 2024 pattern, Semester II. Course code PCC-151-ITT.
 05 . units
 
 03 . credits
+
+## At a glance
+
+Course codePCC-151-ITT
+
+LevelFirst Year Engineering, SPPU 2024 pattern
+
+Units5
+
+Named topics17
+
+Theory hours19
+
+Credits3 (2 theory + 1 tutorial)
 
 ## Unit-wise syllabus
 
@@ -1841,31 +2210,43 @@ Tick off each unit as you finish it, and keep your own notes and links in one pl
 
 PCC-151-ITT carries 3 credits in the book’s semester scheme table: 2 for theory (2 hours a week) and 1 for practical (2 hours a week).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/programming-and-problem-solving/#faq-1)
+
 **How are the marks split?**
 
 Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the practical credit.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/programming-and-problem-solving/#faq-2)
 
 **Which language does the course use?**
 
 Python. The five units cover problem solving and Python basics, advanced data types with decision control, functions and strings, file handling with dictionaries, and object oriented programming.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/programming-and-problem-solving/#faq-3)
+
 **Is everything in the syllabus examined in theory?**
 
 No. The Unit IV case study, on the design, features and use of a popular system built with Python, is excluded from the theory examination.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/programming-and-problem-solving/#faq-4)
 
 **What are the lab assignments?**
 
 Group A has practicals for each of the five units, from installing Python and operators to string operations, file handling and classes. Group B has assignments from Electrical, Mechanical and Civil application domains, designed with faculty from those branches.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/programming-and-problem-solving/#faq-5)
+
 **Which books does the syllabus list?**
 
 Two text books (Reema Thareja, and R. Nageswara Rao) and several reference books including Dromey, Fabrizio Romano’s Learning Python and Paul Barry’s Head First Python.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/programming-and-problem-solving/#faq-6)
 
 ---
 
 Sources: [SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf) and the [SPPU credit framework handbook](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
 
 ---
 
@@ -1897,7 +2278,7 @@ Second Year, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes an
 
 Source: [SPPU SE Computer Engineering 2024 pattern syllabus (revised June 2026, effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/SE%20-%20Computer%20Engineering%20-%202024%20Pattern%20Revised_13062026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Computer subjects](https://preptracker.manavdev.site/syllabus/se-computer-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Computer subjects](https://preptracker.manavdev.site/syllabus/se-computer-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
 
 ---
 
@@ -1929,7 +2310,7 @@ Second Year, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes an
 
 Source: [SPPU SE Computer Science and Engineering 2024 pattern syllabus (revised June 2026) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/SE%20Computer%20Science%20and%20Engineering%20-%202024%20Pattern%20-%20Revised_13062026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE CSE subjects](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE CSE subjects](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
 
 ---
 
@@ -1961,7 +2342,7 @@ Second Year, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes an
 
 Source: [SPPU SE AI and Data Science 2024 pattern syllabus (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE%20-%20AIandDS%20-%202024%20Pattern_18072025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE AI&DS subjects](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE AI&DS subjects](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
 
 ---
 
@@ -1993,7 +2374,7 @@ Second Year, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes an
 
 Source: [SPPU SE Electrical Engineering 2024 pattern syllabus (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE_Electrical_Syllabus_2024_pattern_14th_July_15072025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Electrical subjects](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Electrical subjects](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
 
 ---
 
@@ -2023,7 +2404,7 @@ Second Year, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes an
 
 Source: [SPPU SE Information Technology 2024 pattern syllabus (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE%20IT%202024%20Pattern%20Syllabus_15072025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE IT subjects](https://preptracker.manavdev.site/syllabus/se-information-technology/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE IT subjects](https://preptracker.manavdev.site/syllabus/se-information-technology/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
 
 ---
 
@@ -2055,7 +2436,7 @@ Second Year, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes an
 
 Source: [SPPU SE Civil Engineering 2024 pattern syllabus (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE-Civil2024_pattern-_final_version_22072025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Civil subjects](https://preptracker.manavdev.site/syllabus/se-civil-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Civil subjects](https://preptracker.manavdev.site/syllabus/se-civil-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
 
 ---
 
@@ -2087,7 +2468,7 @@ Second Year, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes an
 
 Source: [SPPU SE Instrumentation and Control Engineering 2024 pattern syllabus (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE_Instrumentation%20and%20Control_2024%20Course_Updated_3rd%20July%202025_10072025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Instrumentation subjects](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Instrumentation subjects](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
 
 ---
 
@@ -2117,7 +2498,7 @@ Second Year, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes an
 
 Source: [SPPU SE Mechanical Engineering 2024 pattern syllabus (revised June 2026, effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/SE%20(2024)%20Revised%20Mechanical%20Engineering%20Syllabus_08062026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Mechanical subjects](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Mechanical subjects](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
 
 ---
 
@@ -2159,7 +2540,7 @@ Second Year, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes an
 
 Source: [SPPU SE Cyber Security 2024 pattern syllabus (effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/SE%20-%20Cyber%20Security%20-%202024%20Pattern.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Cyber Security subjects](https://preptracker.manavdev.site/syllabus/se-cyber-security/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Cyber Security subjects](https://preptracker.manavdev.site/syllabus/se-cyber-security/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
 
 ---
 
@@ -2191,7 +2572,7 @@ Third Year, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes and
 
 Source: [SPPU TE Robotics and Artificial Intelligence 2024 pattern syllabus (June 2026) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/TE_Robotics%20and%20AI_Syllabus_2024%20Pattern%20(1)_13062026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Robotics and AI subjects](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Robotics and AI subjects](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
 
 ---
 
@@ -2223,7 +2604,7 @@ Third Year, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes and
 
 Source: [SPPU TE Mechanical Engineering 2024 pattern syllabus (May 2026) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/R10_%20TE%20(2024%20PATT)%20Mechanical%20Engineering%20Syllabus%20(30.5.2026)_04062026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Mechanical subjects](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Mechanical subjects](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
 
 ---
 
@@ -2275,7 +2656,7 @@ Source note: Mobile Computing uses PEC321CCOM from the curriculum table; its det
 
 Source: [SPPU TE Computer Engineering 2024 pattern syllabus (September 22, 2026, effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/TE%20-%20Computer%20Engineering%20-%202024%2022092026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Computer subjects](https://preptracker.manavdev.site/syllabus/te-computer-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Computer subjects](https://preptracker.manavdev.site/syllabus/te-computer-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
 
 ---
 
@@ -2327,7 +2708,7 @@ Source note: Web Application Development uses PEC-321C-IT Advanced Database Mana
 
 Source: [SPPU TE Information Technology 2024 pattern syllabus (October 9, 2026, effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/TE%20IT%202024%20Pattern%20Final_09102026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE IT subjects](https://preptracker.manavdev.site/syllabus/te-information-technology/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE IT subjects](https://preptracker.manavdev.site/syllabus/te-information-technology/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
 
 ---
 
@@ -2373,7 +2754,7 @@ Source note: Computer Aided Design uses PEC-321C-ELE from the curriculum table; 
 
 Source: [SPPU TE Electrical Engineering 2024 pattern syllabus (July 20, 2026, effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/TE_Electrical_Engg_2024_Pattern_Syllabus_17_july_2026_20072026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Electrical subjects](https://preptracker.manavdev.site/syllabus/te-electrical/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Electrical subjects](https://preptracker.manavdev.site/syllabus/te-electrical/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
 
 ---
 

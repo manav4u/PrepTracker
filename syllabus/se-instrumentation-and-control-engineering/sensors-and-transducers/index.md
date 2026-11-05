@@ -8,6 +8,22 @@ PCC-201-INC 3 h/week theory CCE 30 + End-sem 70
 
 03 . credits
 
+## At a glance
+
+Course codePCC-201-INC
+
+Year and branchSecond Year Instrumentation and Control Engineering
+
+PatternSPPU 2024
+
+Units5
+
+Credits3
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteDefinition of transducer, sensors, classification of transducers & sensors.
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -135,16 +151,22 @@ Prerequisite: Definition of transducer, sensors, classification of transducers &
 
 Sensors and Transducers (PCC-201-INC) has 5 units: Unit I Pressure Measurement (10 h); Unit II Temperature Measurement (8 h); Unit III Flow Measurement (8 h); Unit IV Level, Force and Torque Measurement (8 h); Unit V Miscellaneous sensors (6 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/sensors-and-transducers/#faq-1)
+
 **What is the marks scheme for Sensors and Transducers?**
 
 The official Instrumentation and Control Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 3 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/sensors-and-transducers/#faq-2)
 
 **What should I know before Sensors and Transducers?**
 
 Prerequisite listed in the syllabus: Definition of transducer, sensors, classification of transducers & sensors..
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/sensors-and-transducers/#faq-3)
+
 ---
 
 Source: [SPPU SE Instrumentation and Control Engineering 2024 pattern syllabus (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE_Instrumentation%20and%20Control_2024%20Course_Updated_3rd%20July%202025_10072025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Instrumentation subjects](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Instrumentation subjects](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

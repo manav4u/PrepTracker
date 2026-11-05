@@ -10,6 +10,24 @@ PCC352COM 2 h/week theory CCE 30 + End-sem 70
 
 02 . credits
 
+## At a glance
+
+Course codePCC352COM
+
+Year and branchThird Year Computer Engineering
+
+PatternSPPU 2024
+
+Units5
+
+Theory hours30
+
+Credits2
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteProgramming Fundamentals, Data Structures, Object-Oriented Programming Concepts
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -134,13 +152,19 @@ Prerequisite: Programming Fundamentals, Data Structures, Object-Oriented Program
 
 Software Engineering and Modeling (PCC352COM) has 5 units and 30 hours of theory: Unit I Introduction to Software Engineering (6 h); Unit II Requirements Engineering (6 h); Unit III Software Modelling (6 h); Unit IV Software Project Management and Testing (6 h); Unit V Advanced Concepts in Software Engineering (6 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-computer-engineering/software-engineering-and-modeling/#faq-1)
+
 **What is the marks scheme for Software Engineering and Modeling?**
 
 The official Computer Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 2 credits.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-computer-engineering/software-engineering-and-modeling/#faq-2)
+
 **What should I know before Software Engineering and Modeling?**
 
 Prerequisite listed in the syllabus: Programming Fundamentals, Data Structures, Object-Oriented Programming Concepts.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-computer-engineering/software-engineering-and-modeling/#faq-3)
 
 ---
 
@@ -148,4 +172,4 @@ Source note: Mobile Computing uses PEC321CCOM from the curriculum table; its det
 
 Source: [SPPU TE Computer Engineering 2024 pattern syllabus (September 22, 2026, effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/TE%20-%20Computer%20Engineering%20-%202024%2022092026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Computer subjects](https://preptracker.manavdev.site/syllabus/te-computer-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Computer subjects](https://preptracker.manavdev.site/syllabus/te-computer-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

@@ -10,6 +10,24 @@ PEC-361A-IT 3 h/week theory CCE 30 + End-sem 70
 
 03 . credits
 
+## At a glance
+
+Course codePEC-361A-IT
+
+Year and branchThird Year Information Technology
+
+PatternSPPU 2024
+
+Units5
+
+Theory hours45
+
+Credits3
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteSoftware Engineering
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -134,13 +152,19 @@ Prerequisite: Software Engineering.
 
 DevOps (PEC-361A-IT) has 5 units and 45 hours of theory: Unit I Introduction To Devops And The Culture. (9 h); Unit II Microservices Architecture And Cloud Native Development. (9 h); Unit III Continuous Integration And Test-Driven Development. (9 h); Unit IV Continuous Deployment And Orchestration. (9 h); Unit V Continuous Monitoring And Site Reliability. (9 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-information-technology/devops/#faq-1)
+
 **What is the marks scheme for DevOps?**
 
 The official Information Technology 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 3 credits.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-information-technology/devops/#faq-2)
+
 **What should I know before DevOps?**
 
 Prerequisite listed in the syllabus: Software Engineering.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-information-technology/devops/#faq-3)
 
 ---
 
@@ -148,4 +172,4 @@ Source note: Web Application Development uses PEC-321C-IT Advanced Database Mana
 
 Source: [SPPU TE Information Technology 2024 pattern syllabus (October 9, 2026, effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/TE%20IT%202024%20Pattern%20Final_09102026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE IT subjects](https://preptracker.manavdev.site/syllabus/te-information-technology/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE IT subjects](https://preptracker.manavdev.site/syllabus/te-information-technology/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

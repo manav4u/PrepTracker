@@ -10,6 +10,24 @@ PCC-252-ELE 2 h/week theory CCE 30 + End-sem 70
 
 02 . credits
 
+## At a glance
+
+Course codePCC-252-ELE
+
+Year and branchSecond Year Electrical Engineering
+
+PatternSPPU 2024
+
+Units5
+
+Theory hours30
+
+Credits2
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteBasic Calculus, Linear Algebra, Basic Programming Skills, Basic Electrical Engineering
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -155,16 +173,22 @@ Listed in the official syllabus:
 
 Numerical Methods and Computer Programming (PCC-252-ELE) has 5 units and 30 hours of theory: Unit I Introduction to Python and Numerical Methods (6 h); Unit II Algebraic and Transcendental Equations (6 h); Unit III Systems of Linear Algebraic Equations (6 h); Unit IV Interpolation, Numerical Differentiation, and Integration (6 h); Unit V Ordinary Differential Equations and Curve Fitting (6 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/numerical-methods-and-computer-programming/#faq-1)
+
 **What is the marks scheme for Numerical Methods and Computer Programming?**
 
 The official Electrical Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 2 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/numerical-methods-and-computer-programming/#faq-2)
 
 **What should I know before Numerical Methods and Computer Programming?**
 
 Prerequisite listed in the syllabus: Basic Calculus, Linear Algebra, Basic Programming Skills, Basic Electrical Engineering.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/numerical-methods-and-computer-programming/#faq-3)
+
 ---
 
 Source: [SPPU SE Electrical Engineering 2024 pattern syllabus (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE_Electrical_Syllabus_2024_pattern_14th_July_15072025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Electrical subjects](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Electrical subjects](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

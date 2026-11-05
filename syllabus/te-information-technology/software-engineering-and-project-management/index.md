@@ -8,6 +8,22 @@ PCC352-ITT 2 h/week theory CCE 30 + End-sem 70
 
 02 . credits
 
+## At a glance
+
+Course codePCC352-ITT
+
+Year and branchThird Year Information Technology
+
+PatternSPPU 2024
+
+Units5
+
+Credits2
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteFundamentals of Programming and Problem Solving
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -136,13 +152,19 @@ Prerequisite: Fundamentals of Programming and Problem Solving.
 
 Software Engineering & Project Management (PCC352-ITT) has 5 units: Unit I Foundations Of Software Engineering (9 h); Unit II Requirements Engineering And UML-Based Design (9 h); Unit III Agile Software Development And Devops (9 h); Unit IV Software Testing, Quality Assurance And Maintenance (9 h); Unit V Software Project Management And Emerging Trends (9 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-information-technology/software-engineering-and-project-management/#faq-1)
+
 **What is the marks scheme for Software Engineering & Project Management?**
 
 The official Information Technology 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 2 credits.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-information-technology/software-engineering-and-project-management/#faq-2)
+
 **What should I know before Software Engineering & Project Management?**
 
 Prerequisite listed in the syllabus: Fundamentals of Programming and Problem Solving.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-information-technology/software-engineering-and-project-management/#faq-3)
 
 ---
 
@@ -150,4 +172,4 @@ Source note: Web Application Development uses PEC-321C-IT Advanced Database Mana
 
 Source: [SPPU TE Information Technology 2024 pattern syllabus (October 9, 2026, effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/TE%20IT%202024%20Pattern%20Final_09102026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE IT subjects](https://preptracker.manavdev.site/syllabus/te-information-technology/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE IT subjects](https://preptracker.manavdev.site/syllabus/te-information-technology/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

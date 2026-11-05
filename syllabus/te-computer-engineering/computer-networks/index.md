@@ -10,6 +10,24 @@ PCC302COM 3 h/week theory CCE 30 + End-sem 70
 
 03 . credits
 
+## At a glance
+
+Course codePCC302COM
+
+Year and branchThird Year Computer Engineering
+
+PatternSPPU 2024
+
+Units5
+
+Theory hours45
+
+Credits3
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteDigital Electronics and Logic Design, Discrete Mathematics, Computer Organization & Microprocessor
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -156,13 +174,19 @@ Prerequisite: Digital Electronics and Logic Design, Discrete Mathematics, Comput
 
 Computer Networks (PCC302COM) has 5 units and 45 hours of theory: Unit I Introduction to Computer Networks and Physical Layer (9 h); Unit II Data Link Layer (9 h); Unit III Network Layer (9 h); Unit IV Transport Layer Protocols (9 h); Unit V Application Layer (9 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-computer-engineering/computer-networks/#faq-1)
+
 **What is the marks scheme for Computer Networks?**
 
 The official Computer Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 3 credits.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-computer-engineering/computer-networks/#faq-2)
+
 **What should I know before Computer Networks?**
 
 Prerequisite listed in the syllabus: Digital Electronics and Logic Design, Discrete Mathematics, Computer Organization & Microprocessor.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-computer-engineering/computer-networks/#faq-3)
 
 ---
 
@@ -170,4 +194,4 @@ Source note: Mobile Computing uses PEC321CCOM from the curriculum table; its det
 
 Source: [SPPU TE Computer Engineering 2024 pattern syllabus (September 22, 2026, effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/TE%20-%20Computer%20Engineering%20-%202024%2022092026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Computer subjects](https://preptracker.manavdev.site/syllabus/te-computer-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Computer subjects](https://preptracker.manavdev.site/syllabus/te-computer-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

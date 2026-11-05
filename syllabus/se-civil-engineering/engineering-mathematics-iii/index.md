@@ -8,6 +8,22 @@ MDM-221-CVL 3 h/week theory CCE 30 + End-sem 70
 
 03 . credits
 
+## At a glance
+
+Course codeMDM-221-CVL
+
+Year and branchSecond Year Civil Engineering
+
+PatternSPPU 2024
+
+Units5
+
+Credits3
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteDifferential & Integral calculus, Differential equations of first order & first degree, Fourier series, Collection, Classification and Representation of data and Vector algebra.
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -138,16 +154,22 @@ Prerequisite: Differential & Integral calculus, Differential equations of first 
 
 Engineering Mathematics - III (MDM-221-CVL) has 5 units: Unit I Linear Differential Equations (LDE) and Applications (8 h); Unit II Statistics and Probability (8 h); Unit III Numerical Methods for solving Algebraic and Transcendental Equations (8 h); Unit IV Numerical Interpolation and Solution of ODE (8 h); Unit V Vector Calculus (8 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-civil-engineering/engineering-mathematics-iii/#faq-1)
+
 **What is the marks scheme for Engineering Mathematics - III?**
 
 The official Civil Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 3 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-civil-engineering/engineering-mathematics-iii/#faq-2)
 
 **What should I know before Engineering Mathematics - III?**
 
 Prerequisite listed in the syllabus: Differential & Integral calculus, Differential equations of first order & first degree, Fourier series, Collection, Classification and Representation of data and Vector algebra..
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-civil-engineering/engineering-mathematics-iii/#faq-3)
+
 ---
 
 Source: [SPPU SE Civil Engineering 2024 pattern syllabus (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE-Civil2024_pattern-_final_version_22072025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Civil subjects](https://preptracker.manavdev.site/syllabus/se-civil-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Civil subjects](https://preptracker.manavdev.site/syllabus/se-civil-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

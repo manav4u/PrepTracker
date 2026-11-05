@@ -10,6 +10,24 @@ PCC-202-AID 3 h/week theory CCE 30 + End-sem 70
 
 03 . credits
 
+## At a glance
+
+Course codePCC-202-AID
+
+Year and branchSecond Year Artificial Intelligence and Data Science
+
+PatternSPPU 2024
+
+Units5
+
+Theory hours45
+
+Credits3
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteMathematics, Probability and Statistics, Programming and Problem Solving
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -135,16 +153,22 @@ Prerequisite: Mathematics, Probability and Statistics, Programming and Problem S
 
 Artificial Intelligence (PCC-202-AID) has 5 units and 45 hours of theory: Unit I Introduction to AI (9 h); Unit II Problem-solving (9 h); Unit III Adversarial Search and Constraint Satisfaction (9 h); Unit IV Knowledge and Reasoning (9 h); Unit V Planning and Emerging AI Topics (9 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/artificial-intelligence/#faq-1)
+
 **What is the marks scheme for Artificial Intelligence?**
 
 The official Artificial Intelligence and Data Science 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 3 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/artificial-intelligence/#faq-2)
 
 **What should I know before Artificial Intelligence?**
 
 Prerequisite listed in the syllabus: Mathematics, Probability and Statistics, Programming and Problem Solving.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/artificial-intelligence/#faq-3)
+
 ---
 
 Source: [SPPU SE AI and Data Science 2024 pattern syllabus (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE%20-%20AIandDS%20-%202024%20Pattern_18072025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE AI&DS subjects](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE AI&DS subjects](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

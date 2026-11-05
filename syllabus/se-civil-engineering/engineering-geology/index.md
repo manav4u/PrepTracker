@@ -10,6 +10,24 @@ MDM-271-CVL 2 h/week theory CCE 30 + End-sem 70
 
 02 . credits
 
+## At a glance
+
+Course codeMDM-271-CVL
+
+Year and branchSecond Year Civil Engineering
+
+PatternSPPU 2024
+
+Units5
+
+Theory hours30
+
+Credits2
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteGeography and Basic Civil Engg.
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -145,16 +163,22 @@ Prerequisite: Geography and Basic Civil Engg..
 
 Engineering Geology (MDM-271-CVL) has 5 units and 30 hours of theory: Unit I Rock Science (6 h); Unit II Remote Sensing and GIS, Hydrogeology (6 h); Unit III Structural Geology and Preliminary Geological Exploration (6 h); Unit IV Preliminary Geological Investigation of Dam Tunnel and (6 h); Unit V Geohazards (6 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-civil-engineering/engineering-geology/#faq-1)
+
 **What is the marks scheme for Engineering Geology?**
 
 The official Civil Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 2 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-civil-engineering/engineering-geology/#faq-2)
 
 **What should I know before Engineering Geology?**
 
 Prerequisite listed in the syllabus: Geography and Basic Civil Engg..
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-civil-engineering/engineering-geology/#faq-3)
+
 ---
 
 Source: [SPPU SE Civil Engineering 2024 pattern syllabus (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE-Civil2024_pattern-_final_version_22072025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Civil subjects](https://preptracker.manavdev.site/syllabus/se-civil-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Civil subjects](https://preptracker.manavdev.site/syllabus/se-civil-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

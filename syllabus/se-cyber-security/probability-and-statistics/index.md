@@ -22,6 +22,24 @@ PCC-253-CYB 2 h/week theory CCE 40 + End-sem 60
 
 02 . credits
 
+## At a glance
+
+Course codePCC-253-CYB
+
+Year and branchSecond Year Cyber Security
+
+PatternSPPU 2024
+
+Units5
+
+Theory hours30
+
+Credits2
+
+MarksCCE 40 + end-semester 60
+
+PrerequisiteBasics of Integration and differentiation, Concepts of set theory
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -164,16 +182,22 @@ Prerequisite: Basics of Integration and differentiation, Concepts of set theory.
 
 Probability and Statistics (PCC-253-CYB) has 5 units and 30 hours of theory: Unit I Probability Basics and distributions (6 h); Unit II Central limit theorem (6 h); Unit III Sampling Theory and Statistical Estimation (6 h); Unit IV Test of hypothesis (6 h); Unit V Correlation and regression (6 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-cyber-security/probability-and-statistics/#faq-1)
+
 **What is the marks scheme for Probability and Statistics?**
 
 The official Cyber Security 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 40 marks and the end-semester exam for 60 marks, for 2 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-cyber-security/probability-and-statistics/#faq-2)
 
 **What should I know before Probability and Statistics?**
 
 Prerequisite listed in the syllabus: Basics of Integration and differentiation, Concepts of set theory.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-cyber-security/probability-and-statistics/#faq-3)
+
 ---
 
 Source: [SPPU SE Cyber Security 2024 pattern syllabus (effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/SE%20-%20Cyber%20Security%20-%202024%20Pattern.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Cyber Security subjects](https://preptracker.manavdev.site/syllabus/se-cyber-security/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Cyber Security subjects](https://preptracker.manavdev.site/syllabus/se-cyber-security/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

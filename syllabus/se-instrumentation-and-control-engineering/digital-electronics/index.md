@@ -8,6 +8,22 @@ PCC-253-INC 2 h/week theory CCE 30 + End-sem 70
 
 02 . credits
 
+## At a glance
+
+Course codePCC-253-INC
+
+Year and branchSecond Year Instrumentation and Control Engineering
+
+PatternSPPU 2024
+
+Units4
+
+Credits2
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteLogic gates, flip flops, logic devices.
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -131,16 +147,22 @@ Listed in the official syllabus:
 
 Digital Electronics (PCC-253-INC) has 4 units: Unit I Logic Families (6 h); Unit II Number system & Logic circuit minimization techniques (6 h); Unit III Combinational Logic Circuits (6 h); Unit IV Sequential Logic (8 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/digital-electronics/#faq-1)
+
 **What is the marks scheme for Digital Electronics?**
 
 The official Instrumentation and Control Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 2 credits.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/digital-electronics/#faq-2)
 
 **What should I know before Digital Electronics?**
 
 Prerequisite listed in the syllabus: Logic gates, flip flops, logic devices..
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/digital-electronics/#faq-3)
+
 ---
 
 Source: [SPPU SE Instrumentation and Control Engineering 2024 pattern syllabus (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE_Instrumentation%20and%20Control_2024%20Course_Updated_3rd%20July%202025_10072025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Instrumentation subjects](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Instrumentation subjects](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)

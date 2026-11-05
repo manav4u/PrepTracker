@@ -8,6 +8,22 @@ PEC-363A-ELE 3 h/week theory CCE 30 + End-sem 70
 
 03 . credits
 
+## At a glance
+
+Course codePEC-363A-ELE
+
+Year and branchThird Year Electrical Engineering
+
+PatternSPPU 2024
+
+Units5
+
+Credits3
+
+MarksCCE 30 + end-semester 70
+
+PrerequisiteElectrical Engineering fundamentals, physics concepts (light, optics, energy), electrical circuits and measurements
+
 ## Unit-wise syllabus
 
 UNIT I
@@ -143,13 +159,19 @@ Prerequisite: Electrical Engineering fundamentals, physics concepts (light, opti
 
 Illumination Engineering (PEC-363A-ELE) has 5 units: Unit I Importance of Lighting in Human Life (8 h); Unit II Light Sources and Electrical Control of Light Sources (8 h); Unit III Design Considerations for illumination schemes (8 h); Unit IV Design of lighting schemes (8 h); Unit V Modern trends in illumination (8 h).
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-electrical/illumination-engineering/#faq-1)
+
 **What is the marks scheme for Illumination Engineering?**
 
 The official Electrical Engineering 2024 pattern syllabus lists continuous comprehensive evaluation (CCE) for 30 marks and the end-semester exam for 70 marks, for 3 credits.
 
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-electrical/illumination-engineering/#faq-2)
+
 **What should I know before Illumination Engineering?**
 
 Prerequisite listed in the syllabus: Electrical Engineering fundamentals, physics concepts (light, optics, energy), electrical circuits and measurements.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/te-electrical/illumination-engineering/#faq-3)
 
 ---
 
@@ -157,4 +179,4 @@ Source note: Computer Aided Design uses PEC-321C-ELE from the curriculum table; 
 
 Source: [SPPU TE Electrical Engineering 2024 pattern syllabus (July 20, 2026, effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/TE_Electrical_Engg_2024_Pattern_Syllabus_17_july_2026_20072026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
 
-[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Electrical subjects](https://preptracker.manavdev.site/syllabus/te-electrical/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Electrical subjects](https://preptracker.manavdev.site/syllabus/te-electrical/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
