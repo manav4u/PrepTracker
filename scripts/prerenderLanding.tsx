@@ -29,3 +29,4 @@ export function renderLanding(): string {
   );
 }
 export { landingToMarkdown } from './htmlToMarkdown';
+export { aiSummaryTag, markdownAlternateTag, siteJsonLdScript } from './aiFiles';

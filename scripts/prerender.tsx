@@ -11,3 +11,4 @@ export { readingCss, readingChrome, readingScript, consentCss, consentScript } f
 export { renderPrivacyPage } from './privacyPage';
 export { renderSyllabusHub } from './hubPage';
 export { htmlToMarkdown, landingToMarkdown } from './htmlToMarkdown';
+export { buildAiTxt, buildLlmsFull, aiSummaryTag, markdownAlternateTag, siteJsonLdScript, AI_SITE } from './aiFiles';
