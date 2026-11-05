@@ -1,4 +1,27 @@
+# robots.txt for PrepTracker. Keep in sync with llms.txt and ai.txt.
+# Public pages: /, /syllabus/*, /privacy, /research/*. App shells are noindexed.
+
 User-agent: *
 Allow: /
+
+# AI search and user-fetch crawlers are explicitly welcome on public paths;
+# they are what lets answer engines cite the site.
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+
+# Training crawlers (GPTBot, ClaudeBot, Google-Extended, Applebot-Extended,
+# CCBot, Bytespider) are deliberately not named: allow/block is the site
+# owner's call. Until decided they inherit the User-agent: * rule above.
+# See llms.txt and ai.txt at the site root.
 
 Sitemap: https://preptracker.manavdev.site/sitemap.xml

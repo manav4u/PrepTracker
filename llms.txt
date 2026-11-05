@@ -200,3 +200,8 @@
 - [Illumination Engineering (PEC-363A-ELE)](https://preptracker.manavdev.site/syllabus/te-electrical/illumination-engineering/index.md)
 - [Energy Management (PEC-363B-ELE)](https://preptracker.manavdev.site/syllabus/te-electrical/energy-management/index.md)
 - [Digital Signal Processing (PEC-363C-ELE)](https://preptracker.manavdev.site/syllabus/te-electrical/digital-signal-processing/index.md)
+
+## Machine-readable
+- [Full content: every page below in one fetch](https://preptracker.manavdev.site/llms-full.txt)
+- [AI usage policy](https://preptracker.manavdev.site/ai.txt)
+- [Sitemap](https://preptracker.manavdev.site/sitemap.xml)
