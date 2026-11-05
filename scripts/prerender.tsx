@@ -10,5 +10,7 @@ export { SE_BRANCHES } from './seBranches';
 export { readingCss, readingChrome, readingScript, consentCss, consentScript } from './readingEdition';
 export { renderPrivacyPage } from './privacyPage';
 export { renderSyllabusHub } from './hubPage';
+export { renderSyllabusStats, renderResearchHub, RESEARCH_PATH, RESEARCH_SLUG } from './researchPage';
+export { realTotals } from './researchCatalog';
 export { htmlToMarkdown, landingToMarkdown } from './htmlToMarkdown';
 export { buildAiTxt, buildLlmsFull, aiSummaryTag, markdownAlternateTag, siteJsonLdScript, AI_SITE } from './aiFiles';

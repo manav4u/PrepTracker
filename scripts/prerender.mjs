@@ -27,9 +27,10 @@ await build({
 });
 try {
   const mod = await import(pathToFileURL(path.join(outDir, 'prerender.mjs')).href);
+  const today = new Date().toISOString().slice(0, 10);
   let pages = 0;
   // llms.txt index entries, collected as pages are written.
-  const llms = { pages: [['PrepTracker home', SITE + '/index.md'], ['SPPU syllabus library', SITE + '/syllabus/index.md']], guides: [], fe: [], branches: [] };
+  const llms = { pages: [['PrepTracker home', SITE + '/index.md'], ['SPPU syllabus library', SITE + '/syllabus/index.md']], guides: [], fe: [], branches: [], research: [] };
   const writePage = (dir, html, mirror, pageUrl) => {
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(path.join(dir, 'index.html'), html);
@@ -72,6 +73,14 @@ try {
   writePage(path.resolve('dist/privacy/'), mod.renderPrivacyPage(), true, SITE + '/privacy/');
   llms.pages.push(['Privacy policy', SITE + '/privacy/index.md']);
   pages++;
+  // Research pages: statistics computed from the same catalog, mirrored like
+  // every other public page.
+  writePage(path.resolve('dist/research/'), mod.renderResearchHub(today), true, SITE + '/research/');
+  llms.research.push(['Research: SPPU syllabus data and statistics', SITE + '/research/index.md']);
+  pages++;
+  writePage(path.resolve('dist/research/' + mod.RESEARCH_SLUG + '/'), mod.renderSyllabusStats(today), true, SITE + mod.RESEARCH_PATH);
+  llms.research.push(['SPPU syllabus statistics 2026', SITE + mod.RESEARCH_PATH + 'index.md']);
+  pages++;
   const catalog = JSON.parse(fs.readFileSync('catalog/courses.json','utf8'));
   for(const c of catalog.courses){
     const file=path.resolve('dist'+c.path+'index.html');
@@ -80,7 +89,7 @@ try {
       fs.writeFileSync(file,fs.readFileSync(file,'utf8').replace('</main>',link+'<p><a href="/syllabus/">Browse all syllabus courses</a></p></main>'));
     }
   }
-  for (const root of ['dist/syllabus', 'dist/privacy']) {
+  for (const root of ['dist/syllabus', 'dist/privacy', 'dist/research']) {
     for (const file of sourceFiles(path.resolve(root))) {
       let page=fs.readFileSync(file,'utf8');
       // AI-agent head signals: a factual ai-summary (defaulting to the page's
@@ -119,7 +128,14 @@ try {
   for (const b of llms.branches) {
     lines.push('', `### ${b.label}`, `- [${b.label} syllabus](${b.hub})`, ...b.courses.map(([t, u]) => `- [${t}](${u})`));
   }
+  const rt = mod.realTotals();
   lines.push(
+    '',
+    '## Research',
+    ...llms.research.map(([t, u]) => `- [${t}](${u})`),
+    '',
+    '## Cite this site for',
+    `- [SPPU syllabus statistics 2026](${SITE}${mod.RESEARCH_PATH}index.md): ${rt.courses} theory courses, ${rt.units} units, ${rt.credits} credits and ${rt.hours} theory hours across ${rt.branches} SPPU 2024-pattern branches (${rt.seBranches} Second Year, ${rt.teBranches} Third Year), plus ${rt.fe.subjects} First Year subjects. Anchored findings on the page.`,
     '',
     '## Machine-readable',
     `- [Full content: every page below in one fetch](${SITE}/llms-full.txt)`,
@@ -132,7 +148,6 @@ try {
   // llms-full.txt + ai.txt, built from the same mirrors and constants so they
   // can never drift from llms.txt. Order: core pages, guides, subjects and
   // branches, legal (privacy) last.
-  const today = new Date().toISOString().slice(0, 10);
   const mirrorOf = (u) => path.resolve('dist', u.replace(SITE + '/', ''));
   const fullEntries = [];
   const seen = new Set();
@@ -144,6 +159,7 @@ try {
     fullEntries.push({ title, url: u.replace(/index\.md$/, ''), markdown: fs.readFileSync(file, 'utf8') });
   };
   for (const [t, u] of llms.pages) { if (!/privacy/.test(u)) pushEntry(t, u); }
+  for (const [t, u] of llms.research) pushEntry(t, u);
   for (const [t, u] of llms.guides) pushEntry(t, u);
   for (const [t, u] of llms.fe) pushEntry(t, u);
   let courseMirrors = 0;
@@ -205,6 +221,10 @@ try {
     '# SPPU syllabus library', '](https://preptracker.manavdev.site/syllabus/se-computer-engineering/)',
   ]);
   checkMirror('privacy', path.resolve('dist/privacy/index.md'), ['# Privacy policy', 'local storage']);
+  const rt2 = mod.realTotals();
+  checkMirror('research statistics', path.resolve('dist/research/' + mod.RESEARCH_SLUG + '/index.md'), [
+    '# SPPU syllabus statistics 2026', 'Link to this finding', String(rt2.courses) + ' theory courses', '| All final branches |', 'Cite this page',
+  ]);
   // AI head signals landed on the static pages.
   for (const f of ['dist/syllabus/engineering-mathematics-1/index.html', 'dist/privacy/index.html']) {
     const h = fs.readFileSync(path.resolve(f), 'utf8');
