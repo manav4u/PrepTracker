@@ -117,6 +117,13 @@ ol.co{padding-left:0;list-style:none}
 ol.co li{margin:12px 0;padding-left:56px;position:relative;color:#3F3F4A;line-height:1.7}
 ol.co b{position:absolute;left:0;color:#D61A40;font:700 12px 'Space Mono',monospace;top:4px}
 ol.co small{color:#5A5A66}
+.glance{display:grid;grid-template-columns:repeat(3,1fr);background:#fff;border:1px solid rgba(20,20,25,.12);border-radius:14px;overflow:hidden;margin:0 0 28px}
+.glance>div{padding:14px 16px;border-right:1px solid rgba(20,20,25,.08);border-bottom:1px solid rgba(20,20,25,.08)}
+.glance dt{font:700 10px 'Space Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#5A5A66;margin-bottom:6px}
+.glance dd{margin:0;color:#141419;font-size:14.5px;line-height:1.5}
+.glance-4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:720px){.glance,.glance-4{grid-template-columns:repeat(2,1fr)}}
+details .anchor{font-size:12px;color:#5A5A66;display:inline-block;margin-top:6px}
 a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid #D61A40;outline-offset:3px}
 ::selection{background:#D61A40;color:#fff}`;
 
@@ -197,6 +204,15 @@ export function renderSubjectPage(c: SubjectPageConfig): string {
           </div>
 
           <Motif id={c.id} />
+          <h2>At a glance</h2>
+          <dl className="glance">
+            <div><dt>Course code</dt><dd>{s.code}</dd></div>
+            <div><dt>Level</dt><dd>First Year Engineering, SPPU 2024 pattern</dd></div>
+            <div><dt>Units</dt><dd>{s.units.length}</dd></div>
+            <div><dt>Named topics</dt><dd>{s.units.reduce((a, u) => a + u.topics.length, 0)}</dd></div>
+            <div><dt>Theory hours</dt><dd>{totalHours}</dd></div>
+            <div><dt>Credits</dt><dd>{s.credits} ({s.theoryCredits} theory + {s.termWorkCredits} tutorial)</dd></div>
+          </dl>
           <h2>Unit-wise syllabus</h2>
           <nav className="upills" aria-label="Jump to a unit">{s.units.map((u, i) => <a key={u.id} href={'#' + u.id}><b>UNIT {ROMAN[i]}</b><small>{unitHours(c.id, u, i)} h</small></a>)}</nav>
           <div className="units">{s.units.map((u, i) => (
@@ -229,11 +245,11 @@ export function renderSubjectPage(c: SubjectPageConfig): string {
           <a className="cta" href={SITE + '/#/subject/' + c.id}>Open {s.name} in the app</a>
 
           <h2>FAQ</h2>
-          {c.faq.map(([q, a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}
+          {c.faq.map(([q, a], i) => <details key={q} id={'faq-' + (i + 1)}><summary>{q}</summary><p>{a}</p><a className="anchor" href={'#faq-' + (i + 1)}>Link to this answer</a></details>)}
 
           <footer>
             <p>Sources: <a href={SYLLABUS_PDF} rel="noopener">SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)</a> and the <a href={HANDBOOK} rel="noopener">SPPU credit framework handbook</a>. PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.</p>
-            <p><a href={SITE + '/'}>PrepTracker home</a> · <a href={SITE + '/syllabus/'}>Syllabus</a> · <a href={SITE + '/syllabus/first-year-scheme-credits/'}>FE scheme and credits</a> · <a href={SITE + '/syllabus/grading-system-sgpa/'}>Grading and SGPA</a> · <a href={SITE + '/syllabus/cce-end-sem-exam-pattern/'}>Exam pattern</a> · <a href={SITE + '/privacy/'}>Privacy</a></p>
+            <p><a href={SITE + '/'}>PrepTracker home</a> · <a href={SITE + '/syllabus/'}>Syllabus</a> · <a href={SITE + '/syllabus/first-year-scheme-credits/'}>FE scheme and credits</a> · <a href={SITE + '/syllabus/grading-system-sgpa/'}>Grading and SGPA</a> · <a href={SITE + '/syllabus/cce-end-sem-exam-pattern/'}>Exam pattern</a> · <a href={SITE + '/research/'}>Research</a> · <a href={SITE + '/privacy/'}>Privacy</a></p>
           </footer>
         </main>
       </body>

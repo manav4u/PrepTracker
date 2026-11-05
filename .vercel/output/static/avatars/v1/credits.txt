@@ -1,0 +1,25 @@
+PrepTracker avatar catalog v1. Exported 19 October 2026 from DiceBear 10.x.
+288 static seed/background variants. Source response SHA-256, generation URL,
+artist and source for every image are recorded in provenance.json beside this file.
+Not original PrepTracker illustrations. No endorsement by the artists is implied.
+
+Goofy: Fun Emoji by Davis Uche, via DiceBear.
+Source: https://www.dicebear.com/styles/fun-emoji/
+Original source linked by DiceBear: Fun Emoji Set by Davis Uche.
+CC BY 4.0: https://creativecommons.org/licenses/by/4.0/
+Changes: deterministic seeded combinations and selected solid background colors.
+
+Cute: Lorelei by Lisa Wischofsky, CC0 1.0.
+https://www.dicebear.com/styles/lorelei/
+Doodles: Notionists by Zoish, CC0 1.0. Gestures disabled.
+https://www.dicebear.com/styles/notionists/
+Pixel: Pixel Art by DiceBear, CC0 1.0.
+https://www.dicebear.com/styles/pixel-art/
+Weird: Thumbs by DiceBear, CC0 1.0. Static export, no animation.
+https://www.dicebear.com/styles/thumbs/
+Abstract: Shapes by DiceBear, CC0 1.0.
+https://www.dicebear.com/styles/shapes/
+CC0: https://creativecommons.org/publicdomain/zero/1.0/
+Official licence inventory: https://www.dicebear.com/licenses/
+
+These credits stay with the distributed catalog.

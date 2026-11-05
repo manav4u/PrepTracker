@@ -107,7 +107,7 @@ const Foot = ({ b }: { b: SeBranch }) => <footer>
   {b.slug === 'te-information-technology' && <p>Source note: Web Application Development uses PEC-321C-IT Advanced Database Management System uses PEC-321B-IT, and Image Processing Computer Vision uses PEC-321D-IT from the curriculum table. Detailed course headings conflict with that table. The PDF prints only four outcomes for Cloud Computing and High Performance Computing. Unit hours are shown as printed even where they differ from the weekly scheme. Tutorial and lab courses are excluded.</p>}
   {b.slug === 'te-electrical' && <p>Source note: Computer Aided Design uses PEC-321C-ELE from the curriculum table; its detailed theory heading omits C. Unit hours are copied as printed (usually 40 total; PLC and SCADA 37) rather than forced to match weekly hours. Tutorials and labs are excluded.</p>}
   <p>Source: <a href={b.pdf} rel="noopener">{b.pdfLabel} (official SPPU PDF)</a>. PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.</p>
-  <p><a href={SITE + '/'}>PrepTracker home</a> · <a href={SITE + '/syllabus/'}>Syllabus</a> · <a href={SITE + '/syllabus/' + b.slug + '/'}>{b.short} subjects</a> · <a href={SITE + '/syllabus/grading-system-sgpa/'}>Grading and SGPA</a> · <a href={SITE + '/privacy/'}>Privacy</a></p>
+  <p><a href={SITE + '/'}>PrepTracker home</a> · <a href={SITE + '/syllabus/'}>Syllabus</a> · <a href={SITE + '/syllabus/' + b.slug + '/'}>{b.short} subjects</a> · <a href={SITE + '/syllabus/grading-system-sgpa/'}>Grading and SGPA</a> · <a href={SITE + '/research/'}>Research</a> · <a href={SITE + '/privacy/'}>Privacy</a></p>
 </footer>;
 
 export function renderSeCourse(b: SeBranch, c: SeCourse): string {
@@ -142,6 +142,17 @@ export function renderSeCourse(b: SeBranch, c: SeCourse): string {
         <div className="stat"><b>{String(c.credits).padStart(2, '0')}<i>.</i></b><span>credits</span></div>
       </div>
       <Motif b={b} />
+      <h2>At a glance</h2>
+      <dl className="glance glance-4">
+        <div><dt>Course code</dt><dd>{c.code}</dd></div>
+        <div><dt>Year and branch</dt><dd>{YL(b).l} {b.branch}</dd></div>
+        <div><dt>Pattern</dt><dd>SPPU {PT(b)}{b.draft ? ' (draft)' : ''}</dd></div>
+        <div><dt>Units</dt><dd>{c.units.length}</dd></div>
+        {consistent && <div><dt>Theory hours</dt><dd>{total}</dd></div>}
+        <div><dt>Credits</dt><dd>{c.credits}</dd></div>
+        <div><dt>Marks</dt><dd>{CC(b)} {c.cce} + end-semester {c.ese}</dd></div>
+        {c.prereq && <div><dt>Prerequisite</dt><dd>{c.prereq}</dd></div>}
+      </dl>
       <h2>Unit-wise syllabus</h2>
       <nav className="upills" aria-label="Jump to a unit">{c.units.map((u, i) => <a key={u.roman} href={'#unit-' + (i + 1)}><b>UNIT {ROMAN[i]}</b><small>{u.hours} h</small></a>)}</nav>
       <div className="units">{c.units.map((u, i) => (
@@ -161,7 +172,7 @@ export function renderSeCourse(b: SeBranch, c: SeCourse): string {
       {c.refBooks.length > 0 && <><h3 style={{ marginTop: 16 }}>Reference books</h3><ul>{c.refBooks.map(t => <li key={t}>{t}</li>)}</ul></>}
       {c.links.length > 0 && <><h2>NPTEL and SWAYAM links</h2><p>Listed in the official syllabus:</p><ul className="src">{c.links.map(l => <li key={l}><a href={l} rel="noopener">{l.replace('https://', '')}</a></li>)}</ul></>}
       <h2>FAQ</h2>
-      {faq.map(([q, a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}
+      {faq.map(([q, a], i) => <details key={q} id={'faq-' + (i + 1)}><summary>{q}</summary><p>{a}</p><a className="anchor" href={'#faq-' + (i + 1)}>Link to this answer</a></details>)}
       <Foot b={b} />
     </main></body></html>);
   return '<!doctype html>' + renderToStaticMarkup(page);
