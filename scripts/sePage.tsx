@@ -143,7 +143,7 @@ export function renderSeCourse(b: SeBranch, c: SeCourse): string {
       </div>
       <Motif b={b} />
       <h2>At a glance</h2>
-      <dl className="glance">
+      <dl className="glance glance-4">
         <div><dt>Course code</dt><dd>{c.code}</dd></div>
         <div><dt>Year and branch</dt><dd>{YL(b).l} {b.branch}</dd></div>
         <div><dt>Pattern</dt><dd>SPPU {PT(b)}{b.draft ? ' (draft)' : ''}</dd></div>

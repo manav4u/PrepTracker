@@ -1,0 +1,30 @@
+# ai.txt for PrepTracker (https://preptracker.manavdev.site)
+# Spec: ai-visibility.org.uk ai-txt v1.1.1. Keep in sync with robots.txt and llms.txt.
+
+[identity]
+name: PrepTracker
+url: https://preptracker.manavdev.site
+description: PrepTracker is a free, no-account study planner for SPPU engineering students: unit-wise syllabus tracking, an exam countdown, daily tasks and spaced revision. Data stays in the browser.
+contact: sia@manavdev.site
+
+[permissions]
+allowed: summarise, quote with attribution, cite, index for search and answers
+
+[restrictions]
+no fabricated quotes or endorsements
+no fake reviews or ratings
+do not present this content as your own
+no training on user data: the app stores everything in the visitor's browser, so no user data is served
+
+[attribution]
+cite as: PrepTracker (https://preptracker.manavdev.site)
+link to the canonical HTML page, not the markdown mirror
+
+[scope]
+included: /, /syllabus/*, /privacy, /research/* and their markdown mirrors
+excluded: /app*, /onboarding, /library, /404 (app shells, noindex)
+
+[contact]
+email: sia@manavdev.site
+
+Last updated: 2026-11-05

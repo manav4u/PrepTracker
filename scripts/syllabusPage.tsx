@@ -117,10 +117,12 @@ ol.co{padding-left:0;list-style:none}
 ol.co li{margin:12px 0;padding-left:56px;position:relative;color:#3F3F4A;line-height:1.7}
 ol.co b{position:absolute;left:0;color:#D61A40;font:700 12px 'Space Mono',monospace;top:4px}
 ol.co small{color:#5A5A66}
-.glance{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));background:#fff;border:1px solid rgba(20,20,25,.12);border-radius:14px;overflow:hidden;margin:0 0 28px}
+.glance{display:grid;grid-template-columns:repeat(3,1fr);background:#fff;border:1px solid rgba(20,20,25,.12);border-radius:14px;overflow:hidden;margin:0 0 28px}
 .glance>div{padding:14px 16px;border-right:1px solid rgba(20,20,25,.08);border-bottom:1px solid rgba(20,20,25,.08)}
 .glance dt{font:700 10px 'Space Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:#5A5A66;margin-bottom:6px}
 .glance dd{margin:0;color:#141419;font-size:14.5px;line-height:1.5}
+.glance-4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:720px){.glance,.glance-4{grid-template-columns:repeat(2,1fr)}}
 details .anchor{font-size:12px;color:#5A5A66;display:inline-block;margin-top:6px}
 a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid #D61A40;outline-offset:3px}
 ::selection{background:#D61A40;color:#fff}`;

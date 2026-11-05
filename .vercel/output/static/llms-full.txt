@@ -1,0 +1,2835 @@
+# PrepTracker - full content
+
+> PrepTracker is a free, no-account study planner for SPPU engineering students: unit-wise syllabus tracking, an exam countdown, daily tasks and spaced revision. Data stays in the browser.
+
+Generated: 2026-11-05
+Pages: 32
+Note: 133 per-course syllabus mirrors are not repeated here to keep this file small. Find each of them in llms.txt (https://preptracker.manavdev.site/llms.txt) and fetch its markdown directly.
+
+---
+
+<!-- https://preptracker.manavdev.site/ -->
+
+[Skip to content](https://preptracker.manavdev.site/#main)
+
+# Know exactly what’s left.
+
+PrepTracker breaks the syllabus into units and topics, counts the days to your exam, and tells you what to study today.
+
+[Start tracking](/onboarding)
+
+Free · No account · Data stays in your browser
+
+Try the app four real views, captured inside it
+
+Every subject as units & topics Previous-year questions Daily tasks & streaks Spaced revision Works offline Every subject as units & topics Previous-year questions Daily tasks & streaks Spaced revision Works offline
+
+The problem
+
+## It’s 2 AM and the syllabus still isn’t a plan.
+
+Nineteen days out, you have a folder of PDFs, four group chats, and no honest answer to one simple question: what exactly is left?
+
+19 days left
+
+where do I even start?
+
+Unit 3 · Syllabus
+
+- 3.1 Introduction & definitions
+- 3.2 Core theorems
+- 3.3 Worked examples
+- 3.4 Derivation sets
+- 3.5 Past paper questions
+
+imp_questions_FINAL(2).pdf
+
+Q1. Define the key terms, 2 short notes.
+
+Q2. Derive the standard result.
+
+Q3. Numericals from examples 3.4 to 3.9.
+
+Q4. One full past paper, timed.
+
+Revision plan (v5)
+
+MON Unit 3
+
+TUE Unit 3, again
+
+WED Unit 3, actually this time
+
+THU Start Unit 4?
+
+The fix
+
+## Everything the syllabus hides, laid out.
+
+01
+
+### Your whole exam, on one screen
+
+Progress across every subject, the days left, and today’s streak. The numbers you used to guess, counted for you.
+
+02
+
+### Every unit, every topic, one tick at a time
+
+Each subject broken into its real units and topics. Tick them off as you study and watch the unit flip to mastered.
+
+03
+
+### Wake up to today’s list
+
+No planning session every morning. Open the app and the day’s tasks are already there, sized to the days left.
+
+04
+
+### Question papers where you study
+
+Previous-year papers and resources sit next to the units they belong to, not in a drive folder you never open.
+
+How it works
+
+## Set up once. Tracked every day.
+
+01 .
+
+### Pick your subjects
+
+Choose your subjects in the app. Each one shows its units and topics laid out. Select yours and you’re done.
+
+02 .
+
+### Tick topics as you study
+
+Finished a topic? Tick it. That one habit is the entire system. The app does every calculation after that.
+
+03 .
+
+### See what’s left, every morning
+
+Progress, streaks and the countdown update themselves. You always know exactly what’s left before the exam.
+
+Syllabus library
+
+## The SPPU syllabus, already laid out.
+
+Unit-wise guides for the theory courses PrepTracker tracks, copied from the official SPPU PDFs. Free to read, no account.
+
+### Start here
+
+- [FE scheme and credits](/syllabus/first-year-scheme-credits/)
+- [Grading and SGPA](/syllabus/grading-system-sgpa/)
+- [CCE and end-sem exam pattern](/syllabus/cce-end-sem-exam-pattern/)
+
+###
+
+**First year 10**
+
+- [01 Engineering Mathematics I](/syllabus/engineering-mathematics-1/)
+- [02 Engineering Mathematics II](/syllabus/engineering-mathematics-2/)
+- [03 Engineering Physics](/syllabus/engineering-physics/)
+- [04 Engineering Chemistry](/syllabus/engineering-chemistry/)
+- [05 Basic Electrical Engineering](/syllabus/basic-electrical-engineering/)
+- [06 Basic Electronics Engineering](/syllabus/basic-electronics-engineering/)
+- [07 Engineering Mechanics](/syllabus/engineering-mechanics/)
+- [08 Engineering Graphics](/syllabus/engineering-graphics/)
+- [09 Fundamentals of Programming Languages](/syllabus/fundamentals-of-programming-languages/)
+- [10 Programming and Problem Solving](/syllabus/programming-and-problem-solving/)
+
+###
+
+**Second year 9**
+
+- [01 SE Computer Engineering](/syllabus/se-computer-engineering/)
+- [02 SE Computer Science & Engineering](/syllabus/se-computer-science-and-engineering/)
+- [03 SE AI and Data Science](/syllabus/se-artificial-intelligence-and-data-science/)
+- [04 SE Information Technology](/syllabus/se-information-technology/)
+- [05 SE Electrical Engineering](/syllabus/se-electrical-engineering/)
+- [06 SE Civil Engineering](/syllabus/se-civil-engineering/)
+- [07 SE Mechanical Engineering](/syllabus/se-mechanical-engineering/)
+- [08 SE Instrumentation & Control](/syllabus/se-instrumentation-and-control-engineering/)
+- [09 SE Cyber Security](/syllabus/se-cyber-security/)
+
+###
+
+**Third year 5**
+
+- [01 TE Computer Engineering](/syllabus/te-computer-engineering/)
+- [02 TE Information Technology](/syllabus/te-information-technology/)
+- [03 TE Electrical Engineering](/syllabus/te-electrical/)
+- [04 TE Mechanical Engineering](/syllabus/te-mechanical-engineering/)
+- [05 TE Robotics and AI](/syllabus/te-robotics-and-ai/)
+
+Labs, open electives and some courses aren’t in the library yet. [Browse the whole library](/syllabus/)
+
+Questions 6
+
+## Fair questions, straight answers.
+
+The six things SPPU students ask before trusting a tracker with their semester.
+
+**01What is PrepTracker?**
+
+A free progress tracker for the SPPU engineering syllabus. Each subject is broken into its real units and topics. Tick them off as you study, and the app counts the days to your exam and sizes each day’s tasks to what’s left.
+
+**02Is PrepTracker free?**
+
+Yes. Free, and open source under the MIT license. The whole codebase is on GitHub.
+
+**03Do I need an account?**
+
+No sign-up. Open the app, pick your subjects, and start ticking. Your progress stays in your browser, on your device.
+
+**04Does it work offline?**
+
+Yes. The app caches itself on your device as you use it, so the tracker keeps working when your connection drops.
+
+**05Who is PrepTracker for?**
+
+SPPU engineering students. The syllabus library covers the theory courses PrepTracker tracks across first, second and third year, copied from the official SPPU PDFs.
+
+**06What does it track?**
+
+Progress per subject, daily tasks, streaks, spaced revision, and the days left until your exam. You can also keep your own question papers and resources next to the units they belong to.
+
+## Walk in knowing what’s left.
+
+Two minutes to set up. Then the app counts the days, the units and the topics. You just study.
+
+[Start tracking](/onboarding)
+
+Free · No account · Data stays in your browser
+
+---
+
+Every topic accounted for ·Every day counted ·Know exactly what’s left ·Walk in ready ·Every topic accounted for ·Every day counted ·Know exactly what’s left ·Walk in ready ·
+
+PrepTracker. P r e p T r a c k e r .
+
+The exam desk. Syllabus progress, study resources and tasks in one place. Free, open source, and private by design.
+
+Built by a student, for students
+
+© 2026 PrepTracker See you in the exam hall.
+
+---
+
+<!-- https://preptracker.manavdev.site/syllabus/ -->
+
+# SPPU syllabus library
+
+Every syllabus page on PrepTracker, for SPPU First, Second and Third Year. Pick a subject or branch for unit-wise theory courses with marks, outcomes and books, copied from the official SPPU PDFs.
+
+FE 2024 pattern SE 2024 pattern TE latest published
+
+168 library pages
+
+28 . subjects and branches
+
+140 . SE + TE theory courses
+
+## First Year Engineering
+
+[Engineering Mathematics-I FE 2024 pattern](https://preptracker.manavdev.site/syllabus/engineering-mathematics-1/)
+
+[Engineering Physics FE 2024 pattern](https://preptracker.manavdev.site/syllabus/engineering-physics/)
+
+[Engineering Chemistry FE 2024 pattern](https://preptracker.manavdev.site/syllabus/engineering-chemistry/)
+
+[Basic Electronics Engineering FE 2024 pattern](https://preptracker.manavdev.site/syllabus/basic-electronics-engineering/)
+
+[Basic Electrical Engineering FE 2024 pattern](https://preptracker.manavdev.site/syllabus/basic-electrical-engineering/)
+
+[Engineering Mechanics FE 2024 pattern](https://preptracker.manavdev.site/syllabus/engineering-mechanics/)
+
+[Fundamentals of Programming Languages FE 2024 pattern](https://preptracker.manavdev.site/syllabus/fundamentals-of-programming-languages/)
+
+[Engineering Graphics FE 2024 pattern](https://preptracker.manavdev.site/syllabus/engineering-graphics/)
+
+[Engineering Mathematics-II FE 2024 pattern](https://preptracker.manavdev.site/syllabus/engineering-mathematics-2/)
+
+[Programming and Problem Solving FE 2024 pattern](https://preptracker.manavdev.site/syllabus/programming-and-problem-solving/)
+
+## Second Year branches
+
+[Computer Engineering 8 theory courses](https://preptracker.manavdev.site/syllabus/se-computer-engineering/)
+
+[Computer Science and Engineering 8 theory courses](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/)
+
+[Artificial Intelligence and Data Science 8 theory courses](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/)
+
+[Electrical Engineering 8 theory courses](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/)
+
+[Information Technology 7 theory courses](https://preptracker.manavdev.site/syllabus/se-information-technology/)
+
+[Civil Engineering 8 theory courses](https://preptracker.manavdev.site/syllabus/se-civil-engineering/)
+
+[Instrumentation and Control Engineering 8 theory courses](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/)
+
+[Mechanical Engineering 7 theory courses](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/)
+
+[Automobile Engineering 7 theory courses · draft](https://preptracker.manavdev.site/syllabus/se-automobile-engineering/)
+
+[Cyber Security 7 theory courses](https://preptracker.manavdev.site/syllabus/se-cyber-security/)
+
+## Third Year branches
+
+[Robotics and Artificial Intelligence 8 theory courses](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/)
+
+[Mechanical Engineering 8 theory courses](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/)
+
+[Computer Engineering 17 theory courses](https://preptracker.manavdev.site/syllabus/te-computer-engineering/)
+
+[Information Technology 17 theory courses](https://preptracker.manavdev.site/syllabus/te-information-technology/)
+
+[Electrical Engineering 14 theory courses](https://preptracker.manavdev.site/syllabus/te-electrical/)
+
+## Scheme, grading and exam pattern
+
+[FE scheme and credits Guide](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/)
+
+[Grading and SGPA Guide](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/)
+
+[Exam pattern Guide](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/)
+
+---
+
+Sources: the official SPPU syllabus PDF linked from each subject and branch page. PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/research/ -->
+
+# Research
+
+Numbers computed from PrepTracker's own syllabus catalog, with the method and a suggested citation on each report. Nothing here is estimated or user-submitted.
+
+## Reports
+
+[SPPU syllabus statistics 2026 133 courses · 662 units · 14 year-branch catalogs · data 2026-11-05](https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/)
+
+---
+
+Method: every figure is computed at build time from the same syllabus catalog that renders the subject pages, and the catalog is copied from the official SPPU syllabus PDFs linked at the bottom of each branch page. PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/ -->
+
+# SPPU syllabus statistics 2026
+
+133 cataloged theory courses, 662 units, 383 credits and 5231 theory hours across 14 SPPU 2024-pattern year-branch catalogs, computed from the same syllabus data that powers the subject pages. A course taught in several branches counts once per branch catalog. Data date 2026-11-05.
+
+## Key findings
+
+1.
+
+PrepTracker catalogs the official SPPU 2024-pattern syllabus for 14 year-branch catalogs: 9 Second Year and 5 Third Year. One more branch (SE Automobile) is published by SPPU only as a draft and is marked as such.
+
+[Link to this finding](https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/#f-coverage)
+2.
+
+Across those catalogs, the library holds 133 cataloged theory-course entries, 662 units and 383 credits of theory, copied from the official SPPU syllabus PDFs. A course taught in more than one branch counts once per branch catalog.
+
+[Link to this finding](https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/#f-courses)
+3.
+
+The most common course size is 5 units: 130 of 133 theory courses (98%, rounded) have exactly 5 units.
+
+[Link to this finding](https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/#f-units)
+4.
+
+The largest catalog is TE Computer Engineering with 17 theory courses and 85 units; the smallest is SE Cyber Security with 7 courses and 35 units.
+
+[Link to this finding](https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/#f-branch-size)
+5.
+
+The First Year section covers 10 subjects with 50 units and 240 named topics, 34 credits in total, from the SPPU FE 2024-pattern syllabus.
+
+[Link to this finding](https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/#f-fe)
+6.
+
+Cataloged theory hours total 5231 across the final catalogs, summed from the per-unit hour allocations in the syllabi (semester hours, not weekly). Each branch page links the official SPPU PDF its numbers come from.
+
+[Link to this finding](https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/#f-hours)
+
+## Branch breakdown
+
+| Branch | Year | Theory courses | Units | Credits | Theory hours |
+| --- | --- | --- | --- | --- | --- |
+| [SE Artificial Intelligence and Data Science](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/) | SE | 8 | 40 | 21 | 315 |
+| [SE Civil Engineering](https://preptracker.manavdev.site/syllabus/se-civil-engineering/) | SE | 8 | 40 | 23 | 300 |
+| [SE Computer Engineering](https://preptracker.manavdev.site/syllabus/se-computer-engineering/) | SE | 8 | 40 | 21 | 315 |
+| [SE Computer Science and Engineering](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/) | SE | 8 | 40 | 21 | 315 |
+| [SE Cyber Security](https://preptracker.manavdev.site/syllabus/se-cyber-security/) | SE | 7 | 35 | 18 | 269 |
+| [SE Electrical Engineering](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/) | SE | 8 | 40 | 20 | 280 |
+| [SE Information Technology](https://preptracker.manavdev.site/syllabus/se-information-technology/) | SE | 7 | 35 | 19 | 236 |
+| [SE Instrumentation and Control Engineering](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/) | SE | 8 | 37 | 21 | 278 |
+| [SE Mechanical Engineering](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/) | SE | 7 | 35 | 21 | 253 |
+| [TE Computer Engineering](https://preptracker.manavdev.site/syllabus/te-computer-engineering/) | TE | 17 | 85 | 50 | 750 |
+| [TE Electrical Engineering](https://preptracker.manavdev.site/syllabus/te-electrical/) | TE | 14 | 70 | 42 | 557 |
+| [TE Information Technology](https://preptracker.manavdev.site/syllabus/te-information-technology/) | TE | 17 | 85 | 50 | 763 |
+| [TE Mechanical Engineering](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/) | TE | 8 | 40 | 28 | 300 |
+| [TE Robotics and Artificial Intelligence](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/) | TE | 8 | 40 | 28 | 300 |
+| All final catalogs |  | 133 | 662 | 383 | 5231 |
+| First Year subjects (all branches) | FE | 10 | 50 | 34 |  |
+
+## Methodology
+
+- Source: the official SPPU syllabus PDFs, one linked at the bottom of every branch page. Counts are computed at build time from the catalog that renders those pages, so this page cannot drift from them.
+- Included: theory courses on branches whose 2024-pattern syllabus SPPU has published as final, and the ten First Year subjects.
+- Counting rule: courses are cataloged per branch and year, so a course taught in several branch catalogs counts once per catalog (133 entries, fewer unique titles). Hours are semester hours summed from each unit's hour allocation in the syllabus, not weekly hours.
+- Excluded: SE Automobile (SPPU publishes it as a draft; its page is labeled draft), practical, lab and project courses, and the 2019-pattern TE pages kept for reference.
+- Percentages are rounded to whole numbers; counts are exact.
+- The data date is when the catalog last changed, not when the page was rebuilt.
+
+## Cite this page
+
+PrepTracker (2026). SPPU syllabus statistics 2026: 133 cataloged theory courses analyzed. https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/ (data as of 2026-11-05).
+
+## FAQ
+
+**How many SPPU branches does PrepTracker cover?**
+
+14 year-branch catalogs with final SPPU 2024-pattern syllabi: 9 Second Year and 5 Third Year. SE Automobile is published by SPPU as a draft and is labeled draft on its page.
+
+[Link to this answer](https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/#faq-1)
+
+**How many courses and units are cataloged?**
+
+133 cataloged theory-course entries and 662 units across those catalogs, plus 10 First Year subjects with 50 units. A course taught in several branches counts once per branch catalog; practical, lab and project courses are not counted.
+
+[Link to this answer](https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/#faq-2)
+
+**Where do these numbers come from?**
+
+Every count is computed at build time from the same syllabus data that renders the subject pages, and that data is copied from the official SPPU syllabus PDF linked at the bottom of each branch page. Nothing is estimated.
+
+[Link to this answer](https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/#faq-3)
+
+**How often do these numbers change?**
+
+When SPPU publishes a new or revised syllabus and the catalog is updated. The date on this page is the data date, not a page rebuild date.
+
+[Link to this answer](https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/#faq-4)
+
+---
+
+Method: every figure is computed at build time from the same syllabus catalog that renders the subject pages, and the catalog is copied from the official SPPU syllabus PDFs linked at the bottom of each branch page. PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/ -->
+
+# First Year Engineering scheme, credits and marks
+
+SPPU First Year Engineering, 2024 pattern (NEP 2020 compliant, Level 4.5). Both semesters carry 22 credits. This page copies the structure table from the official syllabus book and adds nothing to it.
+
+22 credits per semester Theory: CCE 40 + End-Sem 60 Term work 25 per course
+
+## Semester I
+
+| Code | Course | Hrs: Th | Hrs: Tut | Hrs: Pr | CCE | End-Sem | Term work | Credits Th / Tut / Pr | Credits |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| BSC-101-BES | Engineering Mathematics-I | 3 | 1 | - | 40 | 60 | 25 | 3 / 1 / - | 4 |
+| BSC-102-BES / BSC-103-BES | Engineering Physics / Engineering Chemistry | 3 | - | 2 | 40 | 60 | 25 | 3 / - / 1 | 4 |
+| ESC-101-ETC / ESC-102-ELE | Basic Electronics Engineering / Basic Electrical Engineering | 2 | - | 2 | 40 | 60 | 25 | 2 / - / 1 | 3 |
+| ESC-103-MEC / ESC-104-CVL | Engineering Graphics / Engineering Mechanics | 2 | - | 2 | 40 | 60 | 25 | 2 / - / 1 | 3 |
+| ESC-105-COM | Fundamentals of Programming Languages | 2 | - | 2 | 40 | 60 | 25 | 2 / - / 1 | 3 |
+| VSE-101 / VSE-102 | Manufacturing Practice Workshop / Design Thinking and Idea Lab | - | - | 2 | - | - | 25 | - / - / 1 | 1 |
+| AEC-101 | Professional Communication Skills | - | 2 | - | - | - | 25 | - / 2 / - | 2 |
+| CCC-101 | Co-Curricular Course-I | - | - | 4 | - | - | 25 | - / - / 2 | 2 |
+| Total |  | 12 | 3 | 14 | 200 | 300 | 200 | 12 / 3 / 7 | 22 |
+
+BSC-101-BESEngineering Mathematics-IHrs Th/Tut/Pr 3 / 1 / -CCE 40 + End-Sem 60Term work 254 credits (3 / 1 / -)BSC-102-BES / BSC-103-BESEngineering Physics / Engineering ChemistryHrs Th/Tut/Pr 3 / - / 2CCE 40 + End-Sem 60Term work 254 credits (3 / - / 1)ESC-101-ETC / ESC-102-ELEBasic Electronics Engineering / Basic Electrical EngineeringHrs Th/Tut/Pr 2 / - / 2CCE 40 + End-Sem 60Term work 253 credits (2 / - / 1)ESC-103-MEC / ESC-104-CVLEngineering Graphics / Engineering MechanicsHrs Th/Tut/Pr 2 / - / 2CCE 40 + End-Sem 60Term work 253 credits (2 / - / 1)ESC-105-COMFundamentals of Programming LanguagesHrs Th/Tut/Pr 2 / - / 2CCE 40 + End-Sem 60Term work 253 credits (2 / - / 1)VSE-101 / VSE-102Manufacturing Practice Workshop / Design Thinking and Idea LabHrs Th/Tut/Pr - / - / 2Term work 251 credits (- / - / 1)AEC-101Professional Communication SkillsHrs Th/Tut/Pr - / 2 / -Term work 252 credits (- / 2 / -)CCC-101Co-Curricular Course-IHrs Th/Tut/Pr - / - / 4Term work 252 credits (- / - / 2)Semester total12 + 3 + 14 hrs/weekCCE 200End-Sem 300Term work 20022 credits
+
+## Semester II
+
+| Code | Course | Hrs: Th | Hrs: Tut | Hrs: Pr | CCE | End-Sem | Term work | Credits Th / Tut / Pr | Credits |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| BSC-151-BES | Engineering Mathematics-II | 3 | 1 | - | 40 | 60 | 25 | 3 / 1 / - | 4 |
+| BSC-103-BES / BSC-102-BES | Engineering Chemistry / Engineering Physics | 3 | - | 2 | 40 | 60 | 25 | 3 / - / 1 | 4 |
+| ESC-102-ELE / ESC-101-ETC | Basic Electrical Engineering / Basic Electronics Engineering | 2 | - | 2 | 40 | 60 | 25 | 2 / - / 1 | 3 |
+| ESC-104-CVL / ESC-103-MEC | Engineering Mechanics / Engineering Graphics | 2 | - | 2 | 40 | 60 | 25 | 2 / - / 1 | 3 |
+| PCC-151-ITT | Programming and Problem Solving | 2 | - | 2 | 40 | 60 | 25 | 2 / - / 1 | 3 |
+| VSE-102 / VSE-101 | Design Thinking and Idea Lab / Manufacturing Practice Workshop | - | - | 2 | - | - | 25 | - / - / 1 | 1 |
+| IKS-151 | Indian Knowledge System | - | 2 | - | - | - | 25 | - / 2 / - | 2 |
+| CCC-151 | Co-Curricular Course-II | - | - | 4 | - | - | 25 | - / - / 2 | 2 |
+| Total |  | 12 | 3 | 14 | 200 | 300 | 200 | 12 / 3 / 7 | 22 |
+
+BSC-151-BESEngineering Mathematics-IIHrs Th/Tut/Pr 3 / 1 / -CCE 40 + End-Sem 60Term work 254 credits (3 / 1 / -)BSC-103-BES / BSC-102-BESEngineering Chemistry / Engineering PhysicsHrs Th/Tut/Pr 3 / - / 2CCE 40 + End-Sem 60Term work 254 credits (3 / - / 1)ESC-102-ELE / ESC-101-ETCBasic Electrical Engineering / Basic Electronics EngineeringHrs Th/Tut/Pr 2 / - / 2CCE 40 + End-Sem 60Term work 253 credits (2 / - / 1)ESC-104-CVL / ESC-103-MECEngineering Mechanics / Engineering GraphicsHrs Th/Tut/Pr 2 / - / 2CCE 40 + End-Sem 60Term work 253 credits (2 / - / 1)PCC-151-ITTProgramming and Problem SolvingHrs Th/Tut/Pr 2 / - / 2CCE 40 + End-Sem 60Term work 253 credits (2 / - / 1)VSE-102 / VSE-101Design Thinking and Idea Lab / Manufacturing Practice WorkshopHrs Th/Tut/Pr - / - / 2Term work 251 credits (- / - / 1)IKS-151Indian Knowledge SystemHrs Th/Tut/Pr - / 2 / -Term work 252 credits (- / 2 / -)CCC-151Co-Curricular Course-IIHrs Th/Tut/Pr - / - / 4Term work 252 credits (- / - / 2)Semester total12 + 3 + 14 hrs/weekCCE 200End-Sem 300Term work 20022 credits
+
+Hrs are hours per week (Th theory, Tut tutorial, Pr practical). Where the book lists two courses with a slash, the pair is split across the two semesters, and the order flips in Semester II. CCE is Comprehensive Continuous Evaluation. The book leaves the oral and practical exam columns empty for every course. Marks follow the revised FE book issued in 2025, with effect from academic year 2025-26; the original July 2024 book had CCE 30 and End-Sem 70.
+
+## Read it course by course
+
+Each subject has its own page with units, outcomes and books:
+
+[Maths-I](https://preptracker.manavdev.site/syllabus/engineering-mathematics-1/)
+
+[Maths-II](https://preptracker.manavdev.site/syllabus/engineering-mathematics-2/)
+
+[Physics](https://preptracker.manavdev.site/syllabus/engineering-physics/)
+
+[Chemistry](https://preptracker.manavdev.site/syllabus/engineering-chemistry/)
+
+[Electronics](https://preptracker.manavdev.site/syllabus/basic-electronics-engineering/)
+
+[Electrical](https://preptracker.manavdev.site/syllabus/basic-electrical-engineering/)
+
+[Mechanics](https://preptracker.manavdev.site/syllabus/engineering-mechanics/)
+
+[Graphics](https://preptracker.manavdev.site/syllabus/engineering-graphics/)
+
+[FPL](https://preptracker.manavdev.site/syllabus/fundamentals-of-programming-languages/)
+
+[PPS](https://preptracker.manavdev.site/syllabus/programming-and-problem-solving/)
+
+How the marks are earned is on the [CCE and End-Sem exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) page, and how grades turn into SGPA is on the [grading page](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/).
+
+## FAQ
+
+**How many credits does First Year Engineering have in the SPPU 2024 pattern?**
+
+Each semester carries 22 credits: 12 theory, 3 tutorial and 7 practical or term-work credits. The SPPU credit framework handbook also sets a minimum of 22 credits per semester.
+
+**Which subjects are in Semester I and Semester II?**
+
+Engineering Mathematics-I is in Semester I and Engineering Mathematics-II in Semester II. Fundamentals of Programming Languages is in Semester I and Programming and Problem Solving in Semester II. The book pairs Physics with Chemistry, Electronics with Electrical, and Graphics with Mechanics, with one half of each pair in each semester. The full lists are in the tables above.
+
+**How many marks is each course?**
+
+A theory course is CCE 40 plus End-Sem 60, with 25 marks of term work on top. Courses without theory (workshop or lab, communication skills, co-curricular, Indian Knowledge System) carry 25 term-work marks only.
+
+---
+
+Sources: [SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf) and the [SPPU credit framework handbook](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf). PrepTracker is an independent student project, not affiliated with SPPU. Check the official documents for the latest rules.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/syllabus/grading-system-sgpa/ -->
+
+# SPPU grading system: grades, SGPA and CGPA
+
+How marks become grades, grades become grade points, and grade points become SGPA. All numbers come from the SPPU credit framework handbook for the Faculty of Science and Technology.
+
+## Grades and grade points
+
+| Grade | Grade points | Marks (out of 100) |
+| --- | --- | --- |
+| O (Outstanding) | 10 | 90 to 100 |
+| A+ (Excellent) | 9 | 75 to 89 |
+| A (Very Good) | 8 | 60 to 74 |
+| B+ (Good) | 7 | 55 to 59 |
+| B (Above average) | 6 | 50 to 54 |
+| C (Average) | 5 | 45 to 49 |
+| D (Pass) | 4 | 40 to 44 |
+| F (Fail) | 0 | Below the pass mark |
+| Ab (Absent) | 0 | - |
+
+The handbook prints the fail row as "Marks of 40 or less", which overlaps the D band (40 to 44). We show it as "below the pass mark" instead of guessing a cutoff. The handbook also labels two bands "B" (B+ for 55 to 59, B for 50 to 54). Check your university exam rules for the exact fail boundary.
+
+## SGPA
+
+SGPA is the credit-weighted average of grade points over every graded course in the semester:
+
+SGPA = sum(grade points x credits) / total credits
+
+Each graded row counts with its own credits, theory and term work or practical alike, the way the handbook lists them.
+
+### Worked example (made-up numbers)
+
+| Row | Credits | Grade | Points | Credits x points |
+| --- | --- | --- | --- | --- |
+| Theory A | 3 | A+ | 9 | 27 |
+| Tutorial A | 1 | A | 8 | 8 |
+| Theory B | 2 | B+ | 7 | 14 |
+| Practical B | 1 | O | 10 | 10 |
+| Total | 7 |  |  | 59 |
+
+SGPA = 59 / 7 = 8.43. This example is ours. The handbook's own sample table shows 98 credit points over 22 credits as an SGPA of 8.9, which does not add up, so we did not copy it.
+
+To work out your own SGPA, put your rows through the same steps as the worked example above: credits times grade points for each course, summed, divided by total credits.
+
+## CGPA and class of degree
+
+CGPA is calculated the same way as SGPA, over all semesters of the programme. If you clear a failed course or improve a grade, the new grade replaces the old one in both SGPA and CGPA. The class awarded depends on CGPA:
+
+| CGPA | Class |
+| --- | --- |
+| 9.50 or more | Outstanding (O) |
+| 8.50 to below 9.50 | Excellent (A+) |
+| 7.50 to below 8.50 | Very Good (A) |
+| 6.25 to below 7.50 | Good (B+) |
+| 5.25 to below 6.25 | Above Average (B) |
+| 4.75 to below 5.25 | Average (C) |
+| 4.00 to below 4.75 | Pass (D) |
+| Below 4.00 | Fail (F) |
+
+We do not give a CGPA to percentage conversion. The handbook has a formula table for it, but its worked values do not match its own example, so we left it out rather than publish a number that might be wrong. Use the formula your college or the university notice gives you.
+
+## FAQ
+
+**What is the grade point for each grade in SPPU?**
+
+O is 10, A+ is 9, A is 8, B+ is 7, B is 6, C is 5, D is 4, and F or Ab is 0, per the SPPU credit framework handbook.
+
+**How is SGPA calculated?**
+
+Multiply the grade points of each course by its credits, add them up, and divide by the total credits of the semester.
+
+**Is there a CGPA to percentage formula here?**
+
+No. The handbook formulas conflict with its own worked example, so this page does not publish a conversion.
+
+---
+
+Sources: [SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf) and the [SPPU credit framework handbook](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf). PrepTracker is an independent student project, not affiliated with SPPU. Check the official documents for the latest rules.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/ -->
+
+# CCE, End-Sem and term work: how the marks are earned
+
+The revised First Year 2024 pattern syllabus book (effective 2025-26) has a guidelines section for examination scheme. This page restates it in plain words, with nothing added.
+
+CCE 40 End-Sem 60 Term work 25
+
+## CCE: 40 marks, run by your college
+
+Comprehensive Continuous Evaluation covers all five units and is held at institute level.
+
+| Part | Marks | Units |
+| --- | --- | --- |
+| Unit test | 12 | Units I and II |
+| Assignments or case study | 12 | Units III and IV |
+| Seminar presentation, open book test or quiz | 6 | Unit V |
+| Mini project, project-based learning or group activity | 10 | Any unit |
+
+The book's example timeline: Units I and II in weeks 1 to 4 with the unit test in week 5, Units III and IV in weeks 6 to 8 with assignments collected in week 9, Unit V in weeks 10 to 12 and the seminar, open book test or quiz in week 13. The unit test is built on Bloom's taxonomy levels. For the seminar, you give a talk on a Unit V topic and answer questions, with slides and a 2 to 3 page summary.
+
+## End-Sem: 60 marks, set by the university
+
+A written theory paper on all five units, scheduled by the university, with question papers delivered through QPD (Question Paper Delivery). It is designed on Bloom's taxonomy, from remembering up to creating.
+
+The revised book allocates 12 marks per unit across the five units for the 60, with questions set on Bloom's taxonomy levels.
+
+## Term work: 25 marks, from your journal
+
+Term work is continuous assessment of the journal of practical assignments, with a reflection on each. The book's evaluation criteria:
+
+| Criterion | Weight |
+| --- | --- |
+| Completeness | 20% |
+| Quality of work | 40% |
+| Organization | 20% |
+| Presentation | 10% |
+| Creativity and engagement | 10% |
+
+The book's sample timeline has the journal finalized in week 10 and submitted in week 11. The final term-work grade goes to SPPU at the end of the semester.
+
+See the [scheme and credits tables](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) for which courses carry which marks, and the [grading page](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) for how they turn into grades.
+
+## FAQ
+
+**How is the 40 marks CCE divided in SPPU 2024 pattern?**
+
+Unit test 12 marks on Units I and II, assignments or case study 12 marks on Units III and IV, a seminar, open book test or quiz for 6 marks on Unit V, and a mini project or group activity for 10 marks on any unit.
+
+**Who conducts the End-Sem exam?**
+
+The university. It is a 60 mark written paper on all five units, and the question paper is delivered through QPD.
+
+**What decides the term work marks?**
+
+Your journal of practical assignments, judged on completeness, quality, organization, presentation and creativity, as described in the syllabus book.
+
+---
+
+Sources: [SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf) and the [SPPU credit framework handbook](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf). PrepTracker is an independent student project, not affiliated with SPPU. Check the official documents for the latest rules.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/syllabus/engineering-mathematics-1/ -->
+
+# Engineering Mathematics-I syllabus
+
+SPPU First Year Engineering, 2024 pattern. Course code BSC-101-BES. Five units, 40 hours of theory, with the marks scheme, outcomes and books taken from the official syllabus book.
+
+4 credits (3 theory + 1 tutorial) CCE 40 + End-Sem 60 Term work 25 5 units x 8 hours
+
+40 hours of theory
+
+05 . units
+
+04 . credits
+
+## At a glance
+
+Course codeBSC-101-BES
+
+LevelFirst Year Engineering, SPPU 2024 pattern
+
+Units5
+
+Named topics27
+
+Theory hours40
+
+Credits4 (3 theory + 1 tutorial)
+
+## Unit-wise syllabus
+
+UNIT I
+
+### Single Variable Calculus
+
+8 hours
+
+Rolle’s Theorem Mean Value Theorems Taylor's and Maclaurin's Series Indeterminate Forms L' Hospital's Rule Fourier series (Full range & Half range) Harmonic analysis
+
+UNIT II
+
+### Multivariable Calculus – Partial Differentiation
+
+8 hours
+
+Limits & Continuity of several variables Partial Derivatives Euler's Theorem on Homogeneous functions Partial derivative of Composite Function Total Derivative Change of Independent variables
+
+UNIT III
+
+### Applications of Partial Differentiation
+
+8 hours
+
+Jacobian and its applications Errors and Approximations Maxima and Minima of functions of two variables Lagrange's method of undetermined multipliers
+
+UNIT IV
+
+### Matrices and System of Linear Equations
+
+8 hours
+
+Rank of a Matrix System of Linear Equations Linear Dependence and Independence Linear and Orthogonal Transformations Applications in Engineering
+
+UNIT V
+
+### Eigen Values, Eigen Vectors and Diagonalization
+
+8 hours
+
+Eigen Values and Eigen Vectors Cayley Hamilton theorem Diagonalization of a matrix Reduction of Quadratic forms to Canonical form Applications in Engineering
+
+## Marks and credits
+
+| Head | Marks | Credit |
+| --- | --- | --- |
+| Theory: CCE | 40 | 3 |
+| Theory: End-Semester | 60 | 3 |
+| Tutorial / term work | 25 | 1 |
+
+The prerequisites listed in the syllabus are differentiation, integration, maxima and minima, matrices and determinants. The course aims to build the calculus, Fourier series and linear algebra needed in later engineering subjects.
+
+## Course outcomes
+
+1. CO1 Apply mean value theorems and their generalizations leading to Taylor and Maclaurin series. Determine the Fourier series representation and harmonic analysis of periodic functions. Covers Unit I
+2. CO2 Evaluate derivative functions of several variables. Covers Unit II
+3. CO3 Apply the Jacobian to find partial derivatives of implicit functions and functional dependence. Use partial derivatives for errors, approximations and extreme values. Covers Unit III
+4. CO4 Use matrices and linear algebra to analyse systems of linear equations, linear dependence and independence, and linear and orthogonal transformations. Covers Unit IV
+5. CO5 Determine eigen values and eigen vectors, diagonalize a matrix and reduce a quadratic form to canonical form. Covers Unit V
+
+## Books
+
+### Text books
+
+- Higher Engineering Mathematics by B. V. Ramana (Tata McGraw Hill)
+- Higher Engineering Mathematics by B. S. Grewal (Khanna Publication)
+
+### Reference books
+
+- Advanced Engineering Mathematics by Erwin Kreyszig (Wiley Eastern Ltd.)
+- Advanced Engineering Mathematics by M. D. Greenberg (Pearson Education)
+- Advanced Engineering Mathematics by Peter V. O’Neil (Thomson Learning)
+- Thomas’ Calculus by George B. Thomas (Addison-Wesley, Pearson)
+- Applied Mathematics (Vol. I & II) by P. N. Wartikar and J. N. Wartikar (Vidyarthi Griha Prakashan, Pune)
+- Elementary Linear Algebra by Ron Larson and David C. Falvo (Houghton Mifflin Harcourt)
+
+## Video lectures
+
+The syllabus lists one NPTEL / YouTube playlist for this course: [Engineering Mathematics-I playlist](https://youtube.com/playlist?list=PLbRMhDVUMngeVrxtbBz-n8HvP8KAWBpI5).
+
+## Track it in PrepTracker
+
+Tick off each unit as you finish it, and keep your own notes and links in one place. It is free and needs no account.
+
+[Open Engineering Mathematics-I in the app](https://preptracker.manavdev.site/#/subject/m1)
+
+## FAQ
+
+**How many credits is Engineering Mathematics-I in the SPPU 2024 pattern?**
+
+BSC-101-BES carries 4 credits: 3 for theory (3 hours a week) and 1 for the tutorial (1 hour a week).
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-1/#faq-1)
+
+**How are the marks split?**
+
+Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the tutorial credit.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-1/#faq-2)
+
+**How many units are there?**
+
+Five units of 8 hours each, 40 hours in total: single variable calculus and Fourier series, partial differentiation, its applications, matrices and linear systems, and eigen values with diagonalization.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-1/#faq-3)
+
+**What do I need to pass the theory head?**
+
+The college copy of the SPPU rules asks for a minimum score in each head, CCE and End-Semester, plus at least 40 marks in total. The exact per-head numbers are not in the official book, so check your own college notice for the rule that applies to you.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-1/#faq-4)
+
+**Which books does the syllabus list?**
+
+Text books: B. V. Ramana and B. S. Grewal, both titled Higher Engineering Mathematics. Six reference books are listed too, including Kreyszig and Thomas’ Calculus.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-1/#faq-5)
+
+**Is there an official video course?**
+
+The syllabus lists one NPTEL / YouTube playlist for this course. It is linked on this page.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-1/#faq-6)
+
+---
+
+Sources: [SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf) and the [SPPU credit framework handbook](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/syllabus/engineering-physics/ -->
+
+# Engineering Physics syllabus
+
+SPPU First Year Engineering, 2024 pattern. Course code BSC-102-BES. Five units, 40 hours of theory and a practical component, with the marks scheme, outcomes and books taken from the official syllabus book.
+
+4 credits (3 theory + 1 practical) CCE 40 + End-Sem 60 Term work 25 5 units x 8 hours
+
+40 hours of theory
+
+05 . units
+
+04 . credits
+
+## At a glance
+
+Course codeBSC-102-BES
+
+LevelFirst Year Engineering, SPPU 2024 pattern
+
+Units5
+
+Named topics28
+
+Theory hours40
+
+Credits4 (3 theory + 1 tutorial)
+
+## Unit-wise syllabus
+
+UNIT I
+
+### Fundamentals of Photonics
+
+8 hours
+
+Laser: Spontaneous/Stimulated emission CO2 laser construction & working Holography: Recording & Reconstruction Optical fibers: NA, Attenuation Fiber optic communication advantages
+
+UNIT II
+
+### Quantum Physics
+
+8 hours
+
+de Broglie hypothesis & Matter waves Schrödinger's time dependent/independent equations Particle in a rigid box Quantum tunneling & STM Quantum computing: Qbits, Superposition, Entanglement
+
+UNIT III
+
+### Wave Optics
+
+8 hours
+
+Interference in thin films (Reflected system) Newton's rings Polarization (PPL, CPL, EPL) Malu's law Double refraction (Huygens theory) LCDs & 3D Movies
+
+UNIT IV
+
+### Semiconductor Physics and Ultrasonics
+
+8 hours
+
+Fermi level & Fermi energy PN junction diode (Fermi level basis) Solar cell: IV characteristics & Fill factor Hall effect Ultrasonics: Piezoelectric generation Flaw detection & Thickness measurement
+
+UNIT V
+
+### Nanoparticles and Superconductivity
+
+8 hours
+
+Quantum confinement Synthesis: Ball milling, PVD GMR effect & HDD Superconductivity (Type I & II) Meissner effect & BCS theory SQUID & Maglev train
+
+## Marks and credits
+
+| Head | Marks | Credit |
+| --- | --- | --- |
+| Theory: CCE | 40 | 3 |
+| Theory: End-Semester | 60 | 3 |
+| Practical / term work | 25 | 1 |
+
+The prerequisites listed in the syllabus are Bohr’s atomic theory, properties of mechanical and electromagnetic waves, Huygens’ principle and wavefront, interference and polarization of light, wave particle duality, intrinsic and extrinsic semiconductors, basics of magnetism, trigonometry and calculus. The course aims to teach the fundamentals of physics through hands-on experiments and extend them to engineering applications. The practical side is 2 hours a week, and any 8 experiments from a list of 12 are performed.
+
+## Course outcomes
+
+1. CO1 Develop the understanding of the working principle of lasers and optical fibers and extend it to holography and fiber optic communication.
+2. CO2 Deduce Schrödinger’s wave equations and apply them to problems on bound states, using the fundamentals of quantum physics.
+3. CO3 Explain interference in thin films, polarization and double refraction, and connect them to the anti-reflection coating and LCD.
+4. CO4 Understand Fermi level and Fermi energy in semiconductors from Fermi Dirac statistics and relate them to semiconductor devices. Extend ultrasonics to thickness measurement and flaw detection.
+5. CO5 Explain the properties of nanoparticles and their engineering applications. Explain superconductivity and its engineering applications.
+
+## Books
+
+### Text books
+
+- A Textbook of Engineering Physics by M. N. Avadhanulu, P. G. Kshirsagar and TVS Arun Murthy (S. Chand Publications)
+- Engineering Physics by R. K. Gaur and S. L. Gupta (Dhanpat Rai Publications)
+
+### Reference books
+
+- Optics by Ajoy Ghatak (Tata McGraw Hill)
+- Introduction to Solid State Physics by C. Kittel (Wiley and Sons)
+- Quantum Mechanics by A. K. Ghatak and S. Lokanathan (Laxmi Publications)
+- Nanotechnology: Principles and Practices by Dr. S. K. Kulkarni (Capital Publishing)
+- Physics for Scientists and Engineers with Modern Physics by Serway and Jewett (Cengage Publications)
+
+## Video lectures
+
+The syllabus lists two video resources, plus the Feynman Lectures and Beiser’s Concepts of Modern Physics as e-books: [Lectures by Walter Lewin](https://www.youtube.com/channel/UCiEHVhv0SBMpP75JbzJShqw), [Quantum Mechanics lecture series by Prof. H. C. Verma](https://www.youtube.com/playlist?list=PLWweJWdB_GuISnGkAafMpzzDBvTHg02At).
+
+## Track it in PrepTracker
+
+Tick off each unit as you finish it, and keep your own notes and links in one place. It is free and needs no account.
+
+[Open Engineering Physics in the app](https://preptracker.manavdev.site/#/subject/phy)
+
+## FAQ
+
+**How many credits is Engineering Physics in the SPPU 2024 pattern?**
+
+BSC-102-BES carries 4 credits: 3 for theory (3 hours a week) and 1 for practical (2 hours a week).
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-physics/#faq-1)
+
+**How are the marks split?**
+
+Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the practical credit.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-physics/#faq-2)
+
+**How many units are there?**
+
+Five units of 8 hours each, 40 hours in total: photonics, quantum physics, wave optics, semiconductor physics with ultrasonics, and nanoparticles with superconductivity.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-physics/#faq-3)
+
+**How many experiments do I have to do?**
+
+Any 8 from the list of 12 in the syllabus. One of the 8 may be an in-house experiment or a virtual lab experiment instead.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-physics/#faq-4)
+
+**Which books does the syllabus list?**
+
+Text books: Avadhanulu, Kshirsagar and Arun Murthy (S. Chand), and Gaur and Gupta (Dhanpat Rai). Five reference books are listed too, including Ghatak’s Optics and Kittel’s Solid State Physics.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-physics/#faq-5)
+
+**Are there official video lectures?**
+
+The syllabus lists Walter Lewin’s lectures and Prof. H. C. Verma’s quantum mechanics series. Both are linked on this page.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-physics/#faq-6)
+
+---
+
+Sources: [SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf) and the [SPPU credit framework handbook](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/syllabus/engineering-chemistry/ -->
+
+# Engineering Chemistry syllabus
+
+SPPU First Year Engineering, 2024 pattern. Course code BSC-103-BES. Five units, 40 hours of theory and a practical component, with the marks scheme, outcomes and books taken from the official syllabus book.
+
+4 credits (3 theory + 1 practical) CCE 40 + End-Sem 60 Term work 25 5 units x 8 hours
+
+40 hours of theory
+
+05 . units
+
+04 . credits
+
+## At a glance
+
+Course codeBSC-103-BES
+
+LevelFirst Year Engineering, SPPU 2024 pattern
+
+Units5
+
+Named topics24
+
+Theory hours40
+
+Credits4 (3 theory + 1 tutorial)
+
+## Unit-wise syllabus
+
+UNIT I
+
+### Water Technology
+
+8 hours
+
+Impurities & Hardness (EDTA method) Alkalinity determination Boiler troubles: Priming, Foaming, Scale, Sludge Zeolite & Demineralization methods Reverse Osmosis & Electrodialysis
+
+UNIT II
+
+### Instrumental Methods of Analysis
+
+8 hours
+
+Conductometry (Acid-Base Titrations) pHmetry (Strong Acid-Strong Base) UV-Visible Spectroscopy Beer's law & Lambert's law Instrumentation (Double beam)
+
+UNIT III
+
+### Advanced Engineering Materials
+
+8 hours
+
+Polymers: Thermoplastics vs Thermosetting Specialty Polymers: Polycarbonate, PHBV Conducting Polymers (Polyacetylene) Nanomaterials: Graphene, CNTs, Quantum dots
+
+UNIT IV
+
+### Energy Sources
+
+8 hours
+
+Calorific value (Bomb & Boy’s calorimeter) Coal Analysis (Proximate & Ultimate) Biodiesel & Power alcohol Hydrogen fuel cells Lithium Ion Battery
+
+UNIT V
+
+### Corrosion and its Prevention
+
+8 hours
+
+Dry & Wet corrosion mechanisms Pilling-Bedworth's rule Cathodic Protection (Sacrificial/Impressed current) Electroplating & Hot dipping Anti-corrosive paints
+
+## Marks and credits
+
+| Head | Marks | Credit |
+| --- | --- | --- |
+| Theory: CCE | 40 | 3 |
+| Theory: End-Semester | 60 | 3 |
+| Practical / term work | 25 | 1 |
+
+The prerequisites listed in the syllabus are types of titrations, structure property relationship, classification and properties of polymers, electromagnetic radiation and the electrochemical series. The course covers water quality analysis, electro-analytical techniques, specialty polymers and nanomaterials, fuels, and corrosion. The practical side is 2 hours a week, and any 8 experiments from a list of 11 are performed.
+
+## Course outcomes
+
+1. CO1 Understand the practical approaches and techniques needed to monitor water quality. Covers Unit I
+2. CO2 Select appropriate electro-analytical techniques for understanding materials. Covers Unit II
+3. CO3 Demonstrate the structure and properties of advanced engineering materials for technological applications. Covers Unit III
+4. CO4 Analyse different types of conventional and alternative fuels. Covers Unit IV
+5. CO5 Explain the causes of corrosion and the methods for minimizing it. Covers Unit V
+
+## Books
+
+### Text books
+
+- Textbook of Engineering Chemistry by Dr. S. S. Dara and Dr. S. S. Umare (S. Chand & Company Ltd.)
+- Engineering Chemistry by O. G. Palanna (Tata McGraw Hill Education Pvt. Ltd.)
+- Textbook of Engineering Chemistry by Dr. Sunita Rattan (S. K. Kataria & Sons)
+
+### Reference books
+
+- Basic Concept of Analytical Chemistry, 2nd ed., by S. M. Khopkar (New Age International)
+- Instrumental Methods of Chemical Analysis by G. R. Chatwal and S. K. Anand (Himalaya Publishing House)
+- Spectroscopy of Organic Compounds, 2nd ed., by P. S. Kalsi (New Age International)
+- Polymer Science by V. R. Gowarikar, N. V. Viswanathan and Jayadev Sreedhar (Wiley Eastern Limited)
+- Inorganic Chemistry, 5th ed., by Shriver and Atkins (Oxford University Press)
+- Fundamentals of Nanotechnology by G. L. Hornyak, J. J. Moore, H. F. Tibbals and J. Dutta (CRC Press)
+
+## Video lectures
+
+The syllabus lists one NPTEL course for this subject, and two e-books on analytical chemistry and corrosion: [NPTEL course 113104082](https://nptel.ac.in/courses/113104082).
+
+## Track it in PrepTracker
+
+Tick off each unit as you finish it, and keep your own notes and links in one place. It is free and needs no account.
+
+[Open Engineering Chemistry in the app](https://preptracker.manavdev.site/#/subject/chem)
+
+## FAQ
+
+**How many credits is Engineering Chemistry in the SPPU 2024 pattern?**
+
+BSC-103-BES carries 4 credits: 3 for theory (3 hours a week) and 1 for practical (2 hours a week).
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-chemistry/#faq-1)
+
+**How are the marks split?**
+
+Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the practical credit.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-chemistry/#faq-2)
+
+**How many units are there?**
+
+Five units of 8 hours each, 40 hours in total: water technology, instrumental methods of analysis, advanced engineering materials, energy sources, and corrosion and its prevention.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-chemistry/#faq-3)
+
+**How many experiments do I have to do?**
+
+Any 8 from the list of 11 in the syllabus. They include hardness by EDTA, alkalinity, pH and conductometric titrations, proximate analysis of coal and preparing biodiesel.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-chemistry/#faq-4)
+
+**Which books does the syllabus list?**
+
+Three text books (Dara and Umare, Palanna, Rattan) and six reference books, including Khopkar, Chatwal and Anand, Kalsi and Shriver and Atkins.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-chemistry/#faq-5)
+
+**Is there an official video course?**
+
+The syllabus lists one NPTEL course, number 113104082. It is linked on this page.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-chemistry/#faq-6)
+
+---
+
+Sources: [SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf) and the [SPPU credit framework handbook](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/syllabus/basic-electronics-engineering/ -->
+
+# Basic Electronics Engineering syllabus
+
+SPPU First Year Engineering, 2024 pattern. Course code ESC-101-ETC. Five units, 30 hours of theory and a practical component, with the marks scheme, outcomes and books taken from the official syllabus book.
+
+3 credits (2 theory + 1 practical) CCE 40 + End-Sem 60 Term work 25 5 units x 6 hours
+
+30 hours of theory
+
+05 . units
+
+03 . credits
+
+## At a glance
+
+Course codeESC-101-ETC
+
+LevelFirst Year Engineering, SPPU 2024 pattern
+
+Units5
+
+Named topics23
+
+Theory hours30
+
+Credits3 (2 theory + 1 tutorial)
+
+## Unit-wise syllabus
+
+UNIT I
+
+### Diodes and Applications
+
+6 hours
+
+PN Junction Diode Characteristics Rectifiers (Half, Full Wave, Bridge) Capacitor filter LED & Photodiode Diode as a switch
+
+UNIT II
+
+### Transistors and Technology
+
+6 hours
+
+BJT: CE Configuration & Amplifier EMOSFET: Switch & Amplifier VLSI Technology Introduction CMOS Manufacturing (N-Well)
+
+UNIT III
+
+### Logic Gates and Digital Circuits
+
+6 hours
+
+Number Systems (Binary, Hex, Octal) Logic Gates (Universal Gates) Half & Full Adders Flip Flops (SR, JK, T, D) Microprocessor vs Microcontroller
+
+UNIT IV
+
+### Op-Amp and Electronic Instruments
+
+6 hours
+
+Op-Amp Block Diagram Inverting & Non-inverting Amplifier Digital Multimeter Function Generator Digital Storage Oscilloscope (DSO)
+
+UNIT V
+
+### Sensors and Communication Systems
+
+6 hours
+
+Sensors: LVDT, Thermocouple, RTD, Strain Gauge IoT Data Acquisition System GSM System Block Diagram Wired vs Wireless Media
+
+## Marks and credits
+
+| Head | Marks | Credit |
+| --- | --- | --- |
+| Theory: CCE | 40 | 2 |
+| Theory: End-Semester | 60 | 2 |
+| Practical / term work | 25 | 1 |
+
+The prerequisites listed in the syllabus are basic physics and mathematics, semiconductor physics, digital electronics, circuit theory, analog electronics, and sensors and transducers. The course covers diodes, transistors, digital circuits, op-amps with instruments, and sensors with communication systems. The practical side is 2 hours a week, and any 8 experiments from a list of 10 are performed.
+
+## Course outcomes
+
+1. CO1 Know the working of the P-N junction diode and its use as a rectifier and switch, plus the basics of the LED and photodiode. Covers Unit I
+2. CO2 Understand the working of the BJT and MOSFET, their characteristics, and compare them. Covers Unit II
+3. CO3 Learn logic gates and how digital circuits are realized. Covers Unit III
+4. CO4 Understand how an op-amp and the common electronic instruments work. Covers Unit IV
+5. CO5 Select sensors by working principle for specific applications and connect them to a communication system. Covers Unit V
+
+## Books
+
+### Text books
+
+- Electronic Devices by Thomas L. Floyd, 9th edition (Pearson)
+- Modern Digital Electronics by R. P. Jain, 4th edition (Tata McGraw Hill)
+- Electronic Instrumentation by H. S. Kalsi, 3rd edition (Tata McGraw Hill)
+- Sensors and Transducers by D. Patranabis, 2nd edition (PHI)
+- Electronic Communication Systems by Kennedy and Davis, 4th edition (Tata McGraw Hill)
+- Mobile Wireless Communication by M. Schwartz (Cambridge University Press)
+
+### Reference books
+
+- Digital Fundamentals by Thomas L. Floyd, 11th edition (Pearson)
+- Mobile Communication by J. Schiller, 2nd edition (Pearson)
+- Sensors Handbook by S. Soloman, 2nd edition
+- CMOS Circuit Design, Layout and Simulation by Baker, 2nd edition (Wiley IEEE Press)
+
+## Video lectures
+
+The syllabus lists three NPTEL courses for this subject: [NPTEL course 117103063](https://nptel.ac.in/courses/117103063), [NPTEL course 117103064](https://nptel.ac.in/courses/117103064), [NPTEL course 106105166](https://archive.nptel.ac.in/courses/106/105/106105166/).
+
+## Track it in PrepTracker
+
+Tick off each unit as you finish it, and keep your own notes and links in one place. It is free and needs no account.
+
+[Open Basic Electronics Engineering in the app](https://preptracker.manavdev.site/#/subject/elect)
+
+## FAQ
+
+**How many credits is Basic Electronics Engineering in the SPPU 2024 pattern?**
+
+ESC-101-ETC carries 3 credits: 2 for theory (2 hours a week) and 1 for practical (2 hours a week).
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electronics-engineering/#faq-1)
+
+**How are the marks split?**
+
+Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the practical credit.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electronics-engineering/#faq-2)
+
+**How many units are there?**
+
+Five units of 6 hours each, 30 hours in total: diodes, transistors and technology, logic gates and digital circuits, op-amp with electronic instruments, and sensors with communication systems.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electronics-engineering/#faq-3)
+
+**How many experiments do I have to do?**
+
+Any 8 from the list of 10 in the syllabus. They include component study, CRO and multimeter measurements, diode V-I characteristics, a rectifier power supply, a CE amplifier, op-amp circuits, gate truth tables and sensors.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electronics-engineering/#faq-4)
+
+**Which books does the syllabus list?**
+
+Six text books, led by Floyd’s Electronic Devices and Jain’s Modern Digital Electronics, and four reference books including Floyd’s Digital Fundamentals.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electronics-engineering/#faq-5)
+
+**Are there official video courses?**
+
+The syllabus lists three NPTEL courses: 117103063, 117103064 and 106105166. All are linked on this page.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electronics-engineering/#faq-6)
+
+---
+
+Sources: [SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf) and the [SPPU credit framework handbook](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/syllabus/basic-electrical-engineering/ -->
+
+# Basic Electrical Engineering syllabus
+
+SPPU First Year Engineering, 2024 pattern. Course code ESE-102-ELE. Five units, 30 hours of theory and a practical component, with the marks scheme, outcomes and books taken from the official syllabus book.
+
+3 credits (2 theory + 1 practical) CCE 40 + End-Sem 60 Term work 25 5 units x 6 hours
+
+30 hours of theory
+
+05 . units
+
+03 . credits
+
+## At a glance
+
+Course codeESC-102-ELE
+
+LevelFirst Year Engineering, SPPU 2024 pattern
+
+Units5
+
+Named topics26
+
+Theory hours30
+
+Credits3 (2 theory + 1 tutorial)
+
+## Unit-wise syllabus
+
+UNIT I
+
+### Elementary Concepts and DC Circuits
+
+6 hours
+
+Resistance, EMF, Potential Difference Overview of Power System (Generation, Transmission, Distribution) Kirchhoff’s Laws (KVL/KCL) & Loop Analysis Star-Delta Transformation Superposition Theorem
+
+UNIT II
+
+### Electromagnetism
+
+6 hours
+
+Magnetic Circuits (Flux, MMF, Reluctance) Series Magnetic Circuits Faraday's Laws of Electromagnetic Induction Fleming's Right-hand Rule Statically & Dynamically Induced EMF Self & Mutual Inductance Energy stored in Magnetic Field
+
+UNIT III
+
+### AC Fundamentals
+
+6 hours
+
+Generation of Sinusoidal Voltages RMS, Average, Peak, Form Factor Phasor Representation (Rectangular/Polar) Phase Difference (Lagging/Leading) Pure R, L, C Circuits
+
+UNIT IV
+
+### AC Circuits
+
+6 hours
+
+Series R-L, R-C, R-L-C Circuits Impedance, Power Factor, Phasor Diagrams Active, Reactive, Apparent Power Resonance in RLC Series Three Phase AC (Star & Delta Relations)
+
+UNIT V
+
+### Introduction to Electric Machines
+
+6 hours
+
+Single Phase Transformer (Principle, EMF Eq, Efficiency) DC Motors (Construction, Types, Characteristics) Three Phase Induction Motor (RMF principle) Single Phase Induction Motor (Split Phase, Capacitor Types)
+
+## Marks and credits
+
+| Head | Marks | Credit |
+| --- | --- | --- |
+| Theory: CCE | 40 | 2 |
+| Theory: End-Semester | 60 | 2 |
+| Practical / term work | 25 | 1 |
+
+The prerequisites listed in the syllabus are electric charges and fields, Coulomb’s laws, voltage, potential, current, Ohm’s law, magnetism, EMF, Faraday’s laws, alternating current, the AC generator and power. The course covers AC and DC circuit analysis, the working of basic electric machines, wiring components and schemes, and the electricity bill. The practical side is 2 hours a week, and any 8 experiments from a list of 10 are performed.
+
+## Course outcomes
+
+1. CO1 Apply Kirchhoff’s laws, the superposition theorem and network simplification to DC circuit analysis. Covers Unit I
+2. CO2 Analyse magnetic circuit parameters, self and mutual inductance, and electromotive forces. Covers Unit II
+3. CO3 Calculate AC quantities using equations, waveforms and phasor diagrams. Covers Unit III
+4. CO4 Compute the voltage, current and power of 1-phase and 3-phase AC circuits. Covers Unit IV
+5. CO5 Understand the working principle of the 1-phase transformer and of DC and induction motors, and their practical uses. Covers Unit V
+
+## Books
+
+### Text books
+
+- ABC of Electrical Engineering by B. L. Theraja and A. K. Theraja (S. Chand Publications, 2012)
+- Basic Electrical Engineering by D. C. Kulshreshtha, 2nd edition, 2019 (McGraw Hill Education)
+
+### Reference books
+
+- Basic Electrical Engineering by C. L. Wadhwa, 5th edition, 2024 (New Age International)
+- Electrical Machines by S. K. Bhattacharya, 2nd edition, 2008 (McGraw Hill Education)
+- Basic Electrical Engineering by T. K. Nagsarkar and M. S. Sukhija, 2nd edition, 2018 (Oxford University Press)
+
+## Video lectures
+
+The syllabus lists one NPTEL course for this subject: [NPTEL course 108105112](https://nptel.ac.in/courses/108105112).
+
+## Track it in PrepTracker
+
+Tick off each unit as you finish it, and keep your own notes and links in one place. It is free and needs no account.
+
+[Open Basic Electrical Engineering in the app](https://preptracker.manavdev.site/#/subject/elec)
+
+## FAQ
+
+**How many credits is Basic Electrical Engineering in the SPPU 2024 pattern?**
+
+ESE-102-ELE carries 3 credits: 2 for theory (2 hours a week) and 1 for practical (2 hours a week).
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electrical-engineering/#faq-1)
+
+**How are the marks split?**
+
+Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the practical credit.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electrical-engineering/#faq-2)
+
+**How many units are there?**
+
+Five units of 6 hours each, 30 hours in total: elementary concepts and DC circuits, electromagnetism, AC fundamentals, AC circuits, and an introduction to electric machines.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electrical-engineering/#faq-3)
+
+**How many experiments do I have to do?**
+
+Any 8 from the list of 10 in the syllabus. They include verifying Kirchhoff’s laws and the superposition theorem, a transformer loading test, RLC resonance, three-phase star and delta relations, and reading a single-phase LT electricity bill.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electrical-engineering/#faq-4)
+
+**Which books does the syllabus list?**
+
+Two text books (Theraja and Theraja, and Kulshreshtha) and three reference books (Wadhwa, Bhattacharya, and Nagsarkar and Sukhija).
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electrical-engineering/#faq-5)
+
+**Is there an official video course?**
+
+The syllabus lists one NPTEL course, number 108105112. It is linked on this page.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/basic-electrical-engineering/#faq-6)
+
+---
+
+Sources: [SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf) and the [SPPU credit framework handbook](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/syllabus/engineering-mechanics/ -->
+
+# Engineering Mechanics syllabus
+
+SPPU First Year Engineering, 2024 pattern. Course code ESC-104-CVL. Five units, 30 hours of theory and a practical component, with the marks scheme, outcomes and books taken from the official syllabus book.
+
+3 credits (2 theory + 1 practical) CCE 40 + End-Sem 60 Term work 25 5 units x 6 hours
+
+30 hours of theory
+
+05 . units
+
+03 . credits
+
+## At a glance
+
+Course codeESC-104-CVL
+
+LevelFirst Year Engineering, SPPU 2024 pattern
+
+Units5
+
+Named topics21
+
+Theory hours30
+
+Credits3 (2 theory + 1 tutorial)
+
+## Unit-wise syllabus
+
+UNIT I
+
+### Force systems and its resultants
+
+6 hours
+
+Resolution & Composition of forces Varignon's theorem Distributed Forces Centroid of composite figures Moment of Inertia (Parallel/Perpendicular axis)
+
+UNIT II
+
+### Equilibrium
+
+6 hours
+
+Free body diagram Three Force Principle (Lami’s) Equilibrium of Concurrent/Parallel/General forces Types of beams, loads & supports
+
+UNIT III
+
+### Friction and trusses
+
+6 hours
+
+Laws of Coulomb friction Angle of repose & Cone of friction Ladder & Belt friction Simple Trusses: Method of Joints & Sections
+
+UNIT IV
+
+### Kinematics of particle
+
+6 hours
+
+Rectilinear motion (Variable acceleration) Curvilinear motion Projectile motion Normal & Tangential components
+
+UNIT V
+
+### Kinetics of particle
+
+6 hours
+
+Newton's Second Law Work Energy Principle Impulse Momentum Principle Coefficient of Restitution & Impact
+
+## Marks and credits
+
+| Head | Marks | Credit |
+| --- | --- | --- |
+| Theory: CCE | 40 | 2 |
+| Theory: End-Semester | 60 | 2 |
+| Practical / term work | 25 | 1 |
+
+The prerequisites listed in the syllabus are basic calculus, trigonometry, geometrical expressions, laws of motion, the concept of mass and acceleration, with a base in engineering mathematics and physics. The course teaches the basics of mechanics and applies them to forces, loads and moments. The practical side is 2 hours a week: four compulsory experiments, four graphical solutions and an assignment of at least four examples per unit.
+
+## Course outcomes
+
+1. CO1 Understand forces, moments and couples in a two-dimensional force system. Covers Unit I
+2. CO2 Apply the free body diagram to static equilibrium in a two-dimensional force system. Covers Unit II
+3. CO3 Analyse practical examples involving friction and two force members. Covers Unit III
+4. CO4 Analyse rectilinear and curvilinear motion of a particle. Covers Unit IV
+5. CO5 Apply Newton’s second law, the work energy principle and the impulse momentum principle to particles. Covers Unit V
+
+## Books
+
+### Text books
+
+- Engineering Mechanics by Ferdinand Singer, 3rd edition (Harper and Row)
+- Engineering Mechanics (Statics and Dynamics) by R. C. Hibbeler (Pearson Education)
+
+### Reference books
+
+- Engineering Mechanics by S. Timoshenko and Young (Tata McGraw Hill Education Pvt. Ltd., New Delhi)
+- Vector Mechanics for Engineers: Statics by Beer and Johnston (Tata McGraw Hill)
+- Vector Mechanics for Engineers: Dynamics by Beer and Johnston (Tata McGraw Hill)
+- Engineering Mechanics: Statics and Dynamics by J. L. Meriam and L. G. Kraige (John Wiley and Sons)
+
+## Video lectures
+
+The syllabus lists no NPTEL or video resources for this subject.
+
+## Track it in PrepTracker
+
+Tick off each unit as you finish it, and keep your own notes and links in one place. It is free and needs no account.
+
+[Open Engineering Mechanics in the app](https://preptracker.manavdev.site/#/subject/mech)
+
+## FAQ
+
+**How many credits is Engineering Mechanics in the SPPU 2024 pattern?**
+
+ESC-104-CVL carries 3 credits: 2 for theory (2 hours a week) and 1 for practical (2 hours a week).
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mechanics/#faq-1)
+
+**How are the marks split?**
+
+Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the practical credit.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mechanics/#faq-2)
+
+**How many units are there?**
+
+Five units of 6 hours each, 30 hours in total: force systems and resultants, equilibrium, friction and trusses, kinematics of a particle, and kinetics of a particle.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mechanics/#faq-3)
+
+**What does the lab journal contain?**
+
+Four compulsory experiments (polygon law of forces, support reaction of a beam, coefficient of friction, coefficient of restitution), four graphical solutions (concurrent and parallel equilibrium, truss member forces, moment of inertia) and an assignment of at least four examples on each unit.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mechanics/#faq-4)
+
+**Which books does the syllabus list?**
+
+Two text books (Singer, and Hibbeler) and four reference books, including Timoshenko and Young, Beer and Johnston (statics and dynamics) and Meriam and Kraige.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mechanics/#faq-5)
+
+---
+
+Sources: [SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf) and the [SPPU credit framework handbook](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/syllabus/fundamentals-of-programming-languages/ -->
+
+# Fundamentals of Programming Languages syllabus
+
+SPPU First Year Engineering, 2024 pattern. Course code ESC-105-COM. Five units of C programming, 30 hours of theory and a practical component, with the marks scheme, outcomes and books taken from the official syllabus book.
+
+3 credits (2 theory + 1 practical) CCE 40 + End-Sem 60 Term work 25 5 units x 6 hours
+
+30 hours of theory
+
+05 . units
+
+03 . credits
+
+## At a glance
+
+Course codeESC-105-COM
+
+LevelFirst Year Engineering, SPPU 2024 pattern
+
+Units5
+
+Named topics24
+
+Theory hours30
+
+Credits3 (2 theory + 1 tutorial)
+
+## Unit-wise syllabus
+
+UNIT I
+
+### Intro to Program Planning & C Programming
+
+6 hours
+
+Algorithms & Flowcharts C Tokens, Keywords, Identifiers Constants, Variables, Data types Storage Classes Program compilation Process
+
+UNIT II
+
+### Operators and Expressions
+
+6 hours
+
+Arithmetic, Relational, Logical Operators Increment/Decrement Operators Bitwise Operators Operator Precedence Type casting
+
+UNIT III
+
+### Control Flow
+
+6 hours
+
+If-Else, Switch Statement Loops: While, Do-While, For Break and Continue Goto Statement
+
+UNIT IV
+
+### Arrays
+
+6 hours
+
+One Dimensional Arrays Two-dimensional Arrays Character Arrays and Strings String handling Functions Matrix multiplication
+
+UNIT V
+
+### User Defined Functions
+
+6 hours
+
+Function definition & declaration Call by value/reference Recursion Structures (Declaration, Initialization) Tower of Hanoi
+
+## Marks and credits
+
+| Head | Marks | Credit |
+| --- | --- | --- |
+| Theory: CCE | 40 | 2 |
+| Theory: End-Semester | 60 | 2 |
+| Practical / term work | 25 | 1 |
+
+The prerequisites listed in the syllabus are basics of computers and basic mathematics. The course teaches C programming: algorithms, operators, control flow, arrays and strings, and user defined functions with structures. The practical side is 2 hours a week: any 6 to 8 programming assignments from a list of 10, and the syllabus also suggests four mini-projects such as a calculator, a dice roller and a number guessing game.
+
+## Course outcomes
+
+1. CO1 Design algorithms for simple computational problems. Covers Unit I
+2. CO2 Use mathematical and logical operators and expressions. Covers Unit II
+3. CO3 Apply control flow structures for decision making. Covers Unit III
+4. CO4 Design a solution using arrays, character arrays and strings. Covers Unit IV
+5. CO5 Design and apply user defined functions and structures. Covers Unit V
+
+## Books
+
+### Text books
+
+- Programming in ANSI C, 8th edition, by E. Balagurusamy
+
+### Reference books
+
+- Programming with C (Schaum’s Outline Series), 2nd edition, by B. S. Gottfried (McGraw-Hill, 1996)
+- Programming in C, 3rd edition, by S. C. Kochan (Sams Publishing, 2004)
+- The C Programming Language, 2nd edition, by B. W. Kernighan and D. M. Ritchie (Prentice Hall, 1988)
+- The Practice of Programming by B. W. Kernighan and R. Pike (Addison-Wesley, 1999)
+- C: How to Program, 8th edition, by H. M. Deitel and P. J. Deitel (Pearson Education, 2015)
+- C in a Nutshell: The Definitive Reference, 2nd edition, by P. Prinz and T. Crawford (O’Reilly Media, 2016)
+
+## Video lectures
+
+The syllabus lists two NPTEL courses for this subject: [NPTEL course noc22_cs40](https://onlinecourses.nptel.ac.in/noc22_cs40/preview), [NPTEL course noc23_cs53](https://onlinecourses.nptel.ac.in/noc23_cs53/preview).
+
+## Track it in PrepTracker
+
+Tick off each unit as you finish it, and keep your own notes and links in one place. It is free and needs no account.
+
+[Open Fundamentals of Programming Languages in the app](https://preptracker.manavdev.site/#/subject/fpl)
+
+## FAQ
+
+**How many credits is Fundamentals of Programming Languages in the SPPU 2024 pattern?**
+
+ESC-105-COM carries 3 credits: 2 for theory (2 hours a week) and 1 for practical (2 hours a week).
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/fundamentals-of-programming-languages/#faq-1)
+
+**How are the marks split?**
+
+Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the practical credit.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/fundamentals-of-programming-languages/#faq-2)
+
+**Which language does the course use?**
+
+C. The five units cover program planning and the basics of C, operators and expressions, control flow, arrays and strings, and user defined functions with structures.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/fundamentals-of-programming-languages/#faq-3)
+
+**How many lab assignments do I have to do?**
+
+Any 6 to 8 from the list of 10 in the syllabus. They include prime and factorial programs, a Fibonacci series, array operations, string operations and a structure for employee details. Instructors may also assign a mini-project.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/fundamentals-of-programming-languages/#faq-4)
+
+**Which books does the syllabus list?**
+
+One text book, Programming in ANSI C by E. Balagurusamy, and six reference books including Kernighan and Ritchie’s The C Programming Language and Deitel and Deitel’s C: How to Program.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/fundamentals-of-programming-languages/#faq-5)
+
+**Are there official video courses?**
+
+The syllabus lists two NPTEL courses, noc22_cs40 and noc23_cs53. Both are linked on this page.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/fundamentals-of-programming-languages/#faq-6)
+
+---
+
+Sources: [SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf) and the [SPPU credit framework handbook](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/syllabus/engineering-graphics/ -->
+
+# Engineering Graphics syllabus
+
+SPPU First Year Engineering, 2024 pattern. Course code ESC-103-MEC. Five units, 30 hours of theory and a drawing practical, with the marks scheme, outcomes and books taken from the official syllabus book.
+
+3 credits (2 theory + 1 practical) CCE 40 + End-Sem 60 Term work 25 5 units x 6 hours
+
+30 hours of theory
+
+05 . units
+
+03 . credits
+
+## At a glance
+
+Course codeESC-103-MEC
+
+LevelFirst Year Engineering, SPPU 2024 pattern
+
+Units5
+
+Named topics19
+
+Theory hours30
+
+Credits3 (2 theory + 1 tutorial)
+
+## Unit-wise syllabus
+
+UNIT I
+
+### Fundamentals & Projection of Point/Line
+
+6 hours
+
+Drawing instruments & Sheet layout Dimensioning rules Projection of Points Projection of Lines (Inclined to both planes) Traces of Lines
+
+UNIT II
+
+### Projection of Plane
+
+6 hours
+
+Planes parallel/perpendicular to reference Planes inclined to one plane Planes inclined to both reference planes
+
+UNIT III
+
+### Engineering Curves and Development
+
+6 hours
+
+Conic Sections (Ellipse, Parabola, Hyperbola) Helix, Cycloid, Involute, Archimedean Spiral Development of Lateral Surfaces (Prism, Pyramid, Cylinder, Cone)
+
+UNIT IV
+
+### Orthographic Projection
+
+6 hours
+
+First & Third angle method Hidden features Conversion of 3D to 2D views Sectional Views
+
+UNIT V
+
+### Isometric Projection
+
+6 hours
+
+Isometric lines & planes Isometric scale Construction of Isometric views from Orthographic Isometric Projection vs Isometric View
+
+## Marks and credits
+
+| Head | Marks | Credit |
+| --- | --- | --- |
+| Theory: CCE | 40 | 2 |
+| Theory: End-Semester | 60 | 2 |
+| Practical / term work | 25 | 1 |
+
+The prerequisites listed in the syllabus are basic geometric shapes, basic linear and angular measurements and construction, the lines, circles and polygons of coordinate geometry, and computer literacy. The course builds the ability to draw physical objects for engineering communication and introduces drawing and design software. For the practical, the assignments are drawn on A2 sheets, and two problems must be drawn in a CAD software.
+
+## Course outcomes
+
+1. CO1 Explain the fundamentals of engineering graphics and geometric construction, and prepare drawings for points and lines using projections. Covers Unit I
+2. CO2 Apply the types of projection methods to prepare drawings of planes. Covers Unit II
+3. CO3 Construct engineering curves, show their applications, and draw the development of the lateral surface of a solid. Covers Unit III
+4. CO4 Apply orthographic projection to draw several 2D views of an object. Covers Unit IV
+5. CO5 Use visualization skill to draw an isometric projection from given orthographic views. Covers Unit V
+
+## Books
+
+### Text books
+
+- Engineering Drawing by N. D. Bhatt and V. M. Panchal, 2016 (Charotar Publication, Anand)
+- Engineering and Graphics by K. Venugopal, 2015 (New Age International, New Delhi)
+- Engineering Drawing with Introduction to AutoCAD by D. A. Jolhe, 2015 (Tata McGraw Hill, New Delhi)
+- A First Course in Engineering Drawing by K. Rathnam, 2018 (Springer Nature Singapore)
+
+### Reference books
+
+- Engineering Drawing and Design by D. P. Madsen and D. A. Madsen, 2016 (Delmar Publishers)
+- Machine Drawing by N. D. Bhatt, 2018 (Charotar Publishing House, Anand)
+- A Textbook of Engineering Drawing by R. K. Dhawan, 2000 (S. Chand, New Delhi)
+- The Fundamentals of Engineering Drawing: With an Introduction to Interactive Computer Graphics for Design and Production by W. J. Luzadder and J. M. Duff, 1992 (Peachpit Press)
+- Principles of Engineering Graphics by F. E. Giesecke and others, 1990 (Macmillan Publishing)
+
+## Video lectures
+
+The syllabus lists NPTEL resources, including: [NPTEL: Engineering Graphics and Design](https://onlinecourses.nptel.ac.in/noc21_me128/preview), [NPTEL: Introduction and Geometric Construction](https://archive.nptel.ac.in/content/storage2/courses/112103019/module1/lec3/1.html).
+
+## Track it in PrepTracker
+
+Tick off each unit as you finish it, and keep your own notes and links in one place. It is free and needs no account.
+
+[Open Engineering Graphics in the app](https://preptracker.manavdev.site/#/subject/graph)
+
+## FAQ
+
+**How many credits is Engineering Graphics in the SPPU 2024 pattern?**
+
+ESC-103-MEC carries 3 credits: 2 for theory (2 hours a week) and 1 for practical (2 hours a week).
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-graphics/#faq-1)
+
+**How are the marks split?**
+
+Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the practical credit.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-graphics/#faq-2)
+
+**How many units are there?**
+
+Five units of 6 hours each, 30 hours in total: fundamentals with projection of points and lines, projection of planes, engineering curves with development of surfaces, orthographic projection, and isometric projection.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-graphics/#faq-3)
+
+**What are the drawing assignments?**
+
+Five sets of two problems each: projection of lines, projection of planes, engineering curves with development of lateral surfaces, orthographic projections and isometric projections. They are drawn on A2 sheets, and two problems must be drawn using CAD software.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-graphics/#faq-4)
+
+**Which angle of projection is used?**
+
+The syllabus covers both first angle and third angle methods in orthographic projection. Typical problems are solved by the first angle method, and projection of lines is taught in first angle projection.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-graphics/#faq-5)
+
+**Which books does the syllabus list?**
+
+Four text books (Bhatt and Panchal, Venugopal, Jolhe, Rathnam) and five reference books, including Madsen and Madsen, Dhawan and Giesecke.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-graphics/#faq-6)
+
+---
+
+Sources: [SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf) and the [SPPU credit framework handbook](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/syllabus/engineering-mathematics-2/ -->
+
+# Engineering Mathematics-II syllabus
+
+SPPU First Year Engineering, 2024 pattern, Semester II. Course code BSC-151-BES. Five units, 40 hours of theory, with the marks scheme, outcomes and books taken from the official syllabus book.
+
+4 credits (3 theory + 1 tutorial) CCE 40 + End-Sem 60 Term work 25 5 units x 8 hours
+
+40 hours of theory
+
+05 . units
+
+04 . credits
+
+## At a glance
+
+Course codeBSC-151-BES
+
+LevelFirst Year Engineering, SPPU 2024 pattern
+
+Units5
+
+Named topics31
+
+Theory hours40
+
+Credits4 (3 theory + 1 tutorial)
+
+## Unit-wise syllabus
+
+UNIT I
+
+### First Order Ordinary Differential Equations
+
+8 hours
+
+Exact Differential Equations Equations reducible to exact equations Linear Differential Equations Equations reducible to Linear equations Applications: Orthogonal Trajectories Newton's Law of Cooling Electrical Circuits
+
+UNIT II
+
+### Linear Differential Equations with Constant Coefficients
+
+8 hours
+
+LDE with constant coefficients Homogeneous Linear Differential Equations Legendre's Linear Equations Applications: L-C-R Circuits
+
+UNIT III
+
+### Fourier Series
+
+8 hours
+
+Periodic functions Dirichlet's conditions Fourier series Euler's formulae Functions having points of discontinuity Change of interval Even and odd functions Half range series Harmonic analysis
+
+UNIT IV
+
+### Vector Calculus
+
+8 hours
+
+Vector differentiation Gradient, Divergence and Curl Directional derivative Solenoidal and Irrotational vector fields Vector Identities Line, Surface and Volume Integral Green's, Gauss & Stokes' Theorem
+
+UNIT V
+
+### Statistics and Probability
+
+8 hours
+
+Measures of Central Tendency Measures of Dispersion Moments, Skewness and Kurtosis Binomial, Poisson and Normal distributions
+
+## Marks and credits
+
+| Head | Marks | Credit |
+| --- | --- | --- |
+| Theory: CCE | 40 | 3 |
+| Theory: End-Semester | 60 | 3 |
+| Tutorial / term work | 25 | 1 |
+
+The prerequisites listed in the syllabus are integration, differential equations and three-dimensional coordinate systems. The course covers advanced integration, curve tracing, solid geometry, multiple integrals and their applications, and mathematical modelling of physical systems with differential equations. Term work is based on assignments on the units, with performance and continuous internal assessment.
+
+## Course outcomes
+
+1. CO1 Apply reduction formulae, Beta and Gamma functions, differentiation under the integral sign and error functions to evaluate integrals. Covers Unit I
+2. CO2 Trace curves, measure arc length, and apply solid geometry to the sphere, cone and cylinder. Covers Unit II
+3. CO3 Evaluate multiple integrals and use them for area, volume, centre of gravity and moment of inertia. Covers Unit III
+4. CO4 Solve first order ordinary differential equations: exact, reducible to exact, linear and reducible to linear. Covers Unit IV
+5. CO5 Model physical systems with ordinary differential equations: Newton’s law of cooling, electrical circuits, rectilinear motion, mass-spring systems and heat transfer. Covers Unit V
+
+## Books
+
+### Text books
+
+- Higher Engineering Mathematics by B. V. Ramana (Tata McGraw Hill)
+- Higher Engineering Mathematics by B. S. Grewal (Khanna Publication, Delhi)
+
+### Reference books
+
+- Advanced Engineering Mathematics by Erwin Kreyszig (Wiley Eastern Ltd.)
+- Advanced Engineering Mathematics by M. D. Greenberg (Pearson Education)
+- Advanced Engineering Mathematics by Peter V. O’Neil (Thomson Learning)
+- Thomas’ Calculus by George B. Thomas (Addison-Wesley, Pearson)
+- Applied Mathematics (Vol. I and II) by P. N. Wartikar and J. N. Wartikar (Vidyarthi Griha Prakashan, Pune)
+- Differential Equations by S. L. Ross (John Wiley and Sons)
+
+## Video lectures
+
+The syllabus lists one playlist for this course, the same one it lists for Engineering Mathematics-I: [NPTEL / YouTube playlist](https://youtube.com/playlist?list=PLbRMhDVUMngeVrxtbBz-n8HvP8KAWBpI5).
+
+## Track it in PrepTracker
+
+Tick off each unit as you finish it, and keep your own notes and links in one place. It is free and needs no account.
+
+[Open Engineering Mathematics-II in the app](https://preptracker.manavdev.site/#/subject/m2)
+
+## FAQ
+
+**How many credits is Engineering Mathematics-II in the SPPU 2024 pattern?**
+
+BSC-151-BES carries 4 credits: 3 for theory (3 hours a week) and 1 for the tutorial (1 hour a week).
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-2/#faq-1)
+
+**How are the marks split?**
+
+Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the tutorial credit.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-2/#faq-2)
+
+**How many units are there?**
+
+Five units of 8 hours each, 40 hours in total: integral calculus, curve tracing and solid geometry, multiple integrals, first order ordinary differential equations, and applications of differential equations.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-2/#faq-3)
+
+**How is term work assessed?**
+
+Through assignments on the units, based on performance and continuous internal assessment. The syllabus sets tutorial batches of at most 22 students.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-2/#faq-4)
+
+**Which books does the syllabus list?**
+
+Text books: B. V. Ramana and B. S. Grewal, both titled Higher Engineering Mathematics. Six reference books are listed too, including Kreyszig, Thomas’ Calculus and S. L. Ross on differential equations.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/engineering-mathematics-2/#faq-5)
+
+---
+
+Sources: [SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf) and the [SPPU credit framework handbook](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/syllabus/programming-and-problem-solving/ -->
+
+# Programming and Problem Solving syllabus
+
+SPPU First Year Engineering, 2024 pattern, Semester II. Course code PCC-151-ITT. Five units of Python programming, 19 hours of theory and a practical component, with the marks scheme, outcomes and books taken from the official syllabus book.
+
+3 credits (2 theory + 1 practical) CCE 40 + End-Sem 60 Term work 25 5 units, 19 hours
+
+19 hours of theory
+
+05 . units
+
+03 . credits
+
+## At a glance
+
+Course codePCC-151-ITT
+
+LevelFirst Year Engineering, SPPU 2024 pattern
+
+Units5
+
+Named topics17
+
+Theory hours19
+
+Credits3 (2 theory + 1 tutorial)
+
+## Unit-wise syllabus
+
+UNIT I
+
+### Introduction to Computing and Programming
+
+4 hours
+
+Digital Computer & Computing Environment Computer Languages Problem Solving Programming Basics Elements of Python
+
+UNIT II
+
+### Control Structures
+
+4 hours
+
+Decision Making and Branching Loop Control Structures
+
+UNIT III
+
+### Functions and Modules
+
+3 hours
+
+Introduction to Functions User Defined Functions Parameters and Arguments Recursion Python Modules
+
+UNIT IV
+
+### Strings and List
+
+4 hours
+
+Strings: Introduction, Operations, Methods Lists: Introduction, Operations, Methods
+
+UNIT V
+
+### Tuples, Sets and Dictionaries
+
+4 hours
+
+Tuples: Introduction, Operations, Methods Sets: Introduction, Operations, Methods Dictionaries: Introduction, Operations, Methods
+
+## Marks and credits
+
+| Head | Marks | Credit |
+| --- | --- | --- |
+| Theory: CCE | 40 | 2 |
+| Theory: End-Semester | 60 | 2 |
+| Practical / term work | 25 | 1 |
+
+The prerequisites listed in the syllabus are basics of computers, basic mathematics and Fundamentals of Programming Languages. The course covers problem solving, then Python: data types, decision control, functions, strings, file handling and object oriented programming. The credit split follows the semester scheme table in the book (2 theory + 1 practical = 3); the course page itself prints a different practical figure, so check your college notice if it matters. The practical side has Group A assignments for each unit, and Group B assignments set by Mechanical, Civil and Electrical faculty in their own application domains.
+
+## Course outcomes
+
+1. CO1 Apply various skills in problem solving. Covers Unit I
+2. CO2 Choose appropriate programming constructs and features to solve problems in different domains. Covers Unit II
+3. CO3 Use functions and string manipulation for problem solving. Covers Unit III
+4. CO4 Demonstrate file handling and dictionaries in Python. Covers Unit IV
+5. CO5 Apply object oriented concepts in Python. Covers Unit V
+
+## Books
+
+### Text books
+
+- Python Programming Using Problem Solving Approach by Reema Thareja (Oxford University Press)
+- Core Python Programming by R. Nageswara Rao, 2nd edition (Dreamtech Press)
+
+### Reference books
+
+- How to Solve it by Computer by R. G. Dromey (Pearson Education India), and Problem Solving and Programming Concepts by Maureen Spankle (Pearson, 9th edition)
+- Learning Python by Fabrizio Romano (Packt Publishing)
+- Head First Python by Paul Barry, 2nd edition (SPD O’Reilly)
+- Python: The Complete Reference by Martin C. Brown (McGraw Hill Education)
+- Introduction to Computing and Problem Solving with Python by Jeeva Jose and P. Sojan Lal (Khanna Computer Book Store)
+
+## Video lectures
+
+The syllabus lists no NPTEL or video resources for this subject.
+
+## Track it in PrepTracker
+
+Tick off each unit as you finish it, and keep your own notes and links in one place. It is free and needs no account.
+
+[Open Programming and Problem Solving in the app](https://preptracker.manavdev.site/#/subject/pps)
+
+## FAQ
+
+**How many credits is Programming and Problem Solving in the SPPU 2024 pattern?**
+
+PCC-151-ITT carries 3 credits in the book’s semester scheme table: 2 for theory (2 hours a week) and 1 for practical (2 hours a week).
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/programming-and-problem-solving/#faq-1)
+
+**How are the marks split?**
+
+Theory is graded out of 100: CCE (continuous internal evaluation) 40 and End-Semester 60. Term work is a separate 25 marks tied to the practical credit.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/programming-and-problem-solving/#faq-2)
+
+**Which language does the course use?**
+
+Python. The five units cover problem solving and Python basics, advanced data types with decision control, functions and strings, file handling with dictionaries, and object oriented programming.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/programming-and-problem-solving/#faq-3)
+
+**Is everything in the syllabus examined in theory?**
+
+No. The Unit IV case study, on the design, features and use of a popular system built with Python, is excluded from the theory examination.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/programming-and-problem-solving/#faq-4)
+
+**What are the lab assignments?**
+
+Group A has practicals for each of the five units, from installing Python and operators to string operations, file handling and classes. Group B has assignments from Electrical, Mechanical and Civil application domains, designed with faculty from those branches.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/programming-and-problem-solving/#faq-5)
+
+**Which books does the syllabus list?**
+
+Two text books (Reema Thareja, and R. Nageswara Rao) and several reference books including Dromey, Fabrizio Romano’s Learning Python and Paul Barry’s Head First Python.
+
+[Link to this answer](https://preptracker.manavdev.site/syllabus/programming-and-problem-solving/#faq-6)
+
+---
+
+Sources: [SPPU First Year Engineering 2024 pattern syllabus, revised 2025 (official PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/FE%202024%20Pattern%20-%20Revised%202025_04062026.pdf) and the [SPPU credit framework handbook](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2024/Rev.HANDBOOK-revised%20Rules%20and%20Regulations_27052025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm exam rules with your college.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [FE scheme and credits](https://preptracker.manavdev.site/syllabus/first-year-scheme-credits/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Exam pattern](https://preptracker.manavdev.site/syllabus/cce-end-sem-exam-pattern/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/syllabus/se-computer-engineering/ -->
+
+# SE Computer Engineering syllabus
+
+Second Year, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes and books. Practical, lab and project courses are not listed here, only theory courses.
+
+## Theory courses
+
+[Data Structures PCC-201-COM · 3 cr](https://preptracker.manavdev.site/syllabus/se-computer-engineering/data-structures/)
+
+[Object Oriented programming and Computer Graphics PCC-202-COM · 3 cr](https://preptracker.manavdev.site/syllabus/se-computer-engineering/object-oriented-programming-and-computer-graphics/)
+
+[Operating Systems PCC-203-COM · 3 cr](https://preptracker.manavdev.site/syllabus/se-computer-engineering/operating-systems/)
+
+[Digital Electronics and Logic Design MDM-221-COM · 2 cr](https://preptracker.manavdev.site/syllabus/se-computer-engineering/digital-electronics-and-logic-design/)
+
+[Database Management Systems PCC-251-COM · 3 cr](https://preptracker.manavdev.site/syllabus/se-computer-engineering/database-management-systems/)
+
+[Discrete Mathematics PCC-252-COM · 3 cr](https://preptracker.manavdev.site/syllabus/se-computer-engineering/discrete-mathematics/)
+
+[Computer Organization and Microprocessor PCC-253-COM · 2 cr](https://preptracker.manavdev.site/syllabus/se-computer-engineering/computer-organization-and-microprocessor/)
+
+[Internet of Things MDM-271-COM · 2 cr](https://preptracker.manavdev.site/syllabus/se-computer-engineering/internet-of-things/)
+
+---
+
+Source: [SPPU SE Computer Engineering 2024 pattern syllabus (revised June 2026, effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/SE%20-%20Computer%20Engineering%20-%202024%20Pattern%20Revised_13062026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Computer subjects](https://preptracker.manavdev.site/syllabus/se-computer-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/ -->
+
+# SE Computer Science and Engineering syllabus
+
+Second Year, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes and books. Practical, lab and project courses are not listed here, only theory courses.
+
+## Theory courses
+
+[Data Structures PCC-201-CSE · 3 cr](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/data-structures/)
+
+[Object Oriented programming and Computer Graphics PCC-202-CSE · 3 cr](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/object-oriented-programming-and-computer-graphics/)
+
+[Operating Systems PCC-203-CSE · 3 cr](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/operating-systems/)
+
+[Digital Electronics and Logic Design MDM-221-CSE · 2 cr](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/digital-electronics-and-logic-design/)
+
+[Database Management Systems PCC-251-CSE · 3 cr](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/database-management-systems/)
+
+[Discrete Mathematics PCC-252-CSE · 3 cr](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/discrete-mathematics/)
+
+[Computer Organization and Microprocessor PCC-253-CSE · 2 cr](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/computer-organization-and-microprocessor/)
+
+[Internet of Things MDM-271-CSE · 2 cr](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/internet-of-things/)
+
+---
+
+Source: [SPPU SE Computer Science and Engineering 2024 pattern syllabus (revised June 2026) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/SE%20Computer%20Science%20and%20Engineering%20-%202024%20Pattern%20-%20Revised_13062026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE CSE subjects](https://preptracker.manavdev.site/syllabus/se-computer-science-and-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/ -->
+
+# SE Artificial Intelligence and Data Science syllabus
+
+Second Year, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes and books. Practical, lab and project courses are not listed here, only theory courses.
+
+## Theory courses
+
+[Data Structures PCC-201-AID · 3 cr](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/data-structures/)
+
+[Artificial Intelligence PCC-202-AID · 3 cr](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/artificial-intelligence/)
+
+[Operating System PCC-203-AID · 3 cr](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/operating-system/)
+
+[Digital Electronics and Logic Design MDM-221-AID · 2 cr](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/digital-electronics-and-logic-design/)
+
+[Database Management Systems PCC-251-AID · 3 cr](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/database-management-systems/)
+
+[Data Science PCC-252-AID · 2 cr](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/data-science/)
+
+[Probability and Statistics PCC-253-AID · 3 cr](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/probability-and-statistics/)
+
+[Embedded Systems MDM-271-AID · 2 cr](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/embedded-systems/)
+
+---
+
+Source: [SPPU SE AI and Data Science 2024 pattern syllabus (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE%20-%20AIandDS%20-%202024%20Pattern_18072025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE AI&DS subjects](https://preptracker.manavdev.site/syllabus/se-artificial-intelligence-and-data-science/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/syllabus/se-electrical-engineering/ -->
+
+# SE Electrical Engineering syllabus
+
+Second Year, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes and books. Practical, lab and project courses are not listed here, only theory courses.
+
+## Theory courses
+
+[Electrical Measurements & Instrumentation PCC-201-ELE · 3 cr](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/electrical-measurements-and-instrumentation/)
+
+[Analog and Digital Electronics PCC-202-ELE · 3 cr](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/analog-and-digital-electronics/)
+
+[Power System Engineering-I PCC-203-ELE · 2 cr](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/power-system-engineering-i/)
+
+[Engineering Mathematics-III MDM-222-ELE · 3 cr](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/engineering-mathematics-iii/)
+
+[Electrical Machines-I PCC-251-ELE · 3 cr](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/electrical-machines-i/)
+
+[Numerical Methods and Computer Programming PCC-252-ELE · 2 cr](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/numerical-methods-and-computer-programming/)
+
+[Network Analysis PCC-253-ELE · 2 cr](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/network-analysis/)
+
+[Fundamentals of Data science & Machine Learning MDM-272-ELE · 2 cr](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/fundamentals-of-data-science-and-machine-learning/)
+
+---
+
+Source: [SPPU SE Electrical Engineering 2024 pattern syllabus (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE_Electrical_Syllabus_2024_pattern_14th_July_15072025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Electrical subjects](https://preptracker.manavdev.site/syllabus/se-electrical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/syllabus/se-information-technology/ -->
+
+# SE Information Technology syllabus
+
+Second Year, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes and books. Practical, lab and project courses are not listed here, only theory courses.
+
+## Theory courses
+
+[Data Structures & Algorithms PCC-201-ITT · 3 cr](https://preptracker.manavdev.site/syllabus/se-information-technology/data-structures-and-algorithms/)
+
+[Object Oriented Programming PCC-202-ITT · 3 cr](https://preptracker.manavdev.site/syllabus/se-information-technology/object-oriented-programming/)
+
+[Basics of Computer Network PCC-203-ITT · 3 cr](https://preptracker.manavdev.site/syllabus/se-information-technology/basics-of-computer-network/)
+
+[Digital Electronics and Logic Design MDM-221-ITT · 2 cr](https://preptracker.manavdev.site/syllabus/se-information-technology/digital-electronics-and-logic-design/)
+
+[Database Management System PCC-251-ITT · 3 cr](https://preptracker.manavdev.site/syllabus/se-information-technology/database-management-system/)
+
+[Computer Graphics PCC-252-ITT · 3 cr](https://preptracker.manavdev.site/syllabus/se-information-technology/computer-graphics/)
+
+[Processor Architecture MDM-271-ITT · 2 cr](https://preptracker.manavdev.site/syllabus/se-information-technology/processor-architecture/)
+
+---
+
+Source: [SPPU SE Information Technology 2024 pattern syllabus (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE%20IT%202024%20Pattern%20Syllabus_15072025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE IT subjects](https://preptracker.manavdev.site/syllabus/se-information-technology/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/syllabus/se-civil-engineering/ -->
+
+# SE Civil Engineering syllabus
+
+Second Year, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes and books. Practical, lab and project courses are not listed here, only theory courses.
+
+## Theory courses
+
+[Mechanics of Structures PCC-201-CVL · 3 cr](https://preptracker.manavdev.site/syllabus/se-civil-engineering/mechanics-of-structures/)
+
+[Surveying PCC-202-CVL · 3 cr](https://preptracker.manavdev.site/syllabus/se-civil-engineering/surveying/)
+
+[Building Construction and Materials PCC-203-CVL · 3 cr](https://preptracker.manavdev.site/syllabus/se-civil-engineering/building-construction-and-materials/)
+
+[Engineering Mathematics - III MDM-221-CVL · 3 cr](https://preptracker.manavdev.site/syllabus/se-civil-engineering/engineering-mathematics-iii/)
+
+[Fluid Mechanics PCC-251-CVL · 3 cr](https://preptracker.manavdev.site/syllabus/se-civil-engineering/fluid-mechanics/)
+
+[Structural Analysis PCC-252-CVL · 3 cr](https://preptracker.manavdev.site/syllabus/se-civil-engineering/structural-analysis/)
+
+[Concrete Technology PCC-253-CVL · 3 cr](https://preptracker.manavdev.site/syllabus/se-civil-engineering/concrete-technology/)
+
+[Engineering Geology MDM-271-CVL · 2 cr](https://preptracker.manavdev.site/syllabus/se-civil-engineering/engineering-geology/)
+
+---
+
+Source: [SPPU SE Civil Engineering 2024 pattern syllabus (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE-Civil2024_pattern-_final_version_22072025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Civil subjects](https://preptracker.manavdev.site/syllabus/se-civil-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/ -->
+
+# SE Instrumentation and Control Engineering syllabus
+
+Second Year, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes and books. Practical, lab and project courses are not listed here, only theory courses.
+
+## Theory courses
+
+[Sensors and Transducers PCC-201-INC · 3 cr](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/sensors-and-transducers/)
+
+[Signals and Systems PCC-202-INC · 3 cr](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/signals-and-systems/)
+
+[Linear Integrated Circuits PCC-203-INC · 3 cr](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/linear-integrated-circuits/)
+
+[Data Structures MDM-221-INC · 2 cr](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/data-structures/)
+
+[Feedback Control Systems PCC-251-INC · 3 cr](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/feedback-control-systems/)
+
+[Control System Components PCC-252-INC · 3 cr](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/control-system-components/)
+
+[Digital Electronics PCC-253-INC · 2 cr](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/digital-electronics/)
+
+[Data Science MDM-271-INC · 2 cr](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/data-science/)
+
+---
+
+Source: [SPPU SE Instrumentation and Control Engineering 2024 pattern syllabus (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus2025/SE_Instrumentation%20and%20Control_2024%20Course_Updated_3rd%20July%202025_10072025.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Instrumentation subjects](https://preptracker.manavdev.site/syllabus/se-instrumentation-and-control-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/ -->
+
+# SE Mechanical Engineering syllabus
+
+Second Year, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes and books. Practical, lab and project courses are not listed here, only theory courses.
+
+## Theory courses
+
+[Solid Mechanics PCC-201-MEC · 3 cr](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/solid-mechanics/)
+
+[Engineering Thermodynamics PCC-202-MEC · 3 cr](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/engineering-thermodynamics/)
+
+[Engineering Materials & Metallurgy PCC-203-MEC · 3 cr](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/engineering-materials-and-metallurgy/)
+
+[Engineering Mathematics-III MDM-221-MEC · 3 cr](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/engineering-mathematics-iii/)
+
+[Fluid Mechanics PCC-251-MEC · 3 cr](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/fluid-mechanics/)
+
+[Manufacturing Processes-I PCC-252-MEC · 3 cr](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/manufacturing-processes-i/)
+
+[Applied Thermodynamics PCC-253-MEC · 3 cr](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/applied-thermodynamics/)
+
+---
+
+Source: [SPPU SE Mechanical Engineering 2024 pattern syllabus (revised June 2026, effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/SE%20(2024)%20Revised%20Mechanical%20Engineering%20Syllabus_08062026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Mechanical subjects](https://preptracker.manavdev.site/syllabus/se-mechanical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/syllabus/se-cyber-security/ -->
+
+# SE Cyber Security syllabus
+
+Official PDF conflict: reference only.
+
+The curriculum tables and detailed course pages in the same official 2024 PDF disagree. This page preserves the detailed theory-course text. Do not treat it as a confirmed semester plan; verify with your college.
+
+- PCC-203: table says Basics of Computer Network; detailed page says Discrete Mathematics.
+- MDM-221: table says Fundamentals of Internet of Things; detailed page says Digital Electronics and Logic Design.
+- PCC-252: table says Discrete Mathematics; detailed page says Advanced Data Structures.
+- PCC-253: table says Introduction to Cyber Security; detailed page says Probability and Statistics.
+- MDM-271: table says Smart Devices and IoT Security; detailed page says Internet of Things.
+
+PCC-202 is listed as theory in the table, but its detailed page has practical-only assessment. The replacement courses have no matching detailed units here. Tracking stays unavailable until a corrected source resolves this.
+
+Second Year, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes and books. Practical, lab and project courses are not listed here, only theory courses.
+
+## Theory courses
+
+[Data Structures and Algorithms PCC-201-CYB · 3 cr](https://preptracker.manavdev.site/syllabus/se-cyber-security/data-structures-and-algorithms/)
+
+[Discrete Mathematics PCC-203-CYB · 3 cr](https://preptracker.manavdev.site/syllabus/se-cyber-security/discrete-mathematics/)
+
+[Digital Electronics and Logic Design MDM-221-CYB · 2 cr](https://preptracker.manavdev.site/syllabus/se-cyber-security/digital-electronics-and-logic-design/)
+
+[Database Management Systems PCC-251-CYB · 3 cr](https://preptracker.manavdev.site/syllabus/se-cyber-security/database-management-systems/)
+
+[Advanced Data Structures PCC-252-CYB · 3 cr](https://preptracker.manavdev.site/syllabus/se-cyber-security/advanced-data-structures/)
+
+[Probability and Statistics PCC-253-CYB · 2 cr](https://preptracker.manavdev.site/syllabus/se-cyber-security/probability-and-statistics/)
+
+[Internet of Things MDM-271-CYB · 2 cr](https://preptracker.manavdev.site/syllabus/se-cyber-security/internet-of-things/)
+
+---
+
+Source: [SPPU SE Cyber Security 2024 pattern syllabus (effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/SE%20-%20Cyber%20Security%20-%202024%20Pattern.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [SE Cyber Security subjects](https://preptracker.manavdev.site/syllabus/se-cyber-security/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/ -->
+
+# TE Robotics and Artificial Intelligence syllabus
+
+Third Year, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes and books. Practical, lab and project courses are not listed here, only theory courses.
+
+## Theory courses
+
+[Dynamics and Control of Robotic Systems PCC-301-RAI · 4 cr](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/dynamics-and-control-of-robotic-systems/)
+
+[Machine Learning for Robotics PCC-302-RAI · 3 cr](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/machine-learning-for-robotics/)
+
+[Robot Modeling and Simulation PCC-303-RAI · 4 cr](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/robot-modeling-and-simulation/)
+
+[Advances in Robotics and Artificial Intelligence PCC-304-RAI · 3 cr](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/advances-in-robotics-and-artificial-intelligence/)
+
+[Design of Robot Elements PCC-305-RAI · 3 cr](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/design-of-robot-elements/)
+
+[Deep Learning and Neural Networks PCC-351-RAI · 4 cr](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/deep-learning-and-neural-networks/)
+
+[Robotic Process Automation PCC-352-RAI · 3 cr](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/robotic-process-automation/)
+
+[Robot Operating System PCC-353-RAI · 4 cr](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/robot-operating-system/)
+
+---
+
+Source: [SPPU TE Robotics and Artificial Intelligence 2024 pattern syllabus (June 2026) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/TE_Robotics%20and%20AI_Syllabus_2024%20Pattern%20(1)_13062026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Robotics and AI subjects](https://preptracker.manavdev.site/syllabus/te-robotics-and-ai/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/ -->
+
+# TE Mechanical Engineering syllabus
+
+Third Year, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes and books. Practical, lab and project courses are not listed here, only theory courses.
+
+## Theory courses
+
+[Heat & Mass Transfer PCC-301-MEC · 4 cr](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/heat-and-mass-transfer/)
+
+[Theory of Machines PCC-302-MEC · 3 cr](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/theory-of-machines/)
+
+[Design of Machine Elements PCC-303-MEC · 4 cr](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/design-of-machine-elements/)
+
+[Manufacturing Process-II PCC-304-MEC · 3 cr](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/manufacturing-process-ii/)
+
+[Metrology and Quality Control PCC-305-MEC · 3 cr](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/metrology-and-quality-control/)
+
+[Computer Integrated Manufacturing PCC-351-MEC · 4 cr](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/computer-integrated-manufacturing/)
+
+[Refrigeration & Air-conditioning PCC-352-MEC · 3 cr](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/refrigeration-and-air-conditioning/)
+
+[Transmission System Design PCC-353-MEC · 4 cr](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/transmission-system-design/)
+
+---
+
+Source: [SPPU TE Mechanical Engineering 2024 pattern syllabus (May 2026) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/R10_%20TE%20(2024%20PATT)%20Mechanical%20Engineering%20Syllabus%20(30.5.2026)_04062026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Mechanical subjects](https://preptracker.manavdev.site/syllabus/te-mechanical-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/syllabus/te-computer-engineering/ -->
+
+# TE Computer Engineering syllabus
+
+Third Year, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes and books. Practical, lab and project courses are not listed here, only theory courses.
+
+## Theory courses
+
+[Artificial Intelligence PCC301COM · 3 cr](https://preptracker.manavdev.site/syllabus/te-computer-engineering/artificial-intelligence/)
+
+[Computer Networks PCC302COM · 3 cr](https://preptracker.manavdev.site/syllabus/te-computer-engineering/computer-networks/)
+
+[Theory Of Computations PCC303COM · 3 cr](https://preptracker.manavdev.site/syllabus/te-computer-engineering/theory-of-computations/)
+
+[Data Mining and Data Warehousing PEC321ACOM · 3 cr](https://preptracker.manavdev.site/syllabus/te-computer-engineering/data-mining-and-data-warehousing/)
+
+[Cloud Computing PEC321BCOM · 3 cr](https://preptracker.manavdev.site/syllabus/te-computer-engineering/cloud-computing/)
+
+[Mobile Computing PEC321CCOM · 3 cr](https://preptracker.manavdev.site/syllabus/te-computer-engineering/mobile-computing/)
+
+[Embedded System PEC321DCOM · 3 cr](https://preptracker.manavdev.site/syllabus/te-computer-engineering/embedded-system/)
+
+[Machine Learning PCC351COM · 3 cr](https://preptracker.manavdev.site/syllabus/te-computer-engineering/machine-learning/)
+
+[Software Engineering and Modeling PCC352COM · 2 cr](https://preptracker.manavdev.site/syllabus/te-computer-engineering/software-engineering-and-modeling/)
+
+[Quantum Computing PEC361ACOM · 3 cr](https://preptracker.manavdev.site/syllabus/te-computer-engineering/quantum-computing/)
+
+[Distributed Systems PEC361BCOM · 3 cr](https://preptracker.manavdev.site/syllabus/te-computer-engineering/distributed-systems/)
+
+[User Interface and User Experience Design PEC361CCOM · 3 cr](https://preptracker.manavdev.site/syllabus/te-computer-engineering/user-interface-and-user-experience-design/)
+
+[System Programming PEC361DCOM · 3 cr](https://preptracker.manavdev.site/syllabus/te-computer-engineering/system-programming/)
+
+[Information Retrieval PEC362ACOM · 3 cr](https://preptracker.manavdev.site/syllabus/te-computer-engineering/information-retrieval/)
+
+[Data Visualization and Analytics PEC362BCOM · 3 cr](https://preptracker.manavdev.site/syllabus/te-computer-engineering/data-visualization-and-analytics/)
+
+[Cryptography and Network Security PEC362CCOM · 3 cr](https://preptracker.manavdev.site/syllabus/te-computer-engineering/cryptography-and-network-security/)
+
+[Advanced Databases PEC362DCOM · 3 cr](https://preptracker.manavdev.site/syllabus/te-computer-engineering/advanced-databases/)
+
+---
+
+Source note: Mobile Computing uses PEC321CCOM from the curriculum table; its detailed course heading prints PCC305CCOM. Robotics and Automation is a tutorial/practical course and is excluded from this theory-course list.
+
+Source: [SPPU TE Computer Engineering 2024 pattern syllabus (September 22, 2026, effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/TE%20-%20Computer%20Engineering%20-%202024%2022092026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Computer subjects](https://preptracker.manavdev.site/syllabus/te-computer-engineering/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/syllabus/te-information-technology/ -->
+
+# TE Information Technology syllabus
+
+Third Year, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes and books. Practical, lab and project courses are not listed here, only theory courses.
+
+## Theory courses
+
+[Operating System PCC-301-IT · 3 cr](https://preptracker.manavdev.site/syllabus/te-information-technology/operating-system/)
+
+[Artificial Intelligence & Machine Learning PCC-302-IT · 3 cr](https://preptracker.manavdev.site/syllabus/te-information-technology/artificial-intelligence-and-machine-learning/)
+
+[Theory of Computation PCC-303-IT · 3 cr](https://preptracker.manavdev.site/syllabus/te-information-technology/theory-of-computation/)
+
+[Cloud Computing PEC-321A-IT · 3 cr](https://preptracker.manavdev.site/syllabus/te-information-technology/cloud-computing/)
+
+[Web Application Development PEC-321C-IT · 3 cr](https://preptracker.manavdev.site/syllabus/te-information-technology/web-application-development/)
+
+[Image Processing Computer Vision PEC-321D-IT · 3 cr](https://preptracker.manavdev.site/syllabus/te-information-technology/image-processing-computer-vision/)
+
+[Advanced Database Management System PEC-321B-IT · 3 cr](https://preptracker.manavdev.site/syllabus/te-information-technology/advanced-database-management-system/)
+
+[Data Science & Big Data Analytics PCC-351-IT · 3 cr](https://preptracker.manavdev.site/syllabus/te-information-technology/data-science-and-big-data-analytics/)
+
+[Software Engineering & Project Management PCC352-ITT · 2 cr](https://preptracker.manavdev.site/syllabus/te-information-technology/software-engineering-and-project-management/)
+
+[DevOps PEC-361A-IT · 3 cr](https://preptracker.manavdev.site/syllabus/te-information-technology/devops/)
+
+[Quantum Computing PEC-361B-IT · 3 cr](https://preptracker.manavdev.site/syllabus/te-information-technology/quantum-computing/)
+
+[Blockchain Technology PEC-361C-IT · 3 cr](https://preptracker.manavdev.site/syllabus/te-information-technology/blockchain-technology/)
+
+[Natural Language Processing PEC-361D-IT · 3 cr](https://preptracker.manavdev.site/syllabus/te-information-technology/natural-language-processing/)
+
+[Power BI & Tableau PEC-362A-IT · 3 cr](https://preptracker.manavdev.site/syllabus/te-information-technology/power-bi-and-tableau/)
+
+[High Performance Computing PEC-362B-IT · 3 cr](https://preptracker.manavdev.site/syllabus/te-information-technology/high-performance-computing/)
+
+[Mobile Application Development PEC-362C-IT · 3 cr](https://preptracker.manavdev.site/syllabus/te-information-technology/mobile-application-development/)
+
+[Cyber Security & Risk Management PEC-362D-IT · 3 cr](https://preptracker.manavdev.site/syllabus/te-information-technology/cyber-security-and-risk-management/)
+
+---
+
+Source note: Web Application Development uses PEC-321C-IT Advanced Database Management System uses PEC-321B-IT, and Image Processing Computer Vision uses PEC-321D-IT from the curriculum table. Detailed course headings conflict with that table. The PDF prints only four outcomes for Cloud Computing and High Performance Computing. Unit hours are shown as printed even where they differ from the weekly scheme. Tutorial and lab courses are excluded.
+
+Source: [SPPU TE Information Technology 2024 pattern syllabus (October 9, 2026, effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/TE%20IT%202024%20Pattern%20Final_09102026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE IT subjects](https://preptracker.manavdev.site/syllabus/te-information-technology/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/syllabus/te-electrical/ -->
+
+# TE Electrical Engineering syllabus
+
+Third Year, SPPU 2024 pattern. Pick a subject for its units, marks, outcomes and books. Practical, lab and project courses are not listed here, only theory courses.
+
+## Theory courses
+
+[Electrical Machines-II PCC-301-ELE · 3 cr](https://preptracker.manavdev.site/syllabus/te-electrical/electrical-machines-ii/)
+
+[Power Electronics PCC-302-ELE · 3 cr](https://preptracker.manavdev.site/syllabus/te-electrical/power-electronics/)
+
+[Electrical Installation, Design and Condition Based Maintenance PCC-303-ELE · 3 cr](https://preptracker.manavdev.site/syllabus/te-electrical/electrical-installation-design-and-condition-based-maintenance/)
+
+[Microcontroller and Embedded Systems PEC-321A-ELE · 3 cr](https://preptracker.manavdev.site/syllabus/te-electrical/microcontroller-and-embedded-systems/)
+
+[Renewable Energy Systems PEC-321B-ELE · 3 cr](https://preptracker.manavdev.site/syllabus/te-electrical/renewable-energy-systems/)
+
+[Computer Aided Design of Electrical Machines PEC-321C-ELE · 3 cr](https://preptracker.manavdev.site/syllabus/te-electrical/computer-aided-design-of-electrical-machines/)
+
+[Power System Engineering-II PCC-351-ELE · 3 cr](https://preptracker.manavdev.site/syllabus/te-electrical/power-system-engineering-ii/)
+
+[Control System Engineering PCC-352-ELE · 3 cr](https://preptracker.manavdev.site/syllabus/te-electrical/control-system-engineering/)
+
+[Electric Vehicles-I PEC-361A-ELE · 3 cr](https://preptracker.manavdev.site/syllabus/te-electrical/electric-vehicles-i/)
+
+[PLC and SCADA PEC-361B-ELE · 3 cr](https://preptracker.manavdev.site/syllabus/te-electrical/plc-and-scada/)
+
+[Energy Storage & Grid Interconnected Renewable Energy Systems PEC-361C-ELE · 3 cr](https://preptracker.manavdev.site/syllabus/te-electrical/energy-storage-and-grid-interconnected-renewable-energy-systems/)
+
+[Illumination Engineering PEC-363A-ELE · 3 cr](https://preptracker.manavdev.site/syllabus/te-electrical/illumination-engineering/)
+
+[Energy Management PEC-363B-ELE · 3 cr](https://preptracker.manavdev.site/syllabus/te-electrical/energy-management/)
+
+[Digital Signal Processing PEC-363C-ELE · 3 cr](https://preptracker.manavdev.site/syllabus/te-electrical/digital-signal-processing/)
+
+---
+
+Source note: Computer Aided Design uses PEC-321C-ELE from the curriculum table; its detailed theory heading omits C. Unit hours are copied as printed (usually 40 total; PLC and SCADA 37) rather than forced to match weekly hours. Tutorials and labs are excluded.
+
+Source: [SPPU TE Electrical Engineering 2024 pattern syllabus (July 20, 2026, effective 2026-27) (official SPPU PDF)](http://collegecirculars.unipune.ac.in/sites/documents/Syllabus%202026/TE_Electrical_Engg_2024_Pattern_Syllabus_17_july_2026_20072026.pdf). PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University. Always confirm the current syllabus and exam rules with your college.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/) · [TE Electrical subjects](https://preptracker.manavdev.site/syllabus/te-electrical/) · [Grading and SGPA](https://preptracker.manavdev.site/syllabus/grading-system-sgpa/) · [Research](https://preptracker.manavdev.site/research/) · [Privacy](https://preptracker.manavdev.site/privacy/)
+
+---
+
+<!-- https://preptracker.manavdev.site/privacy/ -->
+
+# Privacy policy
+
+The short version: your study data never leaves your browser, there is no account, and analytics cookies run only if you accept them.
+
+Last updated: 25 October 2026. PrepTracker is an independent student project, not affiliated with Savitribai Phule Pune University.
+
+## Who we are
+
+PrepTracker ([preptracker.manavdev.site](https://preptracker.manavdev.site/)) is an independent study planner for SPPU students. For anything in this policy, contact [sia@manavdev.site](mailto:sia@manavdev.site).
+
+## What stays on your device
+
+PrepTracker has no accounts and no server-side database. The following is stored only in your own browser's local storage:
+
+- Study data: your profile, syllabus progress, tasks, marks, revision state and custom resources.
+- Cookie choice: whether you accepted or rejected analytics cookies, so the banner does not keep asking.
+
+- Backups are files you export yourself; they go only where you share or save them.
+- Deleting everything: use the reset option in the app's Settings, or clear this site's data in your browser. Both remove every stored key.
+- Switching browsers or devices starts fresh unless you restore a backup.
+
+## Cookies and similar storage
+
+This site uses two categories:
+
+- Strictly necessary - the on-device storage described above. The site cannot function without it, so it is always on and is never sent to us.
+- Analytics cookies - optional. They measure visit statistics: which pages are viewed, how long visits last, the approximate region (country or city level, worked out by the analytics provider), and the device and browser type. Visits are told apart by a random ID stored in the cookie, so the data is pseudonymous rather than anonymous. They are set only after you press Accept on the cookie banner, and advertising storage and ad personalization stay switched off.
+
+Your choice is remembered on this device. To change it, use the Cookie settings button below to reset the banner, or clear this site's data in your browser.
+
+## Error reports
+
+If something breaks while you use the app or read the library, the site sends a short error report to an error-monitoring provider so the bug can be found and fixed. A report contains the error message, the page address, and your browser and operating system type. How long the monitoring provider keeps reports depends on its own settings and terms.
+
+## Third parties that process data for this site
+
+- Hosting and content delivery - serves the site's files and sees the technical data any web server sees (IP address, browser type, time of request), used to deliver pages and prevent abuse. It also runs a page-performance measurement script that sets no cookies.
+- Font providers - the site's typefaces are loaded from external font services when a page opens, so these providers see your IP address, browser type and time of request. This happens before you make a cookie choice.
+- Analytics provider - processes the pseudonymous visit statistics described above, only when you have accepted analytics cookies.
+- Error-monitoring provider - receives the error reports described above.
+
+Each provider processes only what its service needs, under its own privacy terms. Data may be processed on servers outside India; what safeguards apply is set out in each provider's own privacy terms and settings. How long each provider keeps data depends on its own settings and terms, which this policy does not fix.
+
+## What PrepTracker does not do
+
+- No accounts, sign-ups or passwords.
+- No advertising, ad trackers, profiling or selling of data.
+- No collection of names, emails, phone numbers or precise locations.
+- No sharing of your on-device study data with anyone - it never reaches a server.
+
+## Your rights
+
+Most of your data never leaves your device, so you can exercise most rights directly: view or delete your stored study data and cookie choice at any time through the app's Settings or your browser settings.
+
+India's Digital Personal Data Protection Act, 2023 sets out rights to access, correct and erase personal data and to grievance redressal. Under the Government of India's notification of 13 November 2025, those provisions start 18 months after that date, so they are not yet in force. This page does not decide whether or how the Act applies to this site. To ask about your data, such as the analytics and error data described above, email [sia@manavdev.site](mailto:sia@manavdev.site).
+
+## Children
+
+PrepTracker is a general study tool and does not knowingly collect personal data from children. Since there are no accounts and analytics is opt-in, no age-specific data is gathered.
+
+## Changes to this policy
+
+If this policy changes, the "last updated" date at the top changes with it. Material changes are also flagged in the app for a reasonable time.
+
+## Contact and grievances
+
+Questions, requests or complaints: [sia@manavdev.site](mailto:sia@manavdev.site). The Data Protection Board of India is set up under the Act, but its complaint provisions are not yet in force.
+
+---
+
+PrepTracker is an independent student project and is not affiliated with Savitribai Phule Pune University.
+
+[PrepTracker home](https://preptracker.manavdev.site/) · [Syllabus](https://preptracker.manavdev.site/syllabus/)
