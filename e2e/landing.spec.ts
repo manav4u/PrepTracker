@@ -14,9 +14,16 @@ test.describe('prerendered landing', () => {
   test('ships WebApplication JSON-LD', async ({ page }) => {
     await page.goto('/');
     const blocks = await page.locator('script[type="application/ld+json"]').allTextContents();
+    expect(blocks.length).toBeGreaterThan(0);
+    // JSON.parse throws on a malformed block, failing the test.
     const parsed = blocks.map((text) => JSON.parse(text));
-    const app = parsed.find((json) => json['@type'] === 'WebApplication');
-    expect(app, 'landing ships a WebApplication JSON-LD block').toBeTruthy();
+    const apps = parsed.filter((json) => json['@type'] === 'WebApplication');
+    expect(apps, 'landing ships exactly one WebApplication JSON-LD block').toHaveLength(1);
+    const app = apps[0];
+    expect(app['@context']).toBe('https://schema.org');
+    expect(app.name).toBeTruthy();
+    expect(app.url).toMatch(/^https:\/\//);
+    expect(app.applicationCategory).toBeTruthy();
   });
 
   test('footer links to the privacy page', async ({ page }) => {
