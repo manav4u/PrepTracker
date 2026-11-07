@@ -4,7 +4,7 @@ Numbers computed from PrepTracker's own syllabus catalog, with the method and a 
 
 ## Reports
 
-[SPPU syllabus statistics 2026 133 courses · 662 units · 14 year-branch catalogs · data 2026-11-05](https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/)
+[SPPU syllabus statistics 2026 133 courses · 662 units · 14 year-branch catalogs · data 2026-11-07](https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/)
 
 ---
 

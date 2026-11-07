@@ -1,6 +1,6 @@
 # SPPU syllabus statistics 2026
 
-133 cataloged theory courses, 662 units, 383 credits and 5231 theory hours across 14 SPPU 2024-pattern year-branch catalogs, computed from the same syllabus data that powers the subject pages. A course taught in several branches counts once per branch catalog. Data date 2026-11-05.
+133 cataloged theory courses, 662 units, 383 credits and 5231 theory hours across 14 SPPU 2024-pattern year-branch catalogs, computed from the same syllabus data that powers the subject pages. A course taught in several branches counts once per branch catalog. Data date 2026-11-07.
 
 ## Key findings
 
@@ -67,7 +67,7 @@ Cataloged theory hours total 5231 across the final catalogs, summed from the per
 
 ## Cite this page
 
-PrepTracker (2026). SPPU syllabus statistics 2026: 133 cataloged theory courses analyzed. https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/ (data as of 2026-11-05).
+PrepTracker (2026). SPPU syllabus statistics 2026: 133 cataloged theory courses analyzed. https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/ (data as of 2026-11-07).
 
 ## FAQ
 
