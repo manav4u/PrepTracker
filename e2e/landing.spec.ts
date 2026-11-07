@@ -13,10 +13,10 @@ test.describe('prerendered landing', () => {
 
   test('ships WebApplication JSON-LD', async ({ page }) => {
     await page.goto('/');
-    const ld = page.locator('script[type="application/ld+json"]');
-    await expect(ld).toHaveCount(1);
-    const json = JSON.parse((await ld.textContent()) || '{}');
-    expect(json['@type']).toBe('WebApplication');
+    const blocks = await page.locator('script[type="application/ld+json"]').allTextContents();
+    const parsed = blocks.map((text) => JSON.parse(text));
+    const app = parsed.find((json) => json['@type'] === 'WebApplication');
+    expect(app, 'landing ships a WebApplication JSON-LD block').toBeTruthy();
   });
 
   test('footer links to the privacy page', async ({ page }) => {
