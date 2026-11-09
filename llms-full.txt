@@ -2,7 +2,7 @@
 
 > PrepTracker is a free, no-account study planner for SPPU engineering students: unit-wise syllabus tracking, an exam countdown, daily tasks and spaced revision. Data stays in the browser.
 
-Generated: 2026-11-07
+Generated: 2026-11-09
 Pages: 32
 Note: 133 per-course syllabus mirrors are not repeated here to keep this file small. Find each of them in llms.txt (https://preptracker.manavdev.site/llms.txt) and fetch its markdown directly.
 
@@ -311,7 +311,7 @@ Numbers computed from PrepTracker's own syllabus catalog, with the method and a 
 
 ## Reports
 
-[SPPU syllabus statistics 2026 133 courses · 662 units · 14 year-branch catalogs · data 2026-11-07](https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/)
+[SPPU syllabus statistics 2026 133 courses · 662 units · 14 year-branch catalogs · data 2026-11-09](https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/)
 
 ---
 
@@ -325,7 +325,7 @@ Method: every figure is computed at build time from the same syllabus catalog th
 
 # SPPU syllabus statistics 2026
 
-133 cataloged theory courses, 662 units, 383 credits and 5231 theory hours across 14 SPPU 2024-pattern year-branch catalogs, computed from the same syllabus data that powers the subject pages. A course taught in several branches counts once per branch catalog. Data date 2026-11-07.
+133 cataloged theory courses, 662 units, 383 credits and 5231 theory hours across 14 SPPU 2024-pattern year-branch catalogs, computed from the same syllabus data that powers the subject pages. A course taught in several branches counts once per branch catalog. Data date 2026-11-09.
 
 ## Key findings
 
@@ -392,7 +392,7 @@ Cataloged theory hours total 5231 across the final catalogs, summed from the per
 
 ## Cite this page
 
-PrepTracker (2026). SPPU syllabus statistics 2026: 133 cataloged theory courses analyzed. https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/ (data as of 2026-11-07).
+PrepTracker (2026). SPPU syllabus statistics 2026: 133 cataloged theory courses analyzed. https://preptracker.manavdev.site/research/sppu-syllabus-statistics-2026/ (data as of 2026-11-09).
 
 ## FAQ
 
