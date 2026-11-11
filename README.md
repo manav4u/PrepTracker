@@ -7,7 +7,7 @@
 
 A study tracker and spaced-revision workspace for SPPU engineering students. Pick your subjects, tick topics as you study, and keep revision, tasks, and syllabus resources in one browser-local workspace.
 
-**[Open PrepTracker](https://preptracker.manavdev.site/)** · [v0.26.10.20 release notes](https://github.com/manav4u/PrepTracker/releases/tag/v0.26.10.20) · [Report an issue](https://github.com/manav4u/PrepTracker/issues)
+**[Open PrepTracker](https://preptracker.manavdev.site/)** · [Architecture & ADRs](docs/architecture/README.md) · [v0.26.10.20 release notes](https://github.com/manav4u/PrepTracker/releases/tag/v0.26.10.20) · [Report an issue](https://github.com/manav4u/PrepTracker/issues)
 
 ![PrepTracker dashboard with syllabus coverage, exam countdown, study streak and daily activity](public/landing/v2/dash-1440.webp)
 
@@ -51,7 +51,7 @@ Built for SPPU students across years, not only first year. Available subjects an
 
 ## System Architecture
 
-PrepTracker combines a multi-stage static build pipeline (for indexable syllabus and landing pages) with a zero-backend React 19 client application backed by schema-validated `localStorage`.
+PrepTracker combines a multi-stage static build pipeline (for indexable syllabus and landing pages) with a zero-backend React 19 client application backed by schema-validated `localStorage`. Detailed Architecture Decision Records (ADRs), data models, and migration fixtures live in [`docs/architecture/README.md`](docs/architecture/README.md).
 
 ```mermaid
 flowchart TD
@@ -78,36 +78,39 @@ flowchart TD
 ### Project Map
 
 ```text
-pages/          Dashboard, Subjects, Tasks, Library, Revise and Settings views
-components/     Navigation, onboarding UI, restore modals and shared components
-context/        DataContext and SubjectsContext (profile, syllabus and saved app state)
-data/catalog/   Structured SPPU course and unit catalog data
-lib/            Pure domain logic: backup/restore, spaced revision, study planner, grading, activity
-public/         Icons, landing screenshots, service worker and static assets
-scripts/        Catalog generation, static route pre-rendering and postbuild processing
-tests/          14 Node native TypeScript unit test suites for domain logic
-e2e/            11 Playwright end-to-end and axe-core accessibility test specs
+pages/              Dashboard, Subjects, Tasks, Library, Revise and Settings views
+components/         Navigation, onboarding UI, restore modals and shared components
+context/            DataContext and SubjectsContext (profile, syllabus and saved app state)
+data/catalog/       Structured SPPU course and unit catalog data
+lib/                Pure domain logic: backup/restore, spaced revision, study planner, grading, activity
+docs/architecture/  Architecture Decision Records (ADRs), schema docs and migration test fixtures
+public/             Icons, landing screenshots, service worker and static assets
+scripts/            Catalog generation, static route pre-rendering and postbuild processing
+tests/              14 Node native TypeScript unit test suites for domain logic
+e2e/                11 Playwright end-to-end and axe-core accessibility test specs
 ```
 
 ---
 
 ## Engineering Decisions & Trade-offs
 
+Full ADRs and security/privacy boundaries are documented in [`docs/architecture/README.md`](docs/architecture/README.md):
+
 ### 1. Zero-Account Local Persistence + Schema-Versioned Backup & Rollback (`lib/backup.ts`)
-- **Decision:** Store student progress, tasks, marks, custom resources, and revision schedules directly in browser `localStorage` rather than requiring OAuth or a cloud database.
+- **Decision:** Store student progress, tasks, marks, custom resources, and revision schedules directly in browser `localStorage` rather than requiring OAuth or a cloud database ([ADR-001](docs/architecture/README.md#adr-001-local-first-browser-persistence-with-schema-versioned-backups-vs-cloud-database)).
 - **Why:** Students opening a syllabus tracker before exams want immediate utility without account sign-up friction.
 - **Mitigating data-loss risk:** Because `localStorage` is tied to a single browser profile, `lib/backup.ts` implements a strict, schema-validated JSON export/import engine:
   - Validates every imported entity (`profile`, `progress`, `tasks`, `resources`, `marks`, `hiddenResourceIds`, `reviews`) against runtime type guards and size limits (`MAX_BYTES = 5 MB`) before mutating state.
-  - Maintains backward compatibility across backup formats `3.1.0`, `4.0.0`, `4.1.0`, and `4.2.0` (explicitly handling legacy `3.1.0` files that lacked progress keys and clearing stale review schedules when restoring pre-`4.1.0` snapshots).
+  - Maintains backward compatibility across backup formats `3.1.0`, `4.0.0`, `4.1.0`, and `4.2.0` (see [`docs/architecture/fixtures/backup-v3.1.0-to-v4.2.0.json`](docs/architecture/fixtures/backup-v3.1.0-to-v4.2.0.json)).
   - Snapshots the pre-restore state into `sppu_backup_rollback` prior to applying an import, giving users a one-click **Undo Restore** safety net.
 
 ### 2. Derived Spaced-Repetition Queue (`lib/revision.ts`)
-- **Decision:** Compute the daily review queue (`buildQueue`) as a pure function of ticked syllabus topics, study activity timestamps, and a minimal per-topic review record (`stage`, `due`, `last`, `shaky`).
+- **Decision:** Compute the daily review queue (`buildQueue`) as a pure function of ticked syllabus topics, study activity timestamps, and a minimal per-topic review record (`stage`, `due`, `last`, `shaky`) ([ADR-002](docs/architecture/README.md#adr-002-derived-spaced-repetition-queue-vs-duplicated-review-state)).
 - **Why:** If the revision queue duplicated the syllabus tree, ticking or unticking topics in the `Subjects` view would cause synchronization bugs. By deriving queue membership from `progress` and `events`, unticking a topic automatically removes it from active review without extra bookkeeping.
 - **Scheduling mechanics:** Uses increasing recall intervals (`STEPS = [3, 7, 21]` days), resets "shaky" recalls to `SHAKY_DAYS = 1`, and enforces `DAILY_CAP = 8` reviews per day (with overdue prioritization) so students returning after a break are not overwhelmed by a 50-item backlog.
 
 ### 3. Hybrid Static Pre-rendering + Hash App Routing (`scripts/prerender*.mjs`)
-- **Decision:** Use hash-based routing (`#/dashboard`, `#/subjects`, etc.) for the interactive tracker while pre-rendering static HTML pages for the landing page, branch syllabus hubs, and info pages at build time.
+- **Decision:** Use hash-based routing (`#/dashboard`, `#/subjects`, etc.) for the interactive tracker while pre-rendering static HTML pages for the landing page, branch syllabus hubs, and info pages at build time ([ADR-003](docs/architecture/README.md#adr-003-hybrid-static-pre-rendering--hash-routing-for-static-hosting)).
 - **Why:** GitHub Pages serves static files without custom server-side rewrites. Pre-rendering syllabus and landing routes gives fast initial paint and search/share metadata, while hash routing guarantees client-side navigation never hits a 404 on static hosting.
 
 ---

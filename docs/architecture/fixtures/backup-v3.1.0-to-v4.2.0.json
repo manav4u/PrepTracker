@@ -1,0 +1,81 @@
+{
+  "description": "Representative backup migration fixtures across PrepTracker schema versions 3.1.0, 4.0.0, and 4.2.0 (exercised by tests/backup.test.ts).",
+  "v3_1_0_legacy_sample": {
+    "type": "SPPU_PREPTRACKER_LOCAL_BACKUP",
+    "version": "3.1.0",
+    "exportedAt": "2026-08-15T10:00:00.000Z",
+    "data": {
+      "profile": {
+        "name": "Aarav",
+        "selectedSubjects": ["fe-2024-eng-math-1"],
+        "setupComplete": true,
+        "theme": "dark",
+        "streak": 4,
+        "lastStudyDate": "2026-08-15"
+      },
+      "progress": [],
+      "tasks": [
+        {
+          "id": "task-1",
+          "text": "Solve Unit 1 tutorial sheet",
+          "completed": false,
+          "priority": "CRITICAL",
+          "category": "SUBMISSION",
+          "createdAt": "2026-08-14T09:00:00.000Z",
+          "unitId": "fe-2024-eng-math-1-u1"
+        }
+      ],
+      "resources": [],
+      "marks": {},
+      "hiddenResourceIds": []
+    },
+    "expectedMigrationBehavior": "Because 3.1.0 exported an empty progress array due to a legacy exporter key mismatch, restoring this file preserves any existing in-browser sppu_progress while importing profile and tasks."
+  },
+  "v4_2_0_current_sample": {
+    "type": "SPPU_PREPTRACKER_LOCAL_BACKUP",
+    "version": "4.2.0",
+    "exportedAt": "2026-10-20T14:30:00.000Z",
+    "data": {
+      "profile": {
+        "name": "Aarav",
+        "selectedSubjects": ["fe-2024-eng-math-1"],
+        "setupComplete": true,
+        "theme": "dark",
+        "streak": 12,
+        "lastStudyDate": "2026-10-20",
+        "avatarId": "pack1-01",
+        "avatarShape": "squircle"
+      },
+      "progress": [
+        {
+          "unitId": "fe-2024-eng-math-1-u1",
+          "status": "Revision",
+          "pyqsCompleted": ["2024-winter"],
+          "topicsDone": ["Rolle's Theorem", "Mean Value Theorems"]
+        }
+      ],
+      "tasks": [
+        {
+          "id": "task-1",
+          "text": "Solve Unit 1 tutorial sheet",
+          "completed": true,
+          "priority": "CRITICAL",
+          "category": "SUBMISSION",
+          "createdAt": "2026-08-14T09:00:00.000Z",
+          "unitId": "fe-2024-eng-math-1-u1"
+        }
+      ],
+      "resources": [],
+      "marks": {},
+      "hiddenResourceIds": [],
+      "reviews": {
+        "fe-2024-eng-math-1-u1::Rolle's Theorem": {
+          "stage": 1,
+          "due": "2026-10-27",
+          "last": "2026-10-20"
+        }
+      }
+    },
+    "expectedMigrationBehavior": "Snapshots current localStorage into sppu_backup_rollback, validates all 7 state slices including review schedule and avatar catalog membership, and writes state atomically."
+  }
+}
