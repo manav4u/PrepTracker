@@ -74,6 +74,23 @@ This document records the core architectural decisions, data models, backup migr
 
 A complete multi-version migration test fixture is available in [`fixtures/backup-v3.1.0-to-v4.2.0.json`](fixtures/backup-v3.1.0-to-v4.2.0.json) and exercised automatically by [`tests/backup.test.ts`](../../tests/backup.test.ts).
 
+### Backup Restore & Rollback Transaction Flow
+
+```mermaid
+flowchart TD
+    Input["User Selects Backup JSON File"] --> SizeCheck{"Size <= 5 MB\n& Valid JSON?"}
+    SizeCheck -- "No" --> Reject["Reject Import\n(Existing localStorage Untouched)"]
+    SizeCheck -- "Yes" --> HeaderCheck{"type == SPPU_PREPTRACKER_LOCAL_BACKUP\n& version in [3.1.0, 4.0.0, 4.1.0, 4.2.0]?"}
+    HeaderCheck -- "No" --> Reject
+    HeaderCheck -- "Yes" --> SchemaCheck{"All 7 State Slices Pass\nRuntime Type & Bound Guards?"}
+    SchemaCheck -- "No" --> Reject
+    SchemaCheck -- "Yes" --> Migrate["Apply Version Rules\n• v3.1.0 empty progress -> keep local progress\n• pre-v4.1.0 -> reset stale review schedule\n• unknown avatarId -> safe fallback"]
+    Migrate --> Snapshot["Snapshot Current localStorage\ninto sppu_backup_rollback"]
+    Snapshot --> Write{"Write All Keys\nto localStorage"}
+    Write -- "Success" --> Done["Restore Complete\n(One-Click Undo Available via Rollback)"]
+    Write -- "Storage Quota / Write Error" --> Rollback["Auto-Restore Pre-Import Snapshot\n& Surface Error"]
+```
+
 ---
 
 ## 3. Security & Privacy Considerations
