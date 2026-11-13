@@ -1,4 +1,4 @@
-import { ResourceItem, Subject } from '../types';
+import type { ResourceItem, Subject } from '../types';
 
 /**
  * Does this resource belong on this subject's shelf?
